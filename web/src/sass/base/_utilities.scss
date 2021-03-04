@@ -1,0 +1,24 @@
+// Sometimes we need a universal class that can be used in any component.
+// Prefix utility classes with .u-
+// From Trello CSS Guide
+
+.u-section {
+	position: relative;
+	width: 100%;
+	margin-top: 80px;
+	margin-bottom: 40px;
+}
+
+.u-wrapper {
+	position: relative;
+	max-width: 1360px;
+	margin: 0 auto;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.u-title {
+	display: block;
+	font-size: 25px;
+	letter-spacing: 0.1em;
+}

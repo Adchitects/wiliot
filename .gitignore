@@ -2,3 +2,12 @@
 /.idea
 /vendor
 .DS_Store
+*/.DS_Store
+node_modules
+dist/
+src/css
+src/js/main.min.js
+src/js/main.min.js.map
+.stylelintcache
+yarn.lock
+package-lock.json
