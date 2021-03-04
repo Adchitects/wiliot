@@ -1,8 +1,17 @@
-dateModified: 1614860352
+dateModified: 1614873255
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
   transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  redactor-anchors:
+    edition: standard
+    enabled: true
+    schemaVersion: '2.0'
 system:
   edition: solo
   live: true

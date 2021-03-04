@@ -1,60 +1,33 @@
 <!DOCTYPE html>
-<html itemscope itemtype="https://schema.org/WebPage" lang="pl-PL">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="robots" content="noindex" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:image" content="src/img/screenshot.jpg" />
-		<meta property="og:title" content="Adchitects craft-starter-pack" /> 
-		<meta property="og:description" content="Index description" /> 
-		<meta property="og:type" content="website" /> 
-		<meta property="og:url" content="Index url" /> 
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" type="text/css" href="src/css/style.min.css" />
-		<title>Adchitects craft-starter-pack</title>
-	</head>
+<html itemscope itemtype="https://schema.org/WebPage" lang="en">
+	{% block head %}
+		<head>
+			<meta charset="UTF-8" />
+			<meta name="robots" content="noindex" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<meta property="og:image" content="src/img/screenshot.jpg" />
+			<meta property="og:title" content="Adchitects craft-starter-pack" /> 
+			<meta property="og:description" content="Index description" /> 
+			<meta property="og:type" content="website" /> 
+			<meta property="og:url" content="Index url" /> 
+			<link rel="icon" href="favicon.ico" type="image/x-icon" />
+			<link rel="stylesheet" type="text/css" href="src/css/style.min.css" />
+			<title>{% block title %}Adchitects craft-starter-pack {% endblock %}</title>
+		</head>
+	{% endblock %}
 	<body>
 		<header>
 		</header>
 		<main>
-			<section class="u-section u-section--example-section">
-				<div class="u-wrapper">
-					<div class="example-section">
-						<h1 class="example-section__title u-title js-gsap-example-animation">You've successfully run Adchitects craft Starter Pack.</h1>
-						<img class="js-lazy js-doge-img" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image">
-						<span class="example-section__subtitle"> ^^ Above you should see lazyloaded image ^^</span>
-					</div>
-				</div>
-			</section>
-			<section class="u-section u-section--swiper-examples">
-				<div class="u-wrapper">
-					<div class="swiper-examples">
-						<div class="swiper-examples__slider-hld swiper-examples__slider-hld--1">
-							<div class="swiper-examples__slider js-example-slider swiper-container">
-								<div class="swiper-wrapper">
-									<img class="swiper-examples__slider-item swiper-slide js-lazy" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image" width="500" height="250">
-									<img class="swiper-examples__slider-item swiper-slide js-lazy" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image" width="500" height="250">
-								</div>
-							</div>
-							<span class="swiper-examples__title u-title">^^ lazyloaded looped swiper slider example 1 ^^</span>
-						</div>
-						<div class="swiper-examples__slider-hld swiper-examples__slider-hld--2">
-							<div class="swiper-examples__slider js-example-slider-2 swiper-container">
-								<div class="swiper-wrapper">
-									<img class="swiper-examples__slider-item swiper-slide js-lazy" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image" width="500" height="250">
-									<img class="swiper-examples__slider-item swiper-slide js-lazy" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image" width="500" height="250">
-									<img class="swiper-examples__slider-item swiper-slide js-lazy" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image" width="500" height="250">
-									<img class="swiper-examples__slider-item swiper-slide js-lazy" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image" width="500" height="250">
-									<img class="swiper-examples__slider-item swiper-slide js-lazy" data-src="{{ alias('@assets/img/screenshot.jpg')}}" alt="I am lazyloaded image" width="500" height="250">
-								</div>
-							</div>
-							<span class="swiper-examples__title u-title">^^ lazyloaded swiper slider example 2 ^^</span>
-						</div>
-					</div>
-				</div>
-			</section>
+			{% block main %}
+				{{ include('/sections/example.twig') }}
+				{{ include('/sections/swiper-examples.twig') }}
+			{% endblock %}
 		</main>
 		<footer>
+			{% block footer %}
+				footer
+			{% endblock %}
 		</footer>
 		<script src="src/js/main.min.js"></script>
 	</body>

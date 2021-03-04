@@ -12,7 +12,8 @@
   ],
   "plugins": [
     "fullscreen",
-    "video"
+    "video",
+    "redactoranchors"
   ],
   "linkNewTab": true,
   "toolbarFixed": true

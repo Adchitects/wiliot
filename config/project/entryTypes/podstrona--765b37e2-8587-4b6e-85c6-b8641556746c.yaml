@@ -1,0 +1,38 @@
+fieldLayouts:
+  79cba67f-c208-4107-af05-8a2f49dda0f7:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 25
+        name: Content
+        sortOrder: 1
+handle: podstrona
+hasTitleField: false
+name: Podstrona
+section: e5fc4089-32c8-4ed3-9911-454059acdb3a # Podstrona
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
