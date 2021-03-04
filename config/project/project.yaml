@@ -1,0 +1,17 @@
+dateModified: 1614860352
+email:
+  fromEmail: marcin@adchitects.co
+  fromName: Wiliot
+  transportType: craft\mail\transportadapters\Sendmail
+system:
+  edition: solo
+  live: true
+  name: Wiliot
+  schemaVersion: 3.6.6
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
