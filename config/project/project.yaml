@@ -1,9 +1,21 @@
-dateModified: 1614873255
+dateModified: 1615212470
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
   transportType: craft\mail\transportadapters\Sendmail
 plugins:
+  assetusage:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   redactor:
     edition: standard
     enabled: true
@@ -12,6 +24,14 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '2.0'
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true

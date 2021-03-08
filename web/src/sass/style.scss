@@ -13,17 +13,10 @@
 // @import '../../node_modules/swiper/components/navigation/navigation.scss'; // Import needed modules of swiper too
 
 // CONTENT / COMPONENTS / SECTIONS / TABS / VIEWS
+@import 'components/hero';
+@import 'components/intro';
+@import 'components/outro';
+@import 'components/partners-listing';
+// OLD
 @import 'components/example-section';
 @import 'components/swiper-examples';
-
-/* ==================================================================== */
-/*                                                                      */
-/*    REMOVE THIS BOX and from now on put only @imports to this file    */
-/*                                                                      */
-body {
-	border: 7px dotted $c-white;
-	background-image: linear-gradient($c-black, $c-accent);
-	color: $c-white;
-}
-/*                                                                      */
-/* ==================================================================== */

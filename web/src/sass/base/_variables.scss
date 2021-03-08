@@ -20,9 +20,11 @@
 }
 
 $font-head: 'presicav', serif;
-$font-std: sans-serif;
+$font-std: $font-head;
 
 // COLORS
 $c-white: #FFFFFF;
 $c-black: #000000;
-$c-accent: mediumspringgreen;
+$c-accent: #27BCBC;
+$c-accent-dark: #017777;
+$c-light: #F5F8FC;

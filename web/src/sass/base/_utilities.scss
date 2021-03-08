@@ -6,7 +6,6 @@
 	position: relative;
 	width: 100%;
 	margin-top: 80px;
-	margin-bottom: 40px;
 }
 
 .u-wrapper {
@@ -18,7 +17,61 @@
 }
 
 .u-title {
-	display: block;
-	font-size: 25px;
-	letter-spacing: 0.1em;
+	&--big {
+		font-size: 56px;
+		font-weight: 900;
+		line-height: 72px;
+	}
+
+	&--section {
+		font-size: 32px;
+		font-weight: 900;
+		line-height: 40px;
+	}
+}
+
+.u-subtitle {
+	&--big {
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 36px;
+	}
+}
+
+.u-btn {
+	display: inline-block;
+	position: relative;
+	border: 1px solid;
+	outline: 0;
+
+	&--arrow {
+		.text {
+			color: $c-accent;
+			font-size: 16px;
+			font-weight: 500;
+			transition: color 0.2s;
+		}
+	}
+
+	&--light {
+		padding: 15px 60px;
+		border-radius: 30px;
+		background-color: $c-white;
+		transition: background-color 0.2s;
+
+		.text {
+			color: $c-accent;
+			font-size: 16px;
+			font-weight: 500;
+			transition: color 0.2s;
+		}
+
+		&:hover {
+			background-color: $c-accent;
+
+			.text {
+				color: $c-white;
+			}
+		}
+	}
 }

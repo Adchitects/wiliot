@@ -1,5 +1,5 @@
 *::selection {
-	background-color: $c-black;
+	background-color: $c-accent;
 	color: $c-white;
 }
 
@@ -7,17 +7,15 @@ body {
 	position: relative;
 	color: $c-black;
 	font-family: $font-std;
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing: normal;
-	line-height: 1;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 0;
+	line-height: 26px;
 }
 
 img {
 	display: block;
-	width: 100%;
 	max-width: 100%;
-	height: auto;
 	transition: opacity 0.2s;
 	object-fit: cover;
 

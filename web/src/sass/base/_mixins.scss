@@ -33,3 +33,11 @@
 @mixin mobile-small-375 {
 	@media only screen and (max-width: 375px) { @content; }
 }
+
+// Keyframes
+
+@keyframes moveBg {
+	100% {
+		transform: translate3d(0, 0, 1px) rotate(360deg);
+	}
+}

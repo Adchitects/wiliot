@@ -1,8 +1,13 @@
 {
   "require": {
+    "born05/craft-assetusage": "2.2.0.1",
     "craftcms/cms": "^3.6.4",
     "craftcms/redactor": "2.8.5",
+    "sebastianlenz/linkfield": "1.0.25",
     "utakka/redactor-anchors": "1.1.0",
+    "verbb/field-manager": "2.2.2",
+    "verbb/image-resizer": "2.1.0",
+    "verbb/super-table": "2.6.7",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {

@@ -1,0 +1,29 @@
+.u-section--outro {
+	padding: 50px 0;
+}
+
+.outro {
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $c-accent-dark;
+	}
+
+	&__text-hld {
+		color: $c-white;
+		text-align: center;
+	}
+
+	&__description {
+		max-width: 510px;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+
+	&__btn {
+		margin-top: 20px;
+	}
+}

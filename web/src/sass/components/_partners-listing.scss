@@ -1,0 +1,33 @@
+.u-section--partners-list {
+	border: 1px solid red;
+}
+
+.partners-listing {
+	display: flex;
+
+	&__filters-hld {
+		width: 300px;
+		border: 1px solid red;
+	}
+
+	&__filter {
+		cursor: pointer;
+
+		&.is-active {
+			border: 1px solid green;
+		}
+	}
+
+	&__items-hld {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 300px);
+		width: calc(100% - 300px);
+		gap: 24px;
+		padding: 20px 20px 30px;
+		background-color: $c-light;
+	}
+
+	&__item {
+		box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+	}
+}

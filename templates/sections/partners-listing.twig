@@ -1,0 +1,61 @@
+{% set partnersListMatrix = entry.partnersList %}
+{% if partnersListMatrix %}
+<section class="u-section u-section--partners-listing">
+	<div class="u-wrapper">
+		<div class="partners-listing js-partners-filters-hld">
+			<div class="partners-listing__filters-hld">
+				{% for item in partnersListMatrix %}
+					{% if loop.index == 1 %}
+						{% set categories = item.partnerCategory.options %}
+						{% for cat in categories %}
+							<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.value }}">
+								{{ cat.label }}
+							</div>
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+				<button class="apply-btn u-btn u-btn--light js-partners-filters-apply-btn">
+					<span class="text">Apply filters</span>
+				</button>
+				<button class="reset-btn u-btn u-btn--light js-partners-filters-reset-btn">
+					<span class="text">Reset filters</span>
+				</button>
+			</div>
+			<div class="partners-listing__items-hld">
+				{% for item in partnersListMatrix %}
+					{# Item logo #}
+					{% set logo = item.partnerLogo.one() %}
+					{% if logo %}
+						{% set logoUrl = logo.getUrl() %}
+						{% set logoWidth = logo.getWidth() %}
+						{% set logoHeight = logo.getHeight() %}
+						{% set logoAlt = logo.title %}
+					{% endif %}
+					{# Item texts #}
+					{% set name = item.partnerName %}
+					{% set description = item.partnerDescription %}
+					{# Item link #}
+					{% set link = item.partnerLink %}
+					{# Item category #}
+					{% set categories = item.partnerCategory %}
+					<div class="partners-listing__item js-partners-filters-item" data-category="{% for cat in categories %}{{ cat.value }}{% endfor %}">
+						<div class="img-hld">
+							{% if logo %}
+							<img src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+							{% endif %}
+						</div>
+						<div class="name">{{ name }}</div>
+						<div class="description">{{ description }}</div>
+						{% if link %}
+						<a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="button u-btn u-btn--arrow">
+							<span class="text">Learn more</span>
+						</a>
+						{% endif %}
+						<div style="border: 1px solid;">{% for cat in categories %}{{ cat.value }}, {% endfor %}</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}

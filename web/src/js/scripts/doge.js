@@ -41,11 +41,13 @@ const showDiv = (secs) => {
 	});
 };
 const dogeImg = document.querySelector('.js-doge-img');
-dogeImg.addEventListener('mousemove', () => {
-	showDiv(1);
-	console.warn(texts[Math.floor(gsap.utils.random(0, texts.length))]);
-});
-dogeImg.addEventListener('touchmove', () => {
-	showDiv(1);
-	console.warn(texts[Math.floor(gsap.utils.random(0, texts.length))]);
-});
+if (dogeImg) {
+	dogeImg.addEventListener('mousemove', () => {
+		showDiv(1);
+		console.warn(texts[Math.floor(gsap.utils.random(0, texts.length))]);
+	});
+	dogeImg.addEventListener('touchmove', () => {
+		showDiv(1);
+		console.warn(texts[Math.floor(gsap.utils.random(0, texts.length))]);
+	});
+}

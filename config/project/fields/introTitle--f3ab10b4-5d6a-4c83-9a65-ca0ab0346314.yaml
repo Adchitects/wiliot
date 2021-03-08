@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: d5e4c30e-3d1d-421e-89a7-581b54f7c4a9 # Intro
+handle: introTitle
+instructions: ''
+name: 'Intro Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: Title
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

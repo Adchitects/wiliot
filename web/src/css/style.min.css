@@ -73,15 +73,16 @@ summary,
 time,
 mark,
 audio,
+input,
 video {
   margin: 0;
   padding: 0;
   border: 0;
   vertical-align: baseline;
   font: inherit;
-  font-size: 100%;
-  letter-spacing: normal;
-  line-height: 1;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 
 * {
@@ -326,26 +327,29 @@ p a[href^="https://"]::after {
   font-weight: 700;
   font-display: swap;
 }
+@keyframes moveBg {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
 *::selection {
-  background-color: #000000;
+  background-color: #27BCBC;
   color: #FFFFFF;
 }
 
 body {
   position: relative;
   color: #000000;
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
+  font-family: "presicav", serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 26px;
 }
 
 img {
   display: block;
-  width: 100%;
   max-width: 100%;
-  height: auto;
   transition: opacity 0.2s;
   object-fit: cover;
 }
@@ -361,7 +365,6 @@ ul {
   position: relative;
   width: 100%;
   margin-top: 80px;
-  margin-bottom: 40px;
 }
 
 .u-wrapper {
@@ -372,10 +375,52 @@ ul {
   padding-left: 30px;
 }
 
-.u-title {
-  display: block;
-  font-size: 25px;
-  letter-spacing: 0.1em;
+.u-title--big {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 72px;
+}
+.u-title--section {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 40px;
+}
+
+.u-subtitle--big {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.u-btn {
+  display: inline-block;
+  position: relative;
+  border: 1px solid;
+  outline: 0;
+}
+.u-btn--arrow .text {
+  color: #27BCBC;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.u-btn--light {
+  padding: 15px 60px;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  transition: background-color 0.2s;
+}
+.u-btn--light .text {
+  color: #27BCBC;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.u-btn--light:hover {
+  background-color: #27BCBC;
+}
+.u-btn--light:hover .text {
+  color: #FFFFFF;
 }
 
 @font-face {
@@ -522,6 +567,85 @@ ul {
   scroll-snap-type: y mandatory;
 }
 
+.u-section--hero {
+  margin-top: 0;
+}
+.u-section--hero.is-small {
+  height: 65vh;
+  background-image: linear-gradient(188.82deg, #F5F5FC 0%, #F5F9FC 100%);
+  overflow: hidden;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  height: 100%;
+}
+.hero__text-hld {
+  align-self: center;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+}
+.u-section--intro {
+  margin-top: 0;
+}
+
+.u-section--outro {
+  padding: 50px 0;
+}
+
+.outro__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #017777;
+}
+.outro__text-hld {
+  color: #FFFFFF;
+  text-align: center;
+}
+.outro__description {
+  max-width: 510px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.outro__btn {
+  margin-top: 20px;
+}
+
+.u-section--partners-list {
+  border: 1px solid red;
+}
+
+.partners-listing {
+  display: flex;
+}
+.partners-listing__filters-hld {
+  width: 300px;
+  border: 1px solid red;
+}
+.partners-listing__filter {
+  cursor: pointer;
+}
+.partners-listing__filter.is-active {
+  border: 1px solid green;
+}
+.partners-listing__items-hld {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  width: calc(100% - 300px);
+  gap: 24px;
+  padding: 20px 20px 30px;
+  background-color: #F5F8FC;
+}
+.partners-listing__item {
+  box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+}
+
 .example-section {
   display: flex;
   flex-direction: column;
@@ -572,18 +696,5 @@ ul {
   margin-top: 15px;
   font-family: "presicav", serif;
 }
-
-/* ==================================================================== */
-/*                                                                      */
-/*    REMOVE THIS BOX and from now on put only @imports to this file    */
-/*                                                                      */
-body {
-  border: 7px dotted #FFFFFF;
-  background-image: linear-gradient(#000000, mediumspringgreen);
-  color: #FFFFFF;
-}
-
-/*                                                                      */
-/* ==================================================================== */
 
 /*# sourceMappingURL=style.min.css.map */

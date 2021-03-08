@@ -72,15 +72,16 @@ summary,
 time,
 mark,
 audio,
+input,
 video {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
 	font: inherit;
-	font-size: 100%;
-	letter-spacing: normal;
-	line-height: 1;
+	font-size: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
 }
 
 * {
