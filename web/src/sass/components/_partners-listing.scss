@@ -5,26 +5,87 @@
 .partners-listing {
 	display: flex;
 
-	&__filters-hld {
-		width: 300px;
-		border: 1px solid red;
+	&__box {
+		&--a {
+			width: 300px;
+
+			.inner {
+				position: sticky;
+				top: 100px;
+			}
+	
+			.title {
+				color: $c-gray;
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 19px;
+				text-transform: uppercase;
+			}
+	
+			.filter-type {
+				font-weight: 900;
+				line-height: 22px;
+			}
+		}
+
+		&--b {
+			width: calc(100% - 300px);
+			padding: 20px 20px 30px;
+			background-color: $c-light;
+		}
+	}
+
+	&__filter-box {
+		margin-top: 30px;
+
+		.btn {
+			&--apply {
+				margin-top: 30px;
+			}
+		}
 	}
 
 	&__filter {
+		display: flex;
+		align-items: center;
 		cursor: pointer;
 
+		.checkbox {
+			width: 17px;
+			height: 17px;
+			margin-right: 20px;
+			border: 1px solid $c-gray;
+			border-radius: 2px;
+		}
+
 		&.is-active {
-			border: 1px solid green;
+			.checkbox {
+				background-color: greenyellow;
+			}
+		}
+	}
+
+	&__active-filters {
+		.results {
+			display: flex;
+
+			&__filter {
+				display: none;
+				padding: 0 5px;
+				border: 1px solid green;
+				font-size: 14px;
+
+				&.is-chosen {
+					display: block;
+				}
+			}
 		}
 	}
 
 	&__items-hld {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, 300px);
-		width: calc(100% - 300px);
 		gap: 24px;
-		padding: 20px 20px 30px;
-		background-color: $c-light;
 	}
 
 	&__item {
