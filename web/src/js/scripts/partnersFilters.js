@@ -4,7 +4,7 @@ if (partnersFiltersHld) {
 	const itemAll = partnersFiltersHld.querySelectorAll('.js-partners-filters-item');
 	const btnApplyFilter = partnersFiltersHld.querySelector('.js-partners-filters-apply-btn');
 	const btnResetFilter = partnersFiltersHld.querySelector('.js-partners-filters-reset-btn');
-	let activeFilters = [];
+	// let activeFilters = [];
 	filterAll.forEach(filter => {
 		const filterDataCategory = filter.dataset.category;
 		let isActive = false;
@@ -12,27 +12,36 @@ if (partnersFiltersHld) {
 			if (!isActive) {
 				isActive = true;
 				filter.classList.add('is-active');
-				activeFilters.push(filterDataCategory);
+				// activeFilters.push(filterDataCategory);
+				itemAll.forEach(item => {
+					if (item.getAttribute('data-' + filterDataCategory)) {
+						item.dataset.checked = true;
+					}
+				});
+				// console.log(activeFilters);
 			} else {
 				isActive = false;
 				filter.classList.remove('is-active');
-				const filterIndex = activeFilters.indexOf(filterDataCategory);
-				activeFilters.splice(filterIndex, 1);
+				// const filterIndex = activeFilters.indexOf(filterDataCategory);
+				// activeFilters.splice(filterIndex, 1);
+				itemAll.forEach(item => {
+					if (item.getAttribute('data-' + filterDataCategory)) {
+						item.dataset.checked = false;
+					}
+				});
 			}
-			console.log(activeFilters);
 		});
 		btnApplyFilter.addEventListener('click', () => {
 			itemAll.forEach(item => {
-				const itemDataCategory = item.dataset.category;
 				item.style.display = 'none';
-				if (itemDataCategory.includes(activeFilters)) {
+				if (item.dataset.checked === 'true') {
 					item.style.display = 'block';
 				}
 			});
 		});
 		btnResetFilter.addEventListener('click', () => {
 			itemAll.forEach(item => {
-				item.style.display = '';
+				item.style.display = 'block';
 			});
 		});
 	});
