@@ -11,12 +11,12 @@ const userConfig = {
 	},
 	distDirectory: `../${path.basename(__dirname)}-dist/`,
 	distFiles: [
-		'*.html', 
-		'style.css',  
-		'src/img/', 
-		'src/fonts/', 
-		'src/css/style.min.css', 
-		'src/js/main.min.js',
+		'*.twig', 
+		'web/src/img/', 
+		'web/src/fonts/', 
+		'web/src/uploads/', 
+		'web/src/css/style.min.css', 
+		'web/src/js/main.min.js',
 	],
 };
 const webpackConfig = {
