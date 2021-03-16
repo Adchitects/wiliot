@@ -7,13 +7,13 @@
 		<div class="outro__bg"></div>
 		<div class="outro__text-hld u-wrapper">
 			{% if title %}
-			<h2 class="outro__title u-section-title">{{ title }}</h2>
+			<h2 class="outro__title u-title u-title--medium">{{ title }}</h2>
 			{% endif %}
 			{% if description %}
 			<div class="outro__description">{{ description }}</div>
 			{% endif %}
 			{% if button %}
-			<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--light">
+			<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
 				<span class="text">{{ button.title }}</span>
 			</a>
 			{% endif %}

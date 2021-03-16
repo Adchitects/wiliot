@@ -7,8 +7,17 @@ if (partnersFiltersHld) {
 	const filterEverything = partnersFiltersHld.querySelector('.js-partners-filters-filter-everything');
 	const btnApplyFilter = partnersFiltersHld.querySelector('.js-partners-filters-apply-btn');
 	const btnResetFilter = partnersFiltersHld.querySelector('.js-partners-filters-reset-btn');
+	const resultsNumber = partnersFiltersHld.querySelector('.js-partners-filters-results-number');
+	const scrollToFiltersTop = () => {
+		window.scrollTo({
+			top: partnersFiltersHld.getBoundingClientRect().top - document.body.getBoundingClientRect().top,
+			left: 0,
+			behavior: 'smooth',
+		});
+	};
 	itemAll.forEach(item => {
 		item.dataset.checked = true;
+		resultsNumber.innerHTML = itemAll.length;
 	});
 	filterEverything.addEventListener('click', () => {
 		if (!filterEverything.classList.contains('is-active')) {
@@ -25,12 +34,6 @@ if (partnersFiltersHld) {
 				item.dataset.checked = true;
 			});
 		} 
-		// else {
-		// 	filterEverything.classList.remove('is-active');
-		// 	itemAll.forEach(item => {
-		// 		item.dataset.checked = false;
-		// 	});
-		// }
 	});
 	filterAll.forEach(filter => {
 		const filterDataCategory = filter.dataset.category;
@@ -74,12 +77,15 @@ if (partnersFiltersHld) {
 		});
 	});
 	btnApplyFilter.addEventListener('click', () => {
+		let results = [];
 		itemAll.forEach(item => {
 			item.style.display = 'none';
 			if (item.dataset.checked === 'true') {
 				item.style.display = 'block';
+				results.push(item);
 			}
 		});
+		resultsNumber.innerHTML = results.length;
 		activeFilterAll.forEach(activeFilter => {
 			const activeFilterDataCategory = activeFilter.dataset.category;
 			activeFilter.classList.remove('is-chosen');
@@ -96,8 +102,10 @@ if (partnersFiltersHld) {
 				}
 			});
 		});
+		scrollToFiltersTop();
 	});
 	btnResetFilter.addEventListener('click', () => {
+		resultsNumber.innerHTML = itemAll.length;
 		activeFilterEverything.classList.add('is-chosen');
 		itemAll.forEach(item => {
 			item.style.display = 'block';
@@ -114,6 +122,7 @@ if (partnersFiltersHld) {
 		itemAll.forEach(item => {
 			item.dataset.checked = true;
 		});
+		scrollToFiltersTop();
 	});
 	activeFilterAll.forEach(activeFilter => {
 		const activeFilterDataCategory = activeFilter.dataset.category;
@@ -130,6 +139,7 @@ if (partnersFiltersHld) {
 			itemAll.forEach(item => {
 				if (item.getAttribute('data-' + activeFilterDataCategory)) {
 					item.dataset.checked = false;
+					console.log('fadsfasdf');
 				}
 			});
 			let atLeastOneIsActive = false;
@@ -140,6 +150,7 @@ if (partnersFiltersHld) {
 			});
 			if (!atLeastOneIsActive) {
 				// Activate Everything filter
+				activeFilterEverything.classList.add('is-chosen');
 				filterEverything.classList.add('is-active');
 				itemAll.forEach(item => {
 					item.dataset.checked = true;
