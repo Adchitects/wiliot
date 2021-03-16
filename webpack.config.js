@@ -11,7 +11,8 @@ const userConfig = {
 	},
 	distDirectory: `../${path.basename(__dirname)}-dist/`,
 	distFiles: [
-		'*.twig', 
+		'config/',
+		'templates/',
 		'web/src/img/', 
 		'web/src/fonts/', 
 		'web/src/uploads/', 
