@@ -1,0 +1,23 @@
+{% set title = entry.outroTitle %}
+{% set description = entry.outroDescription %}
+{% set button = entry.outroButton %}
+{% if title or description %}
+<section class="u-section u-section--outro">
+	<div class="outro">
+		<div class="outro__bg"></div>
+		<div class="outro__text-hld u-wrapper">
+			{% if title %}
+			<h2 class="outro__title u-title u-title--medium">{{ title }}</h2>
+			{% endif %}
+			{% if description %}
+			<div class="outro__description">{{ description }}</div>
+			{% endif %}
+			{% if button %}
+			<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
+				<span class="text">{{ button.title }}</span>
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</section>
+{% endif %}

@@ -1,0 +1,22 @@
+[class^='icon-'],
+[class*=' icon-'] {
+	speak: never;
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon', serif !important;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	text-transform: none;
+}
+
+.icon-close::before {
+	content: '\e901';
+}
+
+.icon-tick::before {
+	content: '\e900';
+}

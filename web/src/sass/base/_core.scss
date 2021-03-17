@@ -1,0 +1,32 @@
+*::selection {
+	background-color: $c-accent;
+	color: $c-white;
+}
+
+body {
+	position: relative;
+	color: $c-black;
+	font-family: $font-std;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 0;
+	line-height: 26px;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	transition: opacity 0.2s;
+	object-fit: cover;
+
+	&.js-lazy {
+
+		&:not(.loaded) {
+			opacity: 0;
+		}
+	}
+}
+
+ul {
+	list-style-type: none;
+}

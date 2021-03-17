@@ -1,0 +1,19 @@
+{% set subtitle = entry.heroSubtitle %}
+{% set title = entry.heroTitle %}
+{% set size = entry.heroSizes.value %}
+{% if title or subtitle %}
+<section class="u-section u-section--hero is-{{ size }}">
+	<div class="hero">
+		<div class="hero__bg">
+		</div>
+		<div class="hero__text-hld u-wrapper">
+			{% if subtitle %}
+			<span class="hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
+			{% endif %}
+			{% if title %}
+			<h1 class="hero__title u-title u-title--big">{{ title }}</h1>
+			{% endif %}
+		</div>
+	</div>
+</section>
+{% endif %}
