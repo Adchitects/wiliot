@@ -1,4 +1,4 @@
-# ADCHITECTS WP STARTER PACK BOILERPLATE
+# ADCHITECTS Craft CMS STARTER PACK BOILERPLATE
 # Run project:
 
 Go to your project in *YOUR-THEME-NAME* directory.
@@ -9,16 +9,11 @@ Run commands:
 // Please use node version 12 - to switch use nvm and type `$ nvm use 12`
 
 ```
-$ yarn install
-$ yarn dev (development mode)
-$ yarn prod (production mode)
+$ npm install
+$ npm run dev (development mode) (OR yarn dev)
+$ npm run build (build dist) (OR yarn build)
 ```
-or with npm
-```
-$ npm i
-$ npm run dev (development mode)
-$ npm run prod (production mode)
-```
+
 # With this boilerplate you get:
 - SCSS injection
 - JS reloading
