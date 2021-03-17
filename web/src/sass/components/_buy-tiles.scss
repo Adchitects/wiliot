@@ -1,0 +1,19 @@
+.buy-tiles {
+	&__tiles-hld {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
+		gap: 25px;
+	}
+
+	&__tile-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border: 1px solid red;
+		text-align: center;
+
+		.btn {
+			min-width: 192px;
+		}
+	}
+}

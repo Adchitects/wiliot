@@ -26,6 +26,10 @@
 	&--wide {
 		max-width: 1380px;
 	}
+
+	&--medium-wide {
+		max-width: 1340px;
+	}
 }
 
 .u-title {
@@ -59,7 +63,7 @@
 	display: inline-block;
 	position: relative;
 	cursor: pointer;
-	border: 1px solid;
+	border: 0;
 	outline: 0;
 
 	.text {
@@ -67,6 +71,21 @@
 		font-size: 16px;
 		font-weight: 500;
 		transition: color 0.2s;
+	}
+
+	&--accent {
+		padding: 15px 40px;
+		border-radius: 30px;
+		background-color: $c-accent;
+		transition: background-color 0.2s, border-color 0.2s;
+
+		.text {
+			color: $c-white;
+		}
+
+		&:hover {
+			background-color: darken($c-accent, 10%);
+		}
 	}
 
 	&--arrow {
@@ -80,6 +99,7 @@
 
 	&--light {
 		padding: 15px 75px;
+		border: 1px solid $c-black;
 		border-radius: 30px;
 		background-color: transparent;
 		transition: background-color 0.2s, border-color 0.2s;
