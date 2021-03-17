@@ -8,7 +8,6 @@
 package-lock.json
 yarn.lock
 composer.lock
-/cpresources
 /vendor
 /node_modules
 /storage
