@@ -1,7 +1,7 @@
-dateModified: 1615978733
+dateModified: 1615984063
 email:
-  fromEmail: krystian@adchitects.co
-  fromName: wiliot
+  fromEmail: marcin@adchitects.co
+  fromName: Wiliot
   transportType: craft\mail\transportadapters\Sendmail
 plugins:
   assetusage:
@@ -35,7 +35,7 @@ plugins:
 system:
   edition: solo
   live: true
-  name: wiliot
+  name: Wiliot
   schemaVersion: 3.6.6
   timeZone: America/Los_Angeles
 users:

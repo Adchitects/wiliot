@@ -1,8 +1,0 @@
-baseUrl: $PRIMARY_SITE_URL
-handle: default
-hasUrls: true
-language: en-GB
-name: wiliot
-primary: true
-siteGroup: dafb3ccf-8ab6-4d65-b284-67ee3ad67ce9 # wiliot
-sortOrder: 1
