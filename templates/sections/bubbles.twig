@@ -1,8 +1,13 @@
 {% set subtitle = entry.bubblesSubtitle %}
+{% set title = entry.bubblesTitle %}
+
 <section class="u-section u-section--bubbles">
 	<div class="bubbles">
 		{% if subtitle %}
-			<h2>{{ subtitle }}</h2>
+			<h5 class="bubbles__subtitle u-subtitle">{{ subtitle }}</h5>
+		{% endif %}
+		{% if title %}
+			<h2 class="hero__title u-title">{{ title }}</h2>
 		{% endif %}
 	</div>
 </section>

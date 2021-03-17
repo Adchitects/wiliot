@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 664a46c6-efe4-45ec-9192-99ec235fa0a9 # Founders
+handle: foundersList
+instructions: ''
+name: 'Founders list'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_founderslist}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
