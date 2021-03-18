@@ -18,14 +18,14 @@
 					{% set topDescription = item.tileTopDescription %}
 					{% set bottomDescription = item.tileBottomDescription %}
 					{% set button = item.tileButton %}
-					<div class="buy-tiles__tile-item js-buy-tiles-item">
-						<div class="icon">{{ svg(alias('@assets/img/svg/' ~ iconName ~ '_animated.svg')) }}</div>
-						<div class="title">{{ title }}</div>
-						<div class="description">
-							<div class="description--top">{{ topDescription }}</div>
-							<div class="description--bottom">{{ bottomDescription }}</div>
+					<div class="buy-tiles__item item js-buy-tiles-item">
+						<div class="item__icon">{{ svg(alias('@assets/img/svg/' ~ iconName ~ '_animated.svg')) }}</div>
+						<div class="item__title">{{ title }}</div>
+						<div class="item__description-hld">
+							<div class="item__description item__description--top">{{ topDescription }}</div>
+							<div class="item__description item__description--bottom">{{ bottomDescription }}</div>
 						</div>
-						<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn u-btn u-btn--accent">
+						<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item__btn u-btn u-btn--accent">
 							<span class="text">{{ button.customText }}</span>
 						</a>
 					</div>
