@@ -6,20 +6,20 @@
 	<div class="buy-tiles">
 		<div class="u-wrapper">
 			<div class="buy-tiles__text-hld">
-				<div class="subtitle u-subtitle u-subtitle--big">{{ subtitle }}</div>
-				<div class="title u-title u-title--big">{{ title }}</div>
+				<div class="subtitle u-subtitle u-subtitle--medium">{{ subtitle }}</div>
+				<div class="title u-title u-title--big">{{ title|nl2br }}</div>
 			</div>
 		</div>
 		<div class="u-wrapper u-wrapper--medium-wide">
-			<div class="buy-tiles__tiles-hld">
+			<div class="buy-tiles__tiles-hld js-buy-tiles-hld">
 				{% for item in tilesMatrix %}
 					{% set iconName = item.tileIcon %}
 					{% set title = item.tileTitle %}
 					{% set topDescription = item.tileTopDescription %}
 					{% set bottomDescription = item.tileBottomDescription %}
 					{% set button = item.tileButton %}
-					<div class="buy-tiles__tile-item">
-						<div class="icon">{{ svg(alias('@assets/img/svg/' ~ iconName ~ '.svg')) }}</div>
+					<div class="buy-tiles__tile-item js-buy-tiles-item">
+						<div class="icon">{{ svg(alias('@assets/img/svg/' ~ iconName ~ '_animated.svg')) }}</div>
 						<div class="title">{{ title }}</div>
 						<div class="description">
 							<div class="description--top">{{ topDescription }}</div>

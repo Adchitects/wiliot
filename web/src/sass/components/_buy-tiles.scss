@@ -1,19 +1,144 @@
+.u-section--buy-tiles {
+	margin-top: 0;
+	padding-top: 260px;
+	padding-bottom: 100px;
+}
+
 .buy-tiles {
+	&__text-hld {
+		.title {
+			margin-top: 15px;
+		}
+	}
+
 	&__tiles-hld {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
+		place-content: center;
+		grid-template-columns: repeat(auto-fit, minmax(410px, 0.6fr));
+		margin-top: 90px;
 		gap: 25px;
+
+		@include media-max(475) {
+			grid-template-columns: minmax(250px, 1fr);
+		}
 	}
 
 	&__tile-item {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		border: 1px solid red;
+		position: relative;
+		padding: 50px 45px 65px;
+		border-radius: 6px;
+		background-color: #FFFFFF;
+		box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
 		text-align: center;
+
+		@include media-max(475) {
+			padding: 30px 15px;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			pointer-events: none;
+			width: 100%;
+			height: 6px;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			background-image: linear-gradient(to right, $c-green, $c-accent-light);
+			transition: opacity 0.35s;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			pointer-events: none;
+			width: 100%;
+			height: 6px;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			background-image: linear-gradient(to right, $c-orange, $c-yellow);
+			transform-origin: right;
+			transition: opacity 0.35s;
+			opacity: 0;
+		}
+
+		.icon {
+			svg {
+				path {
+					transition: stroke 0.35s;
+				}
+			}
+		}
+
+		.title {
+			margin-top: 40px;
+			font-size: 24px;
+			font-weight: 900;
+			line-height: 36px;
+
+			@include media-max(475) {
+				margin-top: 20px;
+			}
+		}
+
+		.description {
+			margin-top: 25px;
+			margin-bottom: 45px;
+
+			@include media-max(475) {
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+
+			&--bottom {
+				position: relative;
+				margin-top: 40px;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: -20px;
+					left: 50%;
+					pointer-events: none;
+					width: calc(100% - 170px);
+					height: 1px;
+					background-color: $c-border;
+					transform: translateX(-50%);
+				}
+			}
+		}
 
 		.btn {
 			min-width: 192px;
+			margin-top: auto;
+		}
+
+		&:hover {
+			&::before {
+				opacity: 0;
+			}
+
+			&::after {
+				opacity: 1;
+			}
+
+			svg {
+				path {
+					stroke: $c-orange;
+				}
+
+				#Buy-Page-circles {
+					#Oval {
+						stroke: $c-accent;
+					}
+				}
+			}
 		}
 	}
 }

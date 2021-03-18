@@ -38,6 +38,16 @@
 	&--big {
 		font-size: 56px;
 		line-height: 72px;
+
+		@include mobile-767 {
+			font-size: 46px;
+			line-height: 52px;
+		}
+
+		@include mobile-599 {
+			font-size: 28px;
+			line-height: 36px;
+		}
 	}
 
 	&--medium {
@@ -52,9 +62,20 @@
 }
 
 .u-subtitle {
+	font-weight: 500;
+
+	&--medium {
+		font-size: 22px;
+		line-height: 30px;
+
+		@include mobile-599 {
+			font-size: 20px;
+			line-height: 20px;
+		}
+	}
+
 	&--big {
 		font-size: 24px;
-		font-weight: 500;
 		line-height: 36px;
 	}
 }
