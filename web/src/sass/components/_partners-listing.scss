@@ -169,7 +169,7 @@
 	&__items-hld {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 24px;
+		grid-gap: 24px;
 		margin-top: 25px;
 
 		@include mobile-small-425 {

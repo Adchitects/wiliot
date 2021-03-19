@@ -1,4 +1,4 @@
-{% set partnersListMatrix = entry.partnersList %}
+{% set partnersListMatrix = entry.partnersList.all() %}
 {% if partnersListMatrix %}
 <section class="u-section u-section--partners-listing">
 	<div class="u-wrapper u-wrapper--wide">
@@ -14,7 +14,7 @@
 							</div>
 							<span class="text">All</span>
 						</div>
-						{% for item in partnersListMatrix.all() %}
+						{% for item in partnersListMatrix %}
 							{% if loop.index == 1 %}
 								{% set categories = item.partnerCategory.options %}
 								{% for cat in categories %}
@@ -43,7 +43,7 @@
 						<div class="results__filter results__filter--everything is-chosen js-partners-filters-active-everything">
 							<span class="text">All</span>
 						</div>
-						{% for item in partnersListMatrix.all() %}
+						{% for item in partnersListMatrix %}
 							{% if loop.index == 1 %}
 								{% set categories = item.partnerCategory.options %}
 								{% for cat in categories %}

@@ -14,7 +14,7 @@
 			{% endif %}
 			{% if button %}
 			<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
-				<span class="text">{{ button.title }}</span>
+				<span class="text">{{ button.customText }}</span>
 			</a>
 			{% endif %}
 		</div>
