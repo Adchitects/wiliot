@@ -1,0 +1,91 @@
+fieldLayouts:
+  96ae8ebd-6653-4a75-886c-3bffb52828d3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: cbd7cd7f-2d7a-463a-af4b-e8aee20b0e88 # News posts categories
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Categories
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 569c1536-e1e1-478b-8a94-de85377f9ba0 # Hero sizes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 070c859e-ec54-49e9-acd9-e658f728d891 # Hero subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 70e371d8-d7fb-43ef-a3fc-913faa7db3d1 # Hero tItle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 2
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: d60c1ada-4bcc-41ef-9231-4d3670120c77 # description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 3
+handle: singleNews
+hasTitleField: true
+name: 'Single news'
+section: d53d3bce-afa8-4d8c-be8e-7f39844292ba # News posts
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
