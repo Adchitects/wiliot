@@ -2,7 +2,7 @@ contentColumnType: text
 fieldGroup: 5ddf9ab1-7416-4397-aeb6-30367ce2bfb1 # News posts
 handle: newsPostsDescription
 instructions: ''
-name: description
+name: Description
 searchable: false
 settings:
   availableTransforms: '*'

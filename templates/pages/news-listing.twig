@@ -6,61 +6,84 @@
 	{% set newsListingSectionId = newsListingSection.sectionId[0] %}
 	{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
 	{% set newsListingSectionUrl = newsListingSectionEntry.url %}
+	{% set categories = craft.categories() %}
 	{{ include('/sections/hero.twig') }}
 	<div class="u-section u-section--news-listing">
-		<div class="u-wrapper u-wrapper--wide">
+		<div class="u-wrapper u-wrapper--medium-wide">
 			<div class="news-listing">
 				<div class="news-listing__filters-hld">
-					<div class="news-listing__filter news-listing__filter--all {% if entry is defined %} 'is-active' {% endif %}">
-						<a href="{{ newsListingSectionUrl }}">Blog Hub</a>
-					</div>
-					{% set categories = craft.categories() %}
-					{% for cat in categories %}
-						<div class="news-listing__filter {% if category is defined and category.title == cat.title %} 'is-active' {% endif %}">
-							<a href="{{ cat.url }}">{{ cat.title }}</a>
-						</div>
-					{% endfor %}
+					<ul class="news-listing__filters-hld-inner">
+						<li class="news-listing__filter news-listing__filter--all {% if entry is defined %} is-active {% endif %}">
+							<a href="{{ newsListingSectionUrl }}">{% if entry is defined %} Blog Hub {% elseif category is defined %} Back to Blog Hub {% endif %}</a>
+						</li>
+						{% for cat in categories %}
+							{% set catPosts = craft.entries().newsPostsCategories(cat.id).all() %}
+							{% if catPosts|length > 0 %}
+								<li class="news-listing__filter {% if category is defined and category.title == cat.title %} is-active {% endif %}">
+									<a href="{{ cat.url }}">{{ cat.title }}</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
 				</div>
 				<div class="news-listing__news-hld">
 					{% if category is not defined %}
 						<div class="news-listing__category-area area">
-							<div class="area__title">Our Latest</div>
+							<div class="area__title u-title u-title--section">Our Latest</div>
 							<div class="area__posts-hld">
 								{% set latestNews = craft.entries.section('newsPosts').limit(3) %}
 								{% if latestNews|length %}
 									{% for post in latestNews %}
+										{% set image = post.newsPostsfeaturedImage.one() %}
+										{% if image %}
+											{% set imageUrl = image.getUrl() %}
+											{% set imageWidth = image.getWidth() %}
+											{% set imageHeight = image.getHeight() %}
+											{% set imageAlt = image.title %}
+										{% endif %}
+										{% set title = post.title %}
 										{% set desc = post.newsPostsDescription %}
-										{% set descSliced = desc|slice(0, 50) ~ '...' %}
+										{% set descSliced = desc|slice(0, 30) ~ '...' %}
 										<a href="{{ post.url}}" class="area__post post">
-											<div class="post__title">{{ post.title }}</div>
-											<div class="post__description">	{{ desc|length > 30 ? descSliced|raw : desc|raw  }}</div>
-											<div class="post__button u-btn u-btn--arrow">Read more</div>
+											<div class="post__image-hld">
+												{% if image %}
+													<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
+												{% else %}
+													brak image
+												{% endif %}
+											</div>
+											<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
+											<div class="post__title">{{ title|length > 35 ? title|slice(0, 32) ~ '...' : title }}</div>
+											<div class="post__description">{{ desc|length > 30 ? descSliced|raw : desc|raw }}</div>
+											<div class="post__btn u-btn u-btn--arrow">Read more</div>
 										</a>
 									{% endfor %}
 								{% endif %}
 							</div>
 						</div>
 						{% for cat in categories %}
-							<div class="news-listing__category-area"> 
-								<div class="area__title">{{ cat.title }}</div>
-								<div class="area__posts-hld">
-									{% set catPosts = craft.entries().newsPostsCategories(cat.id).all() %}
-									{% for catPost in catPosts %}
-										{% set desc = catPost.newsPostsDescription %}
-										{% set descSliced = desc|slice(0, 50) ~ '...' %}
-										<a href="{{ catPost.url}}" class="area__post post">
-											<div class="post__title">{{ catPost.title }}</div>
-											<div class="post__description">	{{ desc|length > 30 ? descSliced|raw : desc|raw  }}</div>
-											<div class="post__button u-btn u-btn--arrow">Read more</div>
-										</a>
-									{% endfor %}
+							{% set catPosts = craft.entries().newsPostsCategories(cat.id).all() %}
+							{% if catPosts|length > 0 %}
+								<div class="news-listing__category-area"> 
+									<div class="area__title u-title u-title--section">{{ cat.title }}</div>
+									<div class="area__posts-hld">
+										{% for catPost in catPosts %}
+											{% set desc = catPost.newsPostsDescription %}
+											{% set descSliced = desc|slice(0, 30) ~ '...' %}
+											<a href="{{ catPost.url}}" class="area__post post">
+												<div class="post__title">{{ catPost.title }}</div>
+												<div class="post__description">{{ desc|length > 30 ? descSliced|raw : desc|raw }}</div>
+												<div class="post__btn u-btn u-btn--arrow">Read more</div>
+											</a>
+										{% endfor %}
+									</div>
 								</div>
-							</div>
+							{% endif %}
 						{% endfor %}
 					{% endif %}
 					{% if category is defined %}
 						<div class="news-listing__category-area"> 
-							<div class="area__title">{{ category.title }}</div>
+							<div class="area__title u-title u-title--section">{{ category.title }}</div>
 							<div class="area__posts-hld">
 								{% set catPosts = craft.entries().newsPostsCategories(category.id).all() %}
 								{% for catPost in catPosts %}
@@ -69,7 +92,7 @@
 									<a href="{{ catPost.url}}" class="area__post post">
 										<div class="post__title">{{ catPost.title }}</div>
 										<div class="post__description">	{{ desc|length > 30 ? descSliced|raw : desc|raw  }}</div>
-										<div class="post__button u-btn u-btn--arrow">Read more</div>
+										<div class="post__btn u-btn u-btn--arrow">Read more</div>
 									</a>
 								{% endfor %}
 							</div>
