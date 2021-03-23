@@ -1,0 +1,17 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.section }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{{ include('/sections/hero.twig') }}
+	{{ include('/sections/bubbles.twig') }}
+	{{ include('/sections/founders.twig') }}
+	{{ include('/sections/logos-slider.twig') }}
+	{{ include('/sections/accordion.twig') }}
+	{{ include('/sections/freemode-slider.twig') }}
+	{{ include('/sections/outro.twig') }}
+
+{% endblock %}

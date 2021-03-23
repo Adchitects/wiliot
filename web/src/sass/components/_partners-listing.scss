@@ -1,4 +1,5 @@
-.u-section--partners-listing {}
+.u-section--partners-listing {
+}
 
 .partners-listing {
 	display: flex;
@@ -21,7 +22,7 @@
 				position: sticky;
 				top: 100px;
 			}
-	
+
 			.title {
 				color: $c-gray;
 				font-size: 14px;
@@ -29,7 +30,7 @@
 				line-height: 19px;
 				text-transform: uppercase;
 			}
-	
+
 			.filter-type {
 				margin-top: 20px;
 				font-weight: 900;

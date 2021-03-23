@@ -1,95 +1,98 @@
 {% set partnersListMatrix = entry.partnersList.all() %}
 {% if partnersListMatrix %}
-<section class="u-section u-section--partners-listing">
-	<div class="u-wrapper u-wrapper--wide">
-		<div class="partners-listing js-partners-filters-hld">
-			<div class="partners-listing__box partners-listing__box--a">
-				<div class="inner">
-					<div class="title">Filter by</div>
-					<div class="filter-type">Partner Type</div>
-					<div class="partners-listing__filter-box">
-						<div class="partners-listing__filter js-partners-filters-filter-everything is-active">
-							<div class="checkbox">
-								<span class="icon icon-tick"></span>
+	<section class="u-section u-section--partners-listing">
+		<div class="u-wrapper u-wrapper--wide">
+			<div class="partners-listing js-partners-filters-hld">
+				<div class="partners-listing__box partners-listing__box--a">
+					<div class="inner">
+						<div class="title">Filter by</div>
+						<div class="filter-type">Partner Type</div>
+						<div class="partners-listing__filter-box">
+							<div class="partners-listing__filter js-partners-filters-filter-everything is-active">
+								<div class="checkbox">
+									<span class="icon icon-tick"></span>
+								</div>
+								<span class="text">All</span>
 							</div>
-							<span class="text">All</span>
-						</div>
-						{% for item in partnersListMatrix %}
-							{% if loop.index == 1 %}
-								{% set categories = item.partnerCategory.options %}
-								{% for cat in categories %}
-									<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.value|lower }}">
-										<div class="checkbox">
-											<span class="icon icon-tick"></span>
+							{% for item in partnersListMatrix %}
+								{% if loop.index == 1 %}
+									{% set categories = item.partnerCategory.options %}
+									{% for cat in categories %}
+										<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.value|lower }}">
+											<div class="checkbox">
+												<span class="icon icon-tick"></span>
+											</div>
+											<span class="text">{{ cat.label }}</span>
 										</div>
-										<span class="text">{{ cat.label }}</span>
-									</div>
-								{% endfor %}
-							{% endif %}
-						{% endfor %}
+									{% endfor %}
+								{% endif %}
+							{% endfor %}
+						</div>
+						<button class="btn btn--apply u-btn u-btn--light js-partners-filters-apply-btn">
+							<span class="text">Apply</span>
+						</button>
+						<button class="btn btn--reset u-btn u-btn--transparent js-partners-filters-reset-btn">
+							<span class="text">Reset filters</span>
+						</button>
 					</div>
-					<button class="btn btn--apply u-btn u-btn--light js-partners-filters-apply-btn">
-						<span class="text">Apply</span>
-					</button>
-					<button class="btn btn--reset u-btn u-btn--transparent js-partners-filters-reset-btn">
-						<span class="text">Reset filters</span>
-					</button>
 				</div>
-			</div>
-			<div class="partners-listing__box partners-listing__box--b">
-				<div class="partners-listing__active-filters">
-						<div class="title">Results: <span class="js-partners-filters-results-number"></span></div>
+				<div class="partners-listing__box partners-listing__box--b">
+					<div class="partners-listing__active-filters">
+						<div class="title">Results:
+							<span class="js-partners-filters-results-number"></span>
+						</div>
 						<div class="results">
-						<div class="results__filter results__filter--everything is-chosen js-partners-filters-active-everything">
-							<span class="text">All</span>
+							<div class="results__filter results__filter--everything is-chosen js-partners-filters-active-everything">
+								<span class="text">All</span>
+							</div>
+							{% for item in partnersListMatrix %}
+								{% if loop.index == 1 %}
+									{% set categories = item.partnerCategory.options %}
+									{% for cat in categories %}
+										<div class="results__filter js-partners-filters-active" data-category="{{ cat.value|lower }}">
+											<span class="text">{{ cat.label }}</span>
+											<span class="icon icon-close"></span>
+										</div>
+									{% endfor %}
+								{% endif %}
+							{% endfor %}
 						</div>
+					</div>
+					<div class="partners-listing__items-hld">
 						{% for item in partnersListMatrix %}
-							{% if loop.index == 1 %}
-								{% set categories = item.partnerCategory.options %}
-								{% for cat in categories %}
-									<div class="results__filter js-partners-filters-active" data-category="{{ cat.value|lower }}">
-										<span class="text">{{ cat.label }}</span><span class="icon icon-close"></span>
-									</div>
-								{% endfor %}
+							{# Item logo #}
+							{% set logo = item.partnerLogo.one() %}
+							{% if logo %}
+								{% set logoUrl = logo.getUrl() %}
+								{% set logoWidth = logo.getWidth() %}
+								{% set logoHeight = logo.getHeight() %}
+								{% set logoAlt = logo.title %}
 							{% endif %}
+							{# Item texts #}
+							{% set name = item.partnerName %}
+							{% set description = item.partnerDescription %}
+							{# Item link #}
+							{% set link = item.partnerLink %}
+							{# Item category #}
+							{% set categories = item.partnerCategory %}
+							<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %} data- {{ cat.value|lower }}="1" {% endfor %}>
+								{% if logo %}
+									<div class="img-hld">
+										<img class="js-lazy" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+									</div>
+								{% endif %}
+								<div class="name">{{ name }}</div>
+								<div class="description">{{ description }}</div>
+								{% if link %}
+									<a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="btn u-btn u-btn--arrow">
+										<span class="text">Learn more</span>
+									</a>
+								{% endif %}
+							</div>
 						{% endfor %}
 					</div>
-				</div>
-				<div class="partners-listing__items-hld">
-					{% for item in partnersListMatrix %}
-						{# Item logo #}
-						{% set logo = item.partnerLogo.one() %}
-						{% if logo %}
-							{% set logoUrl = logo.getUrl() %}
-							{% set logoWidth = logo.getWidth() %}
-							{% set logoHeight = logo.getHeight() %}
-							{% set logoAlt = logo.title %}
-						{% endif %}
-						{# Item texts #}
-						{% set name = item.partnerName %}
-						{% set description = item.partnerDescription %}
-						{# Item link #}
-						{% set link = item.partnerLink %}
-						{# Item category #}
-						{% set categories = item.partnerCategory %}
-						<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %}data-{{ cat.value|lower }}="1" {% endfor %}>
-							{% if logo %}
-							<div class="img-hld">
-								<img class="js-lazy" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
-							</div>
-							{% endif %}
-							<div class="name">{{ name }}</div>
-							<div class="description">{{ description }}</div>
-							{% if link %}
-							<a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="btn u-btn u-btn--arrow">
-								<span class="text">Learn more</span>
-							</a>
-							{% endif %}
-						</div>
-					{% endfor %}
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 {% endif %}

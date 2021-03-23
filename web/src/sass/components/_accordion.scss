@@ -1,0 +1,132 @@
+.u-section--accordion {
+	background-color: $c-accent-dark;
+
+	.accordion {
+		max-width: 1116px;
+		margin: 0 auto;
+		padding: 96px 30px 120px 30px;
+
+		&__title {
+			color: $c-white;
+			font-size: 32px;
+			font-weight: 900;
+			line-height: 44px;
+			text-align: center;
+		}
+
+		&__list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 24px 240px;
+			margin-top: 80px;
+
+			@include media-max(1200) {
+				grid-gap: 24px 120px;
+			}
+
+			@include media-max(1000) {
+				grid-gap: 24px 80px;
+			}
+
+			@include media-max(767) {
+				grid-template-columns: repeat(1, 1fr);
+				grid-gap: 0;
+				margin-top: 64px;
+			}
+		}
+	}
+
+	.item {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		cursor: pointer;
+		padding-top: 24px;
+		border-bottom: 1px solid $c-white;
+
+		&__toggle {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 48px;
+			right: 0;
+			width: 19px;
+			height: 19px;
+
+			.line {
+				display: block;
+				width: 19px;
+				height: 1px;
+				background-color: $c-white;
+				transition: transform 0.3s;
+
+				&:last-of-type {
+					position: absolute;
+					transform: rotate(-90deg);
+				}
+			}
+		}
+
+		&__title {
+			margin-right: 32px;
+			color: $c-white;
+			font-size: 24px;
+			font-weight: 900;
+			line-height: 36px;
+
+			@include media-max(1000) {
+				font-size: 22px;
+				line-height: 34px;
+			}
+		}
+
+		&__subtitle {
+			margin-right: 32px;
+			margin-bottom: 24px;
+			color: $c-white;
+			font-size: 16px;
+			font-weight: 300;
+			line-height: 26px;
+			opacity: 0.8;
+		}
+
+		&__image {
+			height: 0;
+			user-select: none;
+			transition: height 0.3s, opacity 0.3s;
+			visibility: hidden;
+			opacity: 0;
+
+			@include media-max(1000) {
+				margin-right: auto;
+				transition: opacity 0.3s;
+				object-fit: contain;
+			}
+		}
+
+		&.is-active {
+			.item__image {
+				height: 242px;
+				margin-bottom: 24px;
+				transition: height 0.3s, opacity 0.3s;
+				visibility: visible;
+				opacity: 1;
+
+				@include media-max(1000) {
+					transition: opacity 0.3s;
+				}
+			}
+
+			.item__toggle {
+				.line {
+					transform: rotate(180deg);
+
+					&:last-of-type {
+						transform: rotate(0deg);
+					}
+				}
+			}
+		}
+	}
+}

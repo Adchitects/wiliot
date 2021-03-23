@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: b46fff7c-5a2d-48c5-b0e8-9faf3e1cb057 # Bubbles
+handle: bubblesFootnote
+instructions: ''
+name: 'Bubbles Footnote'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

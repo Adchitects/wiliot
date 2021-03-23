@@ -1,0 +1,37 @@
+field: 9c33ab42-4fc7-4f5c-abe9-c4b82a52afd1 # Slide Codes
+fieldLayouts:
+  46c0dad0-b8fe-4cbc-a115-5c491740b40e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ad25b9ac-bb0a-4131-a915-eb2e3b845882 # Code
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  ad25b9ac-bb0a-4131-a915-eb2e3b845882: # Code
+    contentColumnType: text
+    fieldGroup: null
+    handle: code
+    instructions: ''
+    name: Code
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

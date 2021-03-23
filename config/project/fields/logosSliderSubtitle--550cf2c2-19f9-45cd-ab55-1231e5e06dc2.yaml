@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: a9cd6bee-2751-41ff-bb4d-3a6a83e67340 # Logos Slider
+handle: logosSliderSubtitle
+instructions: ''
+name: 'Logos Slider Subtitle'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

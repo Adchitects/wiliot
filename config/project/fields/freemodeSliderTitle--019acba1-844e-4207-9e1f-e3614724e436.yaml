@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: d383c208-ea3c-4268-82cf-50feb6c9e73e # Freemode Slider
+handle: freemodeSliderTitle
+instructions: ''
+name: 'Freemode Slider Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
