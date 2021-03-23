@@ -1,5 +1,10 @@
-.u-section--intro {
-	margin-top: 0;
-}
+.u-section--intro {}
 
-.intro {}
+.intro {
+	&__title {}
+
+	&__description {
+		max-width: 630px;
+		margin-top: 15px;
+	}
+}

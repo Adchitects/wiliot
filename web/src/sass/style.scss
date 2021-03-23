@@ -4,6 +4,7 @@
 
 // BASE STYLES
 @import 'base/variables';
+@import 'base/icomoon';
 @import 'base/mixins';
 @import 'base/core';
 @import 'base/utilities';
@@ -17,6 +18,8 @@
 @import 'components/intro';
 @import 'components/outro';
 @import 'components/partners-listing';
+@import 'components/buy-tiles';
+@import 'components/news-listing';
 // OLD
 @import 'components/example-section';
 @import 'components/swiper-examples';

@@ -1,5 +1,13 @@
 .u-section--outro {
-	padding: 50px 0;
+	padding: 130px 0;
+
+	@include tablet-small-1023 {
+		padding: 80px 0;
+	}
+
+	@include mobile-767 {
+		padding: 60px 0;
+	}
 }
 
 .outro {
@@ -17,13 +25,18 @@
 		text-align: center;
 	}
 
+	&__title {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
 	&__description {
 		max-width: 510px;
 		margin: 0 auto;
-		margin-top: 30px;
+		margin-top: 25px;
 	}
 
 	&__btn {
-		margin-top: 20px;
+		margin-top: 25px;
 	}
 }

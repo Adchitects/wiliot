@@ -5,35 +5,77 @@
 .u-section {
 	position: relative;
 	width: 100%;
-	margin-top: 80px;
+	margin-top: 130px;
+
+	@include tablet-small-1023 {
+		margin-top: 80px;
+	}
+
+	@include mobile-767 {
+		margin-top: 60px;
+	}
 }
 
 .u-wrapper {
 	position: relative;
-	max-width: 1360px;
+	max-width: 1115px;
 	margin: 0 auto;
 	padding-right: 30px;
 	padding-left: 30px;
+
+	&--wide {
+		max-width: 1380px;
+	}
+
+	&--medium-wide {
+		max-width: 1340px;
+	}
 }
 
 .u-title {
+	font-weight: 900;
+
 	&--big {
 		font-size: 56px;
-		font-weight: 900;
 		line-height: 72px;
+
+		@include mobile-767 {
+			font-size: 46px;
+			line-height: 52px;
+		}
+
+		@include mobile-599 {
+			font-size: 28px;
+			line-height: 36px;
+		}
+	}
+
+	&--medium {
+		font-size: 40px;
+		line-height: 48px;
 	}
 
 	&--section {
 		font-size: 32px;
-		font-weight: 900;
 		line-height: 40px;
 	}
 }
 
 .u-subtitle {
+	font-weight: 500;
+
+	&--medium {
+		font-size: 22px;
+		line-height: 30px;
+
+		@include mobile-599 {
+			font-size: 20px;
+			line-height: 20px;
+		}
+	}
+
 	&--big {
 		font-size: 24px;
-		font-weight: 500;
 		line-height: 36px;
 	}
 }
@@ -41,8 +83,31 @@
 .u-btn {
 	display: inline-block;
 	position: relative;
-	border: 1px solid;
+	cursor: pointer;
+	border: 0;
 	outline: 0;
+
+	.text {
+		color: $c-black;
+		font-size: 16px;
+		font-weight: 500;
+		transition: color 0.2s;
+	}
+
+	&--accent {
+		padding: 15px 40px;
+		border-radius: 30px;
+		background-color: $c-accent;
+		transition: background-color 0.2s, border-color 0.2s;
+
+		.text {
+			color: $c-white;
+		}
+
+		&:hover {
+			background-color: darken($c-accent, 10%);
+		}
+	}
 
 	&--arrow {
 		border: 0;
@@ -98,9 +163,26 @@
 
 		.text {
 			color: $c-accent;
-			font-size: 16px;
-			font-weight: 500;
-			transition: color 0.2s;
+		}
+
+		&:hover {
+			background-color: $c-accent;
+
+			.text {
+				color: $c-white;
+			}
+		}
+	}
+
+	&--transparent {
+		padding: 15px 54px;
+		border: 0;
+		border-radius: 30px;
+		background-color: transparent;
+		transition: background-color 0.2s;
+
+		.text {
+			color: $c-accent;
 		}
 
 		&:hover {

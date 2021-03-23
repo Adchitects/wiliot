@@ -18,14 +18,13 @@
 		"sass-development": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=expanded",
 		"postsass-development": "stylelint \"$npm_package_config_css_src/**/*\" --cache --fix",
 		"sass-production": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=compressed --no-source-map",
+		"postcss": "postcss $npm_package_config_css_minFile -u autoprefixer --no-map -r",
 		"webpack-development": "webpack --mode=development --watch --progress",
 		"webpack-production": "webpack --mode=production",
 		"watch:sass": "onchange \"$npm_package_config_css_src/**/*\" -e \".DS_Store\" -- npm run sass-development --silent",
 		"watch:webpack": "npm run webpack-development",
-		"watch": "npm-run-all -p sass-development -p watch:*",
 		"dev": "npm-run-all -p sass-development -p watch:*",
-		"build": "npm-run-all -p sass-production -p webpack-production",
-		"prod": "npm-run-all -p sass-production -p webpack-production"
+		"build": "npm-run-all -p sass-production -p webpack-production -p postcss"
 	},
 	"engines": {
 		"node": ">= 12.0.0",
@@ -34,16 +33,20 @@
 	"devDependencies": {
 		"@babel/core": "^7.8.7",
 		"@babel/preset-env": "^7.8.7",
-		"autoprefixer": "^9.7.4",
+		"autoprefixer": "^9.8.6",
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.0.6",
 		"browser-sync": "^2.26.7",
 		"browser-sync-webpack-plugin": "^2.2.2",
 		"css-loader": "^3.4.2",
+		"delay-copy-webpack-plugin": "^1.0.2",
 		"eslint": "^7.13.0",
 		"eslint-webpack-plugin": "^2.3.0",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^6.1.0",
+		"postcss": "^8.2.8",
+		"postcss-cli": "^8.3.1",
+		"remove-files-webpack-plugin": "^1.4.4",
 		"sass": "^1.26.2",
 		"sass-loader": "^8.0.2",
 		"style-loader": "^1.1.3",
@@ -52,13 +55,12 @@
 		"stylelint-order": "^4.1.0",
 		"stylelint-scss": "^3.18.0",
 		"webpack": "^4.42.0",
-		"remove-files-webpack-plugin": "^1.4.4",
 		"webpack-cli": "^3.3.11"
 	},
 	"dependencies": {
-		"delay-copy-webpack-plugin": "^1.0.2",
 		"gsap": "^3.5.1",
 		"swiper": "^6.3.5",
-		"vanilla-lazyload": "^17.1.3"
+		"vanilla-lazyload": "^17.1.3",
+		"vivus": "^0.4.5"
 	}
 }
