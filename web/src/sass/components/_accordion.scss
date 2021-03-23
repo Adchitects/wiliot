@@ -59,7 +59,7 @@
 				width: 19px;
 				height: 1px;
 				background-color: $c-white;
-				transition: transform 0.3s ease;
+				transition: transform 0.3s;
 
 				&:last-of-type {
 					position: absolute;
@@ -94,13 +94,13 @@
 		&__image {
 			height: 0;
 			user-select: none;
-			transition: height 0.3s ease, opacity 0.3s ease;
+			transition: height 0.3s, opacity 0.3s;
 			visibility: hidden;
 			opacity: 0;
 
 			@include media-max(1000) {
 				margin-right: auto;
-				transition: opacity 0.3s ease;
+				transition: opacity 0.3s;
 				object-fit: contain;
 			}
 		}
@@ -109,12 +109,12 @@
 			.item__image {
 				height: 242px;
 				margin-bottom: 24px;
-				transition: height 0.3s ease, opacity 0.3s ease;
+				transition: height 0.3s, opacity 0.3s;
 				visibility: visible;
 				opacity: 1;
 
 				@include media-max(1000) {
-					transition: opacity 0.3s ease;
+					transition: opacity 0.3s;
 				}
 			}
 

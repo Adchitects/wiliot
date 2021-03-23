@@ -2,7 +2,7 @@ const accordion = document.querySelector('.accordion');
 
 if (accordion) {
 	const accordionItems = document.querySelectorAll('.js-accordion-toggle-item');
-	const accordionList = document.querySelector('.accordion__list');
+	const accordionList = document.querySelector('.js-accordion-list');
 
 
 	accordionItems.forEach(item => {

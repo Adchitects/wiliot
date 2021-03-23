@@ -7,7 +7,7 @@
 			<h2 class="accordion__title u-title">{{ title }}</h2>
 		{% endif %}
 		{% if accordionList %}
-			<div class="accordion__list">
+			<div class="accordion__list js-accordion-list">
 				{% for item in accordionList %}
 					{% set title = item.accordionItemTitle %}
 					{% set subtitle = item.accordionItemSubtitle %}

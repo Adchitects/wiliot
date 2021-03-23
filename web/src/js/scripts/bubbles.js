@@ -1,4 +1,4 @@
-const isBubblesSection = document.querySelector('.u-section--bubbles');
+const isBubblesSection = document.querySelector('.js-section-bubbles');
 if (isBubblesSection) {
 	const openModal = document.querySelector('.js-bubbles-modal-btn');
 	const modal = document.querySelector('.js-bubbles-modal');
