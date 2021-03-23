@@ -1,8 +1,8 @@
 contentColumnType: text
-fieldGroup: 1539e223-b771-4778-a5b9-3676b59a2508 # Outro
-handle: outroTitle
-instructions: Title
-name: 'Outro Title'
+fieldGroup: a9cd6bee-2751-41ff-bb4d-3a6a83e67340 # Logos Slider
+handle: logosSliderTitle
+instructions: ''
+name: 'Logos Slider Title'
 searchable: false
 settings:
   byteLimit: null
@@ -10,7 +10,7 @@ settings:
   code: ''
   columnType: null
   initialRows: '4'
-  multiline: '1'
+  multiline: ''
   placeholder: null
   uiMode: normal
 translationKeyFormat: null

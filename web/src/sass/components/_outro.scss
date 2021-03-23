@@ -26,8 +26,15 @@
 	}
 
 	&__title {
-		max-width: 400px;
 		margin: 0 auto;
+	}
+
+	&__subtitle {
+		margin-bottom: 20px;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 19px;
+		text-transform: uppercase;
 	}
 
 	&__description {

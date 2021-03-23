@@ -1,12 +1,15 @@
-// FONTS (@font-faces are in <style> of index.twig 
+// FONTS (@font-faces are in <style> of index.twig
 $font-head: 'avenir', arial;
 $font-std: $font-head;
 
 // COLORS
-$c-white: #FFFFFF;
+$c-white: #ffffff;
 $c-black: #000000;
-$c-accent: #27BCBC;
+$c-accent: #27bcbc;
 $c-accent-dark: #017777;
-$c-border: #DDDDDD;
-$c-light: #F5F8FC;
-$c-gray: #A7A7AC;
+$c-border: #dddddd;
+$c-light: #f5f8fc;
+$c-gray: #a7a7ac;
+$c-blue-green: #86ffd2;
+$c-blue-light-green: #d0fef5;
+$c-blue-lighter-green: #edfbf8;

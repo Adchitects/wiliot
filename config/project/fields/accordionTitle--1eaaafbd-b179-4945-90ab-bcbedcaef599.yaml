@@ -1,8 +1,8 @@
 contentColumnType: text
-fieldGroup: 1539e223-b771-4778-a5b9-3676b59a2508 # Outro
-handle: outroTitle
-instructions: Title
-name: 'Outro Title'
+fieldGroup: 2f5bdbd3-15bd-4ec2-a037-ab0fae726b21 # Accordion
+handle: accordionTitle
+instructions: ''
+name: 'Accordion title'
 searchable: false
 settings:
   byteLimit: null
@@ -10,7 +10,7 @@ settings:
   code: ''
   columnType: null
   initialRows: '4'
-  multiline: '1'
+  multiline: ''
   placeholder: null
   uiMode: normal
 translationKeyFormat: null

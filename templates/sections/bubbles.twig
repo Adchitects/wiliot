@@ -1,5 +1,10 @@
 {% set subtitle = entry.bubblesSubtitle %}
 {% set title = entry.bubblesTitle %}
+{% set footnote = entry.bubblesFootnote %}
+{% set content = entry.bubblesContent %}
+{% set buttonLink = entry.bubblesButtonLink %}
+{% set bubblesItems = entry.bubblesList.all() %}
+
 
 <section class="u-section u-section--bubbles">
 	<div class="bubbles">
@@ -7,7 +12,40 @@
 			<h5 class="bubbles__subtitle u-subtitle">{{ subtitle }}</h5>
 		{% endif %}
 		{% if title %}
-			<h2 class="hero__title u-title">{{ title }}</h2>
+			<h2 class="bubbles__title u-title">{{ title }}</h2>
 		{% endif %}
+		<div class="bubbles__content">
+			<div class="bubbles__text">
+				{% if content %}
+					<div class="bubbles__paragraphs">{{content}}</div>
+				{% endif %}
+				{% if buttonLink %}
+					<button class="btn  u-btn u-btn--light bubbles__button js-bubbles-modal-btn">
+						<span class="icon icon-Triangle"></span>
+						<span data-video-src="{{buttonLink}}" class="text">Watch video</span>
+					</button>
+				{% endif %}
+				{% if footnote %}
+					<p class="bubbles__footnote">{{footnote}}</p>
+				{% endif %}
+			</div>
+			<div class="bubbles__list">
+				{% for item in bubblesItems %}
+					<div class="bubbles__item item">
+						<img src="{{item.getUrl()}}" alt="">
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="bubbles__modal-wrapper-outer js-bubbles-modal">
+			<div class="bubbles__modal-wrapper-inner">
+				<div class="bubbles__modal">
+					<iframe src="{{buttonLink}}" frameborder="0"></iframe>
+				</div>
+				<span class="modal__close js-bubbles-modal-close">
+					{{ svg('@assets/svg/close.svg')}}
+				</span>
+			</div>
+		</div>
 	</div>
 </section>

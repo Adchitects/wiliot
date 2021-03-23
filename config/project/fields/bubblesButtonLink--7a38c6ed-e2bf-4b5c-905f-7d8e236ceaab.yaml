@@ -1,8 +1,8 @@
 contentColumnType: text
-fieldGroup: 1539e223-b771-4778-a5b9-3676b59a2508 # Outro
-handle: outroTitle
-instructions: Title
-name: 'Outro Title'
+fieldGroup: b46fff7c-5a2d-48c5-b0e8-9faf3e1cb057 # Bubbles
+handle: bubblesButtonLink
+instructions: ''
+name: 'Bubbles Button Link'
 searchable: false
 settings:
   byteLimit: null
@@ -10,7 +10,7 @@ settings:
   code: ''
   columnType: null
   initialRows: '4'
-  multiline: '1'
+  multiline: ''
   placeholder: null
   uiMode: normal
 translationKeyFormat: null

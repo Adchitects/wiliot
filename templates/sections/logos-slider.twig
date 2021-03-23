@@ -1,0 +1,24 @@
+{% set title = entry.logosSliderTitle %}
+{% set subtitle = entry.logosSliderSubtitle %}
+{% set slides = entry.logosSliderItems.all() %}
+{% set link = entry.logosSliderButtonLink %}
+
+<section class="u-section u-section--logos-slider">
+	<div class="logos-slider">
+		{% if title %}
+			<h4 class="logos-slider__subtitle">{{ subtitle }}</h2>
+			<h2 class="logos-slider__title u-title">{{ title }}</h2>
+		{% endif %}
+		{% if slides %}
+			<div class="swiper-logos__slider js-logos-slider swiper-container">
+				<div class="swiper-wrapper">
+					{% for item in slides %}
+						{% set image = item.getUrl() %}
+						<img src="{{image}}" class="swiper-slide" alt="">
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+		<a href="{{link}}" class="btn btn--learn-more u-btn u-btn--light">Learn more</a>
+	</div>
+</section>

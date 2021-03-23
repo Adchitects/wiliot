@@ -62,6 +62,15 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 7892f1d0-1d11-4392-b6f6-8203d8a025ab # Bubbles title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: efd18ac7-76d0-467e-9ab9-36f697e0a185 # Bubbles subtitle
             instructions: null
             label: null
@@ -70,7 +79,43 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-        name: Bubbles
+          -
+            fieldUid: dff21a29-e991-4ee9-8765-8622ff096925 # Bubbles Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7a38c6ed-e2bf-4b5c-905f-7d8e236ceaab # Bubbles Button Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 401dea4c-31e6-46a8-b3a2-a109796af24c # Bubbles Footnote
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f95d261d-1a3d-4d0a-9d41-737859b8039c # Bubbles List
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Who We Are'
         sortOrder: 3
       -
         elements:
@@ -103,6 +148,121 @@ fieldLayouts:
             width: 100
         name: Founders
         sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 4318cfd0-f068-4073-9703-1db060485eb7 # Outro Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ba42799d-0a49-4f7f-817a-cde956fa12ee # Outro Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 977b9cb6-8f53-45bc-84f4-62dddeecf971 # Outro subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Outro
+        sortOrder: 5
+      -
+        elements:
+          -
+            fieldUid: 1eaaafbd-b179-4945-90ab-bcbedcaef599 # Accordion title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 48557ce9-6791-4592-8f05-1e5bef9fc217 # Accordion List
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Awards & Recognitions'
+        sortOrder: 6
+      -
+        elements:
+          -
+            fieldUid: 019acba1-844e-4207-9e1f-e3614724e436 # Freemode Slider Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 06a2a62d-5870-4c21-bb82-9d2ca4c782ac # Freemode Slider Items
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Certifications & Qualifications'
+        sortOrder: 7
+      -
+        elements:
+          -
+            fieldUid: 58e82b15-a8b8-4b1d-b541-06330a0b14af # Logos Slider Button Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6857bdeb-bd05-44af-8217-cacf876bea09 # Logos Slider Items
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 550cf2c2-19f9-45cd-ab55-1231e5e06dc2 # Logos Slider Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2ab81306-e636-4739-b674-9a2c704fff7c # Logos Slider Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Our Partners'
+        sortOrder: 8
 handle: company
 hasTitleField: false
 name: Company

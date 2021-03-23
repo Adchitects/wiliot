@@ -1,0 +1,39 @@
+{% set title = entry.accordionTitle %}
+{% set accordionList = entry.accordionList.all() %}
+
+<section class="u-section u-section--accordion">
+	<div class="accordion">
+		{% if title %}
+			<h2 class="accordion__title u-title">{{ title }}</h2>
+		{% endif %}
+		{% if accordionList %}
+			<div class="accordion__list">
+				{% for item in accordionList %}
+					{% set title = item.accordionItemTitle %}
+					{% set subtitle = item.accordionItemSubtitle %}
+					{% set image = item.accordionItemImage.one() %}
+					{% if loop.index == 1  %}
+						<div class="accordion__column">
+						{% endif  %}
+						<div class="accordion__item item js-accordion-toggle-item">
+							<div class="item__toggle">
+								<span class="line"></span>
+								<span class="line"></span>
+							</div>
+							<h3 class="item__title">{{title}}</h3>
+							<span class="item__subtitle">{{subtitle}}</span>
+							<img class="item__image" src="{{image.url}}" alt="{{title}}">
+						</div>
+						{% if loop.index ==  (accordionList|length / 2)|round(0, 'ceil') %}
+						</div>
+						<div class="accordion__column">
+						{% endif %}
+						{% if loop.index == accordionList|length %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+	</div>
+</section>

@@ -11,14 +11,18 @@
 
 // EXTERNAL LIBRARIES
 @import '../../../node_modules/swiper/swiper';
-// @import '../../node_modules/swiper/components/navigation/navigation.scss'; // Import needed modules of swiper too
+@import '../../../node_modules/swiper/components/pagination/pagination.scss'; // Import needed modules of swiper too
 
 // CONTENT / COMPONENTS / SECTIONS / TABS / VIEWS
 @import 'components/hero';
 @import 'components/intro';
 @import 'components/outro';
 @import 'components/partners-listing';
+@import 'components/bubbles';
 @import 'components/founders';
+@import 'components/accordion';
+@import 'components/freemode-slider';
+@import 'components/logos-slider';
 
 // OLD
 @import 'components/example-section';

@@ -1,0 +1,39 @@
+{% set title = entry.freemodeSliderTitle %}
+{% set slides = entry.freemodeSliderItems.all() %}
+
+<section class="u-section u-section--freemode-slider">
+	<div class="freemode-slider">
+		{% if title %}
+			<h2 class="freemode-slider__title u-title">{{ title }}</h2>
+		{% endif %}
+		{% if slides %}
+			<div class="swiper-freemode__slider js-freemode-slider swiper-container">
+				<div class="swiper-wrapper">
+					{% for item in slides %}
+						{% set title = item.slideTitle %}
+						{% set description = item.slideDescription %}
+						{% set link = item.slideButtonLink %}
+						{% set codes = item.slideCodes.all() %}
+						<div class="swiper-freemode__slider-item swiper-slide slide">
+							<h3 class="slide__title">{{title}}</h3>
+							<p class="slide__description">{{description}}</p>
+							{% if codes|length > 0 %}
+								<ul class="slide__codes">
+									{% for item in codes %}
+										{% set code = item.code %}
+										<li class="slide__code">{{code}}</li>
+									{% endfor %}
+
+								</ul>
+							{% endif %}
+							<a class="slide__link" href="{{link}}">Learn more</a>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="swiper-pagination freemode-slider__pagination"></div>
+
+			</div>
+
+		{% endif %}
+	</div>
+</section>
