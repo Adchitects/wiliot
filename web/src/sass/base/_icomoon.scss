@@ -13,7 +13,39 @@
 	text-transform: none;
 }
 
+.icon-email::before {
+	content: '\e902';
+}
+
+.icon-facebook::before {
+	content: '\e903';
+}
+
+.icon-linkedin::before {
+	content: '\e904';
+}
+
 .icon-twitter::before {
+	content: '\e905';
+}
+
+.icon-arrow-left::before {
+	content: '\e906';
+}
+
+.icon-arrow-right::before {
+	content: '\e907';
+}
+
+.icon-play::before {
+	content: '\e908';
+}
+
+.icon-linkedin-full::before {
+	content: '\e909';
+}
+
+.icon-close::before {
 	content: '\e901';
 }
 

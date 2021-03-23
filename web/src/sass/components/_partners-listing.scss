@@ -183,7 +183,7 @@
 		padding: 20px 24px 20px 20px;
 		border-radius: 6px;
 		background-color: $c-white;
-		box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+		box-shadow: $box-shadow;
 
 		@include media-max(1050) {
 			min-height: unset;

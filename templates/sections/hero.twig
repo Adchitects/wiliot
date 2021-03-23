@@ -1,7 +1,13 @@
-{% set subtitle = entry.heroSubtitle %}
-{% set title = entry.heroTitle %}
-{% set size = entry.heroSizes.value %}
-{% if title or subtitle %}
+{% if entry is defined %}
+	{% set subtitle = entry.heroSubtitle %}
+	{% set title = entry.heroTitle %}
+	{% set size = entry.heroSizes.value %}
+{% elseif category is defined %}
+	{% set subtitle = category.heroSubtitle %}
+	{% set title = category.heroTitle %}
+	{% set size = category.heroSizes.value %}
+{% endif %}
+{% if entry is defined or category is defined %}
 	<section class="u-section u-section--hero is-{{ size }}">
 		<div class="hero">
 			<div class="hero__bg"></div>

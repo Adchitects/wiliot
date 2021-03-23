@@ -110,17 +110,36 @@
 	}
 
 	&--arrow {
-		padding: 5px;
 		border: 0;
 
 		.text {
+			@extend .icon-arrow-right !optional;
+
+			position: relative;
 			color: $c-accent;
+			font-size: 16px;
+			font-weight: 500;
+			transition: color 0.2s;
+
+			&::before {
+				position: absolute;
+				top: -6px;
+				right: -22px;
+				font-family: 'icomoon', sans-serif;
+				font-size: 12px;
+			}
+		}
+
+		&:hover {
+			.text {
+				color: $c-accent;
+			}
 		}
 	}
 
 	&--light {
 		padding: 15px 75px;
-		border: 1px solid $c-black;
+		border: 1px solid rgba($c-black, 0.6);
 		border-radius: 30px;
 		background-color: transparent;
 		transition: background-color 0.2s, border-color 0.2s;
