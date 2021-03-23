@@ -35,7 +35,7 @@
 							<div class="area__posts-hld">
 								{% set latestNews = craft.entries.section('newsPosts').limit(3) %}
 								{% if latestNews|length %}
-									{% for post in latestNews %}
+									{% for post in latestNews.all() %}
 										{% set image = post.newsPostsfeaturedImage.one() %}
 										{% if image %}
 											{% set imageUrl = image.getUrl() %}
@@ -74,7 +74,7 @@
 										<a href="{{ cat.url }}" class="area__see-all">See All</a>
 									</div>
 									<div class="area__posts-hld">
-										{% for catPost in catPosts %}
+										{% for catPost in catPosts.all() %}
 											{% set image = catPost.newsPostsfeaturedImage.one() %}
 											{% if image %}
 												{% set imageUrl = image.getUrl() %}
