@@ -31,7 +31,7 @@
 		padding: 50px 45px 65px;
 		border-radius: 6px;
 		background-color: #FFFFFF;
-		box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+		box-shadow: $box-shadow;
 		text-align: center;
 
 		@include media-max(475) {

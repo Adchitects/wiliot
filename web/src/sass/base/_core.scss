@@ -20,7 +20,6 @@ img {
 	object-fit: cover;
 
 	&.js-lazy {
-
 		&:not(.loaded) {
 			opacity: 0;
 		}
