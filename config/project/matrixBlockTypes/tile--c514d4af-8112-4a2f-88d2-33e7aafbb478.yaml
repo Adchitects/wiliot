@@ -1,0 +1,291 @@
+field: 659b588a-c770-4bc0-9b40-121cb945ae12 # Tiles
+fieldLayouts:
+  f68b2de8-2109-4d46-9385-24178f92f5df:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: be38fddb-b4ab-4b4e-afa2-6b3b1da2b81d # Icon
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f0446e6d-077d-42ce-9960-359d7397b86f # Title
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4437e6d9-d5bf-4daa-987d-a160a431f9bf # Top description
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2727bcca-8c4d-4a56-aaa8-4758a960eb2a # bottom description
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b4ad141a-cc27-4dde-ae87-eb36368cfa16 # Button
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2727bcca-8c4d-4a56-aaa8-4758a960eb2a: # bottom description
+    contentColumnType: text
+    fieldGroup: null
+    handle: tileBottomDescription
+    instructions: ''
+    name: 'bottom description'
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: ''
+      removeEmptyTags: ''
+      removeInlineStyles: ''
+      removeNbsp: ''
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  4437e6d9-d5bf-4daa-987d-a160a431f9bf: # Top description
+    contentColumnType: text
+    fieldGroup: null
+    handle: tileTopDescription
+    instructions: ''
+    name: 'Top description'
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: ''
+      removeEmptyTags: ''
+      removeInlineStyles: ''
+      removeNbsp: ''
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  b4ad141a-cc27-4dde-ae87-eb36368cfa16: # Button
+    contentColumnType: text
+    fieldGroup: null
+    handle: tileButton
+    instructions: ''
+    name: Button
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: '1'
+      allowedLinkNames:
+        3: entry
+        6: custom
+        7: email
+        8: tel
+        9: url
+      autoNoReferrer: '1'
+      defaultLinkName: asset
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: typedlinkfield\fields\LinkField
+  be38fddb-b4ab-4b4e-afa2-6b3b1da2b81d: # Icon
+    contentColumnType: string
+    fieldGroup: null
+    handle: tileIcon
+    instructions: ''
+    name: Icon
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - repair
+            -
+              - value
+              - repair
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - electron
+            -
+              - value
+              - electron
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - circles
+            -
+              - value
+              - circles
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  f0446e6d-077d-42ce-9960-359d7397b86f: # Title
+    contentColumnType: text
+    fieldGroup: null
+    handle: tileTitle
+    instructions: Title
+    name: Title
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '1'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: tile
+name: Tile
+sortOrder: 1

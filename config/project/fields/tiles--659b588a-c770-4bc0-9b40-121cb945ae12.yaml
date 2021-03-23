@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: f0f0f3f7-c2d8-48eb-a0b2-6abe60a500c5 # Buy
+handle: tiles
+instructions: ''
+name: Tiles
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_tiles}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
