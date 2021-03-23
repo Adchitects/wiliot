@@ -1,0 +1,6 @@
+{% extends "index.twig" %}
+{% block title %} {{ entry.section }} {% endblock %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block main %}
+	{{ include('/sections/buy-tiles.twig') }}
+{% endblock %}

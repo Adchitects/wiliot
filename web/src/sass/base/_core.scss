@@ -20,7 +20,6 @@ img {
 	object-fit: cover;
 
 	&.js-lazy {
-
 		&:not(.loaded) {
 			opacity: 0;
 		}
@@ -29,4 +28,8 @@ img {
 
 ul {
 	list-style-type: none;
+}
+
+strong {
+	font-weight: 900;
 }

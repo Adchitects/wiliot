@@ -1,0 +1,37 @@
+{% set subtitle = entry.buySubtitle %}
+{% set title = entry.buyTitle %}
+{% set tilesMatrix = entry.tiles.all() %}
+{% if title or subtitle %}
+<section class="u-section u-section--buy-tiles">
+	<div class="buy-tiles">
+		<div class="u-wrapper">
+			<div class="buy-tiles__text-hld">
+				<div class="subtitle u-subtitle u-subtitle--medium">{{ subtitle }}</div>
+				<div class="title u-title u-title--big">{{ title|nl2br }}</div>
+			</div>
+		</div>
+		<div class="u-wrapper u-wrapper--medium-wide">
+			<div class="buy-tiles__tiles-hld js-buy-tiles-hld">
+				{% for item in tilesMatrix %}
+					{% set iconName = item.tileIcon %}
+					{% set title = item.tileTitle %}
+					{% set topDescription = item.tileTopDescription %}
+					{% set bottomDescription = item.tileBottomDescription %}
+					{% set button = item.tileButton %}
+					<div class="buy-tiles__item item js-buy-tiles-item">
+						<div class="item__icon">{{ svg(alias('@assets/img/svg/' ~ iconName ~ '_animated.svg')) }}</div>
+						<div class="item__title">{{ title }}</div>
+						<div class="item__description-hld">
+							<div class="item__description item__description--top">{{ topDescription }}</div>
+							<div class="item__description item__description--bottom">{{ bottomDescription }}</div>
+						</div>
+						<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item__btn u-btn u-btn--accent">
+							<span class="text">{{ button.customText }}</span>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}
