@@ -1,0 +1,44 @@
+<section class="u-section--related-news u-section">
+	<div class="u-wrapper">
+		<div class="related-news">
+			<h2 class="u-title related-news__title">Related news</h2>
+			{% set postRelatedCategories = entry.postRelatedCategories %}
+			{% set postMainCategory = entry.postMainCategory %}
+			{% set relatedEntries = craft.entries.section('newsPosts').relatedTo(['or',{ targetElement: postRelatedCategories,field: 'postRelatedCategories' },{targetElement: postMainCategory,
+	                field: 'postMainCategory' }
+	]).id('not '~entry.id) %}
+			<div class="related-news__listing">
+				{% set relatedNews = relatedEntries.limit(3) %}
+				{% if relatedNews|length %}
+					{% for post in relatedNews %}
+						{% set image = post.newsPostsfeaturedImage.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl() %}
+							{% set imageWidth = image.getWidth() %}
+							{% set imageHeight = image.getHeight() %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{% set title = post.title %}
+						{% set desc = post.newsPostsExcerpt|striptags|striptags %}
+						{% set descSliced = desc|slice(0, 107) ~ '...' %}
+						<a href="{{ post.url}}" class="post">
+							<div class="post__image-hld">
+								{% if image %}
+									<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
+								{% else %}
+									<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+								{% endif %}
+							</div>
+							<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
+							<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+							<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+							<div class="post__btn u-btn u-btn--arrow">
+								<span class="text">Read more</span>
+							</div>
+						</a>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>

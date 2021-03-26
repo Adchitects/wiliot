@@ -4,7 +4,16 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: cbd7cd7f-2d7a-463a-af4b-e8aee20b0e88 # News posts categories
+            fieldUid: acbcb5ae-c8d4-412b-94ae-e618bbbff46b # Post Main Category
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cbd7cd7f-2d7a-463a-af4b-e8aee20b0e88 # Post Related Categories
             instructions: null
             label: null
             required: false
@@ -16,24 +25,6 @@ fieldLayouts:
         sortOrder: 1
       -
         elements:
-          -
-            fieldUid: 569c1536-e1e1-478b-8a94-de85377f9ba0 # Hero sizes
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 070c859e-ec54-49e9-acd9-e658f728d891 # Hero subtitle
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
           -
             fieldUid: 70e371d8-d7fb-43ef-a3fc-913faa7db3d1 # Hero tItle
             instructions: null
@@ -81,6 +72,15 @@ fieldLayouts:
             width: 100
           -
             fieldUid: d60c1ada-4bcc-41ef-9231-4d3670120c77 # Excerpt
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 403c268c-4e41-432d-abf2-ead544de0746 # Post Content
             instructions: null
             label: null
             required: false
