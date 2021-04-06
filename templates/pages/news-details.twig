@@ -1,11 +1,61 @@
 {% extends "index.twig" %}
-{% block title %} {{ entry.title }} {% endblock %}
-{% block head %} {{ parent() }} {% endblock %}
+{% block title %}
+	{{ entry.title }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
 {% block main %}
-	{% set query = entry.newsPostsCategories.all() %}
-	news detailss <br><br>
-	{% for cat in query %}
-		{{ cat.title }}
-	{% endfor %}
-	<br><br><br>
+	{% set query = entry.postRelatedCategories.all() %}
+	{% set category = entry.postMainCategory.one() %}
+	{% set heroTitle = entry.heroTitle %}
+	{% set heroImage = entry.newsPostsfeaturedImage.one() %}
+	{% set newsContent = entry.postContent %}
+	{% set postDate = entry.postDate|date("F d, Y") %}
+
+	<section class="u-section u-section--hero-news">
+		<div class="u-wrapper">
+			<div class="hero-news">
+				<span class="hero-news__category">{{category}}</span>
+				<h1 class="hero-news__title">{{heroTitle is not empty ? heroTitle : entry.title}}</h1>
+				<span class="hero-news__publish-date">{{postDate}}</span>
+				{% if heroImage %}
+					<img src="{{heroImage.getUrl()}}" class="hero-news__image" alt="{{heroTitle}}">
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	<article class="news-single">
+		<div class="u-wrapper">
+			<div class="news-single__content">
+				{{newsContent}}
+			</div>
+			<div class="news-single__bottom-toolbar">
+				<div class="news-single__share">
+					<span>Share</span>
+					<a href="{{'https://www.facebook.com/sharer/sharer.php?u='~entry.getUrl()}}">
+						<span class="icon icon-facebook"></span>
+					</a>
+					<a href="{{'https://twitter.com/intent/tweet?url='~entry.getUrl()}}">
+						<span class="icon icon-twitter"></span>
+					</a>
+					<a href="{{'https://www.linkedin.com/shareArticle?mini=true&url='~entry.getUrl()}}">
+						<span class="icon icon-linkedin"></span>
+					</a>
+					<a href="{{'mailto:info@example.com?&subject=&cc=&bcc=&body='~entry.getUrl()~'%0A'}}">
+						<span class="icon icon-email"></span>
+					</a>
+				</div>
+				<div class="news-single__tags">
+					<span>Tags</span>
+					{% for cat in query %}
+						<a class="news-single__tag" href="{{url(cat.uri)}}">
+							{{ cat.title }}
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</article>
+	{{ include('/sections/related-posts.twig') }}
 {% endblock %}

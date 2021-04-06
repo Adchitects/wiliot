@@ -1,8 +1,8 @@
 contentColumnType: text
 fieldGroup: 5ddf9ab1-7416-4397-aeb6-30367ce2bfb1 # News posts
-handle: newsPostsDescription
+handle: postContent
 instructions: ''
-name: Description
+name: 'Post Content'
 searchable: false
 settings:
   availableTransforms: '*'
@@ -13,11 +13,11 @@ settings:
   defaultTransform: ''
   manualConfig: ''
   purifierConfig: ''
-  purifyHtml: ''
+  purifyHtml: '1'
   redactorConfig: ''
   removeEmptyTags: ''
-  removeInlineStyles: ''
-  removeNbsp: ''
+  removeInlineStyles: '1'
+  removeNbsp: '1'
   showHtmlButtonForNonAdmins: ''
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
