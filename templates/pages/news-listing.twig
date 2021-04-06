@@ -32,7 +32,7 @@
 							</a>
 						</li>
 						{% for cat in categories %}
-							{% set catPosts = craft.entries().newsPostsCategories(cat.id).all() %}
+							{% set catPosts = craft.entries().postRelatedCategories(cat.id).all() %}
 							{% if catPosts|length > 0 %}
 								<li class="news-listing__filter {% if category is defined and category.title == cat.title %} is-active {% endif %}">
 									<a href="{{ cat.url }}">{{ cat.title }}</a>
@@ -81,7 +81,7 @@
 							</div>
 						</div>
 						{% for cat in categories %}
-							{% set catPosts = craft.entries().newsPostsCategories(cat.id).limit(3) %}
+							{% set catPosts = craft.entries().postRelatedCategories(cat.id).limit(3) %}
 							{% if catPosts|length > 0 %}
 								<div class="news-listing__category-area area js-load-more-item">
 									<div class="area__text-hld">
@@ -127,7 +127,7 @@
 								<div class="area__title u-title u-title--section">{{ category.title }}</div>
 							</div>
 							<div class="area__posts-hld">
-								{% set catPosts = craft.entries().newsPostsCategories(category.id).all() %}
+								{% set catPosts = craft.entries().postRelatedCategories(category.id).all() %}
 								{% for catPost in catPosts %}
 									{% set image = catPost.newsPostsfeaturedImage.one() %}
 									{% if image %}

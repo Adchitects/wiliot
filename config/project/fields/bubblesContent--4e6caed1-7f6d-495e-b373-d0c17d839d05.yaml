@@ -1,0 +1,27 @@
+contentColumnType: text
+fieldGroup: 446f583a-6ec1-484b-a991-d65d7795c149 # Bubbles
+handle: bubblesContent
+instructions: ''
+name: 'Bubbles Content'
+searchable: false
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  cleanupHtml: true
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: 1
+  redactorConfig: ''
+  removeEmptyTags: ''
+  removeInlineStyles: 1
+  removeNbsp: 1
+  showHtmlButtonForNonAdmins: ''
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field
