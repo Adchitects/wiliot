@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 446f583a-6ec1-484b-a991-d65d7795c149 # Bubbles
+handle: bubblesButtonLink
+instructions: ''
+name: 'Bubbles Button Link'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: 4
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: fed070be-1d26-49de-8eaf-29ffb1cae4e7 # Accordion
+handle: accordionList
+instructions: ''
+name: 'Accordion List'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_accordionlist}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

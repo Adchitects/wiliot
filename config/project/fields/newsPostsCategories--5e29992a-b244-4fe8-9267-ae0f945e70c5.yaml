@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 5ddf9ab1-7416-4397-aeb6-30367ce2bfb1 # News posts
+handle: newsPostsCategories
+instructions: ''
+name: 'News posts categories'
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: 'group:dec126e2-064d-41c6-b747-dda928b56731' # News categories
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

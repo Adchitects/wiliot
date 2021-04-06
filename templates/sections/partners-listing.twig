@@ -75,7 +75,7 @@
 							{% set link = item.partnerLink %}
 							{# Item category #}
 							{% set categories = item.partnerCategory %}
-							<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %} data- {{ cat.value|lower }}="1" {% endfor %}>
+							<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %} data-{{ cat.value|lower }}="1" {% endfor %}>
 								{% if logo %}
 									<div class="img-hld">
 										<img class="js-lazy" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
