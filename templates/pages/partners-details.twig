@@ -1,0 +1,15 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.title }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{% set categories = entry.partnerCategory.all() %}
+	{% for cat in categories %}
+		<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
+			<span class="text">{{ cat.title }}</span>
+		</div>
+	{% endfor %}
+{% endblock %}
