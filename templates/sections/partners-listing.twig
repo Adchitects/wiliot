@@ -1,4 +1,3 @@
-{# {% set partnersListMatrix = entry.partnersList.all() %} #}
 {% set PartnersDetailsPosts = craft.entries.section('partnersDetails').all() %}
 {% if PartnersDetailsPosts %}
 	<section class="u-section u-section--partners-listing">
@@ -17,7 +16,6 @@
 							</div>
 							{% for item in PartnersDetailsPosts %}
 								{% if loop.index == 1 %}
-									{# {% set categories = item.partnerCategory.options %} #}
 									{% set categories = craft.categories().group('partnersCategories') %}
 									{% for cat in categories %}
 										<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
@@ -49,7 +47,6 @@
 							</div>
 							{% for item in PartnersDetailsPosts %}
 								{% if loop.index == 1 %}
-									{# {% set categories = item.partnerCategory.options %} #}
 									{% set categories = craft.categories().group('partnersCategories') %}
 									{% for cat in categories %}
 										<div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
@@ -75,7 +72,6 @@
 							{% set name = item.title %}
 							{% set description = item.partnerDescription %}
 							{# Item link #}
-							{% set link = item.partnerLink %}
 							{% set detailsLink = item.uri %}
 							{# Item category #}
 							{% set categories = item.partnerCategory.all() %}

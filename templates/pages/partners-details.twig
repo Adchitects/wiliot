@@ -6,10 +6,56 @@
 	{{ parent() }}
 {% endblock %}
 {% block main %}
+	{# Backlink #}
+	{% set newsListingSection = craft.entries.section('partners') %}
+	{% set newsListingSectionId = newsListingSection.sectionId[0] %}
+	{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
+	{% set newsListingSectionUrl = newsListingSectionEntry.url %}
+	{# Logo #}
+	{% set logo = entry.partnerLogo.one() %}
+	{% if logo %}
+		{% set logoUrl = logo.getUrl() %}
+		{% set logoWidth = logo.getWidth() %}
+		{% set logoHeight = logo.getHeight() %}
+		{% set logoAlt = logo.title %}
+	{% endif %}
+	{# Texts #}
+	{% set name = entry.title %}
+	{% set description = entry.partnerDescription %}
+	{# Link #}
+	{% set websiteLink = entry.partnerLink %}
+	{# Categories #}
 	{% set categories = entry.partnerCategory.all() %}
-	{% for cat in categories %}
-		<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
-			<span class="text">{{ cat.title }}</span>
+	{{ include('/sections/hero.twig') }}
+	<section class="u-section u-section--partners-details">
+		<div class="u-wrapper">
+			<div class="partners-details">
+				<a href="{{ newsListingSectionUrl }}" class="partners-details__backlink">
+					<span class="icon icon-arrow-left"></span>
+					<span class="text">Back to Partners Listing</span>
+				</a>
+				<div class="partners-details__content-hld">
+					{% if logo %}
+						<div class="partners-details__logo-hld">
+							<img class="js-lazy" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+						</div>
+					{% endif %}
+					<div class="partners-details__middle">
+						<div class="partners-details__text-hld">
+							<div class="partners-details__name u-subtitle u-subtitle--big">{{ name }}</div>
+							<div class="partners-details__categories-hld">
+								{% for cat in categories %}
+									<div class="partners-details__category">{{ cat.title }}</div>
+								{% endfor %}
+							</div>
+							<div class="partners-details__description">{{ description }} </div>
+						</div>
+						<a href="{{ websiteLink }}" target="_blank" rel="noopener noreferrer" class="partners-details__website-btn u-btn u-btn--light">
+							<span class="text">Visit website</span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
-	{% endfor %}
+	</section>
 {% endblock %}

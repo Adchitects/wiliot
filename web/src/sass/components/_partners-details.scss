@@ -1,0 +1,57 @@
+.u-section--partners-details {
+	margin-top: 65px;
+}
+
+.partners-details {
+	&__backlink {
+		display: flex;
+
+		.icon {
+			margin-right: 8px;
+			font-size: 12px;
+			transform: translateY(6px);
+		}
+
+		.text {
+			font-weight: 500;
+		}
+	}
+
+	&__content-hld {
+		margin-top: 50px;
+		padding: 55px 80px;
+		border-radius: 6px;
+		box-shadow: $box-shadow;
+	}
+
+	&__middle {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	&__text-hld {
+		width: calc(100% - 350px);
+	}
+
+	&__name {
+		margin-top: 35px;
+	}
+
+	&__categories-hld {
+	}
+
+	&__category {
+		margin-top: 10px;
+		font-weight: 500;
+	}
+
+	&__description {
+		margin-top: 30px;
+	}
+
+	&__website-btn {
+		margin-top: 40px;
+		padding: 15px 50px;
+	}
+}
