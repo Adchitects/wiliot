@@ -1,0 +1,40 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.title }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	<section class="u-section u-section--solutions-details">
+		<div class="u-wrapper">
+			<div class="solutions-details">
+				<div class="solutions-details__hero hero">
+					<div class="hero__top">
+						<div class="hero__top-text-hld">
+							<div class="subtitle"></div>
+							<div class="title"></div>
+						</div>
+						<div class="hero__top-image-hld">
+							<img src="" alt="">
+						</div>
+					</div>
+					<div class="hero__bottom">
+						<div class="hero__bottom-text-hld">
+							<div class="title"></div>
+							<div class="description"></div>
+						</div>
+						<div class="hero__bottom-image-hld">
+							<img src="" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="solutions-details__content-hld">
+					<div class="solutions-details__content-subtitle"></div>
+					<div class="solutions-details__content-title"></div>
+					<div class="solutions-details__tabs-hld"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

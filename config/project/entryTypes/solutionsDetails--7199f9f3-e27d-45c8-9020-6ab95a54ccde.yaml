@@ -1,0 +1,38 @@
+fieldLayouts:
+  efe9bc2a-82c0-4cb8-978d-4ccabc30468f:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: solutionsDetails
+hasTitleField: true
+name: 'Solutions details'
+section: 40ccff24-98fc-4f36-bcda-88a991a455e6 # Solutions details
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
