@@ -1,0 +1,14 @@
+contentColumnType: string(255)
+fieldGroup: 8602fbce-3eeb-4f22-9810-f375fc887896 # Partners details
+handle: partnerLink
+instructions: 'URL to partner website'
+name: 'Partner link'
+searchable: false
+settings:
+  maxLength: '255'
+  placeholder: null
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url
