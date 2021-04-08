@@ -26,6 +26,11 @@
 	{% set websiteLink = entry.partnerLink %}
 	{# Categories #}
 	{% set categories = entry.partnerCategory.all() %}
+	{# Video #}
+	{% set partnerVideoFile = entry.partnerVideoFile.one %}
+	{% if partnerVideoFile %}
+		{% set partnerVideoFileUrl = partnerVideoFile.getUrl() %}
+	{% endif %}
 	{{ include('/sections/hero.twig') }}
 	<section class="u-section u-section--partners-details">
 		<div class="u-wrapper">
@@ -54,6 +59,12 @@
 							<span class="text">Visit website</span>
 						</a>
 					</div>
+					{% if partnerVideoFile|length %}
+						<div class="partners-details__video-hld js-partners-video-hld is-paused">
+							<span class="icon icon-Triangle"></span>
+							<video class="js-lazy" data-src="{{ partnerVideoFileUrl }}"></video>
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
