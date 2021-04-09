@@ -26,8 +26,105 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
-        name: Content
+        name: Name
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 6ea0a802-91c1-4b0a-9c1c-fe9dd9a1475d # Solution hero subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 12270e35-d7e1-48a1-b8cf-863adc972d30 # Solution hero title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4885e560-0d9b-452b-a66f-509ef5402bcf # Solution hero image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: fc578d10-4d6e-4d97-8780-ffbb58c217b1 # Solutions hero bottom title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f6f796f5-c843-4d77-bd6d-f2570cdb5dfe # Solution hero bottom description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6d18ce51-463e-4721-bc7b-a8c1aa470f3c # Solution hero bottom image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Hero bottom'
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: cb1ba679-0805-4bee-a515-986f9e17282a # Solution content subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a67bb8c1-3f20-4333-98ad-c87efbbfe01d # Solution content title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 56b8df8b-8895-49c6-b0af-465e722997dd # Solution Tab
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Tabs
+        sortOrder: 5
 handle: solutionsDetails
 hasTitleField: true
 name: 'Solutions details'

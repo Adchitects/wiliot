@@ -6,33 +6,108 @@
 	{{ parent() }}
 {% endblock %}
 {% block main %}
+	{# Hero #}
+	{% set heroSubtitle = entry.solutionHeroSubtitle %}
+	{% set heroTitle = entry.solutionHeroTitle %}
+	{% set heroImage = entry.solutionHeroImage.one() %}
+	{% if heroImage %}
+		{% set heroImageUrl = heroImage.getUrl() %}
+		{% set heroImageWidth = heroImage.getWidth() %}
+		{% set heroImageHeight = heroImage.getHeight() %}
+		{% set heroImageAlt = heroImage.title %}
+	{% endif %}
+	{# Hero bottom #}
+	{% set heroBottomTitle = entry.solutionHeroBottomTitle %}
+	{% set heroBottomDescription = entry.solutionHeroBottomDescription %}
+	{% set heroBottomImage = entry.solutionHeroBottomImage.one() %}
+	{% if heroImage %}
+		{% set heroBottomImageUrl = heroBottomImage.getUrl() %}
+		{% set heroBottomImageWidth = heroBottomImage.getWidth() %}
+		{% set heroBottomImageHeight = heroBottomImage.getHeight() %}
+		{% set heroBottomImageAlt = heroBottomImage.title %}
+	{% endif %}
+	{# Content #}
+	{% set contentSubtitle = entry.solutionContentSubtitle %}
+	{% set contentTitle = entry.solutionContentTitle %}
+	{# Tabs #}
+	{% set tabMatrix = entry.solutionTabMatrix.all() %}
 	<section class="u-section u-section--solutions-details">
-		<div class="u-wrapper">
-			<div class="solutions-details">
-				<div class="solutions-details__hero hero">
-					<div class="hero__top">
-						<div class="hero__top-text-hld">
-							<div class="subtitle"></div>
-							<div class="title"></div>
+		<div class="solutions-details">
+			<div class="solutions-details__hero">
+				<div class="u-wrapper">
+					<div class="solutions-details__hero-top">
+						<div class="text-hld">
+							<div class="subtitle u-subtitle u-subtitle--big">{{ heroSubtitle }}</div>
+							<div class="title u-title u-title--big">{{ heroTitle }}</div>
 						</div>
-						<div class="hero__top-image-hld">
-							<img src="" alt="">
-						</div>
+						{% if heroImage %}
+							<div class="image-hld">
+								<img class="js-lazy" data-src="{{ heroImageUrl }}" alt="{{ heroImageAlt }}" width="{{ heroImageWidth }}" height="{{ heroImageHeight }}"/>
+							</div>
+						{% endif %}
 					</div>
-					<div class="hero__bottom">
-						<div class="hero__bottom-text-hld">
-							<div class="title"></div>
-							<div class="description"></div>
+					<div class="solutions-details__hero-bottom">
+						<div class="text-hld">
+							<div class="title u-title u-title--section">{{ heroBottomTitle }}</div>
+							<div class="description">{{ heroBottomDescription }}</div>
 						</div>
-						<div class="hero__bottom-image-hld">
-							<img src="" alt="">
-						</div>
+						{% if heroBottomImage %}
+							<div class="image-hld">
+								<img class="js-lazy" data-src="{{ heroBottomImageUrl }}" alt="{{ heroBottomImageAlt }}" width="{{ heroBottomImageWidth }}" height="{{ heroBottomImageHeight }}"/>
+							</div>
+						{% endif %}
 					</div>
 				</div>
-				<div class="solutions-details__content-hld">
-					<div class="solutions-details__content-subtitle"></div>
-					<div class="solutions-details__content-title"></div>
-					<div class="solutions-details__tabs-hld"></div>
+			</div>
+			<div class="solutions-details__content-hld js-solutions-slider-hld">
+				<div class="solutions-details__content-subtitle">{{ contentSubtitle }}</div>
+				<div class="solutions-details__content-title u-title u-title--section">{{ contentTitle }}</div>
+				<div class="solutions-details__tabs-slider swiper-container js-solutions-slider-tabs">
+					<div class="solutions-details__tabs-slider-wrapper swiper-wrapper">
+						{% for item in tabMatrix %}
+							{% set tabName = item.solutionTabName %}
+							<div class="solutions-details__tab-item solutions-details__tab-item--{{ loop.index }}">
+								<div class="tabname">{{ tabName }}</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="solutions-details__content-slider">
+					<div class="swiper-wrapper">
+						{% for item in tabMatrix %}
+							{% set tabItemMatrix = item.solutionTabItemMatrix.all() %}
+							<div class="solutions-details__content-item ssolutions-details__content-item--{{ loop.index }}">
+								{% for tabItem in tabItemMatrix %}
+									{# Name #}
+									{% set tabItemName = tabItem.itemName %}
+									{# Image #}
+									{% set tabItemImage = tabItem.itemImage.one() %}
+									{% set tabItemImageUrl = tabItemImage.getUrl() %}
+									{% set tabItemImageWidth = tabItemImage.getWidth() %}
+									{% set tabItemImageHeight = tabItemImage.getHeight() %}
+									{% set tabItemImageAlt = tabItemImage.title %}
+									{# Content #}
+									{% set tabItemContentMatrix = tabItem.itemContentMatrix.all() %}
+
+								
+									{{ tabItemName }}
+									<div class="image-hld">
+										<img class="js-lazy" data-src="{{ tabItemImageUrl }}" alt="{{ tabItemImageAlt }}" width="{{ tabItemImageWidth }}" height="{{ tabItemImageHeight }}"/>
+									</div>
+
+									{% for itemContent in tabItemContentMatrix %}
+										{% set itemContentTitle = itemContent.itemContentTitle %}
+										{% set itemContentDescription = itemContent.itemContentDescription %}
+
+										{{ itemContentTitle }}
+										{{ itemContentDescription }}
+									{% endfor %}
+
+
+								{% endfor %}
+							</div>
+						{% endfor %}
+					</div>
 				</div>
 			</div>
 		</div>
