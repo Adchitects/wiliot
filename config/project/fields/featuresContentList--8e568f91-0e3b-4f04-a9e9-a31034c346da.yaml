@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 3b9de247-5fc7-4fbc-9713-e7c3216cf8cd # Features
+handle: featuresContentList
+instructions: ''
+name: 'Content List'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_featurescontentlist}}'
+  maxBlocks: '3'
+  minBlocks: '3'
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

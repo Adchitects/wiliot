@@ -1,55 +1,25 @@
 .u-section--founders {
-	padding: 140px 0;
+	padding: 96px 0;
 
 	@include media-max(900) {
-		padding: 80px 0;
+		padding: 72px 0;
 	}
 
 	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 
 	.founders {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		align-items: center;
-		grid-template-columns: repeat(12, 1fr);
-		grid-gap: 0 24px;
 		width: 100%;
-		max-width: 1400px;
+		max-width: 898px;
 		margin: 0 auto;
-		padding: 0 64px;
-
-		@include media-max(900) {
-			display: flex;
-			flex-direction: column-reverse;
-			align-items: flex-start;
-			width: 100%;
-			padding: 0 30px;
-		}
+		padding: 0 30px;
 	}
 
 	.founders__image {
-		grid-column-end: 9;
-		grid-column-start: 1;
-		padding-right: 64px;
-
-		@include media-max(1330) {
-			padding-right: 48px;
-		}
-
-		@include media-max(900) {
-			padding-right: 0;
-		}
-	}
-
-	.founders__content {
-		display: flex;
-		flex-direction: column;
-		grid-column-end: 13;
-		grid-column-start: 9;
 		width: 100%;
-
-		@include media-max(900) {
-			margin-bottom: 32px;
-		}
+		max-width: 100%;
 	}
 
 	.founders__title {
@@ -62,15 +32,11 @@
 
 	.founders__list {
 		display: flex;
-		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		margin-top: 32px;
 
-		@include media-max(900) {
-			flex-direction: row;
-			justify-content: space-between;
-			width: 100%;
-		}
-
-		@include media-max(550) {
+		@include media-max(450) {
 			flex-direction: column;
 			align-items: center;
 		}
@@ -79,22 +45,14 @@
 	.founder {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 48px;
 
-		@include media-max(1330) {
-			margin-bottom: 32px;
-		}
-
-		@include media-max(1200) {
-			margin-bottom: 26px;
-		}
-
-		@include media-max(550) {
+		@include media-max(450) {
 			align-items: center;
-		}
+			margin-bottom: 24px;
 
-		&:last-of-type {
-			margin-bottom: 0;
+			&:last-of-type {
+				margin-bottom: 0;
+			}
 		}
 	}
 
@@ -105,9 +63,10 @@
 		font-weight: 900;
 		line-height: 33px;
 
-		@include media-max(1200) {
-			font-size: 22px;
-			line-height: 32px;
+		@include media-max(550) {
+			margin-bottom: 0;
+			font-size: 20px;
+			line-height: 30px;
 		}
 	}
 
@@ -117,5 +76,9 @@
 		font-weight: 500;
 		line-height: 26px;
 		opacity: 0.8;
+
+		@include media-max(550) {
+			font-size: 14px;
+		}
 	}
 }

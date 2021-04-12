@@ -1,15 +1,15 @@
 contentColumnType: text
-fieldGroup: 446f583a-6ec1-484b-a991-d65d7795c149 # Bubbles
-handle: bubblesButtonLink
+fieldGroup: 63223e31-385c-482a-8174-9ecd5e40655d # Hero Image Right
+handle: heroImageRightTitle
 instructions: ''
-name: 'Bubbles Button Link'
+name: Title
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
   code: ''
   columnType: null
-  initialRows: 4
+  initialRows: '4'
   multiline: ''
   placeholder: null
   uiMode: normal

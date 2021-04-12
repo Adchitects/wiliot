@@ -1,0 +1,261 @@
+.u-section--sliding-boxes {
+	.sliding-boxes {
+		display: flex;
+		flex-direction: column;
+		max-width: 1400px;
+		margin: 0 auto;
+
+		&__list {
+			display: flex;
+			position: relative;
+
+			@include media-max(767) {
+				display: none;
+			}
+		}
+
+		&__title {
+			margin-bottom: 64px;
+			text-align: center;
+		}
+
+		.sliding-box {
+			display: block;
+			width: 100%;
+			transition: width 0.3s;
+			overflow: hidden;
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+
+			.content__wrapper {
+				display: flex;
+				flex-direction: column;
+				width: 50vw !important;
+				max-width: 700px;
+				min-height: 485px;
+				padding: 80px 64px 42px 128px;
+
+				@include media-max(1200) {
+					width: 50vw !important;
+				}
+
+				@include media-max(990) {
+					padding: 80px 40px 42px 68px;
+				}
+			}
+
+			&.is-active {
+				width: 200% !important;
+
+				.sliding-box__content {
+					width: 50vw !important;
+					max-width: 700px;
+
+					@include media-max(1200) {
+						width: 50vw !important;
+					}
+				}
+
+				.sliding-box__link,
+				.sliding-box__date,
+				.sliding-box__description {
+					opacity: 1;
+				}
+			}
+
+			&:nth-of-type(1) {
+				background-color: #86ffd2;
+			}
+
+			&:nth-of-type(2) {
+				background-color: #d0fef5;
+			}
+
+			&:nth-of-type(3) {
+				background-color: #edfbf8;
+			}
+
+			&__title {
+				margin-bottom: 20px;
+				font-size: 24px;
+				font-weight: 900;
+				line-height: 36px;
+
+				@include media-max(990) {
+					font-size: 20px;
+					line-height: 32px;
+				}
+			}
+
+			&__description {
+				margin-bottom: 48px;
+				color: rgba($c-black, 0.8);
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 26px;
+				transition: opacity 0.25s linear 0.1s;
+				opacity: 0;
+			}
+
+			&__date {
+				position: relative;
+				margin-top: auto;
+				margin-bottom: 24px;
+				font-size: 32px;
+				font-weight: 900;
+				line-height: 44px;
+				transition: opacity 0.25s linear 0.1s;
+				opacity: 0;
+
+				@include media-max(990) {
+					font-size: 28px;
+					line-height: 40px;
+				}
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: -16px;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: $c-black;
+				}
+			}
+
+			&__time {
+				font-weight: 300;
+			}
+
+			&__link {
+				transition: opacity 0.25s linear 0.1s;
+				opacity: 0;
+
+				span {
+					margin-left: 8px;
+					font-size: 12px;
+				}
+			}
+		}
+
+		&__accordion-list {
+			display: none;
+
+			@include media-max(767) {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+			}
+		}
+
+		.item {
+			&:nth-of-type(1) {
+				background-color: #86ffd2;
+			}
+
+			&:nth-of-type(2) {
+				background-color: #d0fef5;
+			}
+
+			&:nth-of-type(3) {
+				background-color: #edfbf8;
+			}
+
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			padding: 38px 30px;
+
+			&__toggle {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 19px;
+				height: 19px;
+
+				.line {
+					display: block;
+					width: 19px;
+					height: 1px;
+					background-color: $c-black;
+					transition: transform 0.3s;
+
+					&:last-of-type {
+						position: absolute;
+						transform: rotate(-90deg);
+					}
+				}
+			}
+
+			&__collapsable {
+				display: none;
+				padding-top: 24px;
+				padding-right: 72px;
+			}
+
+			&__title {
+				margin-right: 48px;
+				font-size: 20px;
+				font-weight: 900;
+				line-height: 30px;
+			}
+
+			&__header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				position: relative;
+			}
+
+			&__description {
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 26px;
+				opacity: 0.8;
+			}
+
+			&__date {
+				margin-top: 16px;
+				margin-bottom: 12px;
+				font-size: 26px;
+				font-weight: 900;
+				line-height: 38px;
+
+				.item__time {
+					font-weight: 300;
+				}
+			}
+
+			&__link {
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 26px;
+
+				span {
+					margin-left: 8px;
+					font-size: 12px;
+				}
+			}
+
+			&.is-active {
+				.item__collapsable {
+					display: block;
+				}
+
+				.item__toggle {
+					.line {
+						transform: rotate(180deg);
+
+						&:last-of-type {
+							transform: rotate(0deg);
+						}
+					}
+				}
+			}
+		}
+	}
+}

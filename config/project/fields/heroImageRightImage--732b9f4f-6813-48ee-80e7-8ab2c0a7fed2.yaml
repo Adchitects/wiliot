@@ -1,8 +1,8 @@
 contentColumnType: string
-fieldGroup: 446f583a-6ec1-484b-a991-d65d7795c149 # Bubbles
-handle: bubblesList
+fieldGroup: 63223e31-385c-482a-8174-9ecd5e40655d # Hero Image Right
+handle: heroImageRightImage
 instructions: ''
-name: 'Bubbles List'
+name: Image
 searchable: false
 settings:
   allowSelfRelations: false
@@ -10,7 +10,7 @@ settings:
   allowedKinds: null
   defaultUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
   defaultUploadLocationSubpath: ''
-  limit: 7
+  limit: '1'
   localizeRelations: false
   previewMode: full
   restrictFiles: ''

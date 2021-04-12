@@ -1,0 +1,48 @@
+.u-section--fifty-fifty {
+	.fifty-fifty {
+		&__title {
+			font-size: 32px;
+			font-weight: 900;
+			line-height: 40px;
+		}
+
+		&__subtitle {
+			margin-bottom: 16px;
+			color: $c-gray;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 19px;
+			text-transform: uppercase;
+		}
+
+		&__rows {
+			display: flex;
+			flex-direction: column;
+			margin-top: 98px;
+		}
+
+		.row {
+			display: flex;
+
+			img {
+				padding-left: 120px;
+			}
+
+			&--reversed {
+				flex-direction: row-reverse;
+
+				img {
+					padding-right: 120px;
+					padding-left: 0;
+				}
+			}
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				max-width: 408px;
+			}
+		}
+	}
+}

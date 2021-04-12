@@ -1,15 +1,15 @@
 contentColumnType: text
-fieldGroup: 446f583a-6ec1-484b-a991-d65d7795c149 # Bubbles
-handle: bubblesSubtitle
+fieldGroup: 9e586bd4-a970-4bc6-925c-4a0a46f168e8 # Tabs
+handle: tabsSubtitle
 instructions: ''
-name: 'Bubbles subtitle'
+name: Subtitle
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
   code: ''
   columnType: null
-  initialRows: 4
+  initialRows: '4'
   multiline: ''
   placeholder: null
   uiMode: normal
