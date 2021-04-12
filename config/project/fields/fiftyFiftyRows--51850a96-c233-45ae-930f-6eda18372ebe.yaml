@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: e093f00b-b0d5-4920-872a-d85762062655 # Fifty Fifty
+handle: fiftyFiftyRows
+instructions: ''
+name: Rows
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_fiftyfiftyrows}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

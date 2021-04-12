@@ -1,0 +1,35 @@
+{% set title = entry.fiftyFiftyTitle %}
+{% set subtitle = entry.fiftyFiftySubtitle %}
+{% set rows = entry.fiftyFiftyRows %}
+
+<section class="u-section u-section--fifty-fifty">
+	<div class="u-wrapper">
+		<div class="fifty-fifty">
+			{% if subtitle %}
+				<span class="fifty-fifty__subtitle u-subtitle">{{ subtitle }}</span>
+			{% endif %}
+			{% if title %}
+				<h2 class="fifty-fifty__title u-title">{{ title }}</h2>
+			{% endif %}
+			{% if rows %}
+				<div class="fifty-fifty__rows">
+					{% for item in rows %}
+						{% set title = item.rowTitle %}
+						{% set description = item.rowDescription %}
+						{% set image = item.rowImage.one() %}
+						<div class="row {{loop.index % 2 == 0 ? 'row--reversed' : ''}}">
+							<div class="row__content">
+								<h3 class="row__title">{{title}}</h3>
+								<p class="row__description">{{description}}</p>
+							</div>
+							<div class="row__image">
+								<img src="{{image.getUrl()}}" alt="{{title}}">
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+</section>

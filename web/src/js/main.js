@@ -4,6 +4,8 @@ import './scripts/accordion';
 import './scripts/bubbles';
 import './scripts/buyTilesIcons';
 import './scripts/loadMore';
+import './scripts/sliding-boxes';
+
 // OLD
 import './scripts/sliders';
 import './scripts/doge';

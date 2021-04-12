@@ -62,7 +62,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 8fd7f69a-a8a8-4243-8056-218c165fe1fc # Bubbles title
+            fieldUid: f83f711c-531c-4ea9-954e-ec67c966c6e4 # Title
             instructions: null
             label: null
             required: false
@@ -71,7 +71,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: b06cb137-b539-4a05-b4ea-5b44312efd2b # Bubbles subtitle
+            fieldUid: 2ea61b1b-f641-40be-bc12-c76a4ab3957d # Subtitle
             instructions: null
             label: null
             required: false
@@ -80,7 +80,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 4e6caed1-7f6d-495e-b373-d0c17d839d05 # Bubbles Content
+            fieldUid: a1d858b7-4963-496f-9423-33546a166a0a # Centered Text
             instructions: null
             label: null
             required: false
@@ -89,7 +89,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 3d383018-e779-4393-8351-acabee0c49ba # Bubbles Button Link
+            fieldUid: 1e4dface-74fb-48c5-9710-06f194b7baa6 # Content
             instructions: null
             label: null
             required: false
@@ -98,16 +98,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 2ec3c0f4-9e3d-45fe-90f3-135120e93996 # Bubbles Footnote
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 64be449a-5dd0-40b1-bbfb-c50cadd72025 # Bubbles List
+            fieldUid: 404edfb5-6c67-47db-b78e-83080fabe753 # Video Link
             instructions: null
             label: null
             required: false

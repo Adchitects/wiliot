@@ -1,0 +1,125 @@
+.u-section--features {
+	.features {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&__grid {
+			display: grid;
+			grid-template-areas: 'a b'
+				'c d'
+				'e f';
+			margin-top: 78px;
+
+			@include media-max(1024) {
+				grid-template-areas: unset;
+				grid-template-columns: 1fr;
+				grid-gap: 32px 0;
+			}
+
+			.item {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				@include media-max(1024) {
+					grid-area: unset !important;
+				}
+
+				&:nth-of-type(1) {
+					grid-area: a;
+					margin-right: 120px;
+
+					@include media-max(1100) {
+						margin-right: 48px;
+					}
+
+					@include media-max(1024) {
+						margin-right: 0;
+					}
+				}
+
+				&:nth-of-type(2) {
+					grid-area: d;
+					margin-left: 120px;
+
+					@include media-max(1100) {
+						margin-left: 48px;
+					}
+
+					@include media-max(1024) {
+						margin-left: 0;
+					}
+				}
+
+				&:nth-of-type(3) {
+					grid-area: e;
+					margin-right: 120px;
+
+					@include media-max(1100) {
+						margin-right: 48px;
+					}
+
+					@include media-max(1024) {
+						margin-right: 0;
+					}
+				}
+
+				&:nth-of-type(4) {
+					grid-area: b / c / f / f;
+
+					> img {
+						height: 100%;
+					}
+
+					@include media-max(1024) {
+						display: none;
+					}
+				}
+
+				&__image-mobile {
+					display: none;
+
+					@include media-max(1024) {
+						display: block;
+						max-width: 75%;
+						margin: 24px auto 0;
+					}
+
+					@include media-max(767) {
+						max-width: 100%;
+					}
+				}
+
+				&__content {
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+					max-width: 408px;
+
+					@include media-max(1024) {
+						max-width: 460px;
+					}
+				}
+
+				&__title {
+					margin-bottom: 12px;
+					font-size: 24px;
+					font-weight: 900;
+					line-height: 36px;
+				}
+
+				&__description {
+					font-size: 16px;
+					font-weight: 300;
+					line-height: 26px;
+					opacity: 0.8;
+
+					@include media-max(1100) {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{% set title = entry.featuresTitle %}
+{% set subtitle = entry.featuresSubtitle %}
+{% set contentList = entry.featuresContentList %}
+{% set mobileImages = ['hyperthin-iot-edge-nodes', 'connect-everything', 'fabric-of-intelligence'] %}
+<section class="u-section u-section--features">
+	<div class="u-wrapper">
+		<div class="features">
+			{% if subtitle %}
+				<span class="sliding-boxes__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+			{% endif %}
+			{% if title %}
+				<h2 class="sliding-boxes__title u-title u-title--section">{{ title }}</h2>
+			{% endif %}
+			<div class="features__grid">
+				{% for content in contentList %}
+					{% set title = content.featureContentTitle %}
+					{% set description = content.featureContentDescription %}
+					<div class="item">
+						<div class="item__content">
+							<h3 class="item__title">{{title}}</h3>
+							<p class="item__description">{{description}}</p>
+							<img class="item__image-mobile" src="{{alias('@assets/img/homepage/'~mobileImages[loop.index - 1]~'.png')}}" alt="{{title}}">
+						</div>
+					</div>
+				{% endfor %}
+				<div class="item">
+					<img src="{{alias('@assets/img/homepage/features.png')}}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

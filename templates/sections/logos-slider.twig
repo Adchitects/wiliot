@@ -5,20 +5,33 @@
 
 <section class="u-section u-section--logos-slider">
 	<div class="logos-slider">
+		{% if subtitle %}
+			<h4 class="logos-slider__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h2>
+		{% endif %}
 		{% if title %}
-			<h4 class="logos-slider__subtitle">{{ subtitle }}</h2>
 			<h2 class="logos-slider__title u-title">{{ title }}</h2>
 		{% endif %}
 		{% if slides %}
-			<div class="swiper-logos__slider js-logos-slider swiper-container">
-				<div class="swiper-wrapper">
-					{% for item in slides %}
-						{% set image = item.getUrl() %}
-						<img src="{{image}}" class="swiper-slide" alt="">
-					{% endfor %}
+			<div class="logos-slider__slider-wrapper">
+				<div class="swiper-logos__slider js-logos-slider swiper-container">
+					<div class="swiper-wrapper">
+						{% for item in slides %}
+							{% set image = item.getUrl() %}
+							<img src="{{image}}" class="swiper-slide" alt="">
+						{% endfor %}
+					</div>
+				</div>
+				{# TODO Change the icons here - slider arrows arent exported yet #}
+				<div class="swiper-button swiper-button-prev">
+					<span class="icon icon-arrow-left"></span>
+				</div>
+				<div class="swiper-button swiper-button-next">
+					<span class="icon icon-arrow-right"></span>
 				</div>
 			</div>
 		{% endif %}
-		<a href="{{link}}" class="btn btn--learn-more u-btn u-btn--light">Learn more</a>
+		{% if link %}
+			<a href="{{link}}" class="btn btn--learn-more u-btn u-btn--light">Learn more</a>
+		{% endif %}
 	</div>
 </section>

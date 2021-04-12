@@ -1,3 +1,4 @@
+import { clearClassActive } from './utilities';
 const accordion = document.querySelector('.accordion');
 
 if (accordion) {
@@ -10,9 +11,7 @@ if (accordion) {
 			if (item.classList.contains('is-active')) {
 				item.classList.remove('is-active');
 			} else {
-				accordionItems.forEach(elem => {
-					elem.classList.remove('is-active');
-				});
+				clearClassActive([...accordionItems], 'is-active');
 				item.classList.toggle('is-active');
 			}
 		});
@@ -24,9 +23,7 @@ if (accordion) {
 		let isClickInside = accordionList.contains(targetElement);
 
 		if (!isClickInside) {
-			accordionItems.forEach(elem => {
-				elem.classList.remove('is-active');
-			});
+			clearClassActive([...accordionItems], 'is-active');
 		}
 	});
 }
