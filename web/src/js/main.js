@@ -1,5 +1,6 @@
 // SCRIPTS
 import './scripts/partnersFilters';
+import './scripts/partnersVideo';
 import './scripts/accordion';
 import './scripts/bubbles';
 import './scripts/buyTilesIcons';
