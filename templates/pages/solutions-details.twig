@@ -59,52 +59,69 @@
 					</div>
 				</div>
 			</div>
-			<div class="solutions-details__content-hld js-solutions-slider-hld">
+			<div class="solutions-details__content-hld js-solutions-slider-hld js-toggle-active-hld">
 				<div class="solutions-details__content-subtitle">{{ contentSubtitle }}</div>
 				<div class="solutions-details__content-title u-title u-title--section">{{ contentTitle }}</div>
 				<div class="solutions-details__tabs-slider swiper-container js-solutions-slider-tabs">
 					<div class="solutions-details__tabs-slider-wrapper swiper-wrapper">
 						{% for item in tabMatrix %}
 							{% set tabName = item.solutionTabName %}
-							<div class="solutions-details__tab-item solutions-details__tab-item--{{ loop.index }}">
+							{% set urlHashname = tabName|replace(' ', '-')|lower %}
+							<div id="{{ urlHashname }}" class="solutions-details__tab-item solutions-details__tab-item--{{ loop.index }} swiper-slide js-toggle-active-tab-item">
 								<div class="tabname">{{ tabName }}</div>
 							</div>
 						{% endfor %}
 					</div>
 				</div>
-				<div class="solutions-details__content-slider">
+				<div class="solutions-details__content-slider swiper-container js-solutions-slider-items">
 					<div class="swiper-wrapper">
 						{% for item in tabMatrix %}
+							{% set tabName = item.solutionTabName %}
+							{% set urlHashname = tabName|replace(' ', '-')|lower %}
 							{% set tabItemMatrix = item.solutionTabItemMatrix.all() %}
-							<div class="solutions-details__content-item ssolutions-details__content-item--{{ loop.index }}">
-								{% for tabItem in tabItemMatrix %}
-									{# Name #}
-									{% set tabItemName = tabItem.itemName %}
-									{# Image #}
-									{% set tabItemImage = tabItem.itemImage.one() %}
-									{% set tabItemImageUrl = tabItemImage.getUrl() %}
-									{% set tabItemImageWidth = tabItemImage.getWidth() %}
-									{% set tabItemImageHeight = tabItemImage.getHeight() %}
-									{% set tabItemImageAlt = tabItemImage.title %}
-									{# Content #}
-									{% set tabItemContentMatrix = tabItem.itemContentMatrix.all() %}
-
-								
-									{{ tabItemName }}
-									<div class="image-hld">
-										<img class="js-lazy" data-src="{{ tabItemImageUrl }}" alt="{{ tabItemImageAlt }}" width="{{ tabItemImageWidth }}" height="{{ tabItemImageHeight }}"/>
-									</div>
-
-									{% for itemContent in tabItemContentMatrix %}
-										{% set itemContentTitle = itemContent.itemContentTitle %}
-										{% set itemContentDescription = itemContent.itemContentDescription %}
-
-										{{ itemContentTitle }}
-										{{ itemContentDescription }}
+							<div class="solutions-details__content-item solutions-details__content-item--{{ loop.index }} swiper-slide js-toggle-active-item" data-hash="{{ urlHashname }}">
+								<ul class="box box--a">
+									{% for tabItem in tabItemMatrix %}
+										{# Name #}
+										{% set tabItemName = tabItem.itemName %}
+										{# Image #}
+										{% set tabItemImage = tabItem.itemImage.one() %}
+										{% set tabItemImageUrl = tabItemImage.getUrl() %}
+										{% set tabItemImageWidth = tabItemImage.getWidth() %}
+										{% set tabItemImageHeight = tabItemImage.getHeight() %}
+										{% set tabItemImageAlt = tabItemImage.title %}
+										<li class="box__nav-item js-toggle-active-nav-item {% if loop.index == 1 %} is-active {% endif %}" data-key="{{ loop.index }}">
+											<div class="text-hld">
+												<div class="index">
+												{% if loop.index < 10 %}0{% endif %}{{ loop.index }} 
+												</div>
+												<div class="name">
+													{{ tabItemName }}
+												</div>
+											</div>
+											<div class="image-hld">
+												<img class="js-lazy" data-src="{{ tabItemImageUrl }}" alt="{{ tabItemImageAlt }}" width="{{ tabItemImageWidth }}" height="{{ tabItemImageHeight }}"/>
+											</div>
+										</li>
 									{% endfor %}
-
-
-								{% endfor %}
+								</ul>
+								<div class="box box--b">
+									{% for tabItem in tabItemMatrix %}
+										{# Name #}
+										{% set tabItemName = tabItem.itemName %}
+										{# Content #}
+										{% set tabItemContentMatrix = tabItem.itemContentMatrix.all() %}
+										<div class="box__content-item js-toggle-active-content-item" data-key="{{ loop.index }}">
+											<div class="name">{{ tabItemName }}</div>
+											{% for itemContent in tabItemContentMatrix %}
+												{% set itemContentTitle = itemContent.itemContentTitle %}
+												{% set itemContentDescription = itemContent.itemContentDescription %}
+												<div class="title u-subtitle u-subtitle--big">{{ itemContentTitle }}</div>
+												<div class="description">{{ itemContentDescription }}</div>
+											{% endfor %}
+										</div>
+									{% endfor %}
+								</div>
 							</div>
 						{% endfor %}
 					</div>

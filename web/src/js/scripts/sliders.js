@@ -1,6 +1,6 @@
 // By default Swiper exports only core version without additional modules (like Navigation, Pagination, etc.). So you need to import and configure them:
-import { Swiper, EffectFade, Navigation, Pagination } from 'swiper';
-Swiper.use([EffectFade, Navigation, Pagination]);
+import { Swiper, EffectFade, Navigation, Pagination, Thumbs, HashNavigation } from 'swiper';
+Swiper.use([EffectFade, Navigation, Pagination, Thumbs, HashNavigation]);
 // Import Lazyload for looped sliders to avoid image jumping
 import { lazyLoadInstance } from '../libs/lazyLoad';
 
@@ -74,3 +74,28 @@ const logosSlider = new Swiper('.js-logos-slider', {
 	},
 });
 logosSlider;
+
+const solutionsSliderHldAll = document.querySelectorAll('.js-solutions-slider-hld');
+solutionsSliderHldAll.forEach(sliderHld => {
+	const solutionsSliderTabs = new Swiper(sliderHld.querySelector('.js-solutions-slider-tabs'), {
+		slidesPerView: 'auto',
+		resistance: false,
+		allowTouchMove: false,
+		touchStartForcePreventDefault: true,
+	});
+	solutionsSliderTabs;
+	const solutionsSliderItems = new Swiper(sliderHld.querySelector('.js-solutions-slider-items'), {
+		effect: 'fade',
+		thumbs: {
+			swiper: solutionsSliderTabs,
+			multipleActiveThumbs: false,
+		},
+		autoHeight: true,
+		hashNavigation: {
+			replaceState: true,
+			watchState: true,
+		},
+		simulateTouch: false,
+	});
+	solutionsSliderItems;
+});

@@ -5,6 +5,7 @@ import './scripts/accordion';
 import './scripts/bubbles';
 import './scripts/buyTilesIcons';
 import './scripts/loadMore';
+import './scripts/solutionsDetails';
 // OLD
 import './scripts/sliders';
 import './scripts/doge';

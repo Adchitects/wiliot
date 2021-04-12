@@ -1,5 +1,6 @@
 .u-section--solutions-details {
 	margin-top: 0;
+	margin-bottom: 2000px;
 }
 
 .solutions-details {
@@ -89,5 +90,156 @@
 
 	&__content-title {
 		margin-top: 15px;
+	}
+
+	&__tabs-slider {
+		margin-top: 80px;
+	}
+
+	&__tabs-slider-wrapper {
+		justify-content: center;
+	}
+
+	&__tab-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		width: 250px;
+		height: 60px;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		font-weight: 500;
+		transition: background-color 0.2s;
+
+		&:hover,
+		&.swiper-slide-thumb-active {
+			background-color: $c-white;
+		}
+
+		&.swiper-slide-thumb-active {
+			font-weight: 900;
+		}
+	}
+
+	&__content-slider {
+		display: flex;
+		overflow: unset;
+	}
+
+	&__content-item {
+		display: none !important;
+		padding-top: 125px;
+		background-color: $c-white;
+		text-align: left;
+		opacity: 0 !important;
+
+		&.swiper-slide-active {
+			display: flex !important;
+			opacity: 1 !important;
+		}
+
+		.box {
+			width: 50%;
+
+			&--a {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				position: sticky;
+				top: 50px;
+				height: 365px;
+				padding-top: 60px;
+				padding-left: 65px;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 120px;
+					bottom: 0;
+					left: 0;
+					z-index: -1;
+					pointer-events: none;
+					border-top-right-radius: 8px;
+					border-bottom-right-radius: 8px;
+					background-image: linear-gradient(188.82deg, #F5F5FC 0%, #F5F9FC 100%);
+				}
+			}
+
+			&--b {
+				padding-right: 20%;
+				padding-left: 10px;
+			}
+
+			&__nav-item {
+				cursor: pointer;
+				width: calc(100% - 365px - 60px);
+				padding: 11px 0;
+
+				&:hover {
+					.text-hld {
+						opacity: 0.5;
+					}
+				}
+
+				&.is-active {
+					.text-hld {
+						font-weight: 900;
+					}
+
+					.image-hld {
+						opacity: 1;
+					}
+				}
+
+				.text-hld {
+					display: flex;
+					font-weight: 300;
+					transition: opacity 0.2s;
+
+					.name {
+						margin-left: 10px;
+					}
+				}
+
+				.image-hld {
+					position: absolute;
+					top: 0;
+					right: 120px;
+					width: 305px;
+					height: 100%;
+					transition: opacity 0.2s;
+					opacity: 0;
+
+					img {
+						width: 100%;
+						height: 100%;
+						border-top-right-radius: 8px;
+						border-bottom-right-radius: 8px;
+						object-fit: cover;
+					}
+				}
+			}
+
+			&__content-item {
+				margin-bottom: 85px;
+
+				.name {
+					color: $c-accent;
+					font-weight: 500;
+				}
+
+				.title {
+					margin-top: 10px;
+					font-weight: 900;
+				}
+
+				.description {
+					margin-top: 10px;
+					margin-bottom: 35px;
+				}
+			}
+		}
 	}
 }
