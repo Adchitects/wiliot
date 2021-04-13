@@ -79,7 +79,6 @@ const solutionsSliderHldAll = document.querySelectorAll('.js-solutions-slider-hl
 solutionsSliderHldAll.forEach(sliderHld => {
 	const solutionsSliderTabs = new Swiper(sliderHld.querySelector('.js-solutions-slider-tabs'), {
 		slidesPerView: 'auto',
-		resistance: false,
 		allowTouchMove: false,
 		touchStartForcePreventDefault: true,
 	});

@@ -1,6 +1,7 @@
 {% set title = entry.outroTitle %}
 {% set description = entry.outroDescription %}
 {% set button = entry.outroButton %}
+{% set button2 = entry.outroButton2 %}
 {% set subtitle = entry.outroSubtitle %}
 {% if title or description %}
 	<section class="u-section u-section--outro">
@@ -11,12 +12,19 @@
 					<span class="outro__subtitle">{{subtitle}}</span>
 				{% endif %}
 				{% if title %}
-					<h2 class="outro__title u-title u-title--medium">{{ title|nl2br }}</h2>
+					<h2 class="outro__title u-title u-title--medium-big">{{ title|nl2br }}</h2>
 				{% endif %}
 				{% if description %}
 					<div class="outro__description">{{ description }}</div>
 				{% endif %}
-				{% if button %}
+				{% if button and button2 %}
+					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--bordered">
+						<span class="text">{{ button.title }}</span>
+					</a>
+					<a href="{{ button2.url }}" target="{{ button2.target ? '_blank' : '_self' }}" rel="{{ button2.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
+						<span class="text">{{ button2.title }}</span>
+					</a>
+				{% elseif button %}
 					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
 						<span class="text">{{ button.title }}</span>
 					</a>

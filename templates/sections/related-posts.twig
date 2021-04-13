@@ -4,9 +4,7 @@
 			<h2 class="u-title related-news__title">Related news</h2>
 			{% set postRelatedCategories = entry.postRelatedCategories %}
 			{% set postMainCategory = entry.postMainCategory %}
-			{% set relatedEntries = craft.entries.section('newsPosts').relatedTo(['or',{ targetElement: postRelatedCategories,field: 'postRelatedCategories' },{targetElement: postMainCategory,
-	                field: 'postMainCategory' }
-	]).id('not '~entry.id) %}
+			{% set relatedEntries = craft.entries.section('newsPosts').relatedTo(['or',{ targetElement: postRelatedCategories,field: 'postRelatedCategories' },{targetElement: postMainCategory, field: 'postMainCategory' }]).id('not '~entry.id) %}
 			<div class="related-news__listing">
 				{% set relatedNews = relatedEntries.limit(3) %}
 				{% if relatedNews|length %}

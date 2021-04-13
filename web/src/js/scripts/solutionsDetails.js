@@ -19,8 +19,8 @@ toggleActiveHldAll.forEach(hld => {
 							scrollTrigger: {
 								// markers: true,
 								trigger: contentItem,
-								start: 'top 40%', // when the top of the trigger hits the 40% of the viewport
-								end: 'top 40%',
+								start: 'top 29%', // when the top of the trigger hits the 40% of the viewport
+								end: 'top 29%',
 								scrub: true,
 								onEnter: () => navItem.classList.toggle('is-active'),
 								onLeaveBack: () => navItem.classList.toggle('is-active'),
