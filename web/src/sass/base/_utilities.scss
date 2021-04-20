@@ -54,6 +54,11 @@
 		}
 	}
 
+	&--medium-big {
+		font-size: 48px;
+		line-height: 56px;
+	}
+
 	&--medium {
 		font-size: 40px;
 		line-height: 48px;
@@ -148,6 +153,23 @@
 			.text {
 				color: $c-accent;
 			}
+		}
+	}
+
+	&--bordered {
+		padding: 15px 40px;
+		border: 1px solid rgba($c-white, 0.6);
+		border-radius: 30px;
+		background-color: transparent;
+		transition: background-color 0.2s, border-color 0.2s;
+
+		.text {
+			color: $c-white;
+		}
+
+		&:hover {
+			border-color: $c-accent;
+			background-color: $c-accent;
 		}
 	}
 

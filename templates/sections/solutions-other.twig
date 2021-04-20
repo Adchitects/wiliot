@@ -1,0 +1,41 @@
+{% set relatedEntries = craft.entries.section('solutionsDetails').id('not '~entry.id) %}
+{% set relatedSolutions = relatedEntries.limit(2) %}
+<section class="u-section u-section--solutions-other">
+	<div class="u-wrapper">
+		<div class="solutions-other">
+			<div class="solutions-other__title u-title u-title--section">Discover our other <br> solutions</div>
+			{% if relatedSolutions|length %}
+				<div class="solutions-other__items-hld">
+					{% for item in relatedSolutions %}
+						{% set image = item.solutionHeroImage.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl() %}
+							{% set imageWidth = image.getWidth() %}
+							{% set imageHeight = image.getHeight() %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{% set title = item.title %}
+						{% set desc = item.solutionHeroBottomDescription|striptags %}
+						{% set descSliced = desc|slice(0, 52) ~ '...' %}
+						<a href="{{ item.url}}" class="solutions-other__item item">
+							<div class="item__image-hld">
+								{% if image %}
+									<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
+								{% else %}
+									<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+								{% endif %}
+							</div>
+							<div class="item__text-hld">
+								<div class="item__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+								<div class="item__description">{{ desc|length > 55 ? descSliced|raw : desc|raw }}</div>
+								<div class="item__btn u-btn u-btn--arrow">
+									<span class="text">Learn more</span>
+								</div>
+							</div>
+						</a>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>

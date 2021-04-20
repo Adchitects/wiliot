@@ -1,0 +1,12 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.title }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{{ include('/sections/solutions-details-inner.twig') }}
+	{{ include('/sections/outro.twig') }}
+	{{ include('/sections/solutions-other.twig') }}
+{% endblock %}
