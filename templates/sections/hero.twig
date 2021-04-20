@@ -2,6 +2,8 @@
 	{% set subtitle = entry.heroSubtitle %}
 	{% set title = entry.heroTitle %}
 	{% set size = entry.heroSizes.value %}
+	{% set descriptionBold = entry.heroDescriptionBold %}
+	{% set description = entry.heroDescription %}
 {% elseif category is defined %}
 	{% set subtitle = category.heroSubtitle %}
 	{% set title = category.heroTitle %}
@@ -17,6 +19,12 @@
 				{% endif %}
 				{% if title %}
 					<h1 class="hero__title u-title u-title--big">{{ title }}</h1>
+				{% endif %}
+				{% if descriptionBold %}
+					<p class="hero__description hero__description--bold">{{ descriptionBold }}</p>
+				{% endif %}
+				{% if description %}
+					<p class="hero__description">{{ description }}</p>
 				{% endif %}
 			</div>
 		</div>
