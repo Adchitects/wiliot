@@ -8,6 +8,14 @@
 		padding: 0 30px;
 	}
 
+	.u-section--logos-slider-no-arrows {
+		margin-top: 0;
+
+		.logos-slider__slider-wrapper {
+			margin-top: 64px;
+		}
+	}
+
 	.logos-slider__title {
 		font-size: 32px;
 		font-weight: 900;
@@ -37,6 +45,17 @@
 
 		@include media-max(640) {
 			width: 100%;
+		}
+	}
+
+	.swiper-slide {
+		> div {
+			margin-top: 14px;
+			color: $c-gray;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 16px;
+			text-align: center;
 		}
 	}
 

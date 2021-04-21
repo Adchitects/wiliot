@@ -54,7 +54,7 @@ freemodeSlider;
 
 const logosSlider = new Swiper('.js-logos-slider', {
 	noSwiping: true,
-	slidesPerView: 8,
+	slidesPerView: 7,
 	spaceBetween: 48,
 
 	breakpoints: {
@@ -87,7 +87,7 @@ const logosSlider = new Swiper('.js-logos-slider', {
 			},
 		},
 		1360: {
-			slidesPerView: 8,
+			slidesPerView: 7,
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',

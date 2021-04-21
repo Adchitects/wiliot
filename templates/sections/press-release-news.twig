@@ -1,0 +1,43 @@
+<section class="u-section--press-release u-section">
+	<div class="u-wrapper">
+		<div class="press-release js-load-more-hld">
+			<h2 class="u-title u-title--section press-release__title">Wiliot Press Releases</h2>
+			{% set cat = craft.categories.slug('press-release').one() %}
+			{% set latestEntries = craft.entries.relatedTo(cat).all() %}
+			<div class="press-release__listing">
+				{% set latestNews = latestEntries %}
+				{% if latestNews|length %}
+					{% for post in latestNews %}
+						{% set image = post.newsPostsfeaturedImage.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl() %}
+							{% set imageWidth = image.getWidth() %}
+							{% set imageHeight = image.getHeight() %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{% set title = post.title %}
+						<a href="{{ post.url}}" class="post js-load-more-item" data-max-items="3" data-load-items="3">
+							<div class="post__image-hld">
+								{% if image %}
+									<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
+								{% else %}
+									<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+								{% endif %}
+							</div>
+							<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
+							<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+							<div class="post__btn u-btn u-btn--arrow">
+								<span class="text">Read more</span>
+							</div>
+						</a>
+					{% endfor %}
+				{% endif %}
+			</div>
+			<button class="press-release__btn u-btn u-btn--light js-load-more-btn">
+				<span class="text">
+					Load More
+				</span>
+			</button>
+		</div>
+	</div>
+</section>

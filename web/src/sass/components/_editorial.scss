@@ -1,0 +1,42 @@
+.u-section--editorial {
+	padding: 140px 0;
+	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+
+	@include media-max(767) {
+		padding: 80px 0;
+	}
+
+	.editorial {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 624px;
+		margin: 0 auto;
+
+		&__subtitle {
+			margin-bottom: 44px;
+
+			@include media-max(767) {
+				margin-bottom: 32px;
+			}
+		}
+
+		&__title {
+			margin-bottom: 42px;
+			font-size: 24px;
+			font-weight: 900;
+			line-height: 36px;
+			text-align: center;
+
+			@include media-max(767) {
+				margin-bottom: 32px;
+				font-size: 20px;
+				line-height: 32px;
+			}
+		}
+
+		&__magazine {
+			margin-bottom: 50px;
+		}
+	}
+}

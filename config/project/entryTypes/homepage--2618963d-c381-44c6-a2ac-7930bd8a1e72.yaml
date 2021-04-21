@@ -182,6 +182,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 27470b2f-bd24-4902-9cc9-0ae02ba6d8b4 # Logos Show Arrows
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 5eab1f92-40f5-468b-806f-344696ecca4b # Logos Slider Items
             instructions: null
             label: null

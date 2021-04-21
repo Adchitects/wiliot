@@ -1,5 +1,5 @@
-const partnersVideoHldAll = document.querySelectorAll('.js-partners-video-hld');
-partnersVideoHldAll.forEach(hld => {
+const videoHldAll = document.querySelectorAll('.js-video-hld');
+videoHldAll.forEach(hld => {
 	const vid = hld.querySelector('video');
 	let videoIsPlayed = false;
 	vid.addEventListener('click', () => {
