@@ -14,7 +14,7 @@ bgShapeHldAll.forEach(hld => {
 		const bgShapeVersion = bgShape.dataset.version;
 		gsap.to(hld, {
 			scrollTrigger: {
-				markers: true,
+				// markers: true,
 				trigger: hld,
 				start: 'top 85%', // when the top of the trigger hits the 90% of the viewport
 				end: 'bottom 10%',
