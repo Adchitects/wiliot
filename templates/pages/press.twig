@@ -1,0 +1,15 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.section }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{{ include('/sections/hero.twig') }}
+	{{ include('/sections/logos-slider.twig') }}
+	{{ include('/sections/editorial.twig') }}
+	{{ include('/sections/press-release-news.twig') }}
+	{{ include('/sections/press-kit.twig') }}
+
+{% endblock %}

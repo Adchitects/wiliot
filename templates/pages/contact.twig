@@ -1,0 +1,10 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.section }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{{ include('/sections/contact.twig') }}
+{% endblock %}

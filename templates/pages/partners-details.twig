@@ -53,14 +53,15 @@
 									<div class="partners-details__category">{{ cat.title }}</div>
 								{% endfor %}
 							</div>
-							<div class="partners-details__description">{{ description }} </div>
+							<div class="partners-details__description">{{ description }}
+							</div>
 						</div>
 						<a href="{{ websiteLink }}" target="_blank" rel="noopener noreferrer" class="partners-details__website-btn u-btn u-btn--light">
 							<span class="text">Visit website</span>
 						</a>
 					</div>
 					{% if partnerVideoFile|length %}
-						<div class="partners-details__video-hld js-partners-video-hld is-paused">
+						<div class="partners-details__video-hld js-video-hld is-paused">
 							<span class="icon icon-Triangle"></span>
 							<video class="js-lazy" data-src="{{ partnerVideoFileUrl }}"></video>
 						</div>
