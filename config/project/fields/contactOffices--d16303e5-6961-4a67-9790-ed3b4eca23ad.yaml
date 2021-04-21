@@ -1,11 +1,11 @@
 contentColumnType: string
-fieldGroup: d07372ba-d1d9-4dd7-8445-876845e91761 # Logos Slider
-handle: logosSliderItems
+fieldGroup: 21d49cb5-ea4c-47f8-968f-1f576d33384b # Contact
+handle: contactOffices
 instructions: ''
-name: 'Logos Slider Items'
+name: Offices
 searchable: false
 settings:
-  contentTable: '{{%matrixcontent_logosslideritems}}'
+  contentTable: '{{%matrixcontent_contactoffices}}'
   maxBlocks: ''
   minBlocks: ''
   propagationMethod: all

@@ -1,0 +1,81 @@
+field: 2f3feab1-a7d5-4b0e-8a24-93c4e4b2fc4d # Videos
+fieldLayouts:
+  f0f08e49-4429-4384-9023-9b62cefc1a7f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e8152479-ce90-4f3f-bae1-aeed0642352b # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ccb96383-493f-4b28-bee1-c3132009a58e # Asset
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  ccb96383-493f-4b28-bee1-c3132009a58e: # Asset
+    contentColumnType: string
+    fieldGroup: null
+    handle: videoAsset
+    instructions: ''
+    name: Asset
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  e8152479-ce90-4f3f-bae1-aeed0642352b: # Title
+    contentColumnType: text
+    fieldGroup: null
+    handle: videoTitle
+    instructions: ''
+    name: Title
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: video
+name: Video
+sortOrder: 1

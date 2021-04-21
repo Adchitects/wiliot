@@ -1,0 +1,88 @@
+.u-section--contact {
+	margin-top: 0;
+	padding-top: 254px;
+	padding-bottom: 96px;
+	background-color: $c-light;
+
+	.contact {
+		@include media-max(899) {
+			max-width: 624px;
+			margin: 0 auto;
+		}
+
+		&__content {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 24px;
+
+			@include media-max(1099) {
+				grid-gap: 32px 48px;
+			}
+
+			@include media-max(899) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+		}
+
+		&__form {
+			background-color: $c-accent-dark;
+		}
+
+		&__header {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 112px;
+			padding-left: 106px;
+
+			@include media-max(1099) {
+				padding-left: 0;
+			}
+
+			h1 {
+				margin-top: 12px;
+			}
+		}
+
+		&__image {
+			margin-bottom: 90px;
+		}
+
+		&__address {
+			display: flex;
+			flex-direction: column;
+			padding: 0 84px 0 106px;
+
+			@include media-max(1099) {
+				padding: 0;
+			}
+		}
+
+		&__offices {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.office {
+			margin-bottom: 64px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			&__name {
+				margin-top: 0;
+				margin-bottom: 24px;
+				font-size: 24px;
+				font-weight: 900;
+				line-height: 36px;
+			}
+
+			&__address {
+				font-size: 16px;
+				font-weight: 300;
+				line-height: 26px;
+				opacity: 0.8;
+			}
+		}
+	}
+}

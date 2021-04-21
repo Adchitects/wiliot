@@ -1,5 +1,11 @@
 {% set title = entry.fiftyFiftyTitle %}
 {% set subtitle = entry.fiftyFiftySubtitle %}
+{% set numeration = entry.fiftyFiftyNumeration %}
+
+{% if numeration %}
+	{% set numeration = numeration.contains('true') %}
+{% endif %}
+
 {% set rows = entry.fiftyFiftyRows %}
 
 <section class="u-section u-section--fifty-fifty">
@@ -17,13 +23,26 @@
 						{% set title = item.rowTitle %}
 						{% set description = item.rowDescription %}
 						{% set image = item.rowImage.one() %}
-						<div class="row {{loop.index % 2 == 0 ? 'row--reversed' : ''}}">
+						{% set button = item.rowButton %}
+						<div class="row {{loop.index % 2 == 0 ? '' : 'row--reversed'}}">
 							<div class="row__content">
-								<h3 class="row__title">{{title}}</h3>
-								<p class="row__description">{{description}}</p>
+								{% if numeration %}
+									<span class="row__number">{{ loop.index < 10 ? '0'~loop.index : loop.index }}</span>
+								{% endif %}
+								{% if title %}
+									<h3 class="row__title">{{title}}</h3>
+								{% endif %}
+								{% if description %}
+									<p class="row__description">{{description}}</p>
+								{% endif %}
+								{% if button.getUrl() %}
+									<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light row__button">
+										{{button.customText}}</a>
+								{% endif %}
+
 							</div>
 							<div class="row__image">
-								<img src="{{image.getUrl()}}" alt="{{title}}">
+								<img class="js-lazy" data-src="{{image.getUrl()}}" alt="{{title}}">
 							</div>
 						</div>
 					{% endfor %}
