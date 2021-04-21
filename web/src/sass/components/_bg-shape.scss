@@ -1,0 +1,132 @@
+
+.bg-shape {
+	position: absolute;
+	pointer-events: none;
+	filter: blur(40px);
+	user-select: none;
+
+	&--top-right {
+		top: 0;
+		right: 0;
+		width: 500px;
+		height: 600px;
+
+		.s1,
+		.s2,
+		.s3 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 400px;
+			height: 450px;
+			background-image: linear-gradient(300deg, #1CBF44 0%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+		
+		.s1 {
+			clip-path: polygon(59% 1%, 100% 0, 100% 35%, 100% 71%, 100% 93%, 80% 77%, 58% 66%, 25% 69%, 6% 45%, 24% 16%);
+		}
+
+		.s2 {
+			opacity: 0;
+			clip-path: polygon(36% 0, 100% 4%, 96% 46%, 100% 71%, 100% 94%, 69% 100%, 50% 85%, 19% 89%, 8% 61%, 2% 18%);
+		}
+
+		.s3 {
+			height: 550px;
+			opacity: 0;
+			clip-path: polygon(66% 0, 100% 0, 100% 40%, 100% 71%, 88% 90%, 62% 90%, 44% 75%, 16% 79%, 28% 54%, 28% 23%);
+		}
+	}
+
+	&--center-right {
+		top: 200px;
+		right: 0;
+		width: 400px;
+		height: 800px;
+
+		.s1 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 300px;
+			height: 700px;
+			background-image: linear-gradient(15deg, #255EEA 0%, #1CBF44 0.38%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+		
+		.s1 {
+			clip-path: polygon(100% 7%, 100% 95%, 93% 87%, 88% 74%, 87% 59%, 84% 49%, 58% 23%, 56% 12%, 67% 5%, 89% 2%);
+		}
+	}
+
+	&--bottom-right {
+		right: 0;
+		bottom: 0;
+		width: 600px;
+		height: 300px;
+
+		.s1,
+		.s2 {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 500px;
+			height: 250px;
+			background-image: radial-gradient(circle, rgba(#255EEA, 0.55) 0%, #1CBF44 42.79%, #00F0F3 80.25%, #FFFFFF 100%);
+		}
+		
+		.s1 {
+			clip-path: polygon(58% 47%, 71% 42%, 87% 38%, 100% 36%, 100% 100%, 70% 100%, 49% 100%, 20% 100%, 28% 71%, 43% 55%);
+		}
+
+		.s2 {
+			opacity: 0;
+			clip-path: polygon(30% 35%, 40% 48%, 51% 64%, 68% 73%, 100% 100%, 70% 100%, 18% 100%, 10% 80%, 5% 61%, 13% 41%);
+		}
+	}
+
+	&--bottom-left {
+		bottom: 0;
+		left: 0;
+		width: 800px;
+		height: 300px;
+
+		.s1,
+		.s2 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 800px;
+			height: 200px;
+			background-image: linear-gradient(121.16deg, #255EEA 0%, #1CBF44 0.38%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+		
+		.s1 {
+			clip-path: polygon(48% 47%, 59% 84%, 67% 89%, 83% 86%, 92% 99%, 75% 100%, 35% 100%, 0 100%, 12% 56%, 32% 28%);
+		}
+
+		.s2 {
+			opacity: 0;
+			clip-path: polygon(46% 71%, 57% 60%, 73% 28%, 88% 58%, 92% 99%, 70% 100%, 35% 100%, 4% 100%, 16% 63%, 28% 56%);
+		}
+	}
+
+	&--center-left {
+		top: 320px;
+		left: 0;
+		width: 300px;
+		height: 450px;
+
+		.s1 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 350px;
+			background-image: linear-gradient(15deg, #255EEA 0%, #1CBF44 0.38%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+		
+		.s1 {
+			clip-path: polygon(37% 47%, 35% 61%, 27% 76%, 17% 89%, 0 99%, 0 9%, 10% 10%, 22% 13%, 32% 22%, 36% 34%);
+		}
+	}
+}

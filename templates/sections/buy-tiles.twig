@@ -2,7 +2,13 @@
 {% set title = entry.buyTitle %}
 {% set tilesMatrix = entry.tiles.all() %}
 {% if title or subtitle %}
-<section class="u-section u-section--buy-tiles">
+<section class="u-section u-section--buy-tiles js-bg-shape-hld">
+	<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
+		<div class="s1 js-s1"></div>
+	</div>
+	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+		<div class="s1 js-s1"></div>
+	</div>
 	<div class="buy-tiles">
 		<div class="u-wrapper">
 			<div class="buy-tiles__text-hld">

@@ -8,7 +8,16 @@
 	{% set size = category.heroSizes.value %}
 {% endif %}
 {% if entry is defined or category is defined %}
-	<section class="u-section u-section--hero is-{{ size }}">
+	<section class="u-section u-section--hero is-{{ size }} js-bg-shape-hld">
+		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+			<div class="s1 js-s1"></div>
+			<div class="s2 js-s2"></div>
+			<div class="s3 js-s3"></div>
+		</div>
+		<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+			<div class="s1 js-s1"></div>
+			<div class="s2 js-s2"></div>
+		</div>
 		<div class="hero">
 			<div class="hero__bg"></div>
 			<div class="hero__text-hld u-wrapper">
