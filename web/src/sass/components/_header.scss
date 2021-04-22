@@ -1,0 +1,21 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 500;
+	width: 100%;
+
+	&--desktop {
+		@include mobile-959 {
+			display: none;
+		}
+	}
+
+	&--mobile {
+		display: none;
+
+		@include mobile-959 {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,66 @@
+{% set pages = craft.entries.section('menuDesktop').all() %}
+<nav class="menu-desktop">
+	<div class="menu-desktop__logo-hld">
+	</div>
+	<ul class="menu-desktop__list">
+		{% nav page in pages %}
+			{% set menuDesktopTitle = page.title %}
+			{% set menuDesktopPageLink = page.menuDesktopPageLink %}
+			{% set menuDesktopDescription = page.menuDesktopDescription %}
+			{% set menuDesktopButtonsMatrix = page.menuDesktopButtonsMatrix.all() %}
+			{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
+			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
+			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown {% endif %}">
+			{% if menuDesktopPageLink.url %}
+				<a href="{{ menuDesktopPageLink.url }}" class="inner">
+					<span class="text">{{ menuDesktopTitle }}</span>
+				</a>
+			{% else %}
+				<div class="inner">
+					<span class="text">{{ menuDesktopTitle }}</span>
+				</div>
+			{% endif %}
+				{% if menuDesktopDescription %}
+					<div class="menu-desktop__dropdown">
+						<div class="menu-desktop__dropdown-box menu-desktop__dropdown-box--left">
+							<div class="title">{{ menuDesktopTitle }}</div>
+							<div class="description">{{ menuDesktopDescription }}</div>
+							<div class="buttons-hld">
+								{% for item in menuDesktopButtonsMatrix %}
+									{% set button = item.button %}
+									<a href="{{ button.url }}" class="btn u-btn u-btn--arrow">
+										<span class="text">
+											{% if button.customText %}
+												{{ button.customText }}
+											{% else %}
+												{{ menuDesktopTitle }}
+											{% endif %}
+										</span>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="menu-desktop__dropdown-box menu-desktop__dropdown-box--right">
+							<div class="title u-subtitle u-subtitle--section">{{ menuDesktopSubnavTitle }}</div>
+							<div class="subnav-hld">
+								{% for subnavItem in menuDesktopSubnavItemsMatrix %}
+									{% set item = subnavItem.item %}
+									<a href="{{ item.url }}" class="subnav-item u-btn u-btn--arrow">
+										<span class="text">
+											{{ item.customText }}
+										</span>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+				{% ifchildren %}
+					<ul class="hidden-children">
+						{% children %}
+					</ul>
+				{% endifchildren %}
+			</li>
+		{% endnav %}
+	</ul>
+</nav>
