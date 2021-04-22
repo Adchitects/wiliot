@@ -1,0 +1,108 @@
+contentColumnType: text
+fieldGroup: 982f378c-de5e-42b5-b61d-83ca7ba35d43 # Subscribe
+handle: subscribeButton
+instructions: ''
+name: Button
+searchable: false
+settings:
+  allowCustomText: '1'
+  allowTarget: ''
+  allowedLinkNames:
+    9: url
+  autoNoReferrer: ''
+  defaultLinkName: url
+  defaultText: ''
+  enableAriaLabel: ''
+  enableTitle: ''
+  typeSettings:
+    __assoc__:
+      -
+        - asset
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - category
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - entry
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - site
+        -
+          __assoc__:
+            -
+              - sites
+              - '*'
+      -
+        - user
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - custom
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - email
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - tel
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - url
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+translationKeyFormat: null
+translationMethod: none
+type: typedlinkfield\fields\LinkField
