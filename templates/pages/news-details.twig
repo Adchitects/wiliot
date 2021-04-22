@@ -12,7 +12,16 @@
 	{% set heroImage = entry.newsPostsfeaturedImage.one() %}
 	{% set newsContent = entry.postContent %}
 	{% set postDate = entry.postDate|date("F d, Y") %}
-	<section class="u-section u-section--hero-news">
+	<section class="u-section u-section--hero-news js-bg-shape-hld">
+		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+			<div class="s1 js-s1"></div>
+			<div class="s2 js-s2"></div>
+			<div class="s3 js-s3"></div>
+		</div>
+		<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+			<div class="s1 js-s1"></div>
+			<div class="s2 js-s2"></div>
+		</div>
 		<div class="u-wrapper">
 			<div class="hero-news">
 				<span class="hero-news__category">{{ category }}</span>
@@ -24,7 +33,17 @@
 			</div>
 		</div>
 	</section>
-	<article class="news-single">
+	<article class="news-single js-bg-shape-hld">
+		<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
+			<div class="s1 js-s1"></div>
+		</div>
+		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+			<div class="s1 js-s1"></div>
+			<div class="s2 js-s2"></div>
+		</div>
+		<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+			<div class="s1 js-s1"></div>
+		</div>
 		<div class="u-wrapper">
 			<div class="news-single__content">
 				{{newsContent}}
