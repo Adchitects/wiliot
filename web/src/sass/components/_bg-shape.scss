@@ -1,8 +1,8 @@
 
 .bg-shape {
 	position: absolute;
-	pointer-events: none;
-	filter: blur(40px);
+	// pointer-events: none;
+	filter: blur(30px);
 	user-select: none;
 
 	&--top-right {

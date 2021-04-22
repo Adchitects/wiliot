@@ -3,6 +3,7 @@
 	padding-top: 254px;
 	padding-bottom: 96px;
 	background-color: $c-light;
+	overflow: hidden;
 
 	.contact {
 		@include media-max(899) {

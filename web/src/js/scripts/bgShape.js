@@ -6,12 +6,12 @@ const bgShapeHldAll = document.querySelectorAll('.js-bg-shape-hld');
 bgShapeHldAll.forEach(hld => {
 	const bgShapeAll = hld.querySelectorAll('.js-bg-shape');
 	bgShapeAll.forEach(bgShape => {
+		const bgShapeVersion = bgShape.dataset.version;
 		const tl = gsap.timeline({
 			repeat: -1, 
 			yoyo: true,
 		});
 		tl.pause();
-		const bgShapeVersion = bgShape.dataset.version;
 		gsap.to(hld, {
 			scrollTrigger: {
 				// markers: true,
@@ -51,6 +51,19 @@ bgShapeHldAll.forEach(hld => {
 				opacity: 1,
 				rotation: -15,
 			}, 4);
+			bgShape.addEventListener('click', () => {
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 5,
+					transformOrigin: 'center center',
+				});
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 1,
+					delay: 1,
+					transformOrigin: 'center center',
+				});
+			});
 		}
 		if (bgShapeVersion === 'center-right') {
 			const shape1 = bgShape.querySelector('.js-s1');
@@ -64,6 +77,19 @@ bgShapeHldAll.forEach(hld => {
 			tl.to(shape1, {
 				duration: 7,
 				scaleX: 0.5,
+			});
+			bgShape.addEventListener('click', () => {
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 5,
+					transformOrigin: 'right center',
+				});
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 1,
+					delay: 1,
+					transformOrigin: 'right center',
+				});
 			});
 		}
 		if (bgShapeVersion === 'bottom-right') {
@@ -79,21 +105,47 @@ bgShapeHldAll.forEach(hld => {
 				opacity: 1,
 				rotation: -15,
 			}, 1);
+			bgShape.addEventListener('click', () => {
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 5,
+					transformOrigin: 'bottom center',
+				});
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 1,
+					delay: 1,
+					transformOrigin: 'bottom center',
+				});
+			});
 		}
 		if (bgShapeVersion === 'bottom-left') {
 			const shape1 = bgShape.querySelector('.js-s1');
 			const shape2 = bgShape.querySelector('.js-s2');
 			tl.to(shape1, {
-				duration: 4,
+				duration: 5,
 				x: -100,
 				opacity: 0,
 				scale: 1.2,
 			});
 			tl.to(shape2, {
-				duration: 4,
+				duration: 5,
 				opacity: 1,
-				rotation: 10,
+				rotation: -5,
 			}, 1);
+			bgShape.addEventListener('click', () => {
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 5,
+					transformOrigin: 'bottom left',
+				});
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 1,
+					delay: 1,
+					transformOrigin: 'bottom left',
+				});
+			});
 		}
 		if (bgShapeVersion === 'center-left') {
 			const shape1 = bgShape.querySelector('.js-s1');
@@ -109,6 +161,19 @@ bgShapeHldAll.forEach(hld => {
 				y: 300,
 				scaleX: 3,
 				scaleY: 2,
+			});
+			bgShape.addEventListener('click', () => {
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 5,
+					transformOrigin: 'top left',
+				});
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 1,
+					delay: 1,
+					transformOrigin: 'top left',
+				});
 			});
 		}
 	});
