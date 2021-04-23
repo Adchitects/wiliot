@@ -1,4 +1,5 @@
 // SCRIPTS
+import './scripts/header';
 import './scripts/partnersFilters';
 import './scripts/video';
 import './scripts/accordion';
