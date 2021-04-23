@@ -71,14 +71,23 @@
 			display: flex;
 			align-items: center;
 
+			@include media-max(480) {
+				flex-direction: column;
+			}
+
+			button {
+				margin-left: 16px;
+
+				@include media-max(480) {
+					margin-top: 24px;
+					margin-left: 0;
+				}
+			}
+
 			.btn {
 				width: 192px;
 				padding: 15px 38px;
 				text-align: center;
-
-				&:first-of-type {
-					margin-right: 16px;
-				}
 			}
 		}
 	}
