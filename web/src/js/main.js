@@ -1,4 +1,5 @@
 // SCRIPTS
+import './scripts/header';
 import './scripts/partnersFilters';
 import './scripts/video';
 import './scripts/accordion';
@@ -8,6 +9,7 @@ import './scripts/loadMore';
 import './scripts/sliding-boxes';
 import './scripts/solutionsDetails';
 import './scripts/forms';
+import './scripts/bgShape';
 // OLD
 import './scripts/sliders';
 import './scripts/doge';

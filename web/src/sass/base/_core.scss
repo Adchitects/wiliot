@@ -1,5 +1,5 @@
 *::selection {
-	background-color: $c-accent;
+	background-color: $c-orange;
 	color: $c-white;
 }
 
@@ -16,6 +16,7 @@ body {
 img {
 	display: block;
 	max-width: 100%;
+	user-select: none;
 	transition: opacity 0.2s;
 	object-fit: cover;
 

@@ -15,6 +15,9 @@
 // @import '../../node_modules/swiper/components/navigation/navigation.scss'; // Import needed modules of swiper too
 
 // CONTENT / COMPONENTS / SECTIONS / TABS / VIEWS
+@import 'components/header';
+@import 'components/menu-desktop';
+@import 'components/bg-shape';
 @import 'components/hero';
 @import 'components/intro';
 @import 'components/outro';

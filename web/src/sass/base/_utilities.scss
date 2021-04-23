@@ -150,12 +150,17 @@
 				right: -22px;
 				font-family: 'icomoon', sans-serif;
 				font-size: 12px;
+				transition: transform 0.2s;
 			}
 		}
 
 		&:hover {
 			.text {
 				color: $c-accent;
+
+				&::before {
+					transform: translateX(2px);
+				}
 			}
 		}
 	}

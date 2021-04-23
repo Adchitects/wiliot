@@ -55,7 +55,9 @@
 		</head>
 	{% endblock %}
 	<body>
-		<header></header>
+		<header class="header header--desktop js-header">
+			{{ include('/sections/menu-desktop.twig') }}
+		</header>
 		<main>
 			{% block main %}
 				{{ include('/sections/hero-image-right.twig') }}
