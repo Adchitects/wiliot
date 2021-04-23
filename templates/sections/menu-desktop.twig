@@ -12,27 +12,27 @@
 			{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
 			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if page.slug == entry.slug %} is-active {% endif %}">
-			{% if menuDesktopPageLink.url %}
-				<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
-					{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
-						<span class="icon icon-user"></span>
-					{% endif %}
-					<span class="text">{{ menuDesktopTitle }}</span>
-					{% if menuDesktopDescription %}
-						<span class="icon icon-dropdown-down"></span>
-					{% endif %}
-				</a>
-			{% else %}
-				<div class="inner">
-					{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
-						<span class="icon icon-user"></span>
-					{% endif %}
-					<span class="text">{{ menuDesktopTitle }}</span>
-					{% if menuDesktopDescription %}
-						<span class="icon icon-dropdown-down"></span>
-					{% endif %}
-				</div>
-			{% endif %}
+				{% if menuDesktopPageLink.url %}
+					<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
+						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+							<span class="icon icon-user"></span>
+						{% endif %}
+						<span class="text">{{ menuDesktopTitle }}</span>
+						{% if menuDesktopDescription %}
+							<span class="icon icon-dropdown-down"></span>
+						{% endif %}
+					</a>
+				{% else %}
+					<div class="inner">
+						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+							<span class="icon icon-user"></span>
+						{% endif %}
+						<span class="text">{{ menuDesktopTitle }}</span>
+						{% if menuDesktopDescription %}
+							<span class="icon icon-dropdown-down"></span>
+						{% endif %}
+					</div>
+				{% endif %}
 				{% if menuDesktopDescription %}
 					<div class="menu-desktop__dropdown">
 						<div class="menu-desktop__dropdown-box menu-desktop__dropdown-box--left">

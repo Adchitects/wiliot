@@ -41,7 +41,6 @@ headerAll.forEach(header => {
 	};
 	const toggleHeader = (dir, curScroll) => {
 		if (dir === 2 && curScroll > headerHeight) {
-			console.log(headerHeight);
 			header.classList.add('is-scrolled-down');
 			header.style.transform = `translateY(-100%)`;
 			prevDirection = dir;

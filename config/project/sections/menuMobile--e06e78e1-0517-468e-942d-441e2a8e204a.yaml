@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: menuMobile
+name: 'Menu - mobile'
+propagationMethod: all
+siteSettings:
+  37de40b8-92bb-49a3-a07a-6f27ac6c2fb5: # Wiliot
+    enabledByDefault: true
+    hasUrls: true
+    template: menu-mobile/_entry
+    uriFormat: 'menu-mobile/{slug}'
+structure:
+  maxLevels: null
+  uid: d00ec8ff-bdde-4aad-9142-7c67fa0b7374
+type: structure
