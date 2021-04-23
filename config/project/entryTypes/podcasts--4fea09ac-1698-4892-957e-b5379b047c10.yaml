@@ -1,5 +1,5 @@
 fieldLayouts:
-  4b27edbf-c484-4af1-89a1-ee53b80cf64b:
+  7ff99ee0-ab3d-4778-ac9c-8efb6e795ff9:
     tabs:
       -
         elements:
@@ -26,62 +26,52 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
-          -
-            fieldUid: 0a6bb284-4bb7-433a-b923-6a73511b00e3 # Episode number
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: e18c7120-cd43-475e-99a5-a9b566fcb443 # Video ID
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 08c08a19-7586-4f73-8dcd-e05ee43122b5 # Excerpt
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 19e14f84-94c7-4ee4-9cd0-c5502ad3dcf8 # Image
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: a404d7db-a8ee-45b9-be68-9316c6209368 # Content
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 919d4ce0-d5c1-46c0-ad7c-9757ccd75260 # Transcript
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
         name: Content
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: f1baf234-3146-4bb7-9aa5-b01d7a4c639a # Hero video ID
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 71173714-9a88-4084-acbc-889afd1e58b7 # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3ec22c2c-bd0e-4cde-98d3-38c12c822cf9 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d291b510-16eb-4af9-8d2c-3911871da0a4 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Listing
+        sortOrder: 3
       -
         elements:
           -
@@ -111,13 +101,53 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-        name: Subscribe
-        sortOrder: 2
-handle: podcastDetails
-hasTitleField: true
-name: 'Podcast Details'
-section: 51c060f1-2569-4a4e-88d5-0ff236f6033b # Podcast Details
+        name: Newsletter
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 5971d9cf-3fca-4ded-99fc-fd9a8001b187 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 75944c9c-f5de-42f2-ac31-a334331afe1b # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ca96c945-4363-446a-abcd-bfe580e8818a # Video
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 90ff970f-4f7c-419b-b98a-e075e568c452 # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Featured
+        sortOrder: 5
+handle: podcasts
+hasTitleField: false
+name: Podcasts
+section: ebc5eb0f-9c5c-4c10-9073-bcae5d699c8a # Podcasts
 sortOrder: 1
-titleFormat: null
+titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

@@ -7,27 +7,27 @@
 {% endblock %}
 {% block main %}
 	{% set title = entry.title %}
-	{% set subtitle = entry.podcastDetailsSubtitle %}
-	{% set link = entry.podcastDetailsLink %}
+	{% set number = entry.podcastDetailsNumber %}
+	{% set id = entry.podcastDetailsID %}
 	{% set content = entry.podcastDetailsContent %}
 	{% set transcript = entry.podcastDetailsTranscript %}
 	{% set date = entry.postDate|date("F d, Y") %}
 	<section class="u-section u-section--hero-podcast-details">
-		<iframe id="ytplayer" allow="autoplay" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/OLLj3Gave5I?rel=1&autoplay=1&loop=1&playlist=OLLj3Gave5I&showinfo=0&wmode=transparent&controls=0&enablejsapi=1&origin=https://www.wiliot.com" frameborder="0"></iframe>
-		<div class="u-wrapper">
-			<div class="hero-podcast-details">
-				{% if link %}
-					<a href="{{link}}" class="hero-podcast-details__btn">
-						<span class="icon icon-Triangle"></span>Watch video</a>
-				{% endif %}
-			</div>
+		<div class="video-wrapper">
+			<iframe allow="autoplay" src="https://www.youtube.com/embed/{{id}}?rel=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={{id}}&amp;showinfo=0&amp;wmode=transparent&amp;controls=0&amp;enablejsapi=1&amp;origin=https://www.wiliot.com" frameborder="0" width="640" height="360" class="youtube-video"></iframe>
+		</div>
+		<div class="hero-podcast-details">
+			{% if id %}
+				<a target="_blank" href="https://www.youtube.com/watch?v={{id}}" class="hero-podcast-details__btn u-btn u-btn--white">
+					<span class="icon icon-Triangle"></span>Watch video</a>
+			{% endif %}
 		</div>
 	</section>
 	<article class="podcast-details">
 		<div class="u-wrapper u-wrapper--content">
 			<div class="podcast-details__header">
-				{% if subtitle %}
-					<h2 class="header__subtitle">{{subtitle}}</h2>
+				{% if number %}
+					<h2 class="header__subtitle">Mister Beacon Episode #{{number}}</h2>
 				{% endif %}
 				<h1 class="header__title">{{title}}</h1>
 				<span class="header__date">{{date}}</span>

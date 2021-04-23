@@ -1,8 +1,8 @@
 contentColumnType: text
 fieldGroup: 124f1ea9-b5e3-4adb-9255-3494228579eb # Podcast details
-handle: podcastDetailsSubtitle
+handle: podcastDetailsID
 instructions: ''
-name: Subtitle
+name: 'Video ID'
 searchable: false
 settings:
   byteLimit: null

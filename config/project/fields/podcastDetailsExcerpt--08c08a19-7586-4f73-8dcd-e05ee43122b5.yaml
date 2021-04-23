@@ -1,8 +1,8 @@
 contentColumnType: text
 fieldGroup: 124f1ea9-b5e3-4adb-9255-3494228579eb # Podcast details
-handle: podcastDetailsLink
+handle: podcastDetailsExcerpt
 instructions: ''
-name: Link
+name: Excerpt
 searchable: false
 settings:
   byteLimit: null
@@ -12,7 +12,7 @@ settings:
   initialRows: '4'
   multiline: ''
   placeholder: null
-  uiMode: normal
+  uiMode: enlarged
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\PlainText
