@@ -1,7 +1,8 @@
 {% set pages = craft.entries.section('menuDesktop').all() %}
 <nav class="menu-desktop">
-	<div class="menu-desktop__logo-hld">
-	</div>
+	<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="menu-desktop__logo-hld">
+		<img src="{{ alias('@assets/img/svg/logo.svg') }}" width="100" height="40" alt="Wiliot logo">
+	</a>
 	<ul class="menu-desktop__list">
 		{% nav page in pages %}
 			{% set menuDesktopTitle = page.title %}
@@ -10,14 +11,26 @@
 			{% set menuDesktopButtonsMatrix = page.menuDesktopButtonsMatrix.all() %}
 			{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
-			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown {% endif %}">
+			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if page.slug == entry.slug %} is-active {% endif %}">
 			{% if menuDesktopPageLink.url %}
-				<a href="{{ menuDesktopPageLink.url }}" class="inner">
+				<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
+					{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+						<span class="icon icon-user"></span>
+					{% endif %}
 					<span class="text">{{ menuDesktopTitle }}</span>
+					{% if menuDesktopDescription %}
+						<span class="icon icon-dropdown-down"></span>
+					{% endif %}
 				</a>
 			{% else %}
 				<div class="inner">
+					{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+						<span class="icon icon-user"></span>
+					{% endif %}
 					<span class="text">{{ menuDesktopTitle }}</span>
+					{% if menuDesktopDescription %}
+						<span class="icon icon-dropdown-down"></span>
+					{% endif %}
 				</div>
 			{% endif %}
 				{% if menuDesktopDescription %}
@@ -45,7 +58,7 @@
 							<div class="subnav-hld">
 								{% for subnavItem in menuDesktopSubnavItemsMatrix %}
 									{% set item = subnavItem.item %}
-									<a href="{{ item.url }}" class="subnav-item u-btn u-btn--arrow">
+									<a href="{{ item.url }}" class="subnav-item u-btn u-btn--arrow {% if item.url == entry.url %} is-active {% endif %}">
 										<span class="text">
 											{{ item.customText }}
 										</span>

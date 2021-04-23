@@ -53,4 +53,14 @@ headerAll.forEach(header => {
 	};
 	window.addEventListener('scroll', checkScroll);
 	window.addEventListener('load', checkScroll);	
+	// Check dropdown
+	const headerItemWithDropdownAll = header.querySelectorAll('.js-header-has-dropdown');
+	headerItemWithDropdownAll.forEach(itemWithDropdown => {
+		itemWithDropdown.addEventListener('mouseover', () => {
+			header.classList.add('is-dropdown-active');
+		});
+		itemWithDropdown.addEventListener('mouseleave', () => {
+			header.classList.remove('is-dropdown-active');
+		});
+	});
 });

@@ -45,7 +45,7 @@
 			padding: 15px 46px;
 			border-color: rgba(38, 40, 50, 0.6);
 
-			.icon-Triangle {
+			.icon-play {
 				transition: color 0.3s;
 			}
 
@@ -61,7 +61,7 @@
 			&:hover {
 				border-color: #27bcbe;
 
-				.icon-Triangle {
+				.icon-play {
 					color: $c-white;
 				}
 			}

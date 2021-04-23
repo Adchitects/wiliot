@@ -6,10 +6,11 @@ name: 'Page link'
 searchable: false
 settings:
   allowCustomText: ''
-  allowTarget: ''
+  allowTarget: '1'
   allowedLinkNames:
     3: entry
-  autoNoReferrer: ''
+    9: url
+  autoNoReferrer: '1'
   defaultLinkName: asset
   defaultText: ''
   enableAriaLabel: ''
