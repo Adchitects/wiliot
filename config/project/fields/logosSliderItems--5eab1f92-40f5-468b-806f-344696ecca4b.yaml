@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: d07372ba-d1d9-4dd7-8445-876845e91761 # Logos Slider
+handle: logosSliderItems
+instructions: ''
+name: 'Logos Slider Items'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_logosslideritems}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

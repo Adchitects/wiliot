@@ -1,0 +1,29 @@
+{% set excerpt = entry.heroImageRightExcerpt %}
+{% set title = entry.heroImageRightTitle %}
+{% set image = entry.heroImageRightImage.one() %}
+{% set videoLink = entry.heroImageRightVideoLink %}
+{% set button = entry.heroImageRightButton %}
+{% if entry is defined %}
+	<section class="u-section u-section--hero-img-right">
+		<div class="u-wrapper">
+			<div class="hero-img-right">
+				<div class="hero-img-right__content">
+					{% if title %}
+						<h1 class="hero-img-right__title u-title u-title--big">{{ title }}</h1>
+					{% endif %}
+					{% if excerpt %}
+						<span class="hero-img-right__excerpt u-subtitle u-subtitle--big">{{ excerpt }}</span>
+					{% endif %}
+					<div class="hero-img-right__buttons">
+						<a href="{{button.getUrl()}}" class="btn btn--learn-more u-btn u-btn--accent">{{button.customText}}</a>
+						<button class="btn u-btn u-btn--light">
+							<span class="icon icon-play"></span>
+							<span data-video-src="{{videoLink}}" class="text">Watch video</span>
+						</button>
+					</div>
+				</div>
+				<img src="{{image.getUrl()}}" alt="{{title}}" class="hero-img-right__image">
+			</div>
+		</div>
+	</section>
+{% endif %}

@@ -1,0 +1,36 @@
+{% set title = entry.productOtherTitle %}
+{% set subtitle = entry.productOtherSubtitle %}
+{% set excerpt = entry.productOtherExcerpt %}
+{% set image = entry.productOtherImage.one().getUrl() %}
+{% set button = entry.productOtherButton %}
+
+<section class="u-section u-section--product-other js-bg-shape-hld">
+	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+		<div class="s1 js-s1"></div>
+		<div class="s2 js-s2"></div>
+		<div class="s3 js-s3"></div>
+	</div>
+	<div class="u-wrapper u-wrapper--wide">
+		<div class="product-other">
+			<div class="product-other__header">
+				{% if subtitle %}
+					<span class="product-other__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+				{% endif %}
+				{% if title %}
+					<h2 class="product-other__title u-title u-title--section">{{ title }}</h2>
+				{% endif %}
+				{% if excerpt %}
+					<p class="product-other__excerpt">{{ excerpt }}</p>
+				{% endif %}
+				{% if button.getUrl() %}
+					<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light product-other__btn">
+						{{button.customText}}</a>
+				{% endif %}
+			</div>
+			{% if image %}
+				<img src="{{image}}" alt="{{title}}" class="product-other__image">
+			{% endif %}
+		</div>
+
+	</div>
+</section>

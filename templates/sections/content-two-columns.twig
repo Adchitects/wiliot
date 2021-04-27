@@ -1,0 +1,44 @@
+{% set subtitle = entry.contentTwoColumnsSubtitle %}
+{% set title = entry.contentTwoColumnsTitle %}
+{% set centered = entry.contentTwoColumnsTextCentered %}
+{% set content = entry.contentTwoColumnsContent %}
+{% set videoLink = entry.contentTwoColumnsVideoLink %}
+
+
+<section class="u-section u-section--two-columns js-section-two-columns">
+	<div class="two-columns">
+		{% if subtitle %}
+			<h5 class="two-columns__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h5>
+		{% endif %}
+		{% if title %}
+			<h2 class="two-columns__title u-title u-title--section">{{ title }}</h2>
+		{% endif %}
+		{% if centered %}
+			<p class="two-columns__centered">{{centered}}</p>
+		{% endif %}
+		{% if content %}
+			<div class="two-columns__content">
+				{{content}}
+			</div>
+		{% endif %}
+
+
+		{% if videoLink %}
+			<button class="btn u-btn u-btn--light two-columns__button js-two-columns-modal-btn">
+				<span class="icon icon-play"></span>
+				<span data-video-src="{{videoLink.getUrl()}}" class="text">Watch video</span>
+			</button>
+			<div class="two-columns__modal-wrapper-outer js-two-columns-modal">
+				<div class="two-columns__modal-wrapper-inner">
+					<div class="two-columns__modal">
+						<iframe src="{{videoLink.getUrl()}}" frameborder="0"></iframe>
+					</div>
+					<span class="modal__close js-two-columns-modal-close">
+						{{ svg('@assets/svg/close.svg')}}
+					</span>
+				</div>
+			</div>
+		{% endif %}
+
+	</div>
+</section>

@@ -1,0 +1,114 @@
+fieldLayouts:
+  56b274be-5b9d-44d4-89d6-251ccf1e379c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 569c1536-e1e1-478b-8a94-de85377f9ba0 # Hero sizes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 070c859e-ec54-49e9-acd9-e658f728d891 # Hero subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 70e371d8-d7fb-43ef-a3fc-913faa7db3d1 # Hero tItle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 1
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: ''
+            label: ''
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 135ccdd4-c10f-495e-97db-133a4ab19c61 # Partner category
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 89263afe-3419-4169-baab-52c28bbeaca5 # Partner logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9792f33c-f5da-4b14-ad13-818958a94535 # Partner description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 084e0268-702c-45ae-95f1-c88e1f05e71a # Partner link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 55437a5e-bc3b-4257-937a-ae9868bcc586 # Partner video file
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 2
+handle: partnersDetails
+hasTitleField: true
+name: 'Partners details'
+section: 6560a834-cd10-49ce-92e8-210691efdc73 # Partners posts
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

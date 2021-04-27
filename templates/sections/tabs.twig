@@ -1,0 +1,62 @@
+{% set title = entry.tabsTitle %}
+{% set subtitle = entry.tabsSubtitle %}
+{% set button = entry.bottomButton %}
+{% set tabs = entry.tabsList %}
+
+<section class="u-section u-section--tabs js-bg-shape-hld">
+	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+		<div class="s1 js-s1"></div>
+		<div class="s2 js-s2"></div>
+	</div>
+	<div class="u-wrapper">
+		<div class="tabs">
+			{% if subtitle %}
+				<span class="tabs__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+			{% endif %}
+			{% if title %}
+				<h2 class="tabs__title u-title u-title--section">{{ title }}</h2>
+			{% endif %}
+			{% if tabs %}
+				<div class="tabs__list">
+					<div class="tabs__nav">
+						{% for item in tabs %}
+							{% set title = item.tabTitle %}
+							{% set icon = item.tabIcon.one() %}
+							<div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item">
+								{{svg(icon.getUrl())}}<span>{{title}}</span>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="swiper-container js-tabs-slider">
+						<div class="swiper-wrapper">
+							{% for item in tabs %}
+								{% set title = item.tabTitle %}
+								{% set description = item.tabDescription %}
+								{% set image = item.tabImage.one() %}
+								{% set link = item.tabLink %}
+								<div class="tab swiper-slide">
+									<div class="tab__image">
+										<img src="{{image.getUrl()}}" alt="{{title}}">
+									</div>
+									<div class="tab__content">
+										<h3 class="tab__title">{{title}}</h3>
+										<p class="tab__description">{{description}}</p>
+										<a class="tab__link" href="{{link}}">Learn more
+											<span class="icon icon-arrow-right"></span>
+										</a>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if button and button.getUrl() %}
+				<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light btn--explore">
+					{{button.customText}}</a>
+			{% endif %}
+
+
+		</div>
+	</div>
+</section>

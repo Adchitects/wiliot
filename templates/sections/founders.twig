@@ -3,40 +3,46 @@
 {% set image = entry.foundersImage.one() %}
 
 
-<section class="u-section u-section--founders">
+<section class="u-section u-section--founders js-bg-shape-hld">
+	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+		<div class="s1 js-s1"></div>
+		<div class="s2 js-s2"></div>
+		<div class="s3 js-s3"></div>
+	</div>
+	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+		<div class="s1 js-s1"></div>
+	</div>
 	<div class="founders">
+		{% if title %}
+			<h2 class="founders__title u-title u-title--section">{{ title }}</h2>
+		{% endif %}
 		{% if image %}
 			<img data-src={{image.getUrl()}} class="founders__image js-lazy" alt={{title}}>
 		{% endif %}
-		<div class="founders__content">
-			{% if title %}
-				<h2 class="founders__title u-title">{{ title }}</h2>
-			{% endif %}
-			<div class="founders__list">
-				{% for item in foundersMatrix %}
-					{% set name = item.personName %}
-					{% set title = item.personTitle %}
-					{% set linkedin = item.personLinkedinLink.getUrl() %}
+		<div class="founders__list">
+			{% for item in foundersMatrix %}
+				{% set name = item.personName %}
+				{% set title = item.personTitle %}
+				{% set linkedin = item.personLinkedinLink.getUrl() %}
 
-					<div class="founder">
-						{% if name %}
-							<h4 class="founder__name">
-								{{name}}
-							</h4>
-						{% endif %}
-						{% if title %}
-							<span class="founder__title">
-								{{title}}
-							</span>
-						{% endif %}
-						{% if linkedin %}
-							<a href="{{linkedin}}">
-								<img rel="noopener noreferrer" src="{{alias('@assets/img/icons/linkedin-dark.svg')}}" alt="linkedin">
-							</a>
-						{% endif %}
-					</div>
-				{% endfor %}
-			</div>
+				<div class="founder">
+					{% if name %}
+						<h4 class="founder__name">
+							{{name}}
+						</h4>
+					{% endif %}
+					{% if title %}
+						<span class="founder__title">
+							{{title}}
+						</span>
+					{% endif %}
+					{% if linkedin %}
+						<a href="{{linkedin}}">
+							<img rel="noopener noreferrer" src="{{alias('@assets/img/icons/linkedin-dark.svg')}}" alt="linkedin">
+						</a>
+					{% endif %}
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>

@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 63223e31-385c-482a-8174-9ecd5e40655d # Hero Image Right
+handle: heroImageRightTitle
+instructions: ''
+name: Title
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

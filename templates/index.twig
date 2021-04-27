@@ -2,59 +2,75 @@
 <html itemscope itemtype="https://schema.org/WebPage" lang="en">
 	{% block head %}
 		<head>
-			<meta charset="UTF-8" />
-			<meta name="robots" content="noindex" />
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<meta property="og:image" content="/src/img/screenshot.jpg" />
-			<meta property="og:title" content="Adchitects craft-starter-pack" /> 
-			<meta property="og:description" content="Index description" /> 
-			<meta property="og:type" content="website" /> 
-			<meta property="og:url" content="Index url" /> 
-			<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+			<meta charset="UTF-8"/>
+			<meta name="robots" content="noindex"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta property="og:image" content="/src/img/screenshot.jpg"/>
+			<meta property="og:title" content="Adchitects craft-starter-pack"/>
+			<meta property="og:description" content="Index description"/>
+			<meta property="og:type" content="website"/>
+			<meta property="og:url" content="Index url"/>
+			<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
 			<style>
 				@font-face {
 					font-family: 'avenir';
-					src: url('{{ alias('@assets/fonts/avenir/avenir_300_book.woff2') }}') format('woff2'),
-						url('{{ alias('@assets/fonts/avenir/avenir_300_book.otf') }}') format('opentype');
+					src: url('{{ alias('@assets/fonts/avenir/avenir_300_book.woff2') }}') format('woff2'), url('{{ alias('@assets/fonts/avenir/avenir_300_book.otf') }}') format('opentype');
 					font-display: swap;
 					font-style: normal;
 					font-weight: 300;
 				}
 				@font-face {
 					font-family: 'avenir';
-					src: url('{{ alias('@assets/fonts/avenir/avenir_500_medium.woff2') }}') format('woff2'),
-						url('{{ alias('@assets/fonts/avenir/avenir_500_medium.otf') }}') format('opentype');
+					src: url('{{ alias('@assets/fonts/avenir/avenir_500_medium.woff2') }}') format('woff2'), url('{{ alias('@assets/fonts/avenir/avenir_500_medium.otf') }}') format('opentype');
 					font-display: swap;
 					font-style: normal;
 					font-weight: 500;
 				}
 				@font-face {
 					font-family: 'avenir';
-					src: url('{{ alias('@assets/fonts/avenir/avenir_900_heavy.woff2') }}') format('woff2'),
-						url('{{ alias('@assets/fonts/avenir/avenir_900_heavy.otf') }}') format('opentype');
+					src: url('{{ alias('@assets/fonts/avenir/avenir_900_heavy.woff2') }}') format('woff2'), url('{{ alias('@assets/fonts/avenir/avenir_900_heavy.otf') }}') format('opentype');
 					font-display: swap;
 					font-style: normal;
 					font-weight: 900;
 				}
 				@font-face {
 					font-family: 'icomoon';
-					src: url('{{ alias('@assets/fonts/icomoon/fonts/icomoon.woff') }}') format('woff');
+					src: url('{{ alias('@assets/fonts/icomoon/fonts/icomoon.ttf?sj1lza') }}') format('truetype');
 					font-weight: normal;
 					font-style: normal;
-					font-display: block;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="/src/css/style.min.css" />
-			<title>{% block title %} Adchitects craft-starter-pack {% endblock %}</title>
+			<link rel="stylesheet" type="text/css" href="/src/css/style.min.css"/>
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.7/plyr.css
+				
+				
+				
+																												"/>
+
+			<title>
+				{% block title %}
+					Adchitects craft-starter-pack
+				{% endblock %}
+			</title>
 		</head>
 	{% endblock %}
 	<body>
-		<header>
+		<header class="header header--desktop js-header">
+			{{ include('/sections/menu-desktop.twig') }}
+		</header>
+		<header class="header header--mobile js-header">
+			{{ include('/sections/menu-mobile.twig') }}
 		</header>
 		<main>
 			{% block main %}
-				{{ include('/sections/example.twig') }}
-				{{ include('/sections/swiper-examples.twig') }}
+				{{ include('/sections/hero-image-right.twig') }}
+				{{ include('/sections/centered-content.twig') }}
+				{{ include('/sections/features.twig') }}
+				{{ include('/sections/tabs.twig') }}
+				{{ include('/sections/logos-slider.twig') }}
+				{{ include('/sections/sliding-boxes.twig') }}
+				{{ include('/sections/latest-news.twig') }}
+				{{ include('/sections/outro.twig') }}
 			{% endblock %}
 		</main>
 		<footer>
@@ -63,5 +79,6 @@
 			{% endblock %}
 		</footer>
 		<script src="/src/js/main.min.js"></script>
+
 	</body>
 </html>

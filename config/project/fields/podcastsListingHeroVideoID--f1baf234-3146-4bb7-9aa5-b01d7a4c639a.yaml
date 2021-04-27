@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 8d28e6df-0e94-4551-a3c3-45f092980eb3 # Podcasts listing
+handle: podcastsListingHeroVideoID
+instructions: ''
+name: 'Hero video ID'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

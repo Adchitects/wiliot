@@ -1,0 +1,295 @@
+.u-section--contact {
+	margin-top: 0;
+	padding-top: 254px;
+	padding-bottom: 96px;
+	background-color: $c-light;
+	overflow: hidden;
+
+	.contact {
+		@include media-max(899) {
+			max-width: 624px;
+			margin: 0 auto;
+		}
+
+		&__content {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 24px;
+
+			@include media-max(1099) {
+				grid-gap: 32px 48px;
+			}
+
+			@include media-max(899) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+		}
+
+		&__form {
+			padding: 64px 108px;
+			background-color: $c-accent-dark;
+
+			@include media-max(1099) {
+				padding: 42px 48px;
+			}
+
+			@include media-max(899) {
+				padding: 64px 108px;
+			}
+
+			@include media-max(767) {
+				padding: 42px 48px;
+			}
+
+			@include media-max(580) {
+				padding: 48px 32px;
+			}
+
+			.form {
+				&__title {
+					margin-bottom: 48px;
+					color: $c-white;
+					font-size: 32px;
+					font-weight: 900;
+					line-height: 44px;
+				}
+			}
+		}
+
+		&__header {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 112px;
+			padding-left: 106px;
+
+			@include media-max(1099) {
+				padding-left: 0;
+			}
+
+			h1 {
+				margin-top: 12px;
+			}
+		}
+
+		&__image {
+			margin-bottom: 90px;
+		}
+
+		&__address {
+			display: flex;
+			flex-direction: column;
+			padding: 0 84px 0 106px;
+
+			@include media-max(1099) {
+				padding: 0;
+			}
+		}
+
+		&__offices {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.office {
+			margin-bottom: 64px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			&__name {
+				margin-top: 0;
+				margin-bottom: 24px;
+				font-size: 24px;
+				font-weight: 900;
+				line-height: 36px;
+			}
+
+			&__address {
+				font-size: 16px;
+				font-weight: 300;
+				line-height: 26px;
+				opacity: 0.8;
+			}
+		}
+	}
+
+	.hbspt-form {
+		p {
+			color: $c-white;
+			font-size: 13px;
+			font-weight: 300;
+			line-height: 19px;
+			opacity: 0.8;
+		}
+
+		.field {
+			position: relative;
+			margin-bottom: 36px;
+
+			input {
+				width: 100%;
+				padding-left: 3px;
+				border-bottom: 1px solid rgba($c-white, 0.5);
+				background: transparent;
+				color: $c-white;
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 26px;
+			}
+
+			&.hs-fieldtype-select {
+				border-bottom: 1px solid rgba($c-white, 0.5);
+
+				&.is-active {
+					> label {
+						transform: translateY(-20px);
+
+						span {
+							font-size: 12px;
+							line-height: 16px;
+						}
+					}
+
+					select {
+						opacity: 1;
+					}
+				}
+
+				select {
+					width: 100%;
+					padding-left: 3px;
+					border: none;
+					background: transparent;
+					color: $c-white;
+					font-size: 16px;
+					font-weight: 500;
+					line-height: 26px;
+					opacity: 0;
+				}
+			}
+
+			.hs-error-msgs {
+				position: absolute;
+				bottom: -24px;
+				left: 0;
+				width: 100%;
+				color: #00f69b;
+				font-size: 13px;
+				font-weight: 500;
+				letter-spacing: 0;
+				line-height: 20px;
+
+				label {
+					color: #00f69b;
+					font-size: 13px;
+					font-weight: 500;
+					letter-spacing: 0;
+					line-height: 20px;
+					transform: translate(0);
+				}
+			}
+
+			&.is-active {
+				> label {
+					transform: translateY(-20px);
+
+					span {
+						font-size: 12px;
+						line-height: 16px;
+					}
+				}
+			}
+
+			> label {
+				position: absolute;
+				left: 0;
+
+				span {
+					padding-left: 5px;
+					color: $c-white;
+					font-size: 16px;
+					font-weight: 500;
+					line-height: 26px;
+					transition: transform 0.2s;
+					opacity: 0.5;
+				}
+			}
+		}
+
+		.hs-richtext {
+			margin-top: 32px;
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+
+		.hs-fieldtype-booleancheckbox {
+			.input {
+				margin-top: 8px;
+			}
+
+			label {
+				display: flex;
+				align-items: flex-start;
+				cursor: pointer;
+
+				> span {
+					margin-left: 10px;
+					color: $c-white;
+					font-size: 13px;
+					font-weight: 500;
+					line-height: 19px;
+
+					> p {
+						color: $c-white;
+						font-size: 13px;
+						font-weight: 500;
+						line-height: 19px;
+						opacity: 1;
+					}
+				}
+			}
+
+			input {
+				cursor: pointer;
+				min-width: 17px;
+				max-width: 17px;
+				min-height: 17px;
+				max-height: 17px;
+				border: 1px solid $c-white;
+				border-radius: 2px;
+				background: transparent;
+
+				&:checked {
+					background: $c-white;
+				}
+			}
+		}
+
+		.hs_submit {
+			margin-top: 56px;
+			text-align: center;
+
+			input {
+				cursor: pointer;
+				padding: 15px 70px;
+				border: 1px solid rgba($c-white, 0.6);
+				border-radius: 28px;
+				background: transparent;
+				color: $c-white;
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 26px;
+				text-align: center;
+				transition: all 0.3s;
+
+				&:hover {
+					border-color: $c-accent;
+					background-color: $c-accent;
+				}
+			}
+		}
+	}
+}

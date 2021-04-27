@@ -1,0 +1,54 @@
+{% set title = entry.pressKitTitle %}
+{% set images = entry.pressKitImages %}
+{% set videos = entry.pressKitVideos %}
+
+<section class="u-section u-section--press-kit">
+	<div class="u-wrapper">
+		<div class="press-kit">
+			{% if title %}
+				<h2 class="press-kit__title u-title u-title--section">{{ title }}</h2>
+			{% endif %}
+			{% if images %}
+				<div class="press-kit__images">
+					{% for image in images %}
+						{% set imageTitle = image.imageTitle %}
+						{% set imageAsset = image.imageAsset.one().getUrl() %}
+						{% if imageAsset and imageTitle %}
+							<div class="press-kit__image">
+								<div class="press-kit-image__asset">
+									<img data-src="{{imageAsset}}" class="js-lazy" alt="{{imageTitle}}">
+								</div>
+								<div class="press-kit-image__content">
+									<h3 class="press-kit-image__title">{{imageTitle}}</h3>
+									<a download href="{{imageAsset}}" class="press-kit__btn">
+										<span class="icon icon-arrow-right"></span>Download</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if videos %}
+				<div class="press-kit__videos">
+					{% for video in videos %}
+						{% set videoTitle = video.videoTitle %}
+						{% set videoAsset = video.videoAsset.one().getUrl() %}
+						{% if videoAsset and videoTitle %}
+							<div class="press-kit__video">
+								<div class="press-kit-video__asset js-video-hld is-paused">
+									<span class="icon icon-play"></span>
+									<video class="js-lazy" data-src="{{ videoAsset }}"></video>
+								</div>
+								<div class="press-kit-video__content">
+									<h3 class="press-kit-video__title">{{videoTitle}}</h3>
+									<a download href="{{videoAsset}}" class="press-kit__btn">
+										<span class="icon icon-arrow-right"></span>Download</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>

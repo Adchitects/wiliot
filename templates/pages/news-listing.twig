@@ -1,12 +1,20 @@
 {% extends "index.twig" %}
-{% block head %} {{ parent() }} {% endblock %}
-{% block title %} {% if entry is defined %} {{ entry.title }} {% elseif category is defined %} {{ category.title }} {% endif %} {% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block title %}
+	{% if entry is defined %}
+		{{ entry.title }}
+	{% elseif category is defined %}
+		{{ category.title }}
+	{% endif %}
+{% endblock %}
 {% block main %}
 	{% set newsListingSection = craft.entries.section('newsListing') %}
 	{% set newsListingSectionId = newsListingSection.sectionId[0] %}
 	{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
 	{% set newsListingSectionUrl = newsListingSectionEntry.url %}
-	{% set categories = craft.categories().all() %}
+	{% set categories = craft.categories().group('newsCategories') %}
 	{{ include('/sections/hero.twig') }}
 	<div class="u-section u-section--news-listing">
 		<div class="u-wrapper u-wrapper--medium-wide">
@@ -14,10 +22,17 @@
 				<div class="news-listing__filters-hld">
 					<ul class="news-listing__filters-hld-inner">
 						<li class="news-listing__filter news-listing__filter--all {% if entry is defined %} is-active {% endif %}">
-							<a href="{{ newsListingSectionUrl }}">{% if entry is defined %} Blog Hub {% elseif category is defined %} <span class="icon icon-arrow-left"></span> Back to Blog Hub {% endif %}</a>
+							<a href="{{ newsListingSectionUrl }}">
+								{% if entry is defined %}
+									Blog Hub
+								{% elseif category is defined %}
+									<span class="icon icon-arrow-left"></span>
+									Back to Blog Hub
+								{% endif %}
+							</a>
 						</li>
 						{% for cat in categories %}
-							{% set catPosts = craft.entries().newsPostsCategories(cat.id).all() %}
+							{% set catPosts = craft.entries().postMainCategory(cat.id).all() %}
 							{% if catPosts|length > 0 %}
 								<li class="news-listing__filter {% if category is defined and category.title == cat.title %} is-active {% endif %}">
 									<a href="{{ cat.url }}">{{ cat.title }}</a>
@@ -66,9 +81,9 @@
 							</div>
 						</div>
 						{% for cat in categories %}
-							{% set catPosts = craft.entries().newsPostsCategories(cat.id).limit(3) %}
+							{% set catPosts = craft.entries().postMainCategory(cat.id).limit(3) %}
 							{% if catPosts|length > 0 %}
-								<div class="news-listing__category-area area js-load-more-item"> 
+								<div class="news-listing__category-area area js-load-more-item">
 									<div class="area__text-hld">
 										<div class="area__title u-title u-title--section">{{ cat.title }}</div>
 										<a href="{{ cat.url }}" class="area__see-all">See All</a>
@@ -107,12 +122,12 @@
 						{% endfor %}
 					{% endif %}
 					{% if category is defined %}
-						<div class="news-listing__category-area area"> 
+						<div class="news-listing__category-area area">
 							<div class="area__text-hld">
 								<div class="area__title u-title u-title--section">{{ category.title }}</div>
 							</div>
 							<div class="area__posts-hld">
-								{% set catPosts = craft.entries().newsPostsCategories(category.id).all() %}
+								{% set catPosts = craft.entries().postMainCategory(category.id).all() %}
 								{% for catPost in catPosts %}
 									{% set image = catPost.newsPostsfeaturedImage.one() %}
 									{% if image %}
@@ -156,4 +171,4 @@
 			</div>
 		</div>
 	</div>
-{% endblock %} 
+{% endblock %}

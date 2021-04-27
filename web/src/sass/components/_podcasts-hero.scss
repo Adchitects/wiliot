@@ -1,0 +1,41 @@
+.u-section--podcasts-hero {
+	position: relative;
+	height: 560px;
+	margin-top: 100px;
+	overflow: hidden;
+
+	@include media-max(767) {
+		height: 300px;
+	}
+
+	&::before {
+		content: '';
+		display: flex;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 4;
+		width: 100%;
+		height: 100%;
+		background-color: $c-black;
+		opacity: 0.6;
+	}
+
+	.video-wrapper {
+		position: relative;
+		height: 0;
+		padding-bottom: 56.25%; /* 16:9 */
+	}
+
+	.video-wrapper iframe {
+		position: absolute;
+		top: -220px;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		@include media-max(767) {
+			top: 0;
+		}
+	}
+}

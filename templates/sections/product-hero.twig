@@ -1,0 +1,26 @@
+{% set title = entry.productHeroTitle %}
+{% set name = entry.title %}
+{% set image = entry.productHeroImage.one().getUrl() %}
+{% if entry is defined %}
+	<section class="u-section u-section--product-hero js-bg-shape-hld">
+		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+			<div class="s1 js-s1"></div>
+			<div class="s2 js-s2"></div>
+		</div>
+		<div class="u-wrapper--medium-wide u-wrapper">
+			<div class="product-hero">
+				<div class="product-hero__content">
+					{% if name %}
+						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ name }}</span>
+					{% endif %}
+					{% if title %}
+						<h1 class="product-hero__title u-title u-title--big">{{ title }}</h1>
+					{% endif %}
+				</div>
+				{% if image %}
+					<img src="{{image}}" alt="{{title}}" class="product-hero__image">
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 3b9de247-5fc7-4fbc-9713-e7c3216cf8cd # Features
+handle: featuresTitle
+instructions: ''
+name: Title
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

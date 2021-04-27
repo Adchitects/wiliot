@@ -1,0 +1,37 @@
+{% set title = entry.accordionTextTitle %}
+{% set subtitle = entry.accordionTextSubtitle %}
+{% set image = entry.accordionTextImage.one() %}
+{% set accordionList = entry.accordionTextItems.all() %}
+
+<section class="u-section u-section--accordion-text js-bg-shape-hld">
+	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+		<div class="s1 js-s1"></div>
+	</div>
+	<div class="u-wrapper u-wrapper--medium-wide">
+		<div class="accordion-text js-accordion">
+			{% if subtitle %}
+				<span class="accordion-text__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+			{% endif %}
+			{% if title %}
+				<h2 class="accordion-text__title u-title u-title--section">{{ title }}</h2>
+			{% endif %}
+			{% if accordionList %}
+				<div class="accordion-text__wrapper">
+					<div class="accordion-text__list js-accordion-list">
+						{% for item in accordionList %}
+							{% set title = item.itemTitle %}
+							{% set description = item.itemDescription %}
+							<div class="accordion {{loop.index == 1 ? 'is-active' : ''}} js-accordion-toggle-item">
+								<img src="{{alias('@assets/img/svg/open.svg')}}" class="accordion__arrow" alt="Arrow">
+								<h3 class="accordion__title">{{title}}</h3>
+								<p class="accordion__description">{{description}}</p>
+							</div>
+						{% endfor %}
+					</div>
+					<img src="{{image.getUrl()}}" alt="{{title}}" class="accordion-text__image">
+				</div>
+			{% endif %}
+
+		</div>
+	</div>
+</section>

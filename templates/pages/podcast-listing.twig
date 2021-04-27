@@ -1,0 +1,14 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.title }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{{ include('/sections/podcasts-hero.twig') }}
+	{{ include('/sections/podcasts-listing.twig') }}
+	{{ include('/sections/subscribe.twig') }}
+	{{ include('/sections/featured-podcast.twig') }}
+
+{% endblock %}

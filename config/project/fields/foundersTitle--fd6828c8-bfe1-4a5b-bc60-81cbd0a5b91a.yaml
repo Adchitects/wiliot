@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: f2e4a9f3-d27e-41c6-85bd-d9ae093c6d13 # Founders
+handle: foundersTitle
+instructions: ''
+name: 'Founders title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: 4
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

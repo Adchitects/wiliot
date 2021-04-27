@@ -13,6 +13,22 @@
 	text-transform: none;
 }
 
+.icon-time::before {
+	content: '\e90a';
+}
+
+.icon-dropdown-down::before {
+	content: '\e90b';
+}
+
+.icon-dropdown-up::before {
+	content: '\e90c';
+}
+
+.icon-user::before {
+	content: '\e90d';
+}
+
 .icon-email::before {
 	content: '\e902';
 }
@@ -49,34 +65,6 @@
 	content: '\e901';
 }
 
-.icon-arrow-right::before {
-	content: '\e902';
-}
-
-.icon-arrow-left::before {
-	content: '\e900';
-}
-
-.icon-email::before {
-	content: '\e907';
-}
-
-.icon-facebook::before {
-	content: '\e908';
-}
-
-.icon-linkedin_company::before {
-	content: '\e909';
-}
-
-.icon-linkedin::before {
-	content: '\e90a';
-}
-
 .icon-tick::before {
-	content: '\e913';
-}
-
-.icon-Triangle::before {
-	content: '\e914';
+	content: '\e900';
 }

@@ -1,0 +1,70 @@
+{% set title = entry.slidingBoxesTitle %}
+{% set subtitle = entry.slidingBoxesSubtitle %}
+{% set boxes = entry.slidingBoxesList %}
+
+<section class="u-section u-section--sliding-boxes">
+	<div class="sliding-boxes">
+		{% if subtitle %}
+			<span class="sliding-boxes__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+		{% endif %}
+		{% if title %}
+			<h2 class="sliding-boxes__title u-title u-title--section">{{ title }}</h2>
+		{% endif %}
+		{% if boxes %}
+			<div class="sliding-boxes__list">
+				{% for item in boxes %}
+					{% set title = item.slidingBoxTitle %}
+					{% set description = item.slidingBoxDescription %}
+					{% set date = item.slidingBoxDate %}
+					{% set time = item.slidingBoxTime %}
+					{% set link = item.slidingBoxLink %}
+					<div class="sliding-box {{loop.index == 1 ? 'is-active' : ''}}">
+						<div class="sliding-box__content">
+							<div class="content__wrapper">
+								<h3 class="sliding-box__title">{{title}}</h3>
+								<span class="sliding-box__description">{{description}}</span>
+								<div class="sliding-box__date">
+									<span class="sliding-box__day">{{date}}</span>
+									<span class="sliding-box__time">{{time}}</span>
+								</div>
+								<a href="{{link}}" class="sliding-box__link">
+									Learn more
+									<span class="icon icon-arrow-right"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="sliding-boxes__accordion-list accordion js-accordion-list">
+				{% for item in boxes %}
+					{% set title = item.slidingBoxTitle %}
+					{% set description = item.slidingBoxDescription %}
+					{% set date = item.slidingBoxDate %}
+					{% set time = item.slidingBoxTime %}
+					{% set link = item.slidingBoxLink %}
+					<div class="item js-accordion-toggle-item">
+						<div class="item__header">
+							<h3 class="item__title">{{title}}</h3>
+							<div class="item__toggle">
+								<span class="line"></span>
+								<span class="line"></span>
+							</div>
+						</div>
+						<div class="item__collapsable">
+							<span class="item__description">{{description}}</span>
+							<div class="item__date">
+								<span class="item__day">{{date}}</span>
+								<span class="item__time">{{time}}</span>
+							</div>
+							<a href="{{link}}" class="item__link">
+								Learn more
+								<span class="icon icon-arrow-right"></span>
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</section>

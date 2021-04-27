@@ -1,0 +1,27 @@
+{% set text = entry.contentCenteredText %}
+{% set link = entry.contentCenteredButton %}
+
+<section class="u-section--content-centered u-section js-bg-shape-hld">
+	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+		<div class="s1 js-s1"></div>
+		<div class="s2 js-s2"></div>
+		<div class="s3 js-s3"></div>
+	</div>
+	<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+		<div class="s1 js-s1"></div>
+		<div class="s2 js-s2"></div>
+	</div>
+	<div class="u-wrapper u-wrapper--small">
+		<div class="content-centered">
+			{% if text %}
+				<div class="content-centered__text">
+					{{text}}
+				</div>
+			{% endif %}
+			{% if link %}
+				<a href="{{link.getUrl()}}" class="content-centered__link u-link--blue u-link">{{link.customText}}<span class="icon icon-arrow-right"></span>
+				</a>
+			{% endif %}
+		</div>
+	</div>
+</section>

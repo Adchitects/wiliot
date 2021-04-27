@@ -1,8 +1,8 @@
-const isBubblesSection = document.querySelector('.js-section-bubbles');
-if (isBubblesSection) {
-	const openModal = document.querySelector('.js-bubbles-modal-btn');
-	const modal = document.querySelector('.js-bubbles-modal');
-	const closeModal = document.querySelector('.js-bubbles-modal-close');
+const isTwoColumnsSection = document.querySelector('.js-section-two-columns');
+if (isTwoColumnsSection) {
+	const openModal = document.querySelector('.js-two-columns-modal-btn');
+	const modal = document.querySelector('.js-two-columns-modal');
+	const closeModal = document.querySelector('.js-two-columns-modal-close');
 
 	openModal.addEventListener('click', () => {
 		modal.classList.add('is-active');

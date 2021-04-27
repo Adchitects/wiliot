@@ -1,0 +1,29 @@
+{% set title = entry.productHeroTitle %}
+{% set name = entry.title %}
+{% set image = entry.productHeroImage.one().getUrl() %}
+{% if entry is defined %}
+	<div class="products-sections-hld js-bg-shape-hld">
+		<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
+			<div class="s1 js-s1"></div>
+		</div>
+
+		<section class="u-section u-section--products-hero">
+			<div class="u-wrapper--medium-wide u-wrapper">
+				<div class="products-hero">
+					<div class="products-hero__content">
+						{% if name %}
+							<span class="products-hero__subtitle u-subtitle u-subtitle--big">{{ name }}</span>
+						{% endif %}
+						{% if title %}
+							<h1 class="products-hero__title u-title u-title--big">{{ title }}</h1>
+						{% endif %}
+					</div>
+					{% if image %}
+						<img src="{{image}}" alt="{{title}}" class="products-hero__image">
+					{% endif %}
+				</div>
+			</div>
+		</section>
+		{{ include('/sections/accordion-text.twig') }}
+	</div>
+{% endif %}

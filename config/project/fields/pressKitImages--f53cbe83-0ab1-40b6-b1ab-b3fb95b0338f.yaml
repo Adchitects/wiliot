@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: e3c519dc-ffda-4163-9281-94d48fae4a97 # Press Kit
+handle: pressKitImages
+instructions: ''
+name: Images
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_presskitimages}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,153 @@
+fieldLayouts:
+  7ff99ee0-ab3d-4778-ac9c-8efb6e795ff9:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: f1baf234-3146-4bb7-9aa5-b01d7a4c639a # Hero video ID
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 71173714-9a88-4084-acbc-889afd1e58b7 # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3ec22c2c-bd0e-4cde-98d3-38c12c822cf9 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d291b510-16eb-4af9-8d2c-3911871da0a4 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Listing
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: f57c7759-562c-46f3-978a-20ba7fde1d0e # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a2e55047-197c-4f1d-ab5f-083fb740855a # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 34734b74-001f-4710-8e8b-224354eb86f9 # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Newsletter
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 5971d9cf-3fca-4ded-99fc-fd9a8001b187 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 75944c9c-f5de-42f2-ac31-a334331afe1b # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ca96c945-4363-446a-abcd-bfe580e8818a # Video
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 90ff970f-4f7c-419b-b98a-e075e568c452 # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Featured
+        sortOrder: 5
+handle: podcasts
+hasTitleField: false
+name: Podcasts
+section: ebc5eb0f-9c5c-4c10-9073-bcae5d699c8a # Podcasts
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
