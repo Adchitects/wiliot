@@ -1,0 +1,39 @@
+.u-section--product-hero {
+	margin-top: 100px;
+	padding-top: 114px;
+	padding-bottom: 56px;
+	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+	overflow: hidden;
+
+	.product-hero {
+		display: grid;
+		align-items: center;
+		grid-template-columns: repeat(12, 1fr);
+		grid-gap: 24px;
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			grid-column: 2 / 7;
+
+			@include media-max(899) {
+				grid-column: 1 / 7;
+			}
+		}
+
+		&__title {
+			@include media-max(899) {
+				font-size: 50px;
+				line-height: 66px;
+			}
+		}
+
+		&__subtitle {
+			margin-bottom: 12px;
+		}
+
+		&__image {
+			grid-column: 7 / 13;
+		}
+	}
+}

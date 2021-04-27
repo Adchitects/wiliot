@@ -1,0 +1,16 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ entry.title }}
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{{ include('/sections/product-hero.twig') }}
+	{{ include('/sections/fifty-fifty.twig') }}
+	{{ include('/sections/product-features.twig') }}
+	{{ include('/sections/product-other.twig') }}
+	{{ include('/sections/tabs.twig') }}
+	{{ include('/sections/outro.twig') }}
+
+{% endblock %}

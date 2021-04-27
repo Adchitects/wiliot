@@ -107,7 +107,7 @@ fieldLayouts:
 handle: partnersDetails
 hasTitleField: true
 name: 'Partners details'
-section: 6560a834-cd10-49ce-92e8-210691efdc73 # Partners details
+section: 6560a834-cd10-49ce-92e8-210691efdc73 # Partners posts
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

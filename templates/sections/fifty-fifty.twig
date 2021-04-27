@@ -22,6 +22,9 @@
 					{% for item in rows %}
 						{% set title = item.rowTitle %}
 						{% set description = item.rowDescription %}
+						{% set excerpt = item.rowExcerpt %}
+						{% set subtitle = item.rowSubtitle %}
+
 						{% set image = item.rowImage.one() %}
 						{% set button = item.rowButton %}
 						<div class="row {{loop.index % 2 == 0 ? '' : 'row--reversed'}}">
@@ -29,21 +32,28 @@
 								{% if numeration %}
 									<span class="row__number">{{ loop.index < 10 ? '0'~loop.index : loop.index }}</span>
 								{% endif %}
+								{% if subtitle %}
+									<h4 class="row__subtitle">{{subtitle}}</h4>
+								{% endif %}
 								{% if title %}
 									<h3 class="row__title">{{title}}</h3>
+								{% endif %}
+								{% if excerpt %}
+									<p class="row__excerpt">{{excerpt}}</p>
 								{% endif %}
 								{% if description %}
 									<p class="row__description">{{description}}</p>
 								{% endif %}
-								{% if button.getUrl() %}
+								{% if button and button.getUrl() %}
 									<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light row__button">
 										{{button.customText}}</a>
 								{% endif %}
-
 							</div>
-							<div class="row__image">
-								<img class="js-lazy" data-src="{{image.getUrl()}}" alt="{{title}}">
-							</div>
+							{% if image and image.getUrl()%}
+								<div class="row__image">
+									<img class="js-lazy" data-src="{{image.getUrl()}}" alt="{{title}}">
+								</div>
+							{% endif %}
 						</div>
 					{% endfor %}
 				</div>

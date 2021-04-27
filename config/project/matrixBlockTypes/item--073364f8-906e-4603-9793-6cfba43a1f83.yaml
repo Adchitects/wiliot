@@ -1,0 +1,68 @@
+field: 57d48c6b-6881-45af-9650-f9eae5956900 # Items
+fieldLayouts:
+  5a62f222-8632-4eb5-a15a-7ae331770929:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: abec491e-9647-468e-b5e2-05e95e550589 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2e145389-9f5e-4b73-833c-2d606da2561b # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2e145389-9f5e-4b73-833c-2d606da2561b: # Description
+    contentColumnType: text
+    fieldGroup: null
+    handle: itemDescription
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  abec491e-9647-468e-b5e2-05e95e550589: # Title
+    contentColumnType: text
+    fieldGroup: null
+    handle: itemTitle
+    instructions: ''
+    name: Title
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: item
+name: Item
+sortOrder: 1

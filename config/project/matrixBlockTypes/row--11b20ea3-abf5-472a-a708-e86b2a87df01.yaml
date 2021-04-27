@@ -14,6 +14,24 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 09960e66-5c0c-41c4-8d8c-2dd7c87e69ff # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 36a8b439-c2ac-446e-a9bf-f8a21862da57 # Excerpt
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 39cdadbd-11c5-4243-8cb3-c084add295d0 # Description
             instructions: null
             label: null
@@ -43,6 +61,44 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
+  09960e66-5c0c-41c4-8d8c-2dd7c87e69ff: # Subtitle
+    contentColumnType: text
+    fieldGroup: null
+    handle: rowSubtitle
+    instructions: ''
+    name: Subtitle
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  36a8b439-c2ac-446e-a9bf-f8a21862da57: # Excerpt
+    contentColumnType: text
+    fieldGroup: null
+    handle: rowExcerpt
+    instructions: ''
+    name: Excerpt
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   39cdadbd-11c5-4243-8cb3-c084add295d0: # Description
     contentColumnType: text
     fieldGroup: null
