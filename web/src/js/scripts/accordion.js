@@ -1,5 +1,5 @@
 import { clearClassActive } from './utilities';
-const accordion = document.querySelector('.accordion');
+const accordion = document.querySelector('.js-accordion');
 
 if (accordion) {
 	const accordionItems = document.querySelectorAll('.js-accordion-toggle-item');

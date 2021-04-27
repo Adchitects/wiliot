@@ -51,8 +51,12 @@
 					</div>
 				</div>
 			{% endif %}
-			<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light btn--explore">
-				{{button.customText}}</a>
+			{% if button and button.getUrl() %}
+				<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light btn--explore">
+					{{button.customText}}</a>
+			{% endif %}
+
+
 		</div>
 	</div>
 </section>

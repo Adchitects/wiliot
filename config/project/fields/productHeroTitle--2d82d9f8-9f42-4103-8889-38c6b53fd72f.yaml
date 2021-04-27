@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: d1bb1327-b8be-4978-9f87-ca16c1cb68f1 # Product hero
+handle: productHeroTitle
+instructions: ''
+name: Title
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

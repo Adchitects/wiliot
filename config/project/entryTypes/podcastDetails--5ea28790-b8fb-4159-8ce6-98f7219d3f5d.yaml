@@ -116,7 +116,7 @@ fieldLayouts:
 handle: podcastDetails
 hasTitleField: true
 name: 'Podcast Details'
-section: 51c060f1-2569-4a4e-88d5-0ff236f6033b # Podcast Details
+section: 51c060f1-2569-4a4e-88d5-0ff236f6033b # Podcast posts
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

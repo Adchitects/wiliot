@@ -1,0 +1,153 @@
+fieldLayouts:
+  e6d75de7-99d8-4dd9-ae97-d20942c5176f:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 2d82d9f8-9f42-4103-8889-38c6b53fd72f # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4fc213ec-173b-4fc8-a72e-59017eeb1418 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 51850a96-c233-45ae-930f-6eda18372ebe # Rows
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Fifty fifty'
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: 555aa94d-203d-49fe-8991-1e2cc88e0d2d # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9c7ff223-4645-48dc-9d13-f4c1c832f37a # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c89ab64b-e4c1-4c6d-93d7-44d8c24443a4 # Features list
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Features
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 8d44ca5d-e213-463b-be74-9a96b0f8d57a # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 31f12a89-d265-40b1-b5fd-f9979dc7f6d0 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0def3c44-59a2-4e97-b1d2-b5113298abd6 # Excerpt
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 851fda9e-3659-48cd-9f14-cf77e0434144 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b80745df-ba44-48ff-9e9f-1e451fb54dca # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Other Component'
+        sortOrder: 5
+handle: product
+hasTitleField: true
+name: Product
+section: 06d1e5ff-4d31-4966-8bce-2bc3c44214a0 # Product posts
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
