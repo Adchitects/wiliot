@@ -1,5 +1,5 @@
 fieldLayouts:
-  4c575b21-eea6-485a-887c-fb78e0fa51d4:
+  64eb8365-98a9-42ba-9f22-ec354d517b1b:
     tabs:
       -
         elements:
@@ -23,18 +23,25 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5d866255-5892-4fae-8156-2cb87e5d294d # Page link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
-handle: main
-hasUrls: true
-name: Main
-settings:
-  path: '@assets/uploads'
-sortOrder: 0
+handle: menuMobile
+hasTitleField: true
+name: 'Menu - mobile'
+section: e06e78e1-0517-468e-942d-441e2a8e204a # Menu - mobile
+sortOrder: 1
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: craft\volumes\Local
-url: '@assets/uploads/'

@@ -17,7 +17,9 @@
 	&__bg {
 		grid-column: 1;
 		grid-row: 1;
+		pointer-events: none;
 		width: 100%;
+		user-select: none;
 	}
 
 	&__text-hld {

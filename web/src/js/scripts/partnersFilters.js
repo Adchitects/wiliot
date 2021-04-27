@@ -139,7 +139,6 @@ if (partnersFiltersHld) {
 			itemAll.forEach(item => {
 				if (item.getAttribute('data-' + activeFilterDataCategory)) {
 					item.dataset.checked = false;
-					console.log('fadsfasdf');
 				}
 			});
 			let atLeastOneIsActive = false;
