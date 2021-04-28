@@ -1,17 +1,14 @@
 contentColumnType: text
-fieldGroup: 3bc314b7-43b1-424b-9982-93a1dfd51e61 # Menu - mobile
-handle: menuMobilePageLink
+fieldGroup: af883176-2906-414c-9add-3be9dfa89024 # Menu - footer
+handle: menuFooterPageLink
 instructions: ''
-name: 'Page link'
+name: 'Page Link'
 searchable: false
 settings:
   allowCustomText: ''
-  allowTarget: '1'
-  allowedLinkNames:
-    3: entry
-    9: url
-  autoNoReferrer: '1'
-  defaultLinkName: asset
+  allowTarget: ''
+  autoNoReferrer: ''
+  defaultLinkName: url
   defaultText: ''
   enableAriaLabel: ''
   enableTitle: ''
@@ -43,11 +40,7 @@ settings:
           __assoc__:
             -
               - sources
-              -
-                - singles
-                - 'section:d53d3bce-afa8-4d8c-be8e-7f39844292ba' # News posts
-                - 'section:6560a834-cd10-49ce-92e8-210691efdc73' # Partners posts
-                - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Solutions posts
+              - '*'
             -
               - allowCustomQuery
               - ''

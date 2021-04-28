@@ -1,0 +1,68 @@
+field: d49a2d67-9697-4600-9b49-b221437545ce # Bottom pages
+fieldLayouts:
+  8486fba5-3049-47ac-a601-19e859617112:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 239b84f4-0cd5-4c13-8f6d-3660d5bd7904 # Name
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5287d825-bacb-403f-9004-2c70bdf1e2e3 # Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  239b84f4-0cd5-4c13-8f6d-3660d5bd7904: # Name
+    contentColumnType: text
+    fieldGroup: null
+    handle: bottomPageName
+    instructions: ''
+    name: Name
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  5287d825-bacb-403f-9004-2c70bdf1e2e3: # Link
+    contentColumnType: text
+    fieldGroup: null
+    handle: bottomPageLink
+    instructions: ''
+    name: Link
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: bottomPage
+name: 'Bottom page'
+sortOrder: 1

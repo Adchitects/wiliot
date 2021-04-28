@@ -37,6 +37,6 @@ return [
 
     'aliases' => [
         '@webroot' => dirname(__DIR__),
-        '@assets' => '/src',
+        '@assets' => 'src',
     ],    
 ];

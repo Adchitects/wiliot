@@ -1,0 +1,76 @@
+{% set pages = craft.entries.section('menuFooter').level(1) %}
+{% set socials = pageOptions.pageOptionsSocials %}
+{% set bottomPages = pageOptions.pageOptionsBottomPages %}
+{% set logos = pageOptions.pageOptionsLogos %}
+
+<footer class="footer">
+	<div class="u-wrapper">
+		<div class="footer__main">
+			<div class="footer__primary">
+				<div class="footer__links-columns">
+					{% nav page in pages %}
+					<div class="footer__links-column">
+						<span class="footer__links-column-title">{{page.title}}</span>
+						<ul class="footer__links">
+							{% for child in page.children() %}
+								<li class="footer__link">
+									<a href="{{child.menuFooterPageLink}}">
+										{{child.title}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endnav %}
+				</div>
+				<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="footer__logo">
+					<img src="{{ alias('@assets/img/svg/logo.svg') }}" width="123" height="48" alt="Wiliot logo">
+				</a>
+			</div>
+			<div class="footer__secondary">
+				<ul class="footer__socials">
+					{% if socials %}
+						{% for social in socials %}
+							<li class="footer__link">
+								{% if social.socialLink and social.socialName and social.socialIcon and social.socialIcon.one() %}
+									{% set image = social.socialIcon.one() %}
+									{% if image and image.extension == 'svg' %}
+										<a href="{{social.socialLink}}">
+											{{svg(image)}}
+										</a>
+									{% endif %}
+								{% endif %}
+							</li>
+						{% endfor %}
+					{% endif %}
+				</ul>
+				<ul class="footer__additional-links">
+					{% if bottomPages %}
+						{% for page in bottomPages %}
+							{% set name = page.bottomPageName %}
+							{% set link = page.bottomPageLink %}
+							<li class="footer__link">
+								{% if name and link %}
+									<a href="{{link}}">{{name}}</a>
+								{% endif %}
+							</li>
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+		<div class="footer__partners">
+			{% if logos %}
+				<div class="swiper-container js-footer-slider">
+					<div class="swiper-wrapper">
+						{% for logo in logos %}
+							{% set image = logo.logoImage.one().getUrl() %}
+							<div class="swiper-slide">
+								<img data-src="{{image}}" class="js-lazy">
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		</ul>
+	</div>
+</footer>
