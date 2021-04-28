@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 99ba1b8f-bc3e-4e18-b4e7-292a3d0a5b36 # Options
+handle: pageOptionsLogos
+instructions: ''
+name: Logos
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_pageoptionslogos}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

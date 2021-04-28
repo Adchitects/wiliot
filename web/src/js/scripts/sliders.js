@@ -150,4 +150,27 @@ solutionsSliderHldAll.forEach(sliderHld => {
 	solutionsSliderItems;
 });
 
+const footerSlider = new Swiper('.js-footer-slider', {
+	slidesPerView: 'auto',
+	spaceBetween: 0,
+	breakpoints: {
+		320: {
+			slidesPerView: 2,
+			spaceBetween: 32,
+		},
+		580: {
+			slidesPerView: 3,
+			spaceBetween: 32,
+		},
+		767: {
+			slidesPerView: 4,
+			spaceBetween: 32,
+		},
+		1099: {
+			slidesPerView: 'auto',
+			spaceBetween: 0,
+		},
+	},
+});
+footerSlider;
 

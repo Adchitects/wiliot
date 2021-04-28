@@ -1,0 +1,176 @@
+.footer {
+	padding-top: 80px;
+	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+	overflow: hidden;
+
+	@include media-max(767) {
+		padding-top: 62px;
+	}
+
+	&__primary {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		@include media-max(767) {
+			flex-direction: column-reverse;
+		}
+	}
+
+	&__links-columns {
+		display: flex;
+
+		@include media-max(767) {
+			justify-content: space-between;
+			width: 100%;
+			margin-top: 42px;
+		}
+
+		@include media-max(580) {
+			flex-direction: column;
+		}
+	}
+
+	&__secondary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		padding-top: 36px;
+		padding-bottom: 20px;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 100vw;
+			height: 1px;
+			background-color: #dddddd;
+			transform: translate(-50%);
+		}
+	}
+
+	&__additional-links {
+		display: flex;
+		align-items: center;
+
+		.footer__link {
+			margin-right: 16px;
+			color: #939393;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 19px;
+			opacity: 0.8;
+
+			a {
+				display: flex;
+			}
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&__socials {
+		display: flex;
+		align-items: center;
+
+		.footer__link {
+			margin-right: 24px;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			svg path {
+				fill: $c-black;
+				transition: fill 0.3s;
+			}
+
+			&:hover {
+				svg path {
+					fill: $c-gray;
+				}
+			}
+		}
+	}
+
+	&__links-column {
+		display: flex;
+		flex-direction: column;
+		margin-right: 90px;
+
+		@include media-max(899) {
+			margin-right: 62px;
+		}
+
+		@include media-max(767) {
+			width: 100%;
+			max-width: 150px;
+			margin-right: 0;
+		}
+
+		@include media-max(580) {
+			max-width: 100%;
+			margin-top: 24px;
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		&-title {
+			margin-bottom: 14px;
+			font-size: 16px;
+			font-weight: 900;
+			line-height: 26px;
+
+			@include media-max(580px) {
+				margin-bottom: 8px;
+			}
+		}
+
+		.footer__link {
+			margin-bottom: 10px;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 19px;
+			opacity: 0.8;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__partners {
+		padding: 20px 0;
+
+		.swiper-wrapper {
+			justify-content: space-between;
+
+			@include media-max(1099) {
+			}
+		}
+
+		.swiper-slide {
+			width: auto;
+
+			@include media-max(1099) {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+
+			img {
+				max-height: 26px;
+			}
+		}
+	}
+}
