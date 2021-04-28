@@ -17,7 +17,7 @@
 			<h2 class="founders__title u-title u-title--section">{{ title }}</h2>
 		{% endif %}
 		{% if image %}
-			<img data-src={{image.getUrl()}} class="founders__image js-lazy" alt={{title}}>
+			<img data-src="{{image.getUrl()}}" class="founders__image js-lazy" alt={{title}}>
 		{% endif %}
 		<div class="founders__list">
 			{% for item in foundersMatrix %}
