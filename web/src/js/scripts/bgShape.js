@@ -176,5 +176,32 @@ bgShapeHldAll.forEach(hld => {
 				});
 			});
 		}
+		if (bgShapeVersion === 'center-center') {
+			const shape1 = bgShape.querySelector('.js-s1');
+			tl.to(shape1, {
+				duration: 15,
+				scale: 1.5,
+				rotationX: -45,
+				transformOrigin: 'center center',
+			});
+			tl.to(shape1, {
+				duration: 15,
+				scale: 0.8,
+				y: -150,
+			});
+			bgShape.addEventListener('click', () => {
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 2,
+					transformOrigin: 'center center',
+				});
+				gsap.to(bgShape, {
+					duration: 5,
+					scale: 1,
+					delay: 1,
+					transformOrigin: 'center center',
+				});
+			});
+		}
 	});
 });

@@ -62,7 +62,7 @@ fieldLayouts:
 handle: newsListing
 hasTitleField: false
 name: News
-section: bdd4ed94-b987-4aa0-bc02-4cb2b15ae78e # News
+section: bdd4ed94-b987-4aa0-bc02-4cb2b15ae78e # Blog
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

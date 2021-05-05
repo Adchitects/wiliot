@@ -86,7 +86,7 @@
 
 	&--bottom-left {
 		bottom: 0;
-		left: 0;
+		left: -100px;
 		width: 800px;
 		height: 300px;
 
@@ -127,6 +127,27 @@
 		
 		.s1 {
 			clip-path: polygon(37% 47%, 35% 61%, 27% 76%, 17% 89%, 0 99%, 0 9%, 10% 10%, 22% 13%, 32% 22%, 36% 34%);
+		}
+	}
+
+	&--center-center {
+		top: 57%;
+		left: 52%;
+		width: 700px;
+		height: 650px;
+		transform: translate(-50%, -50%);
+
+		.s1 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 650px;
+			height: 600px;
+			background-image: linear-gradient(350deg, #255EEA 0%, #1CBF44 0%, #00F0F3 81.86%, #00F0F3 99.94%);
+		}
+
+		.s1 {
+			clip-path: polygon(51% 1%, 70% 3%, 88% 14%, 96% 25%, 99% 43%, 99% 62%, 93% 78%, 80% 89%, 69% 95%, 54% 100%, 35% 95%, 18% 80%, 8% 61%, 1% 40%, 4% 20%, 14% 6%, 36% 1%);
 		}
 	}
 }
