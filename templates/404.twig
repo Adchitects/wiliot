@@ -1,0 +1,31 @@
+{% extends "index.twig" %}
+{% block title %}
+	Page not found
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+
+{% block main %}
+	{% set page404title = page404.page404title %}
+	{% set page404subtitle = page404.page404subtitle %}
+	{% set page404button = page404.page404button %}
+	<section class="u-section u-section--page404 js-bg-shape-hld">
+		<div class="bg-shape bg-shape--center-center js-bg-shape" data-version="center-center">
+			<div class="s1 js-s1"></div>
+		</div>
+		<div class="u-wrapper">
+			<div class="page404">
+				<h1 class="title u-title u-title--big">
+					{{ page404title }}
+				</h1>
+				<div class="subtitle u-subtitle u-subtitle--big">
+					{{ page404subtitle }}
+				</div>
+				<a href="{{ page404button.url }}" target="{{ page404button.target ? '_blank' : '_self' }}" rel="{{ page404button.target ? 'noopener noreferrer' : null }}" class="btn u-btn u-btn--light">
+					<span class="text">{{ page404button.customText }}</span>
+				</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}

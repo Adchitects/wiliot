@@ -11,7 +11,7 @@
 			{% set menuDesktopButtonsMatrix = page.menuDesktopButtonsMatrix.all() %}
 			{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
-			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if page.slug == entry.slug %} is-active {% endif %}">
+			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% endif %}">
 				{% if menuDesktopPageLink.url %}
 					<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
 						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
@@ -58,7 +58,7 @@
 							<div class="subnav-hld">
 								{% for subnavItem in menuDesktopSubnavItemsMatrix %}
 									{% set item = subnavItem.item %}
-									<a href="{{ item.url }}" class="subnav-item u-btn u-btn--arrow {% if item.url == entry.url %} is-active {% endif %}">
+									<a href="{{ item.url }}" class="subnav-item u-btn u-btn--arrow {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}">
 										<span class="text">
 											{{ item.customText }}
 										</span>

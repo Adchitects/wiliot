@@ -16,7 +16,7 @@
 	{% set newsListingSectionUrl = newsListingSectionEntry.url %}
 	{% set categories = craft.categories().group('newsCategories') %}
 	{{ include('/sections/hero.twig') }}
-	<div class="u-section u-section--news-listing">
+	<section class="u-section u-section--news-listing">
 		<div class="u-wrapper u-wrapper--medium-wide">
 			<div class="news-listing js-load-more-hld">
 				<div class="news-listing__filters-hld">
@@ -158,17 +158,18 @@
 							</div>
 						</div>
 					{% endif %}
+					<button class="news-listing__btn u-btn u-btn--light js-load-more-btn">
+						<span class="text">
+							{% if category is not defined %}
+								Load More Categories
+							{% else %}
+								Load More
+							{% endif %}
+						</span>
+					</button>
 				</div>
-				<button class="news-listing__btn u-btn u-btn--light js-load-more-btn">
-					<span class="text">
-						{% if category is not defined %}
-							Load More Categories
-						{% else %}
-							Load More
-						{% endif %}
-					</span>
-				</button>
 			</div>
 		</div>
-	</div>
+	</section>
+	{{ include('/sections/subscribe.twig') }}
 {% endblock %}

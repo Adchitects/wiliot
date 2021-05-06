@@ -1,9 +1,14 @@
 .u-section--subscribe {
-	padding: 96px 0;
+	margin-top: 285px;
+	padding: 100px 0;
 	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+	overflow: hidden;
 
-	@include media-max(767) {
-		padding: 80px 0;
+	&.u-section {
+		@include media-max(767) {
+			margin-top: 200px;
+			padding: 80px 0;
+		}
 	}
 
 	.subscribe {
@@ -13,8 +18,12 @@
 
 		&__title {
 			max-width: 438px;
-			margin-bottom: 48px;
 			text-align: center;
+		}
+
+		&__button {
+			margin-top: 55px;
+			padding: 15px 60px;
 		}
 	}
 }

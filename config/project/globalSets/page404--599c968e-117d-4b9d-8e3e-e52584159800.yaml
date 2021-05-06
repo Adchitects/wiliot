@@ -1,0 +1,36 @@
+fieldLayouts:
+  06d5f1c5-6d01-4104-ad2d-a475e55ec1fe:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 10cf87b0-23ad-4b10-b242-9c95a389c146 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bf21e5de-f020-4d2f-a969-608719e6880c # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c45c97fd-a014-4dcb-bacc-f6aa3d952ee3 # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Texts
+        sortOrder: 1
+handle: page404
+name: '404 page'
