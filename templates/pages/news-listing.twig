@@ -80,7 +80,7 @@
 								{% endif %}
 							</div>
 						</div>
-						{% for cat in categories %}
+						{% for cat in categories.all() %}
 							{% set catPosts = craft.entries().postMainCategory(cat.id).limit(3) %}
 							{% if catPosts|length > 0 %}
 								<div class="news-listing__category-area area js-load-more-item">

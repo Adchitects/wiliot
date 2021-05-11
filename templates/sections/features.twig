@@ -1,6 +1,6 @@
 {% set title = entry.featuresTitle %}
 {% set subtitle = entry.featuresSubtitle %}
-{% set contentList = entry.featuresContentList %}
+{% set contentList = entry.featuresContentList.all() %}
 {% set mobileImages = ['hyperthin-iot-edge-nodes', 'connect-everything', 'fabric-of-intelligence'] %}
 <section class="u-section u-section--features">
 	<div class="u-wrapper">

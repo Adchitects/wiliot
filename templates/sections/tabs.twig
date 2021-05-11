@@ -1,8 +1,7 @@
 {% set title = entry.tabsTitle %}
 {% set subtitle = entry.tabsSubtitle %}
 {% set button = entry.bottomButton %}
-{% set tabs = entry.tabsList %}
-
+{% set tabs = entry.tabsList.all() %}
 <section class="u-section u-section--tabs js-bg-shape-hld">
 	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
 		<div class="s1 js-s1"></div>
@@ -55,8 +54,6 @@
 				<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light btn--explore">
 					{{button.customText}}</a>
 			{% endif %}
-
-
 		</div>
 	</div>
 </section>
