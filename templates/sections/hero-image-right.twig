@@ -15,14 +15,18 @@
 						<span class="hero-img-right__excerpt u-subtitle u-subtitle--big">{{ excerpt }}</span>
 					{% endif %}
 					<div class="hero-img-right__buttons">
-						<a href="{{button.getUrl()}}" class="btn btn--learn-more u-btn u-btn--accent">{{button.customText}}</a>
+						<a href="{{ button.getUrl()}}" class="btn btn--learn-more u-btn u-btn--accent">
+							<span class="text">
+							{{ button.customText }}
+							</span>
+						</a>
 						<button class="btn u-btn u-btn--light">
 							<span class="icon icon-play"></span>
-							<span data-video-src="{{videoLink}}" class="text">Watch video</span>
+							<span data-video-src="{{ videoLink }}" class="text">Watch video</span>
 						</button>
 					</div>
 				</div>
-				<img src="{{image.getUrl()}}" alt="{{title}}" class="hero-img-right__image">
+				<img src="{{ image.getUrl() }}" alt="{{ title }}" class="hero-img-right__image">
 			</div>
 		</div>
 	</section>
