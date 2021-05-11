@@ -22,7 +22,7 @@
 							{% set title = item.itemTitle %}
 							{% set description = item.itemDescription %}
 							<div class="accordion {{loop.index == 1 ? 'is-active' : ''}} js-accordion-toggle-item">
-								<img src="{{alias('@assets/img/svg/open.svg')}}" class="accordion__arrow" alt="Arrow">
+								<img src="{{alias('@web/src/img/svg/open.svg')}}" class="accordion__arrow" alt="Arrow">
 								<h3 class="accordion__title">{{title}}</h3>
 								<p class="accordion__description">{{description}}</p>
 							</div>

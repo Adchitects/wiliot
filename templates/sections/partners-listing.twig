@@ -17,7 +17,7 @@
 							{% for item in PartnersDetailsPosts %}
 								{% if loop.index == 1 %}
 									{% set categories = craft.categories().group('partnersCategories') %}
-									{% for cat in categories %}
+									{% for cat in categories.all() %}
 										<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
 											<div class="checkbox">
 												<span class="icon icon-tick"></span>
@@ -48,7 +48,8 @@
 							{% for item in PartnersDetailsPosts %}
 								{% if loop.index == 1 %}
 									{% set categories = craft.categories().group('partnersCategories') %}
-									{% for cat in categories %}
+									
+									{% for cat in categories.all() %}
 										<div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
 											<span class="text">{{ cat.title }}</span>
 											<span class="icon icon-close"></span>

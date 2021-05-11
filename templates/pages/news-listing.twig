@@ -4,9 +4,9 @@
 {% endblock %}
 {% block title %}
 	{% if entry is defined %}
-		{{ entry.title }}
+		{{ siteName }} - {{ entry.title }}	
 	{% elseif category is defined %}
-		{{ category.title }}
+		{{ siteName }} - {{ category.title }}
 	{% endif %}
 {% endblock %}
 {% block main %}
@@ -66,7 +66,7 @@
 												{% if image %}
 													<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 												{% else %}
-													<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+													<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 												{% endif %}
 											</div>
 											<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
@@ -105,7 +105,7 @@
 													{% if image %}
 														<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 													{% else %}
-														<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+														<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 													{% endif %}
 												</div>
 												<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
@@ -144,7 +144,7 @@
 											{% if image %}
 												<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 											{% else %}
-												<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+												<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 											{% endif %}
 										</div>
 										<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>

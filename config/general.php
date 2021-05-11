@@ -36,7 +36,6 @@ return [
     'disallowRobots' => !$isProd,
 
     'aliases' => [
-        '@webroot' => dirname(__DIR__),
         '@assets' => 'src',
     ],    
 ];

@@ -1,5 +1,5 @@
 fieldLayouts:
-  4c575b21-eea6-485a-887c-fb78e0fa51d4:
+  933e9485-46bb-496e-863e-0f21630a0d49:
     tabs:
       -
         elements:
@@ -28,11 +28,11 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: main
+handle: partnersLogos
 hasUrls: true
-name: Main
+name: 'Partners logos'
 settings:
-  path: '@assets/uploads'
+  path: '@assets/uploads/'
 sortOrder: 0
 titleTranslationKeyFormat: null
 titleTranslationMethod: null

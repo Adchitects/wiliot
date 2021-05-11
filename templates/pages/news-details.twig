@@ -28,7 +28,7 @@
 				<h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
 				<span class="hero-news__publish-date">{{ postDate }}</span>
 				{% if heroImage %}
-					<img src="{{ heroImage.getUrl() }}" class="hero-news__image" alt="{{ heroTitle }}">
+					<img src="{{ alias('@web') }}/{{ heroImage.getUrl() }}" class="hero-news__image" alt="{{ heroTitle }}">
 				{% endif %}
 			</div>
 		</div>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="u-wrapper">
 			<div class="news-single__content">
-				{{newsContent}}
+				{{ newsContent }}
 			</div>
 			<div class="news-single__bottom-toolbar">
 				<div class="news-single__share">
