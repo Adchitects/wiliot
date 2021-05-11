@@ -9,9 +9,9 @@
 		<div class="s2 js-s2"></div>
 	</div>
 	<div class="u-wrapper">
-		{% set title = entry.subscribeTitle %}
-		{% set subtitle = entry.subscribeSubtitle %}
-		{% set button = entry.subscribeButton %}
+		{% set subtitle = entry.subscribeSubtitle ? entry.subscribeSubtitle : subscribeSection.subscribeSubtitle %}
+		{% set title = entry.subscribeTitle ? entry.subscribeTitle : subscribeSection.subscribeTitle %}
+		{% set button = entry.subscribeButton ? entry.subscribeButton : subscribeSection.subscribeButton %}
 		<div class="subscribe">
 			{% if subtitle %}
 				<span class="subscribe__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>

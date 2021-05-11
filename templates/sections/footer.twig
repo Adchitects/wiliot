@@ -34,7 +34,7 @@
 									{% set image = social.socialIcon.one() %}
 									{% if image and image.extension == 'svg' %}
 										<a href="{{ social.socialLink }}">
-											{{ svg(image.getUrl()) }}
+											{{ svg(image) }}
 										</a>
 									{% endif %}
 								{% endif %}
