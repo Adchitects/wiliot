@@ -22,7 +22,17 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-top: 55px;
-		padding: 0 75px;
+		padding: 0 110px;
+		transition: opacity 0.2s;
+		opacity: 0;
+
+		.is-iframe-form-visible & {
+			opacity: 1;
+		}
+
+		@include mobile-767 {
+			padding: 0;
+		}
 
 		.step {
 			display: flex;
@@ -58,12 +68,21 @@
 				&::after {
 					content: '';
 					position: absolute;
-					top: 14px;
-					right: -88px;
+					top: 15px;
+					right: -85px;
 					pointer-events: none;
 					width: 77px;
 					height: 1px;
 					background-color: rgba($c-gray, 0.5);
+
+					@include mobile-767 {
+						right: -105px;
+						width: 50px;
+					}
+
+					@include mobile-599 {
+						display: none;
+					}
 				}
 			}
 
@@ -155,6 +174,10 @@
 		padding: 80px 110px 95px;
 		background-color: $c-accent-dark;
 
+		@include mobile-599 {
+			padding: 50px 30px 50px;
+		}
+
 		iframe {
 			width: 100% !important;
 		}
@@ -212,6 +235,10 @@
 				font-size: 16px !important;
 				letter-spacing: 0 !important;
 				line-height: 26px !important;
+
+				@include mobile-599 {
+					height: 100px !important;
+				}
 
 				&:hover,
 				&:focus {
