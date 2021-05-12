@@ -1,6 +1,7 @@
 .u-section--hero-news {
 	margin-top: 0;
-	overflow: hidden;
+	padding-top: 200px;
+	padding-bottom: 205px;
 
 	&::before {
 		content: '';
@@ -8,9 +9,17 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		// height: 
 		height: 100%;
 		background-color: #f5f9fc;
+	}
+
+	.bg-shape-hld {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
 	}
 
 	.u-wrapper {
@@ -22,14 +31,13 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding-top: 200px;
+		position: relative;
 
 		&__category {
 			margin-bottom: 12px;
 			font-size: 24px;
 			font-weight: 500;
 			line-height: 36px;
-			text-transform: uppercase;
 		}
 
 		&__title {
@@ -46,14 +54,17 @@
 		}
 
 		&__image {
-			margin-top: 64px;
+			position: absolute;
+			top: 205px;
+			left: 50%;
+			transform: translateX(-50%);
 		}
 	}
 }
 
 .news-single {
 	position: relative;
-	padding-top: 42px;
+	padding-top: 370px;
 	overflow: hidden;
 
 	.u-wrapper {
@@ -82,16 +93,33 @@
 		}
 
 		h2 {
-			margin-bottom: 22px;
+			&:not(:first-of-type) {
+				margin-top: 65px;
+			}
+
+			margin-bottom: 20px;
 			font-size: 24px;
 			font-weight: 900;
 			line-height: 36px;
 		}
 
-		img {
+		figure {
 			max-width: 100%;
-			margin-top: 26px;
-			margin-bottom: 42px;
+			margin-top: 45px;
+
+			+ figure {
+				margin-top: 25px;
+			}
+		}
+
+		figcaption {
+			margin-top: 10px;
+			color: rgba($c-black, 0.6);
+			font-size: 13px;
+			font-weight: 300;
+			letter-spacing: 0;
+			line-height: 19px;
+			text-align: center;
 		}
 
 		p {
@@ -104,8 +132,8 @@
 		}
 
 		blockquote {
-			margin-top: 16px;
-			margin-bottom: 48px;
+			margin-top: 45px;
+			margin-bottom: 45px;
 			padding: 8px 0 24px 16px;
 			border-left: 2px solid #11b5b5;
 			color: $c-black;
@@ -116,11 +144,13 @@
 
 		ol,
 		ul {
-			margin-bottom: 48px;
+			margin-top: 50px;
+			margin-bottom: 50px;
 			padding-left: 18px;
 
 			> li {
 				margin-bottom: 12px;
+				padding-left: 5px;
 				font-size: 16px;
 				font-weight: 300;
 				line-height: 26px;
@@ -139,9 +169,31 @@
 				}
 			}
 		}
+
+		ul {
+			li {
+				position: relative;
+				padding-left: 0;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 10px;
+					left: -17px;
+					pointer-events: none;
+					width: 5px;
+					height: 5px;
+					border-radius: 50%;
+					background-color: $c-black;
+				}
+			}
+		}
 	}
 
 	&__bottom-toolbar {
+		max-width: 625px;
+		margin: 0 auto;
+
 		> div {
 			display: flex;
 			align-items: center;

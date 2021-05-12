@@ -33,7 +33,7 @@ hasUrls: true
 name: Logos
 settings:
   path: '@assets/uploads/logos'
-sortOrder: 0
+sortOrder: 6
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local

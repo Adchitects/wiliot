@@ -33,7 +33,7 @@ hasUrls: true
 name: Company
 settings:
   path: '@assets/uploads/company'
-sortOrder: 3
+sortOrder: 4
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local

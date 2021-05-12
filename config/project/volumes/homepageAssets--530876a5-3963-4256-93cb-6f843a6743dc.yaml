@@ -33,7 +33,7 @@ hasUrls: true
 name: Homepage
 settings:
   path: '@assets/uploads/homepage'
-sortOrder: 1
+sortOrder: 2
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local

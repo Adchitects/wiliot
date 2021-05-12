@@ -12,15 +12,17 @@
 	{% set heroImage = entry.newsPostsfeaturedImage.one() %}
 	{% set newsContent = entry.postContent %}
 	{% set postDate = entry.postDate|date("F d, Y") %}
-	<section class="u-section u-section--hero-news js-bg-shape-hld">
-		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
-			<div class="s1 js-s1"></div>
-			<div class="s2 js-s2"></div>
-			<div class="s3 js-s3"></div>
-		</div>
-		<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
-			<div class="s1 js-s1"></div>
-			<div class="s2 js-s2"></div>
+	<section class="u-section u-section--hero-news">
+		<div class="bg-shape-hld js-bg-shape-hld">
+			<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+				<div class="s1 js-s1"></div>
+				<div class="s2 js-s2"></div>
+				<div class="s3 js-s3"></div>
+			</div>
+			<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+				<div class="s1 js-s1"></div>
+				<div class="s2 js-s2"></div>
+			</div>
 		</div>
 		<div class="u-wrapper">
 			<div class="hero-news">
@@ -28,7 +30,7 @@
 				<h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
 				<span class="hero-news__publish-date">{{ postDate }}</span>
 				{% if heroImage %}
-					<img src="{{ alias('@web') }}/{{ heroImage.getUrl() }}" class="hero-news__image" alt="{{ heroTitle }}">
+					<img src="{{ heroImage.getUrl() }}" class="hero-news__image" alt="{{ heroTitle }}">
 				{% endif %}
 			</div>
 		</div>
@@ -65,7 +67,7 @@
 					</a>
 				</div>
 				<div class="news-single__tags">
-					<span>Tags</span>
+					<span>Related tags</span>
 					{% for cat in query %}
 						<a class="news-single__tag" href="{{ url(cat.uri) }}">
 							{{ cat.title }}

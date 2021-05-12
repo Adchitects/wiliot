@@ -1,14 +1,14 @@
 {% set podcasts = craft.entries.section('podcastDetails').order('postDate desc') %}
 {% set title = entry.podcastsListingTitle %}
-{% set logo = entry.podcastsListingLogo.one().getUrl() %}
+{% set logo = entry.podcastsListingLogo.one() %}
 {% set subtitle = entry.podcastsListingSubtitle %}
 
 {% if podcasts %}
 	<section class="u-section u-section--podcasts-listing">
 		<div class="u-wrapper">
 			<div class="podcasts-listing js-load-more-hld">
-				{% if logo %}
-					<img src="{{logo}}" alt="Mr. Beacon Podcast" class="podcasts-listing__logo">
+				{% if logo is not null %}
+					<img src="{{ logo.getUrl() }}" alt="Mr. Beacon Podcast" class="podcasts-listing__logo">
 				{% endif %}
 				<div class="podcasts-listing__header">
 					{% if subtitle %}
@@ -24,7 +24,6 @@
 							{% set image = post.podcastDetailsImage.one() %}
 							{% set excerpt = post.podcastDetailsExcerpt %}
 							{% set number = post.podcastDetailsNumber %}
-
 							{% if image %}
 								{% set imageUrl = image.getUrl() %}
 								{% set imageWidth = image.getWidth() %}

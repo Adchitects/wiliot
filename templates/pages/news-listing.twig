@@ -60,7 +60,7 @@
 										{% endif %}
 										{% set title = post.title %}
 										{% set desc = post.newsPostsExcerpt|striptags|striptags %}
-										{% set descSliced = desc|slice(0, 107) ~ '...' %}
+										{% set descSliced = desc|slice(0, 97) ~ '...' %}
 										<a href="{{ post.url}}" class="area__post post">
 											<div class="post__image-hld">
 												{% if image %}
@@ -71,7 +71,7 @@
 											</div>
 											<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
 											<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-											<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+											<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
 											<div class="post__btn u-btn u-btn--arrow">
 												<span class="text">Read more</span>
 											</div>
@@ -99,7 +99,7 @@
 											{% endif %}
 											{% set title = catPost.title %}
 											{% set desc = catPost.newsPostsExcerpt|striptags %}
-											{% set descSliced = desc|slice(0, 107) ~ '...' %}
+											{% set descSliced = desc|slice(0, 97) ~ '...' %}
 											<a href="{{ catPost.url}}" class="area__post post">
 												<div class="post__image-hld">
 													{% if image %}
@@ -110,7 +110,7 @@
 												</div>
 												<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
 												<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-												<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+												<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
 												<div class="post__btn u-btn u-btn--arrow">
 													<span class="text">Read more</span>
 												</div>
@@ -138,7 +138,7 @@
 									{% endif %}
 									{% set title = catPost.title %}
 									{% set desc = catPost.newsPostsExcerpt|striptags %}
-									{% set descSliced = desc|slice(0, 107) ~ '...' %}
+									{% set descSliced = desc|slice(0, 97) ~ '...' %}
 									<a href="{{ catPost.url}}" class="area__post post js-load-more-item" data-max-items="12" data-load-items="6">
 										<div class="post__image-hld">
 											{% if image %}
@@ -149,7 +149,7 @@
 										</div>
 										<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
 										<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-										<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+										<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
 										<div class="post__btn u-btn u-btn--arrow">
 											<span class="text">Read more</span>
 										</div>

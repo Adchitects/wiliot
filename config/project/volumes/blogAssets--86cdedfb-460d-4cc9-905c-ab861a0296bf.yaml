@@ -1,5 +1,5 @@
 fieldLayouts:
-  933e9485-46bb-496e-863e-0f21630a0d49:
+  5fd53452-6729-449f-bf71-8ebd611a2133:
     tabs:
       -
         elements:
@@ -28,13 +28,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: partnersAssets
+handle: blogAssets
 hasUrls: true
-name: Partners
+name: Blog
 settings:
-  path: '@assets/uploads/partners'
-sortOrder: 7
+  path: '@assets/uploads/blog'
+sortOrder: 3
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local
-url: '@web/src/uploads/partners'
+url: '@web/src/uploads/blog'

@@ -33,7 +33,7 @@ hasUrls: true
 name: Main
 settings:
   path: '@assets/uploads'
-sortOrder: 0
+sortOrder: 1
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local

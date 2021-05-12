@@ -18,7 +18,7 @@
 						{% endif %}
 						{% set title = post.title %}
 						{% set desc = post.newsPostsExcerpt|striptags|striptags %}
-						{% set descSliced = desc|slice(0, 107) ~ '...' %}
+						{% set descSliced = desc|slice(0, 97) ~ '...' %}
 						<a href="{{ post.url}}" class="post">
 							<div class="post__image-hld">
 								{% if image %}
@@ -29,7 +29,7 @@
 							</div>
 							<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
 							<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-							<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+							<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
 							<div class="post__btn u-btn u-btn--arrow">
 								<span class="text">Read more</span>
 							</div>

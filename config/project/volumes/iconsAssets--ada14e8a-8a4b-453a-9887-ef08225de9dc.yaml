@@ -33,7 +33,7 @@ hasUrls: true
 name: Icons
 settings:
   path: '@assets/uploads/icons'
-sortOrder: 2
+sortOrder: 5
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local
