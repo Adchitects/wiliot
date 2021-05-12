@@ -1,3 +1,6 @@
+// LIBS
+import { lazyLoadInstance } from './libs/lazyLoad';
+lazyLoadInstance;
 // SCRIPTS
 import './scripts/header';
 import './scripts/menuMobile';

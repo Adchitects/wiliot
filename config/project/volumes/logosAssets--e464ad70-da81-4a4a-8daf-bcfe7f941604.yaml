@@ -1,5 +1,5 @@
 fieldLayouts:
-  933e9485-46bb-496e-863e-0f21630a0d49:
+  981956a6-df68-4fa0-b828-c11712554c30:
     tabs:
       -
         elements:
@@ -28,13 +28,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: partnersLogos
+handle: logosAssets
 hasUrls: true
-name: 'Partners logos'
+name: Logos
 settings:
-  path: '@assets/uploads/'
+  path: '@assets/uploads/logos'
 sortOrder: 0
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local
-url: '@web/src/uploads/'
+url: '@web/src/uploads/logos'

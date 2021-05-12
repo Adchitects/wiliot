@@ -22,7 +22,7 @@
 							{% set title = item.tabTitle %}
 							{% set icon = item.tabIcon.one() %}
 							<div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item">
-								{{svg(icon.getUrl())}}<span>{{title}}</span>
+								{{ svg(icon) }}<span>{{ title }}</span>
 							</div>
 						{% endfor %}
 					</div>
@@ -35,12 +35,12 @@
 								{% set link = item.tabLink %}
 								<div class="tab swiper-slide">
 									<div class="tab__image">
-										<img data-src="{{image.getUrl()}}" class="js-lazy" alt="{{title}}">
+										<img data-src="{{ image.getUrl() }}" class="js-lazy" alt="{{ title }}">
 									</div>
 									<div class="tab__content">
-										<h3 class="tab__title">{{title}}</h3>
-										<p class="tab__description">{{description}}</p>
-										<a class="tab__link" href="{{link}}">Learn more
+										<h3 class="tab__title">{{ title }}</h3>
+										<p class="tab__description">{{ description }}</p>
+										<a class="tab__link" href="{{ link }}">Learn more
 											<span class="icon icon-arrow-right"></span>
 										</a>
 									</div>
@@ -51,8 +51,8 @@
 				</div>
 			{% endif %}
 			{% if button and button.getUrl() %}
-				<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light btn--explore">
-					{{button.customText}}</a>
+				<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light btn--explore">
+					{{ button.customText }}</a>
 			{% endif %}
 		</div>
 	</div>

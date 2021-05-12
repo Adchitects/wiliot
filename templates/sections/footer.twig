@@ -62,10 +62,12 @@
 				<div class="swiper-container js-footer-slider">
 					<div class="swiper-wrapper">
 						{% for logo in logos %}
-							{% set image = logo.logoImage.one().getUrl() %}
-							<div class="swiper-slide">
-								<img data-src="{{ image }}" class="js-lazy">
-							</div>
+							{% if logo.logoImage.one() %}
+								{% set image = logo.logoImage.one().getUrl() %}
+								<div class="swiper-slide">
+									<img data-src="{{ image }}" class="js-lazy">
+								</div>
+							{% endif %}
 						{% endfor %}
 					</div>
 				</div>

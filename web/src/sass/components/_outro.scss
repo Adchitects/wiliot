@@ -45,6 +45,10 @@
 		left: 50%;
 		z-index: 1;
 		transform: translateX(-50%);
+
+		.is-small & {
+			top: 60px;
+		}
 	}
 
 	&__btn {

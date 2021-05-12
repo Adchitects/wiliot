@@ -4,7 +4,7 @@
 {% set button2 = entry.outroButton2 %}
 {% set subtitle = entry.outroSubtitle %}
 {% if title or description %}
-	<section class="u-section u-section--outro">
+	<section class="u-section u-section--outro {{ description ? null : 'is-small' }}">
 		<div class="outro__bg-img">
 			<?xml version="1.0" encoding="UTF-8"?>
 			<svg width="628px" height="822px" viewBox="0 0 628 822" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

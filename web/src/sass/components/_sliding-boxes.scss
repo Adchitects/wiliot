@@ -1,4 +1,6 @@
 .u-section--sliding-boxes {
+	margin-top: 180px;
+
 	.sliding-boxes {
 		display: flex;
 		flex-direction: column;
@@ -15,7 +17,7 @@
 		}
 
 		&__title {
-			margin-bottom: 64px;
+			margin-bottom: 70px;
 			text-align: center;
 		}
 
@@ -104,7 +106,7 @@
 			&__date {
 				position: relative;
 				margin-top: auto;
-				margin-bottom: 24px;
+				margin-bottom: 20px;
 				font-size: 32px;
 				font-weight: 900;
 				line-height: 44px;
@@ -127,7 +129,15 @@
 				}
 			}
 
+			&__icon {
+				position: relative;
+				top: -11px;
+				left: -3px;
+				font-size: 16px;
+			}
+
 			&__time {
+				margin-left: -5px;
 				font-weight: 300;
 			}
 
@@ -136,7 +146,7 @@
 				opacity: 0;
 
 				span {
-					margin-left: 8px;
+					margin-left: 5px;
 					font-size: 12px;
 				}
 			}
