@@ -130,7 +130,7 @@
 		}
 
 		&-title {
-			margin-bottom: 14px;
+			margin-bottom: 10px;
 			font-size: 16px;
 			font-weight: 900;
 			line-height: 26px;
@@ -141,14 +141,19 @@
 		}
 
 		.footer__link {
-			margin-bottom: 10px;
 			font-size: 14px;
 			font-weight: 500;
 			line-height: 19px;
 			opacity: 0.8;
 
-			&:last-of-type {
-				margin-bottom: 0;
+			a {
+				display: block;
+				padding: 5px 0;
+				transition: opacity 0.2s;
+
+				&:hover {
+					opacity: 0.7;
+				}
 			}
 		}
 	}

@@ -33,7 +33,7 @@
 								{% if social.socialLink and social.socialName and social.socialIcon and social.socialIcon.one() %}
 									{% set image = social.socialIcon.one() %}
 									{% if image and image.extension == 'svg' %}
-										<a href="{{ social.socialLink }}">
+										<a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
 											{{ svg(image) }}
 										</a>
 									{% endif %}
