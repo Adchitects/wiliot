@@ -1,4 +1,6 @@
 .u-section--two-columns {
+	margin-top: 100px;
+
 	.two-columns {
 		display: flex;
 		flex-direction: column;
@@ -8,7 +10,7 @@
 		padding: 0 30px;
 
 		&__title {
-			margin-bottom: 24px;
+			margin-bottom: 30px;
 			text-align: center;
 		}
 
@@ -23,8 +25,9 @@
 		}
 
 		&__content {
-			margin-bottom: 64px;
-			column-gap: 50px;
+			margin-bottom: 65px;
+			padding-right: 10px;
+			column-gap: 100px;
 			column-count: 2;
 			column-width: 360px;
 

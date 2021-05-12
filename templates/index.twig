@@ -66,7 +66,7 @@
 			</script>
 		</head>
 	{% endblock %}
-	<body>
+	<body class="{% if entry is defined %} is-page-{{ entry.section|lower }} {% endif %}">
 		<header class="header header--desktop js-header">
 			{{ include('/sections/menu-desktop.twig') }}
 		</header>

@@ -246,10 +246,6 @@
 				line-height: 26px !important;
 				resize: none !important;
 
-				@include mobile-599 {
-					height: 100px !important;
-				}
-
 				&::placeholder {
 					color: rgba($c-white, 0.8) !important;
 				}
@@ -359,8 +355,8 @@
 				font-weight: 500 !important;
 				line-height: 26px !important;
 				transition: border-color 0.2s, background-color 0.2s;
-				-webkit-appearance: auto !important;
-				appearance: auto !important;
+				-webkit-appearance: checkbox !important;
+				appearance: checkbox !important;
 			}
 
 			span {

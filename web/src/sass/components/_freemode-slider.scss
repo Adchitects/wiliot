@@ -1,10 +1,13 @@
 .u-section--freemode-slider {
+	margin-top: 140px;
 	overflow: hidden;
 
 	.freemode-slider {
 		max-width: 1116px;
 		margin: 0 auto;
-		padding: 140px 30px;
+		padding-right: 30px;
+		padding-bottom: 90px;
+		padding-left: 30px;
 
 		&__title {
 			font-size: 32px;
@@ -25,7 +28,7 @@
 				max-width: 516px;
 				height: auto;
 				min-height: 407px;
-				padding: 48px 64px 48px 46px;
+				padding: 50px 55px 50px 45px;
 
 				@include media-max(550) {
 					padding: 32px;

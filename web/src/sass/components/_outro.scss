@@ -1,7 +1,11 @@
 .u-section--outro {
-	padding: 96px 0;
+	padding: 95px 0;
 	background-color: $c-accent-dark;
 	overflow: hidden;
+
+	.is-page-company & {
+		margin-top: 90px;
+	}
 
 	@include tablet-small-1023 {
 		padding: 80px 0;
@@ -23,6 +27,11 @@
 
 	&__title {
 		margin: 0 auto;
+
+		.is-page-company & {
+			max-width: 500px;
+			margin-top: 20px;
+		}
 	}
 
 	&__subtitle {
@@ -48,6 +57,10 @@
 
 		.is-small & {
 			top: 60px;
+		}
+
+		.is-page-company & {
+			top: 85px;
 		}
 	}
 

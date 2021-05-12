@@ -8,6 +8,11 @@
 		max-width: 1332px;
 		margin: 0 auto;
 		padding: 0 30px;
+
+		.btn {
+			margin-top: 70px;
+			padding: 15px 55px;
+		}
 	}
 
 	.u-section--logos-slider-no-arrows {
@@ -19,6 +24,7 @@
 	}
 
 	.logos-slider__title {
+		margin-bottom: 45px;
 		font-size: 32px;
 		font-weight: 900;
 		line-height: 40px;
