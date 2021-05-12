@@ -129,6 +129,12 @@
 		position: relative;
 		margin-bottom: 36px;
 
+		&.is-active {
+			input {
+				border-bottom: 1px solid $c-white !important;
+			}
+		}
+
 		input {
 			width: 100% !important;
 			height: auto !important;
@@ -136,17 +142,19 @@
 			padding: 0 !important;
 			padding-left: 3px !important;
 			border: 0 !important;
-			border-bottom: 1px solid rgba($c-white, 0.5) !important;
+			border-bottom: 1px solid rgba($c-white, 0.8) !important;
+			border-radius: 0 !important;
 			background: transparent !important;
 			color: $c-white !important;
 			font-family: $font-head !important;
 			font-size: 16px !important;
 			font-weight: 500 !important;
 			line-height: 26px !important;
+			transition: border-color 0.2s;
 		}
 
 		&.hs-fieldtype-select {
-			border-bottom: 1px solid rgba($c-white, 0.5);
+			border-bottom: 1px solid rgba($c-white, 0.8);
 
 			&.is-active {
 				> label {
@@ -214,7 +222,7 @@
 
 			span {
 				padding-left: 5px;
-				color: $c-white;
+				color: rgba($c-white, 0.8);
 				font-size: 16px;
 				font-weight: 500;
 				line-height: 26px;
