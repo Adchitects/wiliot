@@ -1,0 +1,11 @@
+{% extends "index.twig" %}
+{% block title %}
+	{{ siteName }} - {{ entry.title }}	
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block main %}
+	{{ include('/sections/hero.twig') }}
+	{{ include('/sections/privacy-content.twig') }}
+{% endblock %}
