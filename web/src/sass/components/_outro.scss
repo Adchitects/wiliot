@@ -7,6 +7,11 @@
 		margin-top: 90px;
 	}
 
+	.is-page-purchase & {
+		margin-top: 200px;
+		padding-top: 130px;
+	}
+
 	.platform & {
 		margin-top: 0;
 	}
@@ -50,6 +55,10 @@
 		max-width: 570px;
 		margin: 0 auto;
 		margin-top: 30px;
+
+		.is-page-purchase & {
+			max-width: 510px;
+		}
 	}
 
 	&__bg-img {

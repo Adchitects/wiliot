@@ -6,6 +6,10 @@
 		height: 62vh;
 		background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 	}
+
+	.is-page-purchase & {
+		height: 85vh;
+	}
 }
 
 .hero {

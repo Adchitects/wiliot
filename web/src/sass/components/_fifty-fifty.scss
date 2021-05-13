@@ -5,6 +5,10 @@
 		margin-top: 170px;
 	}
 
+	.is-page-purchase & {
+		margin-top: 190px;
+	}
+
 	.fifty-fifty {
 		max-width: 972px;
 		margin: 0 auto;
@@ -37,6 +41,12 @@
 
 			&:last-of-type {
 				margin-bottom: 0;
+			}
+
+			.is-page-purchase & {
+				+ .row {
+					margin-top: 100px;
+				}
 			}
 
 			img {
