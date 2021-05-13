@@ -1,0 +1,140 @@
+field: a87aa858-2e9d-4ac5-be71-84ee0f3747a1 # Solution Hero buttons
+fieldLayouts:
+  d437c7bb-cb1c-4207-8607-b3bf4e471cb3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b7ac5ac0-9fc8-48b3-a0c7-b35af6714928 # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  b7ac5ac0-9fc8-48b3-a0c7-b35af6714928: # Button
+    contentColumnType: text
+    fieldGroup: null
+    handle: button
+    instructions: ''
+    name: Button
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: '1'
+      allowedLinkNames:
+        3: entry
+        7: email
+        8: tel
+        9: url
+      autoNoReferrer: '1'
+      defaultLinkName: asset
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: '1'
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  -
+                    - singles
+                    - 'section:d53d3bce-afa8-4d8c-be8e-7f39844292ba' # News posts
+                    - 'section:6560a834-cd10-49ce-92e8-210691efdc73' # Partners posts
+                    - 'section:51c060f1-2569-4a4e-88d5-0ff236f6033b' # Podcast posts
+                    - 'section:35c30890-dd01-4af7-8e09-70b7eb0d80fc' # Privacy posts
+                    - 'section:06d1e5ff-4d31-4966-8bce-2bc3c44214a0' # Product posts
+                    - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Solutions posts
+                -
+                  - allowCustomQuery
+                  - '1'
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: typedlinkfield\fields\LinkField
+handle: item
+name: item
+sortOrder: 1
