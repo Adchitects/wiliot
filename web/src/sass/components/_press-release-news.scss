@@ -1,5 +1,5 @@
 .u-section--press-release {
-	margin-bottom: 96px;
+	margin-top: 80px;
 
 	@include media-max(767) {
 		margin-bottom: 56px;
@@ -14,7 +14,7 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 24px 36px;
-		margin-top: 64px;
+		margin-top: 80px;
 
 		@include media-max(1100) {
 			grid-gap: 0 24px;
@@ -38,7 +38,22 @@
 
 	.post {
 		&__image-hld {
+			position: relative;
 			height: 225px;
+
+			.tip {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				padding: 8px 28px;
+				background-color: $c-accent;
+				color: $c-white;
+				font-size: 12px;
+				font-weight: 900;
+				letter-spacing: 0;
+				line-height: 16px;
+				text-transform: uppercase;
+			}
 
 			img {
 				width: 100%;

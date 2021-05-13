@@ -5,9 +5,8 @@
 			{% set cat = craft.categories.slug('press-release').one() %}
 			{% set latestEntries = craft.entries.relatedTo(cat).all() %}
 			<div class="press-release__listing">
-				{% set latestNews = latestEntries %}
-				{% if latestNews|length %}
-					{% for post in latestNews %}
+				{% if latestEntries|length %}
+					{% for post in latestEntries %}
 						{% set image = post.newsPostsfeaturedImage.one() %}
 						{% if image %}
 							{% set imageUrl = image.getUrl() %}
@@ -18,6 +17,7 @@
 						{% set title = post.title %}
 						<a href="{{ post.url}}" class="post js-load-more-item" data-max-items="3" data-load-items="3">
 							<div class="post__image-hld">
+								<div class="tip">Press release</div>
 								{% if image %}
 									<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 								{% else %}
@@ -25,7 +25,7 @@
 								{% endif %}
 							</div>
 							<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
-							<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+							<div class="post__title">{{ title }}</div>
 							<div class="post__btn u-btn u-btn--arrow">
 								<span class="text">Read more</span>
 							</div>

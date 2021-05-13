@@ -1,6 +1,6 @@
 {% set title = entry.productHeroTitle %}
 {% set name = entry.title %}
-{% set image = entry.productHeroImage.one().getUrl() %}
+{% set image = entry.productHeroImage.one() %}
 {% if entry is defined %}
 	<section class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
@@ -18,7 +18,7 @@
 					{% endif %}
 				</div>
 				{% if image %}
-					<img src="{{image}}" alt="{{title}}" class="product-hero__image">
+					<img src="{{ image.getUrl() }}" alt="{{ title }}" class="product-hero__image">
 				{% endif %}
 			</div>
 		</div>

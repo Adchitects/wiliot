@@ -1,7 +1,7 @@
 {% set title = entry.tabsTitle %}
 {% set subtitle = entry.tabsSubtitle %}
 {% set button = entry.bottomButton %}
-{% set tabs = entry.tabsList.all() %}
+{% set tabs = entry.tabsList %}
 <section class="u-section u-section--tabs js-bg-shape-hld">
 	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
 		<div class="s1 js-s1"></div>
@@ -18,7 +18,7 @@
 			{% if tabs %}
 				<div class="tabs__list">
 					<div class="tabs__nav">
-						{% for item in tabs %}
+						{% for item in tabs.all() %}
 							{% set title = item.tabTitle %}
 							{% set icon = item.tabIcon.one() %}
 							<div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item">
@@ -28,7 +28,7 @@
 					</div>
 					<div class="swiper-container js-tabs-slider">
 						<div class="swiper-wrapper">
-							{% for item in tabs %}
+							{% for item in tabs.all() %}
 								{% set title = item.tabTitle %}
 								{% set description = item.tabDescription %}
 								{% set image = item.tabImage.one() %}

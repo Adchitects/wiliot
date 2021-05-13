@@ -1,7 +1,6 @@
 {% set title = entry.pressKitTitle %}
 {% set images = entry.pressKitImages %}
 {% set videos = entry.pressKitVideos %}
-
 <section class="u-section u-section--press-kit">
 	<div class="u-wrapper">
 		<div class="press-kit">
@@ -12,16 +11,18 @@
 				<div class="press-kit__images">
 					{% for image in images %}
 						{% set imageTitle = image.imageTitle %}
-						{% set imageAsset = image.imageAsset.one().getUrl() %}
+						{% set imageAsset = image.imageAsset.one() %}
 						{% if imageAsset and imageTitle %}
 							<div class="press-kit__image">
 								<div class="press-kit-image__asset">
-									<img data-src="{{imageAsset}}" class="js-lazy" alt="{{imageTitle}}">
+									<img data-src="{{ imageAsset.getUrl() }}" class="js-lazy" alt="{{ imageTitle }}">
 								</div>
 								<div class="press-kit-image__content">
-									<h3 class="press-kit-image__title">{{imageTitle}}</h3>
-									<a download href="{{imageAsset}}" class="press-kit__btn">
-										<span class="icon icon-arrow-right"></span>Download</a>
+									<h3 class="press-kit-image__title">{{ imageTitle }}</h3>
+									<a download href="{{ imageAsset }}" class="press-kit__btn">
+										<span class="icon icon-arrow-right"></span>
+										<span class="text">Download</span>
+									</a>
 								</div>
 							</div>
 						{% endif %}
@@ -32,17 +33,19 @@
 				<div class="press-kit__videos">
 					{% for video in videos %}
 						{% set videoTitle = video.videoTitle %}
-						{% set videoAsset = video.videoAsset.one().getUrl() %}
+						{% set videoAsset = video.videoAsset.one() %}
 						{% if videoAsset and videoTitle %}
 							<div class="press-kit__video">
 								<div class="press-kit-video__asset js-video-hld is-paused">
 									<span class="icon icon-play"></span>
-									<video class="js-lazy" data-src="{{ videoAsset }}"></video>
+									<video class="js-lazy" data-src="{{ videoAsset.getUrl() }}"></video>
 								</div>
 								<div class="press-kit-video__content">
-									<h3 class="press-kit-video__title">{{videoTitle}}</h3>
-									<a download href="{{videoAsset}}" class="press-kit__btn">
-										<span class="icon icon-arrow-right"></span>Download</a>
+									<h3 class="press-kit-video__title">{{ videoTitle }}</h3>
+									<a download href="{{ videoAsset }}" class="press-kit__btn">
+										<span class="icon icon-arrow-right"></span>
+										<span class="text">Download</span>
+									</a>
 								</div>
 							</div>
 						{% endif %}

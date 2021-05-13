@@ -1,5 +1,4 @@
 .u-section--press-kit {
-	margin-top: 0;
 	padding: 120px 0 140px 0;
 	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 
@@ -75,6 +74,11 @@
 			font-size: 16px;
 			font-weight: 500;
 			line-height: 26px;
+			transition: color 0.2s;
+
+			&:hover {
+				color: $c-accent-light;
+			}
 
 			.icon {
 				display: block;
