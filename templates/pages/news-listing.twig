@@ -31,7 +31,7 @@
 								{% endif %}
 							</a>
 						</li>
-						{% for cat in categories %}
+						{% for cat in categories.all() %}
 							{% set catPosts = craft.entries().postMainCategory(cat.id).all() %}
 							{% if catPosts|length > 0 %}
 								<li class="news-listing__filter {% if category is defined and category.title == cat.title %} is-active {% endif %}">

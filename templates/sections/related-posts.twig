@@ -1,4 +1,4 @@
-<section class="u-section--related-news u-section">
+<section class="u-section u-section--related-news">
 	<div class="u-wrapper">
 		<div class="related-news">
 			<h2 class="u-title related-news__title">Related news</h2>
@@ -8,7 +8,7 @@
 			<div class="related-news__listing">
 				{% set relatedNews = relatedEntries.limit(3) %}
 				{% if relatedNews|length %}
-					{% for post in relatedNews %}
+					{% for post in relatedNews.all() %}
 						{% set image = post.newsPostsfeaturedImage.one() %}
 						{% if image %}
 							{% set imageUrl = image.getUrl() %}

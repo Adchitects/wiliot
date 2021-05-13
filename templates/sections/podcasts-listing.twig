@@ -1,8 +1,7 @@
-{% set podcasts = craft.entries.section('podcastDetails').order('postDate desc') %}
+{% set podcasts = craft.entries.section('podcastDetails').orderBy('postDate desc') %}
 {% set title = entry.podcastsListingTitle %}
 {% set logo = entry.podcastsListingLogo.one() %}
 {% set subtitle = entry.podcastsListingSubtitle %}
-
 {% if podcasts %}
 	<section class="u-section u-section--podcasts-listing">
 		<div class="u-wrapper">
@@ -20,7 +19,7 @@
 				</div>
 				<div class="podcasts-listing__items">
 					{% if podcasts|length %}
-						{% for post in podcasts %}
+						{% for post in podcasts.all() %}
 							{% set image = post.podcastDetailsImage.one() %}
 							{% set excerpt = post.podcastDetailsExcerpt %}
 							{% set number = post.podcastDetailsNumber %}

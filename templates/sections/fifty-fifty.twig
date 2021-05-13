@@ -1,13 +1,10 @@
 {% set title = entry.fiftyFiftyTitle %}
 {% set subtitle = entry.fiftyFiftySubtitle %}
 {% set numeration = entry.fiftyFiftyNumeration %}
-
 {% if numeration %}
 	{% set numeration = numeration.contains('true') %}
 {% endif %}
-
-{% set rows = entry.fiftyFiftyRows %}
-
+{% set rows = entry.fiftyFiftyRows.all() %}
 <section class="u-section u-section--fifty-fifty">
 	<div class="u-wrapper">
 		<div class="fifty-fifty">
