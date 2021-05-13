@@ -167,8 +167,8 @@ fieldLayouts:
         sortOrder: 6
 handle: products
 hasTitleField: false
-name: Products
-section: a20376e6-81c6-4ecc-8014-c22eac87de16 # Products
+name: 'Wiliot Platform'
+section: a20376e6-81c6-4ecc-8014-c22eac87de16 # Wiliot Platform
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

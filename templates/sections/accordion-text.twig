@@ -2,7 +2,6 @@
 {% set subtitle = entry.accordionTextSubtitle %}
 {% set image = entry.accordionTextImage.one() %}
 {% set accordionList = entry.accordionTextItems.all() %}
-
 <section class="u-section u-section--accordion-text js-bg-shape-hld">
 	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
 		<div class="s1 js-s1"></div>
@@ -21,17 +20,18 @@
 						{% for item in accordionList %}
 							{% set title = item.itemTitle %}
 							{% set description = item.itemDescription %}
-							<div class="accordion {{loop.index == 1 ? 'is-active' : ''}} js-accordion-toggle-item">
-								<img src="{{alias('@web/src/img/svg/open.svg')}}" class="accordion__arrow" alt="Arrow">
-								<h3 class="accordion__title">{{title}}</h3>
-								<p class="accordion__description">{{description}}</p>
+							<div class="accordion {{ loop.index == 1 ? 'is-active' : '' }} js-accordion-toggle-item">
+								<img src="{{ alias('@web/src/img/svg/open.svg') }}" class="accordion__arrow" alt="Arrow">
+								<h3 class="accordion__title">{{ title }}</h3>
+								<p class="accordion__description">{{ description }}</p>
 							</div>
 						{% endfor %}
 					</div>
-					<img data-src="{{image.getUrl()}}" alt="{{title}}" class="accordion-text__image js-lazy">
+					{% if image %}
+						<img data-src="{{ image.getUrl() }}" alt="{{ title }}" class="accordion-text__image js-lazy">
+					{% endif %}
 				</div>
 			{% endif %}
-
 		</div>
 	</div>
 </section>

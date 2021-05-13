@@ -35,13 +35,17 @@
 								{% set link = item.tabLink %}
 								<div class="tab swiper-slide">
 									<div class="tab__image">
+									{% if image %}
 										<img data-src="{{ image.getUrl() }}" class="js-lazy" alt="{{ title }}">
+									{% endif %}
 									</div>
 									<div class="tab__content">
 										<h3 class="tab__title">{{ title }}</h3>
 										<p class="tab__description">{{ description }}</p>
-										<a class="tab__link" href="{{ link }}">Learn more
-											<span class="icon icon-arrow-right"></span>
+										<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
+											<span class="text">
+												Learn more
+											</span>
 										</a>
 									</div>
 								</div>

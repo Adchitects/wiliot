@@ -7,6 +7,10 @@
 		margin-top: 90px;
 	}
 
+	.platform & {
+		margin-top: 0;
+	}
+
 	@include tablet-small-1023 {
 		padding: 80px 0;
 	}
@@ -61,6 +65,10 @@
 
 		.is-page-company & {
 			top: 85px;
+		}
+
+		.platform & {
+			top: 65px;
 		}
 	}
 

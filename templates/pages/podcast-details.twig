@@ -87,8 +87,11 @@
 						<h2 class="subscribe__title u-title u-title--section">{{ title }}</h2>
 					{% endif %}
 					{% if button.getUrl() %}
-						<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light row__button">
-							{{ button.customText }}</a>
+						<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light row__button">
+							<span class="text">
+								{{ button.customText }}
+							</span>
+						</a>
 					{% endif %}
 				</div>
 			</div>
