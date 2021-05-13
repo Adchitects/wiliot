@@ -11,6 +11,11 @@
 		padding: 0 30px;
 	}
 
+	.is-page-podcasts &,
+	.is-page-podcast & {
+		background-color: $c-white;
+	}
+
 	.is-scrolled &,
 	.is-dropdown-active & {
 		background-color: $c-white;
