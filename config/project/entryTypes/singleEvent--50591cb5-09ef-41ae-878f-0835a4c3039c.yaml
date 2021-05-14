@@ -102,7 +102,7 @@ fieldLayouts:
 handle: singleEvent
 hasTitleField: true
 name: 'Single event'
-section: d53d3bce-afa8-4d8c-be8e-7f39844292ba # News posts
+section: d53d3bce-afa8-4d8c-be8e-7f39844292ba # Blog posts
 sortOrder: 3
 titleFormat: null
 titleTranslationKeyFormat: null

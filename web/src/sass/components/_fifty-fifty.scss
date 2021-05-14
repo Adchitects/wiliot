@@ -51,23 +51,40 @@
 				}
 			}
 
+			.is-page-purchase & {
+				margin-bottom: 100px;
+				padding-left: 65px;
+			}
+
 			img {
 				padding-left: 56px;
 
+				.is-page-purchase & {
+					min-width: 300px;
+					max-width: 450px;
+					padding-left: 0;
+				}
+	
 				@include media-max(767) {
 					padding: 0;
 				}
 			}
 
-			&--reversed {
+			&.is-row-reversed {
 				flex-direction: row-reverse;
 
 				img {
 					padding-right: 56px;
 					padding-left: 0;
-
+	
 					@include media-max(767) {
 						padding: 0;
+					}
+
+					.is-page-purchase & {
+						width: 380px;
+						padding-right: 0;
+						transform: translateX(-90px);
 					}
 				}
 			}
@@ -92,6 +109,11 @@
 
 				.platform & {
 					padding-left: 40px;
+				}
+
+				.is-page-purchase & {
+					max-width: 475px;
+					padding-right: 45px;
 				}
 			}
 
@@ -144,6 +166,24 @@
 				font-weight: 300;
 				line-height: 26px;
 				opacity: 0.8;
+
+				.is-page-purchase & {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+
+.is-page-purchase {
+	.u-section--fifty-fifty {
+		.fifty-fifty {
+			.row.is-row-reversed {
+				padding-left: 0;
+
+				.row__content {
+					padding-right: 65px;
+				}
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 {% if entry is defined %}
 	<section class="u-section u-section--hero-img-right">
 		<div class="u-wrapper">
-			<div class="hero-img-right js-video-modal-hld">
+			<div class="hero-img-right js-modal-hld">
 				<div class="hero-img-right__content">
 					{% if title %}
 						<h1 class="hero-img-right__title u-title u-title--big">{{ title }}</h1>
@@ -20,18 +20,18 @@
 							{{ button.customText }}
 							</span>
 						</a>
-						<button class="btn u-btn u-btn--light js-video-modal-btn">
+						<button class="btn u-btn u-btn--light js-modal-btn">
 							<span class="icon icon-play"></span>
 							<span data-video-src="{{ videoLink.getUrl() }}" class="text">Watch video</span>
 						</button>
-						<div class="modal-wrapper-outer js-video-modal-modal">
-							<div class="overlay js-video-modal-close"></div>
-							<div class="modal-wrapper-inner">
-								<div class="modal">
+						<div class="video-modal js-modal-modal">
+							<div class="overlay js-modal-close"></div>
+							<div class="video-modal__inner">
+								<div class="video-modal__modal">
 									<iframe width="560" height="315" class="js-lazy" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
-								<span class="modal__close js-video-modal-close">
-									{{ svg('src/svg/close.svg')}}
+								<span class="video-modal__close js-modal-close">
+									<span class="icon icon-close"></span>
 								</span>
 							</div>
 						</div>

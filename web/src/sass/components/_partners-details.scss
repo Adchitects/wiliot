@@ -6,14 +6,20 @@
 	&__backlink {
 		display: flex;
 
+		&:hover {
+			color: $c-accent;
+		}
+
 		.icon {
 			margin-right: 8px;
 			font-size: 12px;
 			transform: translateY(6px);
+			transition: color 0.2s;
 		}
 
 		.text {
 			font-weight: 500;
+			transition: color 0.2s;
 		}
 	}
 
@@ -76,7 +82,14 @@
 		width: 100%;
 		margin-top: 45px;
 
+		&:hover {
+			.icon {
+				color: rgba($c-white, 0.75);
+			}
+		}
+
 		video {
+			cursor: pointer;
 			width: 100%;
 			height: auto;
 			max-height: 505px;
@@ -89,9 +102,9 @@
 			left: 50%;
 			pointer-events: none;
 			color: $c-white;
-			font-size: 37px;
+			font-size: 172px;
 			transform: translate(-50%, -50%);
-			transition: opacity 0.2s;
+			transition: opacity 0.2s, color 0.2s;
 			opacity: 0;
 		}
 

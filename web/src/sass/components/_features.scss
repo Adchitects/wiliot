@@ -19,6 +19,10 @@
 				grid-gap: 32px 0;
 			}
 
+			@include mobile-599 {
+				margin-top: 30px;
+			}
+
 			.item {
 				display: flex;
 				flex-direction: column;

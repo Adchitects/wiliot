@@ -5,11 +5,12 @@
 }
 
 .u-section--podcasts-listing {
-	margin: 0;
-	padding: 128px 0;
+	margin-top: 150px;
+	margin-bottom: 120px;
 
 	@include media-max(767) {
-		padding: 80px 0;
+		margin-top: 80px;
+		margin-bottom: 80px;
 	}
 
 	.podcasts-listing {
@@ -18,7 +19,7 @@
 		align-items: center;
 
 		&__logo {
-
+			width: 490px;
 		}
 
 		&__header {
@@ -56,7 +57,7 @@
 
 		.post {
 			&__image-hld {
-				height: 225px;
+				height: 185px;
 
 				img {
 					width: 100%;

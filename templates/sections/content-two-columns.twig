@@ -4,7 +4,7 @@
 {% set content = entry.contentTwoColumnsContent %}
 {% set videoLink = entry.contentTwoColumnsVideoLink %}
 <section class="u-section u-section--two-columns">
-	<div class="two-columns js-video-modal-hld">
+	<div class="two-columns js-modal-hld">
 		{% if subtitle %}
 			<h5 class="two-columns__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h5>
 		{% endif %}
@@ -20,18 +20,18 @@
 			</div>
 		{% endif %}
 		{% if videoLink %}
-			<button class="btn u-btn u-btn--light two-columns__button js-video-modal-btn">
+			<button class="btn u-btn u-btn--light two-columns__button js-modal-btn">
 				<span class="icon icon-play"></span>
 				<span data-video-src="{{ videoLink.getUrl() }}" class="text">Watch video</span>
 			</button>
-			<div class="modal-wrapper-outer js-video-modal-modal">
-				<div class="overlay js-video-modal-close"></div>
-				<div class="modal-wrapper-inner">
-					<div class="modal">
+			<div class="video-modal js-modal-modal">
+				<div class="overlay js-modal-close"></div>
+				<div class="video-modal__inner">
+					<div class="video-modal__modal">
 						<iframe width="560" height="315" class="js-lazy" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
-					<span class="modal__close js-video-modal-close">
-						{{ svg('src/svg/close.svg')}}
+					<span class="video-modal__close js-modal-close">
+						<span class="icon icon-close"></span>
 					</span>
 				</div>
 			</div>

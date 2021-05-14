@@ -1,6 +1,7 @@
 .footer {
 	padding-top: 60px;
-	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+	// background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+	background-color: $c-white;
 	overflow: hidden;
 
 	@include media-max(767) {
@@ -39,6 +40,11 @@
 		padding-top: 36px;
 		padding-bottom: 20px;
 
+		@include mobile-599 {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
 		&::after {
 			content: '';
 			position: absolute;
@@ -55,6 +61,10 @@
 		display: flex;
 		align-items: center;
 		margin-right: -8px;
+
+		@include mobile-599 {
+			margin-top: 30px;
+		}
 
 		.footer__link {
 			color: #939393;
@@ -75,6 +85,14 @@
 
 			&:last-of-type {
 				margin-right: 0;
+			}
+
+			&:first-of-type {
+				a {
+					@include mobile-599 {
+						padding-left: 0;
+					}
+				}
 			}
 		}
 	}

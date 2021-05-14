@@ -5,8 +5,8 @@
 	overflow: hidden;
 
 	@include media-max(767) {
-		padding-top: 72px;
-		padding-bottom: 90px;
+		padding-top: 60px;
+		padding-bottom: 60px;
 	}
 
 	.is-page-product & {
@@ -195,7 +195,7 @@
 			padding: 16px 40px 14px;
 
 			@include mobile-599 {
-				margin-top: 48px;
+				margin-top: 30px;
 			}
 		}
 	}

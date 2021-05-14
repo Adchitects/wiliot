@@ -19,7 +19,7 @@
 								</div>
 								<div class="press-kit-image__content">
 									<h3 class="press-kit-image__title">{{ imageTitle }}</h3>
-									<a download href="{{ imageAsset }}" class="press-kit__btn">
+									<a download href="{{ imageAsset.url() }}" class="press-kit__btn">
 										<span class="icon icon-arrow-right"></span>
 										<span class="text">Download</span>
 									</a>
@@ -37,12 +37,12 @@
 						{% if videoAsset and videoTitle %}
 							<div class="press-kit__video">
 								<div class="press-kit-video__asset js-video-hld is-paused">
-									<span class="icon icon-play"></span>
-									<video class="js-lazy" data-src="{{ videoAsset.getUrl() }}"></video>
+									<span class="icon icon-button_play"></span>
+									<video class="js-lazy" data-src="{{ videoAsset.getUrl() }}" preload="metadata"></video>
 								</div>
 								<div class="press-kit-video__content">
 									<h3 class="press-kit-video__title">{{ videoTitle }}</h3>
-									<a download href="{{ videoAsset }}" class="press-kit__btn">
+									<a download href="{{ videoAsset.url() }}" class="press-kit__btn">
 										<span class="icon icon-arrow-right"></span>
 										<span class="text">Download</span>
 									</a>

@@ -226,7 +226,7 @@ fields:
                   - sources
                   -
                     - singles
-                    - 'section:d53d3bce-afa8-4d8c-be8e-7f39844292ba' # News posts
+                    - 'section:d53d3bce-afa8-4d8c-be8e-7f39844292ba' # Blog posts
                     - 'section:6560a834-cd10-49ce-92e8-210691efdc73' # Partners posts
                     - 'section:51c060f1-2569-4a4e-88d5-0ff236f6033b' # Podcast posts
                     - 'section:35c30890-dd01-4af7-8e09-70b7eb0d80fc' # Privacy posts

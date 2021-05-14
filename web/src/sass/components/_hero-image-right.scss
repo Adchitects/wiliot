@@ -43,6 +43,11 @@
 				font-size: 48px;
 				line-height: 64px;
 			}
+
+			@include mobile-599 {
+				font-size: 36px;
+				line-height: 45px;
+			}
 		}
 
 		&__excerpt {
@@ -86,7 +91,7 @@
 				}
 
 				@include media-max(480) {
-					margin-top: 24px;
+					margin-top: 10px;
 					margin-left: 0;
 				}
 

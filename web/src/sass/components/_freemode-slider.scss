@@ -83,10 +83,10 @@
 
 				&__link {
 					margin-top: auto;
-					font-size: 16px;
-					font-weight: 500;
-					line-height: 22px;
-					text-decoration: none;
+
+					.text {
+						color: $c-black;
+					}
 				}
 			}
 

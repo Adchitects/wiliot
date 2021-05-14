@@ -85,7 +85,7 @@
 	}
 
 	&__image {
-		margin-top: 50px;
+		margin-top: 60px;
 		margin-bottom: 90px;
 	}
 
@@ -328,14 +328,14 @@
 			bottom: -24px;
 			left: 0;
 			width: 100%;
-			color: #dd8f46;
+			color: $c-orange;
 			font-size: 13px;
 			font-weight: 500;
 			letter-spacing: 0;
 			line-height: 20px;
 
 			label {
-				color: #dd8f46;
+				color: $c-orange;
 				font-size: 13px;
 				font-weight: 500;
 				letter-spacing: 0;
@@ -519,6 +519,6 @@
 
 	.hs_error_rollup {
 		margin-top: 30px;
-		color: #dd8f46;
+		color: $c-orange;
 	}
 }

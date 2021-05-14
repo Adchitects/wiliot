@@ -1,4 +1,4 @@
-.modal-wrapper-outer {
+.video-modal {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -32,31 +32,31 @@
 			opacity: 0.76;
 		}
 	}
-}
 
-.modal-wrapper-inner {
-	position: relative;
-	width: 100%;
-	max-width: 841px;
-}
-
-.modal {
-	position: relative;
-	width: 100%;
-	height: 0;
-	padding-bottom: 56.25%;
-
-	iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
+	&__inner {
+		position: relative;
 		width: 100%;
-		height: 100%;
+		max-width: 841px;
+	}
+	
+	&__modal {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding-bottom: 56.25%;
+	
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 	}
 
 	&__close {
 		position: absolute;
-		top: -50px;
+		top: -25px;
 		right: 0;
 		cursor: pointer;
 		color: $c-white;

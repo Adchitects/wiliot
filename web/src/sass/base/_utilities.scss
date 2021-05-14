@@ -8,11 +8,15 @@
 	margin-top: 130px;
 
 	@include tablet-small-1023 {
-		margin-top: 80px;
+		&.u-section {
+			margin-top: 80px;
+		}
 	}
 	
 	@include mobile-767 {
-		margin-top: 60px;
+		&.u-section {
+			margin-top: 60px;
+		}
 	}
 }
 

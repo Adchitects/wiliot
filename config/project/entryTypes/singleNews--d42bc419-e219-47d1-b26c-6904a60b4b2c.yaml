@@ -93,7 +93,7 @@ fieldLayouts:
 handle: singleNews
 hasTitleField: true
 name: 'Single news'
-section: d53d3bce-afa8-4d8c-be8e-7f39844292ba # News posts
+section: d53d3bce-afa8-4d8c-be8e-7f39844292ba # Blog posts
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

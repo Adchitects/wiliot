@@ -13,6 +13,22 @@
 	text-transform: none;
 }
 
+.icon-backward::before {
+	content: '\e90e';
+}
+
+.icon-button_play::before {
+	content: '\e90f';
+}
+
+.icon-family-of-events::before {
+	content: '\e910';
+}
+
+.icon-forward::before {
+	content: '\e911';
+}
+
 .icon-chevron_up::before {
 	content: '\e912';
 }

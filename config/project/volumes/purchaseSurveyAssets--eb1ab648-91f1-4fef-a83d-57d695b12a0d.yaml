@@ -1,5 +1,5 @@
 fieldLayouts:
-  e3ff957b-7cc8-4241-a714-09fd681843c7:
+  53cf8893-40b0-40b5-b8d1-a96fba4a9414:
     tabs:
       -
         elements:
@@ -28,13 +28,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: solutionsAssets
+handle: purchaseSurveyAssets
 hasUrls: true
-name: Solutions
+name: 'Purchase Survey'
 settings:
-  path: '@assets/uploads/solutions'
-sortOrder: 10
+  path: '@assets/uploads/purchase-survey'
+sortOrder: 11
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
 type: craft\volumes\Local
-url: '@web/src/uploads/solutions'
+url: '@web/src/uploads/purchase-survey'

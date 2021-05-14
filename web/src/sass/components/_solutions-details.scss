@@ -11,14 +11,28 @@
 }
 
 .solutions-details {
+	position: relative;
 	padding-top: 185px;
-	background-image: linear-gradient(188.82deg, #F5F5FC 0%, #F5F9FC 100%);
 
 	@include tablet-small-1023 {
 		padding-top: 120px;
 	}
 
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		pointer-events: none;
+		background-image: linear-gradient(188.82deg, #F5F5FC 0%, #F5F9FC 100%);
+		user-select: none;
+	}
+
 	&__hero {
+
 	}
 
 	&__hero-top {
@@ -236,7 +250,7 @@
 				flex-direction: column;
 				align-items: flex-start;
 				position: sticky;
-				top: 50px;
+				top: 110px;
 				height: 365px;
 				padding-top: 60px;
 				padding-left: 65px;

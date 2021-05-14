@@ -1,6 +1,10 @@
 .u-section--logos-slider {
 	margin-top: 95px;
 
+	.is-page-press & {
+		margin-top: 65px;
+	}
+
 	.logos-slider {
 		display: flex;
 		flex-direction: column;
@@ -35,6 +39,10 @@
 		position: relative;
 		width: 100%;
 		margin-top: 40px;
+
+		.is-page-press & {
+			margin-top: 25px;
+		}
 	}
 
 	.logos-slider__subtitle {

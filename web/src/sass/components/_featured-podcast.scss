@@ -16,10 +16,17 @@
 		&__video {
 			display: flex;
 			position: relative;
+			cursor: pointer;
 			margin-bottom: 32px;
 
 			@include media-max(767) {
 				margin-top: 32px;
+			}
+
+			&:hover {
+				.icon {
+					color: rgba($c-white, 0.75);
+				}
 			}
 
 			video {
@@ -41,7 +48,7 @@
 				left: 50%;
 				pointer-events: none;
 				color: $c-white;
-				font-size: 37px;
+				font-size: 172px;
 				transform: translate(-50%, -50%);
 				transition: opacity 0.2s;
 				opacity: 0;

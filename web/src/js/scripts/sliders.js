@@ -8,6 +8,7 @@ const freemodeSlider = new Swiper('.js-freemode-slider', {
 	spaceBetween: 0,
 	freeMode: true,
 	grabCursor: true,
+	slideToClickedSlide: true,
 	pagination: {
 		el: '.swiper-pagination',
 		type: 'progressbar',
@@ -33,6 +34,7 @@ const logosSlider = new Swiper('.js-logos-slider', {
 	noSwiping: true,
 	slidesPerView: 7,
 	spaceBetween: 48,
+	speed: 200,
 	breakpoints: {
 		320: {
 			slidesPerView: 2,
