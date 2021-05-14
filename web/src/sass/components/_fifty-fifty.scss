@@ -1,7 +1,8 @@
 .u-section--fifty-fifty {
 	margin-top: 120px;
 
-	.platform & {
+	.platform &,
+	.is-page-product & {
 		margin-top: 170px;
 	}
 
@@ -43,7 +44,8 @@
 				margin-bottom: 0;
 			}
 
-			.is-page-purchase & {
+			.is-page-purchase &,
+			.is-page-product & {
 				+ .row {
 					margin-top: 100px;
 				}
@@ -108,7 +110,8 @@
 				font-weight: 900;
 				line-height: 36px;
 
-				.platform & {
+				.platform &,
+				.is-page-product & {
 					font-size: 32px;
 					line-height: 40px;
 				}

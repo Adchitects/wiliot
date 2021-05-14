@@ -25,6 +25,9 @@
 		}
 
 		&__list {
+			margin-top: 85px;
+			padding-left: 10px;
+
 			@include media-max(850) {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
@@ -72,7 +75,7 @@
 			}
 
 			&__title {
-				margin-bottom: 8px;
+				margin-bottom: 10px;
 				font-size: 18px;
 				font-weight: 900;
 				line-height: 30px;

@@ -31,6 +31,15 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 070c859e-ec54-49e9-acd9-e658f728d891 # Hero subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 2d82d9f8-9f42-4103-8889-38c6b53fd72f # Title
             instructions: null
             label: null
@@ -143,6 +152,95 @@ fieldLayouts:
             width: 100
         name: 'Other Component'
         sortOrder: 5
+      -
+        elements:
+          -
+            fieldUid: d0210b1c-0e4d-4821-a924-8c593285b2a0 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d111e5db-7197-4cec-a5e6-6a9e02fca730 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 28534271-d900-4661-aef7-3c72a4e3ac85 # List
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 41795620-8c6b-4592-82a4-34fcd15c20a8 # Bottom Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Tabs
+        sortOrder: 6
+      -
+        elements:
+          -
+            fieldUid: 105018f4-b231-4a6d-bfd1-bd253f36173b # Outro subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ba42799d-0a49-4f7f-817a-cde956fa12ee # Outro Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7637ec1c-947f-42f2-9b7d-3ba65f195b8d # Outro Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4318cfd0-f068-4073-9703-1db060485eb7 # Outro Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6b2ff6ec-480b-4eaf-b69a-c4c50f6a38c5 # Outro Button 2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Outro
+        sortOrder: 7
 handle: product
 hasTitleField: true
 name: Product

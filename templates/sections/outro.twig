@@ -28,7 +28,7 @@
 				{% if description %}
 					<div class="outro__description">{{ description }}</div>
 				{% endif %}
-				{% if button and button2 %}
+				{% if button and button.url and button2 and button2.url %}
 					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--bordered">
 						<span class="text">{{ button.title }}</span>
 					</a>

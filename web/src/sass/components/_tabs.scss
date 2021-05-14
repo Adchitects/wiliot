@@ -9,6 +9,17 @@
 		padding-bottom: 90px;
 	}
 
+	.is-page-product & {
+		margin-top: 0;
+		padding-top: 130px;
+		padding-bottom: 0;
+		background: $c-white;
+
+		.bg-shape {
+			display: none;
+		}
+	}
+
 	.tabs {
 		display: flex;
 		flex-direction: column;
