@@ -25,9 +25,6 @@
 		}
 
 		&__list {
-			margin-top: 85px;
-			padding-left: 10px;
-
 			@include media-max(850) {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
