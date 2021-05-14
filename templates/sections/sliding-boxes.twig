@@ -1,6 +1,6 @@
 {% set title = entry.slidingBoxesTitle %}
 {% set subtitle = entry.slidingBoxesSubtitle %}
-{% set boxes = entry.slidingBoxesList %}
+{% set boxes = entry.slidingBoxesList.all() %}
 
 <section class="u-section u-section--sliding-boxes">
 	<div class="sliding-boxes">
@@ -18,16 +18,17 @@
 					{% set date = item.slidingBoxDate %}
 					{% set time = item.slidingBoxTime %}
 					{% set link = item.slidingBoxLink %}
-					<div class="sliding-box {{loop.index == 1 ? 'is-active' : ''}}">
+					<div class="sliding-box {{ loop.index == 1 ? 'is-active' : '' }}">
 						<div class="sliding-box__content">
 							<div class="content__wrapper">
-								<h3 class="sliding-box__title">{{title}}</h3>
-								<span class="sliding-box__description">{{description}}</span>
+								<h3 class="sliding-box__title">{{ title }}</h3>
+								<span class="sliding-box__description">{{ description }}</span>
 								<div class="sliding-box__date">
-									<span class="sliding-box__day">{{date}}</span>
-									<span class="sliding-box__time">{{time}}</span>
+									<span class="sliding-box__day">{{ date }}</span>
+									<span class="sliding-box__icon"><span class="icon icon-time"></span></span>
+									<span class="sliding-box__time">{{ time }}</span>
 								</div>
-								<a href="{{link}}" class="sliding-box__link">
+								<a href="{{ link }}" class="sliding-box__link">
 									Learn more
 									<span class="icon icon-arrow-right"></span>
 								</a>

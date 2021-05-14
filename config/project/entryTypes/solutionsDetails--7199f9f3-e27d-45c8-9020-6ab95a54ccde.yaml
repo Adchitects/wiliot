@@ -49,6 +49,15 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: a87aa858-2e9d-4ac5-be71-84ee0f3747a1 # Solution Hero buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 4885e560-0d9b-452b-a66f-509ef5402bcf # Solution hero image
             instructions: null
             label: null

@@ -3,11 +3,7 @@
 	{{ parent() }}
 {% endblock %}
 {% block title %}
-	{% if entry is defined %}
-		{{ entry.title }}
-	{% elseif category is defined %}
-		{{ category.title }}
-	{% endif %}
+	{{ siteName }} - {{ entry.title }}
 {% endblock %}
 {% block main %}
 	{% set becomeAPartnerSubtitle = entry.becomeAPartnerSubtitle %}

@@ -1,25 +1,29 @@
 {% set subtitle = entry.featuredPodcastSubtitle %}
 {% set title = entry.featuredPodcastTitle %}
-{% set video = entry.featuredPodcastVideo.one().getUrl() %}
+{% set video = entry.featuredPodcastVideo.one() %}
 {% set button = entry.featuredPodcastButton %}
-
 <section class="u-section u-section--featured-podcast">
 	<div class="u-wrapper">
 		<div class="featured-podcast">
 			<div class="featured-podcast__video js-video-hld is-paused">
 				<span class="icon icon-play"></span>
-				<video class="js-lazy" data-src="{{ video }}"></video>
+				{% if video is not null %}
+					<video class="js-lazy" data-src="{{ video.url }}"></video>
+				{% endif %}
 			</div>
 			<div class="featured-podcast__content">
 				{% if subtitle %}
 					<span class="u-subtitle featured-podcast__subtitle u-subtitle--section">{{ subtitle }}</span>
 				{% endif %}
-				{% if video %}{% endif %}
 				{% if title %}
 					<h2 class="featured-podcast__title u-title u-title--section">{{ title }}</h2>
 				{% endif %}
 				{% if button.getUrl() %}
-					<a href="{{button.getUrl()}}" class="btn featured-podcast__btn u-btn u-btn--light">{{button.customText}}</a>
+					<a href="{{ button.getUrl() }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn featured-podcast__btn u-btn u-btn--light">
+						<span class="text">
+							{{ button.customText }}
+						</span>
+					</a>
 				{% endif %}
 			</div>
 		</div>

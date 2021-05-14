@@ -7,5 +7,5 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: pages/news-details
-    uriFormat: 'news/{newsCategories.first().slug}/{slug}'
+    uriFormat: '{slug}'
 type: channel

@@ -1,6 +1,6 @@
 {% extends "index.twig" %}
 {% block title %}
-	{{ entry.title }}
+	{{ siteName }} - {{ entry.title }}
 {% endblock %}
 {% block head %}
 	{{ parent() }}
@@ -9,17 +9,25 @@
 	{% set title = entry.title %}
 	{% set number = entry.podcastDetailsNumber %}
 	{% set id = entry.podcastDetailsID %}
+	{% set podcastDetailsHeroButton = entry.podcastDetailsHeroButton %}
 	{% set content = entry.podcastDetailsContent %}
-	{% set transcript = entry.podcastDetailsTranscript %}
+	{% set transcript = entry.podcastDetailsTranscript.all() %}
 	{% set date = entry.postDate|date("F d, Y") %}
 	<section class="u-section u-section--hero-podcast-details">
 		<div class="video-wrapper">
-			<iframe allow="autoplay" src="https://www.youtube.com/embed/{{id}}?rel=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={{id}}&amp;showinfo=0&amp;wmode=transparent&amp;controls=0&amp;enablejsapi=1&amp;origin=https://www.wiliot.com" frameborder="0" width="640" height="360" class="youtube-video"></iframe>
+			<iframe allow="autoplay" src="https://www.youtube.com/embed/{{ id }}?rel=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={{ id }}&amp;showinfo=0&amp;wmode=transparent&amp;controls=0&amp;enablejsapi=1&amp;origin=https://www.wiliot.com" frameborder="0" width="640" height="360" class="youtube-video"></iframe>
 		</div>
 		<div class="hero-podcast-details">
 			{% if id %}
-				<a target="_blank" href="https://www.youtube.com/watch?v={{id}}" class="hero-podcast-details__btn u-btn u-btn--white">
-					<span class="icon icon-play"></span>Watch video</a>
+				<a target="_blank" href="https://www.youtube.com/watch?v={{ id }}" class="btn btn--first u-btn u-btn--white">
+					<span class="icon icon-play"></span>
+					<span class="text">Watch video</span>
+				</a>
+			{% endif %}
+			{% if podcastDetailsHeroButton %}
+				<a href="{{ podcastDetailsHeroButton.url }}" target="{{ podcastDetailsHeroButton.target ? '_blank' : '_self' }}" rel="{{ podcastDetailsHeroButton.target ? 'noopener noreferrer' : null }}" class="btn btn--second u-btn u-btn--bordered">
+					<span class="text">{{ podcastDetailsHeroButton.customText }}</span>
+				</a>
 			{% endif %}
 		</div>
 	</section>
@@ -27,10 +35,10 @@
 		<div class="u-wrapper u-wrapper--content">
 			<div class="podcast-details__header">
 				{% if number %}
-					<h2 class="header__subtitle">Mister Beacon Episode #{{number}}</h2>
+					<h2 class="header__subtitle">Mister Beacon Episode #{{ number }}</h2>
 				{% endif %}
-				<h1 class="header__title">{{title}}</h1>
-				<span class="header__date">{{date}}</span>
+				<h1 class="header__title">{{ title }}</h1>
+				<span class="header__date">{{ date }}</span>
 			</div>
 		</div>
 		<div class="podcast-details__content">
@@ -41,28 +49,37 @@
 				<div class="podcast-details__bottom-toolbar">
 					<div class="podcast-details__share">
 						<span>Share</span>
-						<a href="{{'https://www.facebook.com/sharer/sharer.php?u='~entry.getUrl()}}">
+						<a href="{{ 'https://www.facebook.com/sharer/sharer.php?u='~entry.getUrl() }}">
 							<span class="icon icon-facebook"></span>
 						</a>
-						<a href="{{'https://twitter.com/intent/tweet?url='~entry.getUrl()}}">
+						<a href="{{ 'https://twitter.com/intent/tweet?url='~entry.getUrl() }}">
 							<span class="icon icon-twitter"></span>
 						</a>
-						<a href="{{'https://www.linkedin.com/shareArticle?mini=true&url='~entry.getUrl()}}">
+						<a href="{{ 'https://www.linkedin.com/shareArticle?mini=true&url='~entry.getUrl() }}">
 							<span class="icon icon-linkedin"></span>
 						</a>
-						<a href="{{'mailto:info@example.com?&subject=&cc=&bcc=&body='~entry.getUrl()~'%0A'}}">
+						<a href="{{ 'mailto:info@example.com?&subject=&cc=&bcc=&body='~entry.getUrl()~'%0A' }}">
 							<span class="icon icon-email"></span>
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="podcast-details__subscribe">
-			{% set title = entry.subscribeTitle %}
-			{% set subtitle = entry.subscribeSubtitle %}
-			{% set button = entry.subscribeButton %}
+		<div class="podcast-details__subscribe js-bg-shape-hld">
+			<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+				<div class="s1 js-s1"></div>
+				<div class="s2 js-s2"></div>
+				<div class="s3 js-s3"></div>
+			</div>
+			<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+				<div class="s1 js-s1"></div>
+				<div class="s2 js-s2"></div>
+			</div>
 			<div class="u-wrapper">
 				<div class="subscribe">
+					{% set title = entry.subscribeTitle %}
+					{% set subtitle = entry.subscribeSubtitle %}
+					{% set button = entry.subscribeButton %}
 					{% if subtitle %}
 						<span class="subscribe__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
 					{% endif %}
@@ -70,8 +87,11 @@
 						<h2 class="subscribe__title u-title u-title--section">{{ title }}</h2>
 					{% endif %}
 					{% if button.getUrl() %}
-						<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light row__button">
-							{{button.customText}}</a>
+						<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light row__button">
+							<span class="text">
+								{{ button.customText }}
+							</span>
+						</a>
 					{% endif %}
 				</div>
 			</div>
@@ -87,25 +107,22 @@
 							{% set title = part.partTitle %}
 							{% set text = part.partText %}
 							{% set time = part.partTime %}
-
 							<li class="transcript__part part">
 								<div class="part__header">
 									{% if title %}
-										<span class="part__title">{{title}}</span>
+										<span class="part__title">{{ title }}</span>
 									{% endif %}
 									{% if time %}
-										<span class="part__time">{{time}}</span>
+										<span class="part__time">{{ time }}</span>
 									{% endif %}
 								</div>
 								{% if text %}
-									<div class="part__text">{{text}}</div>
+									<div class="part__text">{{ text }}</div>
 								{% endif %}
 							</li>
 						{% endfor %}
 					</ul>
 				{% endif %}
-
-
 			</div>
 		</div>
 	</article>

@@ -10,70 +10,64 @@
 			<meta property="og:description" content="Index description"/>
 			<meta property="og:type" content="website"/>
 			<meta property="og:url" content="Index url"/>
-			<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon"/>
 			<style>
 				@font-face {
 					font-family: 'avenir';
-					src: url('{{ alias('@assets/fonts/avenir/avenir_300_book.woff2') }}') format('woff2'), url('{{ alias('@assets/fonts/avenir/avenir_300_book.otf') }}') format('opentype');
+					src: url('{{ alias('@web/src/fonts/avenir/avenir_300_book.woff2') }}') format('woff2'), url('{{ alias('@web/src/fonts/avenir/avenir_300_book.otf') }}') format('opentype');
 					font-display: swap;
 					font-style: normal;
 					font-weight: 300;
 				}
 				@font-face {
 					font-family: 'avenir';
-					src: url('{{ alias('@assets/fonts/avenir/avenir_500_medium.woff2') }}') format('woff2'), url('{{ alias('@assets/fonts/avenir/avenir_500_medium.otf') }}') format('opentype');
+					src: url('{{ alias('@web/src/fonts/avenir/avenir_500_medium.woff2') }}') format('woff2'), url('{{ alias('@web/src/fonts/avenir/avenir_500_medium.otf') }}') format('opentype');
 					font-display: swap;
 					font-style: normal;
 					font-weight: 500;
 				}
 				@font-face {
 					font-family: 'avenir';
-					src: url('{{ alias('@assets/fonts/avenir/avenir_900_heavy.woff2') }}') format('woff2'), url('{{ alias('@assets/fonts/avenir/avenir_900_heavy.otf') }}') format('opentype');
+					src: url('{{ alias('@web/src/fonts/avenir/avenir_900_heavy.woff2') }}') format('woff2'), url('{{ alias('@web/src/fonts/avenir/avenir_900_heavy.otf') }}') format('opentype');
 					font-display: swap;
 					font-style: normal;
 					font-weight: 900;
 				}
 				@font-face {
 					font-family: 'icomoon';
-					src: url('{{ alias('@assets/fonts/icomoon/fonts/icomoon.ttf?sj1lza') }}') format('truetype');
+					src: url('{{ alias('@web/src/fonts/icomoon/fonts/icomoon.woff') }}') format('woff');
 					font-weight: normal;
 					font-style: normal;
+					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="/src/css/style.min.css"/>
-			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.7/plyr.css
-				
-				
-				
-																																				"/>
-
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}"/>
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.7/plyr.css"/>
 			<title>
 				{% block title %}
-					Adchitects craft-starter-pack
+					{{ siteName }} - {{ entry.title }}
 				{% endblock %}
 			</title>
 			<script>
-				{# window.markerConfig = {
-				destination: '6086907170d0c06b3320bc32'
+				window.markerConfig = {
+					destination: '6086907170d0c06b3320bc32'
 				};
-							</script>
-
-							<script>
-								!function (e, r, t) {
+			</script>
+			<script>
+				!function (e, r, t) {
 				if (e.__Marker) 
 				return;
-
 				e.__Marker = {};
 				var n = r.createElement("script");
 				n.async = 1,
 				n.src = "https://edge.marker.io/latest/shim.js";
 				var s = r.getElementsByTagName("script")[0];
 				s.parentNode.insertBefore(n, s)
-				}(window, document); #}
+				}(window, document);
 			</script>
 		</head>
 	{% endblock %}
-	<body>
+	<body class="{% if entry is defined %} is-page-{{ entry.section|lower }} {% endif %}">
 		<header class="header header--desktop js-header">
 			{{ include('/sections/menu-desktop.twig') }}
 		</header>
@@ -97,7 +91,7 @@
 				{{ include('/sections/footer.twig') }}
 			{% endblock %}
 		</footer>
-		<script src="/src/js/main.min.js"></script>
+		<script src="{{ alias('@web/src/js/main.min.js') }}"></script>
 
 	</body>
 </html>

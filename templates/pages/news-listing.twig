@@ -4,9 +4,9 @@
 {% endblock %}
 {% block title %}
 	{% if entry is defined %}
-		{{ entry.title }}
+		{{ siteName }} - {{ entry.title }}	
 	{% elseif category is defined %}
-		{{ category.title }}
+		{{ siteName }} - {{ category.title }}
 	{% endif %}
 {% endblock %}
 {% block main %}
@@ -31,7 +31,7 @@
 								{% endif %}
 							</a>
 						</li>
-						{% for cat in categories %}
+						{% for cat in categories.all() %}
 							{% set catPosts = craft.entries().postMainCategory(cat.id).all() %}
 							{% if catPosts|length > 0 %}
 								<li class="news-listing__filter {% if category is defined and category.title == cat.title %} is-active {% endif %}">
@@ -60,18 +60,18 @@
 										{% endif %}
 										{% set title = post.title %}
 										{% set desc = post.newsPostsExcerpt|striptags|striptags %}
-										{% set descSliced = desc|slice(0, 107) ~ '...' %}
+										{% set descSliced = desc|slice(0, 97) ~ '...' %}
 										<a href="{{ post.url}}" class="area__post post">
 											<div class="post__image-hld">
 												{% if image %}
 													<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 												{% else %}
-													<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+													<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 												{% endif %}
 											</div>
 											<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
 											<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-											<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+											<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
 											<div class="post__btn u-btn u-btn--arrow">
 												<span class="text">Read more</span>
 											</div>
@@ -80,7 +80,7 @@
 								{% endif %}
 							</div>
 						</div>
-						{% for cat in categories %}
+						{% for cat in categories.all() %}
 							{% set catPosts = craft.entries().postMainCategory(cat.id).limit(3) %}
 							{% if catPosts|length > 0 %}
 								<div class="news-listing__category-area area js-load-more-item">
@@ -99,18 +99,18 @@
 											{% endif %}
 											{% set title = catPost.title %}
 											{% set desc = catPost.newsPostsExcerpt|striptags %}
-											{% set descSliced = desc|slice(0, 107) ~ '...' %}
+											{% set descSliced = desc|slice(0, 97) ~ '...' %}
 											<a href="{{ catPost.url}}" class="area__post post">
 												<div class="post__image-hld">
 													{% if image %}
 														<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 													{% else %}
-														<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+														<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 													{% endif %}
 												</div>
 												<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
 												<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-												<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+												<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
 												<div class="post__btn u-btn u-btn--arrow">
 													<span class="text">Read more</span>
 												</div>
@@ -138,18 +138,18 @@
 									{% endif %}
 									{% set title = catPost.title %}
 									{% set desc = catPost.newsPostsExcerpt|striptags %}
-									{% set descSliced = desc|slice(0, 107) ~ '...' %}
+									{% set descSliced = desc|slice(0, 97) ~ '...' %}
 									<a href="{{ catPost.url}}" class="area__post post js-load-more-item" data-max-items="12" data-load-items="6">
 										<div class="post__image-hld">
 											{% if image %}
 												<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 											{% else %}
-												<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+												<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 											{% endif %}
 										</div>
 										<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
 										<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-										<div class="post__description">{{ desc|length > 110 ? descSliced|raw : desc|raw }}</div>
+										<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
 										<div class="post__btn u-btn u-btn--arrow">
 											<span class="text">Read more</span>
 										</div>

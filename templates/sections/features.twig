@@ -1,6 +1,7 @@
 {% set title = entry.featuresTitle %}
 {% set subtitle = entry.featuresSubtitle %}
-{% set contentList = entry.featuresContentList %}
+{% set contentList = entry.featuresContentList.all() %}
+{% set button = entry.featuresButton %}
 {% set mobileImages = ['hyperthin-iot-edge-nodes', 'connect-everything', 'fabric-of-intelligence'] %}
 <section class="u-section u-section--features">
 	<div class="u-wrapper">
@@ -19,14 +20,17 @@
 						<div class="item__content">
 							<h3 class="item__title">{{title}}</h3>
 							<p class="item__description">{{description}}</p>
-							<img class="item__image-mobile js-lazy" data-src="{{alias('@assets/img/homepage/'~mobileImages[loop.index - 1]~'.png')}}" alt="{{title}}">
+							<img class="item__image-mobile js-lazy" data-src="{{alias('@web/src/img/homepage/'~mobileImages[loop.index - 1]~'.png')}}" alt="{{title}}">
 						</div>
 					</div>
 				{% endfor %}
 				<div class="item">
-					<img class="js-lazy" data-src="{{alias('@assets/img/homepage/features.png')}}" alt="">
+					<img class="js-lazy" data-src="{{alias('@web/src/img/homepage/features.png')}}" alt="">
 				</div>
 			</div>
+			<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="features__btn u-btn u-btn--light">
+				<span class="text">{{ button.title }}</span>
+			</a>
 		</div>
 	</div>
 </section>

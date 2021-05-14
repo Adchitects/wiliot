@@ -13,6 +13,86 @@
 	text-transform: none;
 }
 
+.icon-chevron_up::before {
+	content: '\e912';
+}
+
+.icon-cta_ornament::before {
+	content: '\e913';
+}
+
+.icon-email1::before {
+	content: '\e915';
+}
+
+.icon-logo::before {
+	content: '\e916';
+}
+
+.icon-bluetooth_radio::before {
+	content: '\e917';
+}
+
+.icon-environmental_operating_conditions::before {
+	content: '\e919';
+}
+
+.icon-family_of_events::before {
+	content: '\e91a';
+}
+
+.icon-functinality::before {
+	content: '\e91b';
+}
+
+.icon-interface::before {
+	content: '\e91c';
+}
+
+.icon-latency_for_events::before {
+	content: '\e91d';
+}
+
+.icon-non_volatile_memory::before {
+	content: '\e91e';
+}
+
+.icon-printed_electronics_integration::before {
+	content: '\e91f';
+}
+
+.icon-safty::before {
+	content: '\e920';
+}
+
+.icon-self_powered_management::before {
+	content: '\e921';
+}
+
+.icon-sensing::before {
+	content: '\e922';
+}
+
+.icon-food::before {
+	content: '\e924';
+}
+
+.icon-pharma::before {
+	content: '\e925';
+}
+
+.icon-retail::before {
+	content: '\e926';
+}
+
+.icon-time1::before {
+	content: '\e927';
+}
+
+.icon-user1::before {
+	content: '\e928';
+}
+
 .icon-time::before {
 	content: '\e90a';
 }
@@ -33,24 +113,24 @@
 	content: '\e902';
 }
 
-.icon-facebook::before {
-	content: '\e903';
-}
-
-.icon-linkedin::before {
-	content: '\e904';
-}
-
-.icon-twitter::before {
-	content: '\e905';
-}
-
 .icon-arrow-left::before {
 	content: '\e906';
 }
 
 .icon-arrow-right::before {
 	content: '\e907';
+}
+
+.icon-close::before {
+	content: '\e901';
+}
+
+.icon-tick::before {
+	content: '\e900';
+}
+
+.icon-triangle::before {
+	content: '\e929';
 }
 
 .icon-play::before {
@@ -61,10 +141,14 @@
 	content: '\e909';
 }
 
-.icon-close::before {
-	content: '\e901';
+.icon-facebook::before {
+	content: '\e903';
 }
 
-.icon-tick::before {
-	content: '\e900';
+.icon-twitter::before {
+	content: '\e905';
+}
+
+.icon-linkedin::before {
+	content: '\e904';
 }

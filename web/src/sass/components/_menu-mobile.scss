@@ -167,4 +167,40 @@
 			padding-left: 10px;
 		}
 	}
+
+	&__socials-hld {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding-top: 15px;
+		padding-bottom: 10px;
+		padding-left: 25px;
+		background-color: $c-white;
+
+		.inner {
+			display: flex;
+			align-items: center;
+	
+			.link {
+				margin-right: 20px;
+				list-style-type: none;
+	
+				&:last-of-type {
+					margin-right: 0;
+				}
+	
+				svg path {
+					fill: $c-black;
+					transition: fill 0.3s;
+				}
+	
+				&:hover {
+					svg path {
+						fill: $c-gray;
+					}
+				}
+			}
+		}
+	}
 }

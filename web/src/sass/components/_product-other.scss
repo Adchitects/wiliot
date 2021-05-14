@@ -1,5 +1,5 @@
 .u-section--product-other {
-	padding: 74px 0 118px 0;
+	padding: 95px 0 90px 0;
 	background: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 100%);
 	overflow: hidden;
 
@@ -47,6 +47,7 @@
 			align-items: flex-start;
 			grid-column: 2 / 7;
 			width: 100%;
+			padding-left: 20px;
 
 			@include media-max(899) {
 				grid-column: 1 / 7;

@@ -13,11 +13,11 @@ settings:
   defaultTransform: ''
   manualConfig: ''
   purifierConfig: ''
-  purifyHtml: '1'
+  purifyHtml: ''
   redactorConfig: ''
   removeEmptyTags: ''
-  removeInlineStyles: '1'
-  removeNbsp: '1'
+  removeInlineStyles: ''
+  removeNbsp: ''
   showHtmlButtonForNonAdmins: ''
   showUnpermittedFiles: false
   showUnpermittedVolumes: false

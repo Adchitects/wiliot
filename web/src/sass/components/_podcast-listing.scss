@@ -1,3 +1,9 @@
+.is-page-podcasts {
+	.u-section--subscribe {
+		margin-top: 0;
+	}
+}
+
 .u-section--podcasts-listing {
 	margin: 0;
 	padding: 128px 0;
@@ -12,7 +18,7 @@
 		align-items: center;
 
 		&__logo {
-			margin-bottom: 96px;
+
 		}
 
 		&__header {
@@ -26,7 +32,7 @@
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 24px 36px;
-			margin-top: 64px;
+			margin-top: 90px;
 
 			@include media-max(1100) {
 				grid-gap: 0 24px;

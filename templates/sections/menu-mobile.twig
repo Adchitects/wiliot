@@ -1,8 +1,9 @@
 {% set pages = craft.entries.section('menuMobile').all() %}
+{% set socials = pageOptions.pageOptionsSocials.all() %}
 <div class="menu-mobile js-menu-mobile-hld">
 	<div class="menu-mobile__bar">
 		<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="menu-mobile__logo-hld">
-			<img src="{{ alias('@assets/img/svg/logo.svg') }}" width="100" height="40" alt="Wiliot logo">
+			<img src="{{ alias('@web/src/img/svg/logo.svg') }}" width="100" height="40" alt="Wiliot logo">
 		</a>
 		<div class="menu-mobile__btn js-menu-mobile-btn">
 			<div class="line line--1"></div>
@@ -17,7 +18,7 @@
 				{% nav page in pages %}
 					{% set menuMobileTitle = page.title %}
 					{% set menuMobilePageLink = page.menuMobilePageLink %}
-					<li class="menu-mobile__nav-list-item {% if page.slug == entry.slug %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
+					<li class="menu-mobile__nav-list-item {% if entry is defined and page.slug == entry.slug %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
 						{% if menuMobilePageLink.url %}
 							<a href="{{ menuMobilePageLink.url }}" target="{{ menuMobilePageLink.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink.target ? 'noopener noreferrer' : null }}" class="inner">
 								<span class="text">{{ menuMobileTitle }}</span>
@@ -41,8 +42,23 @@
 				{% endnav %}
 			</ul>
 		</nav>
-		<div class="menu-mobile__socials-hld">
-			socials
-		</div>
+		{% if socials %}
+			<div class="menu-mobile__socials-hld">
+				<div class="inner">
+					{% for social in socials %}
+						<li class="link">
+							{% if social.socialLink and social.socialName and social.socialIcon and social.socialIcon.one() %}
+								{% set image = social.socialIcon.one() %}
+								{% if image and image.extension == 'svg' %}
+									<a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
+										{{ svg(image) }}
+									</a>
+								{% endif %}
+							{% endif %}
+						</li>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
 	</div>
 </div>

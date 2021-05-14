@@ -1,6 +1,6 @@
 {% extends "index.twig" %}
 {% block title %}
-	{{ entry.title }}
+	{{ siteName }} - {{ entry.title }}
 {% endblock %}
 {% block head %}
 	{{ parent() }}
@@ -12,5 +12,4 @@
 	{{ include('/sections/product-other.twig') }}
 	{{ include('/sections/tabs.twig') }}
 	{{ include('/sections/outro.twig') }}
-
 {% endblock %}

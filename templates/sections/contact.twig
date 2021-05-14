@@ -1,7 +1,9 @@
 {% set title = entry.contactTitle %}
 {% set subtitle = entry.contactSubtitle %}
 {% set image = entry.contactImage.one() %}
-{% set offices = entry.contactOffices %}
+{% set links = entry.contactLinksMatrix.all() %}
+{% set offices = entry.contactOffices.all() %}
+{% set socials = pageOptions.pageOptionsSocials.all() %}
 <section class="u-section u-section--contact js-bg-shape-hld">
 	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 		<div class="s1 js-s1"></div>
@@ -24,6 +26,18 @@
 			</div>
 			<div class="contact__content">
 				<div class="contact__address">
+					<div class="contact__links-hld">
+						{% for link in links %}
+							{% set text = link.text %}
+							{% set button = link.button %}
+							<div class="contact__link">
+								<p class="text">{{ text }}</p>
+								<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn u-btn u-btn--arrow">
+									<span class="text">{{ button.customText }}</span>
+								</a>
+							</div>
+						{% endfor %}
+					</div>
 					{% if image %}
 						<img class="js-lazy contact__image" data-src="{{ image.getUrl() }}" alt="{{title}}"/>
 					{% endif %}
@@ -34,14 +48,30 @@
 								{% set address = office.officeAddress %}
 								<div class="contact__office office">
 									{% if name %}
-										<p class="office__name">{{name}}</p>
+										<p class="office__name">{{ name }}</p>
 									{% endif %}
 									{% if address %}
-										<p class="office__address">{{address}}</p>
+										<p class="office__address">{{ address }}</p>
 									{% endif %}
 								</div>
 							{% endfor %}
 						</div>
+					{% endif %}
+					{% if socials %}
+						<ul class="contact__socials">
+							{% for social in socials %}
+								<li class="contact__socials-link">
+									{% if social.socialLink and social.socialName and social.socialIcon and social.socialIcon.one() %}
+										{% set image = social.socialIcon.one() %}
+										{% if image and image.extension == 'svg' %}
+											<a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
+												{{ svg(image) }}
+											</a>
+										{% endif %}
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
 					{% endif %}
 				</div>
 				<div class="contact__form form">
@@ -70,6 +100,7 @@
 								selects.forEach(select => {
 									select.addEventListener('change', () => {
 										select.parentNode.parentNode.classList.add('is-active');
+										handleState();
 									});
 								});
 							}

@@ -1,6 +1,6 @@
+{% set subtitle = entry.heroSubtitle ? entry.heroSubtitle : entry.title %}
 {% set title = entry.productHeroTitle %}
-{% set name = entry.title %}
-{% set image = entry.productHeroImage.one().getUrl() %}
+{% set image = entry.productHeroImage.one() %}
 {% if entry is defined %}
 	<section class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
@@ -10,15 +10,15 @@
 		<div class="u-wrapper--medium-wide u-wrapper">
 			<div class="product-hero">
 				<div class="product-hero__content">
-					{% if name %}
-						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ name }}</span>
+					{% if subtitle %}
+						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
 					{% endif %}
 					{% if title %}
 						<h1 class="product-hero__title u-title u-title--big">{{ title }}</h1>
 					{% endif %}
 				</div>
 				{% if image %}
-					<img src="{{image}}" alt="{{title}}" class="product-hero__image">
+					<img src="{{ image.getUrl() }}" alt="{{ title }}" class="product-hero__image">
 				{% endif %}
 			</div>
 		</div>

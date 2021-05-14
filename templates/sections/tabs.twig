@@ -2,7 +2,6 @@
 {% set subtitle = entry.tabsSubtitle %}
 {% set button = entry.bottomButton %}
 {% set tabs = entry.tabsList %}
-
 <section class="u-section u-section--tabs js-bg-shape-hld">
 	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
 		<div class="s1 js-s1"></div>
@@ -19,30 +18,34 @@
 			{% if tabs %}
 				<div class="tabs__list">
 					<div class="tabs__nav">
-						{% for item in tabs %}
+						{% for item in tabs.all() %}
 							{% set title = item.tabTitle %}
 							{% set icon = item.tabIcon.one() %}
 							<div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item">
-								{{svg(icon.getUrl())}}<span>{{title}}</span>
+								{{ svg(icon) }}<span>{{ title }}</span>
 							</div>
 						{% endfor %}
 					</div>
 					<div class="swiper-container js-tabs-slider">
 						<div class="swiper-wrapper">
-							{% for item in tabs %}
+							{% for item in tabs.all() %}
 								{% set title = item.tabTitle %}
 								{% set description = item.tabDescription %}
 								{% set image = item.tabImage.one() %}
 								{% set link = item.tabLink %}
 								<div class="tab swiper-slide">
 									<div class="tab__image">
-										<img data-src="{{image.getUrl()}}" class="js-lazy" alt="{{title}}">
+									{% if image %}
+										<img data-src="{{ image.getUrl() }}" class="js-lazy" alt="{{ title }}">
+									{% endif %}
 									</div>
 									<div class="tab__content">
-										<h3 class="tab__title">{{title}}</h3>
-										<p class="tab__description">{{description}}</p>
-										<a class="tab__link" href="{{link}}">Learn more
-											<span class="icon icon-arrow-right"></span>
+										<h3 class="tab__title">{{ title }}</h3>
+										<p class="tab__description">{{ description }}</p>
+										<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
+											<span class="text">
+												Learn more
+											</span>
 										</a>
 									</div>
 								</div>
@@ -52,11 +55,9 @@
 				</div>
 			{% endif %}
 			{% if button and button.getUrl() %}
-				<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light btn--explore">
-					{{button.customText}}</a>
+				<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light btn--explore">
+					{{ button.customText }}</a>
 			{% endif %}
-
-
 		</div>
 	</div>
 </section>

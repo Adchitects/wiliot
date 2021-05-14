@@ -5,7 +5,7 @@
 	display: flex;
 
 	@include tablet-small-1023 {
-		flex-direction: column;
+		flex-direction: column-reverse;
 	}
 
 	&__box {
@@ -15,7 +15,9 @@
 			padding-left: 25px;
 
 			@include tablet-small-1023 {
-				display: none;
+				width: 100%;
+				margin-top: 50px;
+				padding-left: 0;
 			}
 
 			.inner {
@@ -125,10 +127,6 @@
 			flex-wrap: wrap;
 			margin-top: 5px;
 
-			@include tablet-small-1023 {
-				display: none;
-			}
-
 			&__filter {
 				display: none;
 				cursor: pointer;
@@ -138,6 +136,10 @@
 				border: 1px solid rgba($c-gray, 0.5);
 				border-radius: 4px;
 				transition: background-color 0.2s;
+
+				@include tablet-small-1023 {
+					pointer-events: none;
+				}
 
 				.text {
 					font-size: 14px;
@@ -150,6 +152,10 @@
 					color: $c-gray;
 					font-size: 9px;
 					transform: translateY(-1px);
+
+					@include tablet-small-1023 {
+						display: none;
+					}
 				}
 
 				&--everything {
@@ -190,7 +196,7 @@
 		}
 
 		.img-hld {
-			width: 115px;
+			width: 105px;
 
 			img {
 				max-width: 100%;

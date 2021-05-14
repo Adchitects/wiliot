@@ -1,4 +1,6 @@
 .u-section--logos-slider {
+	margin-top: 95px;
+
 	.logos-slider {
 		display: flex;
 		flex-direction: column;
@@ -6,6 +8,11 @@
 		max-width: 1332px;
 		margin: 0 auto;
 		padding: 0 30px;
+
+		.btn {
+			margin-top: 70px;
+			padding: 15px 55px;
+		}
 	}
 
 	.u-section--logos-slider-no-arrows {
@@ -17,6 +24,7 @@
 	}
 
 	.logos-slider__title {
+		margin-bottom: 45px;
 		font-size: 32px;
 		font-weight: 900;
 		line-height: 40px;
@@ -26,8 +34,7 @@
 	.logos-slider__slider-wrapper {
 		position: relative;
 		width: 100%;
-		margin-top: 80px;
-		margin-bottom: 40px;
+		margin-top: 40px;
 	}
 
 	.logos-slider__subtitle {
@@ -57,11 +64,16 @@
 			line-height: 16px;
 			text-align: center;
 		}
+
+		img {
+			filter: grayscale(1);
+		}
 	}
 
 	.swiper-button {
 		position: absolute;
 		top: 50%;
+		cursor: pointer;
 		color: $c-black;
 		transform: translateY(-50%);
 
@@ -70,6 +82,7 @@
 		}
 
 		&-disabled {
+			cursor: default;
 			color: $c-gray;
 		}
 	}

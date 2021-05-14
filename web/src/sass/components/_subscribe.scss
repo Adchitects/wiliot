@@ -4,11 +4,9 @@
 	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 	overflow: hidden;
 
-	&.u-section {
-		@include media-max(767) {
-			margin-top: 200px;
-			padding: 80px 0;
-		}
+	@include media-max(767) {
+		margin-top: 200px;
+		padding: 80px 0;
 	}
 
 	.subscribe {

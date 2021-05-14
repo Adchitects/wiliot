@@ -1,5 +1,7 @@
 {% extends "index.twig" %}
-{% block title %} {{ entry.section }} {% endblock %}
+{% block title %} 
+	{{ siteName }} - {{ entry.title }}
+{% endblock %}
 {% block head %} {{ parent() }} {% endblock %}
 {% block main %}
 	{{ include('/sections/hero.twig') }}

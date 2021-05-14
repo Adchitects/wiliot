@@ -33,8 +33,8 @@ hasUrls: true
 name: Main
 settings:
   path: '@assets/uploads'
-sortOrder: 0
+sortOrder: 1
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
+titleTranslationMethod: null
 type: craft\volumes\Local
-url: '@assets/uploads/'
+url: '@web/src/uploads/'

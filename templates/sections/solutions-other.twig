@@ -6,7 +6,7 @@
 			<div class="solutions-other__title u-title u-title--section">Discover our other <br> solutions</div>
 			{% if relatedSolutions|length %}
 				<div class="solutions-other__items-hld">
-					{% for item in relatedSolutions %}
+					{% for item in relatedSolutions.all() %}
 						{% set image = item.solutionHeroImage.one() %}
 						{% if image %}
 							{% set imageUrl = image.getUrl() %}
@@ -22,7 +22,7 @@
 								{% if image %}
 									<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 								{% else %}
-									<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+									<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 								{% endif %}
 							</div>
 							<div class="item__text-hld">

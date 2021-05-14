@@ -18,7 +18,7 @@
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-gap: 24px 240px;
-			margin-top: 80px;
+			margin-top: 55px;
 
 			@include media-max(1200) {
 				grid-gap: 24px 120px;

@@ -29,10 +29,10 @@
 				{% if title %}
 					<h1 class="hero__title u-title u-title--big">{{ title }}</h1>
 				{% endif %}
-				{% if descriptionBold %}
+				{% if descriptionBold is defined and descriptionBold %}
 					<p class="hero__description hero__description--bold">{{ descriptionBold }}</p>
 				{% endif %}
-				{% if description %}
+				{% if description is defined and description %}
 					<p class="hero__description">{{ description }}</p>
 				{% endif %}
 			</div>

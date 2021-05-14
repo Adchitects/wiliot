@@ -1,9 +1,8 @@
 {% set title = entry.productOtherTitle %}
 {% set subtitle = entry.productOtherSubtitle %}
 {% set excerpt = entry.productOtherExcerpt %}
-{% set image = entry.productOtherImage.one().getUrl() %}
+{% set image = entry.productOtherImage.one() %}
 {% set button = entry.productOtherButton %}
-
 <section class="u-section u-section--product-other js-bg-shape-hld">
 	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 		<div class="s1 js-s1"></div>
@@ -24,13 +23,15 @@
 				{% endif %}
 				{% if button.getUrl() %}
 					<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light product-other__btn">
-						{{button.customText}}</a>
+						<span class="text">
+							{{ button.customText }}
+						</span>
+					</a>
 				{% endif %}
 			</div>
 			{% if image %}
-				<img data-src="{{image}}" alt="{{title}}" class="product-other__image js-lazy">
+				<img data-src="{{ image.getUrl() }}" alt="{{ title }}" class="product-other__image js-lazy">
 			{% endif %}
 		</div>
-
 	</div>
 </section>

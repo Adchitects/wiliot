@@ -1,18 +1,17 @@
-{% set podcasts = craft.entries.section('podcastDetails').order('postDate desc') %}
+{% set podcasts = craft.entries.section('podcastDetails').orderBy('postDate desc') %}
 {% set title = entry.podcastsListingTitle %}
-{% set logo = entry.podcastsListingLogo.one().getUrl() %}
+{% set logo = entry.podcastsListingLogo.one() %}
 {% set subtitle = entry.podcastsListingSubtitle %}
-
 {% if podcasts %}
 	<section class="u-section u-section--podcasts-listing">
 		<div class="u-wrapper">
 			<div class="podcasts-listing js-load-more-hld">
-				{% if logo %}
-					<img src="{{logo}}" alt="Mr. Beacon Podcast" class="podcasts-listing__logo">
+				{% if logo is not null %}
+					<img src="{{ logo.getUrl() }}" alt="Mr. Beacon Podcast" class="podcasts-listing__logo">
 				{% endif %}
 				<div class="podcasts-listing__header">
 					{% if subtitle %}
-						<span class="u-subtitle u-subtitle--section">{{subtitle}}</span>
+						<span class="u-subtitle u-subtitle--section">{{ subtitle }}</span>
 					{% endif %}
 					{% if title %}
 						<h2 class="u-title u-title--section">{{ title }}</h2>
@@ -20,11 +19,10 @@
 				</div>
 				<div class="podcasts-listing__items">
 					{% if podcasts|length %}
-						{% for post in podcasts %}
+						{% for post in podcasts.all() %}
 							{% set image = post.podcastDetailsImage.one() %}
 							{% set excerpt = post.podcastDetailsExcerpt %}
 							{% set number = post.podcastDetailsNumber %}
-
 							{% if image %}
 								{% set imageUrl = image.getUrl() %}
 								{% set imageWidth = image.getWidth() %}
@@ -37,7 +35,7 @@
 									{% if image %}
 										<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
 									{% else %}
-										<img class="js-lazy" data-src="{{ alias('@assets/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+										<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 									{% endif %}
 								</div>
 								<div class="post__date">
@@ -54,11 +52,13 @@
 						{% endfor %}
 					{% endif %}
 				</div>
+				{% if podcasts|length > 3 %}
 				<button class="podcasts-listing__btn u-btn u-btn--light js-load-more-btn">
 					<span class="text">
 						More Podcasts
 					</span>
 				</button>
+				{% endif %}
 			</div>
 		</div>
 	</section>

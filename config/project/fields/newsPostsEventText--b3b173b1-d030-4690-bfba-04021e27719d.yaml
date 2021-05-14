@@ -1,0 +1,27 @@
+contentColumnType: text
+fieldGroup: 5ddf9ab1-7416-4397-aeb6-30367ce2bfb1 # News posts
+handle: newsPostsEventText
+instructions: "Text under the event title like:\r\nFebruary 24, 2021\r\n2:00 PM - 3:00 PM EST\r\nSteve Statler"
+name: 'Event text'
+searchable: false
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  cleanupHtml: true
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: ''
+  redactorConfig: ''
+  removeEmptyTags: ''
+  removeInlineStyles: ''
+  removeNbsp: ''
+  showHtmlButtonForNonAdmins: '1'
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

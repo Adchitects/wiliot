@@ -1,7 +1,20 @@
 .u-section--outro {
-	padding: 96px 0;
+	padding: 95px 0;
 	background-color: $c-accent-dark;
 	overflow: hidden;
+
+	.is-page-company & {
+		margin-top: 90px;
+	}
+
+	.is-page-purchase & {
+		margin-top: 200px;
+		padding-top: 130px;
+	}
+
+	.platform & {
+		margin-top: 0;
+	}
 
 	@include tablet-small-1023 {
 		padding: 80px 0;
@@ -23,6 +36,11 @@
 
 	&__title {
 		margin: 0 auto;
+
+		.is-page-company & {
+			max-width: 500px;
+			margin-top: 20px;
+		}
 	}
 
 	&__subtitle {
@@ -34,17 +52,34 @@
 	}
 
 	&__description {
-		max-width: 510px;
+		max-width: 570px;
 		margin: 0 auto;
-		margin-top: 15px;
+		margin-top: 30px;
+
+		.is-page-purchase & {
+			max-width: 510px;
+		}
 	}
 
 	&__bg-img {
 		position: absolute;
-		top: 65px;
+		top: 140px;
 		left: 50%;
 		z-index: 1;
 		transform: translateX(-50%);
+
+		.is-small &,
+		.is-page-product & {
+			top: 60px;
+		}
+
+		.is-page-company & {
+			top: 85px;
+		}
+
+		.platform & {
+			top: 65px;
+		}
 	}
 
 	&__btn {
