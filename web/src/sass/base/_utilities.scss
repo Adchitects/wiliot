@@ -118,7 +118,7 @@
 	}
 
 	&--accent {
-		padding: 15px 40px;
+		padding: 16px 40px 14px;
 		border-radius: 30px;
 		background-color: $c-accent;
 		transition: background-color 0.2s, border-color 0.2s;
@@ -166,7 +166,7 @@
 	}
 
 	&--bordered {
-		padding: 15px 40px;
+		padding: 16px 40px 14px;
 		border: 1px solid rgba($c-white, 0.6);
 		border-radius: 30px;
 		background-color: transparent;
@@ -183,7 +183,7 @@
 	}
 
 	&--light {
-		padding: 15px 75px;
+		padding: 16px 75px 14px;
 		border: 1px solid rgba($c-black, 0.6);
 		border-radius: 30px;
 		background-color: transparent;
@@ -200,7 +200,7 @@
 	}
 
 	&--white {
-		padding: 15px 70px;
+		padding: 16px 70px 14px;
 		border: 0;
 		border-radius: 30px;
 		background-color: $c-white;
@@ -220,7 +220,7 @@
 	}
 
 	&--transparent {
-		padding: 15px 54px;
+		padding: 16px 54px 14px;
 		border: 0;
 		border-radius: 30px;
 		background-color: transparent;

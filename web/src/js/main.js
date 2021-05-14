@@ -7,7 +7,7 @@ import './scripts/menuMobile';
 import './scripts/partnersFilters';
 import './scripts/video';
 import './scripts/accordion';
-import './scripts/bubbles';
+import './scripts/modal';
 import './scripts/buyTilesIcons';
 import './scripts/loadMore';
 import './scripts/sliding-boxes';

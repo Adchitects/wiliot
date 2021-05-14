@@ -145,9 +145,8 @@
 				transition: opacity 0.25s linear 0.1s;
 				opacity: 0;
 
-				span {
-					margin-left: 5px;
-					font-size: 12px;
+				.text {
+					color: $c-black;
 				}
 			}
 		}

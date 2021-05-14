@@ -6,7 +6,7 @@
 {% if entry is defined %}
 	<section class="u-section u-section--hero-img-right">
 		<div class="u-wrapper">
-			<div class="hero-img-right">
+			<div class="hero-img-right js-video-modal-hld">
 				<div class="hero-img-right__content">
 					{% if title %}
 						<h1 class="hero-img-right__title u-title u-title--big">{{ title }}</h1>
@@ -20,10 +20,21 @@
 							{{ button.customText }}
 							</span>
 						</a>
-						<button class="btn u-btn u-btn--light">
+						<button class="btn u-btn u-btn--light js-video-modal-btn">
 							<span class="icon icon-play"></span>
-							<span data-video-src="{{ videoLink }}" class="text">Watch video</span>
+							<span data-video-src="{{ videoLink.getUrl() }}" class="text">Watch video</span>
 						</button>
+						<div class="modal-wrapper-outer js-video-modal-modal">
+							<div class="overlay js-video-modal-close"></div>
+							<div class="modal-wrapper-inner">
+								<div class="modal">
+									<iframe width="560" height="315" class="js-lazy" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div>
+								<span class="modal__close js-video-modal-close">
+									{{ svg('src/svg/close.svg')}}
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 				<img src="{{ image.getUrl() }}" alt="{{ title }}" class="hero-img-right__image">

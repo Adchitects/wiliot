@@ -45,7 +45,7 @@
 			align-items: center;
 
 			&--first {
-				padding: 15px 45px;
+				padding: 16px 45px 14px;
 
 				.text {
 					color: $c-accent;
@@ -61,7 +61,7 @@
 
 			&--second {
 				margin-left: 25px;
-				padding: 15px 40px;
+				padding: 16px 40px 14px;
 			}
 
 			.icon {
@@ -226,7 +226,7 @@
 			}
 
 			.btn {
-				padding: 15px 60px;
+				padding: 16px 60px 14px;
 			}
 		}
 	}
