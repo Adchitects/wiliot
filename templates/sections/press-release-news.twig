@@ -3,10 +3,10 @@
 		<div class="press-release js-load-more-hld">
 			<h2 class="u-title u-title--section press-release__title">Wiliot Press Releases</h2>
 			{% set cat = craft.categories.slug('press-release').one() %}
-			{% set latestEntries = craft.entries.relatedTo(cat).all() %}
+			{% set latestEntries = craft.entries.relatedTo(cat) %}
 			<div class="press-release__listing">
 				{% if latestEntries|length %}
-					{% for post in latestEntries %}
+					{% for post in latestEntries.all() %}
 						{% set image = post.newsPostsfeaturedImage.one() %}
 						{% if image %}
 							{% set imageUrl = image.getUrl() %}

@@ -11,7 +11,7 @@
 	{% set id = entry.podcastDetailsID %}
 	{% set podcastDetailsHeroButton = entry.podcastDetailsHeroButton %}
 	{% set content = entry.podcastDetailsContent %}
-	{% set transcript = entry.podcastDetailsTranscript %}
+	{% set transcript = entry.podcastDetailsTranscript.all() %}
 	{% set date = entry.postDate|date("F d, Y") %}
 	<section class="u-section u-section--hero-podcast-details">
 		<div class="video-wrapper">

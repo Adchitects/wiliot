@@ -1,6 +1,6 @@
 {% set title = entry.pressKitTitle %}
-{% set images = entry.pressKitImages %}
-{% set videos = entry.pressKitVideos %}
+{% set images = entry.pressKitImages.all() %}
+{% set videos = entry.pressKitVideos.all() %}
 <section class="u-section u-section--press-kit">
 	<div class="u-wrapper">
 		<div class="press-kit">

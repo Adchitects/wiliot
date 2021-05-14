@@ -6,9 +6,9 @@ name: Button
 searchable: false
 settings:
   allowCustomText: '1'
-  allowTarget: ''
+  allowTarget: '1'
   allowedLinkNames: '*'
-  autoNoReferrer: ''
+  autoNoReferrer: '1'
   defaultLinkName: url
   defaultText: ''
   enableAriaLabel: ''
