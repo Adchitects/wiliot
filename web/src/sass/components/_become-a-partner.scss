@@ -198,6 +198,16 @@
 }
 
 .is-multistep-form {
+	.submitted-message {
+		color: $c-white !important;
+		font-family: $font-head !important;
+		font-size: 16px !important;
+		font-weight: 500 !important;
+		letter-spacing: 0 !important;
+		line-height: 26px !important;
+		text-align: center !important;
+	}
+
 	.hs-form,
 	.hbspt-form {
 		h2 {
@@ -301,16 +311,6 @@
 					line-height: 26px !important;
 				}
 			}
-		}
-
-		.submitted-message {
-			color: $c-white !important;
-			font-family: $font-head !important;
-			font-size: 16px !important;
-			font-weight: 500 !important;
-			letter-spacing: 0 !important;
-			line-height: 26px !important;
-			text-align: center !important;
 		}
 
 		.hs_partner_directory_type,
