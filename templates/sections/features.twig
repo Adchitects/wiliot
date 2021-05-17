@@ -7,10 +7,10 @@
 	<div class="u-wrapper">
 		<div class="features">
 			{% if subtitle %}
-				<span class="sliding-boxes__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+				<span class="features__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
 			{% endif %}
 			{% if title %}
-				<h2 class="sliding-boxes__title u-title u-title--section">{{ title }}</h2>
+				<h2 class="features__title u-title u-title--section">{{ title }}</h2>
 			{% endif %}
 			<div class="features__grid">
 				{% for content in contentList %}
@@ -18,14 +18,14 @@
 					{% set description = content.featureContentDescription %}
 					<div class="item">
 						<div class="item__content">
-							<h3 class="item__title">{{title}}</h3>
-							<p class="item__description">{{description}}</p>
-							<img class="item__image-mobile js-lazy" data-src="{{alias('@web/src/img/homepage/'~mobileImages[loop.index - 1]~'.png')}}" alt="{{title}}">
+							<h3 class="item__title">{{ title }}</h3>
+							<p class="item__description">{{ description }}</p>
+							<img class="item__image-mobile js-lazy" data-src="{{ alias('@web/src/img/homepage/'~mobileImages[loop.index - 1]~'.png') }}" alt="{{ title }}">
 						</div>
 					</div>
 				{% endfor %}
 				<div class="item">
-					<img class="js-lazy" data-src="{{alias('@web/src/img/homepage/features.png')}}" alt="">
+					<img class="js-lazy" data-src="{{ alias('@web/src/img/homepage/features.png' )}}" alt="">
 				</div>
 			</div>
 			<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="features__btn u-btn u-btn--light">

@@ -31,13 +31,10 @@
 					{% if socials %}
 						{% for social in socials %}
 							<li class="footer__link">
-								{% if social.socialLink and social.socialName and social.socialIcon and social.socialIcon.one() %}
-									{% set image = social.socialIcon.one() %}
-									{% if image and image.extension == 'svg' %}
-										<a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
-											{{ svg(image) }}
-										</a>
-									{% endif %}
+								{% if social.socialLink and social.socialName and social.socialIcon %}
+									<a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
+										<span class="icon icon-{{ social.socialName|lower }}"></span>
+									</a>
 								{% endif %}
 							</li>
 						{% endfor %}

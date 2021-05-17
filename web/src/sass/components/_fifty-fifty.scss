@@ -4,10 +4,18 @@
 	.platform &,
 	.is-page-product & {
 		margin-top: 170px;
+
+		@include tablet-small-1023 {
+			margin-top: 80px;
+		}
 	}
 
 	.is-page-purchase & {
 		margin-top: 190px;
+
+		@include tablet-small-1023 {
+			margin-top: 80px;
+		}
 	}
 
 	.fifty-fifty {
@@ -48,12 +56,21 @@
 			.is-page-product & {
 				+ .row {
 					margin-top: 100px;
+
+					@include tablet-small-1023 {
+						margin-top: 50px;
+					}
 				}
 			}
 
 			.is-page-purchase & {
 				margin-bottom: 100px;
 				padding-left: 65px;
+
+				@include mobile-767 {
+					margin-bottom: 30px;
+					padding-left: 0;
+				}
 			}
 
 			img {
@@ -63,9 +80,15 @@
 					min-width: 300px;
 					max-width: 450px;
 					padding-left: 0;
+
+					@include mobile-767 {
+						max-width: 100%;
+						padding: 0;
+					}
 				}
 	
-				@include media-max(767) {
+				@include mobile-767 {
+					max-width: 100%;
 					padding: 0;
 				}
 			}
@@ -73,18 +96,29 @@
 			&.is-row-reversed {
 				flex-direction: row-reverse;
 
+				@include mobile-767 {
+					flex-direction: column;
+				}
+
 				img {
 					padding-right: 56px;
 					padding-left: 0;
 	
-					@include media-max(767) {
+					@include mobile-767 {
 						padding: 0;
+						padding-right: 0;
 					}
 
 					.is-page-purchase & {
 						width: 380px;
 						padding-right: 0;
 						transform: translateX(-90px);
+
+						@include mobile-767 {
+							max-width: 100%;
+							margin-top: 30px;
+							transform: translateX(-20px);
+						}
 					}
 				}
 			}
@@ -114,7 +148,17 @@
 				.is-page-purchase & {
 					max-width: 475px;
 					padding-right: 45px;
+
+					@include mobile-767 {
+						max-width: 100%;
+						padding-right: 0;
+					}
 				}
+			}
+
+			@include mobile-767 {
+				max-width: 100%;
+				padding: 0;
 			}
 
 			&__button {
@@ -183,6 +227,10 @@
 
 				.row__content {
 					padding-right: 65px;
+
+					@include mobile-767 {
+						padding-right: 0;
+					}
 				}
 			}
 		}

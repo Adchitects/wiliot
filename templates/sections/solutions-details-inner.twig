@@ -76,7 +76,7 @@
 					{% for item in tabMatrix %}
 						{% set tabName = item.solutionTabName %}
 						{% set urlHashname = tabName|replace(' ', '-')|lower %}
-						<div id="{{ urlHashname }}" class="solutions-details__tab-item solutions-details__tab-item--{{ loop.index }} swiper-slide js-toggle-active-tab-item">
+						<div id="{{ urlHashname }}" class="solutions-details__tab-item solutions-details__tab-item--{{ loop.index }} swiper-slide js-toggle-active-tab-item {{ loop.index == 1 ? 'is-tab-active' : null }}">
 							<div class="tabname">{{ tabName }}</div>
 						</div>
 					{% endfor %}

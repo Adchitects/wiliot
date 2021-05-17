@@ -22,7 +22,7 @@
 						<a href="{{ post.url}}" class="post">
 							<div class="post__image-hld">
 								{% if image %}
-									<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
+									<img class="js-lazy" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
 								{% else %}
 									<img class="js-lazy" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 								{% endif %}

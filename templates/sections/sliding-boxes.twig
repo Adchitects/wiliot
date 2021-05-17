@@ -38,7 +38,7 @@
 					</div>
 				{% endfor %}
 			</div>
-			<div class="sliding-boxes__accordion-list accordion js-accordion-list">
+			<div class="sliding-boxes__accordion-list accordion js-accordion js-accordion-list">
 				{% for item in boxes %}
 					{% set title = item.slidingBoxTitle %}
 					{% set description = item.slidingBoxDescription %}
@@ -47,21 +47,20 @@
 					{% set link = item.slidingBoxLink %}
 					<div class="item js-accordion-toggle-item">
 						<div class="item__header">
-							<h3 class="item__title">{{title}}</h3>
+							<h3 class="item__title">{{ title }}</h3>
 							<div class="item__toggle">
 								<span class="line"></span>
 								<span class="line"></span>
 							</div>
 						</div>
 						<div class="item__collapsable">
-							<span class="item__description">{{description}}</span>
+							<span class="item__description">{{ description }}</span>
 							<div class="item__date">
-								<span class="item__day">{{date}}</span>
-								<span class="item__time">{{time}}</span>
+								<span class="item__day">{{ date }}</span>
+								<span class="item__time">{{ time }}</span>
 							</div>
-							<a href="{{link}}" class="item__link">
-								Learn more
-								<span class="icon icon-arrow-right"></span>
+							<a href="{{ link }}" class="item__link u-btn u-btn--arrow">
+								<span class="text">Learn more</span>
 							</a>
 						</div>
 					</div>

@@ -8,6 +8,10 @@
 		height: 300px;
 	}
 
+	@include mobile-599 {
+		height: 200px;
+	}
+
 	&::before {
 		content: '';
 		display: flex;
@@ -25,6 +29,11 @@
 		position: relative;
 		height: 0;
 		padding-bottom: 56.25%; /* 16:9 */
+
+		@include mobile-599 {
+			height: 200px;
+			padding-bottom: 0;
+		}
 	}
 
 	.video-wrapper iframe {

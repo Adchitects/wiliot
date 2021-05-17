@@ -11,6 +11,12 @@
 		margin-top: 105px;
 		padding-top: 130px;
 		padding-bottom: 115px;
+
+		@include mobile-767 {
+			margin-top: 80px;
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
 	}
 
 	.platform & {

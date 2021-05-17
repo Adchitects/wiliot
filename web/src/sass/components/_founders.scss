@@ -6,6 +6,7 @@
 	overflow: hidden;
 
 	@include media-max(900) {
+		margin-bottom: 60px;
 		padding: 72px 0;
 	}
 
@@ -43,6 +44,7 @@
 		@include media-max(450) {
 			flex-direction: column;
 			align-items: center;
+			padding-right: 0;
 		}
 	}
 
@@ -61,12 +63,20 @@
 
 		&:nth-of-type(2) {
 			padding-left: 45px;
+
+			@include media-max(450) {
+				padding-left: 0;
+			}
 		}
 
 		a {
 			display: inline-block;
 			align-self: flex-start;
 			transition: opacity 0.2s;
+
+			@include media-max(450) {
+				align-self: center;
+			}
 
 			&:hover {
 				opacity: 0.7;

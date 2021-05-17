@@ -50,7 +50,7 @@
 			cursor: pointer;
 			padding: 22px 0;
 
-			> span {
+			.text {
 				color: $c-gray;
 				font-size: 16px;
 				font-weight: 500;
@@ -61,25 +61,20 @@
 				}
 			}
 
-			svg {
-				max-width: 24px;
-				max-height: 24px;
+			.icon {
 				margin-right: 16px;
+				color: $c-gray;
+				font-size: 24px;
+				transition: color 0.2s;
 
 				@include media-max(767) {
 					margin-right: 0;
 				}
-
-				path {
-					fill: $c-gray;
-				}
 			}
 
 			&.is-active {
-				svg {
-					path {
-						fill: $c-black;
-					}
+				.icon {
+					color: $c-black;
 				}
 
 				&::after {
@@ -92,7 +87,7 @@
 					background-color: $c-black;
 				}
 
-				> span {
+				> .text {
 					color: $c-black;
 					font-weight: 900;
 				}
@@ -177,7 +172,6 @@
 			}
 
 			&__link {
-				color: #11b5b5;
 				font-size: 16px;
 				font-weight: 500;
 				line-height: 26px;
@@ -185,6 +179,13 @@
 				.icon {
 					margin-left: 4px;
 					font-size: 12px;
+				}
+
+				@include mobile-599 {
+					.text,
+					.icon {
+						color: $c-black;
+					}
 				}
 			}
 		}

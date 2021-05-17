@@ -56,15 +56,15 @@
 	</script>
 	<script>
 		const handleStyles = function(selector) {
-			var cssLink = document.createElement("link");
-			cssLink.href = "/src/css/style.min.css"; 
-			cssLink.rel = "stylesheet"; 
-			cssLink.type = "text/css"; 
-			const iframeHtml = selector[0].closest('html');
-			const iframeHead = iframeHtml.querySelector('head');
-			const iframeBody = iframeHtml.querySelector('body');
-			iframeHead.appendChild(cssLink);
-			iframeBody.classList.add('is-multistep-form');
+			// var cssLink = document.createElement("link");
+			// cssLink.href = "/src/css/style.min.css"; 
+			// cssLink.rel = "stylesheet"; 
+			// cssLink.type = "text/css"; 
+			// const iframeHtml = selector[0].closest('html');
+			// const iframeHead = iframeHtml.querySelector('head');
+			// const iframeBody = iframeHtml.querySelector('body');
+			// iframeHead.appendChild(cssLink);
+			document.body.classList.add('is-multistep-form');
 		};
 		const handleState = function(selector) {
 			const fields = selector[0].querySelectorAll('.field input');

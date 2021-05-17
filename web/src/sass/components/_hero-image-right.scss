@@ -1,6 +1,12 @@
 .u-section--hero-img-right {
 	margin-top: 0;
 
+	@include tablet-small-1023 {
+		&.u-section--hero-img-right {
+			margin-top: 0;
+		}
+	}
+
 	.u-wrapper {
 		max-width: 1332px;
 	}
@@ -18,8 +24,9 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding-top: 180px;
-			padding-bottom: 80px;
+			padding-top: 120px;
+			padding-bottom: 0;
+			text-align: center;
 		}
 
 		&__content {
@@ -107,6 +114,10 @@
 				min-width: 192px;
 				padding: 16px 40px 14px;
 				text-align: center;
+
+				@include tablet-small-1023 {
+					min-width: 210px;
+				}
 			}
 		}
 	}

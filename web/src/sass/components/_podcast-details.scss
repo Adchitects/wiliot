@@ -4,6 +4,10 @@
 	margin-top: 100px;
 	overflow: hidden;
 
+	@include tablet-small-1023 {
+		height: auto;
+	}
+
 	&::before {
 		content: '';
 		display: flex;
@@ -21,6 +25,10 @@
 		position: relative;
 		height: 0;
 		padding-bottom: 56.25%; /* 16:9 */
+
+		@include tablet-small-1023 {
+			height: auto;
+		}
 	}
 
 	.video-wrapper iframe {
@@ -39,6 +47,13 @@
 		z-index: 5;
 		width: fit-content;
 		transform: translateX(-50%);
+
+		@include tablet-small-1023 {
+			flex-direction: column;
+			top: 50%;
+			bottom: unset;
+			transform: translateX(-50%) translateY(-50%);
+		}
 
 		.btn {
 			display: flex;
@@ -62,6 +77,11 @@
 			&--second {
 				margin-left: 25px;
 				padding: 16px 40px 14px;
+
+				@include tablet-small-1023 {
+					margin-top: 15px;
+					margin-left: 0;
+				}
 			}
 
 			.icon {

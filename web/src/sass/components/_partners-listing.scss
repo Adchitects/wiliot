@@ -5,7 +5,7 @@
 	display: flex;
 
 	@include tablet-small-1023 {
-		flex-direction: column-reverse;
+		flex-direction: column;
 	}
 
 	&__box {
@@ -16,7 +16,6 @@
 
 			@include tablet-small-1023 {
 				width: 100%;
-				margin-top: 50px;
 				padding-left: 0;
 			}
 
@@ -42,6 +41,11 @@
 			.btn {
 				display: block;
 
+				@include tablet-small-1023 {
+					display: inline-flex;
+					padding: 16px 35px 14px;
+				}
+
 				&--apply {
 					margin-top: 30px;
 				}
@@ -60,6 +64,7 @@
 
 			@include tablet-small-1023 {
 				width: 100%;
+				margin-top: 50px;
 				margin-left: 0;
 			}
 		}

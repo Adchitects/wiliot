@@ -11,16 +11,13 @@ const userConfig = {
 	},
 	distDirectory: `../${path.basename(__dirname)}-dist/`,
 	distFiles: [
-		'config/',
-		'modules/',
-		'storage/',
 		'templates/',
 		'web/src/uploads/',
 		'web/src/img/',
 		'web/src/fonts/',
-		'web/src/uploads/',
 		'web/src/css/style.min.css',
 		'web/src/js/main.min.js',
+		'web/src/favicon.ico',
 	],
 };
 const webpackConfig = {

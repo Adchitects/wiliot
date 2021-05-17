@@ -3,6 +3,11 @@
 	padding-top: 220px;
 	padding-bottom: 200px;
 	overflow: hidden;
+
+	@include tablet-small-1023 {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
 }
 
 .become-a-partner {

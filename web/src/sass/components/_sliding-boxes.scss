@@ -244,9 +244,9 @@
 				font-weight: 500;
 				line-height: 26px;
 
-				span {
-					margin-left: 8px;
-					font-size: 12px;
+				.text,
+				.icon {
+					color: $c-black;
 				}
 			}
 

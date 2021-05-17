@@ -29,6 +29,10 @@
 			flex-direction: column;
 			margin-top: 70px;
 			padding-left: 60px;
+
+			@include mobile-767 {
+				padding-left: 0;
+			}
 		}
 
 		&__image {
@@ -52,8 +56,8 @@
 			user-select: none;
 			overflow: hidden;
 
-			@include media-max(850) {
-				max-width: 80%;
+			@include mobile-767 {
+				max-width: 100%;
 			}
 
 			&:last-of-type {
@@ -87,6 +91,10 @@
 					max-height: 200px;
 					transition: max-height 0.3s ease-in-out;
 					visibility: visible;
+
+					@include mobile-767 {
+						max-height: 500px;
+					}
 				}
 
 				.accordion__arrow {

@@ -22,6 +22,11 @@
 			line-height: 26px;
 			text-align: center;
 			opacity: 0.8;
+
+			@include mobile-767 {
+				margin-bottom: 30px;
+				text-align: left;
+			}
 		}
 
 		&__content {

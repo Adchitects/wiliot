@@ -8,6 +8,7 @@
 
 .u-section--solutions-details {
 	margin-top: 0;
+	overflow: hidden;
 }
 
 .solutions-details {
@@ -15,7 +16,7 @@
 	padding-top: 185px;
 
 	@include tablet-small-1023 {
-		padding-top: 120px;
+		padding-top: 60px;
 	}
 
 	&::before {
@@ -60,14 +61,28 @@
 
 			.buttons-hld {
 				display: flex;
+				flex-wrap: wrap;
 				margin-top: 40px;
+
+				@include tablet-small-1023 {
+					justify-content: center;
+				}
 
 				.btn {
 					padding: 16px 40px 14px;
 
+					@include tablet-small-1023 {
+						min-width: 210px;
+					}
+
 					&--2 {
 						margin-left: 15px;
 						padding: 16px 45px 14px;
+
+						@include tablet-small-1023 {
+							margin-top: 15px;
+							margin-left: 0;
+						}
 					}
 				}
 			}
@@ -212,11 +227,11 @@
 		}
 
 		&:hover,
-		&.swiper-slide-thumb-active {
+		&.is-tab-active {
 			background-color: $c-white;
 		}
 
-		&.swiper-slide-thumb-active {
+		&.is-tab-active {
 			font-weight: 900;
 		}
 	}

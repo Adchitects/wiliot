@@ -1,6 +1,6 @@
 // By default Swiper exports only core version without additional modules (like Navigation, Pagination, etc.). So you need to import and configure them:
-import { Swiper, EffectFade, Navigation, Pagination, Thumbs, HashNavigation } from 'swiper';
-Swiper.use([EffectFade, Navigation, Pagination, Thumbs, HashNavigation]);
+import { Swiper, EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Autoplay } from 'swiper';
+Swiper.use([EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Autoplay]);
 import { clearClassActive } from './utilities';
 
 const freemodeSlider = new Swiper('.js-freemode-slider', {
@@ -35,6 +35,10 @@ const logosSlider = new Swiper('.js-logos-slider', {
 	slidesPerView: 7,
 	spaceBetween: 48,
 	speed: 200,
+	autoplay: {
+		delay: 2000,
+		disableOnInteraction: false,
+	},
 	breakpoints: {
 		320: {
 			slidesPerView: 2,
@@ -79,13 +83,27 @@ logosSlider;
 const tabsSlider = new Swiper('.js-tabs-slider', {
 	slidesPerView: 1,
 	spaceBetween: 48,
-	allowTouchMove: false,
 	speed: 800,
 });
 tabsSlider;
 
+// Change navigation item on slide change
+tabsSlider.on('slideChange', function() {
+	const tabsNav = document.querySelectorAll('.js-tabs-slider-nav-item');
+	if (tabsNav.length > 0) {
+		tabsNav.forEach((item, index) => {
+			if (index === tabsSlider.activeIndex) {
+				if (!item.classList.contains('is-active')) {
+					clearClassActive([...tabsNav], 'is-active');
+					item.classList.add('is-active');
+				}
+			}
+		});
+	}
+});
+
 // Change slide on navigation item click
-const tabsNav = document.querySelectorAll('.tabs__nav-item');
+const tabsNav = document.querySelectorAll('.js-tabs-slider-nav-item');
 if (tabsNav.length > 0) {
 	tabsNav.forEach((item, index) => {
 		item.addEventListener('click', () => {
@@ -100,31 +118,42 @@ if (tabsNav.length > 0) {
 
 const solutionsSliderHldAll = document.querySelectorAll('.js-solutions-slider-hld');
 solutionsSliderHldAll.forEach(sliderHld => {
-	const solutionsSliderTabs = new Swiper(sliderHld.querySelector('.js-solutions-slider-tabs'), {
-		slidesPerView: 'auto',
-		allowTouchMove: false,
-		touchStartForcePreventDefault: true,
-	});
-	solutionsSliderTabs;
 	const solutionsSliderItems = new Swiper(sliderHld.querySelector('.js-solutions-slider-items'), {
 		effect: 'fade',
-		thumbs: {
-			swiper: solutionsSliderTabs,
-			multipleActiveThumbs: false,
-		},
 		autoHeight: true,
-		hashNavigation: {
-			replaceState: true,
-			watchState: true,
-		},
+		// hashNavigation: {
+		// 	replaceState: true,
+		// 	watchState: true,
+		// },
 		simulateTouch: false,
+		allowTouchMove: false,
 	});
 	solutionsSliderItems;
+	// Change slide on navigation item click
+	const solutionsSliderTabs = document.querySelectorAll('.js-toggle-active-tab-item');
+	if (solutionsSliderTabs.length > 0) {
+		solutionsSliderTabs.forEach((item, index) => {
+			item.addEventListener('click', () => {
+				solutionsSliderTabs.forEach(i => {
+					i.classList.remove('is-tab-active');
+				});
+				if (!item.classList.contains('is-tab-active')) {
+					item.classList.add('is-tab-active');
+					solutionsSliderItems.slideTo(index);
+					item.click();
+				}
+			});
+		});
+	}
 });
 
 const footerSlider = new Swiper('.js-footer-slider', {
 	slidesPerView: 'auto',
 	spaceBetween: 0,
+	autoplay: {
+		delay: 2000,
+		disableOnInteraction: false,
+	},
 	breakpoints: {
 		320: {
 			slidesPerView: 2,
