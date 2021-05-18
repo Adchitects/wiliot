@@ -11,16 +11,33 @@
 		<div class="s2 js-s2"></div>
 	</div>
 	<div class="u-wrapper u-wrapper--small">
-		<div class="content-centered">
+		<div class="content-centered js-modal-hld">
 			{% if text %}
 				<div class="content-centered__text">
 					{{ text }}
 				</div>
 			{% endif %}
-			{% if link %}
+			{% if link.getUrl() %}
 				<a href="{{ link.getUrl() }}" class="content-centered__link u-btn u-btn--arrow">
 					<span class="text">{{ link.customText }}</span>
 				</a>
+			{% else %}
+				<button class="content-centered__link u-btn u-btn--arrow js-modal-btn">
+					<span class="text">
+						{{ link.customText }}
+					</span>
+				</button>
+				<div class="subscribe-modal js-modal-modal">
+					<div class="overlay js-modal-close"></div>
+					<div class="subscribe-modal__inner">
+						<div class="subscribe-modal__modal">
+							{{ include('/sections/subscribe-form-normal.twig') }}
+						</div>
+						<span class="subscribe-modal__close js-modal-close">
+							<span class="icon icon-close"></span>
+						</span>
+					</div>
+				</div>
 			{% endif %}
 		</div>
 	</div>

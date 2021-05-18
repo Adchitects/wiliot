@@ -25,10 +25,8 @@
 
 								</ul>
 							{% endif %}
-							<a class="slide__link u-btn u-btn--arrow" href="{{ link }}">
-								<span class="text">
-									Learn more
-								</span>
+							<a href="{{ link.url }}" target="{{ link.target ? '_blank' : '_self' }}" rel="{{ link.target ? 'noopener noreferrer' : null }}" class="slide__link u-btn u-btn--arrow">
+								<span class="text">{{ link.customText }}</span>
 							</a>
 						</div>
 					{% endfor %}

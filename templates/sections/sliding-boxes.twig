@@ -28,10 +28,8 @@
 									<span class="sliding-box__icon"><span class="icon icon-time"></span></span>
 									<span class="sliding-box__time">{{ time }}</span>
 								</div>
-								<a href="{{ link }}" class="sliding-box__link u-btn u-btn--arrow">
-									<span class="text">
-										Learn more
-									</span>
+								<a href="{{ link.url }}" target="{{ link.target ? '_blank' : '_self' }}" rel="{{ link.target ? 'noopener noreferrer' : null }}" class="sliding-box__link u-btn u-btn--arrow">
+									<span class="text">{{ link.customText }}</span>
 								</a>
 							</div>
 						</div>

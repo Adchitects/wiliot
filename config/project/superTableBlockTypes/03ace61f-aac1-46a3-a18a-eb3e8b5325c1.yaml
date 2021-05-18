@@ -28,7 +28,7 @@ fields:
       charLimit: null
       code: ''
       columnType: null
-      initialRows: 4
+      initialRows: '4'
       multiline: ''
       placeholder: null
       uiMode: normal

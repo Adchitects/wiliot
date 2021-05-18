@@ -20,7 +20,7 @@
 						<div class="item__content">
 							<h3 class="item__title">{{ title }}</h3>
 							<p class="item__description">{{ description }}</p>
-							<img class="item__image-mobile js-lazy" data-src="{{ alias('@web/src/img/homepage/'~mobileImages[loop.index - 1]~'.png') }}" alt="{{ title }}">
+							<img class="item__image-mobile js-lazy" width="345" height="345" data-src="{{ alias('@web/src/img/homepage/'~mobileImages[loop.index - 1]~'.png') }}" alt="{{ title }}">
 						</div>
 					</div>
 				{% endfor %}

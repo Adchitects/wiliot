@@ -35,6 +35,8 @@ return [
     // Whether crawlers should be allowed to index pages and following links
     'disallowRobots' => !$isProd,
 
+    'maxUploadFileSize' => 105906176,
+
     'aliases' => [
         '@assets' => 'src',
     ],    

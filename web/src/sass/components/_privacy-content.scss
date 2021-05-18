@@ -103,14 +103,14 @@
 		+ p {
 			margin-top: 20px;
 		}
+	}
 
-		a {
-			color: $c-accent;
-			transition: color 0.2s;
+	a {
+		color: $c-accent;
+		transition: color 0.2s;
 
-			&:hover {
-				color: $c-accent-dark;
-			}
+		&:hover {
+			color: $c-accent-dark;
 		}
 	}
 

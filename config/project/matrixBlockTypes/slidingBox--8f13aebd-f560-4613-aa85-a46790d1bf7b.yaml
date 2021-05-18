@@ -98,11 +98,12 @@ fields:
     name: Link
     searchable: false
     settings:
-      allowCustomText: ''
-      allowTarget: ''
+      allowCustomText: '1'
+      allowTarget: '1'
       allowedLinkNames:
+        3: entry
         9: url
-      autoNoReferrer: ''
+      autoNoReferrer: '1'
       defaultLinkName: url
       defaultText: ''
       enableAriaLabel: ''
@@ -135,10 +136,17 @@ fields:
               __assoc__:
                 -
                   - sources
-                  - '*'
+                  -
+                    - singles
+                    - 'section:d53d3bce-afa8-4d8c-be8e-7f39844292ba' # Blog posts
+                    - 'section:6560a834-cd10-49ce-92e8-210691efdc73' # Partners posts
+                    - 'section:51c060f1-2569-4a4e-88d5-0ff236f6033b' # Podcast posts
+                    - 'section:35c30890-dd01-4af7-8e09-70b7eb0d80fc' # Privacy posts
+                    - 'section:06d1e5ff-4d31-4966-8bce-2bc3c44214a0' # Product posts
+                    - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Solutions posts
                 -
                   - allowCustomQuery
-                  - ''
+                  - '1'
           -
             - site
             -

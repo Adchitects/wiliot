@@ -137,6 +137,19 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 32dcf3c9-68d5-496c-879b-13b735cd8709 # Video File
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Video
+        sortOrder: 6
+      -
+        elements:
+          -
             fieldUid: ba42799d-0a49-4f7f-817a-cde956fa12ee # Outro Title
             instructions: null
             label: null
@@ -173,7 +186,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: Outro
-        sortOrder: 6
+        sortOrder: 7
 handle: solutionsDetails
 hasTitleField: true
 name: 'Solutions details'

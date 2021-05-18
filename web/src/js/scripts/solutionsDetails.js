@@ -22,7 +22,7 @@ if (!isMobile()) {
 								scrollTrigger: {
 									// markers: true,
 									trigger: contentItem,
-									start: 'top 29%', // when the top of the trigger hits the 40% of the viewport
+									start: 'top 29%', // when the top of the trigger hits the 29% of the viewport
 									end: 'top 29%',
 									scrub: true,
 									onEnter: () => navItem.classList.toggle('is-active'),

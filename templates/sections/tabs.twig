@@ -42,7 +42,7 @@
 								<div class="tab swiper-slide">
 									<div class="tab__image">
 									{% if image %}
-										<img data-src="{{ image.getUrl() }}" class="js-lazy" alt="{{ title }}">
+										<img data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy" alt="{{ title }}">
 									{% endif %}
 									</div>
 									<div class="tab__content">
@@ -62,7 +62,10 @@
 			{% endif %}
 			{% if button and button.getUrl() %}
 				<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light btn--explore">
-					{{ button.customText }}</a>
+					<span class="text">
+						{{ button.customText }}
+					</span>
+				</a>
 			{% endif %}
 		</div>
 	</div>

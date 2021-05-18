@@ -55,7 +55,7 @@ fields:
       charLimit: null
       code: ''
       columnType: null
-      initialRows: 4
+      initialRows: '4'
       multiline: ''
       placeholder: null
       uiMode: normal
@@ -73,13 +73,13 @@ fields:
       columns:
         __assoc__:
           -
-            - ad25b9ac-bb0a-4131-a915-eb2e3b845882
+            - 456e69dd-efa5-4424-9a70-99829afcad2f # Code
             -
               __assoc__:
                 -
                   - width
                   - ''
-      contentTable: '{{%stc_slidecodes}}'
+      contentTable: '{{%stc_8_slidecodes}}'
       fieldLayout: matrix
       maxRows: ''
       minRows: ''
@@ -91,20 +91,124 @@ fields:
     translationMethod: site
     type: verbb\supertable\fields\SuperTableField
   e2a9ad26-9dc8-4db2-86d9-765a45ec74bd: # Slide Button Link
-    contentColumnType: string(255)
+    contentColumnType: text
     fieldGroup: null
     handle: slideButtonLink
     instructions: ''
     name: 'Slide Button Link'
     searchable: false
     settings:
-      maxLength: 255
-      placeholder: null
-      types:
-        - url
+      allowCustomText: '1'
+      allowTarget: '1'
+      allowedLinkNames:
+        3: entry
+        7: email
+        8: tel
+        9: url
+      autoNoReferrer: '1'
+      defaultLinkName: entry
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: '1'
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  -
+                    - singles
+                    - 'section:d53d3bce-afa8-4d8c-be8e-7f39844292ba' # Blog posts
+                    - 'section:6560a834-cd10-49ce-92e8-210691efdc73' # Partners posts
+                    - 'section:51c060f1-2569-4a4e-88d5-0ff236f6033b' # Podcast posts
+                    - 'section:35c30890-dd01-4af7-8e09-70b7eb0d80fc' # Privacy posts
+                    - 'section:06d1e5ff-4d31-4966-8bce-2bc3c44214a0' # Product posts
+                    - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Solutions posts
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Url
+    type: typedlinkfield\fields\LinkField
   fef447a5-6f16-41ec-b9d1-06eae787b40b: # Slide Title
     contentColumnType: text
     fieldGroup: null
@@ -117,7 +221,7 @@ fields:
       charLimit: null
       code: ''
       columnType: null
-      initialRows: 4
+      initialRows: '4'
       multiline: ''
       placeholder: null
       uiMode: normal

@@ -1,8 +1,6 @@
 {% set foundersMatrix = entry.foundersList.all() %}
 {% set title = entry.foundersTitle %}
 {% set image = entry.foundersImage.one() %}
-
-
 <section class="u-section u-section--founders js-bg-shape-hld">
 	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 		<div class="s1 js-s1"></div>
@@ -33,12 +31,12 @@
 					{% endif %}
 					{% if title %}
 						<span class="founder__title">
-							{{title}}
+							{{ title }}
 						</span>
 					{% endif %}
 					{% if linkedin %}
-						<a href="{{ linkedin }}">
-							<img rel="noopener noreferrer" src="{{alias('@web/src/img/icons/linkedin.svg')}}" alt="linkedin">
+						<a href="{{ linkedin }}" target="_blank" rel="noopener noreferrer">
+							<img src="{{ alias('@web/src/img/icons/linkedin.svg' )}}" alt="linkedin">
 						</a>
 					{% endif %}
 				</div>
