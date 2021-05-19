@@ -1,4 +1,10 @@
 .u-section--featured-podcast {
+	margin-bottom: 95px;
+
+	@include mobile-767 {
+		margin-bottom: 60px;
+	}
+
 	.featured-podcast {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -51,7 +57,7 @@
 				color: $c-white;
 				font-size: 172px;
 				transform: translate(-50%, -50%);
-				transition: opacity 0.2s;
+				transition: opacity 0.2s, color 0.2s;
 				opacity: 0;
 			}
 

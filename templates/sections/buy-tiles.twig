@@ -17,14 +17,20 @@
 			</div>
 		</div>
 		<div class="u-wrapper u-wrapper--medium-wide">
-			<div class="buy-tiles__tiles-hld js-buy-tiles-hld">
+			<pre>
+			</pre>
+			<div class="buy-tiles__tiles-hld js-buy-tiles-hld js-modal-hld">
 				{% for item in tilesMatrix %}
 					{% set iconName = item.tileIcon %}
 					{% set title = item.tileTitle %}
 					{% set topDescription = item.tileTopDescription %}
 					{% set bottomDescription = item.tileBottomDescription %}
 					{% set button = item.tileButton %}
-					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="buy-tiles__item item js-buy-tiles-item">
+					{% if button.url == 'form' %}
+						<div class="buy-tiles__item item js-buy-tiles-item js-modal-btn">
+					{% else %}
+						<a href="{{ button.url }}" target="{{ button.target ? '_blank' : null }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="buy-tiles__item item js-buy-tiles-item">
+					{% endif %}
 						<div class="item__icon">{{ svg('src/img/svg/' ~ iconName ~ '_animated.svg') }}</div>
 						<div class="item__title">{{ title }}</div>
 						<div class="item__description-hld">
@@ -34,7 +40,63 @@
 						<div class="item__btn u-btn u-btn--accent">
 							<span class="text">{{ button.customText }}</span>
 						</div>
-					</a>
+					{% if button.url == 'form' %}
+						</div>
+					{% else %}
+						</a>
+					{% endif %}
+					<div class="subscribe-modal js-modal-modal">
+						<div class="overlay js-modal-close"></div>
+						<div class="subscribe-modal__inner">
+							<div class="subscribe-modal__modal">
+								<div class="form-hld">
+									<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+									<script
+											src="https://code.jquery.com/jquery-3.6.0.min.js"
+											integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+											crossorigin="anonymous">
+									</script>
+									<script>
+										function handleState() {
+											const fields = document.querySelectorAll('.field input');
+											const selects = document.querySelectorAll('.hs-fieldtype-select select');
+											if (fields && fields.length > 0) {
+												fields.forEach(field => {
+													field.addEventListener('input', () => {
+														console.log(field.parentNode.parentNode);
+														field.parentNode.parentNode.classList.add('is-active');
+														if (!field.value) {
+															field.parentNode.parentNode.classList.remove('is-active');
+														}
+													});
+												});
+											}
+											if (selects && selects.length > 0) {
+												selects.forEach(select => {
+													select.addEventListener('change', () => {
+														select.parentNode.parentNode.classList.add('is-active');
+														handleState();
+													});
+												});
+											}
+										};
+										hbspt.forms.create({
+											region: "na1", 
+											portalId: "4249967", 
+											formId: "8734a0de-7dee-4402-8cfd-64943947ef0e",
+											onFormReady: function() {
+												document.body.classList.add('is-buy-page-form');
+												handleState();
+											},
+										});
+									</script>
+								</div>
+							</div>
+							<span class="subscribe-modal__close js-modal-close">
+								<span class="icon icon-close"></span>
+							</span>
+						</div>
+					</div>
 				{% endfor %}
 			</div>
 		</div>

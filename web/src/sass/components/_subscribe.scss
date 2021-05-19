@@ -61,6 +61,21 @@
 		}
 	}
 
+	&__close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		cursor: pointer;
+		padding: 10px;
+		color: $c-white;
+		font-size: 19px;
+		transition: opacity 0.2s;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
 	&__inner {
 		position: relative;
 		width: 590px;
@@ -93,6 +108,32 @@
 			@include mobile-599 {
 				margin-top: 10px;
 				padding: 0;
+			}
+
+			.is-buy-page-form & {
+				margin-top: 0;
+			}
+
+			.submitted-message,
+			.submitted-message p {
+				color: $c-white !important;
+				font-family: $font-head !important;
+				font-size: 16px !important;
+				font-weight: 500 !important;
+				letter-spacing: 0 !important;
+				line-height: 26px !important;
+				text-align: center !important;
+			}
+
+			h1 {
+				margin-bottom: 20px;
+				padding: 0 35px;
+				color: $c-white;
+				font-size: 32px;
+				font-weight: 900;
+				letter-spacing: 0;
+				line-height: 44px;
+				text-align: center;
 			}
 
 			.inputs-list {
@@ -161,21 +202,6 @@
 					margin-top: 20px;
 				}
 			}
-		}
-	}
-
-	&__close {
-		position: absolute;
-		top: 15px;
-		right: 15px;
-		cursor: pointer;
-		padding: 10px;
-		color: $c-white;
-		font-size: 19px;
-		transition: opacity 0.2s;
-
-		&:hover {
-			opacity: 0.7;
 		}
 	}
 }
