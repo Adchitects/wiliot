@@ -61,8 +61,8 @@ fieldLayouts:
         sortOrder: 2
 handle: buy
 hasTitleField: false
-name: Buy
-section: 92d873bc-0605-481c-9aee-c574436a037b # Buy
+name: Engage
+section: 92d873bc-0605-481c-9aee-c574436a037b # Engage
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

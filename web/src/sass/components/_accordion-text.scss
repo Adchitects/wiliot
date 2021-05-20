@@ -88,12 +88,12 @@
 
 			&.is-active {
 				.accordion__description {
-					max-height: 200px;
+					max-height: 400px;
 					transition: max-height 0.3s ease-in-out;
 					visibility: visible;
 
 					@include mobile-767 {
-						max-height: 500px;
+						max-height: 600px;
 					}
 				}
 

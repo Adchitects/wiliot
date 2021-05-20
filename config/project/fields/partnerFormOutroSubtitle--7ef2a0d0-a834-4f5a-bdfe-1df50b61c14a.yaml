@@ -1,7 +1,7 @@
 contentColumnType: text
 fieldGroup: 8602fbce-3eeb-4f22-9810-f375fc887896 # Partners details
 handle: partnerFormOutroSubtitle
-instructions: ''
+instructions: 'Subtitle over the form. (If blank the title would say: "Fill the form below.")'
 name: 'Form Outro Subtitle'
 searchable: false
 settings:
@@ -9,9 +9,9 @@ settings:
   charLimit: null
   code: ''
   columnType: null
-  initialRows: '4'
+  initialRows: '1'
   multiline: '1'
-  placeholder: null
+  placeholder: 'Fill the form below.'
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

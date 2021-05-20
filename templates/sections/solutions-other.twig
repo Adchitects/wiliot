@@ -1,9 +1,10 @@
 {% set relatedEntries = craft.entries.section('solutionsDetails').id('not '~entry.id) %}
 {% set relatedSolutions = relatedEntries.limit(2) %}
+{% set relatedSolutionsTitle = solutionsGlobals.relatedSolutionsTitle %}
 <section class="u-section u-section--solutions-other">
 	<div class="u-wrapper">
 		<div class="solutions-other">
-			<div class="solutions-other__title u-title u-title--section">Discover our other <br> solutions</div>
+			<div class="solutions-other__title u-title u-title--section">{{ relatedSolutionsTitle }}</div>
 			{% if relatedSolutions|length %}
 				<div class="solutions-other__items-hld">
 					{% for item in relatedSolutions.all() %}

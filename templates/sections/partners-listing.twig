@@ -72,6 +72,7 @@
 							{# Item texts #}
 							{% set name = item.title %}
 							{% set description = item.partnerDescription %}
+							{% set descSliced = description|slice(0, 177) ~ '...' %}
 							{# Item link #}
 							{% set detailsLink = item.uri %}
 							{# Item category #}
@@ -83,7 +84,7 @@
 									</div>
 								{% endif %}
 								<div class="name">{{ name }}</div>
-								<div class="description">{{ description }}</div>
+								<div class="description">{{ description|length > 180 ? descSliced|raw : description|raw }}</div>
 								{% if detailsLink %}
 									<a href="{{ detailsLink }}" class="btn u-btn u-btn--arrow">
 										<span class="text">Learn more</span>

@@ -1,0 +1,18 @@
+fieldLayouts:
+  050189eb-b902-4f4f-a36c-4893ae646dba:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 0795876a-e612-47a1-b946-65633eb84506 # Related Solutions title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Related Solutions'
+        sortOrder: 1
+handle: solutionsGlobals
+name: Solutions
