@@ -5,7 +5,7 @@
 		margin-top: 245px;
 		margin-bottom: 240px;
 
-		@include mobile-767 {
+		@include tablet-small-1023 {
 			margin-top: 80px;
 			margin-bottom: 180px;
 		}
@@ -73,7 +73,7 @@
 				.platform & {
 					margin-bottom: 230px;
 
-					@include mobile-767 {
+					@include tablet-small-1023 {
 						margin-bottom: 80px;
 					}
 				}
@@ -94,7 +94,7 @@
 				margin-bottom: 100px;
 				padding-left: 65px;
 
-				@include mobile-767 {
+				@include tablet-small-1023 {
 					margin-bottom: 30px;
 					padding-left: 0;
 				}
@@ -102,6 +102,10 @@
 
 			&__image {
 				position: relative;
+
+				@include tablet-small-1023 {
+					max-width: 500px;
+				}
 
 				.platform & {
 					width: 100%;
@@ -111,7 +115,7 @@
 				img {
 					padding-left: 56px;
 					
-					@include mobile-767 {
+					@include tablet-small-1023 {
 						max-width: 100%;
 						padding: 0;
 					}
@@ -121,7 +125,7 @@
 						max-width: 450px;
 						padding-left: 0;
 	
-						@include mobile-767 {
+						@include tablet-small-1023 {
 							max-width: 100%;
 							padding: 0;
 						}
@@ -132,7 +136,7 @@
 			&.is-row-reversed {
 				flex-direction: row-reverse;
 
-				@include mobile-767 {
+				@include tablet-small-1023 {
 					flex-direction: column;
 				}
 
@@ -140,7 +144,7 @@
 					padding-right: 56px;
 					padding-left: 0;
 	
-					@include mobile-767 {
+					@include tablet-small-1023 {
 						padding: 0;
 						padding-right: 0;
 					}
@@ -150,7 +154,7 @@
 						padding-right: 0;
 						transform: translateX(-90px);
 
-						@include mobile-767 {
+						@include tablet-small-1023 {
 							max-width: 100%;
 							margin-top: 30px;
 							transform: translateX(-20px);
@@ -174,7 +178,7 @@
 							width: 400px;
 						}
 
-						@include mobile-767 {
+						@include tablet-small-1023 {
 							top: 0;
 							max-width: 100%;
 						}
@@ -182,7 +186,7 @@
 				}
 			}
 
-			@include media-max(767) {
+			@include tablet-small-1023 {
 				flex-direction: column;
 				max-width: 408px;
 				margin: 0 auto;
@@ -196,7 +200,7 @@
 				width: 100%;
 				max-width: 408px;
 
-				@include media-max(767) {
+				@include tablet-small-1023 {
 					margin-bottom: 32px;
 				}
 
@@ -204,14 +208,14 @@
 					max-width: 475px;
 					padding-right: 45px;
 
-					@include mobile-767 {
+					@include tablet-small-1023 {
 						max-width: 100%;
 						padding-right: 0;
 					}
 				}
 			}
 
-			@include mobile-767 {
+			@include tablet-small-1023 {
 				max-width: 100%;
 				padding: 0;
 			}
@@ -284,7 +288,7 @@
 					width: 50%;
 					max-width: unset;
 
-					@include mobile-767 {
+					@include tablet-small-1023 {
 						width: 100%;
 					}
 				}
@@ -294,7 +298,7 @@
 					width: 50%;
 					height: 315px;
 
-					@include mobile-767 {
+					@include tablet-small-1023 {
 						width: 100%;
 					}
 
@@ -315,7 +319,7 @@
 							width: 400px;
 						}
 
-						@include mobile-767 {
+						@include tablet-small-1023 {
 							top: 0;
 						}
 
@@ -329,7 +333,7 @@
 					+ .row {
 						margin-top: 125px;
 
-						@include mobile-767 {
+						@include tablet-small-1023 {
 							margin-top: 30px;
 						}
 					}
@@ -361,7 +365,7 @@
 				.row__content {
 					padding-right: 65px;
 
-					@include mobile-767 {
+					@include tablet-small-1023 {
 						padding-right: 0;
 					}
 				}
@@ -374,7 +378,7 @@
 	.u-section--fifty-fifty .fifty-fifty .row__content {
 		padding-left: 65px;
 
-		@include mobile-767 {
+		@include tablet-small-1023 {
 			max-width: unset;
 			padding-left: 0;
 		}
@@ -396,7 +400,7 @@
 			width: 500px;
 		}
 
-		@include mobile-767 {
+		@include tablet-small-1023 {
 			top: 0;
 			left: -50px;
 			max-width: 100%;
@@ -406,7 +410,7 @@
 	.u-section--fifty-fifty .fifty-fifty .row.is-row-reversed .row__content {
 		padding-left: 40px;
 
-		@include mobile-767 {
+		@include tablet-small-1023 {
 			padding-left: 0;
 		}
 	}

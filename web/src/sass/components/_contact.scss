@@ -68,8 +68,10 @@
 		margin-bottom: 112px;
 		padding-left: 106px;
 
-		@include media-max(1099) {
+		@include tablet-medium-1199 {
+			align-items: center;
 			padding-left: 0;
+			text-align: center;
 		}
 
 		h1 {

@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 8602fbce-3eeb-4f22-9810-f375fc887896 # Partners details
+handle: partnerFormOutroSubtitle
+instructions: ''
+name: 'Form Outro Subtitle'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: '1'
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

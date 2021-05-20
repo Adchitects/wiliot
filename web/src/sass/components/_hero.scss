@@ -13,7 +13,13 @@
 	}
 
 	.is-page-purchase & {
-		min-height: 62vh;
+		padding-top: 130px;
+		padding-bottom: 100px;
+
+		@include tablet-medium-1199 {
+			padding-top: 0;
+			padding-bottom: 60px;
+		}
 	}
 }
 
@@ -42,6 +48,10 @@
 		@include mobile-599 {
 			margin-top: 80px;
 		}
+
+		@include tablet-medium-1199 {
+			text-align: center;
+		}
 	}
 
 	&__subtitle {
@@ -54,6 +64,10 @@
 		line-height: 26px;
 		opacity: 0.8;
 
+		@include tablet-medium-1199 {
+			margin: 0 auto;
+		}
+
 		&--bold {
 			margin-top: 24px;
 			font-weight: 500;
@@ -64,5 +78,9 @@
 	&__title {
 		max-width: 640px;
 		margin-top: 15px;
+
+		@include tablet-medium-1199 {
+			margin: 0 auto;
+		}
 	}
 }

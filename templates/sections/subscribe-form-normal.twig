@@ -13,7 +13,6 @@
 			if (fields && fields.length > 0) {
 				fields.forEach(field => {
 					field.addEventListener('input', () => {
-						console.log(field.parentNode.parentNode);
 						field.parentNode.parentNode.classList.add('is-active');
 						if (!field.value) {
 							field.parentNode.parentNode.classList.remove('is-active');

@@ -117,6 +117,20 @@
 					margin-bottom: 24px;
 				}
 
+				&:first-of-type {
+					&::before {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+						pointer-events: none;
+						width: 1px;
+						height: 100%;
+						background-color: $c-light;
+					}
+				}
+
 				&:hover {
 					.icon {
 						color: rgba($c-white, 0.75);

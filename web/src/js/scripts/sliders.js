@@ -32,18 +32,14 @@ freemodeSlider;
 
 const logosSlider = new Swiper('.js-logos-slider', {
 	noSwiping: true,
-	slidesPerView: 7,
-	spaceBetween: 48,
+	slidesPerView: 2,
+	spaceBetween: 32,
 	speed: 200,
-	autoplay: {
-		delay: 2000,
-		disableOnInteraction: false,
-	},
+	// autoplay: {
+	// 	delay: 2000,
+	// 	disableOnInteraction: false,
+	// },
 	breakpoints: {
-		320: {
-			slidesPerView: 2,
-			spaceBetween: 32,
-		},
 		480: {
 			slidesPerView: 4,
 			spaceBetween: 32,

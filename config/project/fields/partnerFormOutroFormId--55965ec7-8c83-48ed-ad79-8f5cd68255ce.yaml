@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 8602fbce-3eeb-4f22-9810-f375fc887896 # Partners details
+handle: partnerFormOutroFormId
+instructions: "Hubspot Form ID (can be found in url of Hubspot Form edit mode) \r\n(If this field is blank, the Form Outro Section would not appear on site)"
+name: 'Form Id'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: 1dc5c966-d958-4126-997b-543e6c32ad7f
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

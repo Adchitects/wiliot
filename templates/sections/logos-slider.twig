@@ -21,7 +21,7 @@
 						{% for item in slides %}
 							{% set image = item.itemImage.one() %}
 							{% set title = item.itemTitle %}
-							<div class="swiper-slide">
+							<div class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }}">
 								{% if image %}
 									<img data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
 								{% endif %}

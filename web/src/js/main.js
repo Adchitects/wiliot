@@ -13,6 +13,4 @@ import './scripts/loadMore';
 import './scripts/sliding-boxes';
 import './scripts/solutionsDetails';
 import './scripts/bgShape';
-// OLD
 import './scripts/sliders';
-import './scripts/doge';

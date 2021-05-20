@@ -63,6 +63,16 @@
 		}
 	}
 
+	.swiper-logos__slider-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&.is-title {
+			flex-direction: column;
+		}
+	}
+
 	.swiper-slide {
 		> div {
 			margin-top: 14px;
@@ -74,6 +84,7 @@
 		}
 
 		img {
+			height: auto;
 			filter: grayscale(1);
 		}
 	}

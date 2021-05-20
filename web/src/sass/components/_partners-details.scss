@@ -1,5 +1,10 @@
 .u-section--partners-details {
 	margin-top: 65px;
+	margin-bottom: 100px;
+
+	@include mobile-767 {
+		margin-bottom: 60px;
+	}
 }
 
 .partners-details {
