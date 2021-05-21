@@ -128,6 +128,15 @@
 			line-height: 36px;
 		}
 
+		a {
+			color: $c-accent;
+			transition: color 0.2s;
+
+			&:hover {
+				color: $c-accent-dark;
+			}
+		}
+
 		figure {
 			max-width: 100%;
 			margin-top: 45px;
