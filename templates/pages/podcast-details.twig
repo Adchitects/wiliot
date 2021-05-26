@@ -76,22 +76,33 @@
 				<div class="s2 js-s2"></div>
 			</div>
 			<div class="u-wrapper">
-				<div class="subscribe">
-					{% set title = entry.subscribeTitle %}
-					{% set subtitle = entry.subscribeSubtitle %}
-					{% set button = entry.subscribeButton %}
+				<div class="subscribe js-modal-hld">
+					{% set title = entry.subscribeTitle ? entry.subscribeTitle : subscribePodcasts.subscribeTitle %}
+					{% set subtitle = entry.subscribeSubtitle ? entry.subscribeSubtitle : subscribePodcasts.subscribeSubtitle %}
+					{% set buttonText = entry.subscribeButton.customText ? entry.subscribeButton.customText : subscribePodcasts.subscribeButton.customText %}
 					{% if subtitle %}
 						<span class="subscribe__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
 					{% endif %}
 					{% if title %}
 						<h2 class="subscribe__title u-title u-title--section">{{ title }}</h2>
 					{% endif %}
-					{% if button.getUrl() %}
-						<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light row__button">
-							<span class="text">
-								{{ button.customText }}
+					{% if buttonText %}
+					<button class="btn u-btn u-btn--light row__button js-modal-btn">
+						<span class="text">
+							{{ buttonText }}
+						</span>
+					</button>
+					<div class="subscribe-modal js-modal-modal">
+						<div class="overlay js-modal-close"></div>
+						<div class="subscribe-modal__inner">
+							<div class="subscribe-modal__modal">
+								{{ include('/sections/subscribe-form-podcasts.twig') }}
+							</div>
+							<span class="subscribe-modal__close js-modal-close">
+								<span class="icon icon-close"></span>
 							</span>
-						</a>
+						</div>
+					</div>
 					{% endif %}
 				</div>
 			</div>

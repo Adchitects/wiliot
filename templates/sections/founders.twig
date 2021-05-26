@@ -1,6 +1,7 @@
 {% set foundersMatrix = entry.foundersList.all() %}
 {% set title = entry.foundersTitle %}
 {% set image = entry.foundersImage.one() %}
+{% if title %}
 <section class="u-section u-section--founders js-bg-shape-hld">
 	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 		<div class="s1 js-s1"></div>
@@ -44,3 +45,4 @@
 		</div>
 	</div>
 </section>
+{% endif %}

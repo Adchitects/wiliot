@@ -11,7 +11,7 @@
 			{% set menuDesktopButtonsMatrix = page.menuDesktopButtonsMatrix.all() %}
 			{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
-			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and menuDesktopDescription %} is-first-dropdown {% endif %} {% if loop.revindex == 4 and menuDesktopDescription %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% endif %}">
+			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and menuDesktopDescription %} is-first-dropdown {% endif %} {% if loop.revindex == 4 and menuDesktopDescription %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Login is-hidden' %} is-hidden {% endif %}">
 				{% if menuDesktopPageLink.url %}
 					<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
 						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}

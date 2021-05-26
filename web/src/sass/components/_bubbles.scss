@@ -12,6 +12,11 @@
 		&__title {
 			margin-bottom: 30px;
 			text-align: center;
+			white-space: break-spaces;
+
+			@include mobile-599 {
+				white-space: unset;
+			}
 		}
 
 		&__centered {

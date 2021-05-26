@@ -41,9 +41,9 @@
 								<div class="post__date">
 									<span>Episode #{{number}}</span>
 									{{ post.postDate | date("F d, Y") }}</div>
-								<div class="post__title">{{ title}}</div>
-								{% if image %}
-									<div class="post__excerpt">{{ excerpt}}</div>
+								<div class="post__title">{{ title }}</div>
+								{% if excerpt %}
+									<div class="post__excerpt">{{ excerpt }}</div>
 								{% endif %}
 								<div class="post__btn u-btn u-btn--arrow">
 									<span class="text">Watch</span>

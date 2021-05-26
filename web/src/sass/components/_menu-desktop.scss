@@ -68,6 +68,10 @@
 	&__list-item {
 		cursor: default;
 
+		&.is-hidden {
+			display: none;
+		}
+
 		&.is-active {
 			.inner {
 				.text {

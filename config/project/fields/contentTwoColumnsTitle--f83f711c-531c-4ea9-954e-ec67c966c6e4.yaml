@@ -9,8 +9,8 @@ settings:
   charLimit: null
   code: ''
   columnType: null
-  initialRows: '4'
-  multiline: ''
+  initialRows: '1'
+  multiline: '1'
   placeholder: null
   uiMode: normal
 translationKeyFormat: null

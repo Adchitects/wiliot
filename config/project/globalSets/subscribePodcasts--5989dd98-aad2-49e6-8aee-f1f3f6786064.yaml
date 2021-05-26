@@ -1,0 +1,36 @@
+fieldLayouts:
+  51f4a691-52df-4e16-b2d2-6ae48a73bf5d:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f57c7759-562c-46f3-978a-20ba7fde1d0e # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a2e55047-197c-4f1d-ab5f-083fb740855a # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 34734b74-001f-4710-8e8b-224354eb86f9 # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Subscribe
+        sortOrder: 1
+handle: subscribePodcasts
+name: 'Subscribe podcasts'
