@@ -340,6 +340,10 @@
 
 					.row__content {
 						padding-left: 10px;
+
+						@include tablet-small-1023 {
+							padding-left: 0;
+						}
 					}
 
 					img {

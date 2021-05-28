@@ -41,8 +41,10 @@
 
 			@include tablet-medium-1199 {
 				width: 100%;
+				max-width: 600px;
+				margin: 0 auto;
 				margin-top: 30px;
-				transform: translateX(30px) translateY(0);
+				transform: translateX(10%) translateY(0);
 			}
 		}
 

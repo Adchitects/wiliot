@@ -1,4 +1,4 @@
-dateModified: 1622032476
+dateModified: 1622193018
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -36,7 +36,7 @@ system:
   edition: solo
   live: true
   name: Wiliot
-  schemaVersion: 3.6.6
+  schemaVersion: 3.6.8
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

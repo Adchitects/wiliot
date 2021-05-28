@@ -24,6 +24,10 @@
 			flex-direction: column;
 		}
 
+		@include mobile-599 {
+			align-items: flex-start;
+		}
+
 		&__content {
 			display: flex;
 			flex-direction: column;

@@ -21,12 +21,22 @@
 						{% for item in slides %}
 							{% set image = item.itemImage.one() %}
 							{% set title = item.itemTitle %}
-							<div class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }}">
-								{% if image %}
-									<img data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
-								{% endif %}
-								<div>{{ title }}</div>
-							</div>
+							{% set link = item.itemLink %}
+							{% if link %}
+								<a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }} is-link">
+									{% if image %}
+										<img data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
+									{% endif %}
+									<div>{{ title }}</div>
+								</a>
+							{% else %}
+								<div class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }}">
+									{% if image %}
+										<img data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
+									{% endif %}
+									<div>{{ title }}</div>
+								</div>
+							{% endif %}
 						{% endfor %}
 					</div>
 				</div>

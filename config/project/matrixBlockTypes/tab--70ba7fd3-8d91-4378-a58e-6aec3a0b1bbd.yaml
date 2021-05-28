@@ -71,6 +71,25 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
+  6ea314f4-1588-4b55-b364-e834887afded: # Description
+    contentColumnType: text
+    fieldGroup: null
+    handle: tabDescription
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   398bd18a-8ac2-4db3-a060-280c5b407c72: # Link
     contentColumnType: text
     fieldGroup: null
@@ -179,25 +198,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
-  6ea314f4-1588-4b55-b364-e834887afded: # Description
-    contentColumnType: text
-    fieldGroup: null
-    handle: tabDescription
-    instructions: ''
-    name: Description
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: enlarged
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
   7380cbf1-53dc-4950-8f94-410c3677e9e9: # Image
     contentColumnType: string
     fieldGroup: null

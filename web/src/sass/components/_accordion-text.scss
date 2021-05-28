@@ -2,6 +2,12 @@
 	margin-top: -25px;
 	padding-bottom: 30px;
 
+	@include tablet-small-1023 {
+		&.u-section {
+			margin-top: -25px;
+		}
+	}
+
 	.accordion-text {
 		display: flex;
 		flex-direction: column;
@@ -16,6 +22,10 @@
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			margin-top: 48px;
+
+			@include tablet-small-1023 {
+				margin-top: 0;
+			}
 
 			@include media-max(850) {
 				grid-template-columns: repeat(1, 1fr);
@@ -88,12 +98,20 @@
 
 			&.is-active {
 				.accordion__description {
-					max-height: 400px;
+					max-height: 250px;
 					transition: max-height 0.3s ease-in-out;
 					visibility: visible;
 
-					@include mobile-767 {
-						max-height: 600px;
+					@include tablet-small-1023 {
+						max-height: 300px;
+					}
+
+					@include media-max(850) {
+						max-height: 250px;
+					}
+
+					@include mobile-599 {
+						max-height: 380px;
 					}
 				}
 

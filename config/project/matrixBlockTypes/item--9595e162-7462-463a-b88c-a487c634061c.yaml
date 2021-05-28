@@ -22,6 +22,15 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: 856cff78-8d18-4dfb-ae45-f4c779296ee6 # Item link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -44,6 +53,21 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
+  856cff78-8d18-4dfb-ae45-f4c779296ee6: # Item link
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: itemLink
+    instructions: 'Url to Company / Article '
+    name: 'Item link'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   b70a6a9e-3ca3-4d53-a836-f30d51f6c58e: # Item Image
     contentColumnType: string
     fieldGroup: null
@@ -62,7 +86,7 @@ fields:
       previewMode: full
       restrictFiles: ''
       selectionLabel: ''
-      showSiteMenu: false
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main

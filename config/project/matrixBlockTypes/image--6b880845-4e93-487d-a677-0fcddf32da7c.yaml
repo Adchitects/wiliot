@@ -25,6 +25,25 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
+  998d961f-669a-4df1-acf5-c61e3bf61762: # Title
+    contentColumnType: text
+    fieldGroup: null
+    handle: imageTitle
+    instructions: ''
+    name: Title
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   08614d3a-fe80-46d8-8bdf-1ca8c8860ccc: # Asset
     contentColumnType: string
     fieldGroup: null
@@ -57,25 +76,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  998d961f-669a-4df1-acf5-c61e3bf61762: # Title
-    contentColumnType: text
-    fieldGroup: null
-    handle: imageTitle
-    instructions: ''
-    name: Title
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
 handle: image
 name: Image
 sortOrder: 1

@@ -45,12 +45,13 @@
 		margin-top: 120px;
 		padding-bottom: 40px;
 
-		@include mobile-599 {
-			margin-top: 80px;
-		}
-
 		@include tablet-medium-1199 {
 			text-align: center;
+		}
+
+		@include mobile-767 {
+			margin-top: 80px;
+			text-align: left;
 		}
 	}
 
@@ -81,6 +82,10 @@
 
 		@include tablet-medium-1199 {
 			margin: 0 auto;
+		}
+
+		@include mobile-767 {
+			margin: 0;
 		}
 	}
 }

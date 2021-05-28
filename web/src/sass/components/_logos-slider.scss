@@ -71,6 +71,14 @@
 		&.is-title {
 			flex-direction: column;
 		}
+
+		&.is-link {
+			transition: opacity 0.2s;
+
+			&:hover {
+				opacity: 0.5;
+			}
+		}
 	}
 
 	.swiper-slide {

@@ -1,7 +1,7 @@
 {
   "require": {
     "born05/craft-assetusage": "2.2.1",
-    "craftcms/cms": "3.6.10",
+    "craftcms/cms": "3.6.15",
     "craftcms/redactor": "2.8.5",
     "olivestudio/craft-olivemenus": "1.2.1",
     "sebastianlenz/linkfield": "1.0.25",

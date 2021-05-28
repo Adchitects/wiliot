@@ -229,17 +229,22 @@
 
 			> span {
 				margin-left: 10px;
-				color: $c-white;
+				color: rgba($c-white, 0.8);
 				font-size: 13px;
 				font-weight: 500;
 				line-height: 19px;
 
 				> p {
-					color: $c-white;
+					color: rgba($c-white, 0.8);
 					font-size: 13px;
-					font-weight: 500;
+					font-weight: 300;
 					line-height: 19px;
 					opacity: 1;
+				}
+
+				strong {
+					color: rgba($c-white, 0.8);
+					font-weight: 900;
 				}
 			}
 		}
@@ -357,6 +362,19 @@
 	.hs_error_rollup {
 		margin-top: 30px;
 		color: $c-orange;
+	}
+}
+
+// CONTACT PAGE
+.is-page-contact {
+	.hbspt-form .hs-message.field > label {
+		transform: translateY(-20px);
+	}
+
+	.hbspt-form .hs-leadsource.field > label span {
+		@include mobile-599 {
+			font-size: 14px;
+		}
 	}
 }
 
@@ -554,6 +572,10 @@
 				.hs-form-checkbox {
 					width: 50%;
 					padding-left: 60px !important;
+
+					@include mobile-599 {
+						padding-left: 0 !important;
+					}
 				}
 			}
 		}

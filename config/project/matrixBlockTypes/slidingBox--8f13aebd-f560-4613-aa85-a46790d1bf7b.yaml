@@ -71,25 +71,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  40922bfa-74c8-45fd-b538-2c6a9cb4af73: # Time
-    contentColumnType: text
-    fieldGroup: null
-    handle: slidingBoxTime
-    instructions: ''
-    name: Time
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
   67c7555f-2323-4deb-b0bf-99756aef72ba: # Link
     contentColumnType: text
     fieldGroup: null
@@ -207,6 +188,25 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
+  40922bfa-74c8-45fd-b538-2c6a9cb4af73: # Time
+    contentColumnType: text
+    fieldGroup: null
+    handle: slidingBoxTime
+    instructions: ''
+    name: Time
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   95102d17-b91a-4e64-9b21-dea5ceae4f61: # Subtitle
     contentColumnType: text
     fieldGroup: null

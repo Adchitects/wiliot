@@ -66,12 +66,12 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  3810de6e-16a1-4209-a56f-89f2017bf9c0: # Accordion Item Subtitle
+  8cef4245-c176-42e2-9fce-2ebddd03b4ff: # Accordion Item Title
     contentColumnType: text
     fieldGroup: null
-    handle: accordionItemSubtitle
+    handle: accordionItemTitle
     instructions: ''
-    name: 'Accordion Item Subtitle'
+    name: 'Accordion Item Title'
     searchable: false
     settings:
       byteLimit: null
@@ -85,12 +85,12 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  8cef4245-c176-42e2-9fce-2ebddd03b4ff: # Accordion Item Title
+  3810de6e-16a1-4209-a56f-89f2017bf9c0: # Accordion Item Subtitle
     contentColumnType: text
     fieldGroup: null
-    handle: accordionItemTitle
+    handle: accordionItemSubtitle
     instructions: ''
-    name: 'Accordion Item Title'
+    name: 'Accordion Item Subtitle'
     searchable: false
     settings:
       byteLimit: null

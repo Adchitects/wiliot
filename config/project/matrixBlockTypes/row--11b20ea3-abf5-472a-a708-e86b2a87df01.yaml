@@ -61,25 +61,38 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  09960e66-5c0c-41c4-8d8c-2dd7c87e69ff: # Subtitle
-    contentColumnType: text
+  4c46750b-692f-42b5-873f-47f479cc3cf1: # Image
+    contentColumnType: string
     fieldGroup: null
-    handle: rowSubtitle
+    handle: rowImage
     instructions: ''
-    name: Subtitle
+    name: Image
     searchable: false
     settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
     translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
+    translationMethod: site
+    type: craft\fields\Assets
   36a8b439-c2ac-446e-a9bf-f8a21862da57: # Excerpt
     contentColumnType: text
     fieldGroup: null
@@ -146,38 +159,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  4c46750b-692f-42b5-873f-47f479cc3cf1: # Image
-    contentColumnType: string
-    fieldGroup: null
-    handle: rowImage
-    instructions: ''
-    name: Image
-    searchable: false
-    settings:
-      allowSelfRelations: false
-      allowUploads: true
-      allowedKinds: null
-      defaultUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
-      defaultUploadLocationSubpath: ''
-      limit: '1'
-      localizeRelations: false
-      previewMode: full
-      restrictFiles: ''
-      selectionLabel: ''
-      showSiteMenu: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
-      singleUploadLocationSubpath: ''
-      source: null
-      sources: '*'
-      targetSiteId: null
-      useSingleFolder: false
-      validateRelatedElements: false
-      viewMode: list
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Assets
   55ce0c09-4b92-4807-aafc-6bea064592f8: # Button
     contentColumnType: text
     fieldGroup: null
@@ -295,6 +276,25 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
+  09960e66-5c0c-41c4-8d8c-2dd7c87e69ff: # Subtitle
+    contentColumnType: text
+    fieldGroup: null
+    handle: rowSubtitle
+    instructions: ''
+    name: Subtitle
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
 handle: row
 name: Row
 sortOrder: 1

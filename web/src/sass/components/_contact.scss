@@ -74,6 +74,11 @@
 			text-align: center;
 		}
 
+		@include mobile-767 {
+			align-items: flex-start;
+			text-align: left;
+		}
+
 		h1 {
 			margin-top: 12px;
 		}

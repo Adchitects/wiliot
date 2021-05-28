@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="12px" viewBox="0 0 10 12" version="1.1">
+  <title>Triangle</title>
+  <g id="Company" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-212.000000, -1791.000000)" fill="#000000" id="Buttons/CTA-Copy">
+      <g transform="translate(172.000000, 1769.000000)">
+        <g id="Group-10" transform="translate(40.000000, 15.000000)">
+          <path d="M5.94284466,9.28991326 L10.6001586,16.4550116 C10.9011474,16.9180713 10.769763,17.5374549 10.3067034,17.8384436 C10.1444931,17.9438803 9.95518091,18 9.761715,18 L0.44708709,18 C-0.10519766,18 -0.55291291,17.5522847 -0.55291291,17 C-0.55291291,16.8065341 -0.496793194,16.6172219 -0.391356527,16.4550116 L4.26595743,9.28991326 C4.56694618,8.82685363 5.18632977,8.69546924 5.6493894,8.99645799 C5.76665262,9.07267908 5.86662357,9.17265003 5.94284466,9.28991326 Z" id="Triangle" transform="translate(5.104401, 13.000000) rotate(-270.000000) translate(-5.104401, -13.000000) "></path>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
