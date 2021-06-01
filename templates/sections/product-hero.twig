@@ -3,13 +3,13 @@
 {% set image = entry.productHeroImage.one() %}
 {% if entry is defined %}
 	<section class="u-section u-section--product-hero js-bg-shape-hld">
-		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
-			<div class="s1 js-s1"></div>
-			<div class="s2 js-s2"></div>
-			<div class="s3 js-s3"></div>
-		</div>
 		<div class="u-wrapper--medium-wide u-wrapper">
 			<div class="product-hero">
+				<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+					<div class="s1 js-s1"></div>
+					<div class="s2 js-s2"></div>
+					<div class="s3 js-s3"></div>
+				</div>
 				<div class="product-hero__content">
 					{% if subtitle %}
 						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>

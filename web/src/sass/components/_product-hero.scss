@@ -18,6 +18,7 @@
 		align-items: center;
 		grid-template-columns: repeat(12, 1fr);
 		grid-gap: 24px;
+		position: relative;
 
 		@include media-max(850) {
 			display: flex;
@@ -56,6 +57,8 @@
 
 		&__image {
 			grid-column: 7 / 13;
+			position: relative;
+			z-index: 1;
 
 			@include media-max(899) {
 				width: 100%;
