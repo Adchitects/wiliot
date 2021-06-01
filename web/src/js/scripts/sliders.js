@@ -48,7 +48,17 @@ const logosSlider = new Swiper('.js-logos-slider', {
 			slidesPerView: 4,
 			spaceBetween: 32,
 		},
+		641: {
+			allowTouchMove: false,
+			slidesPerView: 4,
+			spaceBetween: 48,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		},
 		900: {
+			allowTouchMove: false,
 			slidesPerView: 4,
 			spaceBetween: 48,
 			navigation: {
@@ -57,6 +67,7 @@ const logosSlider = new Swiper('.js-logos-slider', {
 			},
 		},
 		1000: {
+			allowTouchMove: false,
 			slidesPerView: 6,
 			spaceBetween: 48,
 			navigation: {
@@ -65,6 +76,7 @@ const logosSlider = new Swiper('.js-logos-slider', {
 			},
 		},
 		1360: {
+			allowTouchMove: false,
 			slidesPerView: 7,
 			spaceBetween: 70,
 			navigation: {

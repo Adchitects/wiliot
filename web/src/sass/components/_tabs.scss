@@ -170,6 +170,27 @@
 					font-size: 14px;
 					line-height: 24px;
 				}
+
+				ul {
+					margin-left: 20px;
+
+					li {
+						position: relative;
+						padding-left: 0;
+		
+						&::before {
+							content: '';
+							position: absolute;
+							top: 10px;
+							left: -17px;
+							pointer-events: none;
+							width: 5px;
+							height: 5px;
+							border-radius: 50%;
+							background-color: $c-black;
+						}
+					}
+				}
 			}
 
 			&__link {
