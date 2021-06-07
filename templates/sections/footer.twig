@@ -2,7 +2,7 @@
 {% set socials = pageOptions.pageOptionsSocials.all() %}
 {% set bottomPages = pageOptions.pageOptionsBottomPages.all() %}
 {% set logos = pageOptions.pageOptionsLogos.all() %}
-<footer class="footer">
+<div class="footer">
 	<div class="u-wrapper">
 		<div class="footer__main">
 			<div class="footer__primary">
@@ -23,7 +23,7 @@
 					{% endnav %}
 				</div>
 				<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="footer__logo">
-					<img src="{{ alias('@web/src/img/svg/logo.svg') }}" width="123" height="48" alt="Wiliot logo">
+					<img class="js-lazy" data-src="{{ alias('@web/src/img/svg/logo.svg') }}" width="123" height="48" alt="Wiliot logo">
 				</a>
 			</div>
 			<div class="footer__secondary">
@@ -72,4 +72,4 @@
 			{% endif %}
 		</ul>
 	</div>
-</footer>
+</div>

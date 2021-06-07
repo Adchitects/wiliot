@@ -1,4 +1,4 @@
-dateModified: 1622193018
+dateModified: 1623082456
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -24,6 +24,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '2.0'
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.0
   super-table:
     edition: standard
     enabled: true

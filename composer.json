@@ -1,14 +1,15 @@
 {
   "require": {
     "born05/craft-assetusage": "2.2.1",
-    "craftcms/cms": "3.6.15",
-    "craftcms/redactor": "2.8.5",
+    "craftcms/cms": "3.6.16",
+    "craftcms/redactor": "2.8.7",
+    "ether/seo": "3.7.3",
     "olivestudio/craft-olivemenus": "1.2.1",
     "sebastianlenz/linkfield": "1.0.25",
     "utakka/redactor-anchors": "1.1.0",
-    "verbb/field-manager": "2.2.2",
+    "verbb/field-manager": "2.2.3",
     "verbb/image-resizer": "2.1.0",
-    "verbb/super-table": "2.6.7",
+    "verbb/super-table": "2.6.8",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
