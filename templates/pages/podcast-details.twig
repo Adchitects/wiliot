@@ -11,24 +11,35 @@
 	{% set id = entry.podcastDetailsID %}
 	{% set podcastDetailsHeroButton = entry.podcastDetailsHeroButton %}
 	{% set content = entry.podcastDetailsContent %}
-	{% set transcript = entry.podcastDetailsTranscript.all() %}
+	{% set transcript = entry.podcastDetailsTranscript %}
 	{% set date = entry.postDate|date("F d, Y") %}
-	<section class="u-section u-section--hero-podcast-details">
+	<section class="u-section u-section--hero-podcast-details js-modal-hld">
 		<div class="video-wrapper">
 			<iframe allow="autoplay" data-src="https://www.youtube.com/embed/{{ id }}?rel=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={{ id }}&amp;showinfo=0&amp;wmode=transparent&amp;controls=0&amp;enablejsapi=1&amp;origin=https://www.wiliot.com" frameborder="0" width="640" height="360" class="youtube-video js-lazy"></iframe>
 		</div>
 		<div class="hero-podcast-details">
 			{% if id %}
-				<a target="_blank" href="https://www.youtube.com/watch?v={{ id }}" class="btn btn--first u-btn u-btn--white">
+				<button class="btn btn--first u-btn u-btn--white js-modal-btn">
 					<span class="icon icon-play"></span>
 					<span class="text">Watch video</span>
-				</a>
+				</button>
 			{% endif %}
 			{% if podcastDetailsHeroButton %}
 				<a href="{{ podcastDetailsHeroButton.url }}" target="{{ podcastDetailsHeroButton.target ? '_blank' : '_self' }}" rel="{{ podcastDetailsHeroButton.target ? 'noopener noreferrer' : null }}" class="btn btn--second u-btn u-btn--bordered">
 					<span class="text">{{ podcastDetailsHeroButton.customText }}</span>
 				</a>
 			{% endif %}
+		</div>
+		<div class="video-modal js-modal-modal">
+			<div class="overlay js-modal-close"></div>
+			<div class="video-modal__inner">
+				<div class="video-modal__modal">
+					<iframe width="560" height="315" class="js-lazy js-modal-iframe" data-src="https://www.youtube.com/embed/{{ id }}?rel=1&amp;autoplay=1&amp;playlist={{ id }}&amp;origin=https://www.wiliot.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<span class="video-modal__close js-modal-close">
+					<span class="icon icon-close"></span>
+				</span>
+			</div>
 		</div>
 	</section>
 	<article class="podcast-details">
@@ -107,34 +118,19 @@
 				</div>
 			</div>
 		</div>
+		{% if transcript %}
 		<div class="podcast-details__transcript">
 			<div class="u-wrapper u-wrapper--content">
 				<h2 class="transcript__title">
 					Transcript
 				</h2>
-				{% if transcript %}
 					<ul class="transcript__listing">
-						{% for part in transcript %}
-							{% set title = part.partTitle %}
-							{% set text = part.partText %}
-							{% set time = part.partTime %}
-							<li class="transcript__part part">
-								<div class="part__header">
-									{% if title %}
-										<span class="part__title">{{ title }}</span>
-									{% endif %}
-									{% if time %}
-										<span class="part__time">{{ time }}</span>
-									{% endif %}
-								</div>
-								{% if text %}
-									<div class="part__text">{{ text }}</div>
-								{% endif %}
-							</li>
-						{% endfor %}
+						<li class="transcript__part part">
+							<div class="part__text">{{ transcript }}</div>
+						</li>
 					</ul>
-				{% endif %}
 			</div>
 		</div>
+		{% endif %}
 	</article>
 {% endblock %}

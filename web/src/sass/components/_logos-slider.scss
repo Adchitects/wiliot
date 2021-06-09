@@ -1,6 +1,13 @@
 .u-section--logos-slider {
 	margin-top: 95px;
 
+	.is-page-company & {
+		margin-top: 25px;
+		padding-top: 70px;
+		padding-bottom: 65px;
+		background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+	}
+
 	.is-page-press & {
 		margin-top: 65px;
 	}
@@ -73,10 +80,12 @@
 		}
 
 		&.is-link {
-			transition: opacity 0.2s;
+			transition: filter 0.2s;
 
 			&:hover {
-				opacity: 0.5;
+				img {
+					filter: grayscale(0);
+				}
 			}
 		}
 	}

@@ -39,7 +39,7 @@
 				width: 50vw !important;
 				max-width: 700px;
 				min-height: 485px;
-				padding: 80px 64px 42px 128px;
+				padding: 80px 80px 40px;
 
 				@include media-max(1200) {
 					width: 50vw !important;
@@ -51,7 +51,7 @@
 			}
 
 			&.is-active {
-				width: 200% !important;
+				width: 400% !important;
 
 				.sliding-box__content {
 					width: 50vw !important;
@@ -74,11 +74,19 @@
 			}
 
 			&:nth-of-type(2) {
-				background-color: #d0fef5;
+				background-color: #AFFBE2;
 			}
 
 			&:nth-of-type(3) {
-				background-color: #edfbf8;
+				background-color: #D0FEF5;
+			}
+
+			&:nth-of-type(4) {
+				background-color: #EDFBF8;
+			}
+
+			&:nth-of-type(5) {
+				background-color: #F5FCFC;
 			}
 
 			&__title {
@@ -167,11 +175,19 @@
 			}
 
 			&:nth-of-type(2) {
-				background-color: #d0fef5;
+				background-color: #AFFBE2;
 			}
 
 			&:nth-of-type(3) {
-				background-color: #edfbf8;
+				background-color: #D0FEF5;
+			}
+
+			&:nth-of-type(4) {
+				background-color: #EDFBF8;
+			}
+
+			&:nth-of-type(5) {
+				background-color: #F5FCFC;
 			}
 
 			display: flex;
@@ -211,6 +227,10 @@
 				font-size: 20px;
 				font-weight: 900;
 				line-height: 30px;
+
+				@include mobile-767 {
+					font-size: 18px;
+				}
 			}
 
 			&__header {

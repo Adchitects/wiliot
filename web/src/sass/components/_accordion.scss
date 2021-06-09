@@ -1,6 +1,10 @@
 .u-section--accordion {
 	background-color: $c-accent-dark;
 
+	.is-page-company & {
+		margin-top: 0;
+	}
+
 	.accordion {
 		max-width: 1116px;
 		margin: 0 auto;

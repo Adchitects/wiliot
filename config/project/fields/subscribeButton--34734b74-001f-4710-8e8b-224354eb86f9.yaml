@@ -47,7 +47,7 @@ settings:
                 - 'section:6560a834-cd10-49ce-92e8-210691efdc73' # Partners posts
                 - 'section:51c060f1-2569-4a4e-88d5-0ff236f6033b' # Podcast posts
                 - 'section:06d1e5ff-4d31-4966-8bce-2bc3c44214a0' # Product posts
-                - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Solutions posts
+                - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Applications posts
             -
               - allowCustomQuery
               - ''

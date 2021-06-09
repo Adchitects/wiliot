@@ -190,7 +190,7 @@ fieldLayouts:
 handle: solutionsDetails
 hasTitleField: true
 name: 'Solutions details'
-section: 40ccff24-98fc-4f36-bcda-88a991a455e6 # Solutions posts
+section: 40ccff24-98fc-4f36-bcda-88a991a455e6 # Applications posts
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

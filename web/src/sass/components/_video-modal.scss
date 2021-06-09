@@ -32,6 +32,10 @@
 		.overlay {
 			visibility: visible;
 			opacity: 0.76;
+
+			.is-page-podcast & {
+				opacity: 1;
+			}
 		}
 	}
 

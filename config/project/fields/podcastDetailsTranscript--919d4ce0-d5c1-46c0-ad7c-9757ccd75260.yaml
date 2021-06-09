@@ -1,14 +1,27 @@
-contentColumnType: string
+contentColumnType: text
 fieldGroup: 124f1ea9-b5e3-4adb-9255-3494228579eb # Podcast details
 handle: podcastDetailsTranscript
 instructions: ''
 name: Transcript
 searchable: false
 settings:
-  contentTable: '{{%matrixcontent_podcastdetailstranscript}}'
-  maxBlocks: ''
-  minBlocks: ''
-  propagationMethod: all
+  availableTransforms: '*'
+  availableVolumes: '*'
+  cleanupHtml: true
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: ''
+  redactorConfig: ''
+  removeEmptyTags: ''
+  removeInlineStyles: ''
+  removeNbsp: ''
+  showHtmlButtonForNonAdmins: '1'
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
 translationKeyFormat: null
-translationMethod: site
-type: craft\fields\Matrix
+translationMethod: none
+type: craft\redactor\Field

@@ -65,7 +65,7 @@ fields:
                     - singles
                     - 'section:d53d3bce-afa8-4d8c-be8e-7f39844292ba' # Blog posts
                     - 'section:6560a834-cd10-49ce-92e8-210691efdc73' # Partners posts
-                    - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Solutions posts
+                    - 'section:40ccff24-98fc-4f36-bcda-88a991a455e6' # Applications posts
                 -
                   - allowCustomQuery
                   - '1'
