@@ -1,10 +1,11 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 function isMobile() {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
-if (!isMobile()) {
+if (!isMobile() && !isSafari) {
 	const bgShapeHldAll = document.querySelectorAll('.js-bg-shape-hld');
 	bgShapeHldAll.forEach(hld => {
 		const bgShapeAll = hld.querySelectorAll('.js-bg-shape');
