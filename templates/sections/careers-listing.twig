@@ -1,0 +1,25 @@
+{% set careersTitle = entry.careersTitle %}
+{% set careersDescription = entry.careersDescription %}
+{% set careersItemsMatrix = entry.careersItemsMatrix.all() %}
+<section class="u-section u-section--careers-listing">
+	<div class="careers-listing">
+		<div class="u-wrapper">
+			<div class="careers-listing__text-hld">
+				<div class="title u-title u-title--section">{{ careersTitle }}</div>
+				<div class="description">{{ careersDescription }}</div>
+			</div>
+			<div class="careers-listing__items-hld">
+				{% for item in careersItemsMatrix %}
+					{% set jobTitle = item.jobTitle %}
+					{% set jobCity = item.jobCity %}
+					{% set jobUrl = item.jobUrl %}
+					<a href="{{ jobUrl.url }}" target="{{ jobUrl.target ? '_blank' : null }}" rel="{{ jobUrl.target ? 'noopener noreferrer' : null }}" class="careers-listing__item">
+						<div class="title u-subtitle u-subtitle--big">{{ jobTitle }}</div>
+						<div class="city">{{ jobCity }}</div>
+						<div class="arrow icon icon-arrow-right"></div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>

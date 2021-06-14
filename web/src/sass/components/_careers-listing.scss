@@ -1,0 +1,100 @@
+.u-section--careers-listing {
+	margin-bottom: 135px;
+
+	@include mobile-599 {
+		margin-bottom: 80px;
+	}
+}
+
+.careers-listing {
+	&__text-hld {
+		max-width: 630px;
+
+		.description {
+			margin-top: 15px;
+		}
+	}
+
+	&__items-hld {
+		max-width: 865px;
+		margin-top: 75px;
+
+		@include mobile-599 {
+			margin-top: 40px;
+		}
+	}
+
+	&__item {
+		display: block;
+		position: relative;
+		padding: 32px 0;
+		padding-right: 60px;
+		border-radius: 6px;
+
+		&:hover {
+			&::before {
+				opacity: 1;
+			}
+
+			&::after {
+				opacity: 0;
+			}
+
+			.arrow {
+				color: $c-accent;
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: -1px;
+			right: 0;
+			bottom: 0;
+			left: -25px;
+			z-index: -1;
+			pointer-events: none;
+			background-color: $c-white;
+			box-shadow: 0 5px 20px 0 rgba(134, 134, 183, 0.15);
+			transition: opacity 0.2s;
+			opacity: 0;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 25px;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			pointer-events: none;
+			height: 1px;
+			background-color: $c-border;
+			transition: opacity 0.2s;
+		}
+
+		.title {
+			@include mobile-599 {
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+
+		.city {
+			margin-top: 10px;
+
+			@include mobile-599 {
+				font-size: 14px;
+			}
+		}
+
+		.arrow {
+			position: absolute;
+			top: 50%;
+			right: 25px;
+			font-size: 12px;
+			transform: translateY(-50%);
+			transition: color 0.2s;
+		}
+	}
+}
