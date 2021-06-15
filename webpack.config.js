@@ -11,7 +11,10 @@ const userConfig = {
 	},
 	distDirectory: `../${path.basename(__dirname)}-dist/`,
 	distFiles: [
+		'config/general.php',
+		'storage/runtime/assets',
 		'templates/',
+		'web/favicon.ico',
 		'web/src/uploads/',
 		'web/src/img/',
 		'web/src/fonts/',

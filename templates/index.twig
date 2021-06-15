@@ -6,8 +6,8 @@
 			<meta name="robots" content="noindex"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<meta property="og:image" content="{{ alias('@web/src/img/page.png') }}"/>
-			<meta property="og:title" content="Adchitects craft-starter-pack"/>
-			<meta property="og:description" content="Index description"/>
+			<meta property="og:title" content="Wiliot - Intelligence for Everything"/>
+			<meta property="og:description" content="Wiliot is a Sensing as a Service Platform powered by IoT Stickers."/>
 			<meta property="og:type" content="website"/>
 			<meta property="og:url" content="Index url"/>
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon"/>
@@ -103,6 +103,14 @@
 				var s = r.getElementsByTagName("script")[0];
 				s.parentNode.insertBefore(n, s)
 				}(window, document);
+			</fscript>
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<fscript src="https://www.googletagmanager.com/gtag/js?id=UA-104066415-1"></fscript>
+			<fscript>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+				gtag('config', 'UA-104066415-1');
 			</fscript>
 		</head>
 	{% endblock %}

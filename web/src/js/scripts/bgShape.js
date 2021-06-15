@@ -1,11 +1,11 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+// const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 function isMobile() {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
-if (!isMobile() && !isSafari) {
+if (!isMobile()) {
 	const bgShapeHldAll = document.querySelectorAll('.js-bg-shape-hld');
 	bgShapeHldAll.forEach(hld => {
 		const bgShapeAll = hld.querySelectorAll('.js-bg-shape');
@@ -73,9 +73,9 @@ if (!isMobile() && !isSafari) {
 				const shape1 = bgShape.querySelector('.js-s1');
 				tl.to(shape1, {
 					duration: 15,
-					y: 100,
-					scaleX: 2,
-					rotationX: -45,
+					y: 200,
+					scaleX: 1.2,
+					// rotationX: -45,
 					transformOrigin: 'center right',
 				});
 				tl.to(shape1, {
@@ -107,7 +107,7 @@ if (!isMobile() && !isSafari) {
 				tl.to(shape2, {
 					duration: 6,
 					opacity: 1,
-					rotation: -15,
+					// rotation: -15,
 				}, 1);
 				bgShape.addEventListener('click', () => {
 					gsap.to(bgShape, {
@@ -135,7 +135,7 @@ if (!isMobile() && !isSafari) {
 				tl.to(shape2, {
 					duration: 5,
 					opacity: 1,
-					rotation: -5,
+					// rotation: -5,
 				}, 1);
 				bgShape.addEventListener('click', () => {
 					gsap.to(bgShape, {
@@ -156,14 +156,14 @@ if (!isMobile() && !isSafari) {
 				tl.to(shape1, {
 					duration: 15,
 					y: -100,
-					scaleX: 2,
-					rotationX: 45,
+					scaleX: 1.2,
+					// rotationX: 45,
 					transformOrigin: 'center left',
 				});
 				tl.to(shape1, {
 					duration: 15,
 					y: 300,
-					scaleX: 3,
+					scaleX: 1.5,
 					scaleY: 2,
 				});
 				bgShape.addEventListener('click', () => {
@@ -185,7 +185,7 @@ if (!isMobile() && !isSafari) {
 				tl.to(shape1, {
 					duration: 15,
 					scale: 1.5,
-					rotationX: -45,
+					// rotationX: -45,
 					transformOrigin: 'center center',
 				});
 				tl.to(shape1, {
