@@ -20,7 +20,7 @@
 			padding-bottom: 230px;
 		}
 
-		@include media-max(900) {
+		@include media-max(1023) {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -64,18 +64,20 @@
 
 		&__image {
 			position: absolute;
-			top: 70px;
+			top: 170px;
 			right: 30px;
-			max-height: 715px;
+			width: 720px;
+			height: auto;
 
-			@include media-max(1050) {
-				top: 160px;
+			@include media-max(1310) {
+				top: 200px;
 				max-height: 500px;
 			}
 
-			@include media-max(900) {
+			@include media-max(1023) {
 				position: static;
-				margin-top: 48px;
+				max-height: unset;
+				margin-top: 0;
 			}
 		}
 
