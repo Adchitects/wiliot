@@ -133,13 +133,13 @@
 		margin-right: 90px;
 
 		@include media-max(899) {
-			margin-right: 62px;
+			margin-right: 50px;
 		}
 
 		@include media-max(767) {
 			width: 100%;
 			max-width: 150px;
-			margin-right: 0;
+			margin-right: 40px;
 		}
 
 		@include media-max(580) {
@@ -151,8 +151,17 @@
 			}
 		}
 
-		&:nth-of-type(2) {
+		&:nth-of-type(2),
+		&:nth-of-type(3) {
 			margin-right: 125px;
+
+			@include media-max(899) {
+				margin-right: 50px;
+			}
+
+			@include mobile-767 {
+				margin-right: 40px;
+			}
 		}
 
 		&:last-of-type {

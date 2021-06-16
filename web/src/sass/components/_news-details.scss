@@ -72,12 +72,15 @@
 
 		&__image {
 			position: absolute;
-			bottom: -500px;
+			bottom: -600px;
 			left: 50%;
+			width: 100%;
+			height: 575px;
 			transform: translateX(-50%);
 
 			@include mobile-767 {
-				bottom: -350px;
+				bottom: -400px;
+				height: 375px;
 			}
 		}
 	}
@@ -85,8 +88,12 @@
 
 .news-single {
 	position: relative;
-	padding-top: 370px;
+	padding-top: 470px;
 	overflow: hidden;
+
+	@include mobile-767 {
+		padding-top: 370px;
+	}
 
 	&.is-no-featured-image {
 		padding-top: 50px;
@@ -103,14 +110,11 @@
 
 		@include media-max(767) {
 			margin-bottom: 48px;
+			padding: 0;
 		}
 
 		&:last-child {
 			margin-bottom: 0;
-		}
-
-		@include media-max(767) {
-			padding: 0 54px;
 		}
 
 		@include media-max(480) {

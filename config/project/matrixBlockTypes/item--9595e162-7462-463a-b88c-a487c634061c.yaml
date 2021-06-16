@@ -54,20 +54,115 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   856cff78-8d18-4dfb-ae45-f4c779296ee6: # Item link
-    contentColumnType: string(255)
+    contentColumnType: text
     fieldGroup: null
     handle: itemLink
     instructions: 'Url to Company / Article '
     name: 'Item link'
     searchable: false
     settings:
-      maxLength: '255'
-      placeholder: null
-      types:
-        - url
+      allowCustomText: ''
+      allowTarget: '1'
+      allowedLinkNames:
+        3: entry
+        9: url
+      autoNoReferrer: '1'
+      defaultLinkName: entry
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Url
+    type: typedlinkfield\fields\LinkField
   b70a6a9e-3ca3-4d53-a836-f30d51f6c58e: # Item Image
     contentColumnType: string
     fieldGroup: null
