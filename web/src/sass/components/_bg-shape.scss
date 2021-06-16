@@ -5,6 +5,7 @@
 
 	img {
 		object-fit: contain;
+		user-select: none;
 	}
 
 	&--top-right {
@@ -12,6 +13,11 @@
 		right: 0;
 		width: 500px;
 		height: 600px;
+
+		@include mobile-599 {
+			width: 250px;
+			height: 250px;
+		}
 
 		.s1,
 		.s2,

@@ -25,14 +25,14 @@
 							{% if link %}
 								<a href="{{ link.url }}" target="{{ link.target ? '_blank' : '_self' }}" rel="{{ link.target ? 'noopener noreferrer' : null }}" class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }} is-link">
 									{% if image %}
-										<img data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
+										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
 									{% endif %}
 									<div>{{ title }}</div>
 								</a>
 							{% else %}
 								<div class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }}">
 									{% if image %}
-										<img data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
+										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
 									{% endif %}
 									<div>{{ title }}</div>
 								</div>

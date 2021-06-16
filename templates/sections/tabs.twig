@@ -4,8 +4,8 @@
 {% set tabs = entry.tabsList %}
 <section class="u-section u-section--tabs js-bg-shape-hld">
 	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
-		<img class="s1 js-s1 js-lazy" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
-		<img class="s2 js-s2 js-lazy" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+		<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
 	</div>
 	<div class="u-wrapper">
 		<div class="tabs">
@@ -42,7 +42,7 @@
 								<div class="tab swiper-slide">
 									<div class="tab__image">
 									{% if image %}
-										<img data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy" alt="{{ title }}">
+										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy" alt="{{ title }}">
 									{% endif %}
 									</div>
 									<div class="tab__content">

@@ -82,7 +82,7 @@
 							<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %} data-{{ cat.slug|lower }}="1" {% endfor %}>
 								{% if logo %}
 									<div class="img-hld">
-										<img class="js-lazy" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
 									</div>
 								{% endif %}
 								<div class="name">{{ name }}</div>

@@ -42,7 +42,7 @@
 				<div class="partners-details__content-hld">
 					{% if logo %}
 						<div class="partners-details__logo-hld">
-							<img class="js-lazy" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
 						</div>
 					{% endif %}
 					<div class="partners-details__middle">
@@ -63,7 +63,7 @@
 					{% if partnerVideoFile|length %}
 						<div class="partners-details__video-hld js-video-hld is-paused">
 							<span class="icon icon-button_play"></span>
-							<video class="js-lazy" data-src="{{ partnerVideoFileUrl }}#t=0.15" preload="metadata"></video>
+							<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ partnerVideoFileUrl }}#t=0.15" preload="metadata"></video>
 						</div>
 					{% endif %}
 				</div>

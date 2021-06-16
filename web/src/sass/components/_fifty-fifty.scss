@@ -170,7 +170,7 @@
 						padding-right: 0;
 
 						@include tablet-medium-1199 {
-							left: -50px;
+							left: 0;
 						}
 
 						@include tablet-small-1023 {
@@ -406,7 +406,7 @@
 
 		@include tablet-small-1023 {
 			top: 0;
-			left: -50px;
+			left: 0;
 			max-width: 100%;
 		}
 	}

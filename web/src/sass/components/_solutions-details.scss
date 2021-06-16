@@ -9,6 +9,11 @@
 .u-section--solutions-details {
 	margin-top: 0;
 	// overflow: hidden;
+	@include tablet-small-1023 {
+		&.u-section--solutions-details {
+			margin-top: 0;
+		}
+	}
 }
 
 .solutions-details {
@@ -101,7 +106,7 @@
 
 			img {
 				position: absolute;
-				top: -10px;
+				top: 0;
 				left: -60px;
 				width: 655px;
 				max-width: unset;

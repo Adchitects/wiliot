@@ -15,7 +15,7 @@
 						{% if imageAsset and imageTitle %}
 							<div class="press-kit__image">
 								<div class="press-kit-image__asset">
-									<img data-src="{{ imageAsset.getUrl() }}" class="js-lazy" alt="{{ imageTitle }}">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageAsset.getUrl() }}" class="js-lazy" alt="{{ imageTitle }}">
 								</div>
 								<div class="press-kit-image__content">
 									<h3 class="press-kit-image__title">{{ imageTitle }}</h3>
@@ -38,7 +38,7 @@
 							<div class="press-kit__video">
 								<div class="press-kit-video__asset js-video-hld is-paused">
 									<span class="icon icon-button_play"></span>
-									<video class="js-lazy" data-src="{{ videoAsset.getUrl() }}" preload="metadata"></video>
+									<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoAsset.getUrl() }}" preload="metadata"></video>
 								</div>
 								<div class="press-kit-video__content">
 									<h3 class="press-kit-video__title">{{ videoTitle }}</h3>

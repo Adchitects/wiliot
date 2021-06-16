@@ -4,7 +4,7 @@
 {% set accordionList = entry.accordionTextItems.all() %}
 <section class="u-section u-section--accordion-text js-bg-shape-hld">
 	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
-		<img class="s1 js-s1 js-lazy" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
 	</div>
 	<div class="u-wrapper u-wrapper--medium-wide">
 		<div class="accordion-text js-accordion">
@@ -28,7 +28,7 @@
 						{% endfor %}
 					</div>
 					{% if image %}
-						<img data-src="{{ image.getUrl() }}" alt="{{ title }}" class="accordion-text__image js-lazy">
+						<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ title }}" class="accordion-text__image js-lazy">
 					{% endif %}
 				</div>
 			{% endif %}

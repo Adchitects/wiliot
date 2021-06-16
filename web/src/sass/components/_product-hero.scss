@@ -1,12 +1,14 @@
 .u-section--product-hero {
-	margin-top: 100px;
+	margin-top: 0;
 	padding-top: 114px;
 	padding-bottom: 56px;
 	background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 	overflow: hidden;
 
-	@include media-max(959) {
-		margin-top: 48px;
+	@include tablet-small-1023 {
+		&.u-section--product-hero {
+			margin-top: 0;
+		}
 	}
 
 	@include media-max(899) {
