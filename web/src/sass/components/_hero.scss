@@ -2,6 +2,13 @@
 	margin-top: 0;
 	overflow: hidden;
 
+	@include tablet-small-1023 {
+		&.u-section--hero {
+			margin-top: 0;
+			padding-top: 80px;
+		}
+	}
+
 	&.is-small {
 		height: 40vh;
 		min-height: 450px;

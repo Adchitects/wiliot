@@ -51,6 +51,11 @@
 					font-size: 20px;
 					line-height: 32px;
 				}
+
+				@include mobile-599 {
+					font-size: 18px;
+					line-height: 24px;
+				}
 			}
 
 			img {
@@ -58,9 +63,25 @@
 				max-width: 152px;
 				margin-right: 40px;
 
-				@include media-max(580) {
+				@include mobile-599 {
 					max-width: 100px;
-					margin-right: 24px;
+					margin-right: 10px;
+				}
+			}
+
+			.press-kit-image__asset {
+				width: 192px;
+
+				@include mobile-599 {
+					width: 110px;
+				}
+			}
+
+			.press-kit-image__content {
+				width: calc(100% - 192px);
+
+				@include mobile-599 {
+					width: calc(100% - 110px);
 				}
 			}
 		}
