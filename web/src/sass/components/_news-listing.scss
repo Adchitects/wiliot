@@ -134,17 +134,13 @@
 
 		&__posts-hld {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+			grid-template-columns: repeat(auto-fit, 300px);
 			grid-gap: 25px;
 			margin-top: 55px;
 
 			@include mobile-767 {
 				grid-gap: 50px 25px;
 				margin-top: 25px;
-			}
-
-			@include media-max(959) {
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 			}
 		}
 	}
