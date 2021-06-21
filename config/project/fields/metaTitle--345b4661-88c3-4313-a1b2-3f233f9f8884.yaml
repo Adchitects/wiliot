@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 883452ab-6cc7-4d6d-abbb-fdc00597dbfb # Meta tags
+handle: metaTitle
+instructions: 'SEO - HTML <title> tag and <meta property="og:title"> tag'
+name: 'Meta title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

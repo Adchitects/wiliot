@@ -1,9 +1,16 @@
 {% extends "index.twig" %}
-{% block title %}
-	{{ siteName }} - {{ entry.title }}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %} 
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
-{% block head %}
-	{{ parent() }}
+{% block description %} 
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %} 
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 {% endblock %}
 {% block main %}
 	{{ include('/sections/hero.twig') }}

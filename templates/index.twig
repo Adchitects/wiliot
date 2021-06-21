@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html itemscope itemtype="https://schema.org/WebPage" lang="en">
+	{% if entry is defined %}
+		{% set metaTitle = entry.metaTitle %}
+		{% set metaDescription = entry.metaDescription %}
+	{% elseif category is defined %}
+		{% set metaTitle = category.metaTitle %}
+		{% set metaDescription = category.metaDescription %}
+	{% endif %}
 	{% block head %}
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="robots" content="noindex"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			{% block description %}
+				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+			{% endblock %}
+			{% block og %}
+				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
+				<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
+			{% endblock %}
 			<meta property="og:image" content="{{ alias('@web/src/img/page.png') }}"/>
-			<meta property="og:title" content="Wiliot - Intelligence for Everything"/>
-			<meta property="og:description" content="Wiliot is a Sensing as a Service Platform powered by IoT Stickers."/>
 			<meta property="og:type" content="website"/>
 			<meta property="og:url" content="Index url"/>
+			<title>
+				{% block title %}
+					{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+				{% endblock %}
+			</title>
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon"/>
 			<style>
 				@font-face {
@@ -42,11 +59,6 @@
 				}
 			</style>
 			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}"/>
-			<title>
-				{% block title %}
-					{{ siteName }} - {{ entry.title }}
-				{% endblock %}
-			</title>
 			<script>
 				var scriptsExecuted = false;
 				var head = document.getElementsByTagName('head')[0] || document.documentElement;

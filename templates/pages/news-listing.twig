@@ -1,13 +1,25 @@
 {% extends "index.twig" %}
-{% block head %}
-	{{ parent() }}
-{% endblock %}
-{% block title %}
+{% if entry is defined %}
+	{% set metaTitle = entry.metaTitle %}
+	{% set metaDescription = entry.metaDescription %}
+{% elseif category is defined %}
+	{% set metaTitle = category.metaTitle %}
+	{% set metaDescription = category.metaDescription %}
+{% endif %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %} 
 	{% if entry is defined %}
-		{{ siteName }} - {{ entry.title }}	
+		{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 	{% elseif category is defined %}
-		{{ siteName }} - {{ category.title }}
+		{{ metaTitle ? metaTitle : category.title ~ ' | ' ~ siteName  }}
 	{% endif %}
+{% endblock %}
+{% block description %} 
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %} 
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 {% endblock %}
 {% block main %}
 	{% set newsListingSection = craft.entries.section('newsListing') %}
