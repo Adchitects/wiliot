@@ -1,10 +1,14 @@
-{% set excerpt = entry.heroImageRightExcerpt %}
-{% set title = entry.heroImageRightTitle %}
+{% set videoBackgroundLink = entry.heroImageRightBackgroundVideoLink %}
 {% set image = entry.heroImageRightImage.one() %}
+{% set title = entry.heroImageRightTitle %}
+{% set excerpt = entry.heroImageRightExcerpt %}
 {% set videoLink = entry.heroImageRightVideoLink %}
 {% set button = entry.heroImageRightButton %}
 {% if entry is defined %}
 	<section class="u-section u-section--hero-img-right">
+		<div class="video-wrapper">
+			<iframe allow="autoplay" data-src="{{ videoBackgroundLink }}" frameborder="0" width="1920" height="768" class="youtube-video js-lazy"></iframe>
+		</div>
 		<div class="u-wrapper">
 			<div class="hero-img-right js-modal-hld">
 				<div class="hero-img-right__content">

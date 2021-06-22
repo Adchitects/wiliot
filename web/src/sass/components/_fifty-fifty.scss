@@ -1,6 +1,18 @@
 .u-section--fifty-fifty {
 	margin-top: 120px;
 
+	.is-page-homepage & {
+		margin-top: 120px;
+		padding: 96px 0 128px 0;
+		background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 100%);
+		overflow: hidden;
+
+		@include media-max(767) {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+	}
+
 	.platform & {
 		margin-top: 245px;
 		margin-bottom: 240px;
@@ -44,6 +56,10 @@
 			font-size: 32px;
 			font-weight: 900;
 			line-height: 40px;
+
+			.is-page-homepage & {
+				text-align: center;
+			}
 		}
 
 		&__subtitle {
@@ -53,6 +69,11 @@
 			font-weight: 500;
 			line-height: 19px;
 			text-transform: uppercase;
+
+			.is-page-homepage & {
+				display: block;
+				text-align: center;
+			}
 		}
 
 		&__rows {
@@ -223,6 +244,11 @@
 			&__button {
 				margin-top: 48px;
 				padding: 16px 40px 14px;
+
+				.is-page-homepage & {
+					margin-top: 20px;
+					padding: 0;
+				}
 
 				.platform & {
 					padding: 16px 55px 14px;

@@ -5,9 +5,9 @@ instructions: ''
 name: 'Content List'
 searchable: false
 settings:
-  contentTable: '{{%matrixcontent_featurescontentlist}}'
-  maxBlocks: '3'
-  minBlocks: '3'
+  contentTable: '{{%matrixcontent_featurescontentlist_1}}'
+  maxBlocks: ''
+  minBlocks: ''
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

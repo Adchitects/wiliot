@@ -33,7 +33,8 @@
 			visibility: visible;
 			opacity: 0.76;
 
-			.is-page-podcast & {
+			.is-page-podcast &,
+			.is-page-homepage & {
 				opacity: 1;
 			}
 		}

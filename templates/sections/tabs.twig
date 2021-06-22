@@ -2,11 +2,13 @@
 {% set subtitle = entry.tabsSubtitle %}
 {% set button = entry.bottomButton %}
 {% set tabs = entry.tabsList %}
-<section class="u-section u-section--tabs js-bg-shape-hld">
-	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
-		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
-		<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
-	</div>
+<section class="u-section u-section--tabs {% if entry.section|lower != 'homepage' %} js-bg-shape-hld {% endif %}">
+	{% if entry.section|lower != 'homepage' %}
+		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+		</div>
+	{% endif %}
 	<div class="u-wrapper">
 		<div class="tabs">
 			{% if subtitle %}
@@ -50,7 +52,7 @@
 										<div class="tab__description">{{ description }}</div>
 										<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
 											<span class="text">
-												Learn more
+												{{ link.customText }}
 											</span>
 										</a>
 									</div>

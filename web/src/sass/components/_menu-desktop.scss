@@ -160,9 +160,25 @@
 			align-items: center;
 			height: 100%;
 			padding: 0 50px 0 10px;
+			transition: color 0.2s;
 
 			@include tablet-medium-1199 {
 				padding: 0 20px 0 10px;
+			}
+
+			.is-page-homepage & {
+				@include media-min(1024) {
+					border-color: $c-white;
+					color: $c-white;
+				}
+			}
+
+			.is-dropdown-active & {
+				.is-page-homepage & {
+					@include media-min(1024) {
+						color: $c-black;
+					}
+				}
 			}
 
 			.icon {
@@ -193,6 +209,12 @@
 			&:active {
 				border-color: $c-accent;
 				color: $c-accent;
+
+				.is-page-homepage & {
+					@include media-min(1024) {
+						color: $c-accent-dark;
+					}
+				}
 			}
 		}
 
