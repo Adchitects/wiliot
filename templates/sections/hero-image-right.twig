@@ -41,7 +41,9 @@
 						</div>
 					</div>
 				</div>
-				<img src="{{ image.getUrl() }}" width="730" height="714" alt="{{ title }}" class="hero-img-right__image">
+				{% if image %}
+					<img src="{{ image.getUrl() }}" width="730" height="714" alt="{{ title }}" class="hero-img-right__image">
+				{% endif %}
 			</div>
 		</div>
 	</section>

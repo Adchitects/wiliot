@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68px" height="20px" viewBox="0 0 40.0048505 12" version="1.1">
+  <title>Icons/navigation/forward</title>
+  <defs>
+    <polygon id="path-1" points="40.0048505 6.01993355 39.4865781 5.46179402 34.0247841 0 33.1477076 0.837209302 37.7324252 5.42192691 -1.01431172e-12 5.69078753 -1.01431172e-12 6.88680082 37.7324252 6.6179402 33.1477076 11.1627907 34.0247841 12 39.4865781 6.53820598"></polygon>
+  </defs>
+  <g id="Icons/navigation/forward" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Colors/blue">
+      <mask id="mask-2" fill="white">
+        <use xlink:href="#path-1"></use>
+      </mask>
+      <use id="Mask" fill="#EEEEF2" fill-rule="nonzero" xlink:href="#path-1"></use>
+      <g id="Group" mask="url(#mask-2)" fill="#000000">
+        <g id="Colors/blue">
+          <rect id="Rectangle" x="0" y="0" width="40" height="12"></rect>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
