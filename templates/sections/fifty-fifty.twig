@@ -29,7 +29,7 @@
 						{% set subtitle = item.rowSubtitle %}
 						{% set image = item.rowImage.one() %}
 						{% set button = item.rowButton %}
-						<div class="row {{loop.index % 2 == 0 ? '' : 'is-row-reversed'}}">
+						<div class="row {{ loop.index % 2 == 0 ? '' : 'is-row-reversed' }}">
 							<div class="row__content">
 								{% if numeration %}
 									<span class="row__number">{{ loop.index < 10 ? '0'~loop.index : loop.index }}</span>
@@ -38,7 +38,7 @@
 									<h4 class="row__subtitle">{{ subtitle }}</h4>
 								{% endif %}
 								{% if title %}
-									<h3 class="row__title">{{ title }}</h3>
+									<h2 class="row__title">{{ title }}</h2>
 								{% endif %}
 								{% if excerpt %}
 									<p class="row__excerpt">{{ excerpt }}</p>

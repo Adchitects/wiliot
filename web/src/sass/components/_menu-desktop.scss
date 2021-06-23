@@ -17,7 +17,8 @@
 	}
 
 	.is-scrolled &,
-	.is-dropdown-active & {
+	.is-dropdown-active &,
+	.is-page-homepage & {
 		background-color: $c-white;
 	}
 
@@ -164,21 +165,7 @@
 
 			@include tablet-medium-1199 {
 				padding: 0 20px 0 10px;
-			}
-
-			.is-page-homepage & {
-				@include media-min(1024) {
-					border-color: $c-white;
-					color: $c-white;
-				}
-			}
-
-			.is-dropdown-active & {
-				.is-page-homepage & {
-					@include media-min(1024) {
-						color: $c-black;
-					}
-				}
+				font-size: 15px;
 			}
 
 			.icon {
@@ -209,12 +196,6 @@
 			&:active {
 				border-color: $c-accent;
 				color: $c-accent;
-
-				.is-page-homepage & {
-					@include media-min(1024) {
-						color: $c-accent-dark;
-					}
-				}
 			}
 		}
 

@@ -296,6 +296,13 @@
 				line-height: 26px;
 				opacity: 0.8;
 
+				h2,
+				h3 {
+					font-size: 32px;
+					font-weight: 900;
+					line-height: 40px;
+				}
+
 				.is-page-purchase & {
 					margin-top: 10px;
 				}
@@ -357,11 +364,7 @@
 
 				&.is-row-reversed {
 					+ .row {
-						margin-top: 125px;
-
-						@include tablet-small-1023 {
-							margin-top: 30px;
-						}
+						margin-top: 35px;
 					}
 
 					.row__content {

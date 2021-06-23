@@ -20,16 +20,26 @@
 				{% for content in contentList %}
 					{% set title = content.featureContentTitle %}
 					{% set description = content.featureContentDescription %}
+					{% set featureButton = content.featureButton %}
 					<div class="item">
 						<div class="item__content">
 							<h3 class="item__title">{{ title }}</h3>
 							<div class="item__description">{{ description }}</div>
-							<img class="item__image-mobile js-lazy" width="345" height="345" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/homepage/'~mobileImages[loop.index - 1]~'.png') }}" alt="{{ title }}">
+							{% if featureButton and featureButton.getUrl() %}
+								<a href="{{ featureButton.getUrl() }}" class="item__btn u-btn u-btn--arrow">
+									<span class="text">
+										{{ featureButton.customText }}
+									</span>
+								</a>
+							{% endif %}
+							{% if loop.index < 3 %}
+								<img class="item__image-mobile js-lazy" width="345" height="345" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/homepage/'~mobileImages[loop.index - 1]~'.png') }}" alt="{{ title }}">
+							{% endif %}
 						</div>
 					</div>
 				{% endfor %}
 				<div class="item">
-					<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/homepage/features.png' )}}" alt="Background shape blurry blob">
+					<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/homepage/Hyper-thin-IoT-Edge-Nodes@2x.png' )}}" alt="Background shape blurry blob">
 				</div>
 			</div>
 			<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="features__btn u-btn u-btn--light">

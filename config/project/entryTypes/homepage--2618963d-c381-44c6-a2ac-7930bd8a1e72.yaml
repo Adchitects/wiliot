@@ -173,7 +173,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: bbc51069-aedf-487b-a32a-7b11b2ce021e # Numeration
+            fieldUid: 6f1afe2a-10c1-4be4-ba0e-72ff7d068176 # Title
             instructions: null
             label: null
             required: false
@@ -182,7 +182,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: a7fc288b-79c9-49c5-8f22-267253edccb0 # Title
+            fieldUid: 89497990-9b01-440d-bb84-f1606edd96cc # Subtitle
             instructions: null
             label: null
             required: false
@@ -191,7 +191,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: c89d5181-6416-4889-a717-b08b9fa91a8f # Subtitle
+            fieldUid: 8e568f91-0e3b-4f04-a9e9-a31034c346da # Content List
             instructions: null
             label: null
             required: false
@@ -200,7 +200,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 51850a96-c233-45ae-930f-6eda18372ebe # Rows
+            fieldUid: ddb7eaef-faca-49df-aecb-5d7585a1ce2e # Button
             instructions: null
             label: null
             required: false
@@ -208,7 +208,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-        name: Fifty-fifty
+        name: Features
         sortOrder: 6
       -
         elements:
@@ -285,6 +285,15 @@ fieldLayouts:
             width: 100
           -
             fieldUid: 4318cfd0-f068-4073-9703-1db060485eb7 # Outro Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6b2ff6ec-480b-4eaf-b69a-c4c50f6a38c5 # Outro Button 2
             instructions: null
             label: null
             required: false
