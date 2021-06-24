@@ -1,8 +1,15 @@
 .u-section--tabs {
 	margin-top: 120px;
 	padding: 96px 0 128px 0;
-	background: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 100%);
+	background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 100%);
 	overflow: hidden;
+
+	.is-page-homepage & {
+		margin-top: 130px;
+		padding-top: 0;
+		padding-bottom: 0;
+		background-image: none;
+	}
 
 	@include media-max(767) {
 		padding-top: 60px;

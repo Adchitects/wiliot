@@ -1,9 +1,9 @@
 import { clearClassActive } from './utilities';
-const accordion = document.querySelector('.js-accordion');
+const accordionHldAll = document.querySelectorAll('.js-accordion');
 
-if (accordion) {
-	const accordionItems = document.querySelectorAll('.js-accordion-toggle-item');
-	const accordionList = document.querySelector('.js-accordion-list');
+accordionHldAll.forEach(accordion => {
+	const accordionItems = accordion.querySelectorAll('.js-accordion-toggle-item');
+	// const accordionList = accordion.querySelector('.js-accordion-list');
 	accordionItems.forEach(item => {
 		item.addEventListener('click', () => {
 			if (item.classList.contains('is-active')) {
@@ -14,11 +14,12 @@ if (accordion) {
 			}
 		});
 	});
-	document.addEventListener('click', (e) => {
-		let targetElement = e.target;
-		let isClickInside = accordionList.contains(targetElement);
-		if (!isClickInside) {
-			clearClassActive([...accordionItems], 'is-active');
-		}
-	});
-}
+	// document.addEventListener('click', (e) => {
+	// 	console.log(accordionList);
+	// 	let targetElement = e.target;
+	// 	let isClickInside = accordionList.contains(targetElement);
+	// 	if (!isClickInside) {
+	// 		clearClassActive([...accordionItems], 'is-active');
+	// 	}
+	// });
+});

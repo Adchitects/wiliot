@@ -92,6 +92,7 @@ const tabsSlider = new Swiper('.js-tabs-slider', {
 	slidesPerView: 1,
 	spaceBetween: 48,
 	speed: 800,
+	simulateTouch: false,
 });
 tabsSlider;
 

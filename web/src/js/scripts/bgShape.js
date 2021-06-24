@@ -154,16 +154,17 @@ if (!isMobile()) {
 			if (bgShapeVersion === 'center-left') {
 				const shape1 = bgShape.querySelector('.js-s1');
 				tl.to(shape1, {
-					duration: 15,
-					y: -100,
-					scaleX: 1.2,
+					duration: 10,
+					y: 150,
+					scaleX: 1.7,
+					scaleY: 1.7,
 					// rotationX: 45,
 					transformOrigin: 'center left',
 				});
 				tl.to(shape1, {
-					duration: 15,
-					y: 300,
-					scaleX: 1.5,
+					duration: 10,
+					y: 400,
+					scaleX: 2,
 					scaleY: 2,
 				});
 				bgShape.addEventListener('click', () => {
