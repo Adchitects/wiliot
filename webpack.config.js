@@ -21,6 +21,7 @@ const userConfig = {
 		'web/src/css/style.min.css',
 		'web/src/js/main.min.js',
 		'web/src/favicon.ico',
+		'sitemap.xml',
 	],
 };
 const webpackConfig = {
