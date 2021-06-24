@@ -29,6 +29,7 @@
 			max-width: 515px;
 			margin-top: 170px;
 			padding-left: 110px;
+			position: relative;
 
 			@include media-max(1099) {
 				margin-top: 125px;

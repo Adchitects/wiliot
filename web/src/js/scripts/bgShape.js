@@ -124,18 +124,10 @@ if (!isMobile()) {
 				});
 			}
 			if (bgShapeVersion === 'bottom-left') {
-				const shape1 = bgShape.querySelector('.js-s1');
 				const shape2 = bgShape.querySelector('.js-s2');
-				tl.to(shape1, {
-					duration: 5,
-					x: -100,
-					opacity: 0,
-					scale: 1.2,
-				});
 				tl.to(shape2, {
 					duration: 5,
 					opacity: 1,
-					// rotation: -5,
 				}, 1);
 				bgShape.addEventListener('click', () => {
 					gsap.to(bgShape, {

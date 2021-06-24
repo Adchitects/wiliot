@@ -43,6 +43,13 @@
 			opacity: 0;
 			// clip-path: polygon(66% 0, 100% 0, 100% 40%, 100% 71%, 88% 90%, 62% 90%, 44% 75%, 16% 79%, 28% 54%, 28% 23%);
 		}
+
+		.s2,
+		.s3 {
+			@include mobile-767 {
+				display: none;
+			}
+		}
 	}
 
 	&--center-right {
@@ -112,7 +119,6 @@
 			height: 250px;
 		}
 
-		.s1,
 		.s2 {
 			position: absolute;
 			bottom: 0;
@@ -121,14 +127,13 @@
 			height: auto;
 			// background-image: linear-gradient(121.16deg, #00F0F3 0%, #1CBF44 0.38%, #00F0F3 86.59%, #00F0F3 99.94%);
 		}
-		
-		.s1 {
-			// clip-path: polygon(48% 47%, 59% 84%, 67% 89%, 83% 86%, 92% 99%, 75% 100%, 35% 100%, 0 100%, 12% 56%, 32% 28%);
-		}
 
 		.s2 {
 			opacity: 0;
 			// clip-path: polygon(46% 71%, 57% 60%, 73% 28%, 88% 58%, 92% 99%, 70% 100%, 35% 100%, 4% 100%, 16% 63%, 28% 56%);
+			@include mobile-767 {
+				opacity: 1;
+			}
 		}
 	}
 

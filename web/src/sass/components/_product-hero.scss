@@ -35,6 +35,7 @@
 			display: flex;
 			flex-direction: column;
 			grid-column: 2 / 7;
+			position: relative;
 
 			@include media-max(899) {
 				grid-column: 1 / 7;
