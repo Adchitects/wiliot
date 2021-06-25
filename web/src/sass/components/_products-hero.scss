@@ -26,10 +26,10 @@
 			display: flex;
 			flex-direction: column;
 			grid-column: 1 / 6;
+			position: relative;
 			max-width: 515px;
 			margin-top: 170px;
 			padding-left: 110px;
-			position: relative;
 
 			@include media-max(1099) {
 				margin-top: 125px;
