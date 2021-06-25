@@ -62,15 +62,6 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: a4c32174-ec28-428d-84e3-c202e09057ed # Title
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
             fieldUid: 76eb9707-d30c-49a2-84d1-647b32ca77e6 # Excerpt
             instructions: null
             label: null
@@ -80,7 +71,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 732b9f4f-6813-48ee-80e7-8ab2c0a7fed2 # Image
+            fieldUid: a4c32174-ec28-428d-84e3-c202e09057ed # Title
             instructions: null
             label: null
             required: false

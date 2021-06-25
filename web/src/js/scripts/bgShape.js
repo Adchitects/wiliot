@@ -162,7 +162,34 @@ if (!isMobile()) {
 				bgShape.addEventListener('click', () => {
 					gsap.to(bgShape, {
 						duration: 5,
-						scale: 5,
+						scale: 2.2,
+						transformOrigin: 'top left',
+					});
+					gsap.to(bgShape, {
+						duration: 5,
+						scale: 1,
+						delay: 1,
+						transformOrigin: 'top left',
+					});
+				});
+			}
+			if (bgShapeVersion === 'center-left-sticky') {
+				const shape1 = bgShape.querySelector('.js-s1');
+				tl.to(shape1, {
+					duration: 10,
+					scaleX: 1.7,
+					scaleY: 1.7,
+					transformOrigin: 'center left',
+				});
+				tl.to(shape1, {
+					duration: 10,
+					scaleX: 2,
+					scaleY: 2,
+				});
+				bgShape.addEventListener('click', () => {
+					gsap.to(bgShape, {
+						duration: 5,
+						scale: 2.2,
 						transformOrigin: 'top left',
 					});
 					gsap.to(bgShape, {

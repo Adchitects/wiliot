@@ -162,6 +162,15 @@
 		}
 	}
 
+	&--center-left-sticky {
+		height: 100%;
+
+		.s1 {
+			position: sticky;
+			top: 350px;
+		}
+	}
+
 	&--center-center {
 		top: 57%;
 		left: 52%;

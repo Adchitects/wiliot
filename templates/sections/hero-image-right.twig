@@ -1,5 +1,4 @@
 {% set videoBackgroundLink = entry.heroImageRightBackgroundVideoLink %}
-{% set image = entry.heroImageRightImage.one() %}
 {% set title = entry.heroImageRightTitle %}
 {% set excerpt = entry.heroImageRightExcerpt %}
 {% set videoLink = entry.heroImageRightVideoLink %}
@@ -12,16 +11,19 @@
 		<div class="u-wrapper">
 			<div class="hero-img-right js-modal-hld">
 				<div class="hero-img-right__content">
-					{% if title %}
-						<h1 class="hero-img-right__title u-title u-title--big">{{ title }}</h1>
-					{% endif %}
 					{% if excerpt %}
 						<span class="hero-img-right__excerpt u-subtitle u-subtitle--big">{{ excerpt }}</span>
 					{% endif %}
+					{% if title %}
+						<h1 class="hero-img-right__title u-title u-title--big">{{ title }}</h1>
+					{% endif %}
+					<div class="hero-img-right__mobile-video-hld">
+						<iframe width="560" height="315" class="js-lazy" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
 					<div class="hero-img-right__buttons">
 						<a href="{{ button.getUrl()}}" class="btn btn--learn-more u-btn u-btn--accent">
 							<span class="text">
-							{{ button.customText }}
+								{{ button.customText }}
 							</span>
 						</a>
 						<button class="btn u-btn u-btn--light js-modal-btn">
@@ -41,9 +43,6 @@
 						</div>
 					</div>
 				</div>
-				{% if image %}
-					<img src="{{ image.getUrl() }}" width="730" height="714" alt="{{ title }}" class="hero-img-right__image">
-				{% endif %}
 			</div>
 		</div>
 	</section>
