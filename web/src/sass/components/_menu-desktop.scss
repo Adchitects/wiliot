@@ -7,8 +7,8 @@
 	background-color: transparent;
 	transition: background-color 0.2s;
 
-	@include tablet-medium-1199 {
-		padding: 0 30px;
+	@include media-max(1399) {
+		padding: 0 15px;
 	}
 
 	.is-page-podcasts &,
@@ -103,6 +103,14 @@
 		&.is-first-dropdown {
 			.inner {
 				padding-left: 50px;
+
+				@include media-max(1399) {
+					padding-left: 35px;
+				}
+
+				@include media-max(1099) {
+					padding-left: 15px;
+				}
 			}
 		}
 
@@ -117,12 +125,20 @@
 
 			.inner {
 				padding: 0 30px;
+
+				@include media-max(1099) {
+					padding: 0 15px;
+				}
 			}
 		}
 
 		&.is-login {
 			.inner {
 				padding: 0 30px;
+
+				@include media-max(1099) {
+					padding: 0 15px;
+				}
 			}
 		}
 
@@ -163,9 +179,13 @@
 			padding: 0 50px 0 10px;
 			transition: color 0.2s;
 
+			@include media-max(1399) {
+				padding: 0 35px 0 10px;
+				font-size: 15px;
+			}
+
 			@include tablet-medium-1199 {
 				padding: 0 20px 0 10px;
-				font-size: 15px;
 			}
 
 			.icon {
