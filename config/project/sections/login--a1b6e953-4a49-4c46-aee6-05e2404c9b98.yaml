@@ -1,0 +1,11 @@
+enableVersioning: false
+handle: login
+name: Login
+propagationMethod: all
+siteSettings:
+  37de40b8-92bb-49a3-a07a-6f27ac6c2fb5: # Wiliot
+    enabledByDefault: true
+    hasUrls: true
+    template: pages/login
+    uriFormat: login
+type: single

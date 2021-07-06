@@ -1,0 +1,18 @@
+.u-section--login-tiles {
+	margin-top: 0;
+	padding-top: 255px;
+	background-image: linear-gradient(188.82deg, #F5F5FC 0%, #F5F9FC 100%);
+	overflow: hidden;
+}
+
+.login-tiles {
+	&__tiles-hld {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 335px);
+		grid-gap: 28px 25px;
+	}
+
+	&__tile-item {
+		border: 1px solid red;
+	}
+}

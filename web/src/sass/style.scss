@@ -11,8 +11,8 @@
 
 // EXTERNAL LIBRARIES
 @import '../../../node_modules/swiper/swiper';
-@import '../../../node_modules/swiper/components/pagination/pagination.scss'; // Import needed modules of swiper too
-// @import '../../node_modules/swiper/components/navigation/navigation.scss'; // Import needed modules of swiper too
+@import '../../../node_modules/swiper/components/pagination/pagination.scss'; // Import needed modules of swiper
+// @import '../../node_modules/swiper/components/navigation/navigation.scss'; // Import needed modules of swiper
 
 // CONTENT / COMPONENTS / SECTIONS / TABS / VIEWS
 @import 'components/header';
@@ -65,3 +65,4 @@
 @import 'components/privacy-content';
 @import 'components/hubspot-forms';
 @import 'components/careers-listing';
+@import 'components/login-tiles';
