@@ -17,7 +17,7 @@ fieldLayouts:
             fieldUid: 94f9fd80-5d01-4419-824e-d719a55b4e96 # Name
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
@@ -26,7 +26,7 @@ fieldLayouts:
             fieldUid: 0b5a77dd-12dc-41c7-81ce-277a415dcde3 # Description
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
@@ -35,7 +35,7 @@ fieldLayouts:
             fieldUid: a0f0651b-ebc3-439d-81de-edb79696d474 # Buttons
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null

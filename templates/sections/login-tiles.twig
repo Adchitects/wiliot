@@ -19,12 +19,14 @@
 					{% set itemIcon = item.itemIcon.one() %}
 					{% set itemName = item.itemName %}
 					{% set itemDescription = item.itemDescription %}
-					{% set itemButtonsMatrix = item.itemButtonsMatrix %}
+					{% set itemButtonsMatrix = item.itemButtonsMatrix.all() %}
 					<div class="login-tiles__tile-item">
 						{% if itemIcon %}
-							<img class="icon" src="{{ itemIcon.url }}" alt="{{ itemName }}">
+							<div class="icon-hld">
+								<img class="icon" src="{{ itemIcon.url }}" alt="{{ itemName }}">
+							</div>
 						{% endif %}
-						<div class="name">{{ itemName }}</div>
+						<div class="name u-subtitle u-subtitle--big">{{ itemName }}</div>
 						<div class="description">{{ itemDescription }}</div>
 						<div class="buttons-hld">
 							{% for button in itemButtonsMatrix %}

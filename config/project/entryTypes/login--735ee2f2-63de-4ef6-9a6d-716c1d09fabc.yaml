@@ -32,27 +32,27 @@ fieldLayouts:
         elements:
           -
             fieldUid: 1819c2ca-609f-4c6a-9e07-bd9c259db7b9 # Subtitle
-            instructions: null
-            label: null
-            required: false
+            instructions: ''
+            label: ''
+            required: ''
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
           -
             fieldUid: 751a3fc1-798d-4fe9-b21b-5b4c98fc8a5e # Title
-            instructions: null
-            label: null
-            required: false
+            instructions: ''
+            label: ''
+            required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
           -
             fieldUid: f54e51cf-0116-4f13-a320-a3a439d30f85 # Items
-            instructions: null
-            label: null
-            required: false
+            instructions: ''
+            label: ''
+            required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
