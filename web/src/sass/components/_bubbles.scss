@@ -375,3 +375,23 @@
 		}
 	}
 }
+
+// Chrome and Firefox only
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+	@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		.two-columns__content {
+			p {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+//  Firefox only
+@-moz-document url-prefix() {
+	.two-columns__content {
+		p {
+			display: block;
+		}
+	}
+}
