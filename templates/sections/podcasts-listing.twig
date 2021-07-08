@@ -21,7 +21,9 @@
 					{% if podcasts|length %}
 						{% for post in podcasts.all() %}
 							{% set image = post.podcastDetailsImage.one() %}
+							{% set videoId = post.podcastDetailsID %}
 							{% set excerpt = post.podcastDetailsExcerpt %}
+							{% set excerptSliced = excerpt|slice(0, 107) ~ '...' %}
 							{% set number = post.podcastDetailsNumber %}
 							{% if image %}
 								{% set imageUrl = image.getUrl() %}
@@ -30,8 +32,10 @@
 								{% set imageAlt = image.title %}
 							{% endif %}
 							{% set title = post.title %}
-							<a href="{{ post.url}}" class="post js-load-more-item" data-max-items="3" data-load-items="3">
-								<div class="post__image-hld">
+							{% set podcastDetailsIframeTitle = post.podcastDetailsIframeTitle ? post.podcastDetailsIframeTitle : podcastsGlobals.podcastDetailsIframeTitle %}
+							{% set podcastDetailsIframeWidget = post.podcastDetailsIframeWidget %}
+							<div class="post js-load-more-item js-modal-hld" data-max-items="3" data-load-items="3">
+								<div class="post__image-hld js-modal-btn">
 									{% if image %}
 										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
 									{% else %}
@@ -43,12 +47,26 @@
 									{{ post.postDate | date("F d, Y") }}</div>
 								<div class="post__title">{{ title }}</div>
 								{% if excerpt %}
-									<div class="post__excerpt">{{ excerpt }}</div>
+									<div class="post__excerpt">{{ excerpt|length > 110 ? excerptSliced|raw : excerpt|raw }}</div>
 								{% endif %}
-								<div class="post__btn u-btn u-btn--arrow">
-									<span class="text">Watch</span>
+								<div class="post__widget-title">{{ podcastDetailsIframeTitle }}</div>
+								{% if podcastDetailsIframeWidget %}
+									<div class="post__widget-hld">
+										{{ podcastDetailsIframeWidget|raw }}
+									</div>
+								{% endif %}
+								<div class="video-modal js-modal-modal">
+									<div class="overlay js-modal-close"></div>
+									<div class="video-modal__inner">
+										<div class="video-modal__modal">
+											<iframe width="560" height="315" class="js-lazy js-modal-iframe" data-src="https://www.youtube.com/embed/{{ videoId }}?rel=1&amp;autoplay=1&amp;playlist={{ videoId }}&amp;origin=https://www.wiliot.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+										<span class="video-modal__close js-modal-close">
+											<span class="icon icon-close"></span>
+										</span>
+									</div>
 								</div>
-							</a>
+							</div>
 						{% endfor %}
 					{% endif %}
 				</div>

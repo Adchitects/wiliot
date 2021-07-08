@@ -203,6 +203,11 @@
 		.img-hld {
 			width: 105px;
 
+			&.is-avery {
+				width: 210px;
+				padding: 12px 0;
+			}
+
 			img {
 				max-width: 100%;
 				height: auto;

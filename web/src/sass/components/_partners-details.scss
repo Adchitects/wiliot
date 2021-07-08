@@ -39,6 +39,14 @@
 		}
 	}
 
+	&__logo-hld {
+		max-width: 260px;
+
+		img {
+			height: auto;
+		}
+	}
+
 	&__middle {
 		display: flex;
 		align-items: flex-start;

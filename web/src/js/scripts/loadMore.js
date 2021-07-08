@@ -7,8 +7,8 @@ if (loadMoreHld) {
 		const loadMoreBtn = hld.querySelector('.js-load-more-btn');
 		const itemDataMax = hld.querySelector('.js-load-more-item').dataset.maxItems;
 		const itemDataLoadItems = hld.querySelector('.js-load-more-item').dataset.loadItems;
-		let maxItems = itemDataMax ? itemDataMax : 3;
-		let loadItems = itemDataLoadItems ? itemDataLoadItems : 2;
+		let maxItems = itemDataMax ? parseInt(itemDataMax, 10) : 3;
+		let loadItems = itemDataLoadItems ? parseInt(itemDataLoadItems, 10) : 2;
 		itemAll.forEach((item, index, originalArray) => {
 			if (index > maxItems - 1) {
 				gsap.set(item, {
@@ -32,12 +32,12 @@ if (loadMoreHld) {
 					if (index < loadItems) {
 						item.dataset.displayed = 'true';
 						gsap.set(item, {
-							y: -50,
+							top: -50,
 						});
 						gsap.to(item, {
 							display: 'block',
 							autoAlpha: 1,
-							y: 0,
+							top: 0,
 						});
 					}
 				}

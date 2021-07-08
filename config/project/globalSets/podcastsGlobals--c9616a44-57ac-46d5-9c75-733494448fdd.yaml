@@ -1,0 +1,18 @@
+fieldLayouts:
+  14042d7d-f7e2-4c1d-9e34-205616704fe3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3a4a422a-dc9c-4197-9077-e92ec024187f # Iframe widget title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Iframe widget title'
+        sortOrder: 1
+handle: podcastsGlobals
+name: Podcasts

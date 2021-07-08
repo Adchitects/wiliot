@@ -1,0 +1,27 @@
+contentColumnType: text
+fieldGroup: 124f1ea9-b5e3-4adb-9255-3494228579eb # Podcast details
+handle: podcastDetailsIframeWidget
+instructions: "Click at HTML editor and paste copied Embed Code from share button at Apple Podcasts, for example from:\r\nhttps://podcasts.apple.com/us/podcast/minew-the-real-manufacturer-of-beacons/id1123889923?i=1000527406632\r\n"
+name: 'Iframe Widget'
+searchable: false
+settings:
+  availableTransforms: '*'
+  availableVolumes: ''
+  cleanupHtml: true
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: ''
+  redactorConfig: ''
+  removeEmptyTags: ''
+  removeInlineStyles: ''
+  removeNbsp: ''
+  showHtmlButtonForNonAdmins: '1'
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field
