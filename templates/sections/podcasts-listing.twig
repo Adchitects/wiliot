@@ -35,15 +35,14 @@
 							{% set podcastDetailsIframeTitle = post.podcastDetailsIframeTitle ? post.podcastDetailsIframeTitle : podcastsGlobals.podcastDetailsIframeTitle %}
 							{% set podcastDetailsIframeWidget = post.podcastDetailsIframeWidget %}
 							<div class="post js-load-more-item js-modal-hld" data-max-items="3" data-load-items="3">
-								<div class="post__image-hld js-modal-btn">
+								<div class="post__image-hld js-modal-btn is-paused">
 									{% if image %}
 										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
-									{% else %}
-										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+										<span class="icon icon-button_play"></span>
 									{% endif %}
 								</div>
 								<div class="post__date">
-									<span>Episode #{{number}}</span>
+									Episode #{{number}}
 									{{ post.postDate | date("F d, Y") }}</div>
 								<div class="post__title">{{ title }}</div>
 								{% if excerpt %}
@@ -73,7 +72,7 @@
 				{% if podcasts|length > 3 %}
 				<button class="podcasts-listing__btn u-btn u-btn--light js-load-more-btn">
 					<span class="text">
-						More Podcasts
+						More podcasts
 					</span>
 				</button>
 				{% endif %}

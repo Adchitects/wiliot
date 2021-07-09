@@ -8,6 +8,7 @@ modalHldAll.forEach(modalHld => {
 		openModal.addEventListener('click', () => {
 			modal.classList.add('is-active');
 			document.body.style.overflow = 'hidden';
+			openModal.classList.remove('is-paused');
 			if (iframe) {
 				iframe.src = iframe.dataset.src;
 			}
@@ -15,6 +16,7 @@ modalHldAll.forEach(modalHld => {
 		closeModalAll.forEach(close => {
 			close.addEventListener('click', () => {
 				modal.classList.remove('is-active');
+				openModal.classList.add('is-paused');
 				document.body.style.overflow = '';
 				if (iframe) {
 					iframe.src = '';
