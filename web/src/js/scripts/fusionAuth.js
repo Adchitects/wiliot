@@ -1,101 +1,68 @@
+import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import jwkToPem from 'jwk-to-pem';
-// import config from 'react-global-configuration';
-// import _ from "lodash";
+const key = {
+	'alg': 'RS256',
+	'e': 'AQAB',
+	'kid': 'o972XdwHFdL9ZYVw6bwAmvAwTs4',
+	'kty': 'RSA',
+	'n': 'pH-2BjhKO4MiPf5VXRVTc_vnBO00CqI0NOq-g3Y5lpIv3a-IYsnswnfhm5yQha7OGlTRh5Nfpys2NZybuzY5MOe5I3EIJEZzHw5racQPsbJ6FmVdiF8O0Pikxgxlq5gihiWjdWQ9dmaqyARwdgbOfpB3jvIFYR7Ca02ykqSvhtEch6sYwJqlZWzmc10v3bVrKLieN6YqDOYdvzG__5VVqpN4Tj-I0aNq5LPfCF0sSiHBS76tl941U0v5Dy1XCZmaINlqehn1MGmZBr9pj40-BX90boly8O67B9rkhYGwicVqUkuFarTZBKA1xEbQuus_KpdgyoIFl5rYM4jGOgKgMw',
+	'use': 'sig',
+};
+const login = () => {
+	const host = 'https://api.wiliot.com';
+	const eventPath = ''; // What is the value? “/”
+	const path = `${eventPath}/v1/auth/token`;
+	const clientId = '21ffd444-76e2-4c3f-9317-38c5fddb169d'; // What is the value? Is it 21ffd444-76e2-4c3f-9317-38c5fddb169d ?
+	const redirectUri = `${window.location.origin}/login`;
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const code = urlParams.get('code');
+	const url = `${host}${path}?code=${code}&client_id=${clientId}&redirect_uri=${redirectUri}&grant_type=authorization_code`;
+	console.log(code);
+	if (code) {
+		axios.post(url, null, {}).then((response) => {
+			localStorage.setItem('access_token', response.data.access_token);
+			localStorage.setItem('refresh_token', response.data.refresh_token);
+			localStorage.setItem('expires_in', response.data.expires_in);
+			const pem = jwkToPem(key);
+			const options = { algorithms: ['RS256'] };
+			const decoded = jwt.verify(response.data.access_token, pem, options);
+			const user = {
+				email: decoded.email,
+				username: decoded.preferred_username,
+			};
+			console.log('logged in');
+			console.log(user);
+		})
+			.catch((err) => {
+				console.error(err);
+			});
+	} else {
+		console.log('returned');
+		return;
+	}
+};
 
-// class Auth {
-function login() {
-	const host = 'https://login.wiliot.com'; // L
-	const path = '/oauth2/authorize';
-	const clientId = '21ffd444-76e2-4c3f-9317-38c5fddb169d'; // L
-	const nonce = 'yyoA8d4TVFwjKA076iWIy5Xk';
-	const state = 'LyKQtQEAUaD1ti1YG2pkAJW8';
-	const redirectUri = `https://wiliot.com/login`;
-	const responseType = 'code';
-	const scope = 'openid%20profile%20email%20offline_access';
-
-	// 'https://login-dev.aws.wiliot.com/oauth2/authorize?response_type=code&client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&state=LyKQtQEAUaD1ti1YG2pkAJW8&redirect_uri=https%3A%2F%2Fdeveloper.wiliot.com%2F_api%2Fdev%2Fauth&nonce=yyoA8d4TVFwjKA076iWIy5Xk&scope=openid%20profile%20email%20offline_access'
-	// https://login.wiliot.com/oauth2/authorize?response_type=code&client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&state=LyKQtQEAUaD1ti1YG2pkAJW8&redirect_uri=https://wiliot.com/login&nonce=yyoA8d4TVFwjKA076iWIy5Xk&scope=openid%20profile%20email%20offline_access
-	window.location.href = `${host}${path}?response_type=${responseType}&client_id=${clientId}&state=${state}&redirect_uri=${redirectUri}&nonce=${nonce}&scope=${scope}`;
-}
-
-// logout(t, msg) {
-// 	const apps = localStorage.getItem("appsFavourites");
-// 	const gateways = localStorage.getItem("gatewaysFavourites");
-// 	localStorage.clear();
-// 	localStorage.setItem("appsFavourites", apps);
-// 	localStorage.setItem("gatewaysFavourites", gateways);
-// 	let path = `/logout?from=${window.location.pathname}`;
-// 	path = msg ? path + `&msg=${msg}` : path;
-// 	window.location.href = path;
-// }
-
-// isAuthenticate() {
-//   const token = localStorage.getItem("access_token");
-//   if (token) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
-// isAuthenticate() {
-// 	const token = localStorage.getItem("access_token");
-// 	const key = config.get("login.key"); // L
-// 	const pem = jwkToPem(key);
-// 	const options = { algorithms: ["RS256"] };
-// 	try {
-// 		jwt.verify(token, pem, options);
-// 		return true;
-// 	} catch {
-// 		localStorage.removeItem("access_token");
-// 		localStorage.removeItem("refresh_token");
-// 		localStorage.removeItem("expires_in");
-// 	return false;
-// 	}
-// }
-
-function getUserInfo() {
+const loginPage = document.querySelector('.js-login');
+if (loginPage) {
 	const token = localStorage.getItem('access_token');
-
+	const isAuthenticate = () => {
+		const pem = jwkToPem(key);
+		const options = { algorithms: ['RS256'] };
+		try {
+			jwt.verify(token, pem, options);
+			return true;
+		} catch {
+			localStorage.removeItem('access_token');
+			localStorage.removeItem('refresh_token');
+			localStorage.removeItem('expires_in');
+			return false;
+		}
+	};
 	if (!token) {
-		console.log('no access token');
 		login();
-	}
-
-	// const key = config.get('login.key'); // L
-	const key = ''; // L
-	const pem = jwkToPem(key);
-	const options = { algorithms: ['RS256'] };
-
-	try {
-		const decoded = jwt.verify(token, pem, options);
-		let user = {
-			email: decoded.email,
-			ownerId: decoded.ownerId,
-			// ownerIds: _.uniq([...decoded.ownerIds, decoded.ownerId]),
-			roles: decoded.roles,
-		};
-
-		// const ownerId = localStorage.getItem("ownerId");
-		// if (ownerId) {
-		//   user.ownerId = ownerId;
-		// }
-
-		return user;
-	} catch (err) {
-		return {};
+	} else {
+		isAuthenticate();
 	}
 }
-// }
-
-// export default new Auth();
-
-const testBtn = document.querySelector('.login-tiles__title');
-if (testBtn) {
-	testBtn.addEventListener('click', () => {
-		console.log('click');
-		getUserInfo();
-	});
-}
-
