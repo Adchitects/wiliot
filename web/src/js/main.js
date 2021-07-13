@@ -14,3 +14,4 @@ import './scripts/sliding-boxes';
 import './scripts/solutionsDetails';
 import './scripts/bgShape';
 import './scripts/sliders';
+import './scripts/fusionAuth';
