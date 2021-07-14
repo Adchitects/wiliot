@@ -1,309 +1,268 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-	<loc>https://wiliot.com/</loc>
-	<lastmod>2021-06-24T17:16:07+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/applications/food-and-beverage</loc>
-	<lastmod>2021-06-24T17:16:08+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/applications/retail</loc>
-	<lastmod>2021-06-24T17:16:12+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/applications/healthcare-pharma</loc>
-	<lastmod>2021-06-24T17:16:12+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/product/iot-pixel</loc>
-	<lastmod>2021-06-24T17:16:13+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/product/cloud</loc>
-	<lastmod>2021-06-24T17:16:14+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/company</loc>
-	<lastmod>2021-06-24T17:16:14+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/blog</loc>
-	<lastmod>2021-06-24T17:16:17+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/press</loc>
-	<lastmod>2021-06-24T17:16:15+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts</loc>
-	<lastmod>2021-06-24T17:16:16+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners</loc>
-	<lastmod>2021-06-24T17:16:16+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/careers</loc>
-	<lastmod>2021-06-24T17:16:17+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/engage</loc>
-	<lastmod>2021-06-24T17:16:18+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/contact</loc>
-	<lastmod>2021-06-24T17:16:21+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/mist</loc>
-	<lastmod>2021-06-24T17:16:18+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/hp-aruba</loc>
-	<lastmod>2021-06-24T17:16:19+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/avery-dennison</loc>
-	<lastmod>2021-06-24T17:16:19+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/deloitte</loc>
-	<lastmod>2021-06-24T17:16:19+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/sato</loc>
-	<lastmod>2021-06-24T17:16:20+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/evrythng</loc>
-	<lastmod>2021-06-24T17:16:21+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/cloudleaf</loc>
-	<lastmod>2021-06-24T17:16:21+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/estimote</loc>
-	<lastmod>2021-06-24T17:16:22+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/fanstel</loc>
-	<lastmod>2021-06-24T17:16:22+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/blyott</loc>
-	<lastmod>2021-06-24T17:16:22+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/tadbik</loc>
-	<lastmod>2021-06-24T17:16:24+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/m%C3%BChlbauer-group</loc>
-	<lastmod>2021-06-24T17:16:23+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/our-silver-lining-of-2020-fcc-bluetooth-and-ised-qualification</loc>
-	<lastmod>2021-06-24T17:16:24+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/augmented-reality-wiliot-tags</loc>
-	<lastmod>2021-06-24T17:16:24+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/2020-update</loc>
-	<lastmod>2021-06-24T17:16:25+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/privacy-policy</loc>
-	<lastmod>2021-06-24T17:16:25+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/site-terms-conditions</loc>
-	<lastmod>2021-06-24T17:16:25+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/vintage-investment-partners-verizon-ventures-maersk-growth-pepsico-and-ntt-docomo-ventures-join-top-tier-investors-backing-wiliots-postage-stamp-sized-computer</loc>
-	<lastmod>2021-06-24T17:16:26+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/first-battery-free-bluetooth-sticker-sensor-tag-demonstrated-at-nrf</loc>
-	<lastmod>2021-06-24T17:16:26+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/two-global-leaders-in-technology-and-healthcare-join-list-of-venture-capitalists-investing-in-wiliot-to-scale-iot-with-battery-free-bluetooth</loc>
-	<lastmod>2021-06-24T17:16:26+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/cisco-dna-spaces</loc>
-	<lastmod>2021-06-24T17:16:27+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/kontakt-io-update-iot-smart-building</loc>
-	<lastmod>2021-06-24T17:16:27+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/single-podcast-title</loc>
-	<lastmod>2021-06-24T17:16:27+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/iosea</loc>
-	<lastmod>2021-06-24T17:16:27+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/gs1-everything-you-need-to-know-but-were-afraid-to-ask</loc>
-	<lastmod>2021-06-24T17:16:28+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/uwb-bluecats-social-distancing-real-world-trial-results</loc>
-	<lastmod>2021-06-24T17:16:28+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/auto-id-with-invisible-barcodes</loc>
-	<lastmod>2021-06-24T17:16:28+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/iot-analytics-sas-event-stream-processing</loc>
-	<lastmod>2021-06-24T17:16:29+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/podcasts/bluetooth-covid-19-contact-tracing</loc>
-	<lastmod>2021-06-24T17:16:29+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/partners/mikrotik</loc>
-	<lastmod>2021-06-24T17:16:29+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/become-a-partner</loc>
-	<lastmod>2021-06-24T17:16:30+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/blog/announcements</loc>
-	<lastmod>2021-06-24T17:16:30+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/blog/events</loc>
-	<lastmod>2021-06-24T17:16:31+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/blog/report</loc>
-	<lastmod>2021-06-24T17:16:30+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/blog/press-release</loc>
-	<lastmod>2021-06-24T17:16:31+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/blog/articles</loc>
-	<lastmod>2021-06-24T17:16:31+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/wiliot-at-deloittes-digital-agenda</loc>
-	<lastmod>2021-06-24T17:16:31+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/wiliot-voted-best-innovation-at-cablelabs-innovation-showcase</loc>
-	<lastmod>2021-06-24T17:16:32+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/wiliot-listed-in-abi-researchs-report-top-tech-innovators-wireless-connectivity-2019</loc>
-	<lastmod>2021-06-24T17:16:32+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/wiliot-listed-first-in-hot-tech-innovators-released-by-abi-research</loc>
-	<lastmod>2021-06-24T17:16:33+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/nano-watt-computing-an-overview</loc>
-	<lastmod>2021-06-24T17:16:32+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/works-with-wiliot-the-power-of-partnership</loc>
-	<lastmod>2021-06-24T17:16:33+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/cookie-policy</loc>
-	<lastmod>2021-06-24T17:16:34+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/wiliot-among-globes-most-promising-startups-of-2019</loc>
-	<lastmod>2021-06-24T17:16:35+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/release-plan-update</loc>
-	<lastmod>2021-06-24T17:16:35+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/wiliots-engineers-featured-in-special-edition-of-mr-beacon</loc>
-	<lastmod>2021-06-24T17:16:35+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://wiliot.com/wiliot-review-of-2018-preview-of-2019</loc>
-	<lastmod>2021-06-24T17:16:36+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+	http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+	<url>
+		<loc>https://www.wiliot.com/</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>1.00</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/applications/food-and-beverage</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/applications/retail</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/applications/healthcare-pharma</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/product/iot-pixel</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/product/cloud</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/company</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/blog</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/press</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/podcasts</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/careers</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/engage</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/contact</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/mist</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/hp-aruba</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/avery-dennison</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/deloitte</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/sato</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/evrythng</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/cloudleaf</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/estimote</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/fanstel</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/blyott</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/tadbik</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/m%C3%BChlbauer-group</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/our-silver-lining-of-2020-fcc-bluetooth-and-ised-qualification</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/augmented-reality-wiliot-tags</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/2020-update</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/privacy-policy</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/site-terms-conditions</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/blog/announcements</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/blog/events</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/blog/report</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/blog/press-release</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/blog/articles</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/wiliot-at-deloittes-digital-agenda</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/wiliot-voted-best-innovation-at-cablelabs-innovation-showcase</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/wiliot-listed-in-abi-researchs-report-top-tech-innovators-wireless-connectivity-2019</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/wiliot-listed-first-in-hot-tech-innovators-released-by-abi-research</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/vintage-investment-partners-verizon-ventures-maersk-growth-pepsico-and-ntt-docomo-ventures-join-top-tier-investors-backing-wiliots-postage-stamp-sized-computer</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/first-battery-free-bluetooth-sticker-sensor-tag-demonstrated-at-nrf</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/two-global-leaders-in-technology-and-healthcare-join-list-of-venture-capitalists-investing-in-wiliot-to-scale-iot-with-battery-free-bluetooth</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/nano-watt-computing-an-overview</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/partners/mikrotik</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/become-a-partner</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/works-with-wiliot-the-power-of-partnership</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/cookie-policy</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/wiliot-among-globes-most-promising-startups-of-2019</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.51</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/release-plan-update</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.51</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/wiliots-engineers-featured-in-special-edition-of-mr-beacon</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.51</priority>
+	</url>
+	<url>
+		<loc>https://www.wiliot.com/wiliot-review-of-2018-preview-of-2019</loc>
+		<lastmod>2021-07-14T09:53:55+00:00</lastmod>
+		<priority>0.51</priority>
+	</url>
 </urlset>
