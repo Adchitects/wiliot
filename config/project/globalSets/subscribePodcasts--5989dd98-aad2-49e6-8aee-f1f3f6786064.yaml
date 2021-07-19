@@ -34,3 +34,4 @@ fieldLayouts:
         sortOrder: 1
 handle: subscribePodcasts
 name: 'Subscribe podcasts'
+sortOrder: 7

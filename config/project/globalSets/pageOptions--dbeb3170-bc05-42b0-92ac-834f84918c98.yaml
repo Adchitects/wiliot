@@ -42,3 +42,4 @@ fieldLayouts:
         sortOrder: 3
 handle: pageOptions
 name: 'Page Options'
+sortOrder: 3
