@@ -34,3 +34,4 @@ fieldLayouts:
         sortOrder: 1
 handle: subscribeSection
 name: 'Subscribe section'
+sortOrder: 8

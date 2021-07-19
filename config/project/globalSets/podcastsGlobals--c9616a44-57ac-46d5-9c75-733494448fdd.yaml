@@ -16,3 +16,4 @@ fieldLayouts:
         sortOrder: 1
 handle: podcastsGlobals
 name: Podcasts
+sortOrder: 4

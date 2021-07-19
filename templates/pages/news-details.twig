@@ -1,6 +1,7 @@
 {% extends "index.twig" %}
 {% set metaTitle = entry.metaTitle %}
 {% set metaDescription = entry.metaDescription %}
+{% set postModifyDate = entry.dateUpdated|date("Y-m-d\\TH:i:s+00:00") %}
 {% block head %} {{ parent() }} {% endblock %}
 {% block title %} 
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
@@ -11,6 +12,8 @@
 {% block og %} 
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
+	<meta property="og:type" content="article"/>
+	<meta property="article:modified_time" content="{{ postModifyDate }}" />
 {% endblock %}
 {% block main %}
 	{% set query = entry.postRelatedCategories.all() %}

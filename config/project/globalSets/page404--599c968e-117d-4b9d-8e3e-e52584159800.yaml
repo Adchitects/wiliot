@@ -34,3 +34,4 @@ fieldLayouts:
         sortOrder: 1
 handle: page404
 name: '404 page'
+sortOrder: 2

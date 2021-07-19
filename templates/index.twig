@@ -3,30 +3,43 @@
 	{% if entry is defined %}
 		{% set metaTitle = entry.metaTitle %}
 		{% set metaDescription = entry.metaDescription %}
+		{% set postCreatedDate = entry.postDate|date("Y-m-d\\TH:i:s+00:00") %}
+		{% set postModifyDate = entry.dateUpdated|date("Y-m-d\\TH:i:s+00:00") %}
 	{% elseif category is defined %}
 		{% set metaTitle = category.metaTitle %}
 		{% set metaDescription = category.metaDescription %}
+		{% set postCreatedDate = null %}
+		{% set postModifyDate = null %}
 	{% endif %}
 	{% block head %}
 		<head>
 			<meta charset="UTF-8"/>
-			<meta name="robots" content="noindex"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
-			{% block description %}
-				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
-			{% endblock %}
-			{% block og %}
-				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
-				<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
-			{% endblock %}
-			<meta property="og:image" content="{{ alias('@web/src/img/page.png') }}"/>
-			<meta property="og:type" content="website"/>
-			<meta property="og:url" content="Index url"/>
 			<title>
 				{% block title %}
 					{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 				{% endblock %}
 			</title>
+			{% block description %}
+				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+			{% endblock %}
+			<link rel="canonical" href="{{ craft.request.url }}"/>
+			<meta property="og:locale" content="en_US"/>
+			{% block og %}
+				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
+				<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
+				<meta property="og:type" content="website"/>
+			{% endblock %}
+			<meta property="og:url" content="{{ alias('@web') }}"/>
+			<meta property="og:site_name" content="Wiliot" />
+			<meta property="og:image" content="{{ alias('@web/src/img/image.jpg') }}" name="image"/>
+			<meta property="og:image:width" content="1200"/>
+			<meta property="og:image:height" content="628"/>
+			<meta name="twitter:card" content="summary"/>
+			<meta name="twitter:site" content="@WiliotHQ"/>
+			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
+			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
+			<meta name="twitter:image"content="{{ alias('@web/src/img/image.jpg') }}"/>
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon"/>
 			<style>
 				@font-face {
@@ -107,6 +120,80 @@
 				gtag('js', new Date());
 				gtag('config', 'UA-104066415-1');
 			</fscript>
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@graph": [
+					{
+						"@type": "WebSite",
+						"@id": "https://www.wiliot.com/#website",
+						"url": "https://www.wiliot.com/",
+						"name": "{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}",
+						"description": "{{ globalMetaTags.metaDescription }}",
+						"potentialAction": [
+						{
+							"@type": "SearchAction",
+							"target": {
+							"@type": "EntryPoint",
+							"urlTemplate": "https://www.wiliot.com/?s={search_term_string}"
+							},
+							"query-input": "required name=search_term_string"
+						}
+						],
+						"inLanguage": "en-US"
+					},
+					{
+						"@type": "ImageObject",
+						"@id": "https://www.wiliot.com/#primaryimage",
+						"inLanguage": "en-US",
+						"url": "{{ alias('@web/src/img/image.jpg') }}",
+						"contentUrl": "{{ alias('@web/src/img/image.jpg') }}",
+						"width": 1200,
+						"height": 628,
+						"caption": "threat detection and response"
+					},
+					{
+						"@type": "WebPage",
+						"@id": "https://www.wiliot.com#webpage",
+						"url": "https://www.wiliot.com",
+						"name": "{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}",
+						"isPartOf": { "@id": "https://www.wiliot.com/#website" },
+						"datePublished": "{{ postCreatedDate }}",
+						"dateModified": "{{ postModifyDate }}",
+						"description": "{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}",
+						"breadcrumb": {
+						"@id": "https://www.wiliot.com/#breadcrumb"
+						},
+						"inLanguage": "en-US",
+						"potentialAction": [
+						{
+							"@type": "ReadAction",
+							"target": [
+							"https://www.wiliot.com"
+							]
+						}
+						]
+					},
+					{
+						"@type": "BreadcrumbList",
+						"@id": "https://www.wiliot.com#breadcrumb",
+						"itemListElement": [
+						{
+							"@type": "ListItem",
+							"position": 1,
+							"name": "Home",
+							"item": "https://www.wiliot.com/"
+						},
+						{
+							"@type": "ListItem",
+							"position": 2,
+							"name": "Threat Detection and Response"
+						}
+						]
+					}
+					]
+				}
+			</script>
 		</head>
 	{% endblock %}
 	<body class="{% if entry is defined %} is-page-{{ entry.section|lower }} {% endif %}">
