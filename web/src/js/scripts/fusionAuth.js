@@ -41,10 +41,27 @@ const login = () => {
 			if (username) {
 				isLoginLinkText.innerText = username;
 			}
-		})
-			.catch((err) => {
-				console.error(err);
-			});
+		}).catch((err) => {
+			console.error(err);
+		});
+		const logoutBtn = document.querySelector('.js-logout');
+		if (logoutBtn) {
+			logoutBtn.addEventListener('click', () => {
+				localStorage.removeItem('access_token');
+				localStorage.removeItem('refresh_token');
+				localStorage.removeItem('expires_in');
+				localStorage.removeItem('username');
+				console.log('logout clicked');
+				// window.location.replace('https://login.wiliot.com/oauth2/logout?client_id=3c219e58-ed0e-4b18-ad48-f4f92793ae32');
+				window.open('https://login.wiliot.com/oauth2/logout?client_id=3c219e58-ed0e-4b18-ad48-f4f92793ae32', '_blank');
+			}, {once: true});
+			const username = localStorage.getItem('username');
+			if (username) {
+				isLoginLinkText.innerText = username;
+			} else {
+				isLoginLinkText.innerText = 'Login';
+			}
+		}
 	} else {
 		console.log('returned');
 		return;
@@ -60,6 +77,16 @@ const isAuthenticate = () => {
 		const username = localStorage.getItem('username');
 		if (username) {
 			isLoginLinkText.innerText = username;
+		}
+		const logoutBtn = document.querySelector('.js-logout');
+		if (logoutBtn) {
+			logoutBtn.addEventListener('click', () => {
+				localStorage.removeItem('access_token');
+				localStorage.removeItem('refresh_token');
+				localStorage.removeItem('expires_in');
+				console.log('logout clicked');
+				window.location.replace('https://login.wiliot.com/oauth2/logout?client_id=3c219e58-ed0e-4b18-ad48-f4f92793ae32');
+			}, {once: true});
 		}
 		return true;
 	} catch {
