@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: c099bea2-dca9-43e8-9d52-a90262f58489 # Accordion Text
 handle: accordionTextItems
@@ -8,6 +9,7 @@ settings:
   contentTable: '{{%matrixcontent_accordiontextitems}}'
   maxBlocks: ''
   minBlocks: ''
+  propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

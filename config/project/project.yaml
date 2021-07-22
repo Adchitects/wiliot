@@ -1,4 +1,4 @@
-dateModified: 1626693332
+dateModified: 1626963224
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -24,6 +24,7 @@ meta:
     2b215e7d-7d00-4f6b-bd9c-e07c5a8c2889: Partners # Partners
     2d82d9f8-9f42-4103-8889-38c6b53fd72f: Title # Title
     2d96d928-c258-497f-b9fd-2fba70e5341d: Platform # Platform
+    2dcd0b1b-d9be-447f-839c-927cbb6d6174: 'Popup bottom subtitle' # Popup bottom subtitle
     2e10dce4-7d20-4d2d-bdac-faf860448434: Homepage # Homepage
     2e145389-9f5e-4b73-833c-2d606da2561b: Description # Description
     2ea61b1b-f641-40be-bc12-c76a4ab3957d: Subtitle # Subtitle
@@ -45,7 +46,9 @@ meta:
     4fea09ac-1698-4892-957e-b5379b047c10: Podcasts # Podcasts
     5b462e90-23d9-4008-a32c-10f88ee6f61c: 'Video Link' # Video Link
     5b534513-4e0d-4718-ad06-0c5e7c79f6a2: 'Menu - mobile' # Menu - mobile
+    5bd5b61d-261c-4edc-b7d5-db9d19898adf: Popup # Popup
     5c0bdfd4-33c7-43bc-9ac2-07c12a20f210: Name # Name
+    5cd91e34-b99f-4e04-b6a8-2ab726332cf5: 'Popup button' # Popup button
     5d866255-5892-4fae-8156-2cb87e5d294d: 'Page link' # Page link
     5ddf9ab1-7416-4397-aeb6-30367ce2bfb1: 'News posts' # News posts
     5e29992a-b244-4fe8-9267-ae0f945e70c5: 'News posts categories' # News posts categories
@@ -151,6 +154,7 @@ meta:
     187be502-d66f-4151-8d84-60d39af8e06a: Icon # Icon
     188c33ac-460b-4d12-b08b-109b7c0b67a3: Text # Text
     239b84f4-0cd5-4c13-8f6d-3660d5bd7904: Name # Name
+    330c8e22-cda9-4d71-ac15-7f8a5cebfd3b: 'Popup text' # Popup text
     345b4661-88c3-4313-a1b2-3f233f9f8884: 'Meta title' # Meta title
     345ebe97-0785-49fe-bc48-6387be4df98b: Magazine # Magazine
     385ac370-9642-4c9f-adde-527cc332b168: Image # Image
@@ -173,6 +177,7 @@ meta:
     919ae572-258d-447e-9d4e-f62d42ece43b: 'Podcasts hero' # Podcasts hero
     919d4ce0-d5c1-46c0-ad7c-9757ccd75260: Transcript # Transcript
     939f5fba-03cc-4d0d-842f-55aaab58ee13: 'Founders image' # Founders image
+    953c6cb2-005a-4169-a763-1cffc4f6a28b: 'Popup posts' # Popup posts
     982f378c-de5e-42b5-b61d-83ca7ba35d43: Subscribe # Subscribe
     998d961f-669a-4df1-acf5-c61e3bf61762: Title # Title
     1539e223-b771-4778-a5b9-3676b59a2508: Outro # Outro
@@ -260,6 +265,7 @@ meta:
     ada14e8a-8a4b-453a-9887-ef08225de9dc: Icons # Icons
     adb83ebc-ff1b-4bbc-92dd-da248cb22df8: '404' # 404
     aed96f76-a7ec-41f3-a7b1-c5df14895b8c: 'Careers title' # Careers title
+    af0abbb2-809b-4b95-9c84-1c27a931b11e: 'Popup top subtitle' # Popup top subtitle
     af883176-2906-414c-9add-3be9dfa89024: 'Menu - footer' # Menu - footer
     b0965b87-4d92-450a-beb3-f46a03d1b1be: Slide # Slide
     b2ab3566-aa44-436c-89cc-a60b0ec0cfbc: 'Content Centered' # Content Centered
@@ -355,6 +361,7 @@ meta:
     eb1ab648-91f1-4fef-a83d-57d695b12a0d: 'Purchase Survey' # Purchase Survey
     eb860d85-a0af-4d6f-b20b-a5c7c4eb72c4: Subtitle # Subtitle
     ebc5eb0f-9c5c-4c10-9073-bcae5d699c8a: Podcasts # Podcasts
+    ed9c49f6-6528-4751-8e23-cd72922c9ff9: Default # Default
     f0f0f3f7-c2d8-48eb-a0b2-6abe60a500c5: Buy # Buy
     f0ffcd21-ca61-4397-872e-5eab26f6d3f1: item # item
     f01834eb-e024-4a82-ab22-3fb5e2a677a5: Blog # Blog
@@ -402,6 +409,47 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.2.0
+    settings:
+      description: ''
+      facebookAppId: '314715328581338'
+      metaTemplate: ''
+      removeAlternateUrls: ''
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      robotsTxt: "{# Sitemap URL #}\r\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\r\n\r\n{# Disallows #}\r\n{% if craft.app.config.env != 'production' %}\r\n\r\n{# Disallow access to everything when NOT in production #}\r\nUser-agent: *\r\nDisallow: /\r\n\r\n{% else %}\r\n\r\n{# Disallow access to cpresources/ when live #}\r\nUser-agent: *\r\nDisallow: /cpresources/\r\n\r\n{% endif %}"
+      sitemapLimit: '1000'
+      sitemapName: sitemap
+      socialImage: ''
+      title:
+        -
+          __assoc__:
+            -
+              - key
+              - '1'
+            -
+              - locked
+              - '0'
+            -
+              - template
+              - '{title}'
+        -
+          __assoc__:
+            -
+              - key
+              - '2'
+            -
+              - locked
+              - '1'
+            -
+              - template
+              - ' - {{ siteName }}'
+      titleSuffix: null
+      twitterHandle: '@WiliotHQ'
   super-table:
     edition: standard
     enabled: true

@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   ccb96383-493f-4b28-bee1-c3132009a58e: # Asset
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: videoAsset
@@ -58,6 +59,7 @@ fields:
     translationMethod: site
     type: craft\fields\Assets
   e8152479-ce90-4f3f-bae1-aeed0642352b: # Title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: videoTitle

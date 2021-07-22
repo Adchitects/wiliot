@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   188c33ac-460b-4d12-b08b-109b7c0b67a3: # Text
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: text
@@ -45,6 +46,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   d429f357-c49a-4947-9ea7-dcc9b7e56816: # Button
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: button

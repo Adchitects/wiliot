@@ -35,6 +35,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   2a49d969-0dee-48a1-8c68-ccfdaf603d25: # Person linkedin link
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: personLinkedinLink
@@ -143,6 +144,7 @@ fields:
     translationMethod: none
     type: typedlinkfield\fields\LinkField
   40d03163-36d4-4f35-8a30-a5fff1e8a7a7: # Person title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: personTitle
@@ -162,6 +164,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   e9d050a2-d6ba-4905-b800-ca89d3b5b612: # Person name
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: personName

@@ -35,6 +35,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   5c0bdfd4-33c7-43bc-9ac2-07c12a20f210: # Name
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: socialName
@@ -54,6 +55,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   6a95d67b-b4f6-4a46-a154-44f11ee13aef: # Icon
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: socialIcon
@@ -86,6 +88,7 @@ fields:
     translationMethod: site
     type: craft\fields\Assets
   e4346916-7a3c-447a-b331-db82500f0ece: # Link
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: socialLink

@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: e087f7d2-bc23-487f-b41c-8d92f33af71b # Freemode Slider
 handle: freemodeSliderItems
@@ -8,6 +9,7 @@ settings:
   contentTable: '{{%matrixcontent_freemodeslideritems}}'
   maxBlocks: ''
   minBlocks: ''
+  propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

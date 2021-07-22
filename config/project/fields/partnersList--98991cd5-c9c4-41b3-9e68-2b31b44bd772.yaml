@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: c6882d8c-7b75-4033-97e8-bb0a0d47c7c4 # Partners listing
 handle: partnersList
@@ -8,6 +9,7 @@ settings:
   contentTable: '{{%matrixcontent_partnerslist}}'
   maxBlocks: ''
   minBlocks: ''
+  propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

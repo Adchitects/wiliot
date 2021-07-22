@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: e093f00b-b0d5-4920-872a-d85762062655 # Fifty Fifty
 handle: fiftyFiftyRows
@@ -8,6 +9,7 @@ settings:
   contentTable: '{{%matrixcontent_fiftyfiftyrows}}'
   maxBlocks: ''
   minBlocks: ''
+  propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

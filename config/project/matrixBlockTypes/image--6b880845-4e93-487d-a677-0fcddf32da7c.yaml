@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   998d961f-669a-4df1-acf5-c61e3bf61762: # Title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: imageTitle
@@ -45,6 +46,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   08614d3a-fe80-46d8-8bdf-1ca8c8860ccc: # Asset
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: imageAsset

@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   213988ad-d3c4-410c-beb6-b839faee1650: # Solution Tab item
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: solutionTabItemMatrix
@@ -36,11 +37,13 @@ fields:
       contentTable: '{{%matrixcontent_solutiontabitemmatrix}}'
       maxBlocks: ''
       minBlocks: ''
+      propagationKeyFormat: null
       propagationMethod: all
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
   16200484-3340-49e2-9ab2-ab50d535a73b: # Name
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: solutionTabName

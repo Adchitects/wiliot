@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: 9e586bd4-a970-4bc6-925c-4a0a46f168e8 # Tabs
 handle: tabsList
@@ -8,6 +9,7 @@ settings:
   contentTable: '{{%matrixcontent_tabslist}}'
   maxBlocks: ''
   minBlocks: ''
+  propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

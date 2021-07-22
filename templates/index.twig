@@ -23,7 +23,7 @@
 			{% block description %}
 				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 			{% endblock %}
-			<link rel="canonical" href="{{ craft.request.url }}"/>
+			<link rel="canonical" href="{{ craft.request.getUrl() }}"/>
 			<meta property="og:locale" content="en_US"/>
 			{% block og %}
 				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
@@ -208,11 +208,30 @@
 				{% set latestPopup = craft.entries.section('popupPosts').limit(1) %}
 				{% if latestPopup|length %}
 					{% for post in latestPopup.all() %}
+						{% set popupTopSubtitle = post.popupTopSubtitle %}
 						{% set popupTitle = post.title %}
+						{% set popupBottomSubtitle = post.popupBottomSubtitle %}
 						{% set popupText = post.popupText %}
+						{% set popupButton = post.popupButton %}
 						<div class="popup">
-						<h2>{{ popupTitle }}</h2>
-						<div>{{ popupText }}</div>
+							<div class="popup__overlay"></div>
+							<div class="popup__inner">
+								{% if popupTopSubtitle %}
+									<div class="popup__subtitle popup__subtitle--top u-subtitle u-subtitle--big">{{ popupTopSubtitle }}</div>
+								{% endif %}
+								<h2 class="popup__title u-title u-title--medium-big">{{ popupTitle }}</h2>
+								{% if popupBottomSubtitle %}
+									<div class="popup__subtitle popup__subtitle--bottom u-subtitle u-subtitle--big">{{ popupBottomSubtitle }}</div>
+								{% endif %}
+								<div class="popup__text">{{ popupText }}</div>
+								{% if popupButton and popupButton.getUrl() %}
+									<a href="{{ popupButton.getUrl() }}" target="{{ popupButton.target ? '_blank' : '_self' }}" rel="{{ popupButton.target ? 'noopener noreferrer' : null }}" class="popup__btn u-btn u-btn--accent">
+										<span class="text">
+											{{ popupButton.customText }}
+										</span>
+									</a>
+								{% endif %}
+							</div>
 						</div>
 					{% endfor %}
 				{% endif %}

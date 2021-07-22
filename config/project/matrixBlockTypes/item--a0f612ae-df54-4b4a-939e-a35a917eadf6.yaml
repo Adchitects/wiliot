@@ -35,6 +35,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   7f428011-00c6-4e61-9c9f-377989a77cc8: # Job city
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: jobCity
@@ -54,6 +55,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   9d765e7f-db85-46c9-8b90-650622b37455: # Job title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: jobTitle
@@ -73,6 +75,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   11c58903-bec1-48ae-8ec4-0e0d5c6a07a8: # Job Url
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: jobUrl

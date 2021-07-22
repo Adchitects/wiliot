@@ -1,3 +1,4 @@
+defaultPlacement: end
 enableVersioning: true
 handle: purchaseSurvey
 name: 'Purchase Survey'

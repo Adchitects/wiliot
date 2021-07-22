@@ -53,6 +53,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   0a187bb9-ebd0-4016-b111-84d728762249: # Partner category
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: partnerCategory
@@ -133,6 +134,7 @@ fields:
     translationMethod: none
     type: craft\fields\MultiSelect
   6be2d726-24c6-4a93-8d7c-30a8b9da7b06: # Partner Link
+    columnSuffix: null
     contentColumnType: string(255)
     fieldGroup: null
     handle: partnerLink
@@ -148,6 +150,7 @@ fields:
     translationMethod: none
     type: craft\fields\Url
   b7ac79ba-352c-490e-aaa7-737c89d9e247: # Partner description
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: partnerDescription
@@ -176,6 +179,7 @@ fields:
     translationMethod: none
     type: craft\redactor\Field
   c7c9f302-4f23-466d-a2d3-675621d8f44a: # Partner Name
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: partnerName
@@ -195,6 +199,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   de2f137b-e43d-43ff-8b36-31978ed3eef1: # Partner logo
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: partnerLogo

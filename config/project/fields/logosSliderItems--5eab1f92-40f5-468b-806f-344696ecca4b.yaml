@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: d07372ba-d1d9-4dd7-8445-876845e91761 # Logos Slider
 handle: logosSliderItems
@@ -8,6 +9,7 @@ settings:
   contentTable: '{{%matrixcontent_logosslideritems}}'
   maxBlocks: ''
   minBlocks: ''
+  propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site
