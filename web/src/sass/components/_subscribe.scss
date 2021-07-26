@@ -125,7 +125,8 @@
 				text-align: center !important;
 			}
 
-			h1 {
+			h1,
+			h2 {
 				margin-bottom: 20px;
 				padding: 0 35px;
 				color: $c-white;
@@ -178,7 +179,7 @@
 			}
 
 			.legal-consent-container {
-				margin-top: 65px;
+				margin-top: -5px;
 
 				@include mobile-599 {
 					margin-top: 30px;

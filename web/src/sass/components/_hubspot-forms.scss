@@ -216,11 +216,7 @@
 	}
 
 	.hs-richtext {
-		margin-top: 32px;
-
-		&:first-of-type {
-			margin-top: 0;
-		}
+		margin-top: 35px;
 	}
 
 	.hs-fieldtype-booleancheckbox {
@@ -385,7 +381,8 @@
 }
 
 // BECOME A PARTNER FORMS
-.is-multistep-form {
+.is-multistep-form,
+.is-partners-long-form {
 	.submitted-message {
 		color: $c-white !important;
 		font-family: $font-head !important;
@@ -398,6 +395,14 @@
 
 	.hs-form,
 	.hbspt-form {
+		> div {
+			&:first-of-type {
+				.hs-richtext {
+					margin-top: 0;
+				}
+			}
+		}
+
 		h2 {
 			color: $c-white !important;
 			font-family: $font-head !important;
@@ -410,11 +415,12 @@
 	
 		.hs-firstname,
 		.hs-company {
-			margin-top: 65px;
+			margin-top: 35px;
 		}
 
 		.hs-message,
 		.hs_partner_directory_integration {
+			margin-bottom: 0;
 			padding-top: 45px;
 
 			label {
@@ -436,6 +442,7 @@
 			}
 
 			textarea {
+				width: 100%;
 				height: 55px !important;
 				padding: 25px 5px !important;
 				border: 0 !important;
@@ -573,11 +580,11 @@
 			.inputs-list {
 				display: flex !important;
 				flex-wrap: wrap !important;
-				margin-top: 40px !important;	
+				margin-top: 35px !important;	
 
 				.hs-form-checkbox {
 					width: 50%;
-					padding-left: 60px !important;
+					// padding-left: 60px !important;
 
 					@include mobile-599 {
 						padding-left: 0 !important;

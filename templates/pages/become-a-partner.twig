@@ -30,160 +30,182 @@
 				<div class="become-a-partner__text-hld">
 					<span class="become-a-partner__subtitle u-subtitle u-subtitle--big">{{ becomeAPartnerSubtitle }}</span>
 					<h1 class="become-a-partner__title u-title u-title--section">{{ becomeAPartnerTitle }}</h1>
-					<div class="become-a-partner__steps-hld">
-						<div class="step step--1">
-							<span class="text">1</span>
-							<span class="icon icon-tick"></span>
-						</div>
-						<div class="step step--2">
-							<span class="text">2</span>
-							<span class="icon icon-tick"></span>
-						</div>
-						<div class="step step--3">
-							<span class="text">3</span>
-							<span class="icon icon-tick"></span>
-						</div>
-						<div class="step step--4">
-							<span class="text">4</span>
-							<span class="icon icon-tick"></span>
-						</div>
-					</div>
 				</div>
 				<div class="become-a-partner__form-hld">
-					<div id="become-a-partner-form" class="become-a-partner__form form"></div>
+					<div id="become-a-partner-form" class="become-a-partner__form form">
+						<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+						<script
+								src="https://code.jquery.com/jquery-3.6.0.min.js"
+								integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+								crossorigin="anonymous">
+						</script>
+						<script>
+							function handleState() {
+								const fields = document.querySelectorAll('.field input');
+								const selects = document.querySelectorAll('.hs-fieldtype-select select');
+								if (fields && fields.length > 0) {
+									fields.forEach(field => {
+										field.addEventListener('input', () => {
+											field.parentNode.parentNode.classList.add('is-active');
+											if (!field.value) {
+												field.parentNode.parentNode.classList.remove('is-active');
+											}
+										});
+									});
+								}
+								if (selects && selects.length > 0) {
+									selects.forEach(select => {
+										select.addEventListener('change', () => {
+											select.parentNode.parentNode.classList.add('is-active');
+											handleState();
+										});
+									});
+								}
+							};
+							hbspt.forms.create({
+								region: "na1", 
+								portalId: "4249967", 
+								formId: "980f1da3-bb54-4c50-85c9-2df744452109",
+								onFormReady: function() {
+									document.body.classList.add('is-partners-long-form');
+									handleState();
+								},
+							});
+						</script>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-	<script
-		src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		crossorigin="anonymous">
-	</script>
-	<script>
-		const handleStyles = function(selector) {
-			// var cssLink = document.createElement("link");
-			// cssLink.href = "/src/css/style.min.css"; 
-			// cssLink.rel = "stylesheet"; 
-			// cssLink.type = "text/css"; 
-			// const iframeHtml = selector[0].closest('html');
-			// const iframeHead = iframeHtml.querySelector('head');
-			// const iframeBody = iframeHtml.querySelector('body');
-			// iframeHead.appendChild(cssLink);
-			document.body.classList.add('is-multistep-form');
-		};
-		const handleState = function(selector) {
-			const fields = selector[0].querySelectorAll('.field input');
-			const selects = selector[0].querySelectorAll('.hs-fieldtype-select select');
-			if (fields && fields.length > 0) {
-				fields.forEach(field => {
-					field.addEventListener('input', () => {
-						field.parentNode.parentNode.classList.add('is-active');
-						if (!field.value) {
-							field.parentNode.parentNode.classList.remove('is-active');
-						}
-					});
-				});
-			}
-			if (selects && selects.length > 0) {
-				selects.forEach(select => {
-					select.addEventListener('change', () => {
-						select.parentNode.parentNode.classList.add('is-active');
-					});
-				});
-			}
-		};
-		let data = [];
-		hbspt.forms.create({
-			portalId: '4249967',
-			formId: '44c71783-7ba8-49a1-81cd-2699df6b4ff7',
-			target: '#become-a-partner-form',
-			onFormReady: function(form) {
-				handleState(form);
-				handleStyles(form);
-				document.body.classList.add('is-step-1-active');
-				setTimeout(() => {
-					document.body.classList.add('is-iframe-form-visible');
-				}, 250);
-			},
-			onFormSubmit: function(formA) {
-				let incomingA = $(formA).serializeArray();
-				data.push(incomingA);
-			},
-			onFormSubmitted: function(formB) {
-				$('#become-a-partner-form').empty();
-				document.body.classList.remove('is-iframe-form-visible');
-				hbspt.forms.create({
-					portalId: '4249967',
-					formId: '1621224c-9051-458e-a91d-1049aadb6636',
-					target: '#become-a-partner-form',
-					onFormReady: function(formB) {
-						handleState(formB);
-						handleStyles(formB);
-						document.body.classList.remove('is-step-1-active');
-						document.body.classList.add('is-step-1-done');
-						document.body.classList.add('is-step-2-active');
-						formB.find('input[name="email"]').val(data[0].value).change();
-						setTimeout(() => {
-							document.body.classList.add('is-iframe-form-visible');
-						}, 250);
-					},
-					onFormSubmit: function(formC) {
-						let incomingB = $(formC).serializeArray();
-						data.push(incomingB);
-					},
-					onFormSubmitted: function(formC) {
-						$('#become-a-partner-form').empty();
-						document.body.classList.remove('is-iframe-form-visible');
-						hbspt.forms.create({
-							portalId: '4249967',
-							formId: 'b4dcb985-d37e-4990-9144-efa12172eebb',
-							target: '#become-a-partner-form',
-							onFormReady: function(formC) {
-								handleState(formC);
-								handleStyles(formC);
-								document.body.classList.remove('is-step-2-active');
-								document.body.classList.add('is-step-2-done');
-								document.body.classList.add('is-step-3-active');
-								formC.find('input[name="email"]').val(data[0].value).change();
-								setTimeout(() => {
-									document.body.classList.add('is-iframe-form-visible');
-								}, 250);
-							},
-							onFormSubmit: function(formD) {
-								let incomingC = $(formD).serializeArray();
-								data.push(incomingC);
-							},
-							onFormSubmitted: function(formD) {
-								$('#become-a-partner-form').empty();
-								document.body.classList.remove('is-iframe-form-visible');
-								hbspt.forms.create({
-									portalId: '4249967',
-									formId: '6d21fef6-6689-45c8-8080-d76dc12e0683',
-									target: '#become-a-partner-form',
-									onFormReady: function(formD) {
-										handleState(formD);
-										handleStyles(formD);
-										document.body.classList.remove('is-step-3-active');
-										document.body.classList.add('is-step-3-done');
-										document.body.classList.add('is-step-4-active');
-										formD.find('input[name="email"]').val(data[0].value).change();
-										setTimeout(() => {
-											document.body.classList.add('is-iframe-form-visible');
-										}, 250);
-									},
-									onFormSubmit: function() {
-										document.body.classList.remove('is-step-4-active');
-										document.body.classList.add('is-step-4-done');
-										document.body.classList.add('is-step-thanks-active');
-									},
-								});
-							},
-						});
-					},
-				});
-			},
-		});
-	</script>
+	{# // <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+	// <script
+	// 	src="https://code.jquery.com/jquery-3.6.0.min.js"
+	// 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	// 	crossorigin="anonymous">
+	// </script> #}
+	{# // <script>
+	// 	const handleStyles = function(selector) {
+	// 		// var cssLink = document.createElement("link");
+	// 		// cssLink.href = "/src/css/style.min.css"; 
+	// 		// cssLink.rel = "stylesheet"; 
+	// 		// cssLink.type = "text/css"; 
+	// 		// const iframeHtml = selector[0].closest('html');
+	// 		// const iframeHead = iframeHtml.querySelector('head');
+	// 		// const iframeBody = iframeHtml.querySelector('body');
+	// 		// iframeHead.appendChild(cssLink);
+	// 		document.body.classList.add('is-multistep-form');
+	// 	};
+	// 	const handleState = function(selector) {
+	// 		const fields = selector[0].querySelectorAll('.field input');
+	// 		const selects = selector[0].querySelectorAll('.hs-fieldtype-select select');
+	// 		if (fields && fields.length > 0) {
+	// 			fields.forEach(field => {
+	// 				field.addEventListener('input', () => {
+	// 					field.parentNode.parentNode.classList.add('is-active');
+	// 					if (!field.value) {
+	// 						field.parentNode.parentNode.classList.remove('is-active');
+	// 					}
+	// 				});
+	// 			});
+	// 		}
+	// 		if (selects && selects.length > 0) {
+	// 			selects.forEach(select => {
+	// 				select.addEventListener('change', () => {
+	// 					select.parentNode.parentNode.classList.add('is-active');
+	// 				});
+	// 			});
+	// 		}
+	// 	};
+	// 	let data = [];
+	// 	hbspt.forms.create({
+	// 		portalId: '4249967',
+	// 		formId: '44c71783-7ba8-49a1-81cd-2699df6b4ff7',
+	// 		target: '#become-a-partner-form',
+	// 		onFormReady: function(form) {
+	// 			handleState(form);
+	// 			handleStyles(form);
+	// 			document.body.classList.add('is-step-1-active');
+	// 			setTimeout(() => {
+	// 				document.body.classList.add('is-iframe-form-visible');
+	// 			}, 250);
+	// 		},
+	// 		onFormSubmit: function(formA) {
+	// 			let incomingA = $(formA).serializeArray();
+	// 			data.push(incomingA);
+	// 		},
+	// 		onFormSubmitted: function(formB) {
+	// 			$('#become-a-partner-form').empty();
+	// 			document.body.classList.remove('is-iframe-form-visible');
+	// 			hbspt.forms.create({
+	// 				portalId: '4249967',
+	// 				formId: '1621224c-9051-458e-a91d-1049aadb6636',
+	// 				target: '#become-a-partner-form',
+	// 				onFormReady: function(formB) {
+	// 					handleState(formB);
+	// 					handleStyles(formB);
+	// 					document.body.classList.remove('is-step-1-active');
+	// 					document.body.classList.add('is-step-1-done');
+	// 					document.body.classList.add('is-step-2-active');
+	// 					formB.find('input[name="email"]').val(data[0].value).change();
+	// 					setTimeout(() => {
+	// 						document.body.classList.add('is-iframe-form-visible');
+	// 					}, 250);
+	// 				},
+	// 				onFormSubmit: function(formC) {
+	// 					let incomingB = $(formC).serializeArray();
+	// 					data.push(incomingB);
+	// 				},
+	// 				onFormSubmitted: function(formC) {
+	// 					$('#become-a-partner-form').empty();
+	// 					document.body.classList.remove('is-iframe-form-visible');
+	// 					hbspt.forms.create({
+	// 						portalId: '4249967',
+	// 						formId: 'b4dcb985-d37e-4990-9144-efa12172eebb',
+	// 						target: '#become-a-partner-form',
+	// 						onFormReady: function(formC) {
+	// 							handleState(formC);
+	// 							handleStyles(formC);
+	// 							document.body.classList.remove('is-step-2-active');
+	// 							document.body.classList.add('is-step-2-done');
+	// 							document.body.classList.add('is-step-3-active');
+	// 							formC.find('input[name="email"]').val(data[0].value).change();
+	// 							setTimeout(() => {
+	// 								document.body.classList.add('is-iframe-form-visible');
+	// 							}, 250);
+	// 						},
+	// 						onFormSubmit: function(formD) {
+	// 							let incomingC = $(formD).serializeArray();
+	// 							data.push(incomingC);
+	// 						},
+	// 						onFormSubmitted: function(formD) {
+	// 							$('#become-a-partner-form').empty();
+	// 							document.body.classList.remove('is-iframe-form-visible');
+	// 							hbspt.forms.create({
+	// 								portalId: '4249967',
+	// 								formId: '6d21fef6-6689-45c8-8080-d76dc12e0683',
+	// 								target: '#become-a-partner-form',
+	// 								onFormReady: function(formD) {
+	// 									handleState(formD);
+	// 									handleStyles(formD);
+	// 									document.body.classList.remove('is-step-3-active');
+	// 									document.body.classList.add('is-step-3-done');
+	// 									document.body.classList.add('is-step-4-active');
+	// 									formD.find('input[name="email"]').val(data[0].value).change();
+	// 									setTimeout(() => {
+	// 										document.body.classList.add('is-iframe-form-visible');
+	// 									}, 250);
+	// 								},
+	// 								onFormSubmit: function() {
+	// 									document.body.classList.remove('is-step-4-active');
+	// 									document.body.classList.add('is-step-4-done');
+	// 									document.body.classList.add('is-step-thanks-active');
+	// 								},
+	// 							});
+	// 						},
+	// 					});
+	// 				},
+	// 			});
+	// 		},
+	// 	});
+	// </script> #}
 {% endblock %}
