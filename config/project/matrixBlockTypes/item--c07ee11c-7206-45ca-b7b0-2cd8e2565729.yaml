@@ -35,6 +35,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   0d19a1fa-434e-42c8-91b3-267af6ff4d61: # Accordion Item Image
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: accordionItemImage
@@ -67,6 +68,7 @@ fields:
     translationMethod: site
     type: craft\fields\Assets
   8cef4245-c176-42e2-9fce-2ebddd03b4ff: # Accordion Item Title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: accordionItemTitle
@@ -86,6 +88,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   3810de6e-16a1-4209-a56f-89f2017bf9c0: # Accordion Item Subtitle
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: accordionItemSubtitle

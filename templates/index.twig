@@ -23,7 +23,7 @@
 			{% block description %}
 				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 			{% endblock %}
-			<link rel="canonical" href="{{ craft.request.url }}"/>
+			<link rel="canonical" href="{{ craft.request.getUrl() }}"/>
 			<meta property="og:locale" content="en_US"/>
 			{% block og %}
 				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
@@ -32,14 +32,14 @@
 			{% endblock %}
 			<meta property="og:url" content="{{ alias('@web') }}"/>
 			<meta property="og:site_name" content="Wiliot" />
-			<meta property="og:image" content="{{ alias('@web/src/img/image.jpg') }}" name="image"/>
-			<meta property="og:image:width" content="1200"/>
-			<meta property="og:image:height" content="628"/>
+			<meta property="og:image" content="{{ entry is defined and entry.newsPostsfeaturedImage ? entry.newsPostsfeaturedImage.one().getUrl() : alias('@web/src/img/image.jpg') }}" name="image"/>
+			<meta property="og:image:width" content="{{ entry is defined and entry.newsPostsfeaturedImage ? 840 : 1200 }}"/>
+			<meta property="og:image:height" content="{{ entry is defined and entry.newsPostsfeaturedImage ? 576 : 628 }}"/>
 			<meta name="twitter:card" content="summary"/>
 			<meta name="twitter:site" content="@WiliotHQ"/>
 			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
-			<meta name="twitter:image"content="{{ alias('@web/src/img/image.jpg') }}"/>
+			<meta name="twitter:image"content="{{ entry is defined and entry.newsPostsfeaturedImage ? entry.newsPostsfeaturedImage.one().getUrl() : alias('@web/src/img/image.jpg') }}"/>
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon"/>
 			<style>
 				@font-face {
@@ -146,8 +146,8 @@
 						"@type": "ImageObject",
 						"@id": "https://www.wiliot.com/#primaryimage",
 						"inLanguage": "en-US",
-						"url": "{{ alias('@web/src/img/image.jpg') }}",
-						"contentUrl": "{{ alias('@web/src/img/image.jpg') }}",
+						"url": "{{ entry is defined and entry.newsPostsfeaturedImage ? entry.newsPostsfeaturedImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
+						"contentUrl": "{{ entry is defined and entry.newsPostsfeaturedImage ? entry.newsPostsfeaturedImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
 						"width": 1200,
 						"height": 628,
 						"caption": "threat detection and response"
@@ -205,6 +205,44 @@
 		</header>
 		<main>
 			{% block main %}
+				{% set latestPopup = craft.entries.section('popupPosts').limit(1) %}
+				{% if latestPopup|length %}
+					{% for post in latestPopup.all() %}
+						{% set popupTopSubtitle = post.popupTopSubtitle %}
+						{% set popupTitle = post.title %}
+						{% set popupBottomSubtitle = post.popupBottomSubtitle %}
+						{% set popupText = post.popupText %}
+						{% set popupButton = post.popupButton %}
+						<div class="popup js-popup">
+							<div class="popup__overlay js-popup-close"></div>
+							<div class="popup__inner js-bg-shape-hld">
+								<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+									<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/popup.png' )}}" alt="Background shape blurry blob">
+								</div>
+								<div class="popup__close-hld js-popup-close">
+									<span class="icon icon-close js-popup-close-icon"></span>
+								</div>
+								<div class="popup__text-hld">
+									{% if popupTopSubtitle %}
+										<div class="popup__subtitle popup__subtitle--top u-subtitle u-subtitle--big">{{ popupTopSubtitle }}</div>
+									{% endif %}
+									<h2 class="popup__title u-title u-title--medium-big">{{ popupTitle }}</h2>
+									{% if popupBottomSubtitle %}
+										<div class="popup__subtitle popup__subtitle--bottom u-subtitle u-subtitle--big">{{ popupBottomSubtitle }}</div>
+									{% endif %}
+									<div class="popup__text">{{ popupText }}</div>
+									{% if popupButton and popupButton.getUrl() %}
+										<a href="{{ popupButton.getUrl() }}" target="{{ popupButton.target ? '_blank' : '_self' }}" rel="{{ popupButton.target ? 'noopener noreferrer' : null }}" class="popup__btn u-btn u-btn--accent">
+											<span class="text">
+												{{ popupButton.customText }}
+											</span>
+										</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
 				{{ include('/sections/hero-image-right.twig') }}
 				{{ include('/sections/centered-content.twig') }}
 				{{ include('/sections/tabs.twig') }}

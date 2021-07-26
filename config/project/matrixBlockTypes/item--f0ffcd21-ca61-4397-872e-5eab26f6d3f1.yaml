@@ -17,6 +17,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   56ccc3ea-9c9a-4330-95fe-7afa4289c305: # Item
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: item

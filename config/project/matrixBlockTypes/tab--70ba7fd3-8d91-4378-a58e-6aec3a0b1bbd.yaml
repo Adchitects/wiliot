@@ -53,6 +53,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   1b33446a-b71e-45ab-87aa-bb6ab00b2d07: # Title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: tabTitle
@@ -72,6 +73,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   6ea314f4-1588-4b55-b364-e834887afded: # Description
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: tabDescription
@@ -100,6 +102,7 @@ fields:
     translationMethod: none
     type: craft\redactor\Field
   398bd18a-8ac2-4db3-a060-280c5b407c72: # Link
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: tabLink
@@ -208,6 +211,7 @@ fields:
     translationMethod: none
     type: typedlinkfield\fields\LinkField
   7380cbf1-53dc-4950-8f94-410c3677e9e9: # Image
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: tabImage
@@ -240,6 +244,7 @@ fields:
     translationMethod: site
     type: craft\fields\Assets
   d3f0249b-777e-40e1-89a8-3ed0738c3fcc: # Icon
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: tabIcon

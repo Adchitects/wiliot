@@ -44,6 +44,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   0b5a77dd-12dc-41c7-81ce-277a415dcde3: # Description
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: itemDescription
@@ -72,6 +73,7 @@ fields:
     translationMethod: none
     type: craft\redactor\Field
   94f9fd80-5d01-4419-824e-d719a55b4e96: # Name
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: itemName
@@ -91,6 +93,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   187be502-d66f-4151-8d84-60d39af8e06a: # Icon
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: itemIcon
@@ -123,6 +126,7 @@ fields:
     translationMethod: site
     type: craft\fields\Assets
   a0f0651b-ebc3-439d-81de-edb79696d474: # Buttons
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: itemButtonsMatrix

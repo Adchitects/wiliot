@@ -17,6 +17,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   456e69dd-efa5-4424-9a70-99829afcad2f: # Code
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: code

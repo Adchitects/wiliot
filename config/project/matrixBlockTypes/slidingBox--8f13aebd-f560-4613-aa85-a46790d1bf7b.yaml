@@ -53,6 +53,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   28d1bd80-0319-46d6-8f47-6c3eb0c1fc59: # Title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: slidingBoxTitle
@@ -72,6 +73,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   67c7555f-2323-4deb-b0bf-99756aef72ba: # Link
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: slidingBoxLink
@@ -189,6 +191,7 @@ fields:
     translationMethod: none
     type: typedlinkfield\fields\LinkField
   40922bfa-74c8-45fd-b538-2c6a9cb4af73: # Time
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: slidingBoxTime
@@ -208,6 +211,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   95102d17-b91a-4e64-9b21-dea5ceae4f61: # Subtitle
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: slidingBoxDescription
@@ -227,6 +231,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   bcdd0fc8-ebf7-41b9-a63c-ce0d8e1f757a: # Date
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: slidingBoxDate

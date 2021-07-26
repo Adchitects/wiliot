@@ -17,6 +17,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   d9ebf74d-0c1c-4009-b95d-572faa6f5394: # Button
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: button

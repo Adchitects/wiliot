@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   4515f842-a5c0-45ca-8972-db451c1d41e7: # Item content description
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: itemContentDescription
@@ -54,6 +55,7 @@ fields:
     translationMethod: none
     type: craft\redactor\Field
   bb28a450-0555-4dfd-adcf-19215e1cb556: # Item content title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: itemContentTitle

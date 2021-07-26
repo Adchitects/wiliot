@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   96451545-86d9-4e8d-858e-f3ecc0389437: # Name
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: officeName
@@ -45,6 +46,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   e00a1a8f-5b84-40db-b9b8-0e52232124b4: # Address
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: officeAddress

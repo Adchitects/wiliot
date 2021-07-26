@@ -17,6 +17,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   385ac370-9642-4c9f-adde-527cc332b168: # Image
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: logoImage

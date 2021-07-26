@@ -35,6 +35,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   3c417c02-8918-4dbf-88ee-abd18a045d7d: # Button
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: featureButton
@@ -145,6 +146,7 @@ fields:
     translationMethod: none
     type: typedlinkfield\fields\LinkField
   ce840969-a937-4d51-b674-5220d755835c: # Description
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: featureContentDescription
@@ -173,6 +175,7 @@ fields:
     translationMethod: none
     type: craft\redactor\Field
   f81127b9-7562-425b-ba2e-94267a67ef61: # Title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: featureContentTitle
