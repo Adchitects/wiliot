@@ -1,0 +1,19 @@
+columnSuffix: hmxnkrea
+contentColumnType: text
+fieldGroup: 487f24d5-d165-4644-91bd-8c7d266ab030 # Carousel
+handle: carouselTitle
+instructions: ''
+name: 'Carousel Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '1'
+  multiline: '1'
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

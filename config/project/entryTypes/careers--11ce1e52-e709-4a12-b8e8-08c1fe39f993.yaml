@@ -84,6 +84,37 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 9c0236e8-b45d-426d-a9ef-98e1a28bffac # Carousel subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 728a5398-9579-432c-9347-232326dedb3b # Carousel Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1e7613e1-69f5-49da-82f7-f940e639a542 # Carousel images
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Image Carousel'
+        sortOrder: 4
+      -
+        elements:
+          -
             fieldUid: aed96f76-a7ec-41f3-a7b1-c5df14895b8c # Careers title
             instructions: null
             label: null
@@ -111,7 +142,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: 'Jobs listing'
-        sortOrder: 4
+        sortOrder: 5
 handle: careers
 hasTitleField: false
 name: Careers

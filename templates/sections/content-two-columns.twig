@@ -19,7 +19,7 @@
 				{{content}}
 			</div>
 		{% endif %}
-		{% if videoLink %}
+		{% if videoLink and videoLink.getUrl() %}
 			<button class="btn u-btn u-btn--light two-columns__button js-modal-btn">
 				<span class="icon icon-play"></span>
 				<span data-video-src="{{ videoLink.getUrl() }}" class="text">Watch video</span>

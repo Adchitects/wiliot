@@ -133,6 +133,37 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 9c0236e8-b45d-426d-a9ef-98e1a28bffac # Carousel subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 728a5398-9579-432c-9347-232326dedb3b # Carousel Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1e7613e1-69f5-49da-82f7-f940e639a542 # Carousel images
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Image Carousel'
+        sortOrder: 5
+      -
+        elements:
+          -
             fieldUid: fd6828c8-bfe1-4a5b-bc60-81cbd0a5b91a # Founders title
             instructions: null
             label: null
@@ -160,7 +191,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: Founders
-        sortOrder: 5
+        sortOrder: 6
       -
         elements:
           -
@@ -209,7 +240,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: 'Our Partners'
-        sortOrder: 6
+        sortOrder: 7
       -
         elements:
           -
@@ -231,7 +262,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: 'Awards & Recognitions'
-        sortOrder: 7
+        sortOrder: 8
       -
         elements:
           -
@@ -253,7 +284,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: 'Certifications & Qualifications'
-        sortOrder: 8
+        sortOrder: 9
       -
         elements:
           -
@@ -284,7 +315,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: Outro
-        sortOrder: 9
+        sortOrder: 10
 handle: company
 hasTitleField: false
 name: Company

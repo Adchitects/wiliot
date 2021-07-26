@@ -2,6 +2,7 @@
 import { Swiper, EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Autoplay } from 'swiper';
 Swiper.use([EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Autoplay]);
 import { clearClassActive } from './utilities';
+// import { lazyLoadInstance } from '../libs/lazyLoad';
 
 const freemodeSlider = new Swiper('.js-freemode-slider', {
 	slidesPerView: 2.1,
@@ -183,3 +184,24 @@ const footerSlider = new Swiper('.js-footer-slider', {
 	},
 });
 footerSlider;
+
+const carouselSliderHldAll = document.querySelectorAll('.js-carousel-slider-hld');
+carouselSliderHldAll.forEach(sliderHld => {
+	const carouselSlider = new Swiper(sliderHld.querySelector('.js-carousel-slider'), {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		grabCursor: true,
+		slideToClickedSlide: true,
+		// loop: true,
+		// on: {
+		// 	slideChange: function() {
+		// 		lazyLoadInstance.update();
+		// 	},
+		// },
+		navigation: {
+			prevEl: '.js-carousel-slider-button-prev',
+			nextEl: '.js-carousel-slider-button-next',
+		},
+	});
+	carouselSlider;
+});

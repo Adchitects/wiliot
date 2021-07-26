@@ -1,0 +1,40 @@
+fieldLayouts:
+  972d8e23-d708-451e-9178-2274b4ca2629:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: imageCarouselAssets
+hasUrls: true
+name: 'Image Carousel Assets'
+settings:
+  path: '@assets/uploads/image-carousel-assets'
+sortOrder: 12
+titleTranslationKeyFormat: null
+titleTranslationMethod: null
+type: craft\volumes\Local
+url: '@web/src/uploads/image-carousel-assets'
