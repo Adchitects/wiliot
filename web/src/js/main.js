@@ -15,3 +15,4 @@ import './scripts/solutionsDetails';
 import './scripts/bgShape';
 import './scripts/sliders';
 import './scripts/popup';
+import './scripts/fusionAuth';

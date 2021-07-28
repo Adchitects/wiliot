@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62px" height="68px" viewBox="0 0 11.1260815 12" version="1.1">
-  <title>Icons/arrow/closed</title>
-  <g id="Icons/arrow/closed" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <polyline id="Combined-Shape" stroke="#000000" points="0 5.58789587 5.58789587 0 11.1260815 5.5381856"></polyline>
-    <line x1="5.58789587" y1="0" x2="5.58789587" y2="12" id="Path-8" stroke="#000000"></line>
-  </g>
-</svg>

@@ -75,7 +75,8 @@
 
 		&.is-active {
 			.inner {
-				.text {
+				.text,
+				.icon {
 					color: $c-accent;
 				}
 			}

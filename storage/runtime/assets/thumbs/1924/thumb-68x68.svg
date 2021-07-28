@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68px" height="68px" viewBox="0 0 20 20" version="1.1">
-  <title>Icons/third_party/email</title>
-  <g id="Icons/third_party/email" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <path d="M0,3.36563773 L0,16.6343623 C9.23654201e-17,17.3885832 0.611416838,18 1.36563773,18 L18.6343623,18 C19.3885832,18 20,17.3885832 20,16.6343623 L20,3.36563773 C20,2.61141684 19.3885832,2 18.6343623,2 L1.36563773,2 C0.611416838,2 5.73768395e-16,2.61141684 0,3.36563773 Z M16.6292294,3.99389046 L10.0004238,10.6840115 L3.37161828,3.99389046 L16.6292294,3.99389046 Z M1.97555979,5.40286229 L10.0004238,13.5030958 L18.0252878,5.40286229 L18.0252878,16.0073642 L1.97527725,16.0073642 L1.97555979,5.40286229 Z" id="email" fill="#000000" fill-rule="nonzero"></path>
-  </g>
-</svg>

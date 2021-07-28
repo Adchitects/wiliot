@@ -1,7 +1,7 @@
 {% set loginTilesSubtitle = entry.loginTilesSubtitle %}
 {% set loginTilesTitle = entry.loginTilesTitle %}
 {% set loginTilesMatrix = entry.loginTilesMatrix.all() %}
-<section class="u-section u-section--login-tiles js-bg-shape-hld">
+<section class="u-section u-section--login-tiles js-bg-shape-hld js-login">
 	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 		<img class="s1 js-s1" src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
 		<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
@@ -14,6 +14,7 @@
 		<div class="login-tiles">
 			<div class="login-tiles__subtitle u-subtitle u-subtitle--medium">{{ loginTilesSubtitle }}</div>
 			<h1 class="login-tiles__title u-title u-title--big">{{ loginTilesTitle }}</h1>
+			{# <div class="js-logout">Logout</div> #}
 			<div class="login-tiles__tiles-hld">
 				{% for item in loginTilesMatrix %}
 					{% set itemIcon = item.itemIcon.one() %}
