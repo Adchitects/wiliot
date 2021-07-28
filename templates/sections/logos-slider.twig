@@ -21,9 +21,9 @@
 						{% for item in slides %}
 							{% set image = item.itemImage.one() %}
 							{% set title = item.itemTitle %}
-							{% set link = item.itemLink %}
-							{% if link %}
-								<a href="{{ link.url }}" target="{{ link.target ? '_blank' : '_self' }}" rel="{{ link.target ? 'noopener noreferrer' : null }}" class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }} is-link">
+							{% set itemLink = item.itemLink %}
+							{% if itemLink and itemLink.url %}
+								<a href="{{ itemLink.url }}" target="{{ itemLink.target ? '_blank' : '_self' }}" rel="{{ itemLink.target ? 'noopener noreferrer' : null }}" class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }} is-link">
 									{% if image %}
 										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
 									{% endif %}
@@ -50,8 +50,8 @@
 				{% endif %}
 			</div>
 		{% endif %}
-		{% if link %}
-			<a href="{{ link }}" class="btn btn--learn-more u-btn u-btn--light">
+		{% if link and link.getUrl() %}
+			<a href="{{ link.getUrl() }}" class="btn btn--learn-more u-btn u-btn--light">
 				<span class="text">
 					Learn more
 				</span>

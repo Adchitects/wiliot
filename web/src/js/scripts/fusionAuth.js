@@ -11,7 +11,9 @@ const key = {
 };
 const pem = jwkToPem(key);
 const options = { algorithms: ['RS256'] };
+const isLoginLink = document.querySelector('.menu-desktop__list-item.is-login');
 const isLoginLinkText = document.querySelector('.menu-desktop__list-item.is-login .text');
+const isSupportLink = document.querySelector('.menu-desktop__list-item.is-support');
 const login = () => {
 	const host = 'https://api.wiliot.com';
 	const eventPath = ''; // What is the value? “/”
@@ -40,6 +42,8 @@ const login = () => {
 			const username = localStorage.getItem('username');
 			if (username) {
 				isLoginLinkText.innerText = username;
+				isLoginLink.classList.add('is-right');
+				isSupportLink.classList.add('is-hidden');
 			}
 		}).catch((err) => {
 			console.error(err);
@@ -77,6 +81,8 @@ const isAuthenticate = () => {
 		const username = localStorage.getItem('username');
 		if (username) {
 			isLoginLinkText.innerText = username;
+			isLoginLink.classList.add('is-right');
+			isSupportLink.classList.add('is-hidden');
 		}
 		// const logoutBtn = document.querySelector('.js-logout');
 		// if (logoutBtn) {

@@ -3,6 +3,7 @@ import { lazyLoadInstance } from './libs/lazyLoad';
 lazyLoadInstance;
 // SCRIPTS
 import './scripts/header';
+import './scripts/fusionAuth';
 import './scripts/menuMobile';
 import './scripts/partnersFilters';
 import './scripts/video';
@@ -15,4 +16,3 @@ import './scripts/solutionsDetails';
 import './scripts/bgShape';
 import './scripts/sliders';
 import './scripts/popup';
-import './scripts/fusionAuth';
