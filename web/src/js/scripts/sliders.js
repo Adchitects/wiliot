@@ -36,10 +36,10 @@ const logosSlider = new Swiper('.js-logos-slider', {
 	slidesPerView: 2,
 	spaceBetween: 32,
 	speed: 200,
-	// autoplay: {
-	// 	delay: 2000,
-	// 	disableOnInteraction: false,
-	// },
+	autoplay: {
+		delay: 1500,
+		disableOnInteraction: false,
+	},
 	breakpoints: {
 		480: {
 			slidesPerView: 4,

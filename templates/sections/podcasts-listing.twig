@@ -42,19 +42,24 @@
 										<span class="icon icon-button_play"></span>
 									{% endif %}
 								</div>
-								<div class="post__date">
-									Episode #{{number}}
-									{{ post.postDate | date("F d, Y") }}</div>
-								<div class="post__title">{{ title }}</div>
-								{% if excerpt %}
-									<div class="post__excerpt">{{ excerpt|length > 110 ? excerptSliced|raw : excerpt|raw }}</div>
-								{% endif %}
+								<a href="{{ post.url}}" class="post__text-hld">
+									<div class="post__date">
+										Episode #{{number}}
+										{{ post.postDate | date("F d, Y") }}</div>
+									<div class="post__title">{{ title }}</div>
+									{% if excerpt %}
+										<div class="post__excerpt">{{ excerpt|length > 110 ? excerptSliced|raw : excerpt|raw }}</div>
+									{% endif %}
+								</a>
 								<div class="post__widget-title">{{ podcastDetailsIframeTitle }}</div>
 								{% if podcastDetailsIframeWidget %}
 									<div class="post__widget-hld">
 										{{ podcastDetailsIframeWidget|raw }}
 									</div>
 								{% endif %}
+								<a href="{{ post.url}}" class="post__btn u-btn u-btn--arrow">
+									<span class="text">See details</span>
+								</a>
 								<div class="video-modal js-modal-modal">
 									<div class="overlay js-modal-close"></div>
 									<div class="video-modal__inner">
