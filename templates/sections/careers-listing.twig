@@ -8,8 +8,8 @@
 				<div class="title u-title u-title--section">{{ careersTitle }}</div>
 				<div class="description">{{ careersDescription }}</div>
 			</div>
-			<div class="careers-listing__items-hld">
-				{% for item in careersItemsMatrix %}
+			<div class="careers-listing__items-hld js-careers-listing">
+				{# {% for item in careersItemsMatrix %}
 					{% set jobTitle = item.jobTitle %}
 					{% set jobCity = item.jobCity %}
 					{% set jobUrl = item.jobUrl %}
@@ -18,7 +18,7 @@
 						<div class="city">{{ jobCity }}</div>
 						<div class="arrow icon icon-arrow-right"></div>
 					</a>
-				{% endfor %}
+				{% endfor %} #}
 			</div>
 		</div>
 	</div>
