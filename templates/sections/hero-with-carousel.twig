@@ -55,9 +55,16 @@
 							{% for image in carouselImages %}
 								{% set carouselImageText = image.carouselImageText %}
 								<div class="carousel__slider-item swiper-slide">
-									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
-									{% if carouselImageText %}
-										<div class="text">{{ carouselImageText }}</div>
+									{% if image.kind == 'video' %}
+										<div class="slider-item__video-hld js-video-hld is-paused">
+											<span class="icon icon-button_play"></span>
+											<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}"></video>
+										</div>
+									{% else %}
+										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
+										{% if carouselImageText %}
+											<div class="text">{{ carouselImageText }}</div>
+										{% endif %}
 									{% endif %}
 								</div>
 							{% endfor %}

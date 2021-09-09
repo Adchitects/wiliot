@@ -18,6 +18,11 @@
 	&__items-hld {
 		max-width: 865px;
 		margin-top: 75px;
+		transition: opacity 1s ease;
+
+		&.hidden {
+			opacity: 0;
+		}
 
 		@include mobile-599 {
 			margin-top: 40px;

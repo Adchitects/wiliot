@@ -1,4 +1,4 @@
-dateModified: 1627312100
+dateModified: 1631106843
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -99,6 +99,7 @@ meta:
     11c58903-bec1-48ae-8ec4-0e0d5c6a07a8: 'Job Url' # Job Url
     11ce1e52-e709-4a12-b8e8-08c1fe39f993: Careers # Careers
     12af7258-908b-4cd4-9fa8-1fadde60da6b: 'Menu - desktop' # Menu - desktop
+    12f9a238-263a-4ccf-9e1f-33eac2989e6a: 'Single Career' # Single Career
     15a29526-16a0-4385-841c-247cd0c057af: Feature # Feature
     19e0f4f0-2809-4438-aac0-8647ec8484fc: Buttons # Buttons
     19e14f84-94c7-4ee4-9cd0-c5502ad3dcf8: Image # Image
@@ -249,6 +250,7 @@ meta:
     28534271-d900-4661-aef7-3c72a4e3ac85: List # List
     31897842-1c29-4056-bbe7-d60ce1d96abe: 'Product other component' # Product other component
     41795620-8c6b-4592-82a4-34fcd15c20a8: 'Bottom Button' # Bottom Button
+    54677025-8365-40f8-b2ec-837a2cfd14a6: 'Single Career' # Single Career
     66244511-52d0-45cd-86d3-415cb109cfbb: 'Meta description' # Meta description
     71173714-9a88-4084-acbc-889afd1e58b7: Logo # Logo
     76761755-ed7f-48df-a908-b217ec82a181: 'Hero Description Bold' # Hero Description Bold
@@ -471,7 +473,7 @@ system:
   edition: solo
   live: true
   name: Wiliot
-  schemaVersion: 3.7.7
+  schemaVersion: 3.7.8
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

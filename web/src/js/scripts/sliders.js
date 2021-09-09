@@ -191,13 +191,6 @@ carouselSliderHldAll.forEach(sliderHld => {
 		slidesPerView: 'auto',
 		spaceBetween: 24,
 		grabCursor: true,
-		slideToClickedSlide: true,
-		// loop: true,
-		// on: {
-		// 	slideChange: function() {
-		// 		lazyLoadInstance.update();
-		// 	},
-		// },
 		navigation: {
 			prevEl: '.js-carousel-slider-button-prev',
 			nextEl: '.js-carousel-slider-button-next',
