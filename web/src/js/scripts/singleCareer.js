@@ -1,7 +1,7 @@
 const COMPANY_UID = 'F6.003';
 const TOKEN = '6F329B2DE6379829B229B2037983E8B3E8B';
 
-if ( window.location.pathname === '/web/single-career' ) {
+if ( document.body.matches('.is-page-single.career') ) {
 	const urlParams = new URLSearchParams(window.location.search);
 	const POSITION_UID = urlParams.get('id');
 

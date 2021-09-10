@@ -10,7 +10,7 @@ if (careersListing) {
 			let offersHTML = '';
 			offers.forEach(offer => {
 				offersHTML += `
-                <a href="/web/single-career?id=${offer.uid}" class="careers-listing__item">
+                <a href="/single-career?id=${offer.uid}" class="careers-listing__item">
                     <div class="title u-subtitle u-subtitle--big">${offer.name}</div>
                     <div class="city">${offer.location.name}</div>
                     <div class="arrow icon icon-arrow-right"></div>
