@@ -1,3 +1,11 @@
+.is-page-careers {
+	.hero__text-hld {
+		@include media-min(1024) {
+			margin-top: 220px;
+		}
+	}
+}
+
 .u-section--careers-listing {
 	margin-bottom: 135px;
 

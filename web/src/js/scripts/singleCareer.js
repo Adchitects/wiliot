@@ -38,8 +38,9 @@ if ( document.body.matches('.is-page-single.career') ) {
 				details: careerDetails,
 			} = response;
 
-			const careerDescription = careerDetails.filter(d => d.name === 'Description')[0].value.replaceAll('ul', 'ol');
-			const careerRequirements = careerDetails.filter(d => d.name === 'Requirements')[0].value.replaceAll('ul', 'ol');
+			const careerDescription = careerDetails.filter(d => d.name === 'Description')[0].value;
+			const careerRequirements = careerDetails.filter(d => d.name === 'Requirements')[0].value;
+			const careerResponsibilities = careerDetails.filter(d => d.name === 'Responsibilities')[0].value;
 
 			const careerDetailsHld = document.querySelector('.js-career-details');
 
@@ -69,8 +70,20 @@ if ( document.body.matches('.is-page-single.career') ) {
 
 			const careerDescriptionHld = careerDetailsHld.querySelector('.js-career-description');
 			careerDescriptionHld.innerHTML = careerDescription;
-			const careerRequirementsHld = careerDetailsHld.querySelector('.js-career-requirements');
-			careerRequirementsHld.innerHTML = careerRequirements;
+			if (careerResponsibilities) {
+				const careerResponsibilitiesHld =  careerDetailsHld.querySelector('.js-career-responsibilities');
+				careerResponsibilitiesHld.innerHTML = careerResponsibilities;
+			} else {
+				const careerResponsibilitiesTitleHld =  careerDetailsHld.querySelector('.js-career-responsibilities-title');
+				careerResponsibilitiesTitleHld.remove();
+			}
+			if (careerRequirements) {
+				const careerRequirementsHld = careerDetailsHld.querySelector('.js-career-requirements');
+				careerRequirementsHld.innerHTML = careerRequirements;
+			} else {
+				const careerRequirementsTitleHld = careerDetailsHld.querySelector('.js-career-requirements-title');
+				careerRequirementsTitleHld.remove();
+			}
 
 			careerDetailsHld.classList.remove('hidden');
 		})
