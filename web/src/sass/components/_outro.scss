@@ -7,7 +7,7 @@
 		margin-top: 90px;
 	}
 
-	.is-page-purchase & {
+	.is-page-starter.kit & {
 		margin-top: 105px;
 		padding-top: 130px;
 		padding-bottom: 115px;
@@ -63,7 +63,7 @@
 		margin: 0 auto;
 		margin-top: 30px;
 
-		.is-page-purchase & {
+		.is-page-starter.kit & {
 			max-width: 510px;
 		}
 	}
@@ -101,7 +101,7 @@
 			}
 		}
 
-		.is-page-purchase & {
+		.is-page-starter.kit & {
 			&:first-of-type {
 				background-color: $c-white;
 
@@ -116,7 +116,7 @@
 						color: $c-white;
 					}
 				}
-		
+
 				@include mobile-599 {
 					margin-top: 35px;
 				}
