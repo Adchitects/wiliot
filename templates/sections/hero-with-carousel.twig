@@ -53,17 +53,16 @@
 					<div class="carousel__slider js-carousel-slider swiper-container">
 						<div class="swiper-wrapper">
 							{% for image in carouselImages %}
-								{% set carouselImageText = image.carouselImageText %}
-									{% if image.kind == 'video' %}
+									{% if image.asset.one().kind == 'video' %}
 										<div class="carousel__slider-item carousel__slider-item--video swiper-slide">
 											<div class="slider-item__video-hld js-video-hld is-paused">
 												<span class="icon icon-button_play"></span>
-												<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}"></video>
+												<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
 											</div>
 										</div>
 									{% else %}
 										<div class="carousel__slider-item swiper-slide">
-											<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
+											<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
 											{% if carouselImageText %}
 												<div class="text">{{ carouselImageText }}</div>
 											{% endif %}

@@ -1,0 +1,31 @@
+{% set title = entry.TextAndPhotoTitle %}
+{% set subtitle = entry.TextAndPhotoSubtitle %}
+{% set textTitle = entry.TextAndPhotoTextTitle %}
+{% set text = entry.TextAndPhotoText %}
+{% set link = entry.TextAndPhotoButton %}
+{% set image = entry.TextAndPhotoImage.one() %}
+
+<section class="u-section u-section--text-and-photo">
+	<div class="u-wrapper">
+        {% if subtitle %}
+            <span class="text-and-photo-section-subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+        {% endif %}
+        {% if title %}
+            <h2 class="text-and-photo-section-title u-title u-title--section">{{ title }}</h2>
+        {% endif %}
+		<div class="text-and-photo">
+            <div class="text-and-photo__col">
+                <div class="text-and-photo__text-hld">
+                    <h3 class="text-and-photo__title">{{ textTitle }}</h3>
+                    <p class="text-and-photo__text">{{ text }}</p>
+                    {% if link %}
+                        <a class="text-and-photo__button u-btn u-btn--light" href="{{ link }}" ><span class="text">{{ link.customText }}</span></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="text-and-photo__col">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy text-and-photo__image" alt="{{ title }}">
+            </div>
+        </div>
+    </div>
+</section>

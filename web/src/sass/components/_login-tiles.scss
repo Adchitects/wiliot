@@ -17,6 +17,24 @@
 	}
 }
 
+.is-page-getting.started.guide {
+	.u-section--login-tiles {
+		padding: 96px 0;
+		background-color: #F5F9FC;
+
+		.u-title {
+			text-align: center;
+		}
+
+		.u-btn {
+			display: table;
+			min-width: 192px;
+			margin: 48px auto 0 auto;
+			text-align: center;
+		}
+	}
+}
+
 .login-tiles {
 	&__title {
 		margin-top: 10px;
