@@ -18,10 +18,13 @@
 							<span class="icon icon-user"></span>
 						{% endif %}
 						<span class="text">{{ menuDesktopTitle }}</span>
-						{% if menuDesktopDescription %}
+						{% if menuDesktopDescription or menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
 							<span class="icon icon-dropdown-down"></span>
 						{% endif %}
 					</a>
+					{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+						<a href="/" class="logout-dropdown js-logout">Logout</a>
+					{% endif %}
 				{% else %}
 					<div class="inner">
 						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
