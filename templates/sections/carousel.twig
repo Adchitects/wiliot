@@ -1,7 +1,6 @@
 {% set carouselSubtitle = entry.carouselSubtitle %}
 {% set carouselTitle = entry.carouselTitle %}
 {% set carouselImages = entry.carouselImages %}
-{% set videoPlaceholder = VideosGlobal.videoPlaceholder %}
 {% if carouselTitle %}
 	<section class="u-section u-section--carousel js-carousel-slider-hld">
 		<div class="carousel">
@@ -21,9 +20,10 @@
 								{% set asset = image.asset.one() %}
 								{% if asset.kind == 'video' %}
 									<div class="carousel__slider-item carousel__slider-item--video swiper-slide">
-										<div class="slider-item__video-hld js-video-hld is-paused">
+										<div class="slider-item__video-hld js-video-hld is-paused show-thumbnail">
 											<span class="icon icon-button_play"></span>
-											<video class="js-lazy" poster="{{ videoPlaceholder.one().getUrl() }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ asset.getUrl() }}"></video>
+											<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
+											<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ asset.getUrl() }}"></video>
 										</div>
 								{% else %}
 									<div class="carousel__slider-item swiper-slide">

@@ -56,8 +56,9 @@
 							{% for image in carouselImages %}
 									{% if image.asset.one().kind == 'video' %}
 										<div class="carousel__slider-item carousel__slider-item--video swiper-slide">
-											<div class="slider-item__video-hld js-video-hld is-paused">
+											<div class="slider-item__video-hld js-video-hld is-paused show-thumbnail">
 												<span class="icon icon-button_play"></span>
+												<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
 												<video class="js-lazy" poster="{{ videoPlaceholder.one().getUrl() }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
 											</div>
 										</div>
