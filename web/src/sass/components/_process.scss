@@ -1,0 +1,56 @@
+.u-section--process {
+	margin-top: 120px;
+
+	.steps {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-items: center;
+		margin-top: 30px;
+		column-gap: 78px;
+		row-gap: 78px;
+
+		@include tablet-small-1023 {
+			grid-template-columns: 1fr;
+		}
+
+		&__step {
+
+			.step {
+				max-width: 300px;
+
+				&__number {
+					color: $c-accent;
+					font-size: 24px;
+					font-weight: 900;
+					line-height: 36px;
+				}
+
+				&__title {
+					color: $c-black;
+					font-size: 24px;
+					font-weight: 900;
+					line-height: 36px;
+				}
+
+				&__description {
+					margin-top: 16px;
+					font-size: 16px;
+					font-weight: 300;
+					line-height: 26px;
+					opacity: 0.8;
+
+					h2,
+					h3 {
+						font-size: 32px;
+						font-weight: 900;
+						line-height: 40px;
+					}
+				}
+
+				&__button {
+					margin-top: 48px;
+				}
+			}
+		}
+	}
+}

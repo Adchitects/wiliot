@@ -4,11 +4,12 @@
     {% set firstVideo = videos | first %}
     {% set videos = videos | slice(1) %}
 {% set buttons = entry.VideosButtons %}
+{% set videoPlaceholder = VideosGlobal.videoPlaceholder %}
 
 <section class="u-section u-section--videos">
 	<div class="u-wrapper">
         {% if subtitle %}
-            <span class="videos-section-subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+            {{ test }}<span class="videos-section-subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
         {% endif %}
         {% if title %}
             <h2 class="videos-section-title u-title u-title--section">{{ title }}</h2>
@@ -18,7 +19,7 @@
             <div class="video-hld js-video-hld is-paused">
                 <span class="video-number">#1</span>
                 <span class="icon icon-button_play"></span>
-                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ firstVideo.file.one().getUrl() }}"></video>
+                <video class="js-lazy" poster="{{ videoPlaceholder.one().getUrl() }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ firstVideo.file.one().getUrl() }}"></video>
             </div>
             <p class="main-video__desc">{{ firstVideo.description }}</p>
         </div>
@@ -39,7 +40,7 @@
                         <div class="video-hld js-video-hld is-paused">
                             <span class="video-number">#{{ loop.index + 1 }}</span>
                             <span class="icon icon-button_play"></span>
-                            <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.file.one().getUrl() }}"></video>
+                            <video class="js-lazy" poster="{{ videoPlaceholder.one().getUrl() }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.file.one().getUrl() }}"></video>
                         </div>
                         <p class="video-desc">{{ video.description }}</p>
                     </div>
