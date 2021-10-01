@@ -1,6 +1,16 @@
 .u-section--process {
 	margin-top: 120px;
 
+	.process-image {
+		max-width: calc(100% + 106px);
+		margin-left: -106px;
+
+		@include tablet-small-1023 {
+			max-width: 100%;
+			margin-left: 0;
+		}
+	}
+
 	.steps {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;

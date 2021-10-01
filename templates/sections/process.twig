@@ -2,7 +2,7 @@
 {% set steps = entry.processSteps.all() %}
 <section class="u-section u-section--process">
 	<div class="u-wrapper">
-        <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ processImage.getUrl() }}" alt="process">
+        <img class="js-lazy process-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ processImage.getUrl() }}" alt="process">
 		<div class="steps">
 			{% if steps %}
 					{% for item in steps %}
