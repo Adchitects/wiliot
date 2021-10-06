@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: f1fb6e6d-ff6e-4dba-93a6-bf47b346ab75 # Process
+handle: processSteps
+instructions: ''
+name: Steps
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_processsteps}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
