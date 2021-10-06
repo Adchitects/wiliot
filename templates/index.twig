@@ -243,14 +243,23 @@
 						</div>
 					{% endfor %}
 				{% endif %}
+				{% set sectionId = '01' %}
 				{{ include('/sections/hero-image-right.twig') }}
+				{% set sectionId = '02' %}
 				{{ include('/sections/centered-content.twig') }}
+				{% set sectionId = '03' %}
 				{{ include('/sections/tabs.twig') }}
+				{% set sectionId = '04' %}
 				{{ include('/sections/features.twig') }}
+				{% set sectionId = '05' %}
 				{{ include('/sections/logos-slider.twig') }}
+				{% set sectionId = '06' %}
 				{{ include('/sections/sliding-boxes.twig') }}
+				{% set sectionId = '07' %}
 				{{ include('/sections/latest-news.twig') }}
+				{% set sectionId = '08' %}
 				{{ include('/sections/outro.twig') }}
+				{% set sectionId = '' %}
 			{% endblock %}
 		</main>
 		<footer>

@@ -9,9 +9,8 @@
 	{% set title = category.heroTitle %}
 	{% set size = category.heroSizes.value %}
 {% endif %}
-{% set videoPlaceholder = VideosGlobal.videoPlaceholder %}
 {% if entry is defined or category is defined %}
-	<section class="u-section u-section--hero is-{{ size }} js-bg-shape-hld is-carousel">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero is-{{ size }} js-bg-shape-hld is-carousel">
 		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
 			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
@@ -58,16 +57,15 @@
 										<div class="carousel__slider-item carousel__slider-item--video swiper-slide">
 											<div class="slider-item__video-hld js-video-hld is-paused show-thumbnail">
 												<span class="icon icon-button_play"></span>
-												<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
-												<video class="js-lazy" poster="{{ videoPlaceholder.one().getUrl() }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
+												{% if image.videoThumbnail.one() %}
+													<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
+												{% endif %}
+												<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
 											</div>
 										</div>
 									{% else %}
 										<div class="carousel__slider-item swiper-slide">
 											<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
-											{% if carouselImageText %}
-												<div class="text">{{ carouselImageText }}</div>
-											{% endif %}
 										</div>
 									{% endif %}
 							{% endfor %}

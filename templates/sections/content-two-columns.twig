@@ -3,7 +3,7 @@
 {% set centered = entry.contentTwoColumnsTextCentered %}
 {% set content = entry.contentTwoColumnsContent %}
 {% set videoLink = entry.contentTwoColumnsVideoLink %}
-<section class="u-section u-section--two-columns">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--two-columns">
 	<div class="two-columns js-modal-hld">
 		{% if subtitle %}
 			<h5 class="two-columns__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h5>

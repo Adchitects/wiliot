@@ -4,7 +4,7 @@
 {% set videoLink = entry.heroImageRightVideoLink %}
 {% set button = entry.heroImageRightButton %}
 {% if entry is defined %}
-	<section class="u-section u-section--hero-img-right">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-img-right">
 		<div class="video-wrapper">
 			<iframe allow="autoplay" data-src="{{ videoBackgroundLink }}" frameborder="0" width="1920" height="768" class="youtube-video js-lazy"></iframe>
 		</div>

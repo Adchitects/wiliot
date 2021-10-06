@@ -1,7 +1,7 @@
 {% set title = entry.introTitle %}
 {% set description = entry.introDescription %}
 {% if title or description %}
-<section class="u-section u-section--intro">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--intro">
 	<div class="intro">
 		<div class="intro__text-hld u-wrapper">
 			{% if title %}

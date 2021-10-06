@@ -1,6 +1,6 @@
 {% set title = entry.accordionTitle %}
 {% set accordionList = entry.accordionList.all() %}
-<section class="u-section u-section--accordion">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--accordion">
 	<div class="accordion js-accordion">
 		{% if title %}
 			<h2 class="accordion__title u-title">{{ title }}</h2>

@@ -14,6 +14,9 @@
 	<meta property="og:type" content="website"/>
 {% endblock %}
 {% block main %}
+	{% set sectionId = '01' %}
 	{{ include('/sections/hero-with-carousel.twig') }}
+	{% set sectionId = '02' %}
 	{{ include('/sections/careers-listing.twig') }}
+	{% set sectionId = '' %}
 {% endblock %}

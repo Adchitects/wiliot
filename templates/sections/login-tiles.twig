@@ -4,7 +4,7 @@
 
 {% set gettingStartedGuide = entry.section.handle == 'gettingStartedGuide' %}
 
-<section class="u-section u-section--login-tiles js-bg-shape-hld js-login">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--login-tiles js-bg-shape-hld js-login">
 
 	{% if gettingStartedGuide == false %}
 	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">

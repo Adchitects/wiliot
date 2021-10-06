@@ -9,7 +9,8 @@
 	{% set page404title = page404.page404title %}
 	{% set page404subtitle = page404.page404subtitle %}
 	{% set page404button = page404.page404button %}
-	<section class="u-section u-section--page404 js-bg-shape-hld">
+	{% set sectionId = '01' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--page404 js-bg-shape-hld">
 		<div class="bg-shape bg-shape--center-center js-bg-shape" data-version="center-center">
 			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-center.png' )}}" alt="Background shape blurry blob">
 		</div>
@@ -26,5 +27,6 @@
 				</a>
 			</div>
 		</div>
-	</section>	
+	</section>
+	{% set sectionId = '' %}
 {% endblock %}

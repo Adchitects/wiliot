@@ -14,8 +14,13 @@
 	<meta property="og:type" content="website"/>
 {% endblock %}
 {% block main %}
+	{% set sectionId = '01' %}
 	{{ include('/sections/solutions-details-inner.twig') }}
+	{% set sectionId = '02' %}
 	{{ include('/sections/video.twig') }}
+	{% set sectionId = '03' %}
 	{{ include('/sections/outro.twig') }}
+	{% set sectionId = '04' %}
 	{{ include('/sections/solutions-other.twig') }}
+	{% set sectionId = '' %}
 {% endblock %}

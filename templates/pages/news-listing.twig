@@ -28,8 +28,10 @@
 	{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
 	{% set newsListingSectionUrl = newsListingSectionEntry.url %}
 	{% set categories = craft.categories().group('newsCategories') %}
+	{% set sectionId = '01' %}
 	{{ include('/sections/hero.twig') }}
-	<section class="u-section u-section--news-listing">
+	{% set sectionId = '02' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--news-listing">
 		<div class="u-wrapper u-wrapper--medium-wide">
 			<div class="news-listing js-load-more-hld">
 				<div class="news-listing__filters-hld">
@@ -184,5 +186,7 @@
 			</div>
 		</div>
 	</section>
+	{% set sectionId = '03' %}
 	{{ include('/sections/subscribe.twig') }}
+	{% set sectionId = '' %}
 {% endblock %}

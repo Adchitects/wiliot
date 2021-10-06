@@ -1,7 +1,6 @@
 {% set careersTitle = entry.careersTitle %}
 {% set careersDescription = entry.careersDescription %}
-{% set careersItemsMatrix = entry.careersItemsMatrix.all() %}
-<section class="u-section u-section--careers-listing">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--careers-listing">
 	<div class="careers-listing">
 		<div class="u-wrapper">
 			<div class="careers-listing__text-hld">

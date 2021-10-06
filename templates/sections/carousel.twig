@@ -2,7 +2,7 @@
 {% set carouselTitle = entry.carouselTitle %}
 {% set carouselImages = entry.carouselImages %}
 {% if carouselTitle %}
-	<section class="u-section u-section--carousel js-carousel-slider-hld">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--carousel js-carousel-slider-hld">
 		<div class="carousel">
 			<div class="u-wrapper">
 				{% if carouselSubtitle %}

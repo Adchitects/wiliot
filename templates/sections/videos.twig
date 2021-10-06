@@ -5,7 +5,7 @@
     {% set videos = videos | slice(1) %}
 {% set buttons = entry.VideosButtons %}
 
-<section class="u-section u-section--videos">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--videos">
 	<div class="u-wrapper">
         {% if subtitle %}
             {{ test }}<span class="videos-section-subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>

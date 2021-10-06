@@ -2,7 +2,7 @@
 {% set title = entry.productHeroTitle %}
 {% set image = entry.productHeroImage.one() %}
 {% if entry is defined %}
-	<section class="u-section u-section--product-hero js-bg-shape-hld">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="u-wrapper--medium-wide u-wrapper">
 			<div class="product-hero">
 				<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">

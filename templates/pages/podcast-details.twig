@@ -21,7 +21,8 @@
 	{% set content = entry.podcastDetailsContent %}
 	{% set transcript = entry.podcastDetailsTranscript %}
 	{% set date = entry.postDate|date("F d, Y") %}
-	<section class="u-section u-section--hero-podcast-details js-modal-hld">
+	{% set sectionId = '01' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-podcast-details js-modal-hld">
 		<div class="video-wrapper">
 			<iframe allow="autoplay" data-src="https://www.youtube.com/embed/{{ id }}?rel=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={{ id }}&amp;showinfo=0&amp;wmode=transparent&amp;controls=0&amp;enablejsapi=1&amp;origin=https://www.wiliot.com" frameborder="0" width="640" height="360" class="youtube-video js-lazy"></iframe>
 		</div>
@@ -50,7 +51,8 @@
 			</div>
 		</div>
 	</section>
-	<article class="podcast-details">
+	{% set sectionId = '02' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="podcast-details">
 		<div class="u-wrapper u-wrapper--content">
 			<div class="podcast-details__header">
 				{% if number %}
@@ -139,5 +141,6 @@
 			</div>
 		</div>
 		{% endif %}
-	</article>
+	</section>
+	{% set sectionId = '' %}
 {% endblock %}

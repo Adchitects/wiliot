@@ -1,5 +1,4 @@
 const careersListing = document.querySelector('.js-careers-listing');
-
 if (careersListing) {
 	const COMPANY_UID = 'F6.003';
 	const TOKEN = '6F329B2DE6379829B229B2037983E8B3E8B';
@@ -22,4 +21,3 @@ if (careersListing) {
 		})
 		.catch(err => console.error(err));
 }
-

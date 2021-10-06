@@ -5,7 +5,7 @@
 {% set link = entry.TextAndPhotoButton %}
 {% set image = entry.TextAndPhotoImage.one() %}
 
-<section class="u-section u-section--text-and-photo">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--text-and-photo">
 	<div class="u-wrapper">
         {% if subtitle %}
             <span class="text-and-photo-section-subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>

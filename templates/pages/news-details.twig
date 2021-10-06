@@ -28,7 +28,8 @@
 	{% set newsContent = entry.postContent %}
 	{% set newsPostsEventText = entry.newsPostsEventText %}
 	{% set postDate = entry.postDate|date("F d, Y") %}
-	<section class="u-section u-section--hero-news {{ heroImage ? null : 'is-no-featured-image' }}">
+	{% set sectionId = '01' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-news {{ heroImage ? null : 'is-no-featured-image' }}">
 		<div class="bg-shape-hld js-bg-shape-hld">
 			<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 				<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
@@ -50,7 +51,8 @@
 			</div>
 		</div>
 	</section>
-	<article class="news-single js-bg-shape-hld {{ heroImage ? null : 'is-no-featured-image' }}">
+	{% set sectionId = '02' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="news-single js-bg-shape-hld {{ heroImage ? null : 'is-no-featured-image' }}">
 		<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
 			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
 		</div>
@@ -93,6 +95,8 @@
 				</div>
 			</div>
 		</div>
-	</article>
+	</section>
+	{% set sectionId = '03' %}
 	{{ include('/sections/related-posts.twig') }}
+	{% set sectionId = '' %}
 {% endblock %}

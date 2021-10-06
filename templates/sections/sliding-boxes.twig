@@ -2,7 +2,7 @@
 {% set subtitle = entry.slidingBoxesSubtitle %}
 {% set boxes = entry.slidingBoxesList.all() %}
 
-<section class="u-section u-section--sliding-boxes">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--sliding-boxes">
 	<div class="sliding-boxes">
 		{% if subtitle %}
 			<span class="sliding-boxes__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>

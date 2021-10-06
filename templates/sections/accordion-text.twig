@@ -2,7 +2,7 @@
 {% set subtitle = entry.accordionTextSubtitle %}
 {% set image = entry.accordionTextImage.one() %}
 {% set accordionList = entry.accordionTextItems.all() %}
-<section class="u-section u-section--accordion-text js-bg-shape-hld">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--accordion-text js-bg-shape-hld">
 	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
 		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
 	</div>
