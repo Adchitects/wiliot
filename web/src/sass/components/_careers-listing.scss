@@ -1,3 +1,11 @@
+.is-page-careers {
+	.hero__text-hld {
+		@include media-min(1024) {
+			margin-top: 220px;
+		}
+	}
+}
+
 .u-section--careers-listing {
 	margin-bottom: 135px;
 
@@ -18,6 +26,11 @@
 	&__items-hld {
 		max-width: 865px;
 		margin-top: 75px;
+		transition: opacity 1s ease;
+
+		&.hidden {
+			opacity: 0;
+		}
 
 		@include mobile-599 {
 			margin-top: 40px;

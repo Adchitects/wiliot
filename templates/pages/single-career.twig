@@ -1,0 +1,56 @@
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %}
+	{{ parent() }}
+	<script>
+	window.comeetInit = function() {
+		COMEET.init({
+			"token":       	"6F329B2DE6379829B229B2037983E8B3E8B",
+			"company-uid": 	"F6.003",
+			"company-name":	"Wiliot",
+			"color":       	"27bcbc",
+			"font-size":   	"14px",
+			"button-font-size":  "16px",
+			"css-url":		"http://wiliot.adchitects.co/web/src/css/comeet-form-style.css",
+			"css-cache":	false
+		});
+	};
+
+	(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return; } js = d.createElement(s); js.id = id;
+	js.src = "//www.comeet.co/careers-api/api.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'comeet-jsapi'));
+	</script>
+{% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
+	<meta property="og:type" content="website"/>
+{% endblock %}
+{% block main %}
+	<div class="u-section">
+		<div class="u-wrapper">
+			<div class="career careerHld">
+				<div class="career__details hidden js-career-details">
+					<h1 class="career__title js-career-title"></h1>
+					<div class="career__info">
+						<p class="js-career-location"></p>
+						<p class="js-career-level"></p>
+						<p class="js-career-type"></p>
+					</div>
+					<div class="career__description js-career-description"></div>
+					<h1 class="career__subtitle js-career-responsibilities-title">Responsibilities</h1>
+					<div class="career__description js-career-responsibilities"></div>
+					<h1 class="career__subtitle js-career-requirements-title">Requirements</h1>
+					<div class="career__requirements js-career-requirements"></div>
+				</div>
+				<div class="career__form hidden js-career-form"></div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

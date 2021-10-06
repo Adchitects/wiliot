@@ -25,9 +25,19 @@
 		padding-bottom: 120px;
 	}
 
-	.is-page-purchase & {
+	.is-page-starter.kit & {
 		padding-top: 130px;
 		padding-bottom: 100px;
+
+		@include tablet-medium-1199 {
+			padding-top: 0;
+			padding-bottom: 60px;
+		}
+	}
+
+	.is-page-getting.started.guide & {
+		padding-top: 130px;
+		padding-bottom: 150px;
 
 		@include tablet-medium-1199 {
 			padding-top: 0;

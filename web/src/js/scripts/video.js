@@ -3,6 +3,7 @@ videoHldAll.forEach(hld => {
 	const vid = hld.querySelector('video');
 	let videoIsPlayed = false;
 	vid.addEventListener('click', () => {
+		hld.classList.remove('show-thumbnail');
 		if (!videoIsPlayed) {
 			vid.play();
 			videoIsPlayed = true;
