@@ -6,7 +6,6 @@ sectionAll.forEach((section, key) => {
 	let sectionId = '#' + ('0' + parseInt(key + 1, 16)).slice(-2);
 	const updateUrl = () => {
 		window.history.replaceState({page: 'messages' }, '', sectionId);
-		console.log(key + 1);
 	};
 	gsap.to(section, {
 		scrollTrigger: {

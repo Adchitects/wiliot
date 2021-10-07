@@ -49,13 +49,34 @@
 				{% endif %}
 			</div>
 			{% if carouselImages %}
-				<div class="carousel__slider-hld">
+				<div class="carousel__slider-hld js-modal-hld">
+					{% for image in carouselImages %}
+						{% if image.asset.one().kind == 'video' %}
+							<div class="video-modal js-modal-modal">
+								<div class="overlay js-modal-close"></div>
+								<div class="video-modal__inner">
+									<div class="video-modal__modal">
+										<div class="video-hld js-video-hld is-paused show-thumbnail">
+											<span class="icon icon-button_play"></span>
+											{% if image.videoThumbnail.one() %}
+												<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
+											{% endif %}
+											<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
+										</div>
+									</div>
+									<span class="video-modal__close js-modal-close">
+										<span class="icon icon-close"></span>
+									</span>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
 					<div class="carousel__slider js-carousel-slider swiper-container">
 						<div class="swiper-wrapper">
 							{% for image in carouselImages %}
 									{% if image.asset.one().kind == 'video' %}
 										<div class="carousel__slider-item carousel__slider-item--video swiper-slide">
-											<div class="slider-item__video-hld js-video-hld is-paused show-thumbnail">
+											<div class="slider-item__video-hld is-paused show-thumbnail js-modal-btn">
 												<span class="icon icon-button_play"></span>
 												{% if image.videoThumbnail.one() %}
 													<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
