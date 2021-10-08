@@ -34,6 +34,7 @@ modalHldAll.forEach(modalHld => {
 				if (videoHld) {
 					const video = videoHld.querySelector('video');
 					video.pause();
+					// eslint-disable-next-line
 					videoIsPlayed = false;
 					videoHld.classList.add('is-paused');
 				}
