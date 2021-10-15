@@ -22,8 +22,8 @@
 			</title>
 			{% block description %}
 				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+				<link rel="canonical" href="{{ craft.request.getUrl() }}"/>
 			{% endblock %}
-			<link rel="canonical" href="{{ craft.request.getUrl() }}"/>
 			<meta property="og:locale" content="en_US"/>
 			{% block og %}
 				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>

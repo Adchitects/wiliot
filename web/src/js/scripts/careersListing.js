@@ -32,6 +32,7 @@ if (careersListing) {
 				let filtersHTML = '';
 				let cities = [];
 				offers.forEach(offer => {
+					console.log(offer);
 					if (cities.indexOf(offer.location.name) === -1) {
 						cities.push(offer.location.name);
 					}

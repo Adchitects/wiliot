@@ -27,11 +27,13 @@
 {% endblock %}
 {% block description %}
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<link rel="canonical" href="{{ craft.request.getHostInfo() ~ craft.request.getRequestUri() }}" />
 {% endblock %}
 {% block og %}
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="{{ craft.request.getHostInfo() ~ craft.request.getRequestUri() }}"/>
 {% endblock %}
 {% block main %}
 	{% set sectionId = '01' %}
