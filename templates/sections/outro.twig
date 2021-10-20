@@ -35,7 +35,7 @@
 					<a href="{{ button2.url }}" target="{{ button2.target ? '_blank' : '_self' }}" rel="{{ button2.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
 						<span class="text">{{ button2.title }}</span>
 					</a>
-				{% elseif button %}
+				{% elseif button and button.url %}
 					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
 						<span class="text">{{ button.title }}</span>
 					</a>
