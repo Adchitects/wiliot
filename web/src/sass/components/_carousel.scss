@@ -94,8 +94,6 @@
 			}
 
 			video {
-				position: relative;
-				z-index: 1;
 				cursor: pointer;
 				width: auto;
 				max-width: calc(100vw - 60px);
@@ -125,6 +123,7 @@
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
+				pointer-events: none;
 			}
 
 			&.show-thumbnail {
