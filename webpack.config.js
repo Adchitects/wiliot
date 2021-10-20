@@ -19,6 +19,7 @@ const userConfig = {
 		'web/src/img/',
 		'web/src/fonts/',
 		'web/src/css/style.min.css',
+		'web/src/css/comeet-form-style.css',
 		'web/src/js/main.min.js',
 		'web/src/favicon.ico',
 		'sitemap.xml',

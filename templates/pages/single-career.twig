@@ -4,22 +4,21 @@
 {% block head %}
 	{{ parent() }}
 	<script>
-	window.comeetInit = function() {
-		COMEET.init({
-			"token":       	"6F329B2DE6379829B229B2037983E8B3E8B",
-			"company-uid": 	"F6.003",
-			"company-name":	"Wiliot",
-			"color":       	"27bcbc",
-			"font-size":   	"14px",
-			"button-font-size":  "16px",
-			"css-url":		"http://wiliot.adchitects.co/web/src/css/comeet-form-style.css",
-			"css-cache":	false,
-			"social-pinterest": false,
-		});
-	};
-
-	(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return; } js = d.createElement(s); js.id = id;
-	js.src = "//www.comeet.co/careers-api/api.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'comeet-jsapi'));
+		window.comeetInit = function() {
+			COMEET.init({
+				"token": "6F329B2DE6379829B229B2037983E8B3E8B",
+				"company-uid": "F6.003",
+				"company-name":	"Wiliot",
+				"color": "27bcbc",
+				"font-size": "14px",
+				"button-font-size": "16px",
+				"css-url": "http://wiliot.adchitects.co/web/src/css/comeet-form-style.css",
+				"css-cache": false,
+				"social-pinterest": false,
+			});
+		};
+		(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return; } js = d.createElement(s); js.id = id;
+		js.src = "//www.comeet.co/careers-api/api.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'comeet-jsapi'));
 	</script>
 {% endblock %}
 {% block title %}
