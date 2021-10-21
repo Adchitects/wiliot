@@ -63,9 +63,15 @@
 					font-size: 16px;
 					letter-spacing: 0;
 					line-height: 26px;
+					transition: border-bottom-color 0.2s;
+
+					&:hover {
+						border-bottom-color: $c-accent-dark;
+					}
 
 					&.is-active {
 						pointer-events: none;
+						border-bottom-color: $c-accent-dark;
 
 						&::before {
 							transform: rotateX(180deg);
