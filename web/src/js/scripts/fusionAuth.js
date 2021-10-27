@@ -43,29 +43,12 @@ const login = () => {
 			if (username) {
 				isLoginLinkText.innerText = username;
 				isLoginLink.classList.add('is-right');
+				isLoginLink.classList.add('has-dropdown');
 				isSupportLink.classList.add('is-hidden');
 			}
 		}).catch((err) => {
 			console.error(err);
 		});
-		// const logoutBtn = document.querySelector('.js-logout');
-		// if (logoutBtn) {
-		// 	logoutBtn.addEventListener('click', () => {
-		// 		localStorage.removeItem('access_token');
-		// 		localStorage.removeItem('refresh_token');
-		// 		localStorage.removeItem('expires_in');
-		// 		localStorage.removeItem('username');
-		// 		console.log('logout clicked');
-		// 		// window.location.replace('https://login.wiliot.com/oauth2/logout?client_id=3c219e58-ed0e-4b18-ad48-f4f92793ae32');
-		// 		window.open('https://login.wiliot.com/oauth2/logout?client_id=3c219e58-ed0e-4b18-ad48-f4f92793ae32', '_blank');
-		// 	}, {once: true});
-		// 	const username = localStorage.getItem('username');
-		// 	if (username) {
-		// 		isLoginLinkText.innerText = username;
-		// 	} else {
-		// 		isLoginLinkText.innerText = 'Login';
-		// 	}
-		// }
 	} else {
 		// console.log('returned');
 		return;
@@ -82,23 +65,15 @@ const isAuthenticate = () => {
 		if (username) {
 			isLoginLinkText.innerText = username;
 			isLoginLink.classList.add('is-right');
+			isLoginLink.classList.add('has-dropdown');
 			isSupportLink.classList.add('is-hidden');
 		}
-		// const logoutBtn = document.querySelector('.js-logout');
-		// if (logoutBtn) {
-		// 	logoutBtn.addEventListener('click', () => {
-		// 		localStorage.removeItem('access_token');
-		// 		localStorage.removeItem('refresh_token');
-		// 		localStorage.removeItem('expires_in');
-		// 		console.log('logout clicked');
-		// 		window.location.replace('https://login.wiliot.com/oauth2/logout?client_id=3c219e58-ed0e-4b18-ad48-f4f92793ae32');
-		// 	}, {once: true});
-		// }
 		return true;
 	} catch {
 		localStorage.removeItem('access_token');
 		localStorage.removeItem('refresh_token');
 		localStorage.removeItem('expires_in');
+		localStorage.removeItem('username');
 		// console.log('false token');
 		return false;
 	}
@@ -110,4 +85,15 @@ if (!token) {
 	}
 } else {
 	isAuthenticate();
+}
+
+// Logout
+const logoutBtn = document.querySelector('.js-logout');
+if (logoutBtn) {
+	logoutBtn.addEventListener('click', () => {
+		localStorage.removeItem('access_token');
+		localStorage.removeItem('refresh_token');
+		localStorage.removeItem('expires_in');
+		localStorage.removeItem('username');
+	});
 }
