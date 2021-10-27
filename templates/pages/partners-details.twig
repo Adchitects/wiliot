@@ -39,8 +39,10 @@
 	{% if partnerVideoFile %}
 		{% set partnerVideoFileUrl = partnerVideoFile.getUrl() %}
 	{% endif %}
+	{% set sectionId = '01' %}
 	{{ include('/sections/hero.twig') }}
-	<section class="u-section u-section--partners-details">
+	{% set sectionId = '02' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-details">
 		<div class="u-wrapper">
 			<div class="partners-details">
 				<a href="{{ newsListingSectionUrl }}" class="partners-details__backlink">
@@ -78,5 +80,7 @@
 			</div>
 		</div>
 	</section>
+	{% set sectionId = '03' %}
 	{{ include('/sections/partners-details-form-outro.twig') }}
+	{% set sectionId = '' %}
 {% endblock %}

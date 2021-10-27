@@ -1,7 +1,26 @@
 {% extends "index.twig" %}
 {% set metaTitle = entry.metaTitle %}
 {% set metaDescription = entry.metaDescription %}
-{% block head %} {{ parent() }} {% endblock %}
+{% block head %}
+	{{ parent() }}
+	<script>
+		window.comeetInit = function() {
+			COMEET.init({
+				"token": "6F329B2DE6379829B229B2037983E8B3E8B",
+				"company-uid": "F6.003",
+				"company-name":	"Wiliot",
+				"color": "27bcbc",
+				"font-size": "14px",
+				"button-font-size": "16px",
+				"css-url": "http://wiliot.adchitects.co/web/src/css/comeet-form-style.css",
+				"css-cache": false,
+				"social-pinterest": false,
+			});
+		};
+		(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return; } js = d.createElement(s); js.id = id;
+		js.src = "//www.comeet.co/careers-api/api.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'comeet-jsapi'));
+	</script>
+{% endblock %}
 {% block title %} 
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
@@ -12,8 +31,12 @@
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="{{ craft.request.getUrl() }}"/>
 {% endblock %}
 {% block main %}
+	{% set sectionId = '01' %}
 	{{ include('/sections/hero-with-carousel.twig') }}
+	{% set sectionId = '02' %}
 	{{ include('/sections/careers-listing.twig') }}
+	{% set sectionId = '' %}
 {% endblock %}

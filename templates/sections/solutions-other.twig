@@ -1,7 +1,7 @@
 {% set relatedEntries = craft.entries.section('solutionsDetails').id('not '~entry.id) %}
 {% set relatedSolutions = relatedEntries.limit(2) %}
 {% set relatedSolutionsTitle = solutionsGlobals.relatedSolutionsTitle %}
-<section class="u-section u-section--solutions-other">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--solutions-other">
 	<div class="u-wrapper">
 		<div class="solutions-other">
 			<div class="solutions-other__title u-title u-title--section">{{ relatedSolutionsTitle }}</div>

@@ -4,7 +4,7 @@
 	{% set videoFileUrl = videoFile.getUrl() %}
 {% endif %}
 {% if videoFileArray|length %}
-<section class="u-section u-section--video">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--video">
 	<div class="u-wrapper u-wrapper--medium-small">
 		<div class="video">
 			<div class="video__hld js-video-hld is-paused">

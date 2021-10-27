@@ -84,7 +84,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 9c0236e8-b45d-426d-a9ef-98e1a28bffac # Carousel subtitle
+            fieldUid: 06b467d9-d100-4143-b069-c550cb2880ff # Carousel subtitle
             instructions: null
             label: null
             required: false
@@ -93,7 +93,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 728a5398-9579-432c-9347-232326dedb3b # Carousel Title
+            fieldUid: 9764e735-6941-4d87-813d-40ce1377a025 # Carousel Title
             instructions: null
             label: null
             required: false
@@ -102,7 +102,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 1e7613e1-69f5-49da-82f7-f940e639a542 # Carousel images
+            fieldUid: e63cff16-d315-4307-8754-f5c2b2065d9a # Carousel items
             instructions: null
             label: null
             required: false
@@ -125,15 +125,6 @@ fieldLayouts:
             width: 100
           -
             fieldUid: defbca05-68ca-480e-824f-c83481c728c2 # Careers description
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 6a4304a5-bac1-4774-b70d-b933d4a49998 # Careers items
             instructions: null
             label: null
             required: false

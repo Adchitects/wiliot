@@ -1,0 +1,19 @@
+columnSuffix: xxlbnrfe
+contentColumnType: text
+fieldGroup: d884b922-16a7-4812-90d0-dddd3c2c50d8 # Text and Photo
+handle: TextAndPhotoTextTitle
+instructions: ''
+name: 'Text Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: 4
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

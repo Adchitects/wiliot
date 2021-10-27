@@ -1,0 +1,180 @@
+fieldLayouts:
+  f1aa2c6e-757a-404f-8563-7cbdcda34730:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 345b4661-88c3-4313-a1b2-3f233f9f8884 # Meta title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 66244511-52d0-45cd-86d3-415cb109cfbb # Meta description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'SEO Meta tags'
+        sortOrder: 1
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 70e371d8-d7fb-43ef-a3fc-913faa7db3d1 # Hero tItle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 070c859e-ec54-49e9-acd9-e658f728d891 # Hero subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 569c1536-e1e1-478b-8a94-de85377f9ba0 # Hero sizes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 76761755-ed7f-48df-a908-b217ec82a181 # Hero Description Bold
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b9b8efe2-c012-4449-82c9-1227050ecebb # Hero Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: 81219f5b-5b95-4c49-b139-42de4f67ec65 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9f228b4c-f012-484c-8615-377f81df9e68 # Steps
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Process
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: ba42799d-0a49-4f7f-817a-cde956fa12ee # Outro Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 105018f4-b231-4a6d-bfd1-bd253f36173b # Outro subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7637ec1c-947f-42f2-9b7d-3ba65f195b8d # Outro Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4318cfd0-f068-4073-9703-1db060485eb7 # Outro Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6b2ff6ec-480b-4eaf-b69a-c4c50f6a38c5 # Outro Button 2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Outro
+        sortOrder: 5
+handle: starterKit
+hasTitleField: false
+name: 'Starter Kit'
+section: e52313c2-008f-4abd-98dc-e06dda0aafa8 # Starter Kit
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

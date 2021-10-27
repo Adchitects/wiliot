@@ -22,8 +22,8 @@
 			</title>
 			{% block description %}
 				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+				<link rel="canonical" href="{{ craft.request.getUrl() }}"/>
 			{% endblock %}
-			<link rel="canonical" href="{{ craft.request.getUrl() }}"/>
 			<meta property="og:locale" content="en_US"/>
 			{% block og %}
 				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
@@ -39,7 +39,7 @@
 			<meta name="twitter:site" content="@WiliotHQ"/>
 			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
-			<meta name="twitter:image"content="{{ entry is defined and entry.newsPostsfeaturedImage ? entry.newsPostsfeaturedImage.one().getUrl() : alias('@web/src/img/image.jpg') }}"/>
+			<meta name="twitter:image" content="{{ entry is defined and entry.newsPostsfeaturedImage ? entry.newsPostsfeaturedImage.one().getUrl() : alias('@web/src/img/image.jpg') }}"/>
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon"/>
 			<style>
 				@font-face {
@@ -243,14 +243,23 @@
 						</div>
 					{% endfor %}
 				{% endif %}
+				{% set sectionId = '01' %}
 				{{ include('/sections/hero-image-right.twig') }}
+				{% set sectionId = '02' %}
 				{{ include('/sections/centered-content.twig') }}
+				{% set sectionId = '03' %}
 				{{ include('/sections/tabs.twig') }}
+				{% set sectionId = '04' %}
 				{{ include('/sections/features.twig') }}
+				{% set sectionId = '05' %}
 				{{ include('/sections/logos-slider.twig') }}
+				{% set sectionId = '06' %}
 				{{ include('/sections/sliding-boxes.twig') }}
+				{% set sectionId = '07' %}
 				{{ include('/sections/latest-news.twig') }}
+				{% set sectionId = '08' %}
 				{{ include('/sections/outro.twig') }}
+				{% set sectionId = '' %}
 			{% endblock %}
 		</main>
 		<footer>

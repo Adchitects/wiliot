@@ -6,7 +6,7 @@
 {% if showArrows %}
 	{% set showArrows = showArrows.contains('true') %}
 {% endif %}
-<section class="u-section u-section--logos-slider {{ showArrows ? '' : 'u-section--logos-slider-no-arrows' }}">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--logos-slider {{ showArrows ? '' : 'u-section--logos-slider-no-arrows' }}">
 	<div class="logos-slider">
 		{% if subtitle %}
 			<h3 class="logos-slider__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h3>

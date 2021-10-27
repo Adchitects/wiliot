@@ -2,7 +2,7 @@
 {% set title = entry.editorialTitle %}
 {% set magazine = entry.editorialMagazine.one() %}
 {% set button = entry.editorialButton %}
-<section class="u-section u-section--editorial">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--editorial">
 	<div class="u-wrapper">
 		<div class="editorial">
 			{% if subtitle %}

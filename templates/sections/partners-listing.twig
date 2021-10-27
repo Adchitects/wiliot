@@ -1,6 +1,6 @@
 {% set PartnersDetailsPosts = craft.entries.section('partnersDetails').all() %}
 {% if PartnersDetailsPosts %}
-	<section class="u-section u-section--partners-listing">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-listing">
 		<div class="u-wrapper u-wrapper--wide">
 			<div class="partners-listing js-partners-filters-hld">
 				<div class="partners-listing__box partners-listing__box--a">
@@ -9,7 +9,7 @@
 						<div class="filter-type">Partner Type</div>
 						<div class="partners-listing__filter-box">
 							<div class="partners-listing__filter js-partners-filters-filter-everything is-active">
-								<div class="checkbox">
+								<div class="checkbox"> 
 									<span class="icon icon-tick"></span>
 								</div>
 								<span class="text">All</span>

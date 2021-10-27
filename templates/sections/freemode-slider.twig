@@ -1,6 +1,6 @@
 {% set title = entry.freemodeSliderTitle %}
 {% set slides = entry.freemodeSliderItems.all() %}
-<section class="u-section u-section--freemode-slider">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--freemode-slider">
 	<div class="freemode-slider">
 		{% if title %}
 			<h2 class="freemode-slider__title u-title">{{ title }}</h2>

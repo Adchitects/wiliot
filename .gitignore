@@ -29,7 +29,9 @@ cpresources
 /storage/runtime/assets/sources
 /storage/runtime/assets/tempuploads
 /dist
-/web/src/css
+/web/src/uploads/
+/web/src/css/*
+!/web/src/css/comeet-form-style.css
 /web/src/js/main.min.js
 /web/src/js/main.min.js.map
 /web/cpresources

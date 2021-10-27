@@ -1,0 +1,28 @@
+columnSuffix: ffvnvopb
+contentColumnType: text
+fieldGroup: 6b34756b-1dbb-483b-a22f-fba6464b8a65 # Carousel
+handle: carouselImageText
+instructions: ''
+name: 'Image Text'
+searchable: false
+settings:
+  availableTransforms: '*'
+  availableVolumes: ''
+  cleanupHtml: true
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: ''
+  redactorConfig: ''
+  removeEmptyTags: ''
+  removeInlineStyles: ''
+  removeNbsp: ''
+  showHtmlButtonForNonAdmins: '1'
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

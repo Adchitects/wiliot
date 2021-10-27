@@ -16,3 +16,6 @@ import './scripts/solutionsDetails';
 import './scripts/bgShape';
 import './scripts/sliders';
 import './scripts/popup';
+import './scripts/careersListing';
+import './scripts/singleCareer';
+import './scripts/sectionId';

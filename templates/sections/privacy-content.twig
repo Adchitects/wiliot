@@ -1,5 +1,5 @@
 {% set privacyPostsContent = entry.privacyPostsContent %}
-<section class="u-section u-section--privacy-content">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--privacy-content">
 	<div class="u-wrapper u-wrapper--small">
 		<div class="privacy-content">
 			{{ privacyPostsContent }}

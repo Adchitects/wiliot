@@ -39,7 +39,7 @@
 		}
 	}
 
-	.is-page-purchase & {
+	.is-page-starter.kit & {
 		margin-top: 190px;
 
 		@include tablet-small-1023 {
@@ -100,7 +100,7 @@
 				}
 			}
 
-			.is-page-purchase &,
+			.is-page-starter.kit &,
 			.is-page-product & {
 				+ .row {
 					margin-top: 100px;
@@ -111,7 +111,7 @@
 				}
 			}
 
-			.is-page-purchase & {
+			.is-page-starter.kit & {
 				margin-bottom: 100px;
 				padding-left: 65px;
 
@@ -135,17 +135,17 @@
 
 				img {
 					padding-left: 56px;
-					
+
 					@include tablet-small-1023 {
 						max-width: 100%;
 						padding: 0;
 					}
 
-					.is-page-purchase & {
+					.is-page-starter.kit & {
 						min-width: 300px;
 						max-width: 450px;
 						padding-left: 0;
-	
+
 						@include tablet-small-1023 {
 							max-width: 100%;
 							padding: 0;
@@ -164,13 +164,13 @@
 				img {
 					padding-right: 56px;
 					padding-left: 0;
-	
+
 					@include tablet-small-1023 {
 						padding: 0;
 						padding-right: 0;
 					}
 
-					.is-page-purchase & {
+					.is-page-starter.kit & {
 						width: 380px;
 						padding-right: 0;
 						transform: translateX(-90px);
@@ -181,7 +181,7 @@
 							transform: translateX(-20px);
 						}
 					}
-						
+
 					.platform & {
 						position: absolute;
 						top: -120px;
@@ -225,7 +225,7 @@
 					margin-bottom: 32px;
 				}
 
-				.is-page-purchase & {
+				.is-page-starter.kit & {
 					max-width: 475px;
 					padding-right: 45px;
 
@@ -303,7 +303,7 @@
 					line-height: 40px;
 				}
 
-				.is-page-purchase & {
+				.is-page-starter.kit & {
 					margin-top: 10px;
 				}
 			}
@@ -389,7 +389,7 @@
 	}
 }
 
-.is-page-purchase {
+.is-page-starter.kit {
 	.u-section--fifty-fifty {
 		.fifty-fifty {
 			.row.is-row-reversed {

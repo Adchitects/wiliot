@@ -3,7 +3,7 @@
 {% set logo = entry.podcastsListingLogo.one() %}
 {% set subtitle = entry.podcastsListingSubtitle %}
 {% if podcasts %}
-	<section class="u-section u-section--podcasts-listing">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--podcasts-listing">
 		<div class="u-wrapper">
 			<div class="podcasts-listing js-load-more-hld">
 				{% if logo is not null %}

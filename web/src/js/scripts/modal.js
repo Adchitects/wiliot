@@ -4,6 +4,8 @@ modalHldAll.forEach(modalHld => {
 	const openModal = modalHld.querySelector('.js-modal-btn');
 	const closeModalAll = modalHld.querySelectorAll('.js-modal-close');
 	const iframe = modalHld.querySelector('.js-modal-iframe');
+	const videoHld = modalHld.querySelector('.js-video-hld');
+	let videoIsPlayed = false;
 	if (modal && openModal) {
 		openModal.addEventListener('click', (e) => {
 			modal.classList.add('is-active');
@@ -11,6 +13,14 @@ modalHldAll.forEach(modalHld => {
 			openModal.classList.remove('is-paused');
 			if (iframe) {
 				iframe.src = iframe.dataset.src;
+			}
+			if (videoHld) {
+				const video = videoHld.querySelector('video');
+				setTimeout(() => {
+					video.play();
+					videoIsPlayed = true;
+					videoHld.classList.remove('is-paused');
+				}, 20);
 			}
 		});
 		closeModalAll.forEach(close => {
@@ -20,7 +30,13 @@ modalHldAll.forEach(modalHld => {
 				document.body.style.overflow = '';
 				if (iframe) {
 					iframe.src = '';
-					console.log(iframe);
+				}
+				if (videoHld) {
+					const video = videoHld.querySelector('video');
+					video.pause();
+					// eslint-disable-next-line
+					videoIsPlayed = false;
+					videoHld.classList.add('is-paused');
 				}
 			});
 		});

@@ -2,7 +2,7 @@
 {% set title = entry.featuredPodcastTitle %}
 {% set video = entry.featuredPodcastVideo.one() %}
 {% set button = entry.featuredPodcastButton %}
-<section class="u-section u-section--featured-podcast">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--featured-podcast">
 	<div class="u-wrapper">
 		<div class="featured-podcast">
 			<div class="featured-podcast__video js-video-hld is-paused">

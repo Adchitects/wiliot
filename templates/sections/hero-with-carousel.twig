@@ -10,7 +10,7 @@
 	{% set size = category.heroSizes.value %}
 {% endif %}
 {% if entry is defined or category is defined %}
-	<section class="u-section u-section--hero is-{{ size }} js-bg-shape-hld is-carousel">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero is-{{ size }} js-bg-shape-hld is-carousel">
 		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
 			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
@@ -49,17 +49,46 @@
 				{% endif %}
 			</div>
 			{% if carouselImages %}
-				<div class="carousel__slider-hld">
+				<div class="carousel__slider-hld js-modal-hld">
+					{% for image in carouselImages %}
+						{% if image.asset.one().kind == 'video' %}
+							<div class="video-modal js-modal-modal">
+								<div class="overlay js-modal-close"></div>
+								<div class="video-modal__inner">
+									<div class="video-modal__modal">
+										<div class="video-hld js-video-hld show-thumbnail">
+											<span class="icon icon-button_play"></span>
+											{% if image.videoThumbnail.one() %}
+												<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
+											{% endif %}
+											<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
+										</div>
+									</div>
+									<span class="video-modal__close js-modal-close">
+										<span class="icon icon-close"></span>
+									</span>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
 					<div class="carousel__slider js-carousel-slider swiper-container">
 						<div class="swiper-wrapper">
 							{% for image in carouselImages %}
-								{% set carouselImageText = image.carouselImageText %}
-								<div class="carousel__slider-item swiper-slide">
-									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
-									{% if carouselImageText %}
-										<div class="text">{{ carouselImageText }}</div>
+									{% if image.asset.one().kind == 'video' %}
+										<div class="carousel__slider-item carousel__slider-item--video swiper-slide">
+											<div class="slider-item__video-hld is-paused show-thumbnail js-modal-btn">
+												<span class="icon icon-button_play"></span>
+												{% if image.videoThumbnail.one() %}
+													<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
+												{% endif %}
+												<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
+											</div>
+										</div>
+									{% else %}
+										<div class="carousel__slider-item swiper-slide">
+											<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
+										</div>
 									{% endif %}
-								</div>
 							{% endfor %}
 							<div class="carousel__slider-item carousel__slider-item--additional-last swiper-slide">
 							</div>
