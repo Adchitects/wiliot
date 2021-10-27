@@ -20,7 +20,10 @@ modalHldAll.forEach(modalHld => {
 					video.play();
 					videoIsPlayed = true;
 					videoHld.classList.remove('is-paused');
-				}, 20);
+					setTimeout(() => {
+						video.setAttribute('controls', 'controls');
+					}, 500);
+				}, 500);
 			}
 		});
 		closeModalAll.forEach(close => {
@@ -33,10 +36,20 @@ modalHldAll.forEach(modalHld => {
 				}
 				if (videoHld) {
 					const video = videoHld.querySelector('video');
-					video.pause();
-					// eslint-disable-next-line
-					videoIsPlayed = false;
-					videoHld.classList.add('is-paused');
+					if (video.hasAttribute('controls')) {
+						video.removeAttribute('controls');
+						setTimeout(() => {
+							video.pause();
+							// eslint-disable-next-line
+							videoIsPlayed = false;
+							videoHld.classList.add('is-paused');
+						}, 500); 
+					} else {
+						video.pause();
+						// eslint-disable-next-line
+						videoIsPlayed = false;
+						videoHld.classList.add('is-paused');
+					}
 				}
 			});
 		});

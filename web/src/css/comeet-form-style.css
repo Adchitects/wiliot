@@ -23,3 +23,7 @@ form {
 .error{
     color: #ff6c00!important;
 }
+
+.suggestEmployee {
+	display: none !important;
+}

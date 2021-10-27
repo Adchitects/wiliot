@@ -8,10 +8,22 @@ videoHldAll.forEach(hld => {
 			vid.play();
 			videoIsPlayed = true;
 			hld.classList.remove('is-paused');
+			setTimeout(() => {
+				vid.setAttribute('controls', 'controls');
+			}, 500);
 		} else {
-			vid.pause();
-			videoIsPlayed = false;
-			hld.classList.add('is-paused');
+			if (vid.hasAttribute('controls')) {
+				vid.removeAttribute('controls');
+				setTimeout(() => {
+					vid.pause();
+					videoIsPlayed = false;
+					hld.classList.add('is-paused');
+				}, 500); 
+			} else {
+				vid.pause();
+				videoIsPlayed = false;
+				hld.classList.add('is-paused');
+			}
 		}
 	});
 });
