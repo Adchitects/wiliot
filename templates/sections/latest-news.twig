@@ -4,6 +4,10 @@
 			<span class="u-subtitle u-subtitle--section latest-news__subtitle">News</span>
 			<h2 class="u-title u-title--section latest-news__title">Our Latest</h2>
 			{% set latestEntries = craft.entries.section('newsPosts').orderBy('postDate desc') %}
+			{% set newsListingSection = craft.entries.section('newsListing') %}
+			{% set newsListingSectionId = newsListingSection.sectionId[0] %}
+			{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
+			{% set newsListingSectionUrl = newsListingSectionEntry.url %}
 			<div class="latest-news__listing">
 				{% set latestNews = latestEntries.limit(3) %}
 				{% if latestNews|length %}
@@ -36,6 +40,9 @@
 					{% endfor %}
 				{% endif %}
 			</div>
+			<a href="{{ newsListingSectionUrl }}" class="latest-news__btn u-btn u-btn--light">
+				<span class="text">View all News</span>
+			</a>
 		</div>
 	</div>
 </section>

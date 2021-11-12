@@ -1,9 +1,9 @@
 columnSuffix: null
 contentColumnType: string
 fieldGroup: 5ddf9ab1-7416-4397-aeb6-30367ce2bfb1 # News posts
-handle: newsPostsfeaturedImage
-instructions: 'Featured image for post thumbnail'
-name: 'Featured image'
+handle: newsPostsHeroImage
+instructions: 'Hero image for post details. If the field is empty Featured Image (Thumbnail) is taken'
+name: 'Hero Image'
 searchable: false
 settings:
   allowSelfRelations: false

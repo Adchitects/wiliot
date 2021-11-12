@@ -24,7 +24,11 @@
 		{% set category = 'Announcement' %}
 	{% endif %}
 	{% set heroTitle = entry.heroTitle %}
-	{% set heroImage = entry.newsPostsfeaturedImage.one() %}
+	{% if entry.newsPostsHeroImage.one() %}
+		{% set heroImage = entry.newsPostsHeroImage.one() %}
+	{% else %}
+		{% set heroImage = entry.newsPostsfeaturedImage.one() %}
+	{% endif %}
 	{% set newsContent = entry.postContent %}
 	{% set newsPostsEventText = entry.newsPostsEventText %}
 	{% set postDate = entry.postDate|date("F d, Y") %}
