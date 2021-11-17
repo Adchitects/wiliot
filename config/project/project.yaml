@@ -1,4 +1,4 @@
-dateModified: 1636720324
+dateModified: 1637155576
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -76,6 +76,7 @@ meta:
     6ea314f4-1588-4b55-b364-e834887afded: Description # Description
     6f1afe2a-10c1-4be4-ba0e-72ff7d068176: Title # Title
     6f30a5db-1436-4c17-9991-259534aaf840: Button # Button
+    7d18055b-ac6e-4612-a151-be46abd28e06: icon # icon
     7ef2a0d0-a834-4f5a-bdfe-1df50b61c14a: 'Form Outro Subtitle' # Form Outro Subtitle
     7f428011-00c6-4e61-9c9f-377989a77cc8: 'Job city' # Job city
     8a1c1f3d-78a1-4b7b-a8a4-923bca181915: Careers # Careers
@@ -106,7 +107,6 @@ meta:
     11ce1e52-e709-4a12-b8e8-08c1fe39f993: Careers # Careers
     12af7258-908b-4cd4-9fa8-1fadde60da6b: 'Menu - desktop' # Menu - desktop
     15a29526-16a0-4385-841c-247cd0c057af: Feature # Feature
-    19e0f4f0-2809-4438-aac0-8647ec8484fc: Buttons # Buttons
     19e14f84-94c7-4ee4-9cd0-c5502ad3dcf8: Image # Image
     20fd2ce4-fdf9-4c30-a769-05745f8760b1: 'Founders list' # Founders list
     21d49cb5-ea4c-47f8-968f-1f576d33384b: Contact # Contact
@@ -163,7 +163,6 @@ meta:
     94f9fd80-5d01-4419-824e-d719a55b4e96: Name # Name
     99ba1b8f-bc3e-4e18-b4e7-292a3d0a5b36: Options # Options
     102fa206-3e00-4a9f-a145-9848b1eb4449: 'Subnav Items' # Subnav Items
-    122c69d9-318e-4ea9-973e-e06a0383e7b4: Description # Description
     124f1ea9-b5e3-4adb-9255-3494228579eb: 'Podcast details' # Podcast details
     135ccdd4-c10f-495e-97db-133a4ab19c61: 'Partner category' # Partner category
     187be502-d66f-4151-8d84-60d39af8e06a: Icon # Icon
@@ -231,7 +230,6 @@ meta:
     10509a9c-e8f0-4936-8c12-c5224702579e: 'Starter Kit' # Starter Kit
     12270e35-d7e1-48a1-b8cf-863adc972d30: 'Solution hero title' # Solution hero title
     18373fa2-75a1-4f9a-b10b-daea7903437f: 'Wiliot Platform' # Wiliot Platform
-    24179e2d-0b23-4961-86a3-710810a25720: 'Subnav title' # Subnav title
     27470b2f-bd24-4902-9cc9-0ae02ba6d8b4: 'Logos Show Arrows' # Logos Show Arrows
     34734b74-001f-4710-8e8b-224354eb86f9: Button # Button
     40922bfa-74c8-45fd-b538-2c6a9cb4af73: Time # Time
@@ -256,7 +254,6 @@ meta:
     289339c7-e182-4952-86da-d0c42b30519e: 'Logos Slider Button Link' # Logos Slider Button Link
     510631f6-f8a0-4612-948b-d627a15682c3: 'Image Carousel Assets' # Image Carousel Assets
     530876a5-3963-4256-93cb-6f843a6743dc: Homepage # Homepage
-    0714952f-d180-4416-857d-2659cc5e539d: button # button
     0795876a-e612-47a1-b946-65633eb84506: 'Related Solutions title' # Related Solutions title
     883452ab-6cc7-4d6d-abbb-fdc00597dbfb: 'Meta tags' # Meta tags
     985580dd-2048-4bd2-9349-e11ad74710d6: Subtitle # Subtitle

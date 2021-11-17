@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 122c69d9-318e-4ea9-973e-e06a0383e7b4 # Description
+            fieldUid: 122c69d9-318e-4ea9-973e-e06a0383e7b4
             instructions: null
             label: null
             required: false
@@ -45,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 19e0f4f0-2809-4438-aac0-8647ec8484fc # Buttons
+            fieldUid: 19e0f4f0-2809-4438-aac0-8647ec8484fc
             instructions: null
             label: null
             required: false
@@ -54,7 +54,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 24179e2d-0b23-4961-86a3-710810a25720 # Subnav title
+            fieldUid: 24179e2d-0b23-4961-86a3-710810a25720
             instructions: null
             label: null
             required: false
