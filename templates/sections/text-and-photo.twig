@@ -17,7 +17,7 @@
             <div class="text-and-photo__col">
                 <div class="text-and-photo__text-hld">
                     <h3 class="text-and-photo__title">{{ textTitle }}</h3>
-                    <p class="text-and-photo__text">{{ text }}</p>
+                    <div class="text-and-photo__text">{{ text|raw }}</div>
                     {% if link %}
                         <a class="text-and-photo__button u-btn u-btn--light" href="{{ link }}" ><span class="text">{{ link.customText }}</span></a>
                     {% endif %}
