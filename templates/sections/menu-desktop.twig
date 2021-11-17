@@ -7,18 +7,16 @@
 		{% nav page in pages %}
 			{% set menuDesktopTitle = page.title %}
 			{% set menuDesktopPageLink = page.menuDesktopPageLink %}
-			{% set menuDesktopDescription = page.menuDesktopDescription %}
-			{% set menuDesktopButtonsMatrix = page.menuDesktopButtonsMatrix.all() %}
-			{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
-			<li class="menu-desktop__list-item {% if menuDesktopDescription %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and menuDesktopDescription %} is-first-dropdown {% endif %} {% if loop.revindex == 4 and menuDesktopDescription %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Support' %} is-support {% endif %} {% if menuDesktopTitle == 'Login' %} is-login {% endif %} {% if menuDesktopTitle == 'Login is-hidden' %} is-login is-hidden {% endif %}">
+			{% set isSubnav = menuDesktopSubnavItemsMatrix|length > 0 %}
+			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 4 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Support' %} is-support {% endif %} {% if menuDesktopTitle == 'Login' %} is-login {% endif %} {% if menuDesktopTitle == 'Login is-hidden' %} is-login is-hidden {% endif %}">
 				{% if menuDesktopPageLink.url %}
 					<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
 						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
 							<span class="icon icon-user"></span>
 						{% endif %}
 						<span class="text">{{ menuDesktopTitle }}</span>
-						{% if menuDesktopDescription or menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+						{% if isSubnav or menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
 							<span class="icon icon-dropdown-down"></span>
 						{% endif %}
 					</a>
@@ -31,48 +29,27 @@
 							<span class="icon icon-user"></span>
 						{% endif %}
 						<span class="text">{{ menuDesktopTitle }}</span>
-						{% if menuDesktopDescription %}
+						{% if isSubnav %}
 							<span class="icon icon-dropdown-down"></span>
 						{% endif %}
 					</div>
 				{% endif %}
-				{% if menuDesktopDescription %}
+				{% if isSubnav %}
 					<div class="menu-desktop__dropdown">
-						<div class="menu-desktop__dropdown-box menu-desktop__dropdown-box--left">
-							<div class="title">{{ menuDesktopTitle }}</div>
-							<div class="description">{{ menuDesktopDescription }}</div>
-							<div class="buttons-hld">
-								{% for item in menuDesktopButtonsMatrix %}
-									{% set button = item.button %}
-									<a href="{{ button.url }}" class="btn u-btn u-btn--arrow">
-										<span class="text">
-											{% if button.customText %}
-												{{ button.customText }}
-											{% else %}
-												{{ menuDesktopTitle }}
-											{% endif %}
-										</span>
-									</a>
-								{% endfor %}
-							</div>
-						</div>
-						<div class="menu-desktop__dropdown-box menu-desktop__dropdown-box--right {% if menuDesktopTitle == "Platform" %} is-platform-box {% endif %}">
-							{% if menuDesktopTitle != "Platform" %}
-								<div class="title u-subtitle u-subtitle--section">{{ menuDesktopSubnavTitle }}</div>
-							{% endif %}
-							<div class="subnav-hld">
-								{% for subnavItem in menuDesktopSubnavItemsMatrix %}
-									{% set item = subnavItem.item %}
-									{% if menuDesktopTitle == "Platform" and loop.index0 == 1 %}
-										<div class="title u-subtitle u-subtitle--section">{{ menuDesktopSubnavTitle }}</div>
-									{% endif %}
-									<a href="{{ item.url }}" class="subnav-item u-btn u-btn--arrow {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}">
-										<span class="text">
-											{{ item.customText }}
-										</span>
-									</a>
-								{% endfor %}
-							</div>
+						<div class="subnav-hld">
+							{% for subnavItem in menuDesktopSubnavItemsMatrix %}
+								{% set item = subnavItem.item %}
+								{% set icon = subnavItem.icon.one() %}
+								{% if icon %}
+									{% set icon = subnavItem.icon.one().getUrl() %}
+								{% endif %}
+								<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}">
+									<div class="text">
+										<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+										{{ item.customText }}
+									</div>
+								</a>
+							{% endfor %}
 						</div>
 					</div>
 				{% endif %}
