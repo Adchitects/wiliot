@@ -24,6 +24,10 @@ form {
     color: #ff6c00!important;
 }
 
-.suggestEmployee {
+/* .suggestEmployee {
 	display: none !important;
+} */
+
+.two-col-buttons #showApplyForm:first-of-type {
+    display: none !important;
 }
