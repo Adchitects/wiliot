@@ -23,7 +23,6 @@
 			grid-template-areas: 'a b'
 				'c d'
 				'e f';
-			margin-top: 150px;
 
 			@include tablet-small-1023 {
 				grid-template-areas: unset;
@@ -38,33 +37,28 @@
 			.item {
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
 				position: relative;
 
-				@include tablet-small-1023 {
-					grid-area: unset !important;
-				}
-
 				&:nth-of-type(1) {
-					grid-area: a;
+					grid-area: c;
 					z-index: 1;
 					margin-right: 120px;
-					transform: translateY(-50px);
 
 					@include tablet-small-1023 {
+						grid-area: unset;
+						grid-column: 1;
 						margin-right: 0;
-						transform: translateY(0);
 					}
 				}
 
 				&:nth-of-type(2) {
 					grid-area: d;
 					z-index: 1;
-					margin-top: 270px;
 					margin-left: 120px;
 
 					@include tablet-small-1023 {
-						margin-top: 0;
+						grid-area: unset;
+						grid-column: 1;
 						margin-left: 0;
 					}
 				}
@@ -74,6 +68,8 @@
 					margin-right: 120px;
 
 					@include tablet-small-1023 {
+						grid-area: unset;
+						grid-column: 1;
 						margin-right: 0;
 					}
 				}
@@ -81,8 +77,9 @@
 				&:nth-of-type(4) {
 					grid-area: b / c / f / f;
 					pointer-events: none;
+					margin-bottom: 200px;
 					user-select: none;
-					transform: translateY(-160px) scale(1.1);
+					transform: translateY(-120px) scale(1.1);
 
 					svg {
 						width: 100%;
@@ -92,6 +89,8 @@
 
 					@include tablet-small-1023 {
 						display: none;
+						grid-area: unset;
+						grid-column: 1;
 					}
 				}
 
@@ -100,12 +99,14 @@
 
 					@include tablet-small-1023 {
 						display: block;
-						margin-bottom: 20px;
-						transform: translateY(-20px) scale(1.5);
+						order: -1;
+						margin-bottom: 80px;
+						transform: scale(1.5);
 					}
 
 					@include mobile-599 {
-						transform: translateY(0) scale(1.22);
+						margin-bottom: 40px;
+						transform: scale(1.22);
 					}
 				}
 
