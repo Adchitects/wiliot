@@ -9,7 +9,7 @@
 			{% set menuDesktopPageLink = page.menuDesktopPageLink %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
 			{% set isSubnav = menuDesktopSubnavItemsMatrix|length > 0 %}
-			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 4 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Support' %} is-support {% endif %} {% if menuDesktopTitle == 'Login' %} is-login {% endif %} {% if menuDesktopTitle == 'Login is-hidden' %} is-login is-hidden {% endif %}">
+			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 4 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Resources' %} is-support {% endif %} {% if menuDesktopTitle == 'Login' %} is-login {% endif %} {% if menuDesktopTitle == 'Login is-hidden' %} is-login is-hidden {% endif %}">
 				{% if menuDesktopPageLink.url %}
 					<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
 						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
@@ -43,7 +43,7 @@
 								{% if icon %}
 									{% set icon = subnavItem.icon.one().getUrl() %}
 								{% endif %}
-								<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}">
+								<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
 									<div class="text">
 										<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
 										{{ item.customText }}

@@ -69,7 +69,7 @@ fields:
     searchable: false
     settings:
       allowCustomText: '1'
-      allowTarget: ''
+      allowTarget: '1'
       allowedLinkNames:
         3: entry
         9: url

@@ -12,6 +12,10 @@
 		margin-top: 65px;
 	}
 
+	.is-page-getting & {
+		margin-bottom: 95px;
+	}
+
 	.logos-slider {
 		display: flex;
 		flex-direction: column;
@@ -49,6 +53,20 @@
 
 		.is-page-press & {
 			margin-top: 25px;
+		}
+
+		.is-page-getting & {
+			margin-top: 0;
+		}
+	}
+
+	.swiper-wrapper {
+		.is-page-getting & {
+			justify-content: center;
+
+			@include media-max(479) {
+				justify-content: unset;
+			}
 		}
 	}
 
@@ -89,10 +107,29 @@
 				}
 			}
 		}
+
+		a {
+			transition: color 0.2s;
+
+			&:hover {
+				color: $c-accent;
+			}
+		}
+
+		.links {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 110%;
+			transform: translateX(-50%);
+		}
 	}
 
 	.swiper-slide {
-		> div {
+		> .title {
+			position: relative;
+			width: 150%;
+			min-height: 20px;
 			margin-top: 14px;
 			color: $c-gray;
 			font-size: 12px;
