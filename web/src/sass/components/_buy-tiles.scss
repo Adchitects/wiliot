@@ -34,7 +34,6 @@
 		flex-direction: column;
 		align-items: center;
 		position: relative;
-		cursor: pointer;
 		padding: 50px 45px 65px;
 		border-radius: 6px;
 		background-color: $c-white;
@@ -90,7 +89,7 @@
 		&__icon {
 			svg {
 				path {
-					transition: stroke 0.35s;
+					transition: stroke 0.35s, fill 0.35s;
 				}
 			}
 		}
@@ -131,11 +130,31 @@
 					transform: translateX(-50%);
 				}
 			}
+
+			.modal-btn {
+				cursor: pointer;
+				transition: opacity 0.2s;
+
+				&:hover {
+					opacity: 0.7;
+				}
+			}
 		}
 
 		&__btn {
 			min-width: 192px;
 			margin-top: auto;
+		}
+
+		&:last-of-type {
+			&:hover {
+				svg {
+					path {
+						fill: $c-orange;
+						stroke: inherit;
+					}
+				}
+			}
 		}
 
 		&:hover {

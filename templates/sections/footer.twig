@@ -13,7 +13,7 @@
 						<ul class="footer__links">
 							{% for child in page.children().all() %}
 								<li class="footer__link">
-									<a href="{{ child.menuFooterPageLink }}">
+									<a href="{{ child.menuFooterPageLink }}" target="{{ child.menuFooterPageLink.target ? '_blank' : '_self' }}" rel="{{ child.menuFooterPageLink.target ? 'noopener noreferrer' : null }}">
 										{{ child.title }}
 									</a>
 								</li>

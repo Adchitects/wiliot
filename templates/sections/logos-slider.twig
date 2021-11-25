@@ -25,16 +25,20 @@
 							{% if itemLink and itemLink.url %}
 								<a href="{{ itemLink.url }}" target="{{ itemLink.target ? '_blank' : '_self' }}" rel="{{ itemLink.target ? 'noopener noreferrer' : null }}" class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }} is-link">
 									{% if image %}
-										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
+										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="logo">
 									{% endif %}
-									<div>{{ title }}</div>
+									{% if title %}
+										<div class="title">{{ title }}</div>
+									{% endif %}
 								</a>
 							{% else %}
 								<div class="swiper-logos__slider-item swiper-slide {{ title ? 'is-title' : null }}">
 									{% if image %}
-										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="{{ title }}">
+										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="98" height="53" class="js-lazy" alt="logo">
 									{% endif %}
-									<div>{{ title }}</div>
+									{% if title %}
+										<div class="title">{{ title }}</div>
+									{% endif %}
 								</div>
 							{% endif %}
 						{% endfor %}

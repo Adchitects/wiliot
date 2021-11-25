@@ -7,7 +7,7 @@ name: 'Page Link'
 searchable: false
 settings:
   allowCustomText: ''
-  allowTarget: ''
+  allowTarget: '1'
   allowedLinkNames:
     3: entry
     9: url
