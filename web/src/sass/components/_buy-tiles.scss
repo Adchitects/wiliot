@@ -147,6 +147,11 @@
 		}
 
 		&:last-of-type {
+			svg {
+				width: 44px;
+				height: auto;
+			}
+
 			&:hover {
 				svg {
 					path {

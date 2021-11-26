@@ -79,8 +79,10 @@
 	&__inner {
 		position: relative;
 		width: 590px;
+		max-height: 100vh;
 		padding: 70px 60px;
 		background-color: $c-accent-dark;
+		overflow-y: auto;
 
 		@include mobile-599 {
 			max-width: 100%;
@@ -135,18 +137,23 @@
 				letter-spacing: 0;
 				line-height: 44px;
 				text-align: center;
+
+				@include mobile-599 {
+					font-size: 24px;
+					line-height: 30px;
+				}
 			}
 
 			.inputs-list {
 				@include mobile-599 {
-					margin-top: 10px;
+					margin-top: 10px !important;
 				}
 			}
 
 			.hbspt-form .field,
 			.hs-form .field {
 				@include mobile-599 {
-					margin-bottom: 20px;
+					margin-bottom: 10px !important;
 				}
 			}
 
@@ -182,7 +189,7 @@
 				margin-top: -5px;
 
 				@include mobile-599 {
-					margin-top: 30px;
+					margin-top: 10px !important;
 				}
 
 				.hs-richtext {
@@ -191,7 +198,7 @@
 					}
 
 					&:last-of-type {
-						margin-top: 20px;
+						margin-top: 10px !important;
 					}
 				}
 			}
@@ -200,7 +207,7 @@
 				margin-top: 40px;
 
 				@include mobile-599 {
-					margin-top: 20px;
+					margin-top: 20px !important;
 				}
 			}
 		}

@@ -16,6 +16,10 @@
 		font-weight: 300 !important;
 		letter-spacing: 0 !important;
 		line-height: 19px !important;
+
+		@include mobile-599 {
+			margin-top: 20px !important;
+		}
 	}
 
 	.hs_developer_kit,
@@ -184,6 +188,12 @@
 				.is-buy-page-form & {
 					font-size: 12px;
 					font-weight: 300;
+
+					@include mobile-599 {
+						display: block;
+						font-size: 9px;
+						transform: translateY(-46px);
+					}
 				}
 			}
 		}
