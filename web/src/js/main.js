@@ -19,3 +19,4 @@ import './scripts/popup';
 import './scripts/careersListing';
 import './scripts/singleCareer';
 import './scripts/sectionId';
+import './scripts/homepageLottieAnimation';
