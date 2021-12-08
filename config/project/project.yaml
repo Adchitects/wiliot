@@ -1,4 +1,4 @@
-dateModified: 1637847736
+dateModified: 1638963396
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -49,6 +49,7 @@ meta:
     4fc213ec-173b-4fc8-a72e-59017eeb1418: Image # Image
     4fea09ac-1698-4892-957e-b5379b047c10: Podcasts # Podcasts
     5a922eb8-df85-452c-b149-b67eff143cb7: 'Getting Started Guide' # Getting Started Guide
+    5ab52988-ed7b-4316-b928-8281420a1b07: 'Thank you' # Thank you
     5b462e90-23d9-4008-a32c-10f88ee6f61c: 'Video Link' # Video Link
     5b534513-4e0d-4718-ad06-0c5e7c79f6a2: 'Menu - mobile' # Menu - mobile
     5bba4f09-9499-42c1-8768-753c072a9a6b: Popup # Popup
@@ -93,6 +94,7 @@ meta:
     8f13aebd-f560-4613-aa85-a46790d1bf7b: 'Sliding Box' # Sliding Box
     9ab90bdf-5ff3-41ea-831b-684ff05d1cce: 'Slide Description' # Slide Description
     9c7ff223-4645-48dc-9d13-f4c1c832f37a: Subtitle # Subtitle
+    9c8490b7-67ec-4524-bb59-70c67f4c6216: Image # Image
     9d765e7f-db85-46c9-8b90-650622b37455: 'Job title' # Job title
     09dac1e7-92a8-4090-9811-6f99033a0244: Button # Button
     9dcf980f-b542-4d32-9ffc-7b8bfbc00d2b: Title # Title
@@ -144,6 +146,8 @@ meta:
     59dd892d-41fd-4d25-9f72-9e60b4894617: Engage # Engage
     60a4c2a4-fb2e-4146-91c2-535a7c8df02f: 'Privacy posts' # Privacy posts
     063e6186-1a4a-4b67-8c0b-313b878562a1: 'Login tiles' # Login tiles
+    64a02600-5bcc-4a56-9680-5ee9b9a0944d: Button # Button
+    64d2e8dc-1779-4ec5-8deb-e42d686693c7: 'Thank you' # Thank you
     67c7555f-2323-4deb-b0bf-99756aef72ba: Link # Link
     68d3e256-4114-4b54-bd0f-0c9fa54a5bae: Partners # Partners
     70ba7fd3-8d91-4378-a58e-6aec3a0b1bbd: Tab # Tab
@@ -161,6 +165,7 @@ meta:
     90ff970f-4f7c-419b-b98a-e075e568c452: Button # Button
     92d873bc-0605-481c-9aee-c574436a037b: Engage # Engage
     94f9fd80-5d01-4419-824e-d719a55b4e96: Name # Name
+    98f0aaaf-2d44-47db-9fa1-8098294bb87b: 'Two boxes' # Two boxes
     99ba1b8f-bc3e-4e18-b4e7-292a3d0a5b36: Options # Options
     102fa206-3e00-4a9f-a145-9848b1eb4449: 'Subnav Items' # Subnav Items
     124f1ea9-b5e3-4adb-9255-3494228579eb: 'Podcast details' # Podcast details
@@ -254,6 +259,7 @@ meta:
     289339c7-e182-4952-86da-d0c42b30519e: 'Logos Slider Button Link' # Logos Slider Button Link
     510631f6-f8a0-4612-948b-d627a15682c3: 'Image Carousel Assets' # Image Carousel Assets
     530876a5-3963-4256-93cb-6f843a6743dc: Homepage # Homepage
+    703782ff-fed9-4678-8ab8-f1ecbc2c92a1: Item # Item
     0795876a-e612-47a1-b946-65633eb84506: 'Related Solutions title' # Related Solutions title
     883452ab-6cc7-4d6d-abbb-fdc00597dbfb: 'Meta tags' # Meta tags
     985580dd-2048-4bd2-9349-e11ad74710d6: Subtitle # Subtitle
@@ -286,6 +292,7 @@ meta:
     a87aa858-2e9d-4ac5-be71-84ee0f3747a1: 'Solution Hero buttons' # Solution Hero buttons
     a404d7db-a8ee-45b9-be68-9316c6209368: Content # Content
     a486e38a-51ed-4d5d-bf72-d04b328035cb: Description # Description
+    a766f7cb-ab87-4a64-acc6-1817a3f59914: Description # Description
     a20376e6-81c6-4ecc-8014-c22eac87de16: 'Wiliot Platform' # Wiliot Platform
     abec491e-9647-468e-b5e2-05e95e550589: Title # Title
     acbcb5ae-c8d4-412b-94ae-e618bbbff46b: 'Post Main Category' # Post Main Category
@@ -329,10 +336,12 @@ meta:
     c07974ee-0ece-431d-80f0-1b44b35a7fa6: 'Freemode Slider Title' # Freemode Slider Title
     c099bea2-dca9-43e8-9d52-a90262f58489: 'Accordion Text' # Accordion Text
     c1a47517-c473-4362-b946-3c3b35141876: Video # Video
+    c1aec290-c696-4146-a7c4-0527783490af: Items # Items
     c1c689d7-017d-4ab7-9344-d621f97310b5: 'Popup text' # Popup text
     c1ea5f92-9656-4dcc-be98-4f72c644a75a: Image # Image
     c7c9f302-4f23-466d-a2d3-675621d8f44a: 'Partner Name' # Partner Name
     c8d1de3d-26dd-49bd-bf44-fd12d34a58e8: Item # Item
+    c35a2b29-54db-4c61-9fb7-18f830d1a674: Title # Title
     c45c97fd-a014-4dcb-bacc-f6aa3d952ee3: Button # Button
     c59eac7b-6064-4303-96a1-bb32431c2765: Subtitle # Subtitle
     c86b82bd-3b3b-4b84-856a-7c88fb62f2ae: 'Background Video Link' # Background Video Link
@@ -369,6 +378,7 @@ meta:
     d884b922-16a7-4812-90d0-dddd3c2c50d8: 'Text and Photo' # Text and Photo
     d16303e5-6961-4a67-9790-ed3b4eca23ad: Offices # Offices
     d176289c-8035-49cf-8df1-8e7ea962ce39: List # List
+    d2328763-0692-4c36-97bf-410516782f12: Title # Title
     dbeb3170-bc05-42b0-92ac-834f84918c98: 'Page Options' # Page Options
     dcd7d559-2862-495d-8cf1-52ee98241609: Links # Links
     ddb7eaef-faca-49df-aecb-5d7585a1ce2e: Button # Button
