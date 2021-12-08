@@ -79,6 +79,12 @@
 	}
 
 	&__subtitle {
+		@include mobile-599 {
+			display: block;
+			margin-bottom: 10px;
+			font-size: 22px;
+			line-height: 30px;
+		}
 	}
 
 	&__description {
@@ -109,6 +115,10 @@
 
 		@include mobile-767 {
 			margin: 0;
+		}
+
+		.is-page-thank & {
+			max-width: 800px;
 		}
 	}
 }

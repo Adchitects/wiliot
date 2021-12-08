@@ -62,6 +62,7 @@
 
 	.swiper-wrapper {
 		.is-page-getting & {
+			align-items: flex-start;
 			justify-content: center;
 
 			@include media-max(479) {
@@ -109,10 +110,11 @@
 		}
 
 		a {
-			transition: color 0.2s;
+			color: $c-accent;
+			transition: opacity 0.2s;
 
 			&:hover {
-				color: $c-accent;
+				opacity: 0.7;
 			}
 		}
 
@@ -128,7 +130,7 @@
 	.swiper-slide {
 		> .title {
 			position: relative;
-			width: 150%;
+			width: 110%;
 			min-height: 20px;
 			margin-top: 14px;
 			color: $c-gray;
@@ -141,6 +143,11 @@
 		img {
 			height: auto;
 			filter: grayscale(1);
+
+			.is-page-getting & {
+				width: auto;
+				height: 76px;
+			}
 		}
 	}
 
