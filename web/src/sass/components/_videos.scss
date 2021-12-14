@@ -49,10 +49,16 @@
 			position: absolute;
 			top: 12px;
 			left: 12px;
+			pointer-events: none;
 			color: $c-accent;
 			font-size: 32px;
 			font-weight: 900;
 			line-height: 40px;
+
+			@media not all and (min-resolution: 0.001dpcm) {
+				right: 12px;
+				left: unset;
+			}
 		}
 
 		.thumbnail {
@@ -88,6 +94,11 @@
 			left: 24px;
 			font-size: 56px;
 			line-height: 72px;
+
+			@media not all and (min-resolution: 0.001dpcm) {
+				right: 24px;
+				left: unset;
+			}
 		}
 
 		&__desc {

@@ -139,7 +139,21 @@
 			}
 		}
 
-		.text {
+		.btn {
+			margin-top: 24px;
+			font-size: 14px;
+			font-weight: 500;
+			letter-spacing: 0;
+			line-height: 19px;
+
+			.text {
+				&::before {
+					top: -2px;
+				}
+			}
+		}
+
+		.title-text {
 			margin-top: 24px;
 			font-size: 14px;
 			font-weight: 500;
