@@ -4,6 +4,7 @@
 	{% set size = entry.heroSizes.value %}
 	{% set descriptionBold = entry.heroDescriptionBold %}
 	{% set description = entry.heroDescription %}
+	{% set heroButtonsMatrix = entry.heroButtonsMatrix.all() %}
 {% elseif category is defined %}
 	{% set subtitle = category.heroSubtitle %}
 	{% set title = category.heroTitle %}
@@ -33,6 +34,16 @@
 				{% endif %}
 				{% if description is defined and description %}
 					<p class="hero__description">{{ description }}</p>
+				{% endif %}
+				{% if heroButtonsMatrix %}
+					<div class="buttons-hld">
+						{% for item in heroButtonsMatrix %}
+							{% set button = item.button %}
+							<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }}">
+								<span class="text">{{ button.customText }}</span>
+							</a>
+						{% endfor %}
+					</div>
 				{% endif %}
 			</div>
 		</div>
