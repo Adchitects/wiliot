@@ -41,7 +41,8 @@
 		margin-top: 70px;
 		padding-left: 60px;
 
-		.is-page-homepage & {
+		.is-page-homepage &,
+		.is-page-partner & {
 			margin-top: 30px;
 			padding-left: 0;
 		}
@@ -89,7 +90,8 @@
 			transition: height 0.3s;
 			object-position: top;
 
-			.is-page-homepage & {
+			.is-page-homepage &,
+			.is-page-partner & {
 				top: 5px;
 			}
 		}
