@@ -99,8 +99,8 @@
 			.inner {
 				padding-left: 25px;
 
-				@include media-max(1099) {
-					padding-left: 15px;
+				@include media-max(1231) {
+					padding-left: 10px;
 				}
 			}
 
@@ -121,8 +121,8 @@
 			.inner {
 				padding: 0 20px 0 10px;
 
-				@include media-max(1099) {
-					padding: 0 15px;
+				@include media-max(1260) {
+					padding: 0 10px;
 				}
 			}
 		}
@@ -133,8 +133,8 @@
 			.inner {
 				padding: 0 20px 0 10px;
 
-				@include media-max(1099) {
-					padding: 0 15px;
+				@include media-max(1260) {
+					padding: 0 10px;
 				}
 			}
 
@@ -222,7 +222,7 @@
 				font-size: 15px;
 			}
 
-			@include tablet-medium-1199 {
+			@include media-max(1260) {
 				padding: 0 10px;
 			}
 
