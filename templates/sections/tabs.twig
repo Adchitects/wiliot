@@ -50,11 +50,14 @@
 									<div class="tab__content">
 										<h3 class="tab__title">{{ title }}</h3>
 										<div class="tab__description">{{ description }}</div>
-										<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
-											<span class="text">
-												{{ link.customText }}
-											</span>
-										</a>
+										{% if link.customText %}
+											<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
+												<span class="text">
+													{{ link.customText }}
+												</span>
+											</a>
+										{% endif %}
+										
 									</div>
 								</div>
 							{% endfor %}
