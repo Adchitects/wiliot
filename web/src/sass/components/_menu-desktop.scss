@@ -62,7 +62,15 @@
 		}
 
 		&.is-active {
+			&.is-last {
+				.inner {
+					border-color: $c-accent;
+				}
+			}
+
 			.inner {
+				border-color: $c-accent;
+
 				.text,
 				.icon {
 					color: $c-accent;

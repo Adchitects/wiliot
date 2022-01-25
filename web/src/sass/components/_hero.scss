@@ -21,8 +21,8 @@
 	}
 
 	&.is-medium {
-		height: 50vh;
-		min-height: 550px;
+		height: 73vh;
+		min-height: 640px;
 		background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 
 		@include mobile-599 {
@@ -152,9 +152,14 @@
 		}
 
 		&--bold {
+			max-width: 512px;
 			margin-top: 24px;
 			font-weight: 500;
 			opacity: 1;
+
+			+ .buttons-hld {
+				margin-top: 46px;
+			}
 		}
 	}
 

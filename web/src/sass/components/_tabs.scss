@@ -27,19 +27,13 @@
 		}
 	}
 
-	.is-page-partner & {
-		margin-top: 0;
-	}
-
-	+ .u-section--outro {
-		margin-top: 0;
-	}
-
 	.tabs {
 		display: flex;
 		flex-direction: column;
 
 		&__title {
+			max-width: 540px;
+			margin: 0 auto;
 			text-align: center;
 		}
 
@@ -47,12 +41,11 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			margin-top: 86px;
-			margin-bottom: 96px;
+			margin-top: 44px;
+			margin-bottom: 80px;
 			border-bottom: 1px solid rgba(#979797, 0.27);
 
 			@include media-max(767) {
-				margin-top: 48px;
 				margin-bottom: 48px;
 			}
 		}
@@ -60,36 +53,42 @@
 		&__nav-item {
 			display: flex;
 			flex: 1 1 0;
+			flex-direction: column;
 			justify-content: center;
 			position: relative;
 			cursor: pointer;
-			padding: 22px 0;
+			padding: 20px 0;
 
 			.text {
 				color: $c-gray;
 				font-size: 16px;
 				font-weight: 500;
 				line-height: 26px;
+				text-align: center;
 
 				@include media-max(767) {
 					display: none;
 				}
 			}
 
-			.icon {
-				margin-right: 16px;
-				color: $c-gray;
-				font-size: 24px;
-				transition: color 0.2s;
+			.icon-hld {
+				margin-bottom: 8px;
 
 				@include media-max(767) {
-					margin-right: 0;
+					margin-bottom: 0;
+				}
+
+				.icon {
+					margin: 0 auto;
+					filter: brightness(0);
+					transition: opacity 0.2s;
+					opacity: 0.4;
 				}
 			}
 
 			&.is-active {
 				.icon {
-					color: $c-black;
+					opacity: 1;
 				}
 
 				&::after {

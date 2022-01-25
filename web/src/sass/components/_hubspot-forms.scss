@@ -23,7 +23,9 @@
 	}
 
 	.hs_developer_kit,
-	.legal-consent-container {
+	.legal-consent-container,
+ 
+	.hs-fieldtype-checkbox {
 		.inputs-list {
 			margin-top: 30px;
 		}
@@ -229,7 +231,9 @@
 		margin-top: 35px;
 	}
 
-	.hs-fieldtype-booleancheckbox {
+	.hs-fieldtype-booleancheckbox,
+ 
+	.hs-form-checkbox {
 		.input {
 			margin-top: 8px;
 		}
@@ -368,6 +372,76 @@
 			letter-spacing: 0 !important;
 			line-height: 20px !important;
 			transform: translateY(-3px) !important;
+		}
+	}
+
+	.hs-fieldtype-checkbox {
+		> label {
+			position: absolute;
+			top: -30px;
+			left: 0;
+
+			span {
+				margin: 0 !important;
+				padding: 0 !important;
+				color: rgba($c-white, 0.8);
+				font-family: $font-head !important;
+				font-size: 16px !important;
+				font-weight: 500 !important;
+				line-height: 26px !important;
+			}
+		}
+
+		.inputs-list.inputs-list {
+			display: flex !important;
+			flex-wrap: wrap !important;
+			margin-top: 10px !important;	
+
+			.hs-form-checkbox {
+				width: 100% !important;
+			}
+		}
+
+		.hs-form-checkbox {
+			margin-top: 12px;
+		}
+
+		.inputs-list {
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+
+		input {
+			width: 16px !important;
+			height: 16px !important;
+			min-height: unset !important;
+			margin: 0 !important;
+			padding: 0 !important;
+			padding-left: 0 !important;
+			border: 1px solid $c-white !important;
+			border-bottom: 1px solid $c-white !important;
+			border-radius: 2px !important;
+			background: transparent !important;
+			color: $c-accent !important;
+			font-family: $font-head !important;
+			font-size: 16px !important;
+			font-weight: 500 !important;
+			line-height: 26px !important;
+			transition: border-color 0.2s, background-color 0.2s;
+			-webkit-appearance: checkbox !important;
+			appearance: checkbox !important;
+		}
+
+		span {
+			display: inline-block !important;
+			margin-left: 10px;
+			color: rgba($c-white, 0.8) !important;
+			font-family: $font-head !important;
+			font-size: 13px !important;
+			font-weight: 300 !important;
+			letter-spacing: 0 !important;
+			line-height: 20px !important;
+			transform: translateY(0) !important;
 		}
 	}
 

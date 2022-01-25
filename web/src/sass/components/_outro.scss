@@ -19,6 +19,10 @@
 		}
 	}
 
+	.is-page-partner & {
+		padding: 130px 0 110px;
+	}
+
 	.platform & {
 		margin-top: 0;
 	}
@@ -51,7 +55,8 @@
 	}
 
 	&__subtitle {
-		margin-bottom: 20px;
+		display: block;
+		margin-bottom: 24px;
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 19px;
@@ -59,12 +64,16 @@
 	}
 
 	&__description {
-		max-width: 570px;
+		max-width: 574px;
 		margin: 0 auto;
 		margin-top: 30px;
 
 		.is-page-starter.kit & {
 			max-width: 510px;
+		}
+
+		p {
+			margin-top: 20px;
 		}
 	}
 

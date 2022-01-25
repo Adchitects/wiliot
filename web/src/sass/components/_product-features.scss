@@ -76,6 +76,10 @@
 				font-size: 18px;
 				font-weight: 900;
 				line-height: 30px;
+
+				.is-page-partner & {
+					padding-right: 38px;
+				}
 			}
 
 			&__description {
