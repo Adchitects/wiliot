@@ -51,6 +51,10 @@
 				column-gap: 24px;
 				column-width: 510px;
 
+				@include tablet-small-1023 {
+					margin-bottom: 0;
+				}
+
 				p {
 					display: inline-block;
 				}
