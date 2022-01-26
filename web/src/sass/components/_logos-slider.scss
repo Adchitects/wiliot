@@ -16,6 +16,22 @@
 		margin-bottom: 95px;
 	}
 
+	.is-page-partner & {
+		margin-top: 258px;
+
+		@include tablet-medium-1199 {
+			&.u-section {
+				margin-top: 120px;
+			}
+		}
+
+		@include mobile-767 {
+			&.u-section {
+				margin-top: 80px;
+			}
+		}
+	}
+
 	.logos-slider {
 		display: flex;
 		flex-direction: column;

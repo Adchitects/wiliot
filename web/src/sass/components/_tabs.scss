@@ -27,6 +27,16 @@
 		}
 	}
 
+	.is-page-partner & {
+		margin-top: 160px;
+		padding-top: 134px;
+
+		@include mobile-767 {
+			margin-top: 80px;
+			padding-top: 80px;
+		}
+	}
+
 	.tabs {
 		display: flex;
 		flex-direction: column;
