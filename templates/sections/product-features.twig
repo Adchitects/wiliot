@@ -1,43 +1,45 @@
 {% set title = entry.productFeaturesTitle %}
 {% set subtitle = entry.productFeaturesSubtitle %}
 {% set list = entry.productFeaturesList.all() %}
-
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-features js-bg-shape-hld">
-	<div class="bg-shape bg-shape--center-left bg-shape--center-left-sticky js-bg-shape" data-version="center-left-sticky">
-		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
-	</div>
-	<div class="u-wrapper">
-		<div class="product-features">
-			<div class="product-features__header">
-				{% if subtitle %}
-					<span class="product-features__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
-				{% endif %}
-				{% if title %}
-					<h2 class="product-features__title u-title u-title--section">{{ title }}</h2>
+{% if subtitle or title %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-features js-bg-shape-hld">
+		<div class="bg-shape bg-shape--center-left bg-shape--center-left-sticky js-bg-shape" data-version="center-left-sticky">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
+		</div>
+		<div class="u-wrapper">
+			<div class="product-features">
+				<div class="product-features__header">
+					{% if subtitle %}
+						<span class="product-features__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+					{% endif %}
+					{% if title %}
+						<h2 class="product-features__title u-title u-title--section">{{ title }}</h2>
+					{% endif %}
+				</div>
+				{% if list %}
+					<div class="product-features__list">
+						{% for item in list %}
+							{% set title = item.featureTitle %}
+							{% set description = item.featureDescription %}
+							{% set icon = item.featureIcon.one() %}
+							{% if icon %}
+								{% set icon = item.featureIcon.one().getUrl() %}
+							{% endif %}
+							<div class="feature">
+								{% if icon %}
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{icon}}" alt="{{title}}" class="feature__icon js-lazy">
+								{% endif %}
+								{% if title %}
+									<h3 class="feature__title">{{title}}</h3>
+								{% endif %}
+								{% if description %}
+									<p class="feature__description">{{description}}</p>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
 				{% endif %}
 			</div>
-			{% if list %}
-				<div class="product-features__list">
-					{% for item in list %}
-						{% set title = item.featureTitle %}
-						{% set description = item.featureDescription %}
-						{% set icon = item.featureIcon.one() %}
-						{% if icon %}
-							{% set icon = item.featureIcon.one().getUrl() %}
-						{% endif %}
-						<div class="feature">
-							<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{icon}}" alt="{{title}}" class="feature__icon js-lazy">
-							{% if title %}
-								<h3 class="feature__title">{{title}}</h3>
-							{% endif %}
-							{% if description %}
-								<p class="feature__description">{{description}}</p>
-							{% endif %}
-						</div>
-					{% endfor %}
-				</div>
-			{% endif %}
 		</div>
-	</div>
-
-</section>
+	</section>
+{% endif %}

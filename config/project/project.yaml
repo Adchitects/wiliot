@@ -1,4 +1,4 @@
-dateModified: 1638963396
+dateModified: 1643288935
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -12,12 +12,14 @@ meta:
     0b690033-faf2-4c0e-ac72-324a9c776e0c: 'Content Two Columns' # Content Two Columns
     0cb15938-ac86-4efb-a156-55003949c82a: 'Item Title' # Item Title
     0d19a1fa-434e-42c8-91b3-267af6ff4d61: 'Accordion Item Image' # Accordion Item Image
+    0d21acff-592d-40fb-830e-41732066f9a2: 'Partners slider' # Partners slider
     0def3c44-59a2-4e97-b1d2-b5113298abd6: Excerpt # Excerpt
     0e3baeb3-22b3-4e08-88c4-c0b488b8cc93: 'Text and Photo Subtitle' # Text and Photo Subtitle
     1a30f313-b027-4476-b454-f3cfb059733d: Press # Press
     1b4a0706-496e-41ce-8f61-5ef6e300767e: 'Hero Image' # Hero Image
     1b33446a-b71e-45ab-87aa-bb6ab00b2d07: Title # Title
     1cb6c681-bbc6-4442-b924-71726e4d56e0: Company # Company
+    1db84573-91ce-4d67-a84b-b152f91dd96e: Items # Items
     1e1f8be2-6b6c-46d2-9c81-9a714e68cf8b: 'Freemode Slider Items' # Freemode Slider Items
     1e4dface-74fb-48c5-9710-06f194b7baa6: Content # Content
     1ec49a9b-cf25-4f75-b0ef-97a08239f615: 'Item image' # Item image
@@ -42,6 +44,7 @@ meta:
     3d63e4af-9460-4434-bafb-76bcd62cbc80: 'Public Schema' # Public Schema
     03e2cac1-9be5-43fa-8f28-38ddc165302a: Title # Title
     3ec22c2c-bd0e-4cde-98d3-38c12c822cf9: Title # Title
+    3fd0edeb-24fb-4708-89c8-576a57a3b692: Text # Text
     4a83902a-5675-4742-a44f-30f067653521: Contact # Contact
     4c46750b-692f-42b5-873f-47f479cc3cf1: Image # Image
     4d8becb3-5a24-404c-81a0-2f440cd3c756: 'Image Text' # Image Text
@@ -55,6 +58,7 @@ meta:
     5bba4f09-9499-42c1-8768-753c072a9a6b: Popup # Popup
     5c0bdfd4-33c7-43bc-9ac2-07c12a20f210: Name # Name
     5cd9bdd7-00ca-4292-b009-6cae44db2342: Color # Color
+    5d00bb25-a4e5-456c-a578-fb57066033a2: Image # Image
     5d866255-5892-4fae-8156-2cb87e5d294d: 'Page link' # Page link
     5ddf9ab1-7416-4397-aeb6-30367ce2bfb1: 'News posts' # News posts
     5e29992a-b244-4fe8-9267-ae0f945e70c5: 'News posts categories' # News posts categories
@@ -92,6 +96,7 @@ meta:
     8e49c8c9-97c8-40e3-912b-e7579ecb5f56: Company # Company
     8e568f91-0e3b-4f04-a9e9-a31034c346da: 'Content List' # Content List
     8f13aebd-f560-4613-aa85-a46790d1bf7b: 'Sliding Box' # Sliding Box
+    8f81287f-f33c-4503-9c37-2522eff7d4f7: Description # Description
     9ab90bdf-5ff3-41ea-831b-684ff05d1cce: 'Slide Description' # Slide Description
     9c7ff223-4645-48dc-9d13-f4c1c832f37a: Subtitle # Subtitle
     9c8490b7-67ec-4524-bb59-70c67f4c6216: Image # Image
@@ -139,10 +144,12 @@ meta:
     51c060f1-2569-4a4e-88d5-0ff236f6033b: 'Podcast posts' # Podcast posts
     52a8b49e-3015-43ea-9877-1717ccdb40dc: 'Partners details' # Partners details
     55ce0c09-4b92-4807-aafc-6bea064592f8: Button # Button
+    55fba213-6c08-4328-a191-72185e4d8ec5: 'Item Link' # Item Link
     56b8df8b-8895-49c6-b0af-465e722997dd: 'Solution Tab' # Solution Tab
     56ccc3ea-9c9a-4330-95fe-7afa4289c305: Item # Item
     57d48c6b-6881-45af-9650-f9eae5956900: Items # Items
     58da7695-c920-444e-98bf-ded54f374849: Product # Product
+    58e8424e-47a5-464b-9389-db27370f5b87: Button # Button
     59dd892d-41fd-4d25-9f72-9e60b4894617: Engage # Engage
     60a4c2a4-fb2e-4146-91c2-535a7c8df02f: 'Privacy posts' # Privacy posts
     063e6186-1a4a-4b67-8c0b-313b878562a1: 'Login tiles' # Login tiles
@@ -156,6 +163,7 @@ meta:
     75c17eb6-3431-4162-afea-22c5c2c734a6: Logo # Logo
     75e274d7-3ba3-454d-99f4-95324377663d: Title # Title
     76eb9707-d30c-49a2-84d1-647b32ca77e6: Excerpt # Excerpt
+    77d922fc-0d34-49f4-b351-76709299ca85: Items # Items
     77df66f9-3e2a-4862-b7fd-13a968450b18: 'Become a Partner' # Become a Partner
     82d102f3-bac9-465b-acb7-b017dd02a99d: 'Sliding Boxes' # Sliding Boxes
     83a380f9-0f52-4434-a9f9-dfcd5c8a80c9: Hero # Hero
@@ -177,6 +185,7 @@ meta:
     345b4661-88c3-4313-a1b2-3f233f9f8884: 'Meta title' # Meta title
     345ebe97-0785-49fe-bc48-6387be4df98b: Magazine # Magazine
     385ac370-9642-4c9f-adde-527cc332b168: Image # Image
+    395addf7-e11e-4403-ae5f-8f3747c9bd71: Logo # Logo
     398bd18a-8ac2-4db3-a060-280c5b407c72: Link # Link
     403c268c-4e41-432d-abf2-ead544de0746: 'Post Content' # Post Content
     404edfb5-6c67-47db-b78e-83080fabe753: 'Video Link' # Video Link
@@ -196,9 +205,11 @@ meta:
     851fda9e-3659-48cd-9f14-cf77e0434144: Image # Image
     856cff78-8d18-4dfb-ae45-f4c779296ee6: 'Item link' # Item link
     857c6863-c09d-40d1-ad6b-84766ed728aa: Videos # Videos
+    892a3545-ad76-49d6-9997-05772f52e17d: 'Partner program' # Partner program
     905daeda-f46f-4ff4-94ed-7b6155739ca9: Link # Link
     919ae572-258d-447e-9d4e-f62d42ece43b: 'Podcasts hero' # Podcasts hero
     919d4ce0-d5c1-46c0-ad7c-9757ccd75260: Transcript # Transcript
+    934e14d9-1544-4039-9019-9fb3ae635fff: Name # Name
     939f5fba-03cc-4d0d-842f-55aaab58ee13: 'Founders image' # Founders image
     982f378c-de5e-42b5-b61d-83ca7ba35d43: Subscribe # Subscribe
     998d961f-669a-4df1-acf5-c61e3bf61762: Title # Title
@@ -226,6 +237,7 @@ meta:
     8602fbce-3eeb-4f22-9810-f375fc887896: 'Partners details' # Partners details
     8608b72a-4d71-486a-a8c5-05de9f86f6da: 'Hero button' # Hero button
     08614d3a-fe80-46d8-8bdf-1ca8c8860ccc: Asset # Asset
+    9171c384-f197-4f1a-a6a3-5eb0dde40bda: Button # Button
     9595e162-7462-463a-b88c-a487c634061c: Item # Item
     9609ca58-e35b-42d2-914a-4865163ca851: Main # Main
     9764e735-6941-4d87-813d-40ce1377a025: 'Carousel Title' # Carousel Title
@@ -238,6 +250,7 @@ meta:
     27470b2f-bd24-4902-9cc9-0ae02ba6d8b4: 'Logos Show Arrows' # Logos Show Arrows
     34734b74-001f-4710-8e8b-224354eb86f9: Button # Button
     40922bfa-74c8-45fd-b538-2c6a9cb4af73: Time # Time
+    41891a2e-dcac-421a-b5a6-e68c86e11c85: Title # Title
     47215d32-9b72-432f-acc2-b41ad7c70836: Title # Title
     50591cb5-09ef-41ae-878f-0835a4c3039c: 'Single event' # Single event
     51850a96-c233-45ae-930f-6eda18372ebe: Rows # Rows
@@ -284,13 +297,16 @@ meta:
     a3b937be-4645-4775-a711-630eb62205b7: 'Item content' # Item content
     a4c32174-ec28-428d-84e3-c202e09057ed: Title # Title
     a6fbfc8e-55c5-44fa-af7d-03092c0766f8: 'Item title' # Item title
+    a7aa8e0a-bf76-4ce4-a254-0d6e76a33b75: 'Hero buttons' # Hero buttons
     a7fc288b-79c9-49c5-8f22-267253edccb0: Title # Title
     a9a3545a-aadc-4862-b1eb-33882c0095ff: item # item
     a32e9e23-451a-49bb-934a-49e981162d67: Title # Title
+    a39ad980-e8c0-4ff3-9124-c38d46ab3721: Subtitle # Subtitle
     a67bb8c1-3f20-4333-98ad-c87efbbfe01d: 'Solution content title' # Solution content title
     a72f395b-149d-409e-8b99-50ca9cb8e90c: 'Text and Photo Title' # Text and Photo Title
     a87aa858-2e9d-4ac5-be71-84ee0f3747a1: 'Solution Hero buttons' # Solution Hero buttons
     a404d7db-a8ee-45b9-be68-9316c6209368: Content # Content
+    a459d4ef-5a77-49af-872e-254152de66e8: Subtitle # Subtitle
     a486e38a-51ed-4d5d-bf72-d04b328035cb: Description # Description
     a766f7cb-ab87-4a64-acc6-1817a3f59914: Description # Description
     a20376e6-81c6-4ecc-8014-c22eac87de16: 'Wiliot Platform' # Wiliot Platform
@@ -325,6 +341,7 @@ meta:
     bb28a450-0555-4dfd-adcf-19215e1cb556: 'Item content title' # Item content title
     bbc6ab75-1884-478a-9570-29678a2d7398: Subtitle # Subtitle
     bbc51069-aedf-487b-a32a-7b11b2ce021e: Numeration # Numeration
+    bc2997ea-3d6e-4d63-81b9-5a7c1b47dab2: Title # Title
     bcdd0fc8-ebf7-41b9-a63c-ce0d8e1f757a: Date # Date
     bdcd9160-f2d1-4850-b5f3-c2114f8a6275: Partners # Partners
     bdd4ed94-b987-4aa0-bc02-4cb2b15ae78e: Blog # Blog
@@ -339,6 +356,7 @@ meta:
     c1aec290-c696-4146-a7c4-0527783490af: Items # Items
     c1c689d7-017d-4ab7-9344-d621f97310b5: 'Popup text' # Popup text
     c1ea5f92-9656-4dcc-be98-4f72c644a75a: Image # Image
+    c2b6cf0c-1a5b-43be-9945-d2bd6fe474a1: Item # Item
     c7c9f302-4f23-466d-a2d3-675621d8f44a: 'Partner Name' # Partner Name
     c8d1de3d-26dd-49bd-bf44-fd12d34a58e8: Item # Item
     c35a2b29-54db-4c61-9fb7-18f830d1a674: Title # Title
@@ -364,6 +382,7 @@ meta:
     d2cfe82a-69c1-4a19-a9a4-aa6e47cf4ce7: Video # Video
     d3f0249b-777e-40e1-89a8-3ed0738c3fcc: Icon # Icon
     d5e4c30e-3d1d-421e-89a7-581b54f7c4a9: Intro # Intro
+    d7e49959-f264-4f51-a6c7-3f95eb39d4db: 'Partner program' # Partner program
     d9ebf74d-0c1c-4009-b95d-572faa6f5394: Button # Button
     d23ec171-33f7-4a78-b2a6-40397accf315: Title # Title
     d42bc419-e219-47d1-b26c-6904a60b4b2c: 'Single news' # Single news
@@ -409,6 +428,7 @@ meta:
     e8152479-ce90-4f3f-bae1-aeed0642352b: Title # Title
     eb1ab648-91f1-4fef-a83d-57d695b12a0d: 'Purchase Survey' # Purchase Survey
     eb860d85-a0af-4d6f-b20b-a5c7c4eb72c4: Subtitle # Subtitle
+    eb389631-ffcc-471f-ba44-79abcb7d92fc: Person # Person
     ebc5eb0f-9c5c-4c10-9073-bcae5d699c8a: Podcasts # Podcasts
     ee5bb6b3-8544-4836-bb28-42d1e3a26be2: Video # Video
     eefeef3e-5c1a-420d-9d0b-c4e07523b27b: 'Popup posts' # Popup posts
@@ -431,6 +451,7 @@ meta:
     f98b36eb-f334-4b82-ab68-6b2c373e65bd: 'Careers Listing' # Careers Listing
     f4561c6e-39fa-472f-90d8-3e5873d7a32a: 'Logos Slider Subtitle' # Logos Slider Subtitle
     f81127b9-7562-425b-ba2e-94267a67ef61: Title # Title
+    f1617063-841c-4d57-9264-d9bc10379947: 'Text Photo' # Text Photo
     fb9317cd-b414-4e68-a951-161864e164da: Title # Title
     fc578d10-4d6e-4d97-8780-ffbb58c217b1: 'Solutions hero bottom title' # Solutions hero bottom title
     fd6828c8-bfe1-4a5b-bc60-81cbd0a5b91a: 'Founders title' # Founders title

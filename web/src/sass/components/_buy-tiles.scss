@@ -4,6 +4,20 @@
 	padding-bottom: 100px;
 	overflow: hidden;
 
+	.is-page-partner & {
+		margin-top: 130px;
+		padding-top: 0;
+		padding-bottom: 66px;
+
+		.bg-shape {
+			display: none;
+		}
+	}
+
+	+ .u-section--outro {
+		margin-top: 60px;
+	}
+
 	@include tablet-small-1023 {
 		padding-top: 80px;
 		padding-bottom: 80px;
@@ -12,8 +26,22 @@
 
 .buy-tiles {
 	&__text-hld {
+		.subtitle {
+			.is-page-partner & {
+				@extend .u-subtitle--section;
+
+				text-align: left;
+			}
+		}
+
 		.title {
 			margin-top: 15px;
+
+			.is-page-partner & {
+				max-width: 630px;
+				font-size: 32px;
+				line-height: calc(40 / 32);
+			}
 		}
 	}
 
@@ -39,6 +67,10 @@
 		background-color: $c-white;
 		box-shadow: $box-shadow;
 		text-align: center;
+
+		.is-page-partner & {
+			padding: 60px 45px 80px;
+		}
 
 		@include media-max(475) {
 			padding: 30px 15px;
@@ -86,6 +118,15 @@
 	}
 
 	.item {
+		&__number {
+			color: $c-accent;
+			font-family: $font-head;
+			font-size: 31px;
+			font-weight: 500;
+			letter-spacing: 1.6px;
+			line-height: 1.2;
+		}
+
 		&__icon {
 			svg {
 				path {
@@ -95,7 +136,7 @@
 		}
 
 		&__title {
-			margin-top: 40px;
+			margin-top: 42px;
 			font-size: 24px;
 			font-weight: 900;
 			line-height: 36px;
@@ -144,6 +185,27 @@
 		&__btn {
 			min-width: 192px;
 			margin-top: auto;
+
+			.is-page-partner & {
+				padding: 16px 75px 14px;
+				border: 1px solid rgba($c-black, 0.6);
+				border-radius: 30px;
+				background-color: transparent;
+				transition: background-color 0.2s, border-color 0.2s;
+
+				.text {
+					color: $c-black;
+				}
+
+				&:hover {
+					border-color: $c-accent;
+					background-color: $c-accent;
+
+					.text {
+						color: $c-white;
+					}
+				}
+			}
 		}
 
 		&:last-of-type {

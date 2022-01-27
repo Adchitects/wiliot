@@ -1,0 +1,19 @@
+columnSuffix: dcldsrmu
+contentColumnType: text
+fieldGroup: f1617063-841c-4d57-9264-d9bc10379947 # Text Photo
+handle: textPhotoSubtitle
+instructions: ''
+name: Subtitle
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

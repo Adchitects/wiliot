@@ -22,13 +22,12 @@
 					<div class="tabs__nav">
 						{% for item in tabs.all() %}
 							{% set title = item.tabTitle %}
+							{% set itemIcon = item.tabIcon.one() %}
 							<div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item js-tabs-slider-nav-item">
-								{% if title|lower == 'retail' %}
-									<span class="icon icon-retail"></span>
-								{% elseif title|lower == 'pharma and healthcare' %}
-									<span class="icon icon-pharma"></span>
-								{% elseif title|lower == 'food & beverage' %}
-									<span class="icon icon-food"></span>
+								{% if itemIcon %}
+									<div class="icon-hld">
+										<img class="icon" src="{{ itemIcon.url }}" alt="{{ itemName }}">
+									</div>
 								{% endif %}
 								<span class="text">{{ title }}</span>
 							</div>
@@ -50,11 +49,14 @@
 									<div class="tab__content">
 										<h3 class="tab__title">{{ title }}</h3>
 										<div class="tab__description">{{ description }}</div>
-										<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
-											<span class="text">
-												{{ link.customText }}
-											</span>
-										</a>
+										{% if link.customText %}
+											<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
+												<span class="text">
+													{{ link.customText }}
+												</span>
+											</a>
+										{% endif %}
+										
 									</div>
 								</div>
 							{% endfor %}

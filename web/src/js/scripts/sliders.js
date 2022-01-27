@@ -31,6 +31,33 @@ const freemodeSlider = new Swiper('.js-freemode-slider', {
 });
 freemodeSlider;
 
+const partnersSlider = new Swiper('.js-partners-slider', {
+	slidesPerView: 1.03,
+	spaceBetween: 24,
+	freeMode: true,
+	grabCursor: true,
+	slideToClickedSlide: true,
+	pagination: {
+		el: '.js-partners-slide-pagination',
+		type: 'progressbar',
+	},
+	breakpoints: {
+		480: {
+			slidesPerView: 1.4,
+		},
+		768: {
+			slidesPerView: 2.2,
+		},
+		900: {
+			slidesPerView: 2.7,
+		},
+		1100: {
+			slidesPerView: 3.33,
+		},
+	},
+});
+partnersSlider;
+
 const logosSlider = new Swiper('.js-logos-slider', {
 	noSwiping: true,
 	slidesPerView: 2,
@@ -94,6 +121,7 @@ const tabsSlider = new Swiper('.js-tabs-slider', {
 	spaceBetween: 48,
 	speed: 800,
 	simulateTouch: false,
+	autoHeight: true,
 });
 tabsSlider;
 

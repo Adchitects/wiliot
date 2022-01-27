@@ -9,6 +9,10 @@
 		margin: 0 auto;
 		padding: 0 30px;
 
+		.is-page-partner & {
+			max-width: 1104px;
+		}
+
 		&__title {
 			margin-bottom: 30px;
 			text-align: center;
@@ -40,6 +44,21 @@
 			column-gap: 100px;
 			column-count: 2;
 			column-width: 360px;
+
+			.is-page-partner & {
+				margin-top: 38px;
+				padding-right: 0;
+				column-gap: 24px;
+				column-width: 510px;
+
+				@include tablet-small-1023 {
+					margin-bottom: 0;
+				}
+
+				p {
+					display: inline-block;
+				}
+			}
 
 			p {
 				margin-top: 0;
@@ -388,7 +407,7 @@
 }
 
 //  Firefox only
-@-moz-document url-prefix() {
+@-moz-document url-prefix('') {
 	.two-columns__content {
 		p {
 			display: block;

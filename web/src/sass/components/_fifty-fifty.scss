@@ -51,6 +51,10 @@
 		max-width: 972px;
 		margin: 0 auto;
 
+		.is-page-partner & {
+			max-width: 100%;
+		}
+
 		&__title {
 			margin-bottom: 98px;
 			font-size: 32px;
@@ -118,6 +122,12 @@
 				@include tablet-small-1023 {
 					margin-bottom: 30px;
 					padding-left: 0;
+				}
+			}
+
+			.is-page-partner & {
+				&:first-of-type {
+					flex-direction: row;
 				}
 			}
 
@@ -262,7 +272,8 @@
 				line-height: 36px;
 
 				.platform &,
-				.is-page-product & {
+				.is-page-product &,
+				.is-page-partner & {
 					font-size: 32px;
 					line-height: 40px;
 				}
@@ -445,6 +456,61 @@
 
 		@include tablet-small-1023 {
 			padding-left: 0;
+		}
+	}
+}
+
+.is-page-partner {
+	.u-section--fifty-fifty {
+		.fifty-fifty {
+			.row {
+				&:first-of-type {
+					@include tablet-small-1023 {
+						flex-direction: column;
+					}
+				}
+
+				&__content,
+				&__image {
+					width: 50%;
+					max-width: unset;
+
+					@include tablet-small-1023 {
+						width: 100%;
+					}
+				}
+
+				&__content {
+					padding-right: 12px;
+				}
+
+				&__description {
+					margin-top: 6px;
+
+					p {
+						margin-top: 10px;
+					}
+				}
+
+				&__image {
+					img {
+						width: 620px;
+						max-width: unset;
+						padding-right: 0;
+						transform: translateX(10px) translateY(2px);
+
+						@include media-max(1100) {
+							width: 100%;
+							transform: none;
+						}
+
+						@include tablet-small-1023 {
+							max-width: 600px;
+							margin: 0 auto;
+						}
+					}
+				}
+			}
 		}
 	}
 }
