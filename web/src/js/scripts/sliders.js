@@ -121,6 +121,7 @@ const tabsSlider = new Swiper('.js-tabs-slider', {
 	spaceBetween: 48,
 	speed: 800,
 	simulateTouch: false,
+	autoHeight: true,
 });
 tabsSlider;
 

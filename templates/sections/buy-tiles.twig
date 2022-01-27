@@ -22,18 +22,33 @@
 					{% set iconName = item.tileIcon %}
 					{% set title = item.tileTitle %}
 					{% set topDescription = item.tileTopDescription %}
+					{% set topDescriptionSliced = topDescription|slice(0, 307) ~ '...' %}
 					{% set bottomDescription = item.tileBottomDescription %}
 					{% set button = item.tileButton %}
 					<div class="buy-tiles__item item js-buy-tiles-item">
-						<div class="item__icon">{{ svg('src/img/svg/' ~ iconName ~ '_animated.svg') }}</div>
+						{% if iconName == 'numbers' %}
+							<div class="item__number">
+								{% if loop.index < 10 %}
+									0{{ loop.index }}
+								{% else %}
+									{{ loop.index }}	
+								{% endif %}
+							</div>
+						{% else %}
+							<div class="item__icon">{{ svg('src/img/svg/' ~ iconName ~ '_animated.svg') }}</div>
+						{% endif %}
 						<div class="item__title">{{ title }}</div>
 						<div class="item__description-hld">
-							<div class="item__description item__description--top">{{ topDescription }}</div>
-							<div class="item__description item__description--bottom">{{ bottomDescription }}</div>
+							<div class="item__description item__description--top">{{ topDescription|length > 310 ? topDescriptionSliced|raw : topDescription|raw }}</div>
+							{% if bottomDescription %}
+								<div class="item__description item__description--bottom">{{ bottomDescription }}</div>
+							{% endif %}
 						</div>
-						<a href="{{ button.url }}" target="{{ button.target ? '_blank' : null }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item__btn u-btn u-btn--accent">
-							<span class="text">{{ button.customText }}</span>
-						</a>
+						{% if button.url %}
+							<a href="{{ button.url }}" target="{{ button.target ? '_blank' : null }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item__btn u-btn u-btn--accent">
+								<span class="text">{{ button.customText }}</span>
+							</a>
+						{% endif %}
 					</div>
 				{% endfor %}
 			</div>

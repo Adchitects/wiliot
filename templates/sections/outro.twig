@@ -1,9 +1,9 @@
+{% set subtitle = entry.outroSubtitle %}
 {% set title = entry.outroTitle %}
 {% set description = entry.outroDescription %}
 {% set button = entry.outroButton %}
 {% set button2 = entry.outroButton2 %}
-{% set subtitle = entry.outroSubtitle %}
-{% if title or description %}
+{% if subtitle or title %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--outro {{ description ? null : 'is-small' }}">
 		<div class="outro__bg-img">
 			<?xml version="1.0" encoding="UTF-8"?>

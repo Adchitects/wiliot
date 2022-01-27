@@ -76,6 +76,10 @@
 				line-height: 26px;
 				text-align: center;
 
+				@include tablet-small-1023 {
+					font-size: 13px;
+				}
+
 				@include media-max(767) {
 					display: none;
 				}
@@ -240,6 +244,12 @@
 			margin: 0 auto;
 			margin-top: 80px;
 			padding: 16px 40px 14px;
+
+			.is-page-partner & {
+				@extend .u-btn--accent;
+
+				border: 0;
+			}
 
 			@include mobile-599 {
 				margin-top: 30px;

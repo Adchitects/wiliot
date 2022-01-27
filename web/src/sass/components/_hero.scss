@@ -151,6 +151,12 @@
 			margin: 0 auto;
 		}
 
+		@include mobile-767 {
+			.is-page-partner & {
+				margin-left: 0;
+			}
+		}
+
 		&--bold {
 			max-width: 512px;
 			margin-top: 24px;
@@ -177,6 +183,10 @@
 
 		.is-page-thank & {
 			max-width: 800px;
+		}
+
+		.is-page-partner & {
+			max-width: unset;
 		}
 	}
 }
