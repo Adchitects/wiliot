@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 0d21acff-592d-40fb-830e-41732066f9a2 # Partners slider
+handle: partnersSliderItemsMatrix
+instructions: ''
+name: Items
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_partnersslideritemsmatrix}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
