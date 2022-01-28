@@ -27,7 +27,7 @@
 					<span class="hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
 				{% endif %}
 				{% if title %}
-					<h1 class="hero__title u-title u-title--big">{{ title }}</h1>
+					<h1 class="hero__title u-title u-title--big">{{ title|nl2br }}</h1>
 				{% endif %}
 				{% if descriptionBold is defined and descriptionBold %}
 					<p class="hero__description hero__description--bold">{{ descriptionBold }}</p>

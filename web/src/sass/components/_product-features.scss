@@ -3,6 +3,10 @@
 	padding-top: 96px;
 	border-top: 1px solid #dddddd;
 
+	.is-page-partner & {
+		border-top: 0;
+	}
+
 	.bg-shape {
 		@include media-max(850) {
 			display: none;

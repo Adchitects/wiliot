@@ -4,6 +4,10 @@
 	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 	overflow: hidden;
 
+	+ .u-section--tabs {
+		margin-top: 0;
+	}
+
 	@include tablet-medium-1199 {
 		&.u-section {
 			padding-top: 80px;
