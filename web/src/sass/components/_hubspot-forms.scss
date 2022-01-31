@@ -487,7 +487,9 @@
 			}
 		}
 
-		h2 {
+		h1,
+		h2,
+		h3 {
 			color: $c-white !important;
 			font-family: $font-head !important;
 			font-size: 24px;
@@ -592,6 +594,10 @@
 			}
 		}
 
+		.hs_partnership_referral_request {
+			margin-top: 60px;
+		}
+
 		.hs_partner_directory_type,
 		.hs_partner_type_from_form_ {
 			margin-bottom: 0 !important;
@@ -675,6 +681,10 @@
 					}
 				}
 			}
+		}
+
+		.hs-fieldtype-textarea {
+			padding-top: 0;
 		}
 	}
 }

@@ -1,0 +1,64 @@
+{% set becomeAPartnerSubtitle = entry.becomeAPartnerSubtitle %}
+{% set becomeAPartnerTitle = entry.becomeAPartnerTitle %}
+{% set hubspotFormId = entry.hubspotFormId %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--become-a-partner js-bg-shape-hld">
+	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
+		<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
+		<img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+		<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="u-wrapper u-wrapper--content">
+		<div class="become-a-partner">
+			<div class="become-a-partner__text-hld">
+				<span class="become-a-partner__subtitle u-subtitle u-subtitle--big">{{ becomeAPartnerSubtitle }}</span>
+				<h1 class="become-a-partner__title u-title u-title--section">{{ becomeAPartnerTitle }}</h1>
+			</div>
+			<div class="become-a-partner__form-hld">
+				<div id="become-a-partner-form" class="become-a-partner__form form">
+					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+					<script
+							src="https://code.jquery.com/jquery-3.6.0.min.js"
+							integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+							crossorigin="anonymous">
+					</script>
+					<script>
+						function handleState() {
+							const fields = document.querySelectorAll('.field input');
+							const selects = document.querySelectorAll('.hs-fieldtype-select select');
+							if (fields && fields.length > 0) {
+								fields.forEach(field => {
+									field.addEventListener('input', () => {
+										field.parentNode.parentNode.classList.add('is-active');
+										if (!field.value) {
+											field.parentNode.parentNode.classList.remove('is-active');
+										}
+									});
+								});
+							}
+							if (selects && selects.length > 0) {
+								selects.forEach(select => {
+									select.addEventListener('change', () => {
+										select.parentNode.parentNode.classList.add('is-active');
+										handleState();
+									});
+								});
+							}
+						};
+						hbspt.forms.create({
+							region: "na1", 
+							portalId: "4249967", 
+							formId: "{{ hubspotFormId }}",
+							onFormReady: function() {
+								document.body.classList.add('is-partners-long-form');
+								handleState();
+							},
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
