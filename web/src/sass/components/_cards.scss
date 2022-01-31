@@ -1,0 +1,139 @@
+.u-section--cards {
+	padding-bottom: 76px;
+	background-image: linear-gradient(180deg, #FFFFFF 0%, #F5F6FD 100%);
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-gap: 24px;
+
+		&__item {
+			height: fit-content;
+			border-radius: 6px;
+			box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+
+			.img-hld {
+				width: 100%;
+				height: auto;
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.text-hld {
+				height: auto;
+				padding-top: 22px;
+				padding-bottom: 30px;
+				padding-left: 14px;
+				border-bottom-left-radius: 6px;
+				border-bottom-right-radius: 6px;
+				background-color: $c-white;
+
+				.name {
+					padding-right: 20px;
+					font-size: 24px;
+					font-weight: 900;
+					letter-spacing: 0;
+					line-height: calc(28 / 24);
+				}
+
+				.content-hld {
+					position: relative;
+					cursor: pointer;
+					margin-top: 35px;
+					transition: opacity 0.2s;
+
+					&:hover {
+						opacity: 0.7;
+					}
+			
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: -18px;
+						left: 0;
+						pointer-events: none;
+						width: calc(100% - 20px);
+						height: 1px;
+						background-color: $c-border;
+					}
+
+					.title {
+						.text {
+							font-weight: 500;
+						}
+
+						.icon {
+							&-dropdown-down {
+								display: inline-block;
+								margin-left: 3px;
+								font-size: 12px;
+								transition: transform 0.2s;
+							}
+						}
+					}
+
+					.content {
+						max-height: 0;
+						padding-top: 18px;
+						transition: max-height 0.5s;
+						overflow: hidden;
+
+						ul {
+							padding-right: 36px;
+
+							li {
+								position: relative;
+								padding-top: 4px;
+								padding-left: 36px;
+								color: rgba($c-black, 0.8);
+								font-size: 14px;
+								font-weight: 300;
+								letter-spacing: 0;
+								line-height: calc(24 / 14);
+
+								&::before {
+									content: '';
+									position: absolute;
+									top: 13px;
+									left: 12px;
+									pointer-events: none;
+									width: 5px;
+									height: 5px;
+									border-radius: 50%;
+									background-color: $c-black;
+								}
+							}
+						}
+					}
+
+					&.is-active {
+						.icon {
+							&-dropdown-down {
+								transform: rotate(-180deg);
+								transition: transform 0.2s 0.025s;
+							}
+						}
+
+						.content {
+							max-height: 2000px;
+							transition: max-height 1s;
+						}
+					}
+				}
+
+				.btn {
+					min-width: 270px;
+					margin-top: 18px;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

@@ -71,7 +71,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 443d4b6c-ae84-41c0-93e9-9580e471e6b4
+            fieldUid: 443d4b6c-ae84-41c0-93e9-9580e471e6b4 # HubSpot Form ID
             instructions: null
             label: null
             required: false
