@@ -50,7 +50,16 @@
 				min-height: unset;
 			}
 
+			&.is-coming-soon {
+				.img-hld {
+					.coming-soon-label {
+						display: flex;
+					}
+				}
+			}
+
 			.img-hld {
+				position: relative;
 				width: 100%;
 				height: auto;
 				border-top-left-radius: 6px;
@@ -60,6 +69,28 @@
 				img {
 					width: 100%;
 					height: auto;
+				}
+
+				.coming-soon-label {
+					display: none;
+					align-items: center;
+					justify-content: center;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 146px;
+					height: 32px;
+					background-color: $c-accent;
+
+					.text {
+						color: $c-white;
+						font-size: 12px;
+						font-weight: 500;
+						letter-spacing: 0;
+						line-height: calc(16 / 12);
+						text-transform: uppercase;
+						transform: translateY(2px);
+					}
 				}
 			}
 
