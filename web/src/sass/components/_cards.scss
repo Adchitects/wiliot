@@ -9,8 +9,46 @@
 
 		&__item {
 			height: fit-content;
+			min-height: 512px;
 			border-radius: 6px;
+			background-color: $c-white;
 			box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+
+			@include media-max(1331) {
+				min-height: 600px;
+			}
+
+			@include media-max(1235) {
+				min-height: 586px;
+			}
+
+			@include media-max(1199) {
+				min-height: 574px;
+			}
+
+			@include media-max(1100) {
+				min-height: 538px;
+			}
+
+			@include media-max(1025) {
+				min-height: 516px;
+			}
+
+			@include media-max(888) {
+				min-height: 612px;
+			}
+
+			@include media-max(800) {
+				min-height: 568px;
+			}
+
+			@include media-max(740) {
+				min-height: 538px;
+			}
+
+			@include media-max(683) {
+				min-height: unset;
+			}
 
 			.img-hld {
 				width: 100%;

@@ -21,12 +21,12 @@
 	
 		.steps {
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(auto-fit, minmax(306px, 1fr));
 			grid-gap: 18px;
 	
-			@include tablet-small-1023 {
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			}
+			// @include tablet-small-1023 {
+			// 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			// }
 
 			@include mobile-767 {
 				margin-top: 30px;
@@ -75,7 +75,12 @@
 					}
 	
 					&__button {
+						display: inline-flex;
+						align-items: center;
+						justify-content: center;
+						min-width: 270px;
 						margin-top: 48px;
+						padding: 16px 24px 14px;
 					}
 				}
 			}
