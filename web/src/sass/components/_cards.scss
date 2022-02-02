@@ -9,21 +9,21 @@
 
 		&__item {
 			height: fit-content;
-			min-height: 512px;
+			min-height: 562px;
 			border-radius: 6px;
 			background-color: $c-white;
 			box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
 
 			@include media-max(1331) {
-				min-height: 600px;
+				min-height: 630px;
 			}
 
 			@include media-max(1235) {
-				min-height: 586px;
+				min-height: 618px;
 			}
 
 			@include media-max(1199) {
-				min-height: 574px;
+				min-height: 606px;
 			}
 
 			@include media-max(1100) {
@@ -31,19 +31,19 @@
 			}
 
 			@include media-max(1025) {
-				min-height: 516px;
+				min-height: 566px;
 			}
 
 			@include media-max(888) {
-				min-height: 612px;
+				min-height: 642px;
 			}
 
 			@include media-max(800) {
-				min-height: 568px;
+				min-height: 600px;
 			}
 
 			@include media-max(740) {
-				min-height: 538px;
+				min-height: 568px;
 			}
 
 			@include media-max(683) {
@@ -111,10 +111,20 @@
 					line-height: calc(28 / 24);
 				}
 
+				.description {
+					margin-top: 4px;
+					padding-right: 20px;
+					color: rgba($c-black, 0.8);
+					font-size: 14px;
+					font-weight: 900;
+					letter-spacing: 0;
+					line-height: calc(20 / 14);
+				}
+
 				.content-hld {
 					position: relative;
 					cursor: pointer;
-					margin-top: 35px;
+					margin-top: 48px;
 					transition: opacity 0.2s;
 
 					&:hover {
@@ -199,7 +209,7 @@
 
 				.btn {
 					min-width: 270px;
-					margin-top: 18px;
+					margin-top: 24px;
 					text-align: center;
 				}
 			}

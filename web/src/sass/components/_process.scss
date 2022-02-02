@@ -22,7 +22,7 @@
 		.steps {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(306px, 1fr));
-			grid-gap: 18px;
+			grid-gap: 50px 18px;
 	
 			// @include tablet-small-1023 {
 			// 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

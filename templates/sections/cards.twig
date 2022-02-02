@@ -4,7 +4,7 @@
 		<div class="u-wrapper u-wrapper--wide u-wrapper--medium-wide">
 			<div class="cards">
 				{% for item in items %}
-					{% set comingSoonLabelCheckboxes = item.itemComingSoonLabel %}
+					{% set label = item.itemLabel %}
 					{# Item image #}
 					{% set image = item.itemImage.one() %}
 					{% if image %}
@@ -16,21 +16,31 @@
 					{# Item texts #}
 					{% set name = item.itemName %}
 					{% set price = item.itemPrice %}
+					{% set description = item.itemDescription %}
 					{% set contentTitle = item.itemContentTitle %}
 					{% set content = item.itemContent %}
 					{% set button = item.itemButton %}
-					<div class="cards__item {% for option in comingSoonLabelCheckboxes.options %} {{ option.selected ? 'is-coming-soon' : '' }} {% endfor %}">
+					<div class="cards__item {% if label %} is-coming-soon {% endif %}">
 						{% if image %}
 							<div class="img-hld">
 								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
-								<div class="coming-soon-label">
-									<span class="text">Coming soon</span>
-								</div>
+								{% if label %}
+									<div class="coming-soon-label">
+										<span class="text">{{ label }}</span>
+									</div>
+								{% endif %}
 							</div>
 						{% endif %}
 						<div class="text-hld js-accordion">
-							<div class="name">{{ name|nl2br }}</div>
-							<div class="price">{{ price }}</div>
+							{% if name %}
+								<div class="name">{{ name|nl2br }}</div>
+							{% endif %}
+							{% if price %}
+								<div class="price">{{ price }}</div>
+							{% endif %}
+							{% if description %}
+								<div class="description">{{ description|nl2br }}</div>
+							{% endif %}
 							{% if contentTitle %}
 								<div class="content-hld js-accordion-toggle-item">
 									<div class="title">

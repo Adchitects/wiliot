@@ -1,4 +1,4 @@
-dateModified: 1643708446
+dateModified: 1643799181
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -383,6 +383,7 @@ meta:
     cb1ba679-0805-4bee-a515-986f9e17282a: 'Solution content subtitle' # Solution content subtitle
     cbd7cd7f-2d7a-463a-af4b-e8aee20b0e88: 'Post Related Categories' # Post Related Categories
     ccb96383-493f-4b28-bee1-c3132009a58e: Asset # Asset
+    cdd98bad-7fb6-4842-9f60-7fdbc774a3f4: Description # Description
     ce840969-a937-4d51-b674-5220d755835c: Description # Description
     ceb80e7a-32c0-4301-b474-cf1dccfa95b0: Button # Button
     d0210b1c-0e4d-4821-a924-8c593285b2a0: Subtitle # Subtitle
@@ -408,7 +409,7 @@ meta:
     d176289c-8035-49cf-8df1-8e7ea962ce39: List # List
     d2328763-0692-4c36-97bf-410516782f12: Title # Title
     dbeb3170-bc05-42b0-92ac-834f84918c98: 'Page Options' # Page Options
-    dc42814a-ab01-47f3-ba7e-6b7647dfe8bf: 'Is coming soon label' # Is coming soon label
+    dc42814a-ab01-47f3-ba7e-6b7647dfe8bf: Label # Label
     dcd7d559-2862-495d-8cf1-52ee98241609: Links # Links
     ddb7eaef-faca-49df-aecb-5d7585a1ce2e: Button # Button
     de2f137b-e43d-43ff-8b36-31978ed3eef1: 'Partner logo' # Partner logo
