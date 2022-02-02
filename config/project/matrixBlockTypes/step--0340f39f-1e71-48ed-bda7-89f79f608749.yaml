@@ -182,7 +182,7 @@ fields:
     searchable: false
     settings:
       availableTransforms: '*'
-      availableVolumes: '*'
+      availableVolumes: ''
       cleanupHtml: true
       columnType: text
       configSelectionMode: choose

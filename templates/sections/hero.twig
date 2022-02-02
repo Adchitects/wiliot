@@ -30,10 +30,10 @@
 					<h1 class="hero__title u-title u-title--big">{{ title|nl2br }}</h1>
 				{% endif %}
 				{% if descriptionBold is defined and descriptionBold %}
-					<p class="hero__description hero__description--bold">{{ descriptionBold }}</p>
+					<p class="hero__description hero__description--bold">{{ descriptionBold|nl2br }}</p>
 				{% endif %}
 				{% if description is defined and description %}
-					<p class="hero__description">{{ description }}</p>
+					<p class="hero__description">{{ description|nl2br }}</p>
 				{% endif %}
 				{% if heroButtonsMatrix %}
 					<div class="buttons-hld">

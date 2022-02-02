@@ -1,4 +1,4 @@
-dateModified: 1643370726
+dateModified: 1643799181
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -76,6 +76,7 @@ meta:
     6d3e6cbc-9a5f-4226-a481-bd398e8a2e68: Button # Button
     6d18ce51-463e-4721-bc7b-a8c1aa470f3c: 'Solution hero bottom image' # Solution hero bottom image
     6d96e21e-c955-4bfc-b1a2-5416579c5643: 'Menu - footer' # Menu - footer
+    6d97ade2-d923-49af-9d24-a94316168256: Button # Button
     6da42730-a412-4224-85d7-5e6ec1653604: Subtitle # Subtitle
     6ea0a802-91c1-4b0a-9c1c-fe9dd9a1475d: 'Solution hero subtitle' # Solution hero subtitle
     6ea314f4-1588-4b55-b364-e834887afded: Description # Description
@@ -113,6 +114,7 @@ meta:
     11c58903-bec1-48ae-8ec4-0e0d5c6a07a8: 'Job Url' # Job Url
     11ce1e52-e709-4a12-b8e8-08c1fe39f993: Careers # Careers
     12af7258-908b-4cd4-9fa8-1fadde60da6b: 'Menu - desktop' # Menu - desktop
+    12e055f4-6065-453e-bb00-1724346b0ec0: Subtitle # Subtitle
     15a29526-16a0-4385-841c-247cd0c057af: Feature # Feature
     19e14f84-94c7-4ee4-9cd0-c5502ad3dcf8: Image # Image
     20fd2ce4-fdf9-4c30-a769-05745f8760b1: 'Founders list' # Founders list
@@ -145,6 +147,7 @@ meta:
     52a8b49e-3015-43ea-9877-1717ccdb40dc: 'Partners details' # Partners details
     55ce0c09-4b92-4807-aafc-6bea064592f8: Button # Button
     55fba213-6c08-4328-a191-72185e4d8ec5: 'Item Link' # Item Link
+    56b5bca1-fef0-422d-94dc-e07ea38f55f6: Items # Items
     56b8df8b-8895-49c6-b0af-465e722997dd: 'Solution Tab' # Solution Tab
     56ccc3ea-9c9a-4330-95fe-7afa4289c305: Item # Item
     57d48c6b-6881-45af-9650-f9eae5956900: Items # Items
@@ -190,6 +193,7 @@ meta:
     403c268c-4e41-432d-abf2-ead544de0746: 'Post Content' # Post Content
     404edfb5-6c67-47db-b78e-83080fabe753: 'Video Link' # Video Link
     417ef66b-11e8-4361-bb18-ca4b47e309ac: 'Popup top subtitle' # Popup top subtitle
+    443d4b6c-ae84-41c0-93e9-9580e471e6b4: 'HubSpot Form ID' # HubSpot Form ID
     451ed20f-3ea7-4943-91a3-5a17bd4fefad: Item # Item
     456e69dd-efa5-4424-9a70-99829afcad2f: Code # Code
     555aa94d-203d-49fe-8991-1e2cc88e0d2d: Title # Title
@@ -212,6 +216,7 @@ meta:
     934e14d9-1544-4039-9019-9fb3ae635fff: Name # Name
     939f5fba-03cc-4d0d-842f-55aaab58ee13: 'Founders image' # Founders image
     982f378c-de5e-42b5-b61d-83ca7ba35d43: Subscribe # Subscribe
+    995cea15-0d6c-434e-aca2-358845c40d33: Price # Price
     998d961f-669a-4df1-acf5-c61e3bf61762: Title # Title
     1539e223-b771-4778-a5b9-3676b59a2508: Outro # Outro
     1819c2ca-609f-4c6a-9e07-bd9c259db7b9: Subtitle # Subtitle
@@ -229,6 +234,7 @@ meta:
     5626dbfe-4960-4336-9afb-38f1ee6f4d1d: Content # Content
     5971d9cf-3fca-4ded-99fc-fd9a8001b187: Title # Title
     5989dd98-aad2-49e6-8aee-f1f3f6786064: 'Subscribe podcasts' # Subscribe podcasts
+    006024bd-1357-44b3-9c32-6f7371feede1: Items # Items
     6560a834-cd10-49ce-92e8-210691efdc73: 'Partners posts' # Partners posts
     7199f9f3-e27d-45c8-9020-6ab95a54ccde: 'Solutions details' # Solutions details
     7380cbf1-53dc-4950-8f94-410c3677e9e9: Image # Image
@@ -278,6 +284,7 @@ meta:
     985580dd-2048-4bd2-9349-e11ad74710d6: Subtitle # Subtitle
     2199390b-1fa8-4a3a-8fe0-4cd1fad2370d: 'Menu - desktop' # Menu - desktop
     2618963d-c381-44c6-a2ac-7930bd8a1e72: Homepage # Homepage
+    8551941d-19b4-4314-bfcd-b56559627405: Name # Name
     16200484-3340-49e2-9ab2-ab50d535a73b: Name # Name
     22118229-565b-4ea6-be46-933ce37b06c6: 'Single podcast' # Single podcast
     28534271-d900-4661-aef7-3c72a4e3ac85: List # List
@@ -319,6 +326,7 @@ meta:
     af883176-2906-414c-9add-3be9dfa89024: 'Menu - footer' # Menu - footer
     b0d82777-20e7-40fb-98f5-1beefc675708: Videos # Videos
     b0965b87-4d92-450a-beb3-f46a03d1b1be: Slide # Slide
+    b1c96185-7bb9-40ac-add3-99ac8d907eff: cards # cards
     b2ab3566-aa44-436c-89cc-a60b0ec0cfbc: 'Content Centered' # Content Centered
     b3b173b1-d030-4690-bfba-04021e27719d: 'Event text' # Event text
     b4ad141a-cc27-4dde-ae87-eb36368cfa16: Button # Button
@@ -367,6 +375,7 @@ meta:
     c89d5181-6416-4889-a717-b08b9fa91a8f: Subtitle # Subtitle
     c514d4af-8112-4a2f-88d2-33e7aafbb478: Tile # Tile
     c1134b72-846b-4fa1-ab26-53d5248ae385: Company # Company
+    c2821dfc-c1d4-4843-b8e7-7d0a08affd95: 'Content title' # Content title
     c6882d8c-7b75-4033-97e8-bb0a0d47c7c4: 'Partners listing' # Partners listing
     c9616a44-57ac-46d5-9c75-733494448fdd: Podcasts # Podcasts
     ca96c945-4363-446a-abcd-bfe580e8818a: Video # Video
@@ -374,6 +383,7 @@ meta:
     cb1ba679-0805-4bee-a515-986f9e17282a: 'Solution content subtitle' # Solution content subtitle
     cbd7cd7f-2d7a-463a-af4b-e8aee20b0e88: 'Post Related Categories' # Post Related Categories
     ccb96383-493f-4b28-bee1-c3132009a58e: Asset # Asset
+    cdd98bad-7fb6-4842-9f60-7fdbc774a3f4: Description # Description
     ce840969-a937-4d51-b674-5220d755835c: Description # Description
     ceb80e7a-32c0-4301-b474-cf1dccfa95b0: Button # Button
     d0210b1c-0e4d-4821-a924-8c593285b2a0: Subtitle # Subtitle
@@ -399,6 +409,7 @@ meta:
     d176289c-8035-49cf-8df1-8e7ea962ce39: List # List
     d2328763-0692-4c36-97bf-410516782f12: Title # Title
     dbeb3170-bc05-42b0-92ac-834f84918c98: 'Page Options' # Page Options
+    dc42814a-ab01-47f3-ba7e-6b7647dfe8bf: Label # Label
     dcd7d559-2862-495d-8cf1-52ee98241609: Links # Links
     ddb7eaef-faca-49df-aecb-5d7585a1ce2e: Button # Button
     de2f137b-e43d-43ff-8b36-31978ed3eef1: 'Partner logo' # Partner logo
@@ -418,6 +429,8 @@ meta:
     e9d050a2-d6ba-4905-b800-ca89d3b5b612: 'Person name' # Person name
     e18c7120-cd43-475e-99a5-a9b566fcb443: 'Video ID' # Video ID
     e63cff16-d315-4307-8754-f5c2b2065d9a: 'Carousel items' # Carousel items
+    e70af9de-891c-4eae-83b7-78cc8cf98ec2: Content # Content
+    e77ba455-9a41-490c-bd81-ce2c1d025c59: Image # Image
     e331def1-cf12-4b55-ac22-2ac11fc15200: Icon # Icon
     e464ad70-da81-4a4a-8daf-bcfe7f941604: Logos # Logos
     e480ad33-166d-4fcb-9376-bbaef75a2ba3: Video # Video
@@ -452,6 +465,7 @@ meta:
     f4561c6e-39fa-472f-90d8-3e5873d7a32a: 'Logos Slider Subtitle' # Logos Slider Subtitle
     f81127b9-7562-425b-ba2e-94267a67ef61: Title # Title
     f1617063-841c-4d57-9264-d9bc10379947: 'Text Photo' # Text Photo
+    faeb5038-662a-4e15-bde3-a33af86d6e8b: Title # Title
     fb9317cd-b414-4e68-a951-161864e164da: Title # Title
     fc578d10-4d6e-4d97-8780-ffbb58c217b1: 'Solutions hero bottom title' # Solutions hero bottom title
     fd6828c8-bfe1-4a5b-bc60-81cbd0a5b91a: 'Founders title' # Founders title

@@ -1,30 +1,40 @@
 {% set processImage = entry.processImage.one() %}
+{% set processSubtitle = entry.processSubtitle %}
+{% set processTitle = entry.processTitle %}
 {% set steps = entry.processSteps.all() %}
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--process">
-	<div class="u-wrapper">
-        <img class="js-lazy process-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ processImage.getUrl() }}" alt="process">
-		<div class="steps">
-			{% if steps %}
-					{% for item in steps %}
-						{% set title = item.stepTitle %}
-						{% set description = item.stepDescription %}
-						{% set button = item.stepButton %}
-				        <div class="steps__step">
-                            <div class="step">
-                                <span class="step__number">{{ loop.index < 10 ? '0'~loop.index : loop.index }}</span>
-                                <h2 class="step__title">{{ title }}</h2>
-                                <div class="step__description">{{ description }}</div>
-                                {% if button and button.getUrl() %}
-                                    <a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light step__button">
-                                        <span class="text">
-                                            {{ button.customText }}
-                                        </span>
-                                    </a>
-                                {% endif %}
-                            </div>
-				        </div>
-					{% endfor %}
-			{% endif %}
+{% if steps %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--process">
+		<div class="process">
+			<div class="u-wrapper">
+				<div class="u-subtitle u-subtitle--section process__subtitle">{{ processSubtitle }}</div>
+				<h2 class="u-title u-title--section process__title">{{ processTitle|nl2br }}</h2>
+			</div>
+			<div class="u-wrapper u-wrapper--wide u-wrapper--medium-wide">
+				<img class="js-lazy process-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ processImage.getUrl() }}" alt="process">
+				<div class="steps">
+					{% if steps %}
+						{% for item in steps %}
+							{% set title = item.stepTitle %}
+							{% set description = item.stepDescription %}
+							{% set button = item.stepButton %}
+							<div class="steps__step">
+								<div class="step">
+									<span class="step__number">{{ loop.index < 10 ? '0'~loop.index : loop.index }}</span>
+									<h2 class="step__title">{{ title }}</h2>
+									<div class="step__description">{{ description }}</div>
+									{% if button and button.getUrl() %}
+										<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light step__button">
+											<span class="text">
+												{{ button.customText }}
+											</span>
+										</a>
+									{% endif %}
+								</div>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+{% endif %}

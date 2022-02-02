@@ -1,19 +1,19 @@
-columnSuffix: null
+columnSuffix: vjnrgzsm
 contentColumnType: text
-fieldGroup: 83a380f9-0f52-4434-a9f9-dfcd5c8a80c9 # Hero
-handle: heroDescriptionBold
+fieldGroup: f1fb6e6d-ff6e-4dba-93a6-bf47b346ab75 # Process
+handle: processTitle
 instructions: ''
-name: 'Hero Description Bold'
+name: Title
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
   code: ''
   columnType: null
-  initialRows: '4'
+  initialRows: '1'
   multiline: '1'
   placeholder: null
-  uiMode: enlarged
+  uiMode: normal
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\PlainText

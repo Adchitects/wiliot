@@ -1,0 +1,64 @@
+{% set items = entry.cardsItemsMatrix.all() %}
+{% if items %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--cards">
+		<div class="u-wrapper u-wrapper--wide u-wrapper--medium-wide">
+			<div class="cards">
+				{% for item in items %}
+					{% set label = item.itemLabel %}
+					{# Item image #}
+					{% set image = item.itemImage.one() %}
+					{% if image %}
+						{% set imageUrl = image.getUrl() %}
+						{% set imageWidth = image.getWidth() %}
+						{% set imageHeight = image.getHeight() %}
+						{% set imageAlt = image.title %}
+					{% endif %}
+					{# Item texts #}
+					{% set name = item.itemName %}
+					{% set price = item.itemPrice %}
+					{% set description = item.itemDescription %}
+					{% set contentTitle = item.itemContentTitle %}
+					{% set content = item.itemContent %}
+					{% set button = item.itemButton %}
+					<div class="cards__item {% if label %} is-coming-soon {% endif %}">
+						{% if image %}
+							<div class="img-hld">
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
+								{% if label %}
+									<div class="coming-soon-label">
+										<span class="text">{{ label }}</span>
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
+						<div class="text-hld js-accordion">
+							{% if name %}
+								<div class="name">{{ name|nl2br }}</div>
+							{% endif %}
+							{% if price %}
+								<div class="price">{{ price }}</div>
+							{% endif %}
+							{% if description %}
+								<div class="description">{{ description|nl2br }}</div>
+							{% endif %}
+							{% if contentTitle %}
+								<div class="content-hld js-accordion-toggle-item">
+									<div class="title">
+										<span class="text">{{ contentTitle }}</span>
+										<span class="icon icon-dropdown-down"></span>
+									</div>
+									<div class="content">{{ content }}</div>
+								</div>
+							{% endif %}
+							{% if button.url %}
+								<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--light">
+									<span class="text">{{ button.customText }}</span>
+								</a>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endif %}

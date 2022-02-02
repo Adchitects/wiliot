@@ -1,9 +1,9 @@
-columnSuffix: null
+columnSuffix: zwyexfxa
 contentColumnType: text
-fieldGroup: 83a380f9-0f52-4434-a9f9-dfcd5c8a80c9 # Hero
-handle: heroDescriptionBold
+fieldGroup: 77df66f9-3e2a-4862-b7fd-13a968450b18 # Become a Partner
+handle: hubspotFormId
 instructions: ''
-name: 'Hero Description Bold'
+name: 'HubSpot Form ID'
 searchable: false
 settings:
   byteLimit: null
@@ -11,9 +11,9 @@ settings:
   code: ''
   columnType: null
   initialRows: '4'
-  multiline: '1'
+  multiline: ''
   placeholder: null
-  uiMode: enlarged
+  uiMode: normal
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\PlainText
