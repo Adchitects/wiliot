@@ -1,4 +1,4 @@
-dateModified: 1643799181
+dateModified: 1643968970
 email:
   fromEmail: marcin@adchitects.co
   fromName: Wiliot
@@ -82,7 +82,9 @@ meta:
     6ea314f4-1588-4b55-b364-e834887afded: Description # Description
     6f1afe2a-10c1-4be4-ba0e-72ff7d068176: Title # Title
     6f30a5db-1436-4c17-9991-259534aaf840: Button # Button
+    7b976edd-f438-49c0-b0c4-12a599f45def: Item # Item
     7d18055b-ac6e-4612-a151-be46abd28e06: icon # icon
+    7e738cdb-1600-46b6-8ad2-8aa3993324a7: 'Bottom buttons' # Bottom buttons
     7ef2a0d0-a834-4f5a-bdfe-1df50b61c14a: 'Form Outro Subtitle' # Form Outro Subtitle
     7f428011-00c6-4e61-9c9f-377989a77cc8: 'Job city' # Job city
     8a1c1f3d-78a1-4b7b-a8a4-923bca181915: Careers # Careers
@@ -155,6 +157,7 @@ meta:
     58e8424e-47a5-464b-9389-db27370f5b87: Button # Button
     59dd892d-41fd-4d25-9f72-9e60b4894617: Engage # Engage
     60a4c2a4-fb2e-4146-91c2-535a7c8df02f: 'Privacy posts' # Privacy posts
+    61ca3fe6-b403-4c9a-ae8d-e4747571ba3c: Button # Button
     063e6186-1a4a-4b67-8c0b-313b878562a1: 'Login tiles' # Login tiles
     64a02600-5bcc-4a56-9680-5ee9b9a0944d: Button # Button
     64d2e8dc-1779-4ec5-8deb-e42d686693c7: 'Thank you' # Thank you
