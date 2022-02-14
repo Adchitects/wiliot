@@ -2,6 +2,10 @@
 	padding-bottom: 76px;
 	background-image: linear-gradient(180deg, #FFFFFF 0%, #F5F6FD 100%);
 
+	+ .u-section--cards {
+		margin-top: 76px;
+	}
+
 	.process {
 		&__subtitle {
 			text-align: left;
