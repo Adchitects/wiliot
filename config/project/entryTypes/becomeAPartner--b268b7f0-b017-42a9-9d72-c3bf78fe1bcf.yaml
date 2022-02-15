@@ -71,7 +71,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 443d4b6c-ae84-41c0-93e9-9580e471e6b4 # HubSpot Form ID
+            fieldUid: cfc6f5ba-ef91-4f80-8c5c-d7b12ae9bd2b # HubSpot Form ID
             instructions: null
             label: null
             required: false
@@ -83,7 +83,7 @@ fieldLayouts:
         sortOrder: 3
 handle: becomeAPartner
 hasTitleField: true
-name: 'Form post'
+name: 'Become a partner'
 section: 23a97512-1b46-417c-af99-db53efa95180 # Form posts
 sortOrder: 1
 titleFormat: '{section.name|raw}'

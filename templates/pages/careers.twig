@@ -31,7 +31,7 @@
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:url" content="{{ craft.request.getUrl() }}"/>
+	<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}"/>
 {% endblock %}
 {% block main %}
 	{% set sectionId = '01' %}

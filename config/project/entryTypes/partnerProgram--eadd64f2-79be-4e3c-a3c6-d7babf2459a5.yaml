@@ -1,0 +1,394 @@
+fieldLayouts:
+  365acb89-74b1-49f1-ae63-b77577c9d9ee:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 345b4661-88c3-4313-a1b2-3f233f9f8884 # Meta title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 66244511-52d0-45cd-86d3-415cb109cfbb # Meta description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 569c1536-e1e1-478b-8a94-de85377f9ba0 # Hero sizes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 070c859e-ec54-49e9-acd9-e658f728d891 # Hero subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 70e371d8-d7fb-43ef-a3fc-913faa7db3d1 # Hero tItle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 76761755-ed7f-48df-a908-b217ec82a181 # Hero Description Bold
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b9b8efe2-c012-4449-82c9-1227050ecebb # Hero Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7b062b8b-ca6d-413f-bb71-b3139464897d # Hero buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Hero
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 58e065af-eb16-4ff6-b673-4a6e9ecf1520 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ee079d20-96de-4690-af86-d1798e07acf4 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 16e97b76-77a3-4e6d-ba82-077251c48221 # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1a38f543-ef89-4778-b404-37429ede2edc # Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2461f0f2-5924-407f-9f42-feb9aeecb467 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Text Photo'
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: 07e23468-7f6a-4337-9c45-5875da94e4d5 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3e0d350d-650c-4374-83b1-cf7f9c68f6d4 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 21215086-b4c0-4f95-9d04-1bcd78162e89 # Items
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Partners Slider'
+        sortOrder: 4
+      -
+        elements:
+          -
+            fieldUid: 9c7ff223-4645-48dc-9d13-f4c1c832f37a # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 555aa94d-203d-49fe-8991-1e2cc88e0d2d # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c89ab64b-e4c1-4c6d-93d7-44d8c24443a4 # Features list
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Features
+        sortOrder: 5
+      -
+        elements:
+          -
+            fieldUid: f4561c6e-39fa-472f-90d8-3e5873d7a32a # Logos Slider Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 35e076cc-710f-4084-b0a3-4052d9d1476c # Logos Slider Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5eab1f92-40f5-468b-806f-344696ecca4b # Logos Slider Items
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 27470b2f-bd24-4902-9cc9-0ae02ba6d8b4 # Logos Show Arrows
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 289339c7-e182-4952-86da-d0c42b30519e # Logos Slider Button Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Logos slider'
+        sortOrder: 6
+      -
+        elements:
+          -
+            fieldUid: d0210b1c-0e4d-4821-a924-8c593285b2a0 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d111e5db-7197-4cec-a5e6-6a9e02fca730 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 28534271-d900-4661-aef7-3c72a4e3ac85 # List
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 41795620-8c6b-4592-82a4-34fcd15c20a8 # Bottom Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Tabs
+        sortOrder: 7
+      -
+        elements:
+          -
+            fieldUid: e926d8c8-d0da-483f-b418-34b6bef45548 # Subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d23ec171-33f7-4a78-b2a6-40397accf315 # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 659b588a-c770-4bc0-9b40-121cb945ae12 # Tiles
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Buy Tiles'
+        sortOrder: 8
+      -
+        elements:
+          -
+            fieldUid: 105018f4-b231-4a6d-bfd1-bd253f36173b # Outro subtitle
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ba42799d-0a49-4f7f-817a-cde956fa12ee # Outro Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7637ec1c-947f-42f2-9b7d-3ba65f195b8d # Outro Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4318cfd0-f068-4073-9703-1db060485eb7 # Outro Button
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6b2ff6ec-480b-4eaf-b69a-c4c50f6a38c5 # Outro Button 2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Outro
+        sortOrder: 9
+handle: partnerProgram
+hasTitleField: false
+name: 'Partner program'
+section: 39977cb8-757f-4ee6-b30e-c4325a015900 # Partner program
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

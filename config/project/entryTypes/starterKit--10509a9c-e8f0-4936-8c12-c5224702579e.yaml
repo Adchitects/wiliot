@@ -102,7 +102,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 12e055f4-6065-453e-bb00-1724346b0ec0 # Subtitle
+            fieldUid: f635ecd3-b5de-4e17-aa4b-0fcf8bd28159 # Subtitle
             instructions: null
             label: null
             required: false
@@ -111,7 +111,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: faeb5038-662a-4e15-bde3-a33af86d6e8b # Title
+            fieldUid: 14620ee3-46a3-4e4c-890a-29d48b7aba93 # Title
             instructions: null
             label: null
             required: false
@@ -142,7 +142,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 56b5bca1-fef0-422d-94dc-e07ea38f55f6 # Items
+            fieldUid: 23a401d4-f998-4c19-a3d0-64ccfb1a8ec1 # Cards
             instructions: null
             label: null
             required: false
@@ -151,7 +151,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7e738cdb-1600-46b6-8ad2-8aa3993324a7 # Bottom buttons
+            fieldUid: ae298625-c218-4555-a333-8dd4c0a13e84 # Bottom buttons
             instructions: null
             label: null
             required: false

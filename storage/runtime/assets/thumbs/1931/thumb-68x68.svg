@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68px" height="68px" viewBox="0 0 16 16" version="1.1">
-  <title>Icons/export/other/time</title>
-  <g id="Icons/export/other/time" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <path d="M8,0 C3.58892516,0 0,3.58879183 0,8 C0,12.4112082 3.58892516,16 8,16 C12.4110748,16 16,12.4112082 16,8 C16,3.58879183 12.4110748,0 8,0 Z M8,15.0327358 C4.12211341,15.0327358 0.967234917,11.8780038 0.967234917,8 C0.967234917,4.12199619 4.12211341,0.967264154 8,0.967264154 C11.8778866,0.967264154 15.0327651,4.12199619 15.0327651,8 C15.0327651,11.8780038 11.8778866,15.0327358 8,15.0327358 Z M8,2.69092888 L7.03276508,2.69092888 L7.03276508,8.96726415 L12.1107484,8.96726415 L12.1107484,8 L8,8 L8,2.69092888 Z" id="time" fill="#000000" fill-rule="nonzero"></path>
-  </g>
-</svg>

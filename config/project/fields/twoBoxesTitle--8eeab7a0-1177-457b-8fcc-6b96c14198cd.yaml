@@ -1,0 +1,19 @@
+columnSuffix: wdcwgods
+contentColumnType: text
+fieldGroup: 93057504-4085-4034-82c7-fe50bb491e6e # Two boxes
+handle: twoBoxesTitle
+instructions: ''
+name: Title
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '1'
+  multiline: '1'
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

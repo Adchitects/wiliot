@@ -26,7 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   5cd9bdd7-00ca-4292-b009-6cae44db2342: # Color
-    columnSuffix: ahfmrrsr
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: color
@@ -45,7 +45,7 @@ fields:
               - regular
             -
               - default
-              - 1
+              - '1'
         -
           __assoc__:
             -
@@ -61,7 +61,7 @@ fields:
     translationMethod: none
     type: craft\fields\RadioButtons
   def4e20a-c3af-40e6-999c-db8ed30f8516: # Button
-    columnSuffix: nqsenutl
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: button
@@ -69,8 +69,8 @@ fields:
     name: Button
     searchable: false
     settings:
-      allowCustomText: 1
-      allowTarget: ''
+      allowCustomText: '1'
+      allowTarget: '1'
       allowedLinkNames:
         3: entry
         4: site

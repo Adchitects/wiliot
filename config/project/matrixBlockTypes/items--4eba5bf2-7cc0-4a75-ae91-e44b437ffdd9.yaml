@@ -1,0 +1,149 @@
+field: 21215086-b4c0-4f95-9d04-1bcd78162e89 # Items
+fieldLayouts:
+  0664ca13-e889-420a-ba8c-99f532d9bbbc:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f92394ba-a5d5-48af-9c17-ccb3fea90048 # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f342b8df-5e17-4b48-ab15-823aec6ef6af # Name
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3ff709fa-5976-41cc-bb3f-a2aa59e6f9aa # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8a4c13d2-dd5d-4340-8957-0f19bd6ad401 # Person
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  3ff709fa-5976-41cc-bb3f-a2aa59e6f9aa: # Description
+    columnSuffix: yhzdzcbz
+    contentColumnType: text
+    fieldGroup: null
+    handle: itemDescription
+    instructions: ''
+    name: Description
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: ''
+      removeEmptyTags: ''
+      removeInlineStyles: ''
+      removeNbsp: ''
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  8a4c13d2-dd5d-4340-8957-0f19bd6ad401: # Person
+    columnSuffix: woiavsmq
+    contentColumnType: text
+    fieldGroup: null
+    handle: itemPerson
+    instructions: ''
+    name: Person
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f342b8df-5e17-4b48-ab15-823aec6ef6af: # Name
+    columnSuffix: nkljshmd
+    contentColumnType: text
+    fieldGroup: null
+    handle: itemName
+    instructions: ''
+    name: Name
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f92394ba-a5d5-48af-9c17-ccb3fea90048: # Logo
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: itemLogo
+    instructions: ''
+    name: Logo
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: items
+name: Items
+sortOrder: 1

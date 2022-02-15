@@ -1,6 +1,6 @@
 {% set carouselSubtitle = entry.carouselSubtitle %}
 {% set carouselTitle = entry.carouselTitle %}
-{% set carouselImages = entry.carouselImages %}
+{% set carouselImages = entry.carouselImages.all() %}
 {% if carouselTitle %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--carousel js-carousel-slider-hld">
 		<div class="carousel">
@@ -12,7 +12,7 @@
 					<h2 class="carousel__title u-title u-title--section">{{ carouselTitle }}</h2>
 				{% endif %}
 			</div>
-			{% if carouselImages.all()|length > 0 %}
+			{% if carouselImages|length > 0 %}
 				<div class="carousel__slider-hld">
 					<div class="carousel__slider js-carousel-slider swiper-container">
 						<div class="swiper-wrapper">

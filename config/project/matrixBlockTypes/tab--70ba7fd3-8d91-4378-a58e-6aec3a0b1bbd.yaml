@@ -5,6 +5,15 @@ fieldLayouts:
       -
         elements:
           -
+            fieldUid: 6144ea80-7530-474b-be86-e87adc072089 # Icon
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
             fieldUid: 1b33446a-b71e-45ab-87aa-bb6ab00b2d07 # Title
             instructions: null
             label: null
@@ -15,15 +24,6 @@ fieldLayouts:
             width: 100
           -
             fieldUid: 7380cbf1-53dc-4950-8f94-410c3677e9e9 # Image
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: d3f0249b-777e-40e1-89a8-3ed0738c3fcc # Icon
             instructions: null
             label: null
             required: false
@@ -83,7 +83,6 @@ fields:
     settings:
       availableTransforms: '*'
       availableVolumes: '*'
-      cleanupHtml: true
       columnType: text
       configSelectionMode: choose
       defaultTransform: ''
@@ -210,19 +209,19 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
-  7380cbf1-53dc-4950-8f94-410c3677e9e9: # Image
+  6144ea80-7530-474b-be86-e87adc072089: # Icon
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: tabImage
+    handle: tabIcon
     instructions: ''
-    name: Image
+    name: Icon
     searchable: false
     settings:
       allowSelfRelations: false
       allowUploads: true
       allowedKinds: null
-      defaultUploadLocationSource: 'volume:9609ca58-e35b-42d2-914a-4865163ca851' # Main
+      defaultUploadLocationSource: 'volume:ada14e8a-8a4b-453a-9887-ef08225de9dc' # Icons
       defaultUploadLocationSubpath: ''
       limit: '1'
       localizeRelations: false
@@ -243,13 +242,13 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  d3f0249b-777e-40e1-89a8-3ed0738c3fcc: # Icon
+  7380cbf1-53dc-4950-8f94-410c3677e9e9: # Image
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: tabIcon
+    handle: tabImage
     instructions: ''
-    name: Icon
+    name: Image
     searchable: false
     settings:
       allowSelfRelations: false

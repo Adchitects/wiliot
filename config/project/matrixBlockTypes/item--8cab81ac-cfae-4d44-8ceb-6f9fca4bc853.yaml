@@ -54,7 +54,6 @@ fields:
     settings:
       availableTransforms: '*'
       availableVolumes: ''
-      cleanupHtml: true
       columnType: text
       configSelectionMode: choose
       defaultTransform: ''
@@ -148,6 +147,7 @@ fields:
       maxRows: '2'
       minRows: ''
       placeholderKey: null
+      propagationKeyFormat: null
       propagationMethod: all
       selectionLabel: ''
       staticField: ''

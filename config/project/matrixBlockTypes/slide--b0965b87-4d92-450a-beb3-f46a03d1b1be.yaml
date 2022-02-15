@@ -86,6 +86,7 @@ fields:
       maxRows: ''
       minRows: ''
       placeholderKey: null
+      propagationKeyFormat: null
       propagationMethod: all
       selectionLabel: ''
       staticField: ''

@@ -4,7 +4,11 @@
 	{% set size = entry.heroSizes.value %}
 	{% set descriptionBold = entry.heroDescriptionBold %}
 	{% set description = entry.heroDescription %}
-	{% set heroButtonsMatrix = entry.heroButtonsMatrix.all() %}
+	{% if entry.heroButtonsMatrix %}
+		{% set heroButtonsMatrix = entry.heroButtonsMatrix.all() %}
+	{% else %}
+		{% set heroButtonsMatrix = null %}
+	{% endif %}
 {% elseif category is defined %}
 	{% set subtitle = category.heroSubtitle %}
 	{% set title = category.heroTitle %}
