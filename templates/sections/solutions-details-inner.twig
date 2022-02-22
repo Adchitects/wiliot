@@ -19,6 +19,12 @@
 	{% set heroBottomImageHeight = heroBottomImage.getHeight() %}
 	{% set heroBottomImageAlt = heroBottomImage.title %}
 {% endif %}
+{# Infobox #}
+{% if entry.infoboxMatrix %}
+	{% set infoboxMatrix = entry.infoboxMatrix.all() %}
+	{% else %}
+	{% set infoboxMatrix = null %}
+{% endif %}
 {# Content #}
 {% set contentSubtitle = entry.solutionContentSubtitle %}
 {% set contentTitle = entry.solutionContentTitle %}
@@ -36,8 +42,8 @@
 			<div class="u-wrapper">
 				<div class="solutions-details__hero-top">
 					<div class="text-hld">
-						<div class="subtitle u-subtitle u-subtitle--big">{{ heroSubtitle }}</div>
-						<h1 class="title u-title u-title--big">{{ heroTitle }}</h1>
+						<div class="subtitle u-subtitle u-subtitle--big">{{ heroSubtitle|nl2br }}</div>
+						<h1 class="title u-title u-title--big">{{ heroTitle|nl2br }}</h1>
 						{% if solutionButtonsMatrix %}
 							<div class="buttons-hld">
 								{% for item in solutionButtonsMatrix %}
@@ -68,20 +74,42 @@
 				</div>
 			</div>
 		</div>
-		<div class="solutions-details__content-hld js-solutions-slider-hld js-toggle-active-hld">
-			<div class="solutions-details__content-subtitle">{{ contentSubtitle }}</div>
-			<div class="solutions-details__content-title u-title u-title--section">{{ contentTitle }}</div>
-			<div class="solutions-details__tabs-slider swiper-container js-solutions-slider-tabs">
-				<div class="solutions-details__tabs-slider-wrapper swiper-wrapper">
-					{% for item in tabMatrix %}
-						{% set tabName = item.solutionTabName %}
-						{% set urlHashname = tabName|replace(' ', '-')|lower %}
-						<div id="{{ urlHashname }}" class="solutions-details__tab-item solutions-details__tab-item--{{ loop.index }} swiper-slide js-toggle-active-tab-item {{ loop.index == 1 ? 'is-tab-active' : null }}">
-							<div class="tabname">{{ tabName }}</div>
-						</div>
-					{% endfor %}
-				</div>
+		<div class="solutions-details__infobox">
+			<div class="u-wrapper u-wrapper--medium">
+				<div class="items-hld">
+				{% for item in infoboxMatrix %}
+					{% set itemIcon = item.itemIcon.one() %}
+					{% set itemName = item.itemName %}
+					{% set itemDescription = item.itemDescription %}
+					<div class="item">
+						{% if itemIcon %}
+							<div class="icon-hld">
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.url }}" alt="{{ itemName }}">
+							</div>
+						{% endif %}
+						<div class="name u-subtitle u-subtitle--big">{{ itemName|nl2br }}</div>
+						<div class="description">{{ itemDescription }}</div>
+					</div>
+				{% endfor %}
 			</div>
+			</div>
+		</div>
+		<div class="solutions-details__content-hld js-solutions-slider-hld js-toggle-active-hld">
+			<div class="solutions-details__content-subtitle">{{ contentSubtitle|nl2br }}</div>
+			<div class="solutions-details__content-title u-title u-title--section">{{ contentTitle|nl2br }}</div>
+			{% if tabMatrix|length > 1 %}
+				<div class="solutions-details__tabs-slider swiper-container js-solutions-slider-tabs">
+					<div class="solutions-details__tabs-slider-wrapper swiper-wrapper">
+						{% for item in tabMatrix %}
+							{% set tabName = item.solutionTabName %}
+							{% set urlHashname = tabName|replace(' ', '-')|lower %}
+							<div id="{{ urlHashname }}" class="solutions-details__tab-item solutions-details__tab-item--{{ loop.index }} swiper-slide js-toggle-active-tab-item {{ loop.index == 1 ? 'is-tab-active' : null }}">
+								<div class="tabname">{{ tabName }}</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
 			<div class="solutions-details__content-slider swiper-container js-solutions-slider-items">
 				<div class="swiper-wrapper">
 					{% for item in tabMatrix %}

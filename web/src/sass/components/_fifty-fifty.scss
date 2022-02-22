@@ -39,7 +39,7 @@
 		}
 	}
 
-	.is-page-starter.kit & {
+	.is-page-starter-kit & {
 		margin-top: 190px;
 
 		@include tablet-small-1023 {
@@ -104,7 +104,7 @@
 				}
 			}
 
-			.is-page-starter.kit &,
+			.is-page-starter-kit &,
 			.is-page-product & {
 				+ .row {
 					margin-top: 100px;
@@ -115,7 +115,7 @@
 				}
 			}
 
-			.is-page-starter.kit & {
+			.is-page-starter-kit & {
 				margin-bottom: 100px;
 				padding-left: 65px;
 
@@ -151,7 +151,7 @@
 						padding: 0;
 					}
 
-					.is-page-starter.kit & {
+					.is-page-starter-kit & {
 						min-width: 300px;
 						max-width: 450px;
 						padding-left: 0;
@@ -180,7 +180,7 @@
 						padding-right: 0;
 					}
 
-					.is-page-starter.kit & {
+					.is-page-starter-kit & {
 						width: 380px;
 						padding-right: 0;
 						transform: translateX(-90px);
@@ -235,7 +235,7 @@
 					margin-bottom: 32px;
 				}
 
-				.is-page-starter.kit & {
+				.is-page-starter-kit & {
 					max-width: 475px;
 					padding-right: 45px;
 
@@ -314,7 +314,7 @@
 					line-height: 40px;
 				}
 
-				.is-page-starter.kit & {
+				.is-page-starter-kit & {
 					margin-top: 10px;
 				}
 			}
@@ -400,7 +400,7 @@
 	}
 }
 
-.is-page-starter.kit {
+.is-page-starter-kit {
 	.u-section--fifty-fifty {
 		.fifty-fifty {
 			.row.is-row-reversed {
