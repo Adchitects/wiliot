@@ -21,6 +21,7 @@
 {% endif %}
 {# Infobox #}
 {% if entry.infoboxMatrix %}
+	{% set infoboxTitle = entry.infoboxTitle %}
 	{% set infoboxMatrix = entry.infoboxMatrix.all() %}
 	{% else %}
 	{% set infoboxMatrix = null %}
@@ -76,6 +77,9 @@
 		</div>
 		<div class="solutions-details__infobox">
 			<div class="u-wrapper u-wrapper--medium">
+				{% if infoboxTitle %}
+					<div class="items-title u-title u-title--section">{{ infoboxTitle|nl2br }}</div>
+				{% endif %}
 				<div class="items-hld">
 				{% for item in infoboxMatrix %}
 					{% set itemIcon = item.itemIcon.one() %}
