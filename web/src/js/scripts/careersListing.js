@@ -11,7 +11,6 @@ if (careersListing) {
 			const printOffers = () => {
 				let offersHTML = '';
 				offers.forEach((offer, index) => {
-					console.log(index);
 					offersHTML += `
 					<a href="/single-career?id=${offer.uid}" class="careers-listing__item js-careers-listing-item" data-city="${offer.location.name.toLowerCase().replace(/\s/g, '')}" data-name="${offer.name.toLowerCase().replace(/\s/g, '')}">
 						<div class="title u-subtitle u-subtitle--big">${offer.name}</div>

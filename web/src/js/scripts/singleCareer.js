@@ -4,7 +4,6 @@ const TOKEN = '6F329B2DE6379829B229B2037983E8B3E8B';
 if ( document.body.matches('.is-page-single-career') ) {
 	const urlParams = new URLSearchParams(window.location.search);
 	const POSITION_UID = urlParams.get('id');
-	console.log(`https://www.comeet.co/careers-api/2.0/company/${COMPANY_UID}/positions/${POSITION_UID}?token=${TOKEN}&details=true`);
 
 	if ( !POSITION_UID ) {
 		window.location.replace('/careers');
@@ -14,7 +13,6 @@ if ( document.body.matches('.is-page-single-career') ) {
 	fetch(`https://www.comeet.co/careers-api/2.0/company/${COMPANY_UID}/positions/${POSITION_UID}?token=${TOKEN}&details=true`, options)
 		.then(response => response.json())
 		.then(response => {
-			console.log('loaded');
 			const formHld = document.querySelector('.js-career-form');
 			const formScript = document.createElement('script');
 			formScript.type = 'comeet-applyform';
