@@ -7,6 +7,7 @@ modalHldAll.forEach(modalHld => {
 	const videoHld = modalHld.querySelector('.js-video-hld');
 	let videoIsPlayed = false;
 	if (modal && openModal) {
+		videoIsPlayed;
 		openModal.addEventListener('click', (e) => {
 			modal.classList.add('is-active');
 			document.body.style.overflow = 'hidden';

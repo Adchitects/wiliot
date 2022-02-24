@@ -12,7 +12,7 @@
 			margin-top: 50px;
 		}
 	}
-	
+
 	@include mobile-767 {
 		&.u-section {
 			margin-top: 60px;
@@ -250,4 +250,21 @@
 			}
 		}
 	}
+}
+
+.u-center {
+	justify-content: center;
+	text-align: center;
+}
+
+.u-mb-32 {
+	margin-bottom: 32px;
+}
+
+.u-mb-24 {
+	margin-bottom: 24px;
+}
+
+.u-mb-16 {
+	margin-bottom: 16px;
 }
