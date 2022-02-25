@@ -21,9 +21,14 @@
 {% endif %}
 {# Infobox #}
 {% if entry.infoboxMatrix %}
-	{% set infoboxTitle = entry.infoboxTitle %}
+    {% if entry.infoboxTitle %}
+	    {% set infoboxTitle = entry.infoboxTitle %}
+    {% else %}
+	    {% set infoboxTitle = null %}
+    {% endif %}
 	{% set infoboxMatrix = entry.infoboxMatrix.all() %}
-	{% else %}
+{% else %}
+    {% set infoboxTitle = null %}
 	{% set infoboxMatrix = null %}
 {% endif %}
 {# Content #}
@@ -75,29 +80,31 @@
 				</div>
 			</div>
 		</div>
-		<div class="solutions-details__infobox">
-			<div class="u-wrapper u-wrapper--medium">
-				{% if infoboxTitle %}
-					<div class="items-title u-title u-title--section">{{ infoboxTitle|nl2br }}</div>
-				{% endif %}
-				<div class="items-hld">
-				{% for item in infoboxMatrix %}
-					{% set itemIcon = item.itemIcon.one() %}
-					{% set itemName = item.itemName %}
-					{% set itemDescription = item.itemDescription %}
-					<div class="item">
-						{% if itemIcon %}
-							<div class="icon-hld">
-								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.url }}" alt="{{ itemName }}">
-							</div>
-						{% endif %}
-						<div class="name u-subtitle u-subtitle--big">{{ itemName|nl2br }}</div>
-						<div class="description">{{ itemDescription }}</div>
-					</div>
-				{% endfor %}
-			</div>
-			</div>
-		</div>
+        {% if infoboxMatrix %}
+            <div class="solutions-details__infobox">
+                <div class="u-wrapper u-wrapper--medium">
+                    {% if infoboxTitle %}
+                        <div class="items-title u-title u-title--section">{{ infoboxTitle|nl2br }}</div>
+                    {% endif %}
+                    <div class="items-hld">
+                    {% for item in infoboxMatrix %}
+                        {% set itemIcon = item.itemIcon.one() %}
+                        {% set itemName = item.itemName %}
+                        {% set itemDescription = item.itemDescription %}
+                        <div class="item">
+                            {% if itemIcon %}
+                                <div class="icon-hld">
+                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.url }}" alt="{{ itemName }}">
+                                </div>
+                            {% endif %}
+                            <div class="name u-subtitle u-subtitle--big">{{ itemName|nl2br }}</div>
+                            <div class="description">{{ itemDescription }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
+        {% endif %}
 		<div class="solutions-details__content-hld js-solutions-slider-hld js-toggle-active-hld">
 			<div class="solutions-details__content-subtitle">{{ contentSubtitle|nl2br }}</div>
 			<div class="solutions-details__content-title u-title u-title--section">{{ contentTitle|nl2br }}</div>
@@ -136,7 +143,7 @@
 									<li class="box__nav-item js-toggle-active-nav-item {% if loop.index == 1 %} is-active {% endif %}" data-key="{{ loop.index }}">
 										<div class="text-hld">
 											<div class="index">
-											{% if loop.index < 10 %}0{% endif %}{{ loop.index }} 
+											{% if loop.index < 10 %}0{% endif %}{{ loop.index }}
 											</div>
 											<div class="name">
 												{{ tabItemName }}

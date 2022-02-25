@@ -40,6 +40,27 @@
 				.btn {
 					margin-top: 48px;
 				}
+
+				.buttons-hld {
+					display: flex;
+					flex-direction: column;
+					margin-top: 48px;
+
+					.btn {
+						margin-top: 24px;
+
+						&:first-child {
+							margin-top: 0;
+						}
+
+                        .text {
+                            display: inline-block;
+                            &::before {
+                                top: -1px;
+                            }
+                        }
+					}
+				}
 			}
 
 			.image-hld {

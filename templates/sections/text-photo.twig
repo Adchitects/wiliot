@@ -2,6 +2,12 @@
 {% set title = entry.textPhotoTitle %}
 {% set text = entry.textPhotoText %}
 {% set button = entry.textPhotoButton %}
+{% if entry.textPhotoArrowButtonsMatrix %}
+	{% set arrowButtonsMatrix = entry.textPhotoArrowButtonsMatrix.all() %}
+{% else %}
+    {% set arrowButtonsMatrix = null %}
+{% endif %}
+
 {% set image = entry.textPhotoImage.one() %}
 {% if subtitle or title %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--text-photo">
@@ -23,6 +29,16 @@
                                         {{ button.customText }}
                                     </span>
                                 </a>
+                            {% endif %}
+                            {% if arrowButtonsMatrix %}
+                                <div class="buttons-hld">
+                                    {% for item in arrowButtonsMatrix %}
+                                        {% set button = item.button %}
+                                        <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
+                                            <span class="text">{{ button.customText }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
                             {% endif %}
                         </div>
                     </div>
