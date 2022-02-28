@@ -25,13 +25,14 @@
 					{% set topDescriptionSliced = topDescription|slice(0, 307) ~ '...' %}
 					{% set bottomDescription = item.tileBottomDescription %}
 					{% set button = item.tileButton %}
+					{% set arrowButtons = item.tileArrowButtons.all() %}
 					<div class="buy-tiles__item item js-buy-tiles-item">
 						{% if iconName == 'numbers' %}
 							<div class="item__number">
 								{% if loop.index < 10 %}
 									0{{ loop.index }}
 								{% else %}
-									{{ loop.index }}	
+									{{ loop.index }}
 								{% endif %}
 							</div>
 						{% else %}
@@ -48,6 +49,16 @@
 							<a href="{{ button.url }}" target="{{ button.target ? '_blank' : null }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item__btn u-btn u-btn--accent">
 								<span class="text">{{ button.customText }}</span>
 							</a>
+						{% endif %}
+						{% if arrowButtons %}
+							<div class="item__buttons-hld">
+                                {% for item in arrowButtons %}
+                                    {% set arrowButton = item.tileArrowButton %}
+                                    <a href="{{ arrowButton.url }}" target="{{ arrowButton.target ? '_blank' : '_self' }}" rel="{{ arrowButton.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
+                                        <span class="text">{{ arrowButton.customText }}</span>
+                                    </a>
+                                {% endfor %}
+                            </div>
 						{% endif %}
 					</div>
 				{% endfor %}
@@ -87,8 +98,8 @@
 									}
 								};
 								hbspt.forms.create({
-									region: "na1", 
-									portalId: "4249967", 
+									region: "na1",
+									portalId: "4249967",
 									formId: "8734a0de-7dee-4402-8cfd-64943947ef0e",
 									onFormReady: function() {
 										document.body.classList.add('is-buy-page-form');

@@ -53,12 +53,13 @@
 							margin-top: 0;
 						}
 
-                        .text {
-                            display: inline-block;
-                            &::before {
-                                top: -1px;
-                            }
-                        }
+						.text {
+							display: inline-block;
+
+							&::before {
+								top: -1px;
+							}
+						}
 					}
 				}
 			}

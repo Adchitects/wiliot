@@ -208,6 +208,48 @@
 			}
 		}
 
+		&__buttons-hld {
+			display: flex;
+			flex-direction: column;
+
+			.btn {
+				margin-top: 12px;
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				.text {
+					display: inline-block;
+
+					@extend .icon-arrow-right-after !optional;
+
+					position: relative;
+
+					&::before {
+						display: none;
+					}
+
+					&::after {
+						display: inline-block;
+						position: relative;
+						margin-left: 8px;
+						font-family: 'icomoon', sans-serif;
+						font-size: 12px;
+						transition: transform 0.2s;
+					}
+				}
+
+				&:hover {
+					.text {
+						&::after {
+							transform: translateX(2px);
+						}
+					}
+				}
+			}
+		}
+
 		&:last-of-type {
 			svg {
 				width: 44px;
