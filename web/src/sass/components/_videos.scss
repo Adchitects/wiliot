@@ -25,11 +25,14 @@
 		}
 
 		video {
-			cursor: pointer;
 			width: 100%;
 			max-width: 100%;
 			height: auto;
 			object-fit: cover;
+
+			&[data-src] {
+				cursor: pointer;
+			}
 		}
 
 		.icon {
@@ -150,7 +153,7 @@
 		@include mobile-767 {
 			display: none;
 		}
-		
+
 		&--mobile {
 			display: none;
 

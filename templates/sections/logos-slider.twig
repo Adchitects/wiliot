@@ -17,7 +17,7 @@
 		{% if slides %}
 			<div class="logos-slider__slider-wrapper">
 				<div class="swiper-logos__slider js-logos-slider swiper-container">
-					<div class="swiper-wrapper">
+					<div class="swiper-wrapper" data-slides-count="{{ slides|length }}">
 						{% for item in slides %}
 							{% set image = item.itemImage.one() %}
 							{% set title = item.itemTitle %}

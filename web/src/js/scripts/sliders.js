@@ -85,15 +85,6 @@ const logosSlider = new Swiper('.js-logos-slider', {
 				prevEl: '.swiper-button-prev',
 			},
 		},
-		900: {
-			allowTouchMove: false,
-			slidesPerView: 4,
-			spaceBetween: 48,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-		},
 		1000: {
 			allowTouchMove: false,
 			slidesPerView: 6,
