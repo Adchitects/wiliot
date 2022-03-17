@@ -2,13 +2,13 @@
 {% set metaTitle = entry.metaTitle %}
 {% set metaDescription = entry.metaDescription %}
 {% block head %} {{ parent() }} {% endblock %}
-{% block title %} 
+{% block title %}
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
-{% block description %} 
+{% block description %}
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
-{% block og %} 
+{% block og %}
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
@@ -39,6 +39,7 @@
 	{% if partnerVideoFile %}
 		{% set partnerVideoFileUrl = partnerVideoFile.getUrl() %}
 	{% endif %}
+    {% set partnerVideoPlayColor = entry.partnerVideoPlayColor %}
 	{% set sectionId = '01' %}
 	{{ include('/sections/hero.twig') }}
 	{% set sectionId = '02' %}
@@ -72,7 +73,7 @@
 					</div>
 					{% if partnerVideoFile|length %}
 						<div class="partners-details__video-hld js-video-hld is-paused">
-							<span class="icon icon-button_play"></span>
+							<span class="icon icon-button_play {% if not partnerVideoPlayColor is empty %}is-{{ partnerVideoPlayColor }}{% endif %}"></span>
 							<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ partnerVideoFileUrl }}#t=0.15" preload="metadata"></video>
 						</div>
 					{% endif %}

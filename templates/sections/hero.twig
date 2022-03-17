@@ -1,3 +1,5 @@
+{% set buttonsMatrix = null %}
+{% set image = null %}
 {% if entry is defined %}
 	{% set subtitle = entry.heroSubtitle %}
 	{% set title = entry.heroTitle %}
@@ -5,17 +7,18 @@
 	{% set descriptionBold = entry.heroDescriptionBold %}
 	{% set description = entry.heroDescription %}
 	{% if entry.heroButtonsMatrix %}
-		{% set heroButtonsMatrix = entry.heroButtonsMatrix.all() %}
-	{% else %}
-		{% set heroButtonsMatrix = null %}
+		{% set buttonsMatrix = entry.heroButtonsMatrix.all() %}
 	{% endif %}
+    {% if entry.heroImage %}
+	    {% set image = entry.heroImage.one() %}
+    {% endif %}
 {% elseif category is defined %}
 	{% set subtitle = category.heroSubtitle %}
 	{% set title = category.heroTitle %}
 	{% set size = category.heroSizes.value %}
 {% endif %}
 {% if entry is defined or category is defined %}
-	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero is-{{ size }} js-bg-shape-hld">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero is-{{ size }} {{ image ? 'is-with-image' : null }} js-bg-shape-hld">
 		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
 			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
@@ -26,28 +29,33 @@
 		</div>
 		<div class="hero">
 			<div class="hero__bg"></div>
-			<div class="hero__text-hld u-wrapper">
-				{% if subtitle %}
-					<span class="hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
-				{% endif %}
-				{% if title %}
-					<h1 class="hero__title u-title u-title--big">{{ title|nl2br }}</h1>
-				{% endif %}
-				{% if descriptionBold is defined and descriptionBold %}
-					<p class="hero__description hero__description--bold">{{ descriptionBold|nl2br }}</p>
-				{% endif %}
-				{% if description is defined and description %}
-					<p class="hero__description">{{ description|nl2br }}</p>
-				{% endif %}
-				{% if heroButtonsMatrix %}
-					<div class="buttons-hld">
-						{% for item in heroButtonsMatrix %}
-							{% set button = item.button %}
-							<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }}">
-								<span class="text">{{ button.customText }}</span>
-							</a>
-						{% endfor %}
-					</div>
+			<div class="hero__text-hld {{ image ? 'hero__text-hld--with-image' : null }} u-wrapper {{ image ? 'u-wrapper--medium-wide' : null }}">
+				<div class="hero__text">
+					{% if subtitle %}
+						<span class="hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
+					{% endif %}
+					{% if title %}
+						<h1 class="hero__title u-title u-title--big">{{ title|nl2br }}</h1>
+					{% endif %}
+					{% if descriptionBold is defined and descriptionBold %}
+						<p class="hero__description hero__description--bold">{{ descriptionBold|nl2br }}</p>
+					{% endif %}
+					{% if description is defined and description %}
+						<p class="hero__description">{{ description|nl2br }}</p>
+					{% endif %}
+					{% if buttonsMatrix %}
+						<div class="buttons-hld">
+							{% for item in buttonsMatrix %}
+								{% set button = item.button %}
+								<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }}">
+									<span class="text">{{ button.customText }}</span>
+								</a>
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+                {% if image %}
+					<img src="{{ image.getUrl() }}" alt="{{ title }}" class="hero__image">
 				{% endif %}
 			</div>
 		</div>

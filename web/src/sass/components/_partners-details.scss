@@ -98,6 +98,10 @@
 		&:hover {
 			.icon {
 				color: rgba($c-white, 0.75);
+
+				&.is-dark {
+					color: rgba($c-accent-dark, 0.75);
+				}
 			}
 		}
 
@@ -119,6 +123,10 @@
 			transform: translate(-50%, -50%);
 			transition: opacity 0.2s, color 0.2s;
 			opacity: 0;
+
+			&.is-dark {
+				color: $c-accent-dark;
+			}
 		}
 
 		&.is-paused {

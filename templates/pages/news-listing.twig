@@ -7,17 +7,17 @@
 	{% set metaDescription = category.metaDescription %}
 {% endif %}
 {% block head %} {{ parent() }} {% endblock %}
-{% block title %} 
+{% block title %}
 	{% if entry is defined %}
 		{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 	{% elseif category is defined %}
 		{{ metaTitle ? metaTitle : category.title ~ ' | ' ~ siteName  }}
 	{% endif %}
 {% endblock %}
-{% block description %} 
+{% block description %}
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
-{% block og %} 
+{% block og %}
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
