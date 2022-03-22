@@ -9,14 +9,18 @@
 		justify-content: space-between;
 		position: relative;
 		z-index: 200;
-		padding: 10px 15px;
+		padding: 16px 24px;
 		background-color: $c-white;
 	}
 
 	&__logo-hld {
-		width: 70px;
+		width: 80px;
 		height: auto;
 		transform: translateY(-2px);
+
+		@include mobile-767 {
+			width: 70px;
+		}
 
 		img {
 			object-fit: contain;
@@ -31,10 +35,10 @@
 		align-items: center;
 		justify-content: space-between;
 		cursor: pointer;
-		width: 18px;
-		height: 14px;
+		width: 26px;
+		height: 16px;
 		margin-left: 10px;
-		
+
 		.line {
 			width: 100%;
 			height: 2px;
@@ -44,7 +48,7 @@
 
 			.is-open-menu-mobile & {
 				&--1 {
-					transform: rotate(45deg) translate(4.4px, 4.4px);
+					transform: rotate(45deg) translate(4.9px, 4.9px);
 				}
 
 				&--2 {
@@ -181,21 +185,21 @@
 		.inner {
 			display: flex;
 			align-items: center;
-	
+
 			.link {
 				margin-right: 20px;
 				list-style-type: none;
-	
+
 				&:last-of-type {
 					margin-right: 0;
 				}
-	
+
 				.icon {
 					color: $c-black;
 					font-size: 20px;
 					transition: color 0.2s;
 				}
-	
+
 				&:hover {
 					.icon {
 						color: $c-gray;

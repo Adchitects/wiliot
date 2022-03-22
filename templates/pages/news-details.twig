@@ -3,13 +3,13 @@
 {% set metaDescription = entry.metaDescription %}
 {% set postModifyDate = entry.dateUpdated|date("Y-m-d\\TH:i:s+00:00") %}
 {% block head %} {{ parent() }} {% endblock %}
-{% block title %} 
+{% block title %}
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
-{% block description %} 
+{% block description %}
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
-{% block og %} 
+{% block og %}
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="article"/>
@@ -87,6 +87,7 @@
 						<span class="icon icon-email"></span>
 					</a>
 				</div>
+                {% if query %}
 				<div class="news-single__tags">
 					<div class="title">Related tags</div>
 					<div class="items">
@@ -97,6 +98,7 @@
 						{% endfor %}
 					</div>
 				</div>
+                {% endif %}
 			</div>
 		</div>
 	</section>

@@ -3,6 +3,10 @@
 	padding-top: 200px;
 	padding-bottom: 205px;
 
+	@include tablet-small-1023 {
+		padding-top: 140px;
+	}
+
 	@include mobile-767 {
 		padding-top: 80px;
 		padding-bottom: 80px;
@@ -292,10 +296,11 @@
 	&__tags {
 		.title {
 			min-width: 150px;
+			margin-bottom: 10px;
 			color: #a7a7ac;
 			font-size: 14px;
 			font-weight: 500;
-			line-height: 19px;
+			line-height: calc(19 / 14);
 			text-transform: uppercase;
 		}
 
@@ -311,7 +316,8 @@
 				justify-content: flex-start;
 
 				.title {
-					margin-bottom: 10px;
+					margin-top: 10px;
+					margin-bottom: 16px;
 				}
 			}
 		}

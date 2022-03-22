@@ -13,11 +13,11 @@
 		align-items: flex-start;
 		justify-content: space-between;
 
-		@include media-max(767) {
+		@include media-max(1099) {
 			flex-direction: column-reverse;
 		}
 
-		@include media-max(580) {
+		@include media-max(767) {
 			align-items: center;
 		}
 	}
@@ -26,14 +26,21 @@
 		display: flex;
 
 		@include media-max(767) {
+			flex-direction: column;
 			justify-content: space-between;
 			width: 100%;
 			margin-top: 42px;
+			text-align: center;
+		}
+	}
+
+	&__logo {
+		@include media-max(1099) {
+			margin-bottom: 48px;
 		}
 
-		@include media-max(580) {
-			flex-direction: column;
-			text-align: center;
+		@include media-max(767) {
+			margin-bottom: 0;
 		}
 	}
 
@@ -130,7 +137,7 @@
 	&__links-column {
 		display: flex;
 		flex-direction: column;
-		margin-right: 90px;
+		margin-right: 80px;
 
 		@include media-max(899) {
 			margin-right: 50px;
@@ -139,12 +146,9 @@
 		@include media-max(767) {
 			width: 100%;
 			max-width: 150px;
-			margin-right: 40px;
-		}
-
-		@include media-max(580) {
 			max-width: 100%;
 			margin-top: 24px;
+			margin-right: 40px;
 
 			&:first-of-type {
 				margin-top: 0;
@@ -153,14 +157,14 @@
 
 		&:nth-of-type(2),
 		&:nth-of-type(3) {
-			margin-right: 125px;
+			margin-right: 100px;
 
 			@include media-max(899) {
 				margin-right: 50px;
 			}
 
 			@include mobile-767 {
-				margin-right: 40px;
+				margin-right: 0;
 			}
 		}
 
