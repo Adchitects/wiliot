@@ -8,13 +8,13 @@ headerAll.forEach(header => {
 	const limit = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight) - window.innerHeight;
 	const checkScroll = () => {
 		currentScroll = window.scrollY || document.documentElement.scrollTop;
-		// Find the direction of scroll: 
-		// 0 - initial, 
-		// 1 - up, 
+		// Find the direction of scroll:
+		// 0 - initial,
+		// 1 - up,
 		// 2 - down
-		if (currentScroll > prevScroll) { 
+		if (currentScroll > prevScroll) {
 			direction = 2;
-		} else if (currentScroll < prevScroll) { 
+		} else if (currentScroll < prevScroll) {
 			direction = 1;
 		}
 		// Secure bouncing out of window bottom at Safari
@@ -51,14 +51,16 @@ headerAll.forEach(header => {
 		}
 	};
 	window.addEventListener('scroll', checkScroll);
-	window.addEventListener('load', checkScroll);	
+	window.addEventListener('load', checkScroll);
 	// Check dropdown
 	const headerItemWithDropdownAll = header.querySelectorAll('.js-header-has-dropdown');
 	headerItemWithDropdownAll.forEach(itemWithDropdown => {
 		itemWithDropdown.addEventListener('mouseover', () => {
+			itemWithDropdown.classList.add('is-dropdown-active');
 			header.classList.add('is-dropdown-active');
 		});
 		itemWithDropdown.addEventListener('mouseleave', () => {
+			itemWithDropdown.classList.remove('is-dropdown-active');
 			header.classList.remove('is-dropdown-active');
 		});
 	});

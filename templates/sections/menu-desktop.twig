@@ -35,22 +35,52 @@
 					</div>
 				{% endif %}
 				{% if isSubnav %}
-					<div class="menu-desktop__dropdown">
-						<div class="subnav-hld">
+                    {% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
+                    {% set menuDesktopSecondSubnavTitle = page.menuDesktopSecondSubnavTitle %}
+                    {% set menuDesktopSecondSubnavElementsNumber = page.menuDesktopSecondSubnavElementsNumber %}
+					<div class="menu-desktop__dropdown {% if menuDesktopSecondSubnavElementsNumber > 0 %} menu-desktop__dropdown--big {% endif %}">
+						<div class="subnav-hld subnav-hld--first {% if menuDesktopSubnavTitle %} has-subnav-title {% endif %}">
+                            {% if menuDesktopSubnavTitle %}
+                                <div class="subnav-title subnav-title--first">{{ menuDesktopSubnavTitle }}</div>
+                            {% endif %}
 							{% for subnavItem in menuDesktopSubnavItemsMatrix %}
-								{% set item = subnavItem.item %}
-								{% set icon = subnavItem.icon.one() %}
-								{% if icon %}
-									{% set icon = subnavItem.icon.one().getUrl() %}
-								{% endif %}
-								<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
-									<div class="text">
-										<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
-										{{ item.customText }}
-									</div>
-								</a>
+                                {% if loop.revindex > menuDesktopSecondSubnavElementsNumber %}
+                                    {% set item = subnavItem.item %}
+                                    {% set icon = subnavItem.icon.one() %}
+                                    {% if icon %}
+                                        {% set icon = subnavItem.icon.one().getUrl() %}
+                                    {% endif %}
+                                    <a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
+                                        <div class="text">
+                                            <img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+                                            {{ item.customText }}
+                                        </div>
+                                    </a>
+                                {% endif %}
 							{% endfor %}
 						</div>
+                        {% if menuDesktopSecondSubnavElementsNumber > 0 %}
+                            <div class="subnav-hld subnav-hld--second {% if menuDesktopSecondSubnavTitle %} has-subnav-title {% endif %}">
+                                {% if menuDesktopSecondSubnavTitle %}
+                                    <div class="subnav-title subnav-title--second">{{ menuDesktopSecondSubnavTitle }}</div>
+                                {% endif %}
+                                {% for subnavItem in menuDesktopSubnavItemsMatrix %}
+                                    {% if loop.revindex <= menuDesktopSecondSubnavElementsNumber %}
+                                        {% set item = subnavItem.item %}
+                                        {% set icon = subnavItem.icon.one() %}
+                                        {% if icon %}
+                                            {% set icon = subnavItem.icon.one().getUrl() %}
+                                        {% endif %}
+                                        <a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
+                                            <div class="text">
+                                                <img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+                                                {{ item.customText }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
 					</div>
 				{% endif %}
 				{% ifchildren %}
