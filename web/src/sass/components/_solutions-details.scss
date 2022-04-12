@@ -60,6 +60,10 @@
 				min-height: unset;
 			}
 
+			.has-no-image & {
+				width: 100%;
+			}
+
 			.title {
 				margin-top: 15px;
 			}
@@ -76,15 +80,15 @@
 				}
 
 				.btn {
-					padding: 16px 40px 14px;
+					padding: 16px 44px 14px;
 
 					@include tablet-small-1023 {
 						min-width: 210px;
 					}
 
 					&--2 {
-						margin-left: 15px;
-						padding: 17px 45px 14px;
+						margin-left: 28px;
+						padding: 17px 54px 14px;
 
 						@include tablet-small-1023 {
 							margin-top: 15px;
@@ -138,6 +142,33 @@
 			text-align: center;
 		}
 
+		&.has-no-image {
+			.text-hld {
+				width: 55%;
+				margin: 0 auto;
+				padding-right: 0;
+				text-align: center;
+
+				.subtitle {
+					text-align: center;
+				}
+
+				.title {
+					padding: 0 24px;
+				}
+
+				.description {
+					p {
+						margin-top: 30px;
+
+						strong {
+							font-weight: 500;
+						}
+					}
+				}
+			}
+		}
+
 		.text-hld {
 			width: 50%;
 			min-height: 450px;
@@ -148,6 +179,10 @@
 				width: 100%;
 				min-height: unset;
 				padding-right: 0;
+			}
+
+			.subtitle {
+				text-align: left;
 			}
 
 			.description {
