@@ -20,6 +20,14 @@
 	position: relative;
 	padding-top: 185px;
 
+	&.is-v3 {
+		padding-top: 130px;
+
+		@include tablet-small-1023 {
+			padding-top: 60px;
+		}
+	}
+
 	@include tablet-small-1023 {
 		padding-top: 60px;
 	}
@@ -39,6 +47,12 @@
 
 	&__hero {
 		overflow: hidden;
+
+		&.has-no-image {
+			+ .solutions-details__infobox {
+				margin-top: 130px;
+			}
+		}
 	}
 
 	&__hero-top {
@@ -57,6 +71,10 @@
 
 			@include tablet-small-1023 {
 				width: 100%;
+				min-height: unset;
+			}
+
+			.is-v3 & {
 				min-height: unset;
 			}
 
@@ -132,6 +150,74 @@
 		}
 	}
 
+	&__hero-video {
+		margin-top: 64px;
+
+		.short-video-hld {
+			display: flex;
+			position: relative;
+			cursor: pointer;
+			border-radius: 6px;
+			overflow: hidden;
+
+			&:hover {
+				.icon {
+					color: rgba($c-white, 0.75);
+				}
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 1;
+				pointer-events: none;
+				background-color: rgba($c-black, 0.6);
+			}
+
+			video {
+				width: 100%;
+				height: auto;
+				border-radius: 0;
+				object-fit: cover;
+
+				@include media-max(767) {
+					max-width: 100%;
+				}
+			}
+
+			.icon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 10;
+				pointer-events: none;
+				color: $c-white;
+				font-size: 116px;
+				transform: translate(-50%, -50%);
+				transition: color 0.2s;
+				opacity: 1;
+			}
+		}
+
+		.video-modal {
+			padding: 0 30px;
+
+			&.is-active {
+				.overlay {
+					opacity: 1;
+				}
+			}
+
+			&__inner {
+				max-width: 1056px;
+			}
+		}
+	}
+
 	&__hero-bottom {
 		display: flex;
 		margin-top: 70px;
@@ -142,9 +228,14 @@
 			text-align: center;
 		}
 
+		.is-v3 & {
+			margin-top: 94px;
+		}
+
 		&.has-no-image {
 			.text-hld {
 				width: 55%;
+				min-height: unset;
 				margin: 0 auto;
 				padding-right: 0;
 				text-align: center;
@@ -243,6 +334,7 @@
 			justify-content: center;
 			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 			grid-gap: 40px 110px;
+			margin-top: 70px;
 		}
 
 		.item {
@@ -255,7 +347,9 @@
 			}
 
 			.name {
-				margin-top: 18px;
+				margin-top: 22px;
+				font-weight: 900;
+				letter-spacing: 0;
 			}
 
 			.description {

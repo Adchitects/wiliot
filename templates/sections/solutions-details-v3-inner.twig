@@ -4,11 +4,14 @@
 {% set solutionButtonsMatrix = entry.solutionButtonsMatrix.all() %}
 {% set heroImage = entry.solutionHeroImage.one() %}
 {% if heroImage %}
-	{% set heroImageUrl = heroImage.getUrl() %}
-	{% set heroImageWidth = heroImage.getWidth() %}
-	{% set heroImageHeight = heroImage.getHeight() %}
-	{% set heroImageAlt = heroImage.title %}
+{% set heroImageUrl = heroImage.getUrl() %}
+{% set heroImageWidth = heroImage.getWidth() %}
+{% set heroImageHeight = heroImage.getHeight() %}
+{% set heroImageAlt = heroImage.title %}
 {% endif %}
+{# Hero Video #}
+{% set solutionHeroVideoShort = entry.solutionHeroVideoShort.one() %}
+{% set solutionHeroVideoLong = entry.solutionHeroVideoLong.one() %}
 {# Hero bottom #}
 {% set heroBottomSubtitle = entry.solutionHeroBottomSubtitle %}
 {% set heroBottomTitle = entry.solutionHeroBottomTitle %}
@@ -27,14 +30,17 @@
     {% else %}
         {% set infoboxTitle = null %}
     {% endif %}
+    {% if entry.infoboxSubtitle %}
+        {% set infoboxSubtitle = entry.infoboxSubtitle %}
+    {% else %}
+        {% set infoboxSubtitle = null %}
+    {% endif %}
 	{% set infoboxMatrix = entry.infoboxMatrix.all() %}
 {% else %}
+    {% set infoboxSubtitle = null %}
     {% set infoboxTitle = null %}
 	{% set infoboxMatrix = null %}
 {% endif %}
-{# Content #}
-{% set contentSubtitle = entry.solutionContentSubtitle %}
-{% set contentTitle = entry.solutionContentTitle %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--solutions-details js-bg-shape-hld">
 	<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
 		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
@@ -42,7 +48,7 @@
 	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
 		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
 	</div>
-	<div class="solutions-details">
+	<div class="solutions-details is-v3">
 		<div class="solutions-details__hero {% if not heroImage %} has-no-image {% endif %}">
 			<div class="u-wrapper">
 				<div class="solutions-details__hero-top">
@@ -65,7 +71,29 @@
 							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ heroImageUrl }}" alt="{{ heroImageAlt }}" width="{{ heroImageWidth }}" height="{{ heroImageHeight }}"/>
 						</div>
 					{% endif %}
-				</div>
+                </div>
+                {% if solutionHeroVideoShort and solutionHeroVideoLong %}
+                    <div class="solutions-details__hero-video js-modal-hld">
+                        <div class="short-video-hld js-modal-btn">
+                            <span class="icon icon-button_play"></span>
+                            <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" muted autoplay loop></video>
+                        </div>
+                        <div class="video-modal js-modal-modal">
+                            <div class="overlay js-modal-close"></div>
+                            <div class="video-modal__inner">
+                                <div class="video-modal__modal">
+                                    <div class="video-hld js-video-hld show-thumbnail">
+                                        <span class="icon icon-button_play"></span>
+                                        <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoLong.url }}" autoplay loop controls></video>
+                                    </div>
+                                </div>
+                                <span class="video-modal__close js-modal-close">
+                                    <span class="icon icon-close"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
 				<div class="solutions-details__hero-bottom {% if not heroBottomImage %} has-no-image {% endif %}">
 					<div class="text-hld">
                         {% if heroBottomSubtitle %}
@@ -85,6 +113,9 @@
         {% if infoboxMatrix %}
             <div class="solutions-details__infobox">
                 <div class="u-wrapper u-wrapper--medium">
+                    {% if infoboxSubtitle %}
+                        <div class="items-subtitle u-subtitle u-subtitle--section">{{ infoboxSubtitle }}</div>
+                    {% endif %}
                     {% if infoboxTitle %}
                         <div class="items-title u-title u-title--section">{{ infoboxTitle|nl2br }}</div>
                     {% endif %}
@@ -107,9 +138,5 @@
                 </div>
             </div>
         {% endif %}
-		<div class="solutions-details__content-hld js-solutions-slider-hld js-toggle-active-hld">
-			<div class="solutions-details__content-subtitle">{{ contentSubtitle|nl2br }}</div>
-			<div class="solutions-details__content-title u-title u-title--section">{{ contentTitle|nl2br }}</div>
-		</div>
 	</div>
 </section>
