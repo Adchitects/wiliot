@@ -57,7 +57,7 @@
 		{% if link and link.getUrl() %}
 			<a href="{{ link.getUrl() }}" class="btn btn--learn-more u-btn u-btn--light">
 				<span class="text">
-					Learn more
+                {% if link.customText %} {{ link.customText }} {% else %} Learn more {% endif %}
 				</span>
 			</a>
 		{% endif %}

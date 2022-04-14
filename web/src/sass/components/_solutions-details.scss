@@ -9,6 +9,7 @@
 .u-section--solutions-details {
 	margin-top: 0;
 	// overflow: hidden;
+
 	@include tablet-small-1023 {
 		&.u-section--solutions-details {
 			margin-top: 0;
@@ -51,6 +52,10 @@
 		&.has-no-image {
 			+ .solutions-details__infobox {
 				margin-top: 130px;
+
+				@include tablet-small-1023 {
+					margin-top: 60px;
+				}
 			}
 		}
 	}
@@ -230,6 +235,10 @@
 
 		.is-v3 & {
 			margin-top: 94px;
+
+			@include tablet-small-1023 {
+				margin-top: 30px;
+			}
 		}
 
 		&.has-no-image {
@@ -240,12 +249,20 @@
 				padding-right: 0;
 				text-align: center;
 
+				@include tablet-small-1023 {
+					width: 100%;
+				}
+
 				.subtitle {
 					text-align: center;
 				}
 
 				.title {
 					padding: 0 24px;
+
+					@include tablet-small-1023 {
+						padding: 0;
+					}
 				}
 
 				.description {
