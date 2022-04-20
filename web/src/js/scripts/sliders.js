@@ -115,11 +115,14 @@ const tabsSlider = new Swiper('.js-tabs-slider', {
 	simulateTouch: false,
 	autoHeight: true,
 });
-tabsSliderEl.addEventListener('click', () => {
-	setTimeout(() => {
-		tabsSlider.update();
-	}, 250);
-});
+if (tabsSliderEl) {
+	tabsSliderEl.addEventListener('click', () => {
+		setTimeout(() => {
+			console.log('click2');
+			tabsSlider.update();
+		}, 250);
+	});
+}
 
 // Change navigation item on slide change
 tabsSlider.on('slideChange', function() {
