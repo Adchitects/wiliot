@@ -1,5 +1,5 @@
-{% set title = entry.logosSliderTitle %}
 {% set subtitle = entry.logosSliderSubtitle %}
+{% set title = entry.logosSliderTitle %}
 {% set slides = entry.logosSliderItems.all() %}
 {% set link = entry.logosSliderButtonLink %}
 {% set showArrows = entry.logosSliderShowArrows %}
@@ -57,7 +57,7 @@
 		{% if link and link.getUrl() %}
 			<a href="{{ link.getUrl() }}" class="btn btn--learn-more u-btn u-btn--light">
 				<span class="text">
-					Learn more
+                {% if link.customText %} {{ link.customText }} {% else %} Learn more {% endif %}
 				</span>
 			</a>
 		{% endif %}
