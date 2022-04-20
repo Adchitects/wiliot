@@ -1,7 +1,7 @@
 {% set title = entry.VideosTitle %}
 {% set subtitle = entry.VideosSubtitle %}
-{% set videos = entry.videos %}
-{% set buttons = entry.VideosButtons %}
+{% set videos = entry.videos.all() %}
+{% set buttons = entry.VideosButtons.all() %}
 
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--videos">
 	<div class="u-wrapper">
