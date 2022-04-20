@@ -117,7 +117,6 @@ const tabsSlider = new Swiper('.js-tabs-slider', {
 });
 tabsSliderEl.addEventListener('click', () => {
 	setTimeout(() => {
-		console.log('click2');
 		tabsSlider.update();
 	}, 250);
 });
