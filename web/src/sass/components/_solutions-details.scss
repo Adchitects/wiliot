@@ -289,6 +289,13 @@
 				padding-right: 0;
 			}
 
+			.title {
+				@include mobile-599 {
+					font-size: 28px;
+					line-height: 36px;
+				}
+			}
+
 			.subtitle {
 				text-align: left;
 			}
@@ -344,6 +351,11 @@
 		.items-title {
 			margin-bottom: 32px;
 			text-align: center;
+
+			@include mobile-599 {
+				font-size: 28px;
+				line-height: 26px;
+			}
 		}
 
 		.items-hld {

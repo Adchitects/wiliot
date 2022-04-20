@@ -81,6 +81,10 @@
 	}
 
 	&__title {
+		@include mobile-599 {
+			font-size: 28px;
+			line-height: 36px;
+		}
 	}
 
 	&__description {
