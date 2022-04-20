@@ -15,12 +15,16 @@
 {% endblock %}
 {% block main %}
 	{% set sectionId = '01' %}
-	{{ include('/sections/solutions-details-inner.twig') }}
-	{% set sectionId = '02' %}
-	{{ include('/sections/video.twig') }}
-	{% set sectionId = '03' %}
-	{{ include('/sections/tabs.twig') }}
-	{% set sectionId = '04' %}
-	{{ include('/sections/outro.twig') }}
-	{% set sectionId = '' %}
+    {{ include('/sections/solutions-details-v3-inner.twig') }}
+    {% set sectionId = '02' %}
+    {{ include('/sections/fifty-fifty-v2.twig') }}
+    {% set sectionId = '03' %}
+    {{ include('/sections/logos-slider.twig') }}
+    {% set sectionId = '04' %}
+    {{ include('/sections/video-text.twig') }}
+    {% set sectionId = '05' %}
+    {{ include('/sections/tabs.twig') }}
+    {% set sectionId = '06' %}
+    {{ include('/sections/outro.twig') }}
+    {% set sectionId = '' %}
 {% endblock %}

@@ -107,6 +107,7 @@ const logosSlider = new Swiper('.js-logos-slider', {
 });
 logosSlider;
 
+const tabsSliderEl = document.querySelector('.js-tabs-slider');
 const tabsSlider = new Swiper('.js-tabs-slider', {
 	slidesPerView: 1,
 	spaceBetween: 48,
@@ -114,7 +115,12 @@ const tabsSlider = new Swiper('.js-tabs-slider', {
 	simulateTouch: false,
 	autoHeight: true,
 });
-tabsSlider;
+tabsSliderEl.addEventListener('click', () => {
+	setTimeout(() => {
+		console.log('click2');
+		tabsSlider.update();
+	}, 250);
+});
 
 // Change navigation item on slide change
 tabsSlider.on('slideChange', function() {

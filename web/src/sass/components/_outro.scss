@@ -48,6 +48,15 @@
 	&__title {
 		margin: 0 auto;
 
+		@include mobile-599 {
+			font-size: 28px;
+			line-height: 36px;
+
+			br {
+				display: none;
+			}
+		}
+
 		.is-page-company & {
 			max-width: 500px;
 			margin-top: 20px;
