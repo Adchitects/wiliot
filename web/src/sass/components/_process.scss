@@ -22,20 +22,20 @@
 		.process-image {
 			max-width: 100%;
 		}
-	
+
 		.steps {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(306px, 1fr));
 			grid-gap: 50px 18px;
-	
-			// @include tablet-small-1023 {
-			// 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			// }
+
+			@include media-max(1337) {
+				grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+			}
 
 			@include mobile-767 {
 				margin-top: 30px;
 			}
-	
+
 			&__step {
 				.step {
 					max-width: 300px;
@@ -43,21 +43,21 @@
 					@include tablet-small-1023 {
 						max-width: unset;
 					}
-	
+
 					&__number {
 						color: $c-accent;
 						font-size: 24px;
 						font-weight: 900;
 						line-height: 36px;
 					}
-	
+
 					&__title {
 						color: $c-black;
 						font-size: 24px;
 						font-weight: 900;
 						line-height: 36px;
 					}
-	
+
 					&__description {
 						max-width: 260px;
 						margin-top: 10px;
@@ -69,7 +69,7 @@
 						@include tablet-small-1023 {
 							max-width: unset;
 						}
-	
+
 						h2,
 						h3 {
 							font-size: 32px;
@@ -77,7 +77,7 @@
 							line-height: 40px;
 						}
 					}
-	
+
 					&__button {
 						display: inline-flex;
 						align-items: center;
