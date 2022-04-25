@@ -2,12 +2,15 @@
 {% set title = entry.heroImageRightTitle %}
 {% set excerpt = entry.heroImageRightExcerpt %}
 {% set videoLink = entry.heroImageRightVideoLink %}
+{% set videoLinkPlaceholder = entry.heroImageRightVideoLinkPlaceholder.one().getUrl() %}
 {% set button = entry.heroImageRightButton %}
 {% if entry is defined %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-img-right">
-		<div class="video-wrapper">
-			<iframe allow="autoplay" data-src="{{ videoBackgroundLink }}" frameborder="0" width="1920" height="768" class="youtube-video js-lazy"></iframe>
-		</div>
+        {% if videoBackgroundLink %}
+            <div class="video-wrapper">
+                <iframe allow="autoplay" data-src="{{ videoBackgroundLink }}" frameborder="0" width="1920" height="768" class="youtube-video js-lazy"></iframe>
+            </div>
+        {% endif %}
 		<div class="u-wrapper">
 			<div class="hero-img-right js-modal-hld">
 				<div class="hero-img-right__content">
@@ -17,8 +20,11 @@
 					{% if title %}
 						<h1 class="hero-img-right__title u-title u-title--big">{{ title }}</h1>
 					{% endif %}
-					<div class="hero-img-right__mobile-video-hld">
-						<iframe width="560" height="315" class="js-lazy" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<div class="hero-img-right__mobile-video-hld {% if videoLinkPlaceholder %} has-placeholder js-yt-video-placeholder-hld {% endif %}">
+                        {% if videoLinkPlaceholder %}
+                            <img class="img-placeholder js-lazy js-yt-video-placeholder-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoLinkPlaceholder }}" alt="Image">
+                        {% endif %}
+						<iframe width="560" height="315" class="js-lazy js-yt-video-placeholder-iframe" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 					</div>
 					<div class="hero-img-right__buttons">
 						<a href="{{ button.getUrl()}}" class="btn btn--learn-more u-btn u-btn--accent">
