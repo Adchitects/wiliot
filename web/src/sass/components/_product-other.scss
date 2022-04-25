@@ -1,7 +1,11 @@
 .u-section--product-other {
-	padding: 160px 0 0 0;
+	padding: 160px 0 60px 0;
 	background: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 100%);
 	overflow: hidden;
+
+	+ .u-section--tabs {
+		margin-top: 0;
+	}
 
 	@include tablet-medium-1199 {
 		padding-top: 80px;
@@ -10,7 +14,6 @@
 
 	.product-other {
 		display: flex;
-		margin-bottom: -45px;
 		padding: 0 90px;
 
 		@include tablet-medium-1199 {
@@ -36,15 +39,15 @@
 		&__image {
 			width: 630px;
 			max-width: 100%;
-			max-height: 505px;
-			transform: translateX(20px) translateY(-130px);
+			height: auto;
+			transform: translateX(20px);
 
 			@include tablet-medium-1199 {
 				width: 100%;
 				max-width: 600px;
 				margin: 0 auto;
 				margin-top: 30px;
-				transform: translateX(10%) translateY(0);
+				transform: translateX(10%);
 			}
 		}
 

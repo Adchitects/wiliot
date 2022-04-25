@@ -37,6 +37,7 @@ const partnersSlider = new Swiper('.js-partners-slider', {
 	freeMode: true,
 	grabCursor: true,
 	slideToClickedSlide: true,
+	threshold: 30,
 	pagination: {
 		el: '.js-partners-slide-pagination',
 		type: 'progressbar',
@@ -218,6 +219,7 @@ carouselSliderHldAll.forEach(sliderHld => {
 		slidesPerView: 'auto',
 		spaceBetween: 24,
 		grabCursor: true,
+		threshold: 30,
 		navigation: {
 			prevEl: '.js-carousel-slider-button-prev',
 			nextEl: '.js-carousel-slider-button-next',
