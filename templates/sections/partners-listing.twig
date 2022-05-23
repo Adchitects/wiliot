@@ -5,35 +5,83 @@
 			<div class="partners-listing js-partners-filters-hld">
 				<div class="partners-listing__box partners-listing__box--a">
 					<div class="inner">
-						<div class="title">Filter by</div>
-						<div class="filter-type">Partner Type</div>
-						<div class="partners-listing__filter-box">
-							<div class="partners-listing__filter js-partners-filters-filter-everything is-active">
-								<div class="checkbox"> 
-									<span class="icon icon-tick"></span>
-								</div>
-								<span class="text">All</span>
-							</div>
-							{% for item in PartnersDetailsPosts %}
-								{% if loop.index == 1 %}
-									{% set categories = craft.categories().group('partnersCategories') %}
-									{% for cat in categories.all() %}
-										<div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
-											<div class="checkbox">
-												<span class="icon icon-tick"></span>
-											</div>
-											<span class="text">{{ cat.title }}</span>
-										</div>
-									{% endfor %}
-								{% endif %}
-							{% endfor %}
-						</div>
-						<button class="btn btn--apply u-btn u-btn--light js-partners-filters-apply-btn">
-							<span class="text">Apply</span>
-						</button>
-						<button class="btn btn--reset u-btn u-btn--transparent js-partners-filters-reset-btn">
-							<span class="text">Reset filters</span>
-						</button>
+                        <div class="top">
+                            <div class="title">Filter by</div>
+                        </div>
+                        <div class="middle">
+                            <div class="filters-type-hld">
+                                <div class="partners-listing__filter js-partners-filters-filter-everything is-active">
+                                    <div class="checkbox">
+                                        <span class="icon icon-tick"></span>
+                                    </div>
+                                    <span class="text">All</span>
+                                </div>
+                            </div>
+                            <div class="filters-type-hld">
+                                <div class="filter-type">Partner Type</div>
+                                <div class="partners-listing__filter-box">
+                                    {% set categories = craft.categories().group('partnersCategories') %}
+                                    {% for cat in categories.all() %}
+                                        <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
+                                            <div class="checkbox">
+                                                <span class="icon icon-tick"></span>
+                                            </div>
+                                            <span class="text">{{ cat.title }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="filters-type-hld">
+                                <div class="filter-type">Service Offering</div>
+                                <div class="partners-listing__filter-box">
+                                    {% set categories = craft.categories().group('partnersServiceOffering') %}
+                                    {% for cat in categories.all() %}
+                                        <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
+                                            <div class="checkbox">
+                                                <span class="icon icon-tick"></span>
+                                            </div>
+                                            <span class="text">{{ cat.title }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="filters-type-hld">
+                                <div class="filter-type">Operating Regions</div>
+                                <div class="partners-listing__filter-box">
+                                    {% set categories = craft.categories().group('partnersOperatingRegions') %}
+                                    {% for cat in categories.all() %}
+                                        <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
+                                            <div class="checkbox">
+                                                <span class="icon icon-tick"></span>
+                                            </div>
+                                            <span class="text">{{ cat.title }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="filters-type-hld">
+                                <div class="filter-type">Industry Expertise</div>
+                                <div class="partners-listing__filter-box">
+                                    {% set categories = craft.categories().group('partnersIndustryExpertise') %}
+                                    {% for cat in categories.all() %}
+                                        <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
+                                            <div class="checkbox">
+                                                <span class="icon icon-tick"></span>
+                                            </div>
+                                            <span class="text">{{ cat.title }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <button class="btn btn--apply u-btn u-btn--light js-partners-filters-apply-btn">
+                                <span class="text">Apply</span>
+                            </button>
+                            <button class="btn btn--reset u-btn u-btn--transparent js-partners-filters-reset-btn">
+                                <span class="text">Reset filters</span>
+                            </button>
+                        </div>
 					</div>
 				</div>
 				<div class="partners-listing__box partners-listing__box--b">
@@ -45,18 +93,34 @@
 							<div class="results__filter results__filter--everything is-chosen js-partners-filters-active-everything">
 								<span class="text">All</span>
 							</div>
-							{% for item in PartnersDetailsPosts %}
-								{% if loop.index == 1 %}
-									{% set categories = craft.categories().group('partnersCategories') %}
-									
-									{% for cat in categories.all() %}
-										<div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
-											<span class="text">{{ cat.title }}</span>
-											<span class="icon icon-close"></span>
-										</div>
-									{% endfor %}
-								{% endif %}
-							{% endfor %}
+                            {% set categories = craft.categories().group('partnersCategories') %}
+                            {% for cat in categories.all() %}
+                                <div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
+                                    <span class="text">{{ cat.title }}</span>
+                                    <span class="icon icon-close"></span>
+                                </div>
+                            {% endfor %}
+                            {% set categories = craft.categories().group('partnersServiceOffering') %}
+                            {% for cat in categories.all() %}
+                                <div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
+                                    <span class="text">{{ cat.title }}</span>
+                                    <span class="icon icon-close"></span>
+                                </div>
+                            {% endfor %}
+                            {% set categories = craft.categories().group('partnersOperatingRegions') %}
+                            {% for cat in categories.all() %}
+                                <div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
+                                    <span class="text">{{ cat.title }}</span>
+                                    <span class="icon icon-close"></span>
+                                </div>
+                            {% endfor %}
+                            {% set categories = craft.categories().group('partnersIndustryExpertise') %}
+                            {% for cat in categories.all() %}
+                                <div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
+                                    <span class="text">{{ cat.title }}</span>
+                                    <span class="icon icon-close"></span>
+                                </div>
+                            {% endfor %}
 						</div>
 					</div>
 					<div class="partners-listing__items-hld">
@@ -79,7 +143,10 @@
 							{% set detailsLink = item.uri %}
 							{# Item category #}
 							{% set categories = item.partnerCategory.all() %}
-							<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %} data-{{ cat.slug|lower }}="1" {% endfor %}>
+							{% set categories2 = item.partnerServiceOffering.all() %}
+							{% set categories3 = item.partnerOperatingRegions.all() %}
+							{% set categories4 = item.partnerIndustryExpertise.all() %}
+							<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %} data-{{ cat.slug|lower }}="1" {% endfor %} {% for cat in categories2 %} data-{{ cat.slug|lower }}="1" {% endfor %} {% for cat in categories3 %} data-{{ cat.slug|lower }}="1" {% endfor %} {% for cat in categories4 %} data-{{ cat.slug|lower }}="1" {% endfor %}>
 								{% if logo %}
 									<div class="img-hld {{ name == 'Avery Dennison - atma.io' ? 'is-avery' : null }}">
 										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>

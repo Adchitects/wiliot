@@ -21,7 +21,7 @@ if (partnersFiltersHld) {
 	});
 	filterEverything.addEventListener('click', () => {
 		if (!filterEverything.classList.contains('is-active')) {
-			// // Reset isActive state for filters
+			// Reset isActive state for filters
 			filterAll.forEach(filter => {
 				filter.classList.remove('is-active');
 			});
@@ -33,7 +33,7 @@ if (partnersFiltersHld) {
 			itemAll.forEach(item => {
 				item.dataset.checked = true;
 			});
-		} 
+		}
 	});
 	filterAll.forEach(filter => {
 		const filterDataCategory = filter.dataset.category;
@@ -64,7 +64,7 @@ if (partnersFiltersHld) {
 				filterAll.forEach(f => {
 					if (f.classList.contains('is-active')) {
 						atLeastOneIsActive = true;
-					} 
+					}
 				});
 				if (!atLeastOneIsActive) {
 					// Activate Everything filter
@@ -110,7 +110,7 @@ if (partnersFiltersHld) {
 		itemAll.forEach(item => {
 			item.style.display = 'block';
 		});
-		// // Reset isActive state for filters
+		// Reset isActive state for filters
 		filterAll.forEach(filter => {
 			filter.classList.remove('is-active');
 		});
@@ -145,7 +145,7 @@ if (partnersFiltersHld) {
 			filterAll.forEach(f => {
 				if (f.classList.contains('is-active')) {
 					atLeastOneIsActive = true;
-				} 
+				}
 			});
 			if (!atLeastOneIsActive) {
 				// Activate Everything filter
