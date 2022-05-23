@@ -21,6 +21,15 @@
 		}
 	}
 
+	+ .u-section--buy-tiles {
+		padding-top: 120px;
+
+		@include media-max(767) {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+	}
+
 	.is-page-homepage &,
 	.is-page-applications-posts-v3 & {
 		margin-top: 130px;

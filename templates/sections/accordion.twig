@@ -13,24 +13,26 @@
 					{% set image = item.accordionItemImage.one() %}
 					{% if loop.index == 1  %}
 						<div class="accordion__column">
-						{% endif  %}
-						<div class="accordion__item item js-accordion-toggle-item">
-							<div class="item__toggle">
-								<span class="line"></span>
-								<span class="line"></span>
-							</div>
-							<h3 class="item__title">{{ title }}</h3>
-							<span class="item__subtitle">{{ subtitle }}</span>
-							{% if image %}
-								<img class="item__image" src="{{ image.url }}" alt="{{ title }}">
-							{% endif %}
-						</div>
-						{% if loop.index == (accordionList|length / 2)|round(0, 'ceil') %}
-						</div>
-						<div class="accordion__column">
-						{% endif %}
-						{% if loop.index == accordionList|length %}
-						</div>
+                    {% endif  %}
+                    <div class="accordion__item item {% if image %} js-accordion-toggle-item {% endif %}">
+                        {% if image %}
+                            <div class="item__toggle">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        {% endif %}
+                        <h3 class="item__title">{{ title }}</h3>
+                        <span class="item__subtitle">{{ subtitle }}</span>
+                        {% if image %}
+                            <img class="item__image" src="{{ image.url }}" alt="{{ title }}">
+                        {% endif %}
+                    </div>
+                    {% if loop.index == (accordionList|length / 2)|round(0, 'ceil') %}
+                        </div>
+                        <div class="accordion__column">
+                    {% endif %}
+                    {% if loop.index == accordionList|length %}
+                        </div>
 					{% endif %}
 				{% endfor %}
 			</div>

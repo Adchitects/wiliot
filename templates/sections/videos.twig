@@ -58,7 +58,7 @@
             </div>
         {% endif %}
 
-        {% if videos|length %}
+        {% if videos|length > 2 %}
             <div class="videos-list">
                 {% for video in videos %}
                     {% if loop.index > 2 %}
