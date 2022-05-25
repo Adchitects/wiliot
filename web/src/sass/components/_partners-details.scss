@@ -69,12 +69,24 @@
 		margin-top: 35px;
 	}
 
-	&__categories-hld {
+	&__middle-right {
+
 	}
 
-	&__category {
-		margin-top: 10px;
-		font-weight: 500;
+	&__categories-hld {
+		margin-top: 35px;
+
+		.single-category-hld {
+			margin: 14px 0;
+
+			.name {
+				font-weight: 500;
+			}
+
+			.value {
+				margin: 6px 0;
+			}
+		}
 	}
 
 	&__description {
@@ -82,7 +94,7 @@
 	}
 
 	&__website-btn {
-		margin-top: 40px;
+		margin-top: 20px;
 		padding: 16px 50px 14px;
 
 		@include tablet-small-1023 {
