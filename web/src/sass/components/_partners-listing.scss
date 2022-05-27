@@ -1,11 +1,18 @@
-.u-section--partners-listing {
-}
+.u-section--partners-listing {}
 
 .partners-listing {
 	display: flex;
 
 	@include tablet-small-1023 {
 		flex-direction: column;
+	}
+
+	&__no-results {
+		display: block;
+		padding-top: 24px;
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 1.5;
 	}
 
 	&__box {
@@ -28,7 +35,8 @@
 				}
 
 				.middle {
-					max-height: 70vh;
+					max-height: calc(100vh - 100px - 51px - 24px);
+					// max-height: 70vh;
 					overflow-y: auto;
 
 					@include tablet-small-1023 {
@@ -76,9 +84,12 @@
 			background-color: $c-light;
 
 			@include tablet-small-1023 {
-				width: 100%;
+				width: auto;
 				margin-top: 50px;
-				margin-left: 0;
+				margin-right: -30px;
+				margin-left: -30px;
+				padding-right: 30px;
+				padding-left: 30px;
 			}
 		}
 	}
@@ -96,10 +107,10 @@
 
 		.checkbox {
 			position: relative;
+			top: -1px;
 			width: 16px;
 			height: 16px;
 			margin-right: 25px;
-			margin-bottom: 1px;
 			border: 1px solid $c-gray;
 			border-radius: 2px;
 			transition: background-color 0.2s, border-color 0.2s;
@@ -157,6 +168,10 @@
 
 				@include tablet-small-1023 {
 					pointer-events: none;
+
+					&.is-chosen {
+						pointer-events: auto;
+					}
 				}
 
 				.text {

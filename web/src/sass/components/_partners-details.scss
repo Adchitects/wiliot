@@ -69,15 +69,13 @@
 		margin-top: 35px;
 	}
 
-	&__middle-right {
-
-	}
+	&__middle-right {}
 
 	&__categories-hld {
 		margin-top: 35px;
 
 		.single-category-hld {
-			margin: 14px 0;
+			margin: 32px 0;
 
 			.name {
 				font-weight: 500;
@@ -94,7 +92,6 @@
 	}
 
 	&__website-btn {
-		margin-top: 20px;
 		padding: 16px 50px 14px;
 
 		@include tablet-small-1023 {

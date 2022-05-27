@@ -19,7 +19,7 @@
                             </div>
                             <div class="filters-type-hld">
                                 <div class="filter-type">Partner Type</div>
-                                <div class="partners-listing__filter-box">
+                                <div class="partners-listing__filter-box js-partners-filters-category" data-filters-category="type">
                                     {% set categories = craft.categories().group('partnersCategories') %}
                                     {% for cat in categories.all() %}
                                         <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="filters-type-hld">
                                 <div class="filter-type">Service Offering</div>
-                                <div class="partners-listing__filter-box">
+                                <div class="partners-listing__filter-box js-partners-filters-category" data-filters-category="service">
                                     {% set categories = craft.categories().group('partnersServiceOffering') %}
                                     {% for cat in categories.all() %}
                                         <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
@@ -47,7 +47,7 @@
                             </div>
                             <div class="filters-type-hld">
                                 <div class="filter-type">Operating Regions</div>
-                                <div class="partners-listing__filter-box">
+                                <div class="partners-listing__filter-box js-partners-filters-category" data-filters-category="region">
                                     {% set categories = craft.categories().group('partnersOperatingRegions') %}
                                     {% for cat in categories.all() %}
                                         <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
@@ -61,7 +61,7 @@
                             </div>
                             <div class="filters-type-hld">
                                 <div class="filter-type">Industry Expertise</div>
-                                <div class="partners-listing__filter-box">
+                                <div class="partners-listing__filter-box js-partners-filters-category" data-filters-category="expertise">
                                     {% set categories = craft.categories().group('partnersIndustryExpertise') %}
                                     {% for cat in categories.all() %}
                                         <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
@@ -74,6 +74,7 @@
                                 </div>
                             </div>
                         </div>
+                        {#
                         <div class="bottom">
                             <button class="btn btn--apply u-btn u-btn--light js-partners-filters-apply-btn">
                                 <span class="text">Apply</span>
@@ -82,6 +83,7 @@
                                 <span class="text">Reset filters</span>
                             </button>
                         </div>
+                        #}
 					</div>
 				</div>
 				<div class="partners-listing__box partners-listing__box--b">
@@ -123,7 +125,7 @@
                             {% endfor %}
 						</div>
 					</div>
-					<div class="partners-listing__items-hld">
+					<div class="partners-listing__items-hld js-partners-items-hld">
 						{% for item in PartnersDetailsPosts %}
 							{# Item logo #}
 							{% set logo = item.partnerLogo.one() %}
