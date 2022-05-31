@@ -1,4 +1,14 @@
 const partnersFiltersHld = document.querySelector('.js-partners-filters-hld');
+
+/* eslint-disable */
+String.prototype.fuzzy = function(s) {
+	let hay = this.toLowerCase(); let i = 0; let n = -1; let l;
+	s = s.toLowerCase();
+	for (; l = s[i++];) if (!~(n = hay.indexOf(l, n + 1))) return false;
+	return true;
+};
+/* eslint-enable */
+
 if (partnersFiltersHld) {
 	const itemAll = partnersFiltersHld.querySelectorAll('.js-partners-filters-item');
 	const filterAll = partnersFiltersHld.querySelectorAll('.js-partners-filters-filter');
@@ -10,10 +20,12 @@ if (partnersFiltersHld) {
 	const activeFilterAll = partnersFiltersHld.querySelectorAll('.js-partners-filters-active');
 	const activeFilterEverything = partnersFiltersHld.querySelector('.js-partners-filters-active-everything');
 	const filterEverything = partnersFiltersHld.querySelector('.js-partners-filters-filter-everything');
+	const searchInput = partnersFiltersHld.querySelector('.js-partners-filters-search-input');
 	// const btnApplyFilter = partnersFiltersHld.querySelector('.js-partners-filters-apply-btn');
 	// const btnResetFilter = partnersFiltersHld.querySelector('.js-partners-filters-reset-btn');
 	const resultsNumber = partnersFiltersHld.querySelector('.js-partners-filters-results-number');
 	let autoFilterTimeout;
+	const autoFilterTimeoutTime = 750;
 	const scrollToFiltersTop = () => {
 		window.scrollTo({
 			top: partnersFiltersHld.getBoundingClientRect().top - document.body.getBoundingClientRect().top - 100,
@@ -48,11 +60,14 @@ if (partnersFiltersHld) {
 			}
 		});
 
+		const searchValue = searchInput.value;
+
 		itemAll.forEach(item => {
 			let typeApproved = false;
 			let serviceApproved = false;
 			let regionApproved = false;
 			let expertiseApproved = false;
+			let nameAprroved = true;
 
 			if (filtersCategoryTypeToCheck.length) {
 				filtersCategoryTypeToCheck.forEach(activeFilter => {
@@ -94,7 +109,12 @@ if (partnersFiltersHld) {
 				expertiseApproved = true;
 			}
 
-			if (typeApproved && serviceApproved && regionApproved && expertiseApproved) {
+			// AFTER CATEGORIES, CHECK NAME
+			if (searchValue !== '') {
+				nameAprroved = item.querySelector('.name').textContent.fuzzy(searchValue);
+			}
+
+			if (typeApproved && serviceApproved && regionApproved && expertiseApproved && nameAprroved) {
 				item.dataset.checked = 'true';
 			} else {
 				item.dataset.checked = 'false';
@@ -112,6 +132,12 @@ if (partnersFiltersHld) {
 		});
 		resultsNumber.innerHTML = results.length;
 
+		const searchIsEmpty = searchValue === '';
+
+		if (!searchIsEmpty) {
+			activeFilterEverything.classList.remove('is-chosen');
+		}
+
 		activeFilterAll.forEach(activeFilter => {
 			const activeFilterDataCategory = activeFilter.dataset.category;
 			activeFilter.classList.remove('is-chosen');
@@ -123,25 +149,53 @@ if (partnersFiltersHld) {
 						activeFilter.classList.add('is-chosen');
 					}
 				}
-				if (filterEverything.classList.contains('is-active')) {
+				if (filterEverything.classList.contains('is-active') && searchIsEmpty) {
 					activeFilterEverything.classList.add('is-chosen');
 				}
 			});
 		});
 		scrollToFiltersTop();
 
+		let existingNoResultsInfo = partnersItemsHld.querySelectorAll('.partners-listing__no-results');
+		if (existingNoResultsInfo) {
+			existingNoResultsInfo.forEach(item => {
+				item.remove();
+			});
+		}
+
 		if (results.length < 1) {
 			let noResultsInfo = document.createElement('div');
         	noResultsInfo.classList.add('partners-listing__no-results');
-			noResultsInfo.innerText = 'There are no partners fulfilling all the chosen criteria.';
+			noResultsInfo.innerText = 'There are currently no partners fulfilling all the chosen criteria.';
 			partnersItemsHld.append(noResultsInfo);
-		} else {
-			let noResultsInfo = partnersItemsHld.querySelector('.partners-listing__no-results');
-			if (noResultsInfo) {
-				noResultsInfo.remove();
-			}
 		}
 	};
+
+	searchInput.addEventListener('input', () => {
+		if (searchInput.value !== '') {
+			searchInput.classList.add('is-not-empty');
+			// activeFilterEverything.classList.remove('is-chosen');
+			filterEverything.classList.remove('is-active');
+		} else {
+			searchInput.classList.remove('is-not-empty');
+			let isAnyCategoryActive = false;
+			filterAll.forEach(filter => {
+				if (filter.classList.contains('is-active')) {
+					isAnyCategoryActive = true;
+				}
+			});
+			if (!isAnyCategoryActive) {
+				filterEverything.classList.add('is-active');
+				// activeFilterEverything.classList.add('is-chosen');
+			}
+		}
+
+		clearTimeout(autoFilterTimeout);
+		autoFilterTimeout = setTimeout(() => {
+			filterThemThings();
+		}, autoFilterTimeoutTime);
+	});
+
 	// const resetFilters = () => {
 	// 	resultsNumber.innerHTML = itemAll.length;
 	// 	activeFilterEverything.classList.add('is-chosen');
@@ -175,6 +229,8 @@ if (partnersFiltersHld) {
 			itemAll.forEach(item => {
 				item.dataset.checked = false;
 			});
+			// Reset search field
+			searchInput.value = '';
 			// Activate Everything filter
 			filterEverything.classList.add('is-active');
 			itemAll.forEach(item => {
@@ -215,7 +271,7 @@ if (partnersFiltersHld) {
 						atLeastOneIsActive = true;
 					}
 				});
-				if (!atLeastOneIsActive) {
+				if (!atLeastOneIsActive && searchInput.value === '') {
 					// Activate Everything filter
 					filterEverything.classList.add('is-active');
 					// itemAll.forEach(item => {
@@ -226,7 +282,7 @@ if (partnersFiltersHld) {
 			clearTimeout(autoFilterTimeout);
 			autoFilterTimeout = setTimeout(() => {
 				filterThemThings();
-			}, 1000);
+			}, autoFilterTimeoutTime);
 		});
 	});
 
@@ -236,6 +292,7 @@ if (partnersFiltersHld) {
 	// btnResetFilter.addEventListener('click', () => {
 	// 	resetFilters();
 	// });
+
 	activeFilterAll.forEach(activeFilter => {
 		const activeFilterDataCategory = activeFilter.dataset.category;
 		activeFilter.addEventListener('click', () => {
@@ -259,7 +316,7 @@ if (partnersFiltersHld) {
 					atLeastOneIsActive = true;
 				}
 			});
-			if (!atLeastOneIsActive) {
+			if (!atLeastOneIsActive && searchInput.value === '') {
 				// Activate Everything filter
 				activeFilterEverything.classList.add('is-chosen');
 				filterEverything.classList.add('is-active');
@@ -270,7 +327,7 @@ if (partnersFiltersHld) {
 			clearTimeout(autoFilterTimeout);
 			autoFilterTimeout = setTimeout(() => {
 				filterThemThings();
-			}, 1000);
+			}, autoFilterTimeoutTime);
 		});
 	});
 }

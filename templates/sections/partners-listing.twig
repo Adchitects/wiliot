@@ -18,6 +18,12 @@
                                 </div>
                             </div>
                             <div class="filters-type-hld">
+                                {# <div class="filter-type">Partner Name</div> #}
+                                <div class="partners-listing__filter-box partners-listing__filter-box--search">
+                                    <input class="partners-listing__search-input js-partners-filters-search-input" placeholder="Search by partner name" type="text" value="" />
+                                </div>
+                            </div>
+                            <div class="filters-type-hld">
                                 <div class="filter-type">Partner Type</div>
                                 <div class="partners-listing__filter-box js-partners-filters-category" data-filters-category="type">
                                     {% set categories = craft.categories().group('partnersCategories') %}
