@@ -1,11 +1,24 @@
-.u-section--partners-listing {
-}
+.u-section--partners-listing {}
 
 .partners-listing {
 	display: flex;
 
 	@include tablet-small-1023 {
 		flex-direction: column;
+	}
+
+	&__no-results {
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		margin-right: auto;
+		margin-left: auto;
+		padding-top: 24px;
+		padding-bottom: 24px;
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 1.5;
+		text-align: center;
 	}
 
 	&__box {
@@ -21,7 +34,25 @@
 
 			.inner {
 				position: sticky;
-				top: 100px;
+				// top: 100%;
+				// top: 100px;
+				// bottom: 0;
+				// bottom: 100vh;
+
+				.top {
+					padding: 16px 0;
+				}
+
+				.middle {
+					// max-height: calc(100vh - 100px - 51px - 24px);
+					// max-height: 70vh;
+					// overflow-y: auto;
+
+					@include tablet-small-1023 {
+						max-height: 240px;
+						overflow-y: auto;
+					}
+				}
 			}
 
 			.title {
@@ -36,6 +67,10 @@
 				margin-top: 20px;
 				font-weight: 900;
 				line-height: 22px;
+
+				@include tablet-small-1023 {
+					margin-top: 12px;
+				}
 			}
 
 			.btn {
@@ -63,9 +98,12 @@
 			background-color: $c-light;
 
 			@include tablet-small-1023 {
-				width: 100%;
+				width: auto;
 				margin-top: 50px;
-				margin-left: 0;
+				margin-right: -30px;
+				margin-left: -30px;
+				padding-right: 30px;
+				padding-left: 30px;
 			}
 		}
 	}
@@ -73,6 +111,30 @@
 	&__filter-box {
 		margin-top: 20px;
 		padding-left: 5px;
+
+		@include tablet-small-1023 {
+			margin-top: 8px;
+		}
+
+		&--search {
+			margin-top: 12px;
+			padding-bottom: 12px;
+			padding-left: 0;
+		}
+	}
+
+	&__search-input {
+		width: calc(100% - 24px);
+		max-width: 320px;
+		padding: 7px 16px 4px;
+		border: 1px solid $c-border;
+		border-radius: 4px;
+		transition: border-color 0.2s;
+
+		&:focus,
+		&.is-not-empty {
+			border-color: $c-accent;
+		}
 	}
 
 	&__filter {
@@ -81,12 +143,17 @@
 		cursor: pointer;
 		padding: 8px 0;
 
+		@include tablet-small-1023 {
+			padding-top: 4px;
+			padding-bottom: 4px;
+		}
+
 		.checkbox {
 			position: relative;
+			top: -2px;
 			width: 16px;
 			height: 16px;
 			margin-right: 25px;
-			margin-bottom: 1px;
 			border: 1px solid $c-gray;
 			border-radius: 2px;
 			transition: background-color 0.2s, border-color 0.2s;
@@ -144,6 +211,10 @@
 
 				@include tablet-small-1023 {
 					pointer-events: none;
+
+					&.is-chosen {
+						pointer-events: auto;
+					}
 				}
 
 				.text {

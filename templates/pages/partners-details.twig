@@ -33,7 +33,10 @@
 	{# Link #}
 	{% set websiteLink = entry.partnerLink %}
 	{# Categories #}
-	{% set categories = entry.partnerCategory.all() %}
+	{% set categoryPartnerType = entry.partnerCategory.all() %}
+	{% set categoryPartnerServiceOffering = entry.partnerServiceOffering.all() %}
+	{% set categoryPartnerOperatingRegions = entry.partnerOperatingRegions.all() %}
+	{% set categoryPartnerIndustryExpertise = entry.partnerIndustryExpertise.all() %}
 	{# Video #}
 	{% set partnerVideoFile = entry.partnerVideoFile.one %}
 	{% if partnerVideoFile %}
@@ -59,17 +62,48 @@
 					<div class="partners-details__middle">
 						<div class="partners-details__text-hld">
 							<div class="partners-details__name u-subtitle u-subtitle--big">{{ name }}</div>
-							<div class="partners-details__categories-hld">
-								{% for cat in categories %}
-									<div class="partners-details__category">{{ cat.title }}</div>
-								{% endfor %}
-							</div>
 							<div class="partners-details__description">{{ description }}
 							</div>
-						</div>
-						<a href="{{ websiteLink }}" target="_blank" rel="noopener noreferrer" class="partners-details__website-btn u-btn u-btn--light">
-							<span class="text">Visit website</span>
-						</a>
+                        </div>
+                        <div class="partners-details__middle-right">
+                            <div class="partners-details__categories-hld">
+                                {% if categoryPartnerType %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Partner Type:</div>
+                                        {% for cat in categoryPartnerType %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if categoryPartnerServiceOffering %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Service Offering:</div>
+                                        {% for cat in categoryPartnerServiceOffering %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if categoryPartnerOperatingRegions %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Operating Regions:</div>
+                                        {% for cat in categoryPartnerOperatingRegions %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if categoryPartnerIndustryExpertise %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Industry Expertise:</div>
+                                        {% for cat in categoryPartnerIndustryExpertise %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+							</div>
+                            <a href="{{ websiteLink }}" target="_blank" rel="noopener noreferrer" class="partners-details__website-btn u-btn u-btn--light">
+                                <span class="text">Visit website</span>
+                            </a>
+                        </div>
 					</div>
 					{% if partnerVideoFile|length %}
 						<div class="partners-details__video-hld js-video-hld is-paused">
