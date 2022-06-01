@@ -5,7 +5,8 @@
 	.cards {
 		&__hld {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			justify-content: center;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
 			grid-gap: 24px;
 		}
 
@@ -96,7 +97,6 @@
 					&:hover {
 						opacity: 0.7;
 					}
-			
 
 					&::before {
 						content: '';

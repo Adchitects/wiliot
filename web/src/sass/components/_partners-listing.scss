@@ -272,11 +272,13 @@
 		}
 
 		.img-hld {
+			display: flex;
+			align-items: center;
 			width: 105px;
+			min-height: 70px;
 
 			&.is-avery {
 				width: 210px;
-				padding: 12px 0;
 			}
 
 			img {
