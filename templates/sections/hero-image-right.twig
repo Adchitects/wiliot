@@ -2,7 +2,11 @@
 {% set title = entry.heroImageRightTitle %}
 {% set excerpt = entry.heroImageRightExcerpt %}
 {% set videoLink = entry.heroImageRightVideoLink %}
-{% set videoLinkPlaceholder = entry.heroImageRightVideoLinkPlaceholder.one().getUrl() %}
+{% if entry.heroImageRightVideoLinkPlaceholder.one() %}
+    {% set videoLinkPlaceholder = entry.heroImageRightVideoLinkPlaceholder.one().getUrl() %}
+{% else %}
+    {% set videoLinkPlaceholder = null %}
+{% endif %}
 {% set button = entry.heroImageRightButton %}
 {% if entry is defined %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-img-right">
