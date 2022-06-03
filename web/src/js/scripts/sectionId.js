@@ -5,23 +5,21 @@ const sectionAll = document.querySelectorAll('section');
 sectionAll.forEach((section, key) => {
 	if (section.id !== '') {
 		let sectionId = '#' + ('0' + parseInt(key + 1, 16)).slice(-2);
-		if (sectionId !== '#01') {
-			const updateUrl = () => {
-				window.history.replaceState({page: 'messages' }, '', sectionId);
-			};
-			gsap.to(section, {
-				scrollTrigger: {
-					// markers: true,
-					trigger: section,
-					start: 'top top',
-					end: '40% top',
-					scrub: true,
-					onEnter: updateUrl,
-					onEnterBack: updateUrl,
-					// onLeave: updateUrl,
-					// onLeaveBack: updateUrl,
-				},
-			});
-		}
+		const updateUrl = () => {
+			window.history.replaceState({page: 'messages' }, '', sectionId);
+		};
+		gsap.to(section, {
+			scrollTrigger: {
+				// markers: true,
+				trigger: section,
+				start: 'top top',
+				end: '40% top',
+				scrub: true,
+				onEnter: updateUrl,
+				onEnterBack: updateUrl,
+				// onLeave: updateUrl,
+				// onLeaveBack: updateUrl,
+			},
+		});
 	}
 });
