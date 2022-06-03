@@ -128,11 +128,8 @@
 		}
 
 		&__icon {
-			svg {
-				path {
-					transition: stroke 0.35s, fill 0.35s;
-				}
-			}
+			width: auto;
+			height: 40px;
 		}
 
 		&__title {
@@ -214,10 +211,6 @@
 
 			.btn {
 				margin-top: 12px;
-
-				&:first-child {
-					margin-top: 0;
-				}
 
 				.text {
 					display: inline-block;

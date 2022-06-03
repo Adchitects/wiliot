@@ -19,7 +19,11 @@
 		<div class="u-wrapper u-wrapper--medium-wide js-modal-hld">
 			<div class="buy-tiles__tiles-hld js-buy-tiles-hld">
 				{% for item in tilesMatrix %}
-					{% set iconName = item.tileIcon %}
+                    {% if item.tileIcon.one() %}
+                        {% set icon = item.tileIcon.one().getUrl() %}
+                    {% else %}
+                        {% set icon = alias('@web/src/img/svg/circles.svg') %}
+                    {% endif %}
 					{% set title = item.tileTitle %}
 					{% set topDescription = item.tileTopDescription %}
 					{% set topDescriptionSliced = topDescription|slice(0, 307) ~ '...' %}
@@ -27,16 +31,8 @@
 					{% set button = item.tileButton %}
 					{% set arrowButtons = item.tileArrowButtons.all() %}
 					<div class="buy-tiles__item item js-buy-tiles-item">
-						{% if iconName == 'numbers' %}
-							<div class="item__number">
-								{% if loop.index < 10 %}
-									0{{ loop.index }}
-								{% else %}
-									{{ loop.index }}
-								{% endif %}
-							</div>
-						{% else %}
-							<div class="item__icon">{{ svg('src/img/svg/' ~ iconName ~ '_animated.svg') }}</div>
+						{% if icon %}
+                            <img class="js-lazy item__icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ icon }}" alt="{{ item.title }}">
 						{% endif %}
 						<div class="item__title">{{ title }}</div>
 						<div class="item__description-hld">

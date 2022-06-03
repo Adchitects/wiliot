@@ -2,6 +2,7 @@
 wiliot.sql
 wiliot-live.sql
 wiliot-staging.sql
+*.sql
 .vscode/
 .DS_Store
 .env

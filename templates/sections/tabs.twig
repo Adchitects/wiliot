@@ -2,74 +2,76 @@
 {% set subtitle = entry.tabsSubtitle %}
 {% set button = entry.bottomButton %}
 {% set tabs = entry.tabsList %}
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--tabs {% if entry.section|lower != 'homepage' %} js-bg-shape-hld {% endif %}">
-	{% if entry.section|lower != 'homepage' and entry.section|replace(' ', '-')|lower != 'applications-posts-v3' %}
-		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
-			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
-			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
-		</div>
-	{% endif %}
-	<div class="u-wrapper">
-		<div class="tabs">
-			{% if subtitle %}
-				<span class="tabs__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
-			{% endif %}
-			{% if title %}
-				<h2 class="tabs__title u-title u-title--section">{{ title|nl2br }}</h2>
-			{% endif %}
-			{% if tabs %}
-				<div class="tabs__list">
-					<div class="tabs__nav">
-						{% for item in tabs.all() %}
-							{% set title = item.tabTitle %}
-							{% set itemIcon = item.tabIcon.one() %}
-							<div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item js-tabs-slider-nav-item">
-								{% if itemIcon %}
-									<div class="icon-hld">
-										<img class="icon" src="{{ itemIcon.url }}" alt="{{ title }}">
-									</div>
-								{% endif %}
-								<span class="text">{{ title }}</span>
-							</div>
-						{% endfor %}
-					</div>
-					<div class="swiper-container js-tabs-slider">
-						<div class="swiper-wrapper">
-							{% for item in tabs.all() %}
-								{% set title = item.tabTitle %}
-								{% set description = item.tabDescription %}
-								{% set image = item.tabImage.one() %}
-								{% set link = item.tabLink %}
-								<div class="tab swiper-slide">
-									<div class="tab__image">
-									{% if image %}
-										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy" alt="{{ title }}">
-									{% endif %}
-									</div>
-									<div class="tab__content">
-										<h3 class="tab__title">{{ title }}</h3>
-										<div class="tab__description">{{ description }}</div>
-										{% if link.customText %}
-											<a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
-												<span class="text">
-													{{ link.customText }}
-												</span>
-											</a>
-										{% endif %}
-									</div>
-								</div>
-							{% endfor %}
-						</div>
-					</div>
-				</div>
-			{% endif %}
-			{% if button and button.getUrl() %}
-				<a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light btn--explore">
-					<span class="text">
-						{{ button.customText }}
-					</span>
-				</a>
-			{% endif %}
-		</div>
-	</div>
-</section>
+{% if tabs|length > 0 %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--tabs {% if entry.section|lower != 'homepage' %} js-bg-shape-hld {% endif %}">
+        {% if entry.section|lower != 'homepage' and entry.section|replace(' ', '-')|lower != 'applications-posts-v3' %}
+            <div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+                <img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+                <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+            </div>
+        {% endif %}
+        <div class="u-wrapper">
+            <div class="tabs">
+                {% if subtitle %}
+                    <span class="tabs__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+                {% endif %}
+                {% if title %}
+                    <h2 class="tabs__title u-title u-title--section">{{ title|nl2br }}</h2>
+                {% endif %}
+                {% if tabs %}
+                    <div class="tabs__list">
+                        <div class="tabs__nav">
+                            {% for item in tabs.all() %}
+                                {% set title = item.tabTitle %}
+                                {% set itemIcon = item.tabIcon.one() %}
+                                <div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item js-tabs-slider-nav-item">
+                                    {% if itemIcon %}
+                                        <div class="icon-hld">
+                                            <img class="icon" src="{{ itemIcon.url }}" alt="{{ title }}">
+                                        </div>
+                                    {% endif %}
+                                    <span class="text">{{ title }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-container js-tabs-slider">
+                            <div class="swiper-wrapper">
+                                {% for item in tabs.all() %}
+                                    {% set title = item.tabTitle %}
+                                    {% set description = item.tabDescription %}
+                                    {% set image = item.tabImage.one() %}
+                                    {% set link = item.tabLink %}
+                                    <div class="tab swiper-slide">
+                                        <div class="tab__image">
+                                        {% if image %}
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy" alt="{{ title }}">
+                                        {% endif %}
+                                        </div>
+                                        <div class="tab__content">
+                                            <h3 class="tab__title">{{ title }}</h3>
+                                            <div class="tab__description">{{ description }}</div>
+                                            {% if link.customText %}
+                                                <a class="tab__link u-btn u-btn--arrow" href="{{ link }}">
+                                                    <span class="text">
+                                                        {{ link.customText }}
+                                                    </span>
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if button and button.getUrl() %}
+                    <a href="{{ button.getUrl() }}" class="btn u-btn u-btn--light btn--explore">
+                        <span class="text">
+                            {{ button.customText }}
+                        </span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}
