@@ -10,6 +10,7 @@ import './scripts/partnersFilters';
 import './scripts/video';
 import './scripts/accordion';
 import './scripts/modal';
+import './scripts/heroSliderModal';
 import './scripts/buyTilesIcons';
 import './scripts/loadMore';
 import './scripts/sliding-boxes';

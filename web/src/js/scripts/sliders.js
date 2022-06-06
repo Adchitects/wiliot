@@ -2,7 +2,7 @@
 import { Swiper, EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Autoplay } from 'swiper';
 Swiper.use([EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Autoplay]);
 import { clearClassActive } from './utilities';
-// import { lazyLoadInstance } from '../libs/lazyLoad';
+import { lazyLoadInstance } from '../libs/lazyLoad';
 
 const freemodeSlider = new Swiper('.js-freemode-slider', {
 	slidesPerView: 2.1,
@@ -119,7 +119,6 @@ const tabsSlider = new Swiper('.js-tabs-slider', {
 if (tabsSliderEl) {
 	tabsSliderEl.addEventListener('click', () => {
 		setTimeout(() => {
-			console.log('click2');
 			tabsSlider.update();
 		}, 250);
 	});
@@ -227,3 +226,60 @@ carouselSliderHldAll.forEach(sliderHld => {
 	});
 	carouselSlider;
 });
+
+const heroSliderHldAll = document.querySelectorAll('.js-hero-slider-hld');
+heroSliderHldAll.forEach(sliderHld => {
+	const slidesAll = sliderHld.querySelectorAll('.js-hero-slider-slide');
+	const heroSlider = new Swiper(sliderHld.querySelector('.js-hero-slider'), {
+		slidesPerView: 1,
+		grabCursor: true,
+		threshold: 30,
+		watchSlidesProgress: true,
+		navigation: {
+			prevEl: '.js-hero-slider-button-prev',
+			nextEl: '.js-hero-slider-button-next',
+		},
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: false,
+		},
+		pagination: {
+			el: sliderHld.querySelector('.js-hero-slider-progress-bar'),
+			renderBullet: function(index, className) {
+				return (
+					'<span class="' + className + '">' + `<span style="animation-duration: ${slidesAll[index].dataset.swiperAutoplay}ms"></span>` + '</span>'
+				);
+			},
+		},
+		// breakpoints: {
+		// 	1024: {
+
+		// 	},
+		// },
+		on: {
+			realIndexChange: function() {
+				lazyLoadInstance.update();
+				let activeSlide = slidesAll[this.realIndex];
+				let iframeAll = sliderHld.querySelectorAll('.js-hero-slider-iframe');
+				let activeIframe = activeSlide.querySelector('.js-hero-slider-iframe');
+				if (!activeIframe) {
+					iframeAll.forEach(iframe => {
+						iframe.src = '';
+						setTimeout(() => {
+							iframe.src = iframe.dataset.src;
+						}, parseInt(activeSlide.dataset.swiperAutoplay, 10) - 250);
+					});
+				}
+			},
+		},
+	});
+	heroSlider;
+	// const mediaQuery = window.matchMedia('(max-width: 1023px)');
+	// if (mediaQuery.matches) {
+	// 	slidesAll.forEach(slide => {
+	// 		slide.dataset.swiperAutoplay = '5000';
+	// 	});
+	// 	heroSlider.update();
+	// }
+});
+
