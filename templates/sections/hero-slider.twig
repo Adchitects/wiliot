@@ -2,13 +2,15 @@
 {% if itemsMatrix|length > 0 %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider-hld {% endif %}">
         <div class="hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider swiper-container {% endif %}">
-            <div class="arrow arrow--prev js-hero-slider-button-prev">
-                <span class="icon icon-dropdown-up"></span>
-            </div>
-            <div class="arrow arrow--next js-hero-slider-button-next">
-                <span class="icon icon-dropdown-down"></span>
-            </div>
-            <div class="hero-slider__progress-bar js-hero-slider-progress-bar"></div>
+            {% if itemsMatrix|length > 1 %}
+                <div class="arrow arrow--prev js-hero-slider-button-prev">
+                    <span class="icon icon-dropdown-up"></span>
+                </div>
+                <div class="arrow arrow--next js-hero-slider-button-next">
+                    <span class="icon icon-dropdown-down"></span>
+                </div>
+                <div class="hero-slider__progress-bar js-hero-slider-progress-bar"></div>
+            {% endif %}
             <div class="hero-slider__inner swiper-wrapper">
                 {% for item in itemsMatrix %}
                     {% set itemSubtitle = item.itemSubtitle %}

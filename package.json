@@ -64,7 +64,7 @@
 		"gsap": "^3.5.1",
 		"jquery": "^3.6.0",
 		"lottie-web": "^5.8.1",
-		"swiper": "^6.3.5",
+		"swiper": "^6.8.4",
 		"vanilla-lazyload": "^17.4.0",
 		"vivus": "^0.4.5"
 	}
