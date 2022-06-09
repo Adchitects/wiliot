@@ -78,6 +78,7 @@
                         <div class="video-modal__inner">
                             <div class="video-modal__modal">
                                 <iframe width="560" height="315" class="js-lazy js-hero-modal-iframe" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="loader"></div>
                             </div>
                             <span class="video-modal__close js-hero-modal-close">
                                 <span class="icon icon-close"></span>
