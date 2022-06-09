@@ -1,0 +1,32 @@
+{% set comparisonTable = entry.comparisonTable %}
+{% if comparisonTable|length > 0 %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--comparison-table">
+        <div class="u-wrapper">
+            <div class="comparison-table">
+                {% set columns = comparisonTable.columns %}
+                {% set rows = comparisonTable.rows %}
+                {% for row in rows %}
+                    <div class="row"> {{ row[0] }}</div>
+                {% endfor %}
+                <table>
+                    <thead>
+                        <tr>
+                            {% for column in columns %}
+                                <th> {{ column.heading }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                            <tr>
+                                {% for column in columns %}
+                                <td> {{ row[loop.index0] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endif %}

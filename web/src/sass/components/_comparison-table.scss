@@ -1,0 +1,37 @@
+.u-section--comparison-table {
+
+}
+
+.comparison-table {
+	table {
+		thead {
+			padding: 10px;
+			border: 3px solid red;
+
+			tr {
+				padding: 10px;
+				border: 3px solid green;
+
+				th {
+					padding: 10px;
+					border: 3px solid blue;
+				}
+			}
+		}
+
+		tbody {
+			padding: 10px;
+			border: 3px solid pink;
+
+			tr {
+				padding: 10px;
+				border: 3px solid orange;
+
+				td {
+					padding: 10px;
+					border: 2px solid rgb(58, 18, 30);
+				}
+			}
+		}
+	}
+}
