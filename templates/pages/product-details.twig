@@ -2,13 +2,13 @@
 {% set metaTitle = entry.metaTitle %}
 {% set metaDescription = entry.metaDescription %}
 {% block head %} {{ parent() }} {% endblock %}
-{% block title %} 
+{% block title %}
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
-{% block description %} 
+{% block description %}
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
-{% block og %} 
+{% block og %}
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
@@ -19,7 +19,7 @@
 	{% set sectionId = '02' %}
 	{{ include('/sections/fifty-fifty.twig') }}
 	{% set sectionId = '03' %}
-	{{ include('/sections/product-features.twig') }}
+	{{ include('/sections/product-features-v2.twig') }}
 	{% set sectionId = '04' %}
 	{{ include('/sections/product-other.twig') }}
 	{% set sectionId = '05' %}
