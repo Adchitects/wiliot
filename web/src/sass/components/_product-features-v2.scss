@@ -37,7 +37,8 @@
 				height: 40px;
 
 				.icon {
-					max-height: 100%;
+					width: auto;
+					height: 100%;
 
 					&--security {
 						width: auto;

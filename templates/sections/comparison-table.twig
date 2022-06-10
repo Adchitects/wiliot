@@ -1,18 +1,24 @@
+{% set comparisonTableSubtitle = entry.comparisonTableSubtitle %}
+{% set comparisonTableTitle = entry.comparisonTableTitle %}
 {% set comparisonTable = entry.comparisonTable %}
-{% if comparisonTable|length > 0 %}
-    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--comparison-table">
-        <div class="u-wrapper">
-            <div class="comparison-table">
-                {% set columns = comparisonTable.columns %}
-                {% set rows = comparisonTable.rows %}
-                {% for row in rows %}
-                    <div class="row"> {{ row[0] }}</div>
-                {% endfor %}
-                <table>
-                    <thead>
+{% set columns = comparisonTable.columns %}
+{% set rows = comparisonTable.rows %}
+{% if comparisonTable.columns|length > 0 %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--comparison-table js-align-left-margin-hld">
+        <div class="comparison-table">
+            <div class="u-wrapper js-align-left-margin-sample">
+                {% if comparisonTableSubtitle or comparisonTableSubtitle %}
+                    <div class="u-subtitle u-subtitle--section comparison-table__subtitle">{{ comparisonTableSubtitle }}</div>
+                    <div class="u-title u-title--section comparison-table__title">{{ comparisonTableTitle|nl2br }}</div>
+                {% endif %}
+            </div>
+            <div class="comparison-table__table-hld js-align-left-margin-element-hld">
+                <table class="js-align-left-margin-element" style="grid-template-columns: {% for column in columns %} {% if loop.index0 == 0 %} 195px {% else %} 305px {% endif %} {% endfor %};" data-desktop-gtc="{% for column in columns %} {% if loop.index0 == 0 %} 195px {% else %} 305px {% endif %} {% endfor %}" data-mobile-gtc="{% for column in columns %} {% if loop.index0 == 0 %} 120px {% else %} 150px {% endif %} {% endfor %}">
+                    <thead class="u-subtitle u-subtitle--big">
                         <tr>
                             {% for column in columns %}
-                                <th> {{ column.heading }}</th>
+                                {% set columnText = column.heading|replace({'<br>': '\n'}) %}
+                                <th>{{ columnText|nl2br }}</th>
                             {% endfor %}
                         </tr>
                     </thead>
@@ -20,7 +26,8 @@
                         {% for row in rows %}
                             <tr>
                                 {% for column in columns %}
-                                <td> {{ row[loop.index0] }}</td>
+                                {% set rowText = row[loop.index0]|replace({'<br>': '\n'}) %}
+                                <td>{{ rowText|nl2br }}</td>
                                 {% endfor %}
                             </tr>
                         {% endfor %}
