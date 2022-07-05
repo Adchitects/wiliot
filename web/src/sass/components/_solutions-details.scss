@@ -50,7 +50,7 @@
 		overflow: hidden;
 
 		&.has-no-image {
-			+ .solutions-details__infobox {
+			+.solutions-details__infobox {
 				margin-top: 130px;
 
 				@include tablet-small-1023 {

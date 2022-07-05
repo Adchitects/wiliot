@@ -4,6 +4,7 @@ videoHldAll.forEach(hld => {
 	let videoIsPlayed = hld.classList.contains('is-paused') ? false : true;
 	vid.addEventListener('click', () => {
 		hld.classList.remove('show-thumbnail');
+		hld.classList.remove('is-before-play');
 		if (!videoIsPlayed) {
 			vid.play();
 			videoIsPlayed = true;
@@ -18,7 +19,7 @@ videoHldAll.forEach(hld => {
 					vid.pause();
 					videoIsPlayed = false;
 					hld.classList.add('is-paused');
-				}, 500); 
+				}, 500);
 			} else {
 				vid.pause();
 				videoIsPlayed = false;

@@ -3,9 +3,9 @@
 
 	+ .u-section--product-other {
 		margin-top: 96px;
-    }
+	}
 
-    @include tablet-small-1023 {
+	@include tablet-small-1023 {
 		&.u-section {
 			margin-top: 100px;
 		}
@@ -27,11 +27,11 @@
 
 	&__table-hld {
 		margin-top: 136px;
-        overflow-x: auto;
+		overflow-x: auto;
 
-        @include tablet-small-1023 {
-            margin-top: 30px;
-        }
+		@include tablet-small-1023 {
+			margin-top: 30px;
+		}
 
 		table {
 			display: grid;
