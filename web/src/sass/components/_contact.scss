@@ -97,8 +97,57 @@
 	}
 
 	&__image {
+		position: relative;
 		margin-top: 60px;
 		margin-bottom: 90px;
+	}
+
+	&__image-point {
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		margin-top: -3px;
+		margin-left: -3px;
+		border-radius: 50%;
+		background-color: $c-orange;
+
+		&--hoverable {
+			.contact__image-point-text {
+				opacity: 0;
+			}
+
+			&:hover {
+				.contact__image-point-text {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__image-point-inner {
+		position: absolute;
+		top: -9px;
+		left: -9px;
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+	}
+
+	&__image-point-text {
+		position: absolute;
+		top: -8px;
+		pointer-events: none;
+		font-size: 11px;
+		white-space: nowrap;
+		transition: opacity 0.2s;
+
+		&--on-right {
+			left: 16px;
+		}
+
+		&--on-left {
+			right: 16px;
+		}
 	}
 
 	&__address {

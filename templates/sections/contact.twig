@@ -1,6 +1,8 @@
 {% set title = entry.contactTitle %}
 {% set subtitle = entry.contactSubtitle %}
 {% set image = entry.contactImage.one() %}
+{% set mapPoints = entry.contactMapPoints.all() %}
+{% set mapPointLabelsVisibleOnHover = entry.contactMapPointLabelsVisibleOnHover %}
 {% set links = entry.contactLinksMatrix.all() %}
 {% set offices = entry.contactOffices.all() %}
 {% set socials = pageOptions.pageOptionsSocials.all() %}
@@ -38,7 +40,21 @@
 						{% endfor %}
 					</div>
 					{% if image %}
-						<img class="js-lazy contact__image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{title}}"/>
+                        <div class="contact__image">
+						    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{title}}"/>
+                            {% if mapPoints %}
+                                {% for point in mapPoints %}
+                                    {% if point.position %}
+                                    <div class="contact__image-point contact__image-point--{{ mapPointLabelsVisibleOnHover ? 'hoverable' : 'normal' }}" style="{{ point.position }}">
+                                        <div class="contact__image-point-inner"></div>
+                                        {% if point.text %}
+                                        <span class="contact__image-point-text contact__image-point-text--{{ point.textSide }}">{{ point.text }}</span>
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
 					{% endif %}
 					{% if offices %}
 						<div class="contact__offices">
@@ -102,8 +118,8 @@
 							}
 						};
 						hbspt.forms.create({
-							region: "na1", 
-							portalId: "4249967", 
+							region: "na1",
+							portalId: "4249967",
 							formId: "9dcd0c70-c053-4b14-b04c-876fcb93b4b1",
 							onFormReady: function() {
 								handleState();

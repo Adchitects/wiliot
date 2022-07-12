@@ -4,6 +4,7 @@ const loadMoreHld = document.querySelectorAll('.js-load-more-hld');
 if (loadMoreHld) {
 	loadMoreHld.forEach(hld => {
 		const itemAll = hld.querySelectorAll('.js-load-more-item');
+		const loadMoreBtnHld = hld.querySelector('.js-load-more-btn-hld');
 		const loadMoreBtn = hld.querySelector('.js-load-more-btn');
 		const itemDataMax = hld.querySelector('.js-load-more-item').dataset.maxItems;
 		const itemDataLoadItems = hld.querySelector('.js-load-more-item').dataset.loadItems;
@@ -34,18 +35,23 @@ if (loadMoreHld) {
 						gsap.set(item, {
 							top: -50,
 						});
+						const displayType = item.dataset.displayType ? item.dataset.displayType : 'block';
 						gsap.to(item, {
-							display: 'block',
+							display: displayType,
 							autoAlpha: 1,
 							top: 0,
 						});
 					}
 				}
 				if (loadItems >= originalArray.length) {
-					gsap.to(loadMoreBtn, {
-						display: 'none',
-						autoAlpha: 0,
-					});
+					if (loadMoreBtnHld) {
+						loadMoreBtnHld.classList.add('is-hidden');
+					} else {
+						gsap.to(loadMoreBtn, {
+							display: 'none',
+							autoAlpha: 0,
+						});
+					}
 				}
 			});
 		});
