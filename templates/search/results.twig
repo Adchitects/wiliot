@@ -14,9 +14,33 @@
 	<meta property="og:type" content="website"/>
 {% endblock %}
 {% block main %} #}
-	<h1>Search Results</h1>
+<h1>Search Results</h1>
 
 {% set query = craft.app.request.getParam('q') %}
+
+<form action="{{ url('search/results') }}">
+    <input type="search" name="q" aria-label="Search" placeholder="Search">
+    <button type="submit">Go</button>
+</form>
+
+<br>
+-----------------------------------
+<br>
+
+{% set expandedResults = craft.expandedSearch.search('portfolio') %}
+<pre>
+    {{ dump(expandedResults) }}
+</pre>
+{% for result in expandedResults %}
+    {# <pre>{{ dump(result) }}</pre> #}
+    <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
+    <p>{{result.matchedValue|striptags}}</p>
+    <a href="{{result.entry.url}}">{{result.entry.url}}</a>
+{% endfor %}
+
+<br>
+-----------------------------------
+<br>
 
 {% set expandedResults = craft.expandedSearch.search(query, { sections: ['solutionsDetails', 'productDetails']}) %}
 {% if expandedResults %}

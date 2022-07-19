@@ -10,6 +10,11 @@
 		{% set metaDescription = category.metaDescription %}
 		{% set postCreatedDate = null %}
 		{% set postModifyDate = null %}
+    {% else %}
+        {% set metaTitle = globalMetaTags.metaTitle %}
+		{% set metaDescription = globalMetaTags.metaDescription %}
+		{% set postCreatedDate = null %}
+		{% set postModifyDate = null %}
 	{% endif %}
 	{% block head %}
 		<head>

@@ -73,7 +73,7 @@
                                 <div class="area__title u-title u-title--section">Search results for "{{ query }}"</div>
                             </div>
                             <div class="area__posts-hld">
-                                {% set results = [] %}
+                                {% set allResults = [] %}
                                 {% set news = craft.entries.section('newsPosts') %}
                                 {% if news|length %}
                                     {% for post in news.all() %}
@@ -89,7 +89,7 @@
                                         {% set descSliced = desc|slice(0, 97) ~ '...' %}
                                         {% set content = post.postContent|striptags %}
                                         {% if query|lower in title|lower or query|lower in desc|lower or query|lower in content|lower %}
-                                            {% set results = results|merge([post.id]) %}
+                                            {% set allResults = allResults|merge([post.id]) %}
                                             <a href="{{ post.url}}" class="area__post post js-load-more-item" data-max-items="9" data-load-items="9" data-query="{{ query }}">
                                                 <div class="post__image-hld">
                                                     {% if image %}
@@ -109,7 +109,7 @@
                                         {% endif %}
                                     {% endfor %}
                                 {% endif %}
-                                {% if results|length == 0 %}
+                                {% if allResults|length == 0 %}
                                     0 results found
                                 {% endif %}
                             </div>
