@@ -23,4 +23,3 @@ import './scripts/singleCareer';
 import './scripts/sectionId';
 import './scripts/homepageLottieAnimation';
 import './scripts/alignLeftMargin';
-
