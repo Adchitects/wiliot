@@ -171,7 +171,7 @@
 							{# Item logo #}
 							{% set logo = item.partnerLogo.one() %}
 							{% if logo %}
-								{% set logoUrl = logo.getUrl() %}
+								{% set logoUrl = logo.getUrl('partnersListingLogo') %}
 								{% set logoWidth = logo.getWidth() %}
 								{% set logoHeight = logo.getHeight() %}
 								{% set logoAlt = logo.title %}

@@ -15,11 +15,11 @@
 						{% if imageAsset and imageTitle %}
 							<div class="press-kit__image">
 								<div class="press-kit-image__asset">
-									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageAsset.getUrl() }}" class="js-lazy" alt="{{ imageTitle }}">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageAsset.getUrl('pressKitThumb') }}" class="js-lazy" alt="{{ imageTitle }}">
 								</div>
 								<div class="press-kit-image__content">
 									<h3 class="press-kit-image__title">{{ imageTitle }}</h3>
-									<a download href="{{ imageAsset.url() }}" class="press-kit__btn">
+									<a download href="{{ imageAsset.getUrl() }}" class="press-kit__btn">
 										<span class="icon icon-arrow-right"></span>
 										<span class="text">Download</span>
 									</a>
