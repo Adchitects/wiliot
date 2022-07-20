@@ -24,7 +24,7 @@
                         <h3 class="item__title">{{ title }}</h3>
                         <span class="item__subtitle">{{ subtitle }}</span>
                         {% if image %}
-                            <img class="item__image" src="{{ image.url }}" alt="{{ title }}">
+                            <img class="item__image" src="{{ image.getUrl('accordionImage') }}" alt="{{ title }}">
                         {% endif %}
                     </div>
                     {% if loop.index == (accordionList|length / 2)|round(0, 'ceil') %}

@@ -6,7 +6,7 @@
 			{% set latestEntries = craft.entries.section('newsPosts').orderBy('postDate desc') %}
 			{% set newsListingSection = craft.entries.section('newsListing') %}
 			{% set newsListingSectionId = newsListingSection.sectionId[0] %}
-			{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
+			{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId).all()[0] %}
 			{% set newsListingSectionUrl = newsListingSectionEntry.url %}
 			<div class="latest-news__listing">
 				{% set latestNews = latestEntries.limit(3) %}
@@ -14,7 +14,7 @@
 					{% for post in latestNews.all() %}
 						{% set image = post.newsPostsfeaturedImage.one() %}
 						{% if image %}
-							{% set imageUrl = image.getUrl() %}
+							{% set imageUrl = image.getUrl('latestPostThumb') %}
 							{% set imageWidth = image.getWidth() %}
 							{% set imageHeight = image.getHeight() %}
 							{% set imageAlt = image.title %}

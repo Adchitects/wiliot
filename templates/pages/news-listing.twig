@@ -25,7 +25,7 @@
 {% block main %}
 	{% set newsListingSection = craft.entries.section('newsListing') %}
 	{% set newsListingSectionId = newsListingSection.sectionId[0] %}
-	{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
+	{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId).all()[0] %}
 	{% set newsListingSectionUrl = newsListingSectionEntry.url %}
 	{% set categories = craft.categories().group('newsCategories') %}
 	{% set sectionId = '01' %}
@@ -68,7 +68,7 @@
 									{% for post in latestNews.all() %}
 										{% set image = post.newsPostsfeaturedImage.one() %}
 										{% if image %}
-											{% set imageUrl = image.getUrl() %}
+											{% set imageUrl = image.getUrl('postThumb') %}
 											{% set imageWidth = image.getWidth() %}
 											{% set imageHeight = image.getHeight() %}
 											{% set imageAlt = image.title %}
@@ -107,7 +107,7 @@
 										{% for catPost in catPosts.all() %}
 											{% set image = catPost.newsPostsfeaturedImage.one() %}
 											{% if image %}
-												{% set imageUrl = image.getUrl() %}
+												{% set imageUrl = image.getUrl('postThumb') %}
 												{% set imageWidth = image.getWidth() %}
 												{% set imageHeight = image.getHeight() %}
 												{% set imageAlt = image.title %}
@@ -146,7 +146,7 @@
 								{% for catPost in catPosts %}
 									{% set image = catPost.newsPostsfeaturedImage.one() %}
 									{% if image %}
-										{% set imageUrl = image.getUrl() %}
+										{% set imageUrl = image.getUrl('postThumb') %}
 										{% set imageWidth = image.getWidth() %}
 										{% set imageHeight = image.getHeight() %}
 										{% set imageAlt = image.title %}

@@ -50,7 +50,7 @@
 				<h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
 				<div class="hero-news__publish-date">{{ newsPostsEventText ? newsPostsEventText : postDate }}</div>
 				{% if heroImage %}
-					<img src="{{ heroImage.getUrl() }}" class="hero-news__image" alt="{{ heroTitle }}">
+					<img src="{{ heroImage.getUrl('postImage') }}" class="hero-news__image" alt="{{ heroTitle }}">
 				{% endif %}
 			</div>
 		</div>
