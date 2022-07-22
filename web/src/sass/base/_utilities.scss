@@ -266,7 +266,22 @@
 }
 
 .u-highlight {
-	background-color: $c-yellow;
+	position: relative;
+	color: $c-accent;
+	font-weight: 500;
+	white-space: nowrap;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		right: -4px;
+		bottom: -2px;
+		left: -4px;
+		z-index: -1;
+		pointer-events: none;
+		background-color: #F5F6FD;
+	}
 }
 
 .u-mb-32 {

@@ -17,10 +17,12 @@
 	}
 
 	&__filters-hld {
-		width: 200px;
+		width: 258px;
+		padding-right: 20px;
 
 		@include mobile-767 {
 			width: 100%;
+			padding-right: 0;
 		}
 	}
 
@@ -70,8 +72,12 @@
 		}
 	}
 
+	&__search-hld {
+		margin-top: 40px;
+	}
+
 	&__news-hld {
-		width: calc(100% - 200px);
+		width: calc(100% - 258px);
 		max-width: 955px;
 
 		@include mobile-767 {
@@ -88,6 +94,10 @@
 		min-width: 195px;
 		padding: 16px 40px 14px;
 		transform: translateX(-50%);
+
+		.text {
+			white-space: nowrap;
+		}
 	}
 
 	.area {

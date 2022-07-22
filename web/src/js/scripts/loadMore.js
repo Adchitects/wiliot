@@ -1,6 +1,4 @@
 import gsap from 'gsap';
-
-console.log('fadsfsdf');
 const loadMoreHld = document.querySelectorAll('.js-load-more-hld');
 if (loadMoreHld) {
 	loadMoreHld.forEach(hld => {
@@ -12,7 +10,6 @@ if (loadMoreHld) {
 		let maxItems = itemDataMax ? parseInt(itemDataMax, 16) : 3;
 		let loadItems = itemDataLoadItems ? parseInt(itemDataLoadItems, 16) : 2;
 		itemAll.forEach((item, index, originalArray) => {
-			console.log(item);
 			if (index > maxItems - 1) {
 				gsap.set(item, {
 					display: 'none',

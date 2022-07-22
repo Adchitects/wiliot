@@ -1,0 +1,134 @@
+.search {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	height: 48px;
+	border: 1px solid $c-black;
+	border-radius: 28px;
+	background-clip: padding-box;
+	transition: border-color 0.2s;
+
+	&.is-active {
+		border-color: transparent;
+
+		&::before {
+			opacity: 1;
+		}
+	}
+
+	&--news {
+		max-width: 238px;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		margin: -1px;
+		border-radius: inherit;
+		background: linear-gradient(90deg, #11B583 0%, #00F0F3 100%);
+		transition: opacity 0.2s;
+		opacity: 0;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		cursor: pointer;
+		width: 36px;
+		height: 100%;
+		border-top-left-radius: 22px;
+		border-bottom-left-radius: 22px;
+		background-color: transparent;
+
+		&:hover {
+			.icon {
+				color: $c-accent-dark;
+			}
+		}
+
+		.icon {
+			position: relative;
+			top: 0;
+			left: 6px;
+			transition: color 0.2s;
+		}
+	}
+
+	&__bar {
+		width: 100%;
+		height: 100%;
+		padding: 3px 20px 0 40px;
+		border-radius: 28px;
+		font-size: 14px;
+		font-weight: 300;
+		letter-spacing: 0;
+
+		&::placeholder {
+			color: $c-black;
+			font-size: 14px;
+			font-weight: 300;
+			letter-spacing: 0;
+		}
+
+		&:-moz-placeholder {
+			color: $c-black;
+			font-size: 14px;
+			font-weight: 300;
+			letter-spacing: 0;
+		}
+
+		&::-webkit-search-cancel-button {
+			display: none;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		pointer-events: none;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background-color: $c-accent;
+		transform: translateY(-50%) scale(0);
+		transition: transform 0.2s;
+
+		&.is-visible {
+			pointer-events: all;
+			cursor: pointer;
+			transform: translateY(-50%) scale(1);
+			opacity: 1;
+		}
+
+		&:hover {
+			transform: translateY(-50%) scale(1.15);
+		}
+
+		span {
+			position: absolute;
+			top: 11px;
+			left: 7px;
+			width: 10px;
+			height: 1px;
+			background-color: $c-white;
+			transform: rotate(-45deg);
+
+			&:first-of-type {
+				top: 11px;
+				left: 7px;
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

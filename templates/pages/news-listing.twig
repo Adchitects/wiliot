@@ -54,26 +54,25 @@
 								</li>
 							{% endif %}
 						{% endfor %}
+                        <li class="news-listing__search-hld">
+                            <form class="search search--news js-search-hld" action="{{ url('blog/') }}">
+                                <button class="search__button" type="submit">
+                                    <span class="icon icon-search"></span>
+                                </button>
+                                <input class="search__bar js-search-input" type="search" name="q" aria-label="Search" placeholder="Search">
+                            </form>
+                        </li>
 					</ul>
 				</div>
 				<div class="news-listing__news-hld">
-
-
-
-
-
-                    <form action="{{ url('blog/') }}">
-                        <input type="search" name="q" aria-label="Search" placeholder="Search">
-                        <button type="submit">Go</button>
-                    </form> <br><br>
                     {% set query = craft.app.request.getParam('q') %}
+                    {% set allResults = [] %}
                     {% if query %}
-                        <div class="news-listing__category-area area">
+                        <div class="news-listing__category-area area js-search-count-hld">
                             <div class="area__text-hld">
-                                <div class="area__title u-title u-title--section">Search results for "{{ query }}"</div>
+                                <div class="area__title u-title u-title--section"><span class="js-search-count-output"></span> results for "{{ query }}"</div>
                             </div>
                             <div class="area__posts-hld">
-                                {% set allResults = [] %}
                                 {% set news = craft.entries.section('newsPosts') %}
                                 {% if news|length %}
                                     {% for post in news.all() %}
@@ -85,10 +84,8 @@
                                             {% set imageAlt = image.title %}
                                         {% endif %}
                                         {% set title = post.title %}
-                                        {% set desc = post.newsPostsExcerpt|striptags %}
-                                        {% set descSliced = desc|slice(0, 97) ~ '...' %}
                                         {% set content = post.postContent|striptags %}
-                                        {% if query|lower in title|lower or query|lower in desc|lower or query|lower in content|lower %}
+                                        {% if query|lower in title|lower or query|lower in content|lower %}
                                             {% set allResults = allResults|merge([post.id]) %}
                                             <a href="{{ post.url}}" class="area__post post js-load-more-item" data-max-items="9" data-load-items="9" data-query="{{ query }}">
                                                 <div class="post__image-hld">
@@ -99,15 +96,15 @@
                                                     {% endif %}
                                                 </div>
                                                 <div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
-                                                <div class="post__title">{{ title|searchExcerpt(query, 18, 'u-highlight') }}</div>
-                                                <div class="post__description">{{ desc|searchExcerpt(query, 45, 'u-highlight') }}</div>
-                                                <div class="post__description">{{ content|searchExcerpt(query, 45, 'u-highlight') }}</div>
+                                                <div class="post__title">{{ title|searchExcerpt(query, 28, 'u-highlight') }}</div>
+                                                <div class="post__description">{{ content|searchExcerpt(query, 38, 'u-highlight') }}</div>
                                                 <div class="post__btn u-btn u-btn--arrow">
                                                     <span class="text">Read more</span>
                                                 </div>
                                             </a>
                                         {% endif %}
                                     {% endfor %}
+                                    <input type="hidden" name="all-results" class="js-search-count-input" value={{ allResults|length }}>
                                 {% endif %}
                                 {% if allResults|length == 0 %}
                                     0 results found
@@ -118,15 +115,6 @@
                             <span class="text">Load More Results</span>
                         </button>
                     {% else %}
-
-
-
-
-
-
-
-
-
                         {% if category is not defined %}
                             <div class="news-listing__category-area area js-load-more-item">
                                 <div class="area__text-hld">

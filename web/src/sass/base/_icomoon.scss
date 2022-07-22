@@ -13,6 +13,10 @@
 	text-transform: none;
 }
 
+.icon-search::before {
+	content: '\e914';
+}
+
 .icon-backward::before {
 	content: '\e90e';
 }
@@ -134,10 +138,6 @@
 }
 
 .icon-arrow-right::before {
-	content: '\e907';
-}
-
-.icon-arrow-right-after::after {
 	content: '\e907';
 }
 
