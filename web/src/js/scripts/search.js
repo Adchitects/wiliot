@@ -1,6 +1,6 @@
-const searchHldAll = document.querySelectorAll('.js-search-hld');
+const searchHldAll = document.querySelectorAll('.js-search-form-hld');
 searchHldAll.forEach(hld => {
-	const input  = hld.querySelector('.js-search-input');
+	const input  = hld.querySelector('.js-search-form-input');
 	input.addEventListener('input', () => {
 		if (input.value !== '') {
 			hld.classList.add('is-active');

@@ -1,4 +1,4 @@
-.search {
+.search-form {
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -15,6 +15,10 @@
 		&::before {
 			opacity: 1;
 		}
+	}
+
+	&--bar {
+		max-width: 300px;
 	}
 
 	&--news {
@@ -93,42 +97,33 @@
 	}
 
 	&__close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		position: absolute;
 		top: 50%;
-		right: 15px;
-		pointer-events: none;
-		width: 24px;
-		height: 24px;
-		border-radius: 50%;
-		background-color: $c-accent;
-		transform: translateY(-50%) scale(0);
+		right: 0;
+		z-index: 1;
+		cursor: pointer;
+		width: 40px;
+		height: 100%;
+		border-top-right-radius: 22px;
+		border-bottom-right-radius: 22px;
+		transform: translateY(-50%);
 		transition: transform 0.2s;
 
-		&.is-visible {
-			pointer-events: all;
-			cursor: pointer;
-			transform: translateY(-50%) scale(1);
-			opacity: 1;
-		}
-
 		&:hover {
-			transform: translateY(-50%) scale(1.15);
+			.icon {
+				color: $c-accent-dark;
+			}
 		}
 
-		span {
-			position: absolute;
-			top: 11px;
-			left: 7px;
-			width: 10px;
-			height: 1px;
-			background-color: $c-white;
-			transform: rotate(-45deg);
-
-			&:first-of-type {
-				top: 11px;
-				left: 7px;
-				transform: rotate(45deg);
-			}
+		.icon {
+			position: relative;
+			top: 0;
+			left: -2px;
+			font-size: 12px;
+			transition: color 0.2s;
 		}
 	}
 }

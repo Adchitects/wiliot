@@ -146,7 +146,7 @@
 			margin-left: auto;
 
 			.inner {
-				padding: 0 20px 0 10px;
+				padding: 0 10px;
 
 				@include media-max(1260) {
 					padding: 0 10px;
@@ -158,7 +158,7 @@
 			position: relative;
 
 			.inner {
-				padding: 0 20px 0 10px;
+				padding: 0 10px;
 
 				@include media-max(1260) {
 					padding: 0 10px;
@@ -195,6 +195,18 @@
 					transform: translateY(0) translateX(-50%);
 					opacity: 1;
 				}
+			}
+		}
+
+		&.is-search {
+			.inner {
+				padding: 0;
+			}
+
+			.icon {
+				position: relative;
+				top: -2px;
+				left: 0;
 			}
 		}
 

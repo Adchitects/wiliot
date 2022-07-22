@@ -1,0 +1,74 @@
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
+	<meta property="og:type" content="website"/>
+{% endblock %}
+{% block main %}
+    <h1 class="u-hidden">Search Results</h1>
+    {% set query = craft.app.request.getParam('q') %}
+    {% if query %}
+        {% set expandedResults = craft.expandedSearch.search(query, { sections: ['solutionsDetails', 'productDetails']}) %}
+        {% if expandedResults %}
+            <h2>PAGES</h2>
+            {% for result in expandedResults %}
+                {% if 'menu-' not in result.entry.url %}
+                {# <pre>{{ dump(result) }}</pre> #}
+                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
+                <p>{{result.matchedValue|striptags}}</p>
+                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% set expandedResults = craft.expandedSearch.search(query, {sections: ['newsPosts']}) %}
+        {% if expandedResults %}
+            <h2>POSTS</h2>
+            {% for result in expandedResults %}
+                {% if 'menu-' not in result.entry.url %}
+                {# <pre>{{ dump(result.entry.newsPostsExcerpt['content']) }}</pre> #}
+                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
+                <p>{{result.entry.newsPostsExcerpt}}</p>
+                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% set expandedResults = craft.expandedSearch.search(query, { sections: ['partnersDetails']}) %}
+        {% if expandedResults %}
+            <h2>PARTNERS</h2>
+            {% for result in expandedResults %}
+                {% if 'menu-' not in result.entry.url %}
+                {# <pre>{{ dump(result.entry) }}</pre> #}
+                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
+                <p>{{result.entry.partnerDescription|striptags|slice(0, 120) ~ '...'}}</p>
+                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% set expandedResults = craft.expandedSearch.search(query, { sections: ['podcastDetails']}) %}
+        {% if expandedResults %}
+            <h2>PODCASTS</h2>
+            {% for result in expandedResults %}
+                {% if 'menu-' not in result.entry.url %}
+                {# <pre>{{ dump(result.entry) }}</pre> #}
+                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
+                {# <p>{{result.entry.partnerDescription|striptags|slice(0, 120) ~ '...'}}</p> #}
+                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        0 results found, please try to rephrase
+    {% endif %}
+{% endblock %}
