@@ -71,7 +71,7 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=11d072022"/>
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=26072022"/>
 			<script>
 				var scriptsExecuted = false;
 				var head = document.getElementsByTagName('head')[0] || document.documentElement;
@@ -246,6 +246,11 @@
 				{% endif %}
 				{% set sectionId = '01' %}
 				{{ include('/sections/hero-slider.twig') }}
+                {# <form action="{{ url('search/results') }}">
+                <input type="search" name="q" aria-label="Search" placeholder="Search">
+                <button type="submit">Go</button>
+                </form>
+                <a href="https://support.wiliot.com/hc/en-us/search?utf8=%E2%9C%93&query=cloud">KEK</a> #}
 				{% set sectionId = '02' %}
 				{{ include('/sections/centered-content.twig') }}
 				{% set sectionId = '03' %}
@@ -268,6 +273,6 @@
 				{{ include('/sections/footer.twig') }}
 			{% endblock %}
 		</footer>
-		<script src="{{ alias('@web/src/js/main.min.js') }}?v=11d072022"></script>
+		<script src="{{ alias('@web/src/js/main.min.js') }}?v=26072022"></script>
 	</body>
 </html>

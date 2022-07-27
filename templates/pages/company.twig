@@ -2,13 +2,13 @@
 {% set metaTitle = entry.metaTitle %}
 {% set metaDescription = entry.metaDescription %}
 {% block head %} {{ parent() }} {% endblock %}
-{% block title %} 
+{% block title %}
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
-{% block description %} 
+{% block description %}
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
-{% block og %} 
+{% block og %}
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
@@ -17,15 +17,15 @@
 	{% set sectionId = '01' %}
 	{{ include('/sections/hero.twig') }}
 	{% set sectionId = '02' %}
-	{{ include('/sections/content-two-columns.twig') }}
+	{{ include('/sections/sticky-text.twig') }}
 	{% set sectionId = '03' %}
 	{{ include('/sections/carousel.twig') }}
 	{% set sectionId = '04' %}
 	{{ include('/sections/founders.twig') }}
 	{% set sectionId = '05' %}
 	{{ include('/sections/logos-slider.twig') }}
-	{% set sectionId = '06' %}
-	{{ include('/sections/accordion.twig') }}
+    {% set sectionId = '06' %}
+	{{ include('/sections/freemode-slider-with-images.twig') }}
 	{% set sectionId = '07' %}
 	{{ include('/sections/freemode-slider.twig') }}
 	{% set sectionId = '08' %}

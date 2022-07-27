@@ -2,6 +2,7 @@
 import { lazyLoadInstance } from './libs/lazyLoad';
 lazyLoadInstance;
 // SCRIPTS
+import './scripts/animations';
 import './scripts/ytVideoPlaceholder';
 import './scripts/header';
 import './scripts/fusionAuth';

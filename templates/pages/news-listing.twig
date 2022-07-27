@@ -63,7 +63,7 @@
 								<div class="area__title u-title u-title--section">Our Latest</div>
 							</div>
 							<div class="area__posts-hld">
-								{% set latestNews = craft.entries.section('newsPosts').limit(3) %}
+								{% set latestNews = craft.entries.section('newsPosts') %}
 								{% if latestNews|length %}
 									{% for post in latestNews.all() %}
 										{% set image = post.newsPostsfeaturedImage.one() %}
@@ -96,7 +96,7 @@
 							</div>
 						</div>
 						{% for cat in categories.all() %}
-							{% set catPosts = craft.entries().postMainCategory(cat.id).limit(3) %}
+							{% set catPosts = craft.entries().postMainCategory(cat.id) %}
 							{% if catPosts|length > 0 %}
 								<div class="news-listing__category-area area js-load-more-item">
 									<div class="area__text-hld">
