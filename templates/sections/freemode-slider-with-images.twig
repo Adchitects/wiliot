@@ -1,0 +1,31 @@
+{# ACCORDION SECTION CHANGE TO SLIDER, THIS IS WHY WEIRD NAMES #}
+{% set title = entry.accordionTitle %}
+{% set slides = entry.accordionList.all() %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--freemode-slider-with-images">
+    <div class="freemode-slider-with-images">
+		{% if title %}
+			<h2 class="freemode-slider-with-images__title u-title">{{ title }}</h2>
+		{% endif %}
+		{% if slides %}
+			<div class="swiper-freemode__slider js-freemode-slider-with-images swiper-container">
+				<div class="swiper-wrapper">
+					{% for item in slides %}
+                        {% set image = item.accordionItemImage.one() %}
+						{% set title = item.accordionItemTitle %}
+						{% set subtitle = item.accordionItemSubtitle %}
+						<div class="swiper-freemode__slider-item swiper-slide slide">
+                            <div class="slide__image-hld">
+                                {% if image %}
+                                    <img class="slide__image js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl('freemodeSliderWithImages') }}" alt="{{ title }}">
+                                {% endif %}
+                            </div>
+							<h3 class="slide__title">{{ title }}</h3>
+							<p class="slide__subtitle">{{ subtitle }}</p>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="swiper-pagination freemode-slider-with-images__pagination"></div>
+			</div>
+		{% endif %}
+	</div>
+</section>

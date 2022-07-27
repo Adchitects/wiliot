@@ -32,6 +32,24 @@ const freemodeSlider = new Swiper('.js-freemode-slider', {
 });
 freemodeSlider;
 
+const freemodeSliderWithImages = new Swiper('.js-freemode-slider-with-images', {
+	slidesPerView: 1.1,
+	spaceBetween: 24,
+	freeMode: true,
+	grabCursor: true,
+	slideToClickedSlide: true,
+	pagination: {
+		el: '.swiper-pagination',
+		type: 'progressbar',
+	},
+	breakpoints: {
+		768: {
+			slidesPerView: 'auto',
+		},
+	},
+});
+freemodeSliderWithImages;
+
 const partnersSlider = new Swiper('.js-partners-slider', {
 	slidesPerView: 1.03,
 	spaceBetween: 24,

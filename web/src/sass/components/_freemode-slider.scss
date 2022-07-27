@@ -27,6 +27,10 @@
 			margin-top: 64px;
 			overflow: visible;
 
+			@include media-max(767) {
+				margin-top: 48px;
+			}
+
 			.slide {
 				display: flex;
 				flex-direction: column;
@@ -102,7 +106,7 @@
 				height: 2px;
 				background-color: rgba(151, 151, 151, 0.27);
 
-				> span {
+				>span {
 					height: 2px;
 					background-color: $c-black;
 					opacity: 0.27;
