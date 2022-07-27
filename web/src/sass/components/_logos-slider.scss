@@ -2,10 +2,20 @@
 	margin-top: 96px;
 
 	.is-page-company & {
-		margin-top: 25px;
-		padding-top: 70px;
-		padding-bottom: 65px;
-		background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+		margin-top: 0;
+		padding-top: 140px;
+		padding-bottom: 140px;
+		background-color: $c-white;
+
+		@include media-max(1023) {
+			padding-top: 120px;
+			padding-bottom: 120px;
+		}
+
+		@include media-max(767) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
 	}
 
 	.is-page-press & {
@@ -88,6 +98,7 @@
 
 	.swiper-wrapper {
 		@include media-min(480) {
+
 			&[data-slides-count='1'],
 			&[data-slides-count='2'],
 			&[data-slides-count='3'],
@@ -115,6 +126,7 @@
 		}
 
 		@include media-min(1360) {
+
 			&[data-slides-count='6'],
 			&[data-slides-count='7'] {
 				justify-content: center;
@@ -194,7 +206,7 @@
 	}
 
 	.swiper-slide {
-		> .title {
+		>.title {
 			position: relative;
 			width: 110%;
 			min-height: 20px;

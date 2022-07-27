@@ -1,0 +1,44 @@
+{% set subtitle = entry.stickyTextSubtitle %}
+{% set title = entry.stickyTextTitle %}
+{% set rows = entry.stickyTextRows.all() %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--sticky-text">
+    <div class="u-wrapper">
+        <div class="sticky-text-hld">
+            {% if subtitle %}
+                <h5 class="sticky-text__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h5>
+            {% endif %}
+            {% if title %}
+                <h2 class="sticky-text__title u-title u-title--section u-title--centered">{{ title }}</h2>
+            {% endif %}
+            {% if rows|length > 0 %}
+                <div class="sticky-text">
+                    {% for item in rows %}
+                        {% set itemImage = item.itemImage.one() %}
+                        {% set itemContent = item.itemContent %}
+                        {% if (loop.index) == 1 %}
+                        {% set offset = 'top 100%' %} {# first item should always be visible #}
+                        {% else %}
+                        {% set offset = 'top 65%' %}
+                        {% endif %}
+                        <div class="sticky-text-item js-gsap-hld" data-offset="{{ offset }}">
+                            <div class="sticky-text-item__left js-gsap-fade-in">
+                                {% if itemImage %}
+                                    <div class="sticky-text-item__img-hld">
+                                        <img class="sticky-text-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemImage.getUrl('stickyText') }}" alt="" />
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="sticky-text-item__right js-gsap-fade-up">
+                                <div class="sticky-text-item__content u-content">
+                                    {% if itemContent %}
+                                        {{ itemContent }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

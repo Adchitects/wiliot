@@ -1,71 +1,71 @@
 {
-	"name": "adchitects-wp-starter-pack",
-	"version": "1.0.0",
-	"description": "Adchitects Webpack for WordPress themes boilerplate",
-	"license": "ISC",
-	"browserslist": [
-		"> 1%",
-		"last 2 versions"
-	],
-	"config": {
-		"css": {
-			"src": "web/src/sass",
-			"srcFile": "web/src/sass/style.scss",
-			"minFile": "web/src/css/style.min.css"
-		}
-	},
-	"scripts": {
-		"sass-development": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=expanded",
-		"postsass-development": "stylelint \"$npm_package_config_css_src/**/*\" --cache --fix",
-		"sass-production": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=compressed --no-source-map",
-		"postcss": "postcss $npm_package_config_css_minFile -u autoprefixer --no-map -r",
-		"webpack-development": "webpack --mode=development --watch --progress",
-		"webpack-production": "webpack --mode=production",
-		"watch:sass": "onchange \"$npm_package_config_css_src/**/*\" -e \".DS_Store\" -- npm run sass-development --silent",
-		"watch:webpack": "npm run webpack-development",
-		"dev": "npm-run-all -p sass-development -p watch:*",
-		"build": "npm-run-all -p sass-production -p webpack-production -p postcss"
-	},
-	"engines": {
-		"node": ">= 12.0.0",
-		"npm": ">= 6.9.0"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.8.7",
-		"@babel/preset-env": "^7.8.7",
-		"autoprefixer": "^9.8.6",
-		"babel-eslint": "^10.1.0",
-		"babel-loader": "^8.0.6",
-		"browser-sync": "^2.26.7",
-		"browser-sync-webpack-plugin": "^2.2.2",
-		"css-loader": "^3.4.2",
-		"delay-copy-webpack-plugin": "^1.0.2",
-		"eslint": "^7.13.0",
-		"eslint-webpack-plugin": "^2.3.0",
-		"npm-run-all": "^4.1.5",
-		"onchange": "^6.1.0",
-		"postcss": "^8.2.8",
-		"postcss-cli": "^8.3.1",
-		"remove-files-webpack-plugin": "^1.4.4",
-		"sass": "^1.26.2",
-		"sass-loader": "^8.0.2",
-		"style-loader": "^1.1.3",
-		"stylelint": "^13.8.0",
-		"stylelint-config-standard": "^20.0.0",
-		"stylelint-order": "^4.1.0",
-		"stylelint-scss": "^3.18.0",
-		"webpack": "^4.42.0",
-		"webpack-cli": "^3.3.11",
-		"axios": "^0.21.1",
-		"jsonwebtoken": "^8.5.1",
-		"jwk-to-pem": "^2.0.5"
-	},
-	"dependencies": {
-		"gsap": "^3.5.1",
-		"jquery": "^3.6.0",
-		"lottie-web": "^5.8.1",
-		"swiper": "^6.8.4",
-		"vanilla-lazyload": "^17.4.0",
-		"vivus": "^0.4.5"
-	}
+    "name": "adchitects-wp-starter-pack",
+    "version": "1.0.0",
+    "description": "Adchitects Webpack for WordPress themes boilerplate",
+    "license": "ISC",
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ],
+    "config": {
+        "css": {
+            "src": "web/src/sass",
+            "srcFile": "web/src/sass/style.scss",
+            "minFile": "web/src/css/style.min.css"
+        }
+    },
+    "scripts": {
+        "sass-development": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=expanded",
+        "postsass-development": "stylelint \"$npm_package_config_css_src/**/*\" --cache --fix",
+        "sass-production": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=compressed --no-source-map",
+        "postcss": "postcss $npm_package_config_css_minFile -u autoprefixer --no-map -r",
+        "webpack-development": "webpack --mode=development --watch --progress",
+        "webpack-production": "webpack --mode=production",
+        "watch:sass": "onchange \"$npm_package_config_css_src/**/*\" -e \".DS_Store\" -- npm run sass-development --silent",
+        "watch:webpack": "npm run webpack-development",
+        "dev": "npm-run-all -p sass-development -p watch:*",
+        "build": "npm-run-all -p sass-production -p webpack-production -p postcss"
+    },
+    "engines": {
+        "node": ">= 12.0.0",
+        "npm": ">= 6.9.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.8.7",
+        "@babel/preset-env": "^7.8.7",
+        "autoprefixer": "^9.8.6",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^8.0.6",
+        "browser-sync": "^2.26.7",
+        "browser-sync-webpack-plugin": "^2.2.2",
+        "css-loader": "^3.4.2",
+        "delay-copy-webpack-plugin": "^1.0.2",
+        "eslint": "^7.13.0",
+        "eslint-webpack-plugin": "^2.3.0",
+        "npm-run-all": "^4.1.5",
+        "onchange": "^6.1.0",
+        "postcss": "^8.2.8",
+        "postcss-cli": "^8.3.1",
+        "remove-files-webpack-plugin": "^1.4.4",
+        "sass": "^1.26.2",
+        "sass-loader": "^8.0.2",
+        "style-loader": "^1.1.3",
+        "stylelint": "^13.8.0",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-order": "^4.1.0",
+        "stylelint-scss": "^3.18.0",
+        "webpack": "^4.42.0",
+        "webpack-cli": "^3.3.11",
+        "axios": "^0.21.1",
+        "jsonwebtoken": "^8.5.1",
+        "jwk-to-pem": "^2.0.5"
+    },
+    "dependencies": {
+        "gsap": "file:web/src/js/libs/gsap-bonus.tgz",
+        "jquery": "^3.6.0",
+        "lottie-web": "^5.8.1",
+        "swiper": "^6.8.4",
+        "vanilla-lazyload": "^17.4.0",
+        "vivus": "^0.4.5"
+    }
 }
