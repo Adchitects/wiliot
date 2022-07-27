@@ -112,6 +112,10 @@
 		background-color: $c-orange;
 
 		&--hoverable {
+			.contact__image-point-inner {
+				cursor: pointer;
+			}
+
 			.contact__image-point-text {
 				opacity: 0;
 			}
@@ -128,7 +132,6 @@
 		position: absolute;
 		top: -9px;
 		left: -9px;
-		cursor: pointer;
 		width: 24px;
 		height: 24px;
 	}

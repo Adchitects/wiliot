@@ -27,7 +27,7 @@
 							{% set excerptSliced = excerpt|slice(0, 107) ~ '...' %}
 							{% set number = post.podcastDetailsNumber %}
 							{% if image %}
-								{% set imageUrl = image.getUrl() %}
+								{% set imageUrl = image.getUrl('latestPostThumb') %}
 								{% set imageWidth = image.getWidth() %}
 								{% set imageHeight = image.getHeight() %}
 								{% set imageAlt = image.title %}

@@ -1,9 +1,9 @@
 {% set comparisonTableSubtitle = entry.comparisonTableSubtitle %}
 {% set comparisonTableTitle = entry.comparisonTableTitle %}
 {% set comparisonTable = entry.comparisonTable %}
-{% set columns = comparisonTable.columns %}
 {% set rows = comparisonTable.rows %}
-{% if comparisonTable.columns|length > 0 %}
+{% if comparisonTable.rows|length > 0 %}
+    {% set columns = comparisonTable.columns %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--comparison-table js-align-left-margin-hld">
         <div class="comparison-table">
             <div class="u-wrapper js-align-left-margin-sample">

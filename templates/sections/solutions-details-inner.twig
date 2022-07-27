@@ -135,7 +135,7 @@
 									{# Image #}
 									{% set tabItemImage = tabItem.itemImage.one() %}
 									{% if tabItemImage %}
-										{% set tabItemImageUrl = tabItemImage.getUrl() %}
+										{% set tabItemImageUrl = tabItemImage.getUrl('solutionsDetailsTabItem') %}
 										{% set tabItemImageWidth = tabItemImage.getWidth() %}
 										{% set tabItemImageHeight = tabItemImage.getHeight() %}
 										{% set tabItemImageAlt = tabItemImage.title %}

@@ -44,7 +44,7 @@
                                     <div class="tab swiper-slide">
                                         <div class="tab__image">
                                         {% if image %}
-                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy" alt="{{ title }}">
+                                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl('tabsSlider') }}" width="515" height="385" class="js-lazy" alt="{{ title }}">
                                         {% endif %}
                                         </div>
                                         <div class="tab__content">

@@ -71,13 +71,13 @@
             </div>
             {% for item in itemsMatrix %}
                 {% set itemDesktopVideoLink = item.itemDesktopVideoLink %}
-                {% set itemMobileVideoLink = item.itemMobileVideoLink %}
+                {% set itemModalVideoLink = item.itemModalVideoLink %}
                 {% if itemDesktopVideoLink %}
                     <div class="video-modal js-hero-modal-modal" data-modal-id="{{ loop.index0 }}">
                         <div class="overlay js-hero-modal-close"></div>
                         <div class="video-modal__inner">
                             <div class="video-modal__modal">
-                                <iframe width="560" height="315" class="js-lazy js-hero-modal-iframe" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="560" height="315" class="js-hero-modal-iframe" data-source="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 <div class="loader"></div>
                             </div>
                             <span class="video-modal__close js-hero-modal-close">

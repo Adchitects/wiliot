@@ -79,14 +79,14 @@
 											<div class="slider-item__video-hld is-paused show-thumbnail js-modal-btn">
 												<span class="icon icon-button_play"></span>
 												{% if image.videoThumbnail.one() %}
-													<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl() }}"/>
+													<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl('carouselItem') }}"/>
 												{% endif %}
 												<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}"></video>
 											</div>
 										</div>
 									{% else %}
 										<div class="carousel__slider-item swiper-slide">
-											<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl() }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
+											<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.asset.one().getUrl('carouselItem') }}" width="515" height="405" class="js-lazy" alt="{{ image.title }}">
 										</div>
 									{% endif %}
 							{% endfor %}

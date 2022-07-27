@@ -14,7 +14,7 @@ const mainFuncion = () => {
 						modal.classList.add('is-active');
 						const iframe = modal.querySelector('.js-hero-modal-iframe');
 						if (iframe) {
-							iframe.src = iframe.dataset.src;
+							iframe.src = iframe.dataset.source;
 						}
 					}
 				});
