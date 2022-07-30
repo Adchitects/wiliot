@@ -24,4 +24,5 @@ import './scripts/singleCareer';
 import './scripts/sectionId';
 import './scripts/homepageLottieAnimation';
 import './scripts/alignLeftMargin';
-
+import './scripts/search';
+import './scripts/search-bar';

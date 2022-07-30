@@ -10,6 +10,11 @@
 		{% set metaDescription = category.metaDescription %}
 		{% set postCreatedDate = null %}
 		{% set postModifyDate = null %}
+    {% else %}
+        {% set metaTitle = globalMetaTags.metaTitle %}
+		{% set metaDescription = globalMetaTags.metaDescription %}
+		{% set postCreatedDate = null %}
+		{% set postModifyDate = null %}
 	{% endif %}
 	{% block head %}
 		<head>
@@ -198,7 +203,9 @@
 		</head>
 	{% endblock %}
 	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% endif %}">
-		<header class="header header--desktop js-header">
+        {{ include('/sections/svg-sprites.twig') }}
+		<header class="header header--desktop js-header js-search-bar-hld">
+			{{ include('/sections/search-bar.twig') }}
 			{{ include('/sections/menu-desktop.twig') }}
 		</header>
 		<header class="header header--mobile js-header">
@@ -246,11 +253,6 @@
 				{% endif %}
 				{% set sectionId = '01' %}
 				{{ include('/sections/hero-slider.twig') }}
-                {# <form action="{{ url('search/results') }}">
-                <input type="search" name="q" aria-label="Search" placeholder="Search">
-                <button type="submit">Go</button>
-                </form>
-                <a href="https://support.wiliot.com/hc/en-us/search?utf8=%E2%9C%93&query=cloud">KEK</a> #}
 				{% set sectionId = '02' %}
 				{{ include('/sections/centered-content.twig') }}
 				{% set sectionId = '03' %}
