@@ -1,7 +1,7 @@
 .u-section--news-listing {
 	margin-top: 100px;
 
-	+ .u-section--subscribe {
+	+.u-section--subscribe {
 		margin-top: 250px;
 	}
 }
@@ -17,16 +17,19 @@
 	}
 
 	&__filters-hld {
-		width: 200px;
+		width: 258px;
+		padding-right: 20px;
 
 		@include mobile-767 {
 			width: 100%;
+			padding-right: 0;
 		}
 	}
 
 	&__filters-hld-inner {
 		position: sticky;
 		top: 120px;
+		padding-right: 24px;
 	}
 
 	&__filter {
@@ -38,7 +41,6 @@
 		}
 
 		&.is-active {
-			pointer-events: none;
 			cursor: text;
 			font-weight: 900;
 		}
@@ -71,9 +73,19 @@
 		}
 	}
 
+	&__search-form-hld {
+		margin-top: 40px;
+	}
+
 	&__news-hld {
-		width: calc(100% - 200px);
+		width: calc(100% - 258px);
 		max-width: 955px;
+		transition: opacity 0.2s;
+
+		&.is-loading {
+			pointer-events: none;
+			opacity: 0.4;
+		}
 
 		@include mobile-767 {
 			width: 100%;
@@ -89,6 +101,10 @@
 		min-width: 195px;
 		padding: 16px 40px 14px;
 		transform: translateX(-50%);
+
+		.text {
+			white-space: nowrap;
+		}
 	}
 
 	.area {

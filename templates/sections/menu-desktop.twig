@@ -1,9 +1,5 @@
 {% set pages = craft.entries.section('menuDesktop').all() %}
 <nav class="menu-desktop">
-    {# <form action="{{ url('search/results') }}">
-        <input type="search" name="q" aria-label="Search" placeholder="Search">
-        <button type="submit">Go</button>
-    </form> #}
 	<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="menu-desktop__logo-hld">
 		<img src="{{ alias('@web/src/img/svg/logo.svg') }}" width="100" height="40" alt="Wiliot logo">
 	</a>
@@ -13,23 +9,28 @@
 			{% set menuDesktopPageLink = page.menuDesktopPageLink %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
 			{% set isSubnav = menuDesktopSubnavItemsMatrix|length > 0 %}
-			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 4 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 4 %} is-right {% endif %} {% if loop.revindex == 2 or loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% if  page.slug == 'contact-us' and entry.slug == 'contact' %} is-active {% endif %} {% if page.slug == 'get-started' and entry.slug == 'starterkit' %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Resources' %} is-support {% endif %} {% if menuDesktopTitle == 'Login' %} is-login {% endif %} {% if menuDesktopTitle == 'Login is-hidden' %} is-login is-hidden {% endif %}">
+			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 5 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 5 %} is-right {% endif %} {% if loop.revindex == 2 or loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% if  page.slug == 'contact-us' and entry.slug == 'contact' %} is-active {% endif %} {% if page.slug == 'get-started' and entry.slug == 'starterkit' %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Resources' %} is-support {% endif %} {% if menuDesktopTitle|lower == 'login' %} is-login {% endif %} {% if menuDesktopTitle|lower == 'login is-hidden' %} is-login is-hidden {% endif %} {% if menuDesktopTitle|lower == 'search' %} is-search js-search-bar-open-button {% endif %}">
 				{% if menuDesktopPageLink.url %}
-					<a href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}" class="inner">
-						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+					<a {% if menuDesktopTitle|lower != 'search' %}href="{{ menuDesktopPageLink.url }}" target="{{ menuDesktopPageLink.target ? '_blank' : '_self' }}" rel="{{ menuDesktopPageLink.target ? 'noopener noreferrer' : null }}"{% endif %} class="inner">
+						{% if menuDesktopTitle|lower == 'login' %}
 							<span class="icon icon-user"></span>
 						{% endif %}
-						<span class="text">{{ menuDesktopTitle }}</span>
-						{% if isSubnav or menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+						{% if menuDesktopTitle|lower == 'search' %}
+							<svg class="svg-search">
+                                <use xlink:href="#svg-search"></use>
+                            </svg>
+						{% endif %}
+						<span class="text {% if menuDesktopTitle|lower == 'login' or menuDesktopTitle|lower == 'search' %}u-sr-only{% endif %}">{{ menuDesktopTitle }}</span>
+						{% if isSubnav or menuDesktopTitle|lower == 'login' %}
 							<span class="icon icon-dropdown-down"></span>
 						{% endif %}
 					</a>
-					{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+					{% if menuDesktopTitle|lower == 'login' %}
 						<a href="/" class="logout-dropdown js-logout">Logout</a>
 					{% endif %}
 				{% else %}
 					<div class="inner">
-						{% if menuDesktopTitle == 'login' or menuDesktopTitle == 'Login' %}
+						{% if menuDesktopTitle|lower == 'login' %}
 							<span class="icon icon-user"></span>
 						{% endif %}
 						<span class="text">{{ menuDesktopTitle }}</span>
