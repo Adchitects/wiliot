@@ -26,6 +26,47 @@
 		background-color: $c-white;
 	}
 
+	.is-page-search & {
+		background-color: $c-light;
+
+		&::before {
+			content: '';
+			position: absolute;
+			right: 50px;
+			bottom: 0;
+			left: 50px;
+			pointer-events: none;
+			width: auto;
+			height: 1px;
+			background-color: rgba(#ddd, 0.7);
+			transition: opacity 0.2s;
+
+			@include media-max(1399) {
+				right: 24px;
+				left: 24px;
+			}
+
+			@include tablet-medium-1199 {
+				right: 16px;
+				left: 16px;
+			}
+		}
+	}
+
+	.is-page-search .is-scrolled & {
+		background-color: $c-white;
+
+		&::before {
+			display: none;
+		}
+	}
+
+	.is-dropdown-active & {
+		&::before {
+			opacity: 0;
+		}
+	}
+
 	&__logo-hld {
 		display: block;
 		min-width: 105px;
@@ -205,6 +246,10 @@
 		&.is-search {
 			margin-right: -10px;
 
+			@include tablet-medium-1199 {
+				margin-right: 0;
+			}
+
 			.inner {
 				padding: 0 10px;
 			}
@@ -213,6 +258,10 @@
 				svg {
 					fill: $c-accent;
 				}
+			}
+
+			&.is-active {
+				pointer-events: none;
 			}
 		}
 

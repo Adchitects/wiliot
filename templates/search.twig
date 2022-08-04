@@ -13,62 +13,153 @@
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
 {% endblock %}
+
 {% block main %}
-    <h1 class="u-hidden">Search Results</h1>
-    {% set query = craft.app.request.getParam('q') %}
-    {% if query %}
-        {% set expandedResults = craft.expandedSearch.search(query, { sections: ['solutionsDetails', 'productDetails']}) %}
-        {% if expandedResults %}
-            <h2>PAGES</h2>
-            {% for result in expandedResults %}
-                {% if 'menu-' not in result.entry.url %}
-                {# <pre>{{ dump(result) }}</pre> #}
-                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
-                <p>{{result.matchedValue|striptags}}</p>
-                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
-                {% endif %}
-            {% endfor %}
+
+{% set query = craft.app.request.getParam('q') %}
+
+<section class="u-section u-section--search-results-bar">
+    <div class="u-wrapper">
+        <div class="search-results-bar-hld">
+            {{ include('/sections/search-bar.twig') }}
+            {% if query %}
+            <div class="search-results__support-hld">
+                <a href="https://support.wiliot.com/hc/en-us/search?utf8=%E2%9C%93&query={{ query }}" target="_blank">
+                    <span class="text">You can also search for "{{ query }}" in our Knowledge Base</span>
+                    <svg class="svg-arrow-right">
+                        <use xlink:href="#svg-arrow-right"></use>
+                    </svg>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="u-section u-section--search-results">
+    <div class="u-wrapper">
+
+        <h1 class="u-hidden">Search Results</h1>
+
+        {% set resultsCount = 0 %}
+        {% if query %}
+
+        {% set resultsPages = craft.expandedSearch.search(query, { sections: ['solutionsDetails', 'applicationsPostsV3', 'productDetails']}) %}
+        {% set resultsPosts = craft.expandedSearch.search(query, {sections: ['newsPosts']}) %}
+        {% set resultsPartners = craft.expandedSearch.search(query, { sections: ['partnersDetails']}) %}
+        {% set resultsPodcasts = craft.expandedSearch.search(query, { sections: ['podcastDetails']}) %}
+
+        {% set resultsCount = resultsPages|length + resultsPosts|length + resultsPartners|length + resultsPodcasts|length %}
+
+        {% set activeIndex = 0 %}
+
+        {% if resultsCount > 0 %}
+
+            <div class="search-results">
+
+                <div class="search-results__sidebar">
+
+                    <div class="search-results__sidebar-sticky">
+                        <span class="search-results__sidebar-title">By type</span>
+                        <ul class="search-results__sidebar-list">
+                            <li class="js-search-results-filter is-active" data-id="all" data-count="{{ resultsCount }}">
+                                <span>All types ({{ resultsCount }})</span>
+                            </li>
+                            {% if resultsPages|length > 0 %}
+                                <li class="js-search-results-filter" data-id="pages" data-count="{{ resultsPages|length }}" data-category-name="Pages">
+                                    <span>Pages ({{ resultsPages|length }})</span>
+                                </li>
+                            {% endif %}
+                            {% if resultsPosts|length > 0 %}
+                                <li class="js-search-results-filter" data-id="posts" data-count="{{ resultsPosts|length }}" data-category-name="Posts">
+                                    <span>Posts ({{ resultsPosts|length }})</span>
+                                </li>
+                            {% endif %}
+                            {% if resultsPartners|length > 0 %}
+                                <li class="js-search-results-filter" data-id="partners" data-count="{{ resultsPartners|length }}" data-category-name="Partners">
+                                    <span>Partners ({{ resultsPartners|length }})</span>
+                                </li>
+                            {% endif %}
+                            {% if resultsPodcasts|length > 0 %}
+                                <li class="js-search-results-filter" data-id="podcasts" data-count="{{ resultsPodcasts|length }}" data-category-name="Podcasts">
+                                    <span>Podcasts ({{ resultsPodcasts|length }})</span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="search-results__results-hld">
+
+                    <h2 class="search-results__title u-title u-title--section js-search-results-title" data-query="{{ query }}">{{ resultsCount }} results for "{{ query }}"</h2>
+
+                    <div class="search-results__results js-search-results">
+
+                        {% if resultsPages %}
+                            {% for result in resultsPages %}
+                                <a class="search-results-item js-search-results-item {% if activeIndex > 6 %}is-capped{% endif %}" href="{{ result.entry.url }}" data-field="{{ result.matchedField }}" data-id="pages">
+                                    <span class="search-results-item__title">{{ result.entry.title|striptags|searchExcerpt(query, 120, 'u-highlight') }}</span>
+                                    <p class="search-results-item__desc">{{ result.matchedValue|striptags|searchExcerpt(query, 120, 'u-highlight') }}</p>
+                                </a>
+                                {% set activeIndex = activeIndex + 1 %}
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if resultsPosts %}
+                            {% for result in resultsPosts %}
+                                <a class="search-results-item js-search-results-item {% if activeIndex > 5 %}is-capped{% endif %}" href="{{ result.entry.url }}" data-field="{{ result.matchedField }}" data-id="posts">
+                                    <span class="search-results-item__title">{{ result.entry.title|striptags|searchExcerpt(query, 120, 'u-highlight') }}</span>
+                                    <p class="search-results-item__desc">{{ result.entry.newsPostsExcerpt|striptags|searchExcerpt(query, 120, 'u-highlight') }}</p>
+                                </a>
+                                {% set activeIndex = activeIndex + 1 %}
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if resultsPartners %}
+                            {% for result in resultsPartners %}
+                                <a class="search-results-item js-search-results-item {% if activeIndex > 6 %}is-capped{% endif %}" href="{{ result.entry.url }}" data-field="{{ result.matchedField }}" data-id="partners">
+                                    <span class="search-results-item__title">{{ result.entry.title|striptags|searchExcerpt(query, 120, 'u-highlight') }}</span>
+                                    <p class="search-results-item__desc">{{ result.entry.partnerDescription|striptags|searchExcerpt(query, 120, 'u-highlight') }}</p>
+                                </a>
+                                {% set activeIndex = activeIndex + 1 %}
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if resultsPodcasts %}
+                            {% for result in resultsPodcasts %}
+                                <a class="search-results-item js-search-results-item {% if activeIndex > 6 %}is-capped{% endif %}" href="{{ result.entry.url }}" data-field="{{ result.matchedField }}" data-id="podcasts">
+                                    <span class="search-results-item__title">{{ result.entry.title|striptags|searchExcerpt(query, 120, 'u-highlight') }}</span>
+                                    <p class="search-results-item__desc">{{ result.entry.podcastDetailsExcerpt|striptags|searchExcerpt(query, 120, 'u-highlight') }}</p>
+                                </a>
+                                {% set activeIndex = activeIndex + 1 %}
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+
+                    <div class="search-results__more-btn-hld js-search-results-more-btn-hld {% if activeIndex > 6 %}is-visible{% endif %}">
+                        <button class="search-results__more-btn u-btn u-btn--light js-search-results-more-btn">
+                            <span class="text">Load more</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endif %}
         {% endif %}
 
-        {% set expandedResults = craft.expandedSearch.search(query, {sections: ['newsPosts']}) %}
-        {% if expandedResults %}
-            <h2>POSTS</h2>
-            {% for result in expandedResults %}
-                {% if 'menu-' not in result.entry.url %}
-                {# <pre>{{ dump(result.entry.newsPostsExcerpt['content']) }}</pre> #}
-                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
-                <p>{{result.entry.newsPostsExcerpt}}</p>
-                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
-                {% endif %}
-            {% endfor %}
+        {% if resultsCount == 0 %}
+
+            <div class="search-results__no-results">
+                <span class="u-title u-title--section u-title--centered">0 results found, please try to rephrase</span>
+            </div>
+
         {% endif %}
 
-        {% set expandedResults = craft.expandedSearch.search(query, { sections: ['partnersDetails']}) %}
-        {% if expandedResults %}
-            <h2>PARTNERS</h2>
-            {% for result in expandedResults %}
-                {% if 'menu-' not in result.entry.url %}
-                {# <pre>{{ dump(result.entry) }}</pre> #}
-                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
-                <p>{{result.entry.partnerDescription|striptags|slice(0, 120) ~ '...'}}</p>
-                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+    </div>
+</section>
 
-        {% set expandedResults = craft.expandedSearch.search(query, { sections: ['podcastDetails']}) %}
-        {% if expandedResults %}
-            <h2>PODCASTS</h2>
-            {% for result in expandedResults %}
-                {% if 'menu-' not in result.entry.url %}
-                {# <pre>{{ dump(result.entry) }}</pre> #}
-                <strong data-field="{{result.matchedField}}">{{result.entry.title|striptags}}</strong><br>
-                {# <p>{{result.entry.partnerDescription|striptags|slice(0, 120) ~ '...'}}</p> #}
-                <a href="{{result.entry.url}}">{{result.entry.url}}</a>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% else %}
-        0 results found, please try to rephrase
-    {% endif %}
 {% endblock %}

@@ -1,7 +1,7 @@
 .u-section--news-listing {
 	margin-top: 100px;
 
-	+ .u-section--subscribe {
+	+.u-section--subscribe {
 		margin-top: 250px;
 	}
 }
@@ -29,6 +29,7 @@
 	&__filters-hld-inner {
 		position: sticky;
 		top: 120px;
+		padding-right: 24px;
 	}
 
 	&__filter {
@@ -79,6 +80,12 @@
 	&__news-hld {
 		width: calc(100% - 258px);
 		max-width: 955px;
+		transition: opacity 0.2s;
+
+		&.is-loading {
+			pointer-events: none;
+			opacity: 0.4;
+		}
 
 		@include mobile-767 {
 			width: 100%;

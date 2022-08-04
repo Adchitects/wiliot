@@ -61,13 +61,13 @@
                                         <use xlink:href="#svg-search"></use>
                                     </svg>
                                 </button>
-                                <input class="search-form__bar js-search-form-input" type="search" name="q" aria-label="Search" placeholder="Search" value="{{ craft.app.request.getParam('q') }}" />
+                                <input class="search-form__bar js-search-form-input js-search-news-input" type="search" name="news_q" aria-label="Search" placeholder="Search" value="{{ craft.app.request.getParam('news_q') }}" />
                             </form>
                         </li>
 					</ul>
 				</div>
-				<div class="news-listing__news-hld">
-                    {% set query = craft.app.request.getParam('q') %}
+				<div class="news-listing__news-hld js-news-listing" data-initial-url="{{ url('blog/') }}">
+                    {% set query = craft.app.request.getParam('news_q') %}
                     {% set allResults = [] %}
                     {% if query %}
                         <div class="news-listing__category-area area js-search-count-hld">
@@ -98,7 +98,7 @@
                                                     {% endif %}
                                                 </div>
                                                 <div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
-                                                <div class="post__title">{{ title|searchExcerpt(query, 28, 'u-highlight') }}</div>
+                                                <div class="post__title">{{ title|searchExcerpt(query, 20, 'u-highlight') }}</div>
                                                 <div class="post__description">{{ content|searchExcerpt(query, 38, 'u-highlight') }}</div>
                                                 <div class="post__btn u-btn u-btn--arrow">
                                                     <span class="text">Read more</span>
