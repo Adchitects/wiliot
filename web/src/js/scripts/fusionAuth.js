@@ -97,3 +97,11 @@ if (logoutBtn) {
 		localStorage.removeItem('username');
 	});
 }
+
+const logoutPage = document.querySelector('#js-logout-page');
+if (logoutPage) {
+	localStorage.removeItem('access_token');
+	localStorage.removeItem('refresh_token');
+	localStorage.removeItem('expires_in');
+	localStorage.removeItem('username');
+}
