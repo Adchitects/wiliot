@@ -269,6 +269,7 @@
 			}
 		}
 
+		&.is-hovered,
 		&:hover {
 			.text {
 				color: $c-accent;
@@ -291,6 +292,7 @@
 			color: $c-white;
 		}
 
+		&.is-hovered,
 		&:hover {
 			border-color: $c-accent;
 			background-color: $c-accent;
@@ -304,6 +306,7 @@
 		background-color: transparent;
 		transition: background-color 0.2s, border-color 0.2s;
 
+		&.is-hovered,
 		&:hover {
 			border-color: $c-accent;
 			background-color: $c-accent;
@@ -325,6 +328,7 @@
 			color: $c-accent;
 		}
 
+		&.is-hovered,
 		&:hover {
 			background-color: $c-accent;
 
@@ -345,6 +349,7 @@
 			color: $c-accent;
 		}
 
+		&.is-hovered,
 		&:hover {
 			background-color: $c-accent;
 
