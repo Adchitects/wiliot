@@ -94,39 +94,39 @@ if (!token) {
 }
 
 // Logout
+const logout = () => {
+	const logoutUrl = 'https://login.wiliot.com/oauth2/logout?client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&tenantId=38623562-3435-3632-6538-653563353564';
+	localStorage.removeItem('access_token');
+	localStorage.removeItem('refresh_token');
+	localStorage.removeItem('expires_in');
+	localStorage.removeItem('username');
+	const wndw = window.open(logoutUrl, '2secWindow', 'popup=true, width=360, height=500, top="50%, left=50%');
+	wndw;
+	setTimeout(function() {
+		wndw.close();
+		window.location = 'https://wiliot.com';
+	}, 2500);
+};
+
 const logoutBtn = document.querySelector('.js-logout');
 if (logoutBtn) {
 	logoutBtn.addEventListener('click', () => {
-		console.log('logoutBtn click 44');
-		// const clientId = '21ffd444-76e2-4c3f-9317-38c5fddb169d';
-		localStorage.removeItem('access_token');
-		localStorage.removeItem('refresh_token');
-		localStorage.removeItem('expires_in');
-		localStorage.removeItem('username');
-		window.location = 'https://login.wiliot.com/oauth2/logout?client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&tenantId=38623562-3435-3632-6538-653563353564';
-
-		// const xmlhttp = new XMLHttpRequest();
-		// xmlhttp.open('POST', 'https://login.wiliot.com/oauth2/logout?client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&tenantId=38623562-3435-3632-6538-653563353564', true);
-		// xmlhttp.onload = () => {
-		// 	console.log('Request finished. Do processing here.');
-		// 	setTimeout(() => {
-		// 		window.location = 'https://wiliot.com/';
-		// 	}, 1000);
-		// };
-		// xmlhttp.send(null);
-
-
-		// setTimeout(() => {
-		// 	window.location = 'https://wiliot.com/';
-		// }, 1000);
+		logout();
 	});
 }
 
-// const logoutPage = document.querySelector('#js-logout-page');
-// if (logoutPage) {
-// 	localStorage.removeItem('access_token');
-// 	localStorage.removeItem('refresh_token');
-// 	localStorage.removeItem('expires_in');
-//     localStorage.removeItem('username');
-//     window.location = 'https://login.wiliot.com/oauth2/logout?client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&tenantId=38623562-3435-3632-6538-653563353564'
-// }
+const logoutPage = document.querySelector('#js-logout-page');
+if (logoutPage) {
+	// localStorage.removeItem('access_token');
+	// localStorage.removeItem('refresh_token');
+	// localStorage.removeItem('expires_in');
+	// localStorage.removeItem('username');
+	// // window.location = 'https://login.wiliot.com/oauth2/logout?client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&tenantId=38623562-3435-3632-6538-653563353564'
+	// const wndw = window.open(logoutUrl, '2secWindow', 'popup=true, width=360, height=500, top="50%, left=50%');
+	// wndw;
+	// setTimeout(function() {
+	//     wndw.close();
+	//     window.location = 'https://wiliot.com';
+	// }, 2500);
+	logout();
+}
