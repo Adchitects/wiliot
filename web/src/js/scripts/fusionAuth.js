@@ -9,6 +9,7 @@ const key = {
 	'n': 'pH-2BjhKO4MiPf5VXRVTc_vnBO00CqI0NOq-g3Y5lpIv3a-IYsnswnfhm5yQha7OGlTRh5Nfpys2NZybuzY5MOe5I3EIJEZzHw5racQPsbJ6FmVdiF8O0Pikxgxlq5gihiWjdWQ9dmaqyARwdgbOfpB3jvIFYR7Ca02ykqSvhtEch6sYwJqlZWzmc10v3bVrKLieN6YqDOYdvzG__5VVqpN4Tj-I0aNq5LPfCF0sSiHBS76tl941U0v5Dy1XCZmaINlqehn1MGmZBr9pj40-BX90boly8O67B9rkhYGwicVqUkuFarTZBKA1xEbQuus_KpdgyoIFl5rYM4jGOgKgMw',
 	'use': 'sig',
 };
+const isStaging = window.location.hostname === 'wiliot.adchitects.co';
 const pem = jwkToPem(key);
 const options = { algorithms: ['RS256'] };
 const isLoginLink = document.querySelector('.menu-desktop__list-item.is-login');
@@ -23,8 +24,13 @@ const login = () => {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const code = urlParams.get('code');
+	let url;
 	// const url = `${host}${path}?code=${code}&client_id=${clientId}&redirect_uri=${redirectUri}&grant_type=authorization_code`;
-	const url = `${host}${path}?code=${code}&client_id=${clientId}&redirect_uri=https://www.wiliot.com/login&grant_type=authorization_code`;
+	if (!isStaging) {
+		url = `${host}${path}?code=${code}&client_id=${clientId}&redirect_uri=https://www.wiliot.com/login&grant_type=authorization_code`;
+	} else {
+		url = `${host}${path}?code=${code}&client_id=${clientId}&redirect_uri=https://www.wiliot.adchitects.co/web/login&grant_type=authorization_code`;
+	}
 	// console.log(code);
 	if (code) {
 		axios.post(url, null, {}).then((response) => {
@@ -88,12 +94,39 @@ if (!token) {
 }
 
 // Logout
+const logout = () => {
+	const logoutUrl = 'https://login.wiliot.com/oauth2/logout?client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&tenantId=38623562-3435-3632-6538-653563353564';
+	localStorage.removeItem('access_token');
+	localStorage.removeItem('refresh_token');
+	localStorage.removeItem('expires_in');
+	localStorage.removeItem('username');
+	const wndw = window.open(logoutUrl, '2secWindow', 'popup=true, width=360, height=500, top="50%, left=50%');
+	wndw;
+	setTimeout(function() {
+		wndw.close();
+		window.location = 'https://wiliot.com';
+	}, 2500);
+};
+
 const logoutBtn = document.querySelector('.js-logout');
 if (logoutBtn) {
 	logoutBtn.addEventListener('click', () => {
-		localStorage.removeItem('access_token');
-		localStorage.removeItem('refresh_token');
-		localStorage.removeItem('expires_in');
-		localStorage.removeItem('username');
+		logout();
 	});
+}
+
+const logoutPage = document.querySelector('#js-logout-page');
+if (logoutPage) {
+	// localStorage.removeItem('access_token');
+	// localStorage.removeItem('refresh_token');
+	// localStorage.removeItem('expires_in');
+	// localStorage.removeItem('username');
+	// // window.location = 'https://login.wiliot.com/oauth2/logout?client_id=21ffd444-76e2-4c3f-9317-38c5fddb169d&tenantId=38623562-3435-3632-6538-653563353564'
+	// const wndw = window.open(logoutUrl, '2secWindow', 'popup=true, width=360, height=500, top="50%, left=50%');
+	// wndw;
+	// setTimeout(function() {
+	//     wndw.close();
+	//     window.location = 'https://wiliot.com';
+	// }, 2500);
+	logout();
 }
