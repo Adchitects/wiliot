@@ -83,6 +83,20 @@
 					font-weight: 400;
 					line-height: calc(26 / 16);
 				}
+
+				&__read-more {
+					margin-top: 16px;
+
+					.text {
+						color: $c-white;
+					}
+				}
+
+				&:hover {
+					.slide__read-more {
+						@extend .u-btn--arrow, .is-hovered;
+					}
+				}
 			}
 
 			.freemode-slider-with-images__pagination {
