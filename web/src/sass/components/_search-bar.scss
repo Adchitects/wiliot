@@ -16,5 +16,9 @@
 	&.is-visible {
 		pointer-events: all;
 		transform: translateY(0);
+
+		.is-modal-opened & {
+			pointer-events: none;
+		}
 	}
 }
