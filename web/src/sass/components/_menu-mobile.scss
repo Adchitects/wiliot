@@ -102,7 +102,7 @@
 
 	&__nav-hld {
 		height: 100%;
-		padding: 70px 25px;
+		padding: 70px 24px;
 		overflow-x: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
@@ -172,19 +172,40 @@
 		}
 	}
 
+	&__search-hld {
+		position: absolute;
+		bottom: 60px;
+		left: 0;
+		width: 100%;
+		padding-right: 24px;
+		padding-left: 24px;
+
+		.search-bar {
+			position: relative;
+			pointer-events: auto;
+			margin-top: 0;
+			background-color: transparent;
+			transform: none;
+			transition: none;
+
+			.search-form__close {
+				display: none;
+			}
+		}
+	}
+
 	&__socials-hld {
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		padding-top: 15px;
-		padding-bottom: 10px;
-		padding-left: 25px;
+		padding: 16px 24px 12px;
 		background-color: $c-white;
 
 		.inner {
 			display: flex;
 			align-items: center;
+			justify-content: center;
 
 			.link {
 				margin-right: 20px;

@@ -4,6 +4,7 @@
 	left: 0;
 	z-index: 500;
 	width: 100%;
+	transition: opacity 0.2s;
 
 	&--desktop {
 		@include tablet-small-1023 {
@@ -17,5 +18,10 @@
 		@include tablet-small-1023 {
 			display: block;
 		}
+	}
+
+	.is-modal-opened & {
+		pointer-events: none;
+		opacity: 0;
 	}
 }

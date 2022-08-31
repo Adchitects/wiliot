@@ -267,6 +267,7 @@
 				font-size: 13px;
 				font-weight: 500;
 				line-height: 19px;
+				text-align: left;
 
 				> p {
 					color: rgba($c-white, 0.8);
@@ -464,7 +465,7 @@
 	}
 
 	.hs_error_rollup {
-		margin-top: 30px;
+		margin-top: 10px;
 		color: $c-orange;
 	}
 }

@@ -2,6 +2,7 @@
 import { lazyLoadInstance } from './libs/lazyLoad';
 lazyLoadInstance;
 // SCRIPTS
+import './scripts/animations';
 import './scripts/ytVideoPlaceholder';
 import './scripts/header';
 import './scripts/fusionAuth';
@@ -23,4 +24,7 @@ import './scripts/singleCareer';
 import './scripts/sectionId';
 import './scripts/homepageLottieAnimation';
 import './scripts/alignLeftMargin';
-
+import './scripts/search';
+import './scripts/search-bar';
+import './scripts/searchResults';
+import './scripts/stickyTextSwitch';

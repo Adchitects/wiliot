@@ -26,6 +26,47 @@
 		background-color: $c-white;
 	}
 
+	.is-page-search & {
+		background-color: $c-light;
+
+		&::before {
+			content: '';
+			position: absolute;
+			right: 50px;
+			bottom: 0;
+			left: 50px;
+			pointer-events: none;
+			width: auto;
+			height: 1px;
+			background-color: rgba(#ddd, 0.7);
+			transition: opacity 0.2s;
+
+			@include media-max(1399) {
+				right: 24px;
+				left: 24px;
+			}
+
+			@include tablet-medium-1199 {
+				right: 16px;
+				left: 16px;
+			}
+		}
+	}
+
+	.is-page-search .is-scrolled & {
+		background-color: $c-white;
+
+		&::before {
+			display: none;
+		}
+	}
+
+	.is-dropdown-active & {
+		&::before {
+			opacity: 0;
+		}
+	}
+
 	&__logo-hld {
 		display: block;
 		min-width: 105px;
@@ -78,6 +119,10 @@
 				.text,
 				.icon {
 					color: $c-accent;
+				}
+
+				svg {
+					fill: $c-accent;
 				}
 			}
 		}
@@ -146,7 +191,7 @@
 			margin-left: auto;
 
 			.inner {
-				padding: 0 20px 0 10px;
+				padding: 0 10px;
 
 				@include media-max(1260) {
 					padding: 0 10px;
@@ -158,7 +203,7 @@
 			position: relative;
 
 			.inner {
-				padding: 0 20px 0 10px;
+				padding: 0 10px;
 
 				@include media-max(1260) {
 					padding: 0 10px;
@@ -174,6 +219,7 @@
 				left: 50%;
 				z-index: 1;
 				pointer-events: none;
+				cursor: pointer;
 				width: 200px;
 				min-height: 50px;
 				background-color: $c-white;
@@ -195,6 +241,28 @@
 					transform: translateY(0) translateX(-50%);
 					opacity: 1;
 				}
+			}
+		}
+
+		&.is-search {
+			margin-right: -10px;
+
+			@include tablet-medium-1199 {
+				margin-right: 0;
+			}
+
+			.inner {
+				padding: 0 10px;
+			}
+
+			&:hover {
+				svg {
+					fill: $c-accent;
+				}
+			}
+
+			&.is-active {
+				pointer-events: none;
 			}
 		}
 
@@ -262,6 +330,17 @@
 				padding: 0 7px;
 			}
 
+			svg {
+				transition: fill 0.2s;
+
+				&.svg-search {
+					position: relative;
+					top: -2px;
+					width: 16px;
+					height: 16px;
+				}
+			}
+
 			.icon {
 				position: relative;
 
@@ -276,7 +355,7 @@
 
 				&-user {
 					top: -2px;
-					margin-right: 12px;
+					// margin-right: 12px;
 					font-size: 16px;
 
 					@include tablet-medium-1199 {

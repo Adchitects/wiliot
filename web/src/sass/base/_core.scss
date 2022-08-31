@@ -11,6 +11,18 @@ body {
 	font-weight: 300;
 	letter-spacing: 0;
 	line-height: 26px;
+
+	&:not(.gsap-mobile-fallback-initialized) {
+		.js-gsap-hld {
+			&:not(.is-gsap-ready) {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+#svg-sprites {
+	display: none;
 }
 
 img {

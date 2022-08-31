@@ -54,134 +54,195 @@
 								</li>
 							{% endif %}
 						{% endfor %}
+                        <li class="news-listing__search-form-hld">
+                            <form class="search-form search-form--news js-search-form-hld" action="{{ url('blog/') }}">
+                                <button class="search-form__button" type="submit">
+                                    <svg class="svg-search">
+                                        <use xlink:href="#svg-search"></use>
+                                    </svg>
+                                </button>
+                                <input class="search-form__bar js-search-form-input js-search-news-input" type="search" name="news_q" aria-label="Search" placeholder="Search" value="{{ craft.app.request.getParam('news_q') }}" />
+                            </form>
+                        </li>
 					</ul>
 				</div>
-				<div class="news-listing__news-hld">
-					{% if category is not defined %}
-						<div class="news-listing__category-area area js-load-more-item">
-							<div class="area__text-hld">
-								<div class="area__title u-title u-title--section">Our Latest</div>
-							</div>
-							<div class="area__posts-hld">
-								{% set latestNews = craft.entries.section('newsPosts').limit(3) %}
-								{% if latestNews|length %}
-									{% for post in latestNews.all() %}
-										{% set image = post.newsPostsfeaturedImage.one() %}
-										{% if image %}
-											{% set imageUrl = image.getUrl('postThumb') %}
-											{% set imageWidth = image.getWidth() %}
-											{% set imageHeight = image.getHeight() %}
-											{% set imageAlt = image.title %}
-										{% endif %}
-										{% set title = post.title %}
-										{% set desc = post.newsPostsExcerpt|striptags|striptags %}
-										{% set descSliced = desc|slice(0, 97) ~ '...' %}
-										<a href="{{ post.url}}" class="area__post post">
-											<div class="post__image-hld">
-												{% if image %}
-													<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
-												{% else %}
-													<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
-												{% endif %}
-											</div>
-											<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
-											<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-											<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
-											<div class="post__btn u-btn u-btn--arrow">
-												<span class="text">Read more</span>
-											</div>
-										</a>
-									{% endfor %}
-								{% endif %}
-							</div>
-						</div>
-						{% for cat in categories.all() %}
-							{% set catPosts = craft.entries().postMainCategory(cat.id).limit(3) %}
-							{% if catPosts|length > 0 %}
-								<div class="news-listing__category-area area js-load-more-item">
-									<div class="area__text-hld">
-										<div class="area__title u-title u-title--section">{{ cat.title }}</div>
-										<a href="{{ cat.url }}" class="area__see-all">See All</a>
-									</div>
-									<div class="area__posts-hld">
-										{% for catPost in catPosts.all() %}
-											{% set image = catPost.newsPostsfeaturedImage.one() %}
-											{% if image %}
-												{% set imageUrl = image.getUrl('postThumb') %}
-												{% set imageWidth = image.getWidth() %}
-												{% set imageHeight = image.getHeight() %}
-												{% set imageAlt = image.title %}
-											{% endif %}
-											{% set title = catPost.title %}
-											{% set desc = catPost.newsPostsExcerpt|striptags %}
-											{% set descSliced = desc|slice(0, 97) ~ '...' %}
-											<a href="{{ catPost.url}}" class="area__post post">
-												<div class="post__image-hld">
-													{% if image %}
-														<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
-													{% else %}
-														<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
-													{% endif %}
-												</div>
-												<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
-												<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-												<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
-												<div class="post__btn u-btn u-btn--arrow">
-													<span class="text">Read more</span>
-												</div>
-											</a>
-										{% endfor %}
-									</div>
-								</div>
-							{% endif %}
-						{% endfor %}
-					{% endif %}
-					{% if category is defined %}
-						<div class="news-listing__category-area area">
-							<div class="area__text-hld">
-								<div class="area__title u-title u-title--section">{{ category.title }}</div>
-							</div>
-							<div class="area__posts-hld">
-								{% set catPosts = craft.entries().postMainCategory(category.id).all() %}
-								{% for catPost in catPosts %}
-									{% set image = catPost.newsPostsfeaturedImage.one() %}
-									{% if image %}
-										{% set imageUrl = image.getUrl('postThumb') %}
-										{% set imageWidth = image.getWidth() %}
-										{% set imageHeight = image.getHeight() %}
-										{% set imageAlt = image.title %}
-									{% endif %}
-									{% set title = catPost.title %}
-									{% set desc = catPost.newsPostsExcerpt|striptags %}
-									{% set descSliced = desc|slice(0, 97) ~ '...' %}
-									<a href="{{ catPost.url}}" class="area__post post js-load-more-item" data-max-items="12" data-load-items="6">
-										<div class="post__image-hld">
-											{% if image %}
-												<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
-											{% else %}
-												<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
-											{% endif %}
-										</div>
-										<div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
-										<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-										<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
-										<div class="post__btn u-btn u-btn--arrow">
-											<span class="text">Read more</span>
-										</div>
-									</a>
-								{% endfor %}
-							</div>
-						</div>
-					{% endif %}
-					<button class="news-listing__btn u-btn u-btn--light js-load-more-btn">
-						<span class="text">
-							{% if category is not defined %}
-								Load More Categories
-							{% else %}
-								Load More
-							{% endif %}
-						</span>
-					</button>
+				<div class="news-listing__news-hld js-news-listing" data-initial-url="{{ url('blog/') }}">
+                    {% set query = craft.app.request.getParam('news_q') %}
+                    {% set allResults = [] %}
+                    {% if query %}
+                        <div class="news-listing__category-area area js-search-count-hld">
+                            <div class="area__text-hld">
+                                <div class="area__title u-title u-title--section"><span class="js-search-count-output"></span> results for "{{ query }}"</div>
+                            </div>
+                            <div class="area__posts-hld">
+                                {% set news = craft.entries.section('newsPosts') %}
+                                {% if news|length %}
+                                    {% for post in news.all() %}
+                                        {% set image = post.newsPostsfeaturedImage.one() %}
+                                        {% if image %}
+                                            {% set imageUrl = image.getUrl() %}
+                                            {% set imageWidth = image.getWidth() %}
+                                            {% set imageHeight = image.getHeight() %}
+                                            {% set imageAlt = image.title %}
+                                        {% endif %}
+                                        {% set title = post.title %}
+                                        {% set content = post.postContent|striptags %}
+                                        {% if query|lower in title|lower or query|lower in content|lower %}
+                                            {% set allResults = allResults|merge([post.id]) %}
+                                            <a href="{{ post.url}}" class="area__post post js-load-more-item" data-max-items="9" data-load-items="9" data-query="{{ query }}">
+                                                <div class="post__image-hld">
+                                                    {% if image %}
+                                                        <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                                                    {% else %}
+                                                        <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
+                                                <div class="post__title">{{ title|searchExcerpt(query, 20, 'u-highlight') }}</div>
+                                                <div class="post__description">{{ content|searchExcerpt(query, 38, 'u-highlight') }}</div>
+                                                <div class="post__btn u-btn u-btn--arrow">
+                                                    <span class="text">Read more</span>
+                                                </div>
+                                            </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <input type="hidden" name="all-results" class="js-search-count-input" value={{ allResults|length }}>
+                                {% endif %}
+                                {% if allResults|length == 0 %}
+                                    0 results found
+                                {% endif %}
+                            </div>
+                        </div>
+                        <button class="news-listing__btn u-btn u-btn--light js-load-more-btn">
+                            <span class="text">Load More Results</span>
+                        </button>
+                    {% else %}
+                        {% if category is not defined %}
+                            <div class="news-listing__category-area area js-load-more-item">
+                                <div class="area__text-hld">
+                                    <div class="area__title u-title u-title--section">Our Latest</div>
+                                </div>
+                                <div class="area__posts-hld">
+                                    {% set latestNews = craft.entries.section('newsPosts').limit(3) %}
+                                    {% if latestNews|length %}
+                                        {% for post in latestNews.all() %}
+                                            {% set image = post.newsPostsfeaturedImage.one() %}
+                                            {% if image %}
+                                                {% set imageUrl = image.getUrl() %}
+                                                {% set imageWidth = image.getWidth() %}
+                                                {% set imageHeight = image.getHeight() %}
+                                                {% set imageAlt = image.title %}
+                                            {% endif %}
+                                            {% set title = post.title %}
+                                            {% set desc = post.newsPostsExcerpt|striptags|striptags %}
+                                            {% set descSliced = desc|slice(0, 97) ~ '...' %}
+                                            <a href="{{ post.url}}" class="area__post post">
+                                                <div class="post__image-hld">
+                                                    {% if image %}
+                                                        <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                                                    {% else %}
+                                                        <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
+                                                <div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+                                                <div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
+                                                <div class="post__btn u-btn u-btn--arrow">
+                                                    <span class="text">Read more</span>
+                                                </div>
+                                            </a>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% for cat in categories.all() %}
+                                {% set catPosts = craft.entries().postMainCategory(cat.id).limit(3) %}
+                                {% if catPosts|length > 0 %}
+                                    <div class="news-listing__category-area area js-load-more-item">
+                                        <div class="area__text-hld">
+                                            <div class="area__title u-title u-title--section">{{ cat.title }}</div>
+                                            <a href="{{ cat.url }}" class="area__see-all">See All</a>
+                                        </div>
+                                        <div class="area__posts-hld">
+                                            {% for catPost in catPosts.all() %}
+                                                {% set image = catPost.newsPostsfeaturedImage.one() %}
+                                                {% if image %}
+                                                    {% set imageUrl = image.getUrl() %}
+                                                    {% set imageWidth = image.getWidth() %}
+                                                    {% set imageHeight = image.getHeight() %}
+                                                    {% set imageAlt = image.title %}
+                                                {% endif %}
+                                                {% set title = catPost.title %}
+                                                {% set desc = catPost.newsPostsExcerpt|striptags %}
+                                                {% set descSliced = desc|slice(0, 97) ~ '...' %}
+                                                <a href="{{ catPost.url}}" class="area__post post">
+                                                    <div class="post__image-hld">
+                                                        {% if image %}
+                                                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                                                        {% else %}
+                                                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
+                                                    <div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+                                                    <div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
+                                                    <div class="post__btn u-btn u-btn--arrow">
+                                                        <span class="text">Read more</span>
+                                                    </div>
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% if category is defined %}
+                            <div class="news-listing__category-area area">
+                                <div class="area__text-hld">
+                                    <div class="area__title u-title u-title--section">{{ category.title }}</div>
+                                </div>
+                                <div class="area__posts-hld">
+                                    {% set catPosts = craft.entries().postMainCategory(category.id).all() %}
+                                    {% for catPost in catPosts %}
+                                        {% set image = catPost.newsPostsfeaturedImage.one() %}
+                                        {% if image %}
+                                            {% set imageUrl = image.getUrl() %}
+                                            {% set imageWidth = image.getWidth() %}
+                                            {% set imageHeight = image.getHeight() %}
+                                            {% set imageAlt = image.title %}
+                                        {% endif %}
+                                        {% set title = catPost.title %}
+                                        {% set desc = catPost.newsPostsExcerpt|striptags %}
+                                        {% set descSliced = desc|slice(0, 97) ~ '...' %}
+                                        <a href="{{ catPost.url}}" class="area__post post js-load-more-item" data-max-items="12" data-load-items="6">
+                                            <div class="post__image-hld">
+                                                {% if image %}
+                                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                                                {% else %}
+                                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+                                                {% endif %}
+                                            </div>
+                                            <div class="post__date">{{ catPost.postDate | date("F d, Y") }}</div>
+                                            <div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+                                            <div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
+                                            <div class="post__btn u-btn u-btn--arrow">
+                                                <span class="text">Read more</span>
+                                            </div>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        <button class="news-listing__btn u-btn u-btn--light js-load-more-btn">
+                            <span class="text">
+                                {% if category is not defined %}
+                                    Load More Categories
+                                {% else %}
+                                    Load More
+                                {% endif %}
+                            </span>
+                        </button>
+                    {% endif %}
 				</div>
 			</div>
 		</div>

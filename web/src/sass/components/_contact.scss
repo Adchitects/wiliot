@@ -32,6 +32,7 @@
 	}
 
 	&__form {
+		align-self: flex-start;
 		padding: 64px 108px;
 		background-color: $c-accent-dark;
 
@@ -117,11 +118,56 @@
 			}
 
 			.contact__image-point-text {
+				padding: 0 4px;
+				background-color: $c-accent-dark;
+				color: $c-white;
 				opacity: 0;
+
+				@include mobile-small-425 {
+					padding: 0 2px;
+					font-size: 9px;
+				}
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 50%;
+					z-index: 1;
+					pointer-events: none;
+					width: 6px;
+					height: 6px;
+					background-color: $c-accent-dark;
+					transform: translateY(-50%) rotate(45deg);
+
+					@include mobile-small-425 {
+						display: none;
+					}
+				}
+
+				&--on-right {
+					&::before {
+						left: -3px;
+
+						@include mobile-small-425 {
+							left: 0;
+						}
+					}
+				}
+
+				&--on-left {
+					&::before {
+						right: -3px;
+
+						@include mobile-small-425 {
+							right: 0;
+						}
+					}
+				}
 			}
 
 			&:hover {
 				.contact__image-point-text {
+					transform: translateX(0);
 					opacity: 1;
 				}
 			}
@@ -138,18 +184,22 @@
 
 	&__image-point-text {
 		position: absolute;
-		top: -8px;
+		top: -10px;
+		z-index: 10;
 		pointer-events: none;
+		border-radius: 4px;
 		font-size: 11px;
 		white-space: nowrap;
-		transition: opacity 0.2s;
+		transition: opacity 0.2s, transform 0.2s;
 
 		&--on-right {
-			left: 16px;
+			left: 12px;
+			transform: translateX(-3px);
 		}
 
 		&--on-left {
-			right: 16px;
+			right: 12px;
+			transform: translateX(3px);
 		}
 	}
 

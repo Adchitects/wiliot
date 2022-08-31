@@ -2,6 +2,29 @@
 // Prefix utility classes with .u-
 // From Trello CSS Guide
 
+.u-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+	overflow: hidden;
+}
+
+.u-demargin {
+	& > * {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
 .u-section {
 	position: relative;
 	width: 100%;
@@ -90,6 +113,7 @@
 	}
 
 	&--centered {
+		display: block;
 		text-align: center;
 	}
 }
@@ -120,6 +144,77 @@
 		line-height: 19px;
 		text-align: center;
 		text-transform: uppercase;
+	}
+}
+
+.u-content {
+	@extend .u-demargin;
+
+	color: rgba($c-black, 0.8);
+	font-family: $font-std;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: normal;
+	line-height: calc(26 / 16);
+
+	p {
+		& + p {
+			margin-top: 1em;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 2.25em;
+		margin-bottom: 0.5em;
+		color: $c-black;
+		font-weight: 900;
+		line-height: 1.5;
+	}
+
+	h1,
+	h2 {
+		font-size: 34px;
+	}
+
+	h3 {
+		font-size: 28px;
+	}
+
+	h4 {
+		font-size: 24px;
+	}
+
+	h5,
+	h6 {
+		font-size: 20px;
+	}
+
+	a {
+		color: $c-accent;
+		transition: color 0.2s;
+
+		&:hover {
+			color: $c-accent-dark;
+		}
+	}
+
+	b,
+	strong {
+		font-weight: 900;
+	}
+
+	&--centered {
+		text-align: center;
+
+		ul,
+		ol {
+			text-align: left;
+		}
 	}
 }
 
@@ -174,6 +269,7 @@
 			}
 		}
 
+		&.is-hovered,
 		&:hover {
 			.text {
 				color: $c-accent;
@@ -196,6 +292,7 @@
 			color: $c-white;
 		}
 
+		&.is-hovered,
 		&:hover {
 			border-color: $c-accent;
 			background-color: $c-accent;
@@ -209,6 +306,7 @@
 		background-color: transparent;
 		transition: background-color 0.2s, border-color 0.2s;
 
+		&.is-hovered,
 		&:hover {
 			border-color: $c-accent;
 			background-color: $c-accent;
@@ -230,6 +328,7 @@
 			color: $c-accent;
 		}
 
+		&.is-hovered,
 		&:hover {
 			background-color: $c-accent;
 
@@ -250,6 +349,7 @@
 			color: $c-accent;
 		}
 
+		&.is-hovered,
 		&:hover {
 			background-color: $c-accent;
 
@@ -265,6 +365,25 @@
 	text-align: center;
 }
 
+.u-highlight {
+	position: relative;
+	color: $c-accent;
+	font-weight: 500;
+	white-space: nowrap;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		right: -4px;
+		bottom: -2px;
+		left: -4px;
+		z-index: -1;
+		pointer-events: none;
+		background-color: #F5F6FD;
+	}
+}
+
 .u-mb-32 {
 	margin-bottom: 32px;
 }
@@ -275,4 +394,25 @@
 
 .u-mb-16 {
 	margin-bottom: 16px;
+}
+
+.u-hidden {
+	display: none;
+	visibility: hidden;
+	opacity: 0;
+}
+
+@include tablet-small {
+
+	.u-content {
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-top: 1.25em;
+		}
+	}
 }

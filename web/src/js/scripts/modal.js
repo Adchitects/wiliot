@@ -10,6 +10,7 @@ modalHldAll.forEach(modalHld => {
 		videoIsPlayed;
 		openModal.addEventListener('click', (e) => {
 			modal.classList.add('is-active');
+			document.body.classList.add('is-modal-opened');
 			document.body.style.overflow = 'hidden';
 			openModal.classList.remove('is-paused');
 			if (iframe) {
@@ -31,6 +32,7 @@ modalHldAll.forEach(modalHld => {
 			close.addEventListener('click', () => {
 				modal.classList.remove('is-active');
 				openModal.classList.add('is-paused');
+				document.body.classList.remove('is-modal-opened');
 				document.body.style.overflow = '';
 				if (iframe) {
 					iframe.src = '';
@@ -44,7 +46,7 @@ modalHldAll.forEach(modalHld => {
 							// eslint-disable-next-line
 							videoIsPlayed = false;
 							videoHld.classList.add('is-paused');
-						}, 500); 
+						}, 500);
 					} else {
 						video.pause();
 						// eslint-disable-next-line
