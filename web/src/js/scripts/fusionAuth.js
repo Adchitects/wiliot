@@ -100,12 +100,15 @@ const logout = () => {
 	localStorage.removeItem('refresh_token');
 	localStorage.removeItem('expires_in');
 	localStorage.removeItem('username');
-	const wndw = window.open(logoutUrl, '2secWindow', 'popup=true, width=360, height=500, top="50%, left=50%');
-	wndw;
-	setTimeout(function() {
-		wndw.close();
-		window.location = 'https://wiliot.com';
-	}, 2500);
+	setTimeout(() => {
+		window.location = logoutUrl;
+	}, 500);
+	// const wndw = window.open(logoutUrl, '2secWindow', 'popup=true, width=360, height=500, top="50%, left=50%');
+	// wndw;
+	// setTimeout(function() {
+	// 	wndw.close();
+	// 	window.location = 'https://wiliot.com';
+	// }, 2500);
 };
 
 const logoutBtn = document.querySelector('.js-logout');
