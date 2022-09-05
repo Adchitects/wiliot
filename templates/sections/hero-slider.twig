@@ -52,9 +52,69 @@
                                     <div class="hero-slider__buttons-hld">
                                         {% for item in itemButtonsMatrix %}
                                             {% set button = item.button %}
-                                            <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}">
-                                                <span class="text">{{ button.customText }}</span>
-                                            </a>
+                                            {% set hubspotFormId = item.hubspotFormId %}
+                                            {% if hubspotFormId %}
+                                                <div class="js-modal-hld">
+                                                    <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }} js-modal-btn">
+                                                        <span class="text">{{ button.customText }}</span>
+                                                    </button>
+                                                    <div class="subscribe-modal js-modal-modal">
+                                                        <div class="overlay js-modal-close"></div>
+                                                        <div class="subscribe-modal__inner">
+                                                            <div class="subscribe-modal__modal">
+                                                                <div class="form-hld">
+                                                                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                                                                    <script
+                                                                        src="https://code.jquery.com/jquery-3.6.0.min.js"
+                                                                        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                                                                        crossorigin="anonymous">
+                                                                    </script>
+                                                                    <script>
+                                                                        function handleState() {
+                                                                            const fields = document.querySelectorAll('.field input');
+                                                                            const selects = document.querySelectorAll('.hs-fieldtype-select select');
+                                                                            if (fields && fields.length > 0) {
+                                                                                fields.forEach(field => {
+                                                                                    field.addEventListener('input', () => {
+                                                                                        field.parentNode.parentNode.classList.add('is-active');
+                                                                                        if (!field.value) {
+                                                                                            field.parentNode.parentNode.classList.remove('is-active');
+                                                                                        }
+                                                                                    });
+                                                                                });
+                                                                            }
+                                                                            if (selects && selects.length > 0) {
+                                                                                selects.forEach(select => {
+                                                                                    select.addEventListener('change', () => {
+                                                                                        select.parentNode.parentNode.classList.add('is-active');
+                                                                                        handleState();
+                                                                                    });
+                                                                                });
+                                                                            }
+                                                                        };
+                                                                        hbspt.forms.create({
+                                                                            region: "na1",
+                                                                            portalId: "4249967",
+                                                                            formId: "{{ hubspotFormId }}",
+                                                                            onFormReady: function() {
+                                                                                document.body.classList.add('is-buy-page-form');
+                                                                                handleState();
+                                                                            },
+                                                                        });
+                                                                    </script>
+                                                                </div>
+                                                            </div>
+                                                            <span class="subscribe-modal__close js-modal-close">
+                                                                <span class="icon icon-close"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% else %}
+                                                <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}">
+                                                    <span class="text">{{ button.customText }}</span>
+                                                </a>
+                                            {% endif %}
                                         {% endfor %}
                                         {% if itemDesktopVideoLink %}
                                             <button class="btn u-btn u-btn--light js-hero-modal-btn" data-modal-id="{{ loop.index0 }}">
