@@ -50,9 +50,9 @@
                                 {% endif %}
                                 {% if itemButtonsMatrix|length > 0 %}
                                     <div class="hero-slider__buttons-hld">
-                                        {% for item in itemButtonsMatrix %}
-                                            {% set button = item.button %}
-                                            {% set hubspotFormId = item.hubspotFormId %}
+                                        {% for btn in itemButtonsMatrix %}
+                                            {% set button = btn.button %}
+                                            {% set hubspotFormId = btn.hubspotFormId %}
                                             {% if hubspotFormId %}
                                                 <div class="js-modal-hld">
                                                     <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }} js-modal-btn">

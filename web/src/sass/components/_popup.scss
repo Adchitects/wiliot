@@ -87,6 +87,10 @@
 			bottom: -10px;
 			left: 0;
 			width: 100%;
+
+			@include mobile-767 {
+				display: none;
+			}
 		}
 	}
 

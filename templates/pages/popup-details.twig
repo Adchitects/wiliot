@@ -3,13 +3,13 @@
 {% set metaDescription = entry.metaDescription %}
 {% set postModifyDate = entry.dateUpdated|date("Y-m-d\\TH:i:s+00:00") %}
 {% block head %} {{ parent() }} {% endblock %}
-{% block title %} 
+{% block title %}
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
-{% block description %} 
+{% block description %}
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
-{% block og %} 
+{% block og %}
 	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="article"/>
