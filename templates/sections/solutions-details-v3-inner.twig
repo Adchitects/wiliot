@@ -59,7 +59,7 @@
 							<div class="buttons-hld">
 								{% for item in solutionButtonsMatrix %}
 									{% set button = item.button %}
-                                    {% set hubspotFormId = item.hubspotFormId %}]
+                                    {% set hubspotFormId = item.hubspotFormId %}
                                     {% if hubspotFormId %}
                                         <div class="js-modal-hld">
                                             <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }} js-modal-btn">
