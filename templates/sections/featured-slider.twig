@@ -1,0 +1,51 @@
+{% set title = entry.featuredSliderTitle %}
+{% set subtitle = entry.featuredSliderSubtitle %}
+{% set blocks = entry.featuredSliderBlocks %}
+{% if blocks|length > 0 %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--featured-slider">
+        <div class="u-wrapper">
+            <div class="featured-slider-hld">
+                {% if subtitle %}
+                    <span class="featured-slider__subtitle u-subtitle u-subtitle--section u-subtitle--centered">{{ subtitle }}</span>
+                {% endif %}
+                {% if title %}
+                    <h2 class="featured-slider__title u-title u-title--section u-title--centered">{{ title|nl2br }}</h2>
+                {% endif %}
+                {% if blocks %}
+                    <div class="featured-slider">
+                        <div class="featured-slider__slider js-featured-slider swiper-container" data-count="{{ blocks|length }}">
+                            <div class="swiper-wrapper">
+                                {% for item in blocks %}
+                                    {% set title = item.itemTitle %}
+                                    {% set link = item.itemUrl %}
+                                    {% set image = item.itemLogo.one() %}
+                                    {% if link != '' %}
+                                    <a class="featured-slider-item featured-slider-item--linked swiper-slide slide" href="{{ link }}" target="_blank" rel="noopener noreferrer">
+                                    {% else %}
+                                    <div class="featured-slider-item swiper-slide slide">
+                                    {% endif %}
+                                        <div class="featured-slider-item__image-hld">
+                                            {% if image %}
+                                                <img class="featured-slider-item__image" src="{{ image.url }}" alt="{{ title }}">
+                                            {% endif %}
+                                        </div>
+                                    {% if link != '' %}
+                                    </a>
+                                    {% else %}
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="featured-slider__btn featured-slider__btn--prev swiper-button swiper-button--prev js-featured-slider-button-prev">
+                        <span class="icon icon-arrow-left"></span>
+                    </div>
+                    <div class="featured-slider__btn featured-slider__btn--next swiper-button swiper-button--next js-featured-slider-button-next">
+                        <span class="icon icon-arrow-right"></span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}
