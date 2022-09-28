@@ -6,7 +6,7 @@
 			margin-top: 60px;
 		}
 
-		+ .u-section {
+		+.u-section {
 			margin-top: 0;
 		}
 	}
@@ -101,7 +101,7 @@
 				transform: none;
 			}
 
-			> span {
+			>span {
 				content: '';
 				display: block;
 				position: absolute;
@@ -115,7 +115,7 @@
 		.swiper-pagination-bullet-active {
 			transform: none;
 
-			> span {
+			>span {
 				border-radius: 0 4px 4px 0;
 				background: linear-gradient(90deg, #11B583 0%, #00F0F3 100%);
 				animation: slideProgress 5s linear forwards;
@@ -159,7 +159,8 @@
 		pointer-events: none;
 		height: 0;
 		max-height: 50vh;
-		padding-bottom: 56.25%; /* 16:9 */
+		padding-bottom: 56.25%;
+		/* 16:9 */
 		user-select: none;
 
 		&.is-desktop {
@@ -225,31 +226,14 @@
 		width: 100%;
 		height: 0;
 		max-height: 50vh;
-		padding-bottom: 56.25%; /* 16:9 */
+		padding-bottom: 56.25%;
+		/* 16:9 */
 
 		@include tablet-small-1023 {
 			height: 100vh;
 			max-height: calc(100vh - 60px);
 			padding: 0;
 		}
-
-		// &::before {
-		// 	content: '';
-		// 	display: flex;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	z-index: 4;
-		// 	pointer-events: none;
-		// 	width: 100%;
-		// 	height: 100%;
-		// 	background-image: linear-gradient(to right, rgba($c-accent, 0.5), rgba($c-accent, 0.35), rgba($c-accent, 0.05), transparent);
-		// 	mix-blend-mode: darken;
-
-		// 	@include tablet-small-1023 {
-		// 		display: none;
-		// 	}
-		// }
 
 		img {
 			position: absolute;
@@ -294,6 +278,7 @@
 		text-shadow: 0 0 20px rgba($c-black, 0.2);
 
 		@include mobile-599 {
+			margin-bottom: 8px;
 			font-size: 20px;
 			line-height: 30px;
 		}

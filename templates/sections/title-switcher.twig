@@ -1,0 +1,70 @@
+{% set title = entry.titleSwitcherTitle %}
+{% set switcherPrefix = entry.titleSwitcherSwitcherPrefix %}
+{% set text = entry.titleSwitcherText %}
+{% set link = entry.titleSwitcherButton %}
+{% set switchTexts = entry.titleSwitcherSwitchedTexts %}
+{% set switchTime = entry.titleSwitcherSwitchTime %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--title-switcher js-bg-shape-hld">
+    <div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+        <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+    </div>
+    <div class="u-wrapper">
+        <div class="title-switcher">
+            <div class="title-switcher-left">
+                {% if title and switchTexts %}
+                    <h2 class="title-switcher__title">
+                        <div class="line">{{ title|nl2br }}</div>
+                        <div class="line">
+                            <div class="line__bottom">{{ switcherPrefix }}</div>
+                            <div class="title-switcher-switch-title line__bottom js-title-switcher-switch-title-hld" data-interval="{{ switchTime }}" data-count="{{ switchTexts|length }}">
+                                {% for item in switchTexts %}
+                                    <span class="title-switcher-switch-title__item js-title-switcher-switch-title {{ loop.index == 1 ? 'is-active' : '' }}" data-index="{{ loop.index }}">{{ item.itemTitle }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </h2>
+                {% endif %}
+            </div>
+            <div class="title-switcher-right">
+                {% if text %}
+                    <div class="title-switcher-content u-content">
+                        {{ text }}
+                    </div>
+                {% endif %}
+                {% if link.getUrl() %}
+                    <a href="{{ link.getUrl() }}" class="title-switcher-link u-btn u-btn--arrow">
+                        <span class="text">{{ link.customText }}</span>
+                    </a>
+                {% endif %}
+            </div>
+            {# {% if blocks %}
+                <div class="title-switcher">
+                    <div class="title-switcher__slider js-title-switcher swiper-container" data-count="{{ blocks|length }}">
+                        <div class="swiper-wrapper">
+                            {% for item in blocks %}
+                                {% set title = item.itemTitle %}
+                                {% set link = item.itemUrl %}
+                                {% set image = item.itemLogo.one() %}
+                                {% if link != '' %}
+                                <a class="title-switcher-item title-switcher-item--linked swiper-slide slide" href="{{ link }}" target="_blank" rel="noopener noreferrer">
+                                {% else %}
+                                <div class="title-switcher-item swiper-slide slide">
+                                {% endif %}
+                                    <div class="title-switcher-item__image-hld">
+                                        {% if image %}
+                                            <img class="title-switcher-item__image" src="{{ image.url }}" alt="{{ title }}">
+                                        {% endif %}
+                                    </div>
+                                {% if link != '' %}
+                                </a>
+                                {% else %}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </a>
+                    </div>
+                </div>
+            {% endif %} #}
+        </div>
+    </div>
+</section>
