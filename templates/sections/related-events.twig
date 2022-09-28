@@ -1,0 +1,83 @@
+{% set eventCategory = entry.eventCategory.one() %}
+{% set relatedEntries = craft.entries.section('eventItems').relatedTo(['or',{targetElement: eventCategory, field: 'eventCategory' }]).id('not '~entry.id) %}
+{% set relatedEvents = relatedEntries.limit(3) %}
+{% if relatedEvents|length %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--related-events">
+	<div class="u-wrapper u-wrapper--events-listing">
+		<div class="related-events-hld">
+			<span class="related-events__subtitle u-subtitle u-subtitle--section">Where to find us</span>
+			<h2 class="related-events__title u-title u-title--section">Related Events</h2>
+			<div class="related-events">
+                {% for event in relatedEvents.all() %}
+                    {% set url = event.url %}
+                    {% set additionalUrlParams = false %}
+                    {% if event.eventExternalUrl %}
+                    {% set url = event.eventExternalUrl %}
+                    {% set additionalUrlParams = true %}
+                    {% endif %}
+                    {% set image = event.eventImage.one() %}
+                    {% if image %}
+                        {% set imageUrl = image.getUrl('eventItemListing') %}
+                        {% set imageAlt = image.title %}
+                    {% endif %}
+                    {% set category = event.eventCategory.one() %}
+                    {% set topic = event.eventTopic.one() %}
+                    {% set date = event.eventDate %}
+                    {% set time = event.eventTime %}
+                    {% set place = event.eventPlace %}
+                    {% set title = event.title %}
+                    {% set excerpt = event.eventExcerpt %}
+                    <a href="{{ url }}" class="event-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                        <div class="event-item__img-hld">
+                            {% if image %}
+                                <img class="event-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                            {% else %}
+                                <img class="event-item__img event-item__img--disabled js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/image.jpg') }}" width="408" height="225" alt="Wiliot placeholder image">
+                            {% endif %}
+                        </div>
+                        <div class="event-item__text-hld">
+                            {% if category or topic %}
+                                <div class="event-item__labels">
+                                    {% if category %}
+                                        {% set categoryColor = category.categoryColor %}
+                                        {% set categoryTitle = category.titleSingular %}
+                                        <span class="event-item__label event-item__label--{{ categoryColor }}">{{ categoryTitle }}</span>
+                                    {% endif %}
+                                    {% if topic %}
+                                        {% set topicTitle = topic.title %}
+                                        <span class="event-item__label event-item__label--very-light">{{ topicTitle }}</span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            {% if date or time %}
+                                <div class="event-item__time-and-date">
+                                    {% if date %}
+                                        <span class="event-item__date">{{ date }}</span>
+                                    {% endif %}
+                                    {% if time %}
+                                        <span class="event-item__time">
+                                            <svg class="svg-clock">
+                                                <use xlink:href="#svg-clock"></use>
+                                            </svg>
+                                            {{ time }}
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            {% if place %}
+                                <span class="event-item__place"><img src="{{ alias('@web/src/img/svg/location.svg') }}" width="16" height="16" alt="location icon" /> {{ place }}</span>
+                            {% endif %}
+                            <span class="event-item__title">{{ title }}</span>
+                            {% if excerpt %}
+                                <div class="event-item__excerpt">
+                                    {{ excerpt }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}

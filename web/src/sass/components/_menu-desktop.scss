@@ -26,9 +26,9 @@
 		background-color: $c-white;
 	}
 
-	.is-page-search & {
-		background-color: $c-light;
-
+	.is-page-search &,
+	.is-page-events-listing &,
+	.is-page-event-items & {
 		&::before {
 			content: '';
 			position: absolute;
@@ -53,11 +53,15 @@
 		}
 	}
 
-	.is-page-search .is-scrolled & {
+	.is-page-search {
 		background-color: $c-white;
 
-		&::before {
-			display: none;
+		.is-scrolled & {
+			background-color: $c-white;
+
+			&::before {
+				display: none;
+			}
 		}
 	}
 

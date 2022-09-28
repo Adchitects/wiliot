@@ -221,6 +221,7 @@
 		img {
 			height: auto;
 			filter: grayscale(1);
+			transition: filter 0.2s, opacity 0.2s;
 
 			.is-page-getting & {
 				width: auto;

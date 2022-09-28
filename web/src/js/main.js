@@ -28,3 +28,4 @@ import './scripts/search';
 import './scripts/search-bar';
 import './scripts/searchResults';
 import './scripts/stickyTextSwitch';
+import './scripts/eventsListing';

@@ -102,7 +102,7 @@
 
 	&__nav-hld {
 		height: 100%;
-		padding: 70px 24px;
+		padding: 72px 24px 128px;
 		overflow-x: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
@@ -174,11 +174,14 @@
 
 	&__search-hld {
 		position: absolute;
-		bottom: 60px;
+		bottom: 54px;
 		left: 0;
 		width: 100%;
+		padding-top: 24px;
 		padding-right: 24px;
+		padding-bottom: 6px;
 		padding-left: 24px;
+		background-color: $c-white;
 
 		.search-bar {
 			position: relative;
