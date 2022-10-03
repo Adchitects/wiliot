@@ -78,7 +78,7 @@
 				}
 			</style>
 
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=16092022"/>
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=30092022a"/>
 
 			<script>
 				var scriptsExecuted = false;
@@ -262,7 +262,7 @@
 				{% set sectionId = '01' %}
 				{{ include('/sections/hero-slider.twig') }}
 				{% set sectionId = '02' %}
-				{{ include('/sections/centered-content.twig') }}
+				{{ include('/sections/title-switcher.twig') }}
 				{% set sectionId = '03' %}
 				{{ include('/sections/featured-slider.twig') }}
 				{% set sectionId = '04' %}
@@ -272,7 +272,9 @@
 				{% set sectionId = '06' %}
 				{{ include('/sections/logos-slider.twig') }}
 				{% set sectionId = '07' %}
-				{{ include('/sections/sliding-boxes.twig') }}
+                {# NA LIVE NA RAZIE WRZUCAĆ SLIDING-BOXES #}
+				{{ include('/sections/events-slider.twig') }}
+				{# {{ include('/sections/sliding-boxes.twig') }} #}
 				{% set sectionId = '08' %}
 				{{ include('/sections/latest-news.twig') }}
 				{% set sectionId = '09' %}
@@ -286,7 +288,7 @@
 			{% endblock %}
 		</footer>
 
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=16092022"></script>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=30092022a"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
             <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights"/>

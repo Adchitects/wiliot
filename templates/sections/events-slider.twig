@@ -1,14 +1,30 @@
-{% set eventCategory = entry.eventCategory.one() %}
-{% set relatedEntries = craft.entries.section('eventItems').relatedTo(['or',{targetElement: eventCategory, field: 'eventCategory' }]).id('not '~entry.id) %}
-{% set relatedEvents = relatedEntries.limit(3) %}
-{% if relatedEvents|length %}
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--related-events">
+{% set subtitle = entry.eventsSliderSubtitle %}
+{% set title = entry.eventsSliderTitle %}
+{% set chosenEvents = entry.eventsSliderChosenEvents %}
+{% set entries = craft.entries.section('eventItems') %}
+{% if chosenEvents|length %}
+    {% set events = chosenEvents %}
+    {% set eventsWereChosen = true %}
+{% else %}
+    {% set events = entries.limit(3).all() %}
+    {% set eventsWereChosen = false %}
+{% endif %}
+{% set link = entry.eventsSliderButton %}
+{% if events|length %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section--events-slider u-section">
 	<div class="u-wrapper u-wrapper--events-listing">
-		<div class="related-events-hld">
-			<span class="related-events__subtitle u-subtitle u-subtitle--section">Where to find us</span>
-			<h2 class="related-events__title u-title u-title--section">Related Events</h2>
-			<div class="related-events">
-                {% for event in relatedEvents.all() %}
+		<div class="events-slider-hld">
+            {% if subtitle %}
+                <span class="events-slider__subtitle u-subtitle u-subtitle--section u-subtitle--centered">{{ subtitle }}</span>
+            {% endif %}
+            {% if title %}
+                <h2 class="events-slider__title u-title u-title--section u-title--centered">{{ title }}</h2>
+            {% endif %}
+			<div class="events-slider">
+				{% for event in events %}
+                    {% if eventsWereChosen %}
+                        {% set event = event.itemEvent.one() %}
+                    {% endif %}
                     {% set url = event.url %}
                     {% set additionalUrlParams = false %}
                     {% if event.eventExternalUrl %}
@@ -74,12 +90,19 @@
                                 </div>
                             {% endif %}
                             <div class="event-item__btn u-btn u-btn--arrow">
-                                <span class="text">Read more</span>
-                            </div>
+								<span class="text">Read more</span>
+							</div>
                         </div>
                     </a>
                 {% endfor %}
 			</div>
+            {% if link.getUrl() %}
+                <div class="events-slider__btn-hld">
+                    <a href="{{ link.getUrl() }}" class="events-slider__btn u-btn u-btn--light is-narrow">
+                        <span class="text">{{ link.customText }}</span>
+                    </a>
+                </div>
+            {% endif %}
 		</div>
 	</div>
 </section>

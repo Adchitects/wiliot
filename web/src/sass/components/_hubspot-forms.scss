@@ -6,6 +6,15 @@
 		font-weight: 300;
 		line-height: 19px;
 		opacity: 0.8;
+
+		.u-dark-form & {
+			color: $c-black;
+		}
+
+		.u-bigger-form & {
+			font-size: 16px;
+			line-height: calc(26 / 19);
+		}
 	}
 
 	.hs-field-desc {
@@ -27,6 +36,12 @@
 	.hs-fieldtype-checkbox {
 		.inputs-list {
 			margin-top: 30px;
+
+			.u-sidebar-form & {
+				&:not(.no-list) {
+					margin-top: 16px;
+				}
+			}
 		}
 
 		input {
@@ -87,32 +102,58 @@
 			line-height: 22px !important;
 			resize: none !important;
 
+			.u-dark-form & {
+				border-bottom: 1px solid rgba($c-black, 0.8) !important;
+				color: rgba($c-black, 0.8) !important;
+			}
+
 			&::placeholder {
 				color: rgba($c-white, 0.8) !important;
+
+				.u-dark-form & {
+					color: rgba($c-black, 0.8) !important;
+				}
 			}
 
 			&::-moz-placeholder {
 				color: rgba($c-white, 0.8) !important;
+
+				.u-dark-form & {
+					color: rgba($c-black, 0.8) !important;
+				}
 			}
 
 			&:hover,
 			&:focus {
 				border-bottom: 1px solid rgba($c-white, 0.8) !important;
+
+				.u-dark-form & {
+					border-bottom: 1px solid rgba($c-black, 0.8) !important;
+				}
 			}
 		}
 	}
 
 	.field {
 		position: relative;
-		margin-bottom: 36px;
+		margin-bottom: 32px;
+
+		.u-bigger-form & {
+			// margin-bottom: 42px;
+		}
 
 		&.is-active {
 			input {
 				border-bottom: 1px solid $c-white !important;
+
+				.u-dark-form & {
+					border-bottom: 1px solid rgba($c-black, 0.8) !important;
+				}
 			}
 		}
 
 		input {
+			cursor: pointer;
 			width: 100% !important;
 			height: auto !important;
 			min-height: unset !important;
@@ -128,14 +169,25 @@
 			font-weight: 500 !important;
 			line-height: 26px !important;
 			transition: border-color 0.2s;
+
+			.u-dark-form & {
+				border-bottom: 1px solid rgba($c-black, 0.8) !important;
+				color: $c-black !important;
+			}
 		}
 
 		&.hs-fieldtype-select {
-			border-bottom: 1px solid rgba($c-white, 0.8);
+			.input {
+				border-bottom: 1px solid rgba($c-white, 0.8);
+
+				.u-dark-form & {
+					border-bottom: 1px solid rgba($c-black, 0.8);
+				}
+			}
 
 			&.is-active {
-				> label {
-					transform: translateY(-20px);
+				>label {
+					transform: translateY(-24px);
 
 					span {
 						font-size: 12px;
@@ -149,11 +201,14 @@
 			}
 
 			select {
+				cursor: pointer;
 				width: 100%;
+				padding-bottom: 1px;
 				padding-left: 3px;
 				border: none;
 				background: transparent;
 				color: $c-white;
+				font-family: $font-head;
 				font-size: 16px;
 				font-weight: 500;
 				line-height: 26px;
@@ -162,14 +217,21 @@
 				option {
 					color: #111;
 				}
+
+				.u-dark-form & {
+					color: $c-black;
+				}
 			}
 		}
 
 		.hs-error-msgs {
-			position: absolute;
-			bottom: -24px;
+			position: relative;
+			// position: absolute;
+			// bottom: -24px;
 			left: 0;
 			width: 100%;
+			margin-top: 4px;
+			// margin-bottom: -16px;
 			color: $c-orange;
 			font-size: 13px;
 			font-weight: 500;
@@ -177,6 +239,7 @@
 			line-height: 20px;
 
 			label {
+				padding-left: 4px;
 				color: $c-orange;
 				font-size: 13px;
 				font-weight: 500;
@@ -204,8 +267,8 @@
 		}
 
 		&.is-active {
-			> label {
-				transform: translateY(-20px);
+			>label {
+				transform: translateY(-24px);
 
 				span {
 					font-size: 12px;
@@ -214,18 +277,23 @@
 			}
 		}
 
-		> label {
+		>label {
 			position: absolute;
 			left: 0;
+			cursor: pointer;
 
 			span {
-				padding-left: 5px;
+				padding-left: 4px;
 				color: rgba($c-white, 0.8);
 				font-size: 16px;
 				font-weight: 500;
 				line-height: 26px;
 				transition: transform 0.2s;
 				opacity: 0.5;
+
+				.u-dark-form & {
+					color: rgba($c-black, 0.8);
+				}
 			}
 		}
 
@@ -261,7 +329,7 @@
 			align-items: flex-start;
 			cursor: pointer;
 
-			> span {
+			>span {
 				margin-left: 10px;
 				color: rgba($c-white, 0.8);
 				font-size: 13px;
@@ -269,17 +337,45 @@
 				line-height: 19px;
 				text-align: left;
 
-				> p {
+				.u-bigger-form & {
+					position: relative;
+					top: -2px;
+					font-size: 16px;
+					line-height: calc(26 / 16);
+				}
+
+				.u-dark-form & {
+					color: rgba($c-black, 0.8);
+				}
+
+				>p {
 					color: rgba($c-white, 0.8);
 					font-size: 13px;
 					font-weight: 300;
 					line-height: 19px;
 					opacity: 1;
+
+					.u-dark-form & {
+						color: rgba($c-black, 0.8);
+					}
+
+					.u-bigger-form & {
+						font-size: 16px;
+						line-height: calc(26 / 16);
+					}
 				}
 
 				strong {
 					color: rgba($c-white, 0.8);
 					font-weight: 900;
+
+					.u-dark-form & {
+						color: rgba($c-black, 0.8);
+					}
+
+					.u-sidebar-form & {
+						font-weight: 300;
+					}
 				}
 			}
 		}
@@ -304,6 +400,10 @@
 		margin-top: 56px;
 		text-align: center;
 
+		.u-sidebar-form & {
+			margin-top: 24px;
+		}
+
 		input {
 			cursor: pointer;
 			padding: 16px 70px 14px;
@@ -321,11 +421,25 @@
 				border-color: $c-accent;
 				background-color: $c-accent;
 			}
+
+			.u-sidebar-form & {
+				width: 100%;
+			}
+
+			.u-dark-form & {
+				border-color: $c-accent;
+				background-color: $c-accent;
+
+				&:hover {
+					border-color: darken($c-accent, 10%);
+					background-color: darken($c-accent, 10%);
+				}
+			}
 		}
 	}
 
 	.hs_partner_type_from_form_ {
-		> label {
+		>label {
 			position: absolute;
 			top: -30px;
 			left: 0;
@@ -395,7 +509,7 @@
 	}
 
 	.hs-fieldtype-checkbox {
-		> label {
+		>label {
 			position: absolute;
 			top: -30px;
 			left: 0;
@@ -465,8 +579,13 @@
 	}
 
 	.hs_error_rollup {
-		margin-top: 10px;
+		margin-top: 16px;
+		margin-bottom: -16px;
 		color: $c-orange;
+
+		.u-sidebar-form & {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -494,7 +613,7 @@
 
 	.hs-form,
 	.hbspt-form {
-		> div {
+		>div {
 			&:first-of-type {
 				.hs-richtext {
 					margin-top: 0;
@@ -618,7 +737,7 @@
 		.hs_partner_type_from_form_ {
 			margin-bottom: 0 !important;
 
-			> label {
+			>label {
 				position: absolute;
 				top: -50px;
 				left: 0;
@@ -679,7 +798,7 @@
 		}
 
 		.hs_partner_type_from_form_ {
-			> label {
+			>label {
 				display: none !important;
 			}
 

@@ -28,12 +28,14 @@
 {% set title = event.title %}
 {% set showShareIcons = event.eventShareIcons %}
 {% set content = event.eventContent %}
+{% set video = entry.eventVideo.one() %}
+{% set videoPlaceholder = entry.eventVideoPlaceholder.one() %}
 {% set speakersTitle = event.eventSpeakersTitle %}
 {% set speakers = event.eventSpeakers %}
 {% set sidebarTitle = event.eventSidebarTitle %}
 {% set sidebarText = event.eventSidebarText %}
 {% set sidebarButton = event.eventSidebarButton %}
-{% set sidebarForm = event.eventSidebarFormId %}
+{% set sidebarFormID = event.eventSidebarFormId %}
 
 {% set sectionId = '01' %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--event-details">
@@ -67,78 +69,91 @@
             </div>
             <div class="event-details-main">
                 <div class="event-details-content">
-                    {% if category or topic or date or time or place or length %}
-                    <div class="event-details-info">
-                        {% if category or topic or length %}
-                            <div class="event-details__labels">
-                                {% if category %}
-                                    {% set categoryColor = category.categoryColor %}
-                                    {% set categoryTitle = category.titleSingular %}
-                                    <span class="event-details__label event-details__label--{{ categoryColor }}">{{ categoryTitle }}</span>
-                                {% endif %}
-                                {% if topic %}
-                                    {% set topicTitle = topic.title %}
-                                    <span class="event-details__label event-details__label--very-light">{{ topicTitle }}</span>
-                                {% endif %}
-                                {% if length %}
-                                    <span class="event-details__length">{{ length }}</span>
-                                {% endif %}
+                    <div class="event-details-content-inner">
+                        {% if category or topic or date or time or place or length %}
+                        <div class="event-details-info">
+                            {% if category or topic or length %}
+                                <div class="event-details__labels">
+                                    {% if category %}
+                                        {% set categoryColor = category.categoryColor %}
+                                        {% set categoryTitle = category.titleSingular %}
+                                        <span class="event-details__label event-details__label--{{ categoryColor }}">{{ categoryTitle }}</span>
+                                    {% endif %}
+                                    {% if topic %}
+                                        {% set topicTitle = topic.title %}
+                                        <span class="event-details__label event-details__label--very-light">{{ topicTitle }}</span>
+                                    {% endif %}
+                                    {% if length %}
+                                        <span class="event-details__length">{{ length }}</span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            {% if date or time or place %}
+                                <div class="event-details__time-and-date">
+                                    {% if date %}
+                                        <span class="event-details__date">{{ date }}</span>
+                                    {% endif %}
+                                    {% if time %}
+                                        <span class="event-details__time">
+                                            <svg class="svg-clock">
+                                                <use xlink:href="#svg-clock"></use>
+                                            </svg>
+                                            {{ time }}
+                                        </span>
+                                    {% endif %}
+                                    {% if place %}
+                                        <span class="event-details__place"><img src="{{ alias('@web/src/img/svg/location.svg') }}" width="16" height="16" alt="location icon" /> {{ place }}</span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% if content %}
+                            <div class="event-details__content u-content">
+                                {{ content }}
                             </div>
                         {% endif %}
-                        {% if date or time or place %}
-                            <div class="event-details__time-and-date">
-                                {% if date %}
-                                    <span class="event-details__date">{{ date }}</span>
+                        {% if video %}
+                            <div class="event-details__video-hld js-video-hld is-paused is-before-play">
+                                <span class="icon icon-button_play"></span>
+                                {% if videoPlaceholder %}
+                                    <div class="event-details__video-placeholder">
+                                        <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
+                                    </div>
                                 {% endif %}
-                                {% if time %}
-                                    <span class="event-details__time">
-                                        <svg class="svg-clock">
-                                            <use xlink:href="#svg-clock"></use>
-                                        </svg>
-                                        {{ time }}
-                                    </span>
+                                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
+                            </div>
+                        {% endif %}
+                        {% if speakers|length %}
+                            <div class="event-details-speakers-hld">
+                                {% if speakersTitle %}
+                                    <span class="event-details-speakers-title">{{ speakersTitle }}</span>
                                 {% endif %}
-                                {% if place %}
-                                    <span class="event-details__place"><img src="{{ alias('@web/src/img/svg/location.svg') }}" width="16" height="16" alt="location icon" /> {{ place }}</span>
-                                {% endif %}
+                                <div class="event-details-speakers">
+                                    {% for speaker in speakers %}
+                                        {% set image = speaker.speakerPhoto.one() %}
+                                        <div class="event-details-speaker {% if image %}event-details-speaker--with-photo{% endif %}">
+                                            {% if image %}
+                                                {% set imageUrl = image.getUrl('eventItemSpeaker') %}
+                                                {% set imageAlt = image.title %}
+                                                <div class="event-details-speaker__photo-hld">
+                                                    <img class="event-details-speaker__photo js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                                                </div>
+                                            {% endif %}
+                                            <span class="event-details-speaker__name">{{ speaker.speakerTitle }}</span>
+                                            {% if speaker.speakerPosition %}
+                                                <span class="event-details-speaker__position">{{ speaker.speakerPosition }}</span>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         {% endif %}
                     </div>
-                    {% endif %}
-                    {% if content %}
-                        <div class="event-details__content u-content">
-                            {{ content }}
-                        </div>
-                    {% endif %}
-                    {% if speakers|length %}
-                        <div class="event-details-speakers-hld">
-                            {% if speakersTitle %}
-                                <span class="event-details-speakers-title">{{ speakersTitle }}</span>
-                            {% endif %}
-                            <div class="event-details-speakers">
-                                {% for speaker in speakers %}
-                                    {% set image = speaker.speakerPhoto.one() %}
-                                    <div class="event-details-speaker {% if image %}event-details-speaker--with-photo{% endif %}">
-                                        {% if image %}
-                                            {% set imageUrl = image.getUrl('eventItemSpeaker') %}
-                                            {% set imageAlt = image.title %}
-                                            <div class="event-details-speaker__photo-hld">
-                                                <img class="event-details-speaker__photo js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
-                                            </div>
-                                        {% endif %}
-                                        <span class="event-details-speaker__name">{{ speaker.speakerTitle }}</span>
-                                        {% if speaker.speakerPosition %}
-                                            <span class="event-details-speaker__position">{{ speaker.speakerPosition }}</span>
-                                        {% endif %}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% endif %}
                 </div>
                 <div class="event-details-sidebar">
-                    {% if sidebarTitle or sidebarText or sidebarButton.customText or sidebarForm %}
-                        <div class="event-details-sidebar-box event-details-sidebar-box--{% if sidebarForm %}normal{% else %}sticky{% endif %}">
+                    {% if sidebarTitle or sidebarText or sidebarButton.customText or sidebarFormID %}
+                        <div class="event-details-sidebar-box event-details-sidebar-box--{% if sidebarFormID %}normal{% else %}sticky{% endif %}">
                             {% if sidebarTitle %}
                                 <span class="event-details-sidebar-box__title">{{ sidebarTitle }}</span>
                             {% endif %}
@@ -156,6 +171,48 @@
                                             <span class="text">{{ sidebarButton.customText }}</span>
                                         </span>
                                     {% endif %}
+                                </div>
+                            {% endif %}
+                            {% if sidebarFormID %}
+                                <div class="event-details-form u-dark-form u-bigger-form u-sidebar-form">
+                                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                                    <script
+                                            src="https://code.jquery.com/jquery-3.6.0.min.js"
+                                            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                                            crossorigin="anonymous">
+                                    </script>
+                                    <script>
+                                        function handleState() {
+                                            const fields = document.querySelectorAll('.field input');
+                                            const selects = document.querySelectorAll('.hs-fieldtype-select select');
+                                            if (fields && fields.length > 0) {
+                                                fields.forEach(field => {
+                                                    field.addEventListener('input', () => {
+                                                        field.parentNode.parentNode.classList.add('is-active');
+                                                        if (!field.value) {
+                                                            field.parentNode.parentNode.classList.remove('is-active');
+                                                        }
+                                                    });
+                                                });
+                                            }
+                                            if (selects && selects.length > 0) {
+                                                selects.forEach(select => {
+                                                    select.addEventListener('change', () => {
+                                                        select.parentNode.parentNode.classList.add('is-active');
+                                                        handleState();
+                                                    });
+                                                });
+                                            }
+                                        };
+                                        hbspt.forms.create({
+                                            region: "na1",
+                                            portalId: "4249967",
+                                            formId: "{{ sidebarFormID }}",
+                                            onFormReady: function() {
+                                                handleState();
+                                            },
+                                        });
+                                    </script>
                                 </div>
                             {% endif %}
                         </div>

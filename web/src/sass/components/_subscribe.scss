@@ -222,3 +222,11 @@
 		}
 	}
 }
+
+@include mobile {
+	.u-section--subscribe {
+		.bg-shape--top-right {
+			display: none;
+		}
+	}
+}
