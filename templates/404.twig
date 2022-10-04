@@ -1,10 +1,13 @@
 {% extends "index.twig" %}
+
 {% block title %}
 	{{ siteName }} - Page not found
 {% endblock %}
+
 {% block head %}
 	{{ parent() }}
 {% endblock %}
+
 {% block main %}
 	{% set page404title = page404.page404title %}
 	{% set page404subtitle = page404.page404subtitle %}

@@ -22,6 +22,9 @@
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
 {% endblock %}
+{% block ogurl %}
+    <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}"/>
+{% endblock %}
 {% block main %}
 	{% set newsListingSection = craft.entries.section('newsListing') %}
 	{% set newsListingSectionId = newsListingSection.sectionId[0] %}
