@@ -287,9 +287,9 @@
 				{% set sectionId = '06' %}
 				{{ include('/sections/logos-slider.twig') }}
 				{% set sectionId = '07' %}
-                {# NA LIVE NA RAZIE WRZUCAĆ SLIDING-BOXES #}
-				{{ include('/sections/events-slider.twig') }}
-				{# {{ include('/sections/sliding-boxes.twig') }} #}
+                {# NA LIVE NA RAZIE WRZUCAĆ SLIDING-BOXES, jak eventy pójdą live, to EVENTS-SLIDER #}
+				{# {{ include('/sections/events-slider.twig') }} #}
+				{{ include('/sections/sliding-boxes.twig') }}
 				{% set sectionId = '08' %}
 				{{ include('/sections/latest-news.twig') }}
 				{% set sectionId = '09' %}
