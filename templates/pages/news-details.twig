@@ -22,10 +22,66 @@
     <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}"/>
 {% endblock %}
 
-{% set metaPublishDate = entry.postDate|date("Y-m-d\\TH:i:s\+00:00") %}
+{% set metaPublishDate = entry.postDate|date("Y-m-d\\TH:i:s+00:00") %}
 {% block articleMeta %}
     <meta property="article:publisher" content="https://www.facebook.com/WiliotHQ" />
     <meta property="article:published_time" content="{{ metaPublishDate }}" />
+{% endblock %}
+
+{% block additionalJsonMeta %}
+{% set category = entry.postMainCategory.one() %}
+{% if category == 'Events' %}
+    {% set category = 'Event' %}
+{% elseif category == 'Announcements' %}
+    {% set category = 'Announcement' %}
+{% endif %}
+{% set newsContent = entry.postContent %}
+{% set numberOfWords = newsContent|split(' ')|length %}
+{
+    "@type": "Article",
+    "@id": "{{ craft.app.request.absoluteUrl }}#article",
+    "isPartOf": {
+        "@id": "{{ craft.app.request.absoluteUrl }}#webpage"
+    },
+    "author": {
+        "@id": "https://www.wiliot.com/#/schema/person/4ec60d70396e3b8ceddcbb68a99b81eb"
+    },
+    "headline": "{{ metaTitle }}",
+    "datePublished": "{{ metaPublishDate }}",
+    "dateModified": "{{ postModifyDate }}",
+    "mainEntityOfPage": {
+        "@id": "{{ craft.app.request.absoluteUrl }}#webpage"
+    },
+    "wordCount": {{ numberOfWords }},
+    "publisher": {
+        "@id": "https://www.wiliot.com/#organization"
+    },
+    "image": {
+        "@id": "{{ craft.app.request.absoluteUrl }}#primaryimage"
+    },
+    "thumbnailUrl": "{{ entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
+    "keywords": [
+        "featured"
+    ],
+    "articleSection": [
+        "{{ category }}"
+    ],
+    "inLanguage": "en-US"
+},
+{
+    "@type": "Person",
+    "@id": "https://www.wiliot.com/#/schema/person/4ec60d70396e3b8ceddcbb68a99b81eb",
+    "name": "Wiliot",
+    "image": {
+        "@type": "ImageObject",
+        "inLanguage": "en-US",
+        "@id": "https://www.wiliot.com/#/schema/person/image/",
+        "url": "https://1.gravatar.com/avatar/d2d4fec3f279399cd2ddc62545544b08?s=96&d=mm&r=g",
+        "contentUrl": "https://1.gravatar.com/avatar/d2d4fec3f279399cd2ddc62545544b08?s=96&d=mm&r=g",
+        "caption": "Wiliot"
+    },
+    "url": "https://www.wiliot.com/blog"
+}
 {% endblock %}
 
 {% block main %}
