@@ -278,6 +278,7 @@
 .event-details-speakers {
 	display: flex;
 	flex-wrap: wrap;
+	margin-bottom: -24px;
 
 	&:not(:first-child) {
 		margin-top: 24px;
@@ -289,6 +290,7 @@
 	width: 100%;
 	max-width: 168px;
 	margin-right: 40px;
+	margin-bottom: 24px;
 
 	&--with-photo {
 		max-width: 216px;
@@ -490,9 +492,14 @@
 		font-size: 16px;
 	}
 
+	.event-details-speakers {
+		margin-bottom: 0;
+	}
+
 	.event-details-speaker {
 		max-width: none;
 		margin-right: 0;
+		margin-bottom: 0;
 
 		&:not(:first-child) {
 			margin-top: 16px;

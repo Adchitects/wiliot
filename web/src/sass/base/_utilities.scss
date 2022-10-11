@@ -215,6 +215,33 @@
 		}
 	}
 
+	ul {
+		&:not(:first-child) {
+			margin-top: 12px;
+		}
+
+		li {
+			position: relative;
+			padding-left: 22px;
+
+			&:not(:first-child) {
+				margin-top: 10px;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 10px;
+				left: 0;
+				pointer-events: none;
+				width: 4px;
+				height: 4px;
+				border-radius: 50%;
+				background-color: $c-accent;
+			}
+		}
+	}
+
 	ol {
 		max-width: 624px;
 		margin-top: 24px;
