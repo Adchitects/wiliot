@@ -124,10 +124,13 @@
 				color: $c-white;
 				opacity: 0;
 
-				@include mobile-small-425 {
-					top: -7px;
+				@include mobile {
+					top: calc(100% + 4px);
+					right: unset;
+					left: 50%;
 					padding: 5px 4px 3px;
 					font-size: 9px;
+					transform: translateX(-50%) !important;
 				}
 
 				&::before {
@@ -141,7 +144,7 @@
 					background-color: $c-accent-dark;
 					transform: translateY(-50%) rotate(45deg);
 
-					@include mobile-small-425 {
+					@include mobile {
 						display: none;
 					}
 				}
@@ -150,8 +153,9 @@
 					&::before {
 						left: -3px;
 
-						@include mobile-small-425 {
-							left: 0;
+						@include mobile {
+							right: unset;
+							left: 50%;
 						}
 					}
 				}
@@ -160,8 +164,9 @@
 					&::before {
 						right: -3px;
 
-						@include mobile-small-425 {
-							right: 0;
+						@include mobile {
+							right: unset;
+							left: 50%;
 						}
 					}
 				}

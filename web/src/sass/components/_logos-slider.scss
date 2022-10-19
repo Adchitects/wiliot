@@ -51,8 +51,12 @@
 		padding: 0 30px;
 
 		.btn {
-			margin-top: 70px;
+			margin-top: 72px;
 			padding: 16px 55px 14px;
+
+			@include mobile {
+				margin-top: 48px;
+			}
 		}
 	}
 
@@ -66,16 +70,16 @@
 		margin-top: 96px;
 
 		@include media-max(1023) {
-			margin-top: 50px;
+			margin-top: 48px;
 		}
 
 		@include media-max(767) {
-			margin-top: 60px;
+			margin-top: 64px;
 		}
 	}
 
 	.logos-slider__title {
-		margin-bottom: 45px;
+		margin-bottom: 48px;
 		font-size: 32px;
 		font-weight: 900;
 		line-height: 40px;
@@ -88,7 +92,7 @@
 		margin-top: 40px;
 
 		.is-page-press & {
-			margin-top: 25px;
+			margin-top: 24px;
 		}
 
 		.is-page-getting & {

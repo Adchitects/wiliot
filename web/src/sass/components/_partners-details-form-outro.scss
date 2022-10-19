@@ -22,10 +22,19 @@
 		max-width: 520px;
 		margin: 50px auto 0;
 
-		.hs_firstname,
-		.hs_lastname {
-			display: inline-block;
-			width: calc(50% - 10px);
+		form {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.field {
+			width: 100%;
+
+			&.hs_firstname,
+			&.hs_lastname {
+				// display: inline-block;
+				width: calc(50% - 10px);
+			}
 		}
 
 		.hs_firstname {
@@ -34,6 +43,16 @@
 
 		.hs_lastname {
 			margin-left: 10px;
+		}
+
+		.hs-richtext {
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		.hs-submit {
+			width: 100%;
 		}
 
 		.hbspt-form .hs_message textarea,

@@ -11,6 +11,11 @@
 		z-index: 200;
 		padding: 16px 24px;
 		background-color: $c-white;
+
+		@include mobile {
+			padding-right: 16px;
+			padding-left: 16px;
+		}
 	}
 
 	&__logo-hld {

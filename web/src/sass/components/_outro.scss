@@ -1,16 +1,20 @@
 .u-section--outro {
-	padding: 95px 0;
+	padding: 96px 0;
 	background-color: $c-accent-dark;
 	overflow: hidden;
 
 	.is-page-company & {
-		margin-top: 90px;
+		margin-top: 88px;
+
+		@include mobile {
+			margin-top: 18px;
+		}
 	}
 
 	.is-page-starter-kit & {
 		margin-top: 105px;
-		padding-top: 130px;
-		padding-bottom: 115px;
+		padding-top: 132px;
+		padding-bottom: 116px;
 
 		@include mobile-767 {
 			margin-top: 80px;
@@ -20,7 +24,7 @@
 	}
 
 	.is-page-partner & {
-		padding: 130px 0 110px;
+		padding: 132px 0 108px;
 	}
 
 	.platform & {
@@ -32,7 +36,7 @@
 	}
 
 	@include mobile-767 {
-		padding: 60px 0;
+		padding: 64px 0;
 	}
 }
 
@@ -109,17 +113,27 @@
 
 	&__btn-hld {
 		display: inline-block;
+
+		@include mobile {
+			& + .outro__btn {
+				margin-top: 16px;
+			}
+		}
 	}
 
 	&__btn {
 		margin: 48px 10px 0;
 
+		@include mobile-599 {
+			margin-top: 32px;
+		}
+
 		&:nth-of-type(2) {
-			margin-top: 45px;
+			margin-top: 48px;
 			padding: 16px 45px 14px;
 
 			@include mobile-599 {
-				margin-top: 35px;
+				margin-top: 16px;
 			}
 		}
 

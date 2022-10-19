@@ -34,7 +34,7 @@
 	&.is-with-image {
 		@include tablet-medium-1199 {
 			height: auto;
-			padding-top: 60px;
+			padding-top: 80px;
 			padding-bottom: 20px;
 		}
 	}
@@ -140,7 +140,7 @@
 					padding: 17px 45px 14px;
 
 					@include tablet-small-1023 {
-						margin-top: 15px;
+						margin-top: 16px;
 						margin-left: 0;
 					}
 				}
@@ -179,7 +179,7 @@
 			font-weight: 500;
 			opacity: 1;
 
-			+ .buttons-hld {
+			+.buttons-hld {
 				margin-top: 48px;
 			}
 		}

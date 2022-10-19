@@ -522,12 +522,6 @@
 }
 
 @include mobile-small {
-	.event-details-sidebar {
-		width: auto;
-		margin-right: -14px;
-		margin-left: -14px;
-	}
-
 	.event-details-sidebar-box {
 		padding-right: 16px;
 		padding-left: 16px;

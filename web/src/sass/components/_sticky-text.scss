@@ -144,6 +144,10 @@
 }
 
 @include mobile {
+	.u-section--sticky-text.u-section {
+		padding-bottom: 80px;
+	}
+
 	.sticky-text {
 		margin-top: 64px;
 	}
@@ -157,6 +161,6 @@
 	}
 
 	.sticky-text-image-item:not(:first-child) {
-		margin-top: 80px;
+		margin-top: 64px;
 	}
 }

@@ -1,10 +1,10 @@
 .u-section--carousel {
 	margin-top: 0;
-	padding-top: 90px;
+	padding-top: 88px;
 	padding-bottom: 80px;
 	background-image: radial-gradient(circle, #F5F5FC 0%, #F5F9FC 100%);
 
-	+ .u-section--logos-slider {
+	+.u-section--logos-slider {
 		margin-top: 0;
 		background-color: $c-white;
 		background-image: none;
@@ -36,10 +36,10 @@
 	}
 
 	&__slider-hld {
-		margin-top: 70px;
+		margin-top: 72px;
 
 		@include mobile-599 {
-			margin-top: 30px;
+			margin-top: 32px;
 		}
 	}
 

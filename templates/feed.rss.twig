@@ -1,7 +1,13 @@
-{% set entries = craft.entries()
+{% set entriesNewsIDs = craft.entries()
     .section('newsPosts')
     .limit(15)
-    .all() %}
+    .ids() %}
+{% set entriesPodcastsIDs = craft.entries()
+    .section('podcastDetails')
+    .limit(15)
+    .ids() %}
+{% set allEntriesIds = entriesNewsIDs|merge(entriesPodcastsIDs) %}
+{% set rssEntries = craft.entries.id(allEntriesIds).orderBy('postDate desc') %}
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
@@ -13,14 +19,19 @@
         <pubDate>{{ now|rss }}</pubDate>
         <lastBuildDate>{{ now|rss }}</lastBuildDate>
 
-        {% for entry in entries %}
+        {% for entry in rssEntries %}
             <item>
                 <title>{{ entry.title }}</title>
                 <link>{{ entry.url }}</link>
                 <pubDate>{{ entry.postDate|rss }}</pubDate>
                 <guid>{{ entry.url }}</guid>
                 <description>
+                    {% if entry.postContent %}
                     <![CDATA[{{ entry.postContent }}]]>
+                    {% endif %}
+                    {% if entry.podcastDetailsContent %}
+                    <![CDATA[{{ entry.podcastDetailsContent }}]]>
+                    {% endif %}
                 </description>
             </item>
         {% endfor %}

@@ -2,9 +2,15 @@
 	margin-top: 140px;
 	overflow: hidden;
 
+	@include tablet-small {
+		&.u-section {
+			margin-top: 108px;
+		}
+	}
+
 	@include mobile-767 {
 		&.u-section {
-			margin-top: 120px;
+			margin-top: 88px;
 		}
 	}
 
@@ -14,6 +20,11 @@
 		padding-right: 30px;
 		padding-bottom: 90px;
 		padding-left: 30px;
+
+		@include mobile {
+			padding-right: 16px;
+			padding-left: 16px;
+		}
 
 		&__title {
 			font-size: 32px;

@@ -22,7 +22,9 @@
 		padding-left: 30px;
 
 		@include media-max(767) {
-			padding-bottom: 140px;
+			padding-right: 16px;
+			padding-bottom: 108px;
+			padding-left: 16px;
 		}
 
 		&__title {
