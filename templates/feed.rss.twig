@@ -1,13 +1,14 @@
 {% set entriesNewsIDs = craft.entries()
     .section('newsPosts')
-    .limit(15)
     .ids() %}
 {% set entriesPodcastsIDs = craft.entries()
     .section('podcastDetails')
-    .limit(15)
     .ids() %}
-{% set allEntriesIds = entriesNewsIDs|merge(entriesPodcastsIDs) %}
-{% set rssEntries = craft.entries.id(allEntriesIds).orderBy('postDate desc') %}
+{% set entriesEventsIDs = craft.entries()
+    .section('eventItems')
+    .ids() %}
+{% set allEntriesIds = entriesNewsIDs|merge(entriesPodcastsIDs)|merge(entriesEventsIDs) %}
+{% set rssEntries = craft.entries.id(allEntriesIds).orderBy('postDate desc').limit(1000) %}
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
@@ -26,11 +27,18 @@
                 <pubDate>{{ entry.postDate|rss }}</pubDate>
                 <guid>{{ entry.url }}</guid>
                 <description>
+                    {% set excerpt = false %}
                     {% if entry.postContent %}
-                    <![CDATA[{{ entry.postContent }}]]>
+                        {% set excerpt = entry.postContent|striptags|slice(0, 650) %}
                     {% endif %}
                     {% if entry.podcastDetailsContent %}
-                    <![CDATA[{{ entry.podcastDetailsContent }}]]>
+                        {% set excerpt = entry.podcastDetailsContent|striptags|slice(0, 650) %}
+                    {% endif %}
+                    {% if entry.eventContent %}
+                        {% set excerpt = entry.eventContent|striptags|slice(0, 650) %}
+                    {% endif %}
+                    {% if excerpt %}
+                        <![CDATA[{{ excerpt }}]]>
                     {% endif %}
                 </description>
             </item>
