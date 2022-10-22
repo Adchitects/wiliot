@@ -38,7 +38,7 @@
                         {% set excerpt = entry.eventContent|striptags|slice(0, 650) %}
                     {% endif %}
                     {% if excerpt %}
-                        <![CDATA[{{ excerpt }}]]>
+                        <![CDATA[{{ excerpt|raw }}]]>
                     {% endif %}
                 </description>
             </item>
