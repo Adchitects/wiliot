@@ -37,51 +37,57 @@
 {% endif %}
 {% set newsContent = entry.postContent %}
 {% set numberOfWords = newsContent|split(' ')|length %}
-{
-    "@type": "Article",
-    "@id": "{{ craft.app.request.absoluteUrl }}#article",
-    "isPartOf": {
-        "@id": "{{ craft.app.request.absoluteUrl }}#webpage"
-    },
-    "author": {
-        "@id": "https://www.wiliot.com/#/schema/person/4ec60d70396e3b8ceddcbb68a99b81eb"
-    },
-    "headline": "{{ metaTitle }}",
-    "datePublished": "{{ metaPublishDate }}",
-    "dateModified": "{{ postModifyDate }}",
-    "mainEntityOfPage": {
-        "@id": "{{ craft.app.request.absoluteUrl }}#webpage"
-    },
-    "wordCount": {{ numberOfWords }},
-    "publisher": {
-        "@id": "https://www.wiliot.com/#organization"
-    },
-    "image": {
-        "@id": "{{ craft.app.request.absoluteUrl }}#primaryimage"
-    },
-    "thumbnailUrl": "{{ entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
-    "keywords": [
-        "featured"
-    ],
-    "articleSection": [
-        "{{ category }}"
-    ],
-    "inLanguage": "en-US"
-},
-{
-    "@type": "Person",
-    "@id": "https://www.wiliot.com/#/schema/person/4ec60d70396e3b8ceddcbb68a99b81eb",
-    "name": "Wiliot",
-    "image": {
-        "@type": "ImageObject",
-        "inLanguage": "en-US",
-        "@id": "https://www.wiliot.com/#/schema/person/image/",
-        "url": "https://1.gravatar.com/avatar/d2d4fec3f279399cd2ddc62545544b08?s=96&d=mm&r=g",
-        "contentUrl": "https://1.gravatar.com/avatar/d2d4fec3f279399cd2ddc62545544b08?s=96&d=mm&r=g",
-        "caption": "Wiliot"
-    },
-    "url": "https://www.wiliot.com/blog"
-}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "{{ craft.app.request.absoluteUrl }}#article",
+        "isPartOf": {
+            "@id": "{{ craft.app.request.absoluteUrl }}#webpage"
+        },
+        "author": {
+            "@id": "https://www.wiliot.com/#/schema/person/4ec60d70396e3b8ceddcbb68a99b81eb"
+        },
+        "headline": "{{ metaTitle }}",
+        "datePublished": "{{ metaPublishDate }}",
+        "dateModified": "{{ postModifyDate }}",
+        "mainEntityOfPage": {
+            "@id": "{{ craft.app.request.absoluteUrl }}#webpage"
+        },
+        "wordCount": {{ numberOfWords }},
+        "publisher": {
+            "@id": "https://www.wiliot.com/#organization"
+        },
+        "image": {
+            "@id": "{{ craft.app.request.absoluteUrl }}#primaryimage"
+        },
+        "thumbnailUrl": "{{ entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
+        "keywords": [
+            "featured"
+        ],
+        "articleSection": [
+            "{{ category }}"
+        ],
+        "inLanguage": "en-US"
+    }
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://www.wiliot.com/#/schema/person/4ec60d70396e3b8ceddcbb68a99b81eb",
+        "name": "Wiliot",
+        "image": {
+            "@type": "ImageObject",
+            "inLanguage": "en-US",
+            "@id": "https://www.wiliot.com/#/schema/person/image/",
+            "url": "https://1.gravatar.com/avatar/d2d4fec3f279399cd2ddc62545544b08?s=96&d=mm&r=g",
+            "contentUrl": "https://1.gravatar.com/avatar/d2d4fec3f279399cd2ddc62545544b08?s=96&d=mm&r=g",
+            "caption": "Wiliot"
+        },
+        "url": "https://www.wiliot.com/blog"
+    }
+</script>
 {% endblock %}
 
 {% block main %}
