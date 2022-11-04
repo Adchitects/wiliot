@@ -21,7 +21,9 @@
 		}
 
 		&__col {
-			&--animation {}
+			&--animation {
+				width: 100%;
+			}
 
 			&--content {
 				display: flex;
