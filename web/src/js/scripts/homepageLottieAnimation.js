@@ -11,7 +11,7 @@ if (animationHld) {
 			renderer: 'svg',
 			loop: true,
 			autoplay: true,
-			path: '/src/img/williot-homepage-animation.json',
+			path: animation.dataset.animationPath,
 		});
 		gsap.to(animationHld, {
 			scrollTrigger: {
