@@ -4,11 +4,6 @@
 	background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 0%);
 	overflow: hidden;
 
-	@include media-max(767) {
-		padding-top: 60px;
-		padding-bottom: 40px;
-	}
-
 	.features {
 		display: flex;
 		flex-direction: column;
@@ -18,106 +13,36 @@
 			text-align: center;
 		}
 
-		&__grid {
-			display: grid;
-			grid-template-areas: 'a b'
-				'c d'
-				'e f';
-			margin-top: 150px;
+		&__row {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin-top: 48px;
+		}
 
-			@include tablet-small-1023 {
-				grid-template-areas: unset;
-				grid-template-columns: 1fr;
-				grid-gap: 32px 0;
+		&__col {
+			&--animation {
+				width: 100%;
 			}
 
-			@include mobile-599 {
-				margin-top: 30px;
+			&--content {
+				display: flex;
+				justify-content: space-between;
+				width: calc(50% - 52px);
+				margin-top: 40px;
 			}
 
 			.item {
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
+				justify-content: flex-start;
 				position: relative;
-
-				@include tablet-small-1023 {
-					grid-area: unset !important;
-				}
-
-				&:nth-of-type(1) {
-					grid-area: a;
-					z-index: 1;
-					margin-right: 120px;
-					transform: translateY(-50px);
-
-					@include tablet-small-1023 {
-						margin-right: 0;
-						transform: translateY(0);
-					}
-				}
-
-				&:nth-of-type(2) {
-					grid-area: d;
-					z-index: 1;
-					margin-top: 170px;
-					margin-left: 120px;
-
-					@include tablet-small-1023 {
-						margin-top: 0;
-						margin-left: 0;
-					}
-				}
-
-				&:nth-of-type(3) {
-					grid-area: e;
-					margin-right: 120px;
-
-					@include tablet-small-1023 {
-						margin-right: 0;
-					}
-				}
-
-				&:nth-of-type(4) {
-					grid-area: b / c / f / f;
-					pointer-events: none;
-					user-select: none;
-					transform: translateY(-50px) scale(1.1);
-
-					svg {
-						width: 100%;
-						height: 1000px !important;
-						user-select: none;
-					}
-
-					@include tablet-small-1023 {
-						display: none;
-					}
-				}
-
-				&__image-mobile {
-					display: none;
-
-					@include tablet-small-1023 {
-						display: block;
-						margin-bottom: 20px;
-						transform: translateY(-20px) scale(1.5);
-					}
-
-					@include mobile-599 {
-						transform: translateY(0) scale(1.1);
-					}
-				}
+				padding-bottom: 42px;
 
 				&__content {
 					display: flex;
 					flex-direction: column;
 					width: 100%;
-					max-width: 408px;
-
-					@include tablet-small-1023 {
-						max-width: 460px;
-					}
 				}
 
 				&__title {
@@ -128,10 +53,10 @@
 				}
 
 				&__description {
+					color: rgba($c-black, 0.8);
 					font-size: 16px;
 					font-weight: 300;
 					line-height: 26px;
-					opacity: 0.8;
 
 					@include tablet-small-1023 {
 						font-size: 15px;
@@ -139,17 +64,104 @@
 				}
 
 				&__btn {
-					margin-top: 20px;
+					position: absolute;
+					bottom: 0;
+					left: 0;
 				}
 			}
 		}
 
-		&__btn {
-			margin-top: 130px;
-			padding: 16px 40px 14px;
+		&__animation {
+			&--desktop {}
+
+			&--mobile {
+				display: none;
+			}
+		}
+
+		&__btn-hld {
+			display: flex;
+			justify-content: center;
+			margin-top: 80px;
 
 			@include tablet-small-1023 {
-				margin-top: 50px;
+				margin-top: 48px;
+			}
+		}
+
+		&__btn {
+			padding: 16px 40px 14px;
+		}
+	}
+}
+
+@include tablet-big {
+	.u-section--features {
+		.features {
+			&__row {
+				max-width: 800px;
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+	}
+}
+
+@include tablet-small {
+	.u-section--features {
+		.features {
+			&__row {
+				max-width: 664px;
+			}
+
+			&__col {
+				&--content {
+					width: calc(50% - 32px);
+				}
+			}
+		}
+	}
+}
+
+@include mobile {
+	.u-section--features {
+		padding-top: 60px;
+		padding-bottom: 60px;
+
+		.features {
+			&__row {
+				max-width: 442px;
+			}
+
+			&__col {
+				&--animation {
+					order: 1;
+				}
+
+				&--content {
+					order: 3;
+					width: 100%;
+
+					&[data-index='1'] {
+						order: 0;
+						margin-top: 0;
+						margin-bottom: 48px;
+					}
+
+					&[data-index='2'] {
+						order: 2;
+					}
+				}
+			}
+
+			&__animation {
+				&--desktop {
+					display: none;
+				}
+
+				&--mobile {
+					display: block;
+				}
 			}
 		}
 	}
