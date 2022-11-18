@@ -59,6 +59,7 @@
                                 {% endif %}
                             {% endfor %}
                             {% set hubspotFormId = item.hubspotFormId %}
+                            {% set isTypeFormBtn = item.isTypeformButton %}
                             {% if isHubspotModal %}
                                 <div class="outro__btn-hld js-modal-hld">
                                     <div class="outro__btn u-btn {{ loop.index == 1 ? 'u-btn--bordered' : 'u-btn--white' }} js-modal-btn">
@@ -116,6 +117,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            {% elseif isTypeFormBtn %}
+                            {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                <button class="outro__btn u-btn u-btn--white is-narrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                    <span class="text">{{ button.customText }}</span>
+                                </button>
                             {% else %}
                                 <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn {{ loop.index == 1 ? 'u-btn--bordered' : 'u-btn--white' }}">
                                     <span class="text">{{ button.customText }}</span>

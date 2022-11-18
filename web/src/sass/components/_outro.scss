@@ -4,11 +4,7 @@
 	overflow: hidden;
 
 	.is-page-company & {
-		margin-top: 88px;
-
-		@include mobile {
-			margin-top: 18px;
-		}
+		margin-top: 0;
 	}
 
 	.is-page-starter-kit & {
@@ -20,6 +16,25 @@
 			margin-top: 80px;
 			padding-top: 80px;
 			padding-bottom: 80px;
+		}
+	}
+
+	& + .u-section--outro {
+		margin-top: 0;
+	}
+
+	&.is-light {
+		background: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+		overflow: hidden;
+
+		.outro__text-hld {
+			.outro__subtitle {
+				color: $c-gray;
+			}
+
+			.outro__title {
+				color: $c-black;
+			}
 		}
 	}
 
@@ -123,6 +138,10 @@
 
 	&__btn {
 		margin: 48px 10px 0;
+
+		&[data-tf-popup] {
+			min-width: 192px;
+		}
 
 		@include mobile-599 {
 			margin-top: 32px;

@@ -1,5 +1,6 @@
 {% set pages = craft.entries.section('menuMobile').all() %}
 {% set socials = pageOptions.pageOptionsSocials.all() %}
+{% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
 <div class="menu-mobile js-menu-mobile-hld">
 	<div class="menu-mobile__bar">
 		<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="menu-mobile__logo-hld">
@@ -19,7 +20,12 @@
 					{% set menuMobileTitle = page.title %}
 					{% set menuMobilePageLink = page.menuMobilePageLink %}
 					<li class="menu-mobile__nav-list-item {% if entry is defined and page.slug == entry.slug %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
-						{% if menuMobilePageLink.url %}
+                        {% if lastIsTypeform and loop.index == 1 %}
+                            {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                            <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                <span class="text">{{ menuMobileTitle }}</span>
+                            </button>
+						{% elseif menuMobilePageLink.url %}
 							<a href="{{ menuMobilePageLink.url }}" target="{{ menuMobilePageLink.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink.target ? 'noopener noreferrer' : null }}" class="inner">
 								<span class="text">{{ menuMobileTitle }}</span>
 							</a>

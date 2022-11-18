@@ -50,6 +50,10 @@
 	padding-right: 30px;
 	padding-left: 30px;
 
+	&--normal {
+		max-width: 1115px;
+	}
+
 	&--wide {
 		max-width: 1380px;
 	}
@@ -408,6 +412,11 @@
 
 		.text {
 			color: $c-accent;
+		}
+
+		&.is-narrow {
+			padding-right: 40px;
+			padding-left: 40px;
 		}
 
 		&.is-hovered,
