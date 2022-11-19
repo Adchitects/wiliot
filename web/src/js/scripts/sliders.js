@@ -267,12 +267,17 @@ const carouselSliderHldAll = document.querySelectorAll('.js-carousel-slider-hld'
 carouselSliderHldAll.forEach(sliderHld => {
 	const carouselSlider = new Swiper(sliderHld.querySelector('.js-carousel-slider'), {
 		slidesPerView: 'auto',
-		spaceBetween: 24,
+		spaceBetween: 16,
 		grabCursor: true,
 		threshold: 30,
 		navigation: {
 			prevEl: '.js-carousel-slider-button-prev',
 			nextEl: '.js-carousel-slider-button-next',
+		},
+		breakpoints: {
+			600: {
+				spaceBetween: 24,
+			},
 		},
 	});
 	carouselSlider;

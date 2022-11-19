@@ -4,11 +4,6 @@
 	padding-bottom: 128px;
 	background-color: $c-white;
 	overflow: hidden;
-
-	@include mobile-767 {
-		padding-top: 80px;
-		padding-bottom: 80px;
-	}
 }
 
 .contact-company {
@@ -238,6 +233,11 @@
 }
 
 @include mobile {
+	.u-section--contact-company {
+		padding-top: 96px;
+		padding-bottom: 80px;
+	}
+
 	.contact-company__offices {
 		max-width: 408px;
 
