@@ -31,8 +31,8 @@
 
 			{% block description %}
 				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}" />
-				<link rel="canonical" href="{{ craft.app.request.absoluteUrl }}" />
 			{% endblock %}
+			<link rel="canonical" href="{{ craft.app.request.absoluteUrl }}" />
 
             <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
@@ -226,6 +226,7 @@
                     ]
                 }
             </script>
+            {#
             <script type="application/ld+json">
                 {
                     "@context": "https://schema.org",
@@ -246,6 +247,7 @@
                     ]
                 }
             </script>
+            #}
             {% block additionalJsonMeta %}
             {% endblock %}
 
