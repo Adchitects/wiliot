@@ -28,14 +28,30 @@
                 <guid>{{ entry.url }}</guid>
                 <description>
                     {% set excerpt = false %}
+                    {% set thumbnailUrl = false %}
                     {% if entry.postContent %}
                         {% set excerpt = entry.postContent|striptags|slice(0, 650) %}
+                        {% set image = entry.newsPostsfeaturedImage.one() %}
+                        {% if image %}
+                            {% set thumbnailUrl = image.getUrl() %}
+                        {% endif %}
                     {% endif %}
                     {% if entry.podcastDetailsContent %}
                         {% set excerpt = entry.podcastDetailsContent|striptags|slice(0, 650) %}
+                        {% set image = entry.podcastDetailsImage.one() %}
+                        {% if image %}
+							{% set thumbnailUrl = image.getUrl('latestPostThumb') %}
+                        {% endif %}
                     {% endif %}
                     {% if entry.eventContent %}
                         {% set excerpt = entry.eventContent|striptags|slice(0, 650) %}
+                        {% set image = entry.eventImage.one() %}
+                        {% if image %}
+                            {% set thumbnailUrl = image.getUrl('eventItemListing') %}
+                        {% endif %}
+                    {% endif %}
+                    {% if thumbnailUrl %}
+                        <![CDATA[<img src="{{ thumbnailUrl }}" />]]>
                     {% endif %}
                     {% if excerpt %}
                         <![CDATA[{{ excerpt|raw }}]]>
