@@ -9,14 +9,20 @@
 	{% elseif category is defined %}
 		{% set metaTitle = category.metaTitle %}
 		{% set metaDescription = category.metaDescription %}
-		{% set postCreatedDate = null %}
-		{% set postModifyDate = null %}
+		{% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
+		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
     {% else %}
         {% set metaTitle = globalMetaTags.metaTitle %}
 		{% set metaDescription = globalMetaTags.metaDescription %}
-		{% set postCreatedDate = null %}
-		{% set postModifyDate = null %}
+		{% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
+		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
 	{% endif %}
+
+    {% set handle = entry.section.handle %}
+    {% if handle == 'homepage' %}
+        {% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
+		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
+    {% endif %}
 
 	{% block head %}
 		<head>
@@ -196,7 +202,7 @@
                     "contentUrl": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
                     "width": 1200,
                     "height": 628,
-                    "caption": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() and entry.heroTitle ? entry.heroTitle : 'threat detection and response' }}"
+                    "caption": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() and entry.heroTitle ? entry.heroTitle : 'Wiliot Platform powered by IoT Pixels.' }}"
                 }
             </script>
             <script type="application/ld+json">
@@ -208,6 +214,11 @@
                     "name": "{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}",
                     "isPartOf": {
                         "@id": "https://www.wiliot.com/#website"
+                    },
+                    "publisher":
+                    {
+                        "name": "Wiliot",
+                        "url": "https://www.wiliot.com"
                     },
                     "datePublished": "{{ postCreatedDate }}",
                     "dateModified": "{{ postModifyDate }}",
