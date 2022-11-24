@@ -2,12 +2,27 @@
 	padding-bottom: 76px;
 	background-image: linear-gradient(180deg, #FFFFFF 0%, #F5F6FD 100%);
 
+	.is-page-redirection-kit-pages & {
+		margin-top: 128px;
+		padding-bottom: 128px;
+	}
+
 	.cards {
+		&__subtitle {}
+
+		&__title {
+			margin-bottom: 72px;
+		}
+
 		&__hld {
 			display: grid;
 			justify-content: center;
 			grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
 			grid-gap: 24px;
+
+			.is-page-redirection-kit-pages & {
+				grid-template-columns: repeat(auto-fit, minmax(300px, 408px));
+			}
 		}
 
 		&__item {
@@ -16,6 +31,14 @@
 			border-radius: 6px;
 			background-color: $c-white;
 			box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+
+			&:first-child {
+				.img-hld {
+					.is-page-redirection-kit-pages & {
+						background-color: #D1F5F5;
+					}
+				}
+			}
 
 			&.is-coming-soon {
 				.img-hld {
@@ -59,11 +82,23 @@
 						transform: translateY(2px);
 					}
 				}
+
+				.is-page-redirection-kit-pages & {
+					height: 300px;
+					background-color: #CEE8E7;
+
+					img {
+						width: auto;
+						height: 100%;
+						margin-right: auto;
+						margin-left: auto;
+					}
+				}
 			}
 
 			.text-hld {
 				height: auto;
-				padding-top: 22px;
+				padding-top: 16px;
 				padding-bottom: 10px;
 				padding-left: 14px;
 				border-bottom-left-radius: 6px;
@@ -71,17 +106,25 @@
 				background-color: $c-white;
 
 				.name {
-					min-height: 56px;
+					// min-height: 56px;
 					padding-right: 20px;
 					font-size: 24px;
 					font-weight: 900;
 					letter-spacing: 0;
-					line-height: calc(28 / 24);
+					line-height: calc(36 / 24);
+				}
+
+				.price {
+					color: rgba($c-black, 0.8);
+					font-size: 16px;
+					font-weight: 400;
+					line-height: calc(26 / 16);
 				}
 
 				.description {
+					max-width: 284px;
 					margin-top: 4px;
-					padding-right: 20px;
+					padding-right: 16px;
 					color: rgba($c-black, 0.8);
 					font-size: 14px;
 					font-weight: 900;
@@ -92,7 +135,7 @@
 				.content-hld {
 					position: relative;
 					cursor: pointer;
-					margin-top: 48px;
+					margin-top: 40px;
 					transition: opacity 0.2s;
 
 					&:hover {
@@ -195,6 +238,14 @@
 				padding: 16px 35px 13px;
 				text-align: center;
 			}
+		}
+	}
+}
+
+@include tablet-small {
+	.u-section--cards {
+		.bg-shape {
+			display: none;
 		}
 	}
 }

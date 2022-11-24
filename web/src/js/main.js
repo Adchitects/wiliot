@@ -30,3 +30,4 @@ import './scripts/searchResults';
 import './scripts/stickyTextSwitch';
 import './scripts/eventsListing';
 import './scripts/titleSwitcher';
+import './scripts/headerPopup';

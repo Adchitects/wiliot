@@ -275,9 +275,13 @@
 		<header class="header header--desktop js-header js-search-bar-hld">
 			{{ include('/sections/search-bar.twig') }}
 			{{ include('/sections/menu-desktop.twig') }}
+            {% block headerPopup %}
+            {% endblock %}
 		</header>
 		<header class="header header--mobile js-header">
             {{ include('/sections/menu-mobile.twig') }}
+            {% block headerPopupMobile %}
+            {% endblock %}
 		</header>
 		<main>
 			{% block main %}

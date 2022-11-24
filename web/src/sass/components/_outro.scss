@@ -3,6 +3,10 @@
 	background-color: $c-accent-dark;
 	overflow: hidden;
 
+	.is-page-redirection-kit-pages & {
+		margin-top: 96px;
+	}
+
 	.is-page-company & {
 		margin-top: 0;
 	}

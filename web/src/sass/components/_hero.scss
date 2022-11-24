@@ -29,11 +29,24 @@
 			height: auto;
 			min-height: 36vh;
 		}
+
+		.is-page-redirection-kit-pages & {
+			height: 780px;
+			min-height: 0;
+
+			@include tablet-medium-1199 {
+				padding-top: 140px;
+			}
+
+			@include mobile-599 {
+				padding-top: 160px;
+			}
+		}
 	}
 
 	&.is-with-image {
 		@include tablet-medium-1199 {
-			height: auto;
+			height: auto !important;
 			padding-top: 80px;
 			padding-bottom: 20px;
 		}
@@ -84,10 +97,20 @@
 
 			.hero__text {
 				grid-column: 2/7;
+
+				.is-page-redirection-kit-pages & {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+				}
 			}
 
 			.hero__image {
 				grid-column: 8/13;
+
+				.is-page-redirection-kit-pages & {
+					grid-column: 7/13;
+				}
 			}
 
 			@include tablet-medium-1199 {
@@ -109,10 +132,18 @@
 			text-align: left;
 		}
 
+		.is-page-redirection-kit-pages & {
+			padding-bottom: 0;
+		}
+
 		.buttons-hld {
 			display: flex;
 			flex-wrap: wrap;
 			margin-top: 24px;
+
+			.is-page-redirection-kit-pages & {
+				margin-top: 54px;
+			}
 
 			@include tablet-medium-1199 {
 				justify-content: center;
@@ -144,6 +175,21 @@
 						margin-left: 0;
 					}
 				}
+
+				.is-page-redirection-kit-pages & {
+					padding-right: 64px;
+					padding-left: 64px;
+					border-color: $c-accent;
+					background-color: $c-accent;
+
+					.text {
+						color: $c-white;
+					}
+
+					&:hover {
+						background-color: darken($c-accent, 10%);
+					}
+				}
 			}
 		}
 	}
@@ -163,6 +209,10 @@
 		font-size: 16px;
 		line-height: 26px;
 		opacity: 0.8;
+
+		.is-page-redirection-kit-pages & {
+			margin-top: 24px;
+		}
 
 		@include tablet-medium-1199 {
 			margin-right: auto;
@@ -204,6 +254,10 @@
 		.is-page-partner & {
 			max-width: unset;
 		}
+
+		.is-page-redirection-kit-pages & {
+			margin-top: 12px;
+		}
 	}
 
 	&__image {
@@ -213,5 +267,16 @@
 			margin-right: auto;
 			margin-left: auto;
 		}
+
+		.is-page-redirection-kit-pages & {
+			position: relative;
+			top: 21px;
+		}
+	}
+}
+
+@include mobile {
+	.is-page-redirection-kit-pages .hero__text-hld .buttons-hld {
+		margin-top: 32px;
 	}
 }

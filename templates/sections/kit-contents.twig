@@ -1,0 +1,31 @@
+{% set subtitle = entry.kitContentsSubtitle %}
+{% set title = entry.kitContentsTitle %}
+{% set tiles = entry.kitContentsTiles.all() %}
+{% if tiles|length > 0 %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--kit-contents">
+        <div class="u-wrapper u-wrapper--normal">
+            <div class="kit-contents-hld">
+                {% if subtitle %}
+                    <h3 class="kit-contents__subtitle u-subtitle u-subtitle--section u-subtitle--left">{{ subtitle }}</h3>
+                {% endif %}
+                {% if title %}
+                    <h2 class="kit-contents__title u-title u-title--section">{{ title }}</h2>
+                {% endif %}
+                {% if tiles %}
+                    <div class="kit-contents">
+                        {% for item in tiles %}
+                            {% set icon = item.itemIcon.one() %}
+                            {% set text = item.itemText %}
+                            <div class="kit-contents-item">
+                                <div class="icon-hld">
+                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ icon.getUrl() }}" alt="icon" />
+                                </div>
+                                <span class="text">{{ text }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}
