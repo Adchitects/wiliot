@@ -29,6 +29,76 @@
 		border-radius: 50%;
 		background-color: $c-orange;
 
+		&--normal {
+			@include mobile-599 {
+				.contact-company__image-point-inner {
+					cursor: pointer;
+				}
+
+				.contact-company__image-point-text {
+					display: block;
+					padding: 4px 8px 3px;
+					background-color: $c-accent-dark;
+					color: $c-white;
+					opacity: 0;
+
+					@include mobile {
+						top: calc(100% + 4px);
+						right: unset;
+						left: 50%;
+						padding: 5px 4px 3px;
+						font-size: 9px;
+						transform: translateX(-50%) !important;
+					}
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 50%;
+						z-index: 1;
+						pointer-events: none;
+						width: 6px;
+						height: 6px;
+						background-color: $c-accent-dark;
+						transform: translateY(-50%) rotate(45deg);
+
+						@include mobile {
+							display: none;
+						}
+					}
+
+					&--on-right {
+						&::before {
+							left: -3px;
+
+							@include mobile {
+								right: unset;
+								left: 50%;
+							}
+						}
+					}
+
+					&--on-left {
+						&::before {
+							right: -3px;
+
+							@include mobile {
+								right: unset;
+								left: 50%;
+							}
+						}
+					}
+				}
+
+				&:hover {
+					.contact-company__image-point-text {
+						transform: translateX(0);
+						opacity: 1;
+					}
+				}
+			}
+		}
+
 		&--hoverable {
 			.contact-company__image-point-inner {
 				cursor: pointer;
