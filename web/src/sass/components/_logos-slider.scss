@@ -1,6 +1,10 @@
 .u-section--logos-slider {
 	margin-top: 96px;
 
+	.is-page-redirection-kit-pages & {
+		margin-top: 48px;
+	}
+
 	.is-page-company & {
 		margin-top: 0;
 		padding-top: 140px;
@@ -165,6 +169,10 @@
 	.swiper-logos__slider {
 		width: calc(100% - 160px);
 		max-width: 1104px;
+
+		.is-page-redirection-kit-pages & {
+			max-width: 1055px;
+		}
 
 		@include media-max(640) {
 			width: 100%;

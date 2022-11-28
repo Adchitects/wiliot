@@ -15,11 +15,15 @@
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
 	<meta property="og:type" content="website"/>
 {% endblock %}
+
+{% set headerPopupShow = entry.headerPopupShow %}
+{% set headerPopupText = entry.headerPopupText %}
 {% block headerPopup %}
+    {% if headerPopupShow and headerPopupText %}
 	<div class="header-popup-hld js-header-popup-hld">
         <div class="header-popup-inner">
             <div class="header-popup">
-                <span class="text">Thank you for submitting your application. If you left us a question, we will get back to you shortly! </span>
+                <span class="text">{{ headerPopupText }}</span>
             </div>
             <button class="header-popup-close js-header-popup-close">
 				<svg class="svg-close">
@@ -28,12 +32,14 @@
             </button>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
 {% block headerPopupMobile %}
+    {% if headerPopupShow and headerPopupText %}
 	<div class="header-popup-hld js-header-popup-hld">
         <div class="header-popup-inner">
             <div class="header-popup">
-                <span class="text">Thank you for submitting your application. If you left us a question, we will get back to you shortly! </span>
+                <span class="text">{{ headerPopupText }}</span>
             </div>
             <button class="header-popup-close js-header-popup-close">
 				<svg class="svg-close">
@@ -42,14 +48,16 @@
             </button>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
+
 {% block main %}
 	{% set sectionId = '01' %}
 	{{ include('/sections/hero.twig') }}
     {% set sectionId = '02' %}
-	{{ include('/sections/kit-contents.twig') }}
-    {% set sectionId = '03' %}
 	{{ include('/sections/logos-slider.twig') }}
+    {% set sectionId = '03' %}
+	{{ include('/sections/kit-contents.twig') }}
     {% set sectionId = '04' %}
 	{{ include('/sections/outro.twig') }}
 	{% set sectionId = '05' %}
