@@ -322,6 +322,8 @@
 
 	&--arrow {
 		border: 0;
+		outline: 0;
+		background-color: transparent;
 
 		.text {
 			@extend .icon-arrow-right !optional;

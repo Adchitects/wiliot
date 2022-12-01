@@ -49,6 +49,11 @@
 					<div class="outro__btn-hld">
 						{% for item in outroButtonsMatrix %}
 							{% set button = item.button %}
+                            {% if item.buttonColor != '' %}
+                                {% set buttonColor = item.buttonColor %}
+                            {% else %}
+                                {% set buttonColor = 'bordered' %}
+                            {% endif %}
                             {% set isHubspotModal = false %}
 							{% set isHubspotModalRadio = item.isHubspotModal %}
                             {% for option in isHubspotModalRadio.options %}
@@ -62,7 +67,7 @@
                             {% set isTypeFormBtn = item.isTypeformButton %}
                             {% if isHubspotModal %}
                                 <div class="outro__btn-hld js-modal-hld">
-                                    <div class="outro__btn u-btn {{ loop.index == 1 ? 'u-btn--bordered' : 'u-btn--white' }} js-modal-btn">
+                                    <div class="outro__btn u-btn u-btn--{{ buttonColor }} js-modal-btn">
                                         <span class="text">{{ button.customText }}</span>
                                     </div>
                                     <div class="subscribe-modal js-modal-modal">
@@ -119,11 +124,11 @@
                                 </div>
                             {% elseif isTypeFormBtn %}
                             {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                                <button class="outro__btn u-btn u-btn--white is-narrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                <button class="outro__btn u-btn u-btn--{{ buttonColor }} is-narrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
                                     <span class="text">{{ button.customText }}</span>
                                 </button>
                             {% else %}
-                                <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn {{ loop.index == 1 ? 'u-btn--bordered' : 'u-btn--white' }}">
+                                <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--{{ buttonColor }}">
                                     <span class="text">{{ button.customText }}</span>
                                 </a>
                             {% endif %}

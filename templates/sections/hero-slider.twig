@@ -53,6 +53,7 @@
                                         {% for btn in itemButtonsMatrix %}
                                             {% set button = btn.button %}
                                             {% set hubspotFormId = btn.hubspotFormId %}
+                                            {% set isTypeFormBtn = btn.isTypeformButton %}
                                             {% if hubspotFormId %}
                                                 <div class="js-modal-hld">
                                                     <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }} js-modal-btn">
@@ -110,6 +111,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            {% elseif isTypeFormBtn %}
+                                            {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                                <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                                    <span class="text">{{ button.customText }}</span>
+                                                </button>
                                             {% else %}
                                                 <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}">
                                                     <span class="text">{{ button.customText }}</span>

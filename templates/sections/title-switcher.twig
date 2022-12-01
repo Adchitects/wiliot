@@ -1,6 +1,7 @@
 {% set title = entry.titleSwitcherTitle %}
 {% set switcherPrefix = entry.titleSwitcherSwitcherPrefix %}
 {% set text = entry.titleSwitcherText %}
+{% set isTypeFormBtn = entry.titleSwitcherButtonIsTypeformButton %}
 {% set link = entry.titleSwitcherButton %}
 {% set switchTexts = entry.titleSwitcherSwitchedTexts %}
 {% set switchTime = entry.titleSwitcherSwitchTime %}
@@ -32,9 +33,16 @@
                     </div>
                 {% endif %}
                 {% if link.getUrl() %}
-                    <a href="{{ link.getUrl() }}" class="title-switcher-link u-btn u-btn--arrow">
-                        <span class="text">{{ link.customText }}</span>
-                    </a>
+                    {% if isTypeFormBtn %}
+                        {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                        <button class="title-switcher-link u-btn u-btn--arrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                            <span class="text">{{ link.customText }}</span>
+                        </button>
+                    {% else %}
+                        <a href="{{ link.getUrl() }}" class="title-switcher-link u-btn u-btn--arrow">
+                            <span class="text">{{ link.customText }}</span>
+                        </a>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>

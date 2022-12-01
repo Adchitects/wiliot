@@ -54,9 +54,22 @@
 							<div class="buttons-hld">
 								{% for item in solutionButtonsMatrix %}
 									{% set button = item.button %}
-									<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }}">
-										<span class="text">{{ button.customText }}</span>
-									</a>
+                                    {% if item.buttonColor != '' %}
+                                        {% set buttonColor = item.buttonColor %}
+                                    {% else %}
+                                        {% set buttonColor = 'accent' %}
+                                    {% endif %}
+                                    {% set isTypeFormBtn = item.isTypeformButton %}
+                                    {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                    {% if isTypeFormBtn %}
+                                        <button class="btn u-btn u-btn--{{ buttonColor }} is-narrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                            <span class="text">{{ button.customText }}</span>
+                                        </button>
+                                    {% else %}
+                                        <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
+                                            <span class="text">{{ button.customText }}</span>
+                                        </a>
+                                    {% endif %}
 								{% endfor %}
 							</div>
 						{% endif %}
