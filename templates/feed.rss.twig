@@ -49,9 +49,6 @@
                 <pubDate>{{ entry.postDate|rss }}</pubDate>
                 <guid>{{ entry.url }}</guid>
                 <description>
-                    {% if thumbnailUrl %}
-                        <![CDATA[<img src="{{ thumbnailUrl }}" />]]>
-                    {% endif %}
                     {% if excerpt %}
                         <![CDATA[{{ excerpt|raw }}]]>
                     {% endif %}

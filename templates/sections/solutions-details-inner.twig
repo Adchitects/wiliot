@@ -60,9 +60,9 @@
                                         {% set buttonColor = 'accent' %}
                                     {% endif %}
                                     {% set isTypeFormBtn = item.isTypeformButton %}
-                                    {% set typeformID = pageOptions.pageOptionsTypeFormID %}
                                     {% if isTypeFormBtn %}
-                                        <button class="btn u-btn u-btn--{{ buttonColor }} is-narrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                        {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                        <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
                                             <span class="text">{{ button.customText }}</span>
                                         </button>
                                     {% else %}

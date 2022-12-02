@@ -331,7 +331,9 @@
 			margin-left: 16px;
 
 			@include tablet-small-1023 {
-				display: none;
+				&:not([data-tf-popup]) {
+					display: none;
+				}
 			}
 
 			&:hover {
@@ -348,7 +350,10 @@
 			}
 
 			@include media-max(480) {
-				margin-top: 10px;
+				&:not([data-tf-popup]) {
+					margin-top: 10px;
+				}
+
 				margin-left: 0;
 			}
 

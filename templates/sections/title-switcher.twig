@@ -35,7 +35,7 @@
                 {% if link.getUrl() %}
                     {% if isTypeFormBtn %}
                         {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                        <button class="title-switcher-link u-btn u-btn--arrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                        <button class="title-switcher-link u-btn u-btn--arrow" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
                             <span class="text">{{ link.customText }}</span>
                         </button>
                     {% else %}

@@ -113,7 +113,7 @@
                                                 </div>
                                             {% elseif isTypeFormBtn %}
                                             {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                                                <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                                <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
                                                     <span class="text">{{ button.customText }}</span>
                                                 </button>
                                             {% else %}

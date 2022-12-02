@@ -24,7 +24,7 @@
 					<li class="menu-mobile__nav-list-item {% if entry is defined and page.slug == entry.slug %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
                         {% if lastIsTypeform and loop.index == 1 %}
                             {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                            <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                            <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
                                 <span class="text">{{ menuMobileTitle }}</span>
                             </button>
 						{% elseif menuMobilePageLink.url %}

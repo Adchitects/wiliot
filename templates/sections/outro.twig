@@ -124,7 +124,7 @@
                                 </div>
                             {% elseif isTypeFormBtn %}
                             {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                                <button class="outro__btn u-btn u-btn--{{ buttonColor }} is-narrow" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                                <button class="outro__btn u-btn u-btn--{{ buttonColor }} is-narrow" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
                                     <span class="text">{{ button.customText }}</span>
                                 </button>
                             {% else %}

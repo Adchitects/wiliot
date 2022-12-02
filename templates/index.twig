@@ -70,7 +70,7 @@
 			<meta name="twitter:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}" />
 
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon" />
-            <link rel="alternate" type="application/rss+xml" href="{{ url('feed.xml') }}" />
+            <link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}" />
 
 			<style>
 				@font-face {
@@ -103,7 +103,7 @@
 				}
 			</style>
 
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=01122022" />
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=B02122022" />
 
 			<script>
 				var scriptsExecuted = false;

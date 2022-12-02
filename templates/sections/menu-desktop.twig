@@ -15,7 +15,7 @@
 			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 5 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 4 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% if  page.slug == 'contact-us' and entry.slug == 'contact' %} is-active {% endif %} {% if page.slug == 'get-started' and entry.slug == 'starterkit' %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Resources' %} is-support {% endif %} {% if menuDesktopTitle|lower == 'login' %} is-login {% endif %} {% if menuDesktopTitle|lower == 'login is-hidden' %} is-login is-hidden {% endif %} {% if menuDesktopTitle|lower == 'search' %} is-search js-search-bar-open-button {% endif %}">
                 {% if lastIsTypeform and loop.revindex == 1 %}
                     {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                    <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-medium="snippet">
+                    <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
 						<span class="text">{{ menuDesktopTitle }}</span>
 					</button>
 				{% elseif menuDesktopPageLink.url %}

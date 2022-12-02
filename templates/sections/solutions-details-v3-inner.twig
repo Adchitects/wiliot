@@ -59,10 +59,16 @@
 							<div class="buttons-hld">
 								{% for item in solutionButtonsMatrix %}
 									{% set button = item.button %}
+                                    {% if item.buttonColor != '' %}
+                                        {% set buttonColor = item.buttonColor %}
+                                    {% else %}
+                                        {% set buttonColor = 'accent' %}
+                                    {% endif %}
+                                    {% set isTypeFormBtn = item.isTypeformButton %}
                                     {% set hubspotFormId = item.hubspotFormId %}
                                     {% if hubspotFormId %}
                                         <div class="js-modal-hld">
-                                            <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }} js-modal-btn">
+                                            <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
                                                 <span class="text">{{ button.customText }}</span>
                                             </button>
                                             <div class="subscribe-modal js-modal-modal">
@@ -117,8 +123,13 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    {% elseif isTypeFormBtn %}
+                                        {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                        <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+                                            <span class="text">{{ button.customText }}</span>
+                                        </button>
                                     {% else %}
-                                        <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }}">
+                                        <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
                                             <span class="text">{{ button.customText }}</span>
                                         </a>
                                     {% endif %}
