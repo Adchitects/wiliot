@@ -18,6 +18,7 @@
                     {% set itemImage = item.itemImage.one() %}
                     {% set itemImageDuration = item.itemImageDuration %}
                     {% set itemDesktopVideoLink = item.itemDesktopVideoLink %}
+                    {% set itemShowWatchVideoButton = item.itemShowWatchVideoButton %}
                     {% set itemDesktopVideoPoster = item.itemDesktopVideoPoster.one() %}
                     {% set itemDesktopVideoDuration = item.itemDesktopVideoDuration %}
                     {% set itemMobileVideoLink = item.itemMobileVideoLink %}
@@ -52,11 +53,13 @@
                                     <div class="hero-slider__buttons-hld">
                                         {% for btn in itemButtonsMatrix %}
                                             {% set button = btn.button %}
+                                            {% set buttonColor = btn.buttonColor %}
+                                            {% set buttonIcon = btn.buttonIcon %}
                                             {% set hubspotFormId = btn.hubspotFormId %}
                                             {% set isTypeFormBtn = btn.isTypeformButton %}
                                             {% if hubspotFormId %}
                                                 <div class="js-modal-hld">
-                                                    <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }} js-modal-btn">
+                                                    <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
                                                         <span class="text">{{ button.customText }}</span>
                                                     </button>
                                                     <div class="subscribe-modal js-modal-modal">
@@ -112,17 +115,22 @@
                                                     </div>
                                                 </div>
                                             {% elseif isTypeFormBtn %}
-                                            {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                                                <button class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+                                                {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                                <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
                                                     <span class="text">{{ button.customText }}</span>
                                                 </button>
                                             {% else %}
-                                                <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}">
+                                                <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
+                                                    {% if buttonIcon == 'download' %}
+                                                        <svg class="svg-caret-down">
+                                                            <use xlink:href="#svg-caret-down"></use>
+                                                        </svg>
+                                                    {% endif %}
                                                     <span class="text">{{ button.customText }}</span>
                                                 </a>
                                             {% endif %}
                                         {% endfor %}
-                                        {% if itemDesktopVideoLink %}
+                                        {% if itemDesktopVideoLink and itemShowWatchVideoButton %}
                                             <button class="btn u-btn u-btn--light js-hero-modal-btn" data-modal-id="{{ loop.index0 }}">
                                                 <span class="icon icon-play"></span>
                                                 <span class="text">Watch video</span>
