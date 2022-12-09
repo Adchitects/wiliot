@@ -198,7 +198,8 @@
 				max-height: unset;
 				padding: 0;
 
-				iframe {
+				iframe,
+				video {
 					position: static;
 					width: 730px;
 					max-width: calc(100% - 60px);
@@ -212,6 +213,7 @@
 		}
 
 		iframe,
+		video,
 		img {
 			position: absolute;
 			top: 0;
@@ -258,7 +260,6 @@
 		transform: translateY(-50%);
 
 		@include tablet-small-1023 {
-
 			.is-iframe & {
 				position: static;
 				max-height: calc(100vh - 60px);
@@ -324,6 +325,14 @@
 
 			@include tablet-small-1023 {
 				min-width: 210px;
+			}
+
+			&--2 {
+				@include tablet-small-1023 {
+					margin-top: 6px;
+					margin-left: 0;
+					background-color: $c-accent;
+				}
 			}
 		}
 

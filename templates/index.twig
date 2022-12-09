@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html itemscope itemtype="https://schema.org/WebPage" lang="en">
-
 	{% if entry is defined %}
 		{% set metaTitle = entry.metaTitle %}
 		{% set metaDescription = entry.metaDescription %}
@@ -17,16 +16,13 @@
 		{% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
 		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
 	{% endif %}
-
     {% set handle = entry.section.handle %}
     {% if handle == 'homepage' %}
         {% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
 		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
     {% endif %}
-
 	{% block head %}
 		<head>
-
 			<meta charset="UTF-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<title>
@@ -34,44 +30,35 @@
 					{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 				{% endblock %}
 			</title>
-
 			{% block description %}
 				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}" />
 			{% endblock %}
 			<link rel="canonical" href="{{ craft.app.request.absoluteUrl }}" />
-
             <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-
 			<meta property="og:locale" content="en_US" />
 			{% block og %}
 				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}" />
 				<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}" />
 				<meta property="og:type" content="website" />
 			{% endblock %}
-
             {% block ogurl %}
 			<meta property="og:url" content="{{ alias('@web') }}" />
             {% endblock %}
-
 			<meta property="og:site_name" content="Wiliot" />
-
             {% block articleMeta %}
             {% endblock %}
-
 			<meta property="og:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}" name="image" />
 			<meta property="og:image:width" content="1200" />
 			<meta property="og:image:height" content="628" />
-
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:creator" content="@WiliotHQ" />
 			<meta name="twitter:site" content="@WiliotHQ" />
 			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}" />
 			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}" />
 			<meta name="twitter:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}" />
-
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon" />
             <link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}" />
-
+            <link href="https://player.vimeo.com" rel="preconnect" crossorigin>
 			<style>
 				@font-face {
 					font-family: 'avenir';
@@ -102,9 +89,7 @@
 					font-display: swap;
 				}
 			</style>
-
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=09122022" />
-
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=12092022" />
 			<script>
 				var scriptsExecuted = false;
 				var head = document.getElementsByTagName('head')[0] || document.documentElement;
@@ -145,7 +130,6 @@
 					initScripts();
 				};
 			</script>
-
 			<!-- Global site tag (gtag.js) - Google Analytics -->
 			<fscript src="https://www.googletagmanager.com/gtag/js?id=UA-104066415-1"></fscript>
 			<fscript>
@@ -156,7 +140,6 @@
                 gtag('config', 'G-WWMYNJC96E');
 			</fscript>
             <fscript type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4249967.js"></fscript>
-
 			<script type="application/ld+json">
 				{
 					"@context": "https://schema.org",
@@ -269,7 +252,6 @@
 
 		</head>
 	{% endblock %}
-
 	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% endif %}">
         {{ include('/sections/svg-sprites.twig') }}
 		<header class="header header--desktop js-header js-search-bar-hld">
@@ -349,7 +331,6 @@
 				{{ include('/sections/footer.twig') }}
 			{% endblock %}
 		</footer>
-
         {% set cookieBoxEnabled = cookieBox.cookieBoxEnabled %}
         {% if cookieBoxEnabled %}
             {% set cookieBoxTitle = cookieBox.cookieBoxTitle %}
@@ -375,14 +356,11 @@
                 </div>
             </div>
         {% endif %}
-
         <script src="//embed.typeform.com/next/embed.js"></script>
-
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=09122022"></script>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=12092022"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
             <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights"/>
         </noscript>
-
 	</body>
 </html>
