@@ -103,7 +103,7 @@
 				}
 			</style>
 
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=05122022" />
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=09122022" />
 
 			<script>
 				var scriptsExecuted = false;
@@ -350,9 +350,35 @@
 			{% endblock %}
 		</footer>
 
+        {% set cookieBoxEnabled = cookieBox.cookieBoxEnabled %}
+        {% if cookieBoxEnabled %}
+            {% set cookieBoxTitle = cookieBox.cookieBoxTitle %}
+            {% set cookieBoxContent = cookieBox.cookieBoxContent %}
+            {% set cookieBoxButtonText = cookieBox.cookieBoxButtonText %}
+            <div class="site-cookie-box-hld js-cookie-box">
+                <div class="site-cookie-box">
+                    <div class="site-cookie-box__text-hld">
+                        {% if cookieBoxTitle %}
+                            <span class="site-cookie-box__title">{{ cookieBoxTitle }}</span>
+                        {% endif %}
+                        {% if cookieBoxContent %}
+                            <div class="site-cookie-box__content">
+                                {{ cookieBoxContent }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="site-cookie-box__btn-hld">
+                        <button class="site-cookie-box__btn u-btn u-btn--accent js-cookie-box-accept">
+                            <span class="text">{{ cookieBoxButtonText }}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
         <script src="//embed.typeform.com/next/embed.js"></script>
 
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=28112022"></script>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=09122022"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
             <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights"/>
