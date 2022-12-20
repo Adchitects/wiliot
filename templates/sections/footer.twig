@@ -8,18 +8,18 @@
 			<div class="footer__primary">
 				<div class="footer__links-columns">
 					{% nav page in pages.all() %}
-					<div class="footer__links-column">
-						<span class="footer__links-column-title">{{ page.title }}</span>
-						<ul class="footer__links">
-							{% for child in page.children().all() %}
-								<li class="footer__link">
-									<a href="{{ child.menuFooterPageLink }}" target="{{ child.menuFooterPageLink.target ? '_blank' : '_self' }}" rel="{{ child.menuFooterPageLink.target ? 'noopener noreferrer' : null }}">
-										{{ child.title }}
-									</a>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
+                        <div class="footer__links-column">
+                            <span class="footer__links-column-title">{{ page.title }}</span>
+                            <ul class="footer__links">
+                                {% for child in page.children().all() %}
+                                    <li class="footer__link {% if entry is defined %}{% if child.menuFooterPageLink == entry.url %}is-active{% endif %}{% endif %}">
+                                        <a href="{{ child.menuFooterPageLink }}" target="{{ child.menuFooterPageLink.target ? '_blank' : '_self' }}" rel="{{ child.menuFooterPageLink.target ? 'noopener noreferrer' : null }}">
+                                            {{ child.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
 					{% endnav %}
 				</div>
 				<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="footer__logo">
@@ -45,7 +45,7 @@
 						{% for page in bottomPages %}
 							{% set name = page.bottomPageName %}
 							{% set link = page.bottomPageLink %}
-							<li class="footer__link">
+							<li class="footer__link {% if entry is defined %}{% if link == entry.url %}is-active{% endif %}{% endif %}">
 								{% if name and link %}
 									<a href="{{ link }}">{{ name }}</a>
 								{% endif %}
