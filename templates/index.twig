@@ -16,7 +16,11 @@
 		{% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
 		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
 	{% endif %}
-    {% set handle = entry.section.handle %}
+    {% if entry is defined %}
+        {% set handle = entry.section.handle %}
+    {% elseif category is defined %}
+        {% set handle = category.group.handle %}
+    {% endif %}
     {% if handle == 'homepage' %}
         {% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
 		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}

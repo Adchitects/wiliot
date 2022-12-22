@@ -1,7 +1,12 @@
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--related-news">
 	<div class="u-wrapper">
 		<div class="related-news">
-			<h2 class="u-title related-news__title">Related news</h2>
+            {% if category is defined and category.relatedItemsTitle %}
+                {% set moreText = category.relatedItemsTitle %}
+            {% else %}
+                {% set moreText = 'Related news' %}
+			{% endif %}
+			<h2 class="u-title related-news__title">{{ moreText }}</h2>
 			{% set postRelatedCategories = entry.postRelatedCategories %}
 			{% set postMainCategory = entry.postMainCategory %}
 			{% set relatedEntries = craft.entries.section('newsPosts').relatedTo(['or',{ targetElement: postRelatedCategories,field: 'postRelatedCategories' },{targetElement: postMainCategory, field: 'postMainCategory' }]).id('not '~entry.id) %}
