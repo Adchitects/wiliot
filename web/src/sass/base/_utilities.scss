@@ -92,32 +92,32 @@
 
 	&--big {
 		font-size: 56px;
-		line-height: 72px;
+		line-height: calc(72 / 56);
 
 		@include mobile-767 {
 			font-size: 46px;
-			line-height: 52px;
+			line-height: calc(52 / 46);
 		}
 
 		@include mobile-599 {
 			font-size: 28px;
-			line-height: 36px;
+			line-height: calc(36 / 28);
 		}
 	}
 
 	&--medium-big {
 		font-size: 48px;
-		line-height: 56px;
+		line-height: calc(56 / 48);
 	}
 
 	&--medium {
 		font-size: 40px;
-		line-height: 48px;
+		line-height: calc(48 / 40);
 	}
 
 	&--section {
 		font-size: 32px;
-		line-height: 40px;
+		line-height: calc(40 / 32);
 	}
 
 	&--centered {
@@ -131,17 +131,17 @@
 
 	&--medium {
 		font-size: 22px;
-		line-height: 30px;
+		line-height: calc(30 / 22);
 
 		@include mobile-599 {
 			font-size: 20px;
-			line-height: 20px;
+			line-height: 1;
 		}
 	}
 
 	&--big {
 		font-size: 24px;
-		line-height: 36px;
+		line-height: calc(36 / 24);
 	}
 
 	&--section {
@@ -149,7 +149,7 @@
 		color: $c-gray;
 		font-size: 14px;
 		font-weight: 500;
-		line-height: 19px;
+		line-height: calc(19 / 14);
 		text-align: center;
 		text-transform: uppercase;
 	}

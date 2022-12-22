@@ -1,23 +1,48 @@
 {% set podcasts = craft.entries.section('podcastDetails').orderBy('postDate desc') %}
 {% set title = entry.podcastsListingTitle %}
-{% set logo = entry.podcastsListingLogo.one() %}
 {% set subtitle = entry.podcastsListingSubtitle %}
+{% set boldText = entry.podcastsListingBoldText %}
+{% set content = entry.podcastsListingContent %}
+{% set logo = entry.podcastsListingLogo.one() %}
+{% set link1 = entry.podcastsListingLink1 %}
+{% set link2 = entry.podcastsListingLink2 %}
 {% if podcasts %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--podcasts-listing">
 		<div class="u-wrapper">
 			<div class="podcasts-listing js-load-more-hld">
-				{% if logo is not null %}
-					<img src="{{ logo.getUrl() }}" alt="Mr. Beacon Podcast" class="podcasts-listing__logo">
-				{% endif %}
 				<div class="podcasts-listing__header">
-					<h1 style="display: none; opacity: 0;">The Mr. Beacon Podcast</h1>
+                    {% if title %}
+                        <h1 class="u-title u-title--medium-big">{{ title }}</h1>
+                    {% endif %}
 					{% if subtitle %}
 						<span class="u-subtitle u-subtitle--section">{{ subtitle }}</span>
 					{% endif %}
-					{% if title %}
-						<h2 class="u-title u-title--section">{{ title }}</h2>
+					{% if boldText %}
+						<span class="u-title u-title--section">{{ boldText }}</span>
 					{% endif %}
+                    {% if content %}
+                        <div class="u-content u-content--centered">
+                            {{ content|raw }}
+                        </div>
+                    {% endif %}
 				</div>
+                {% if logo is not null %}
+					<img src="{{ logo.getUrl() }}" alt="Mr. Beacon Podcast" class="podcasts-listing__logo">
+				{% endif %}
+                {% if link1 or link2 %}
+                    <div class="podcasts-listing__links">
+                        {% if link1 %}
+                            <a href="{{ link1.url }}" class="podcasts-listing__link u-btn u-btn--light" target="_blank">
+                                <span class="text">{{ link1.text }}</span>
+                            </a>
+                        {% endif %}
+                        {% if link2 %}
+                            <a href="{{ link2.url }}" class="podcasts-listing__link u-btn u-btn--light" target="_blank">
+                                <span class="text">{{ link2.text }}</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
 				<div class="podcasts-listing__items">
 					{% if podcasts|length %}
 						{% for post in podcasts.all() %}
@@ -35,14 +60,14 @@
 							{% set title = post.title %}
 							{% set podcastDetailsIframeTitle = post.podcastDetailsIframeTitle ? post.podcastDetailsIframeTitle : podcastsGlobals.podcastDetailsIframeTitle %}
 							{% set podcastDetailsIframeWidget = post.podcastDetailsIframeWidget %}
-							<div class="post js-load-more-item js-modal-hld" data-max-items="3" data-load-items="3">
+							<div class="post js-load-more-item js-modal-hld" data-max-items="9" data-load-items="3">
 								<div class="post__image-hld js-modal-btn is-paused">
 									{% if image %}
 										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
 										<span class="icon icon-button_play"></span>
 									{% endif %}
 								</div>
-								<a href="{{ post.url}}" class="post__text-hld">
+								<div class="post__text-hld">
 									<div class="post__date">
 										Episode #{{number}}
 										{{ post.postDate | date("F d, Y") }}</div>
@@ -50,7 +75,7 @@
 									{% if excerpt %}
 										<div class="post__excerpt">{{ excerpt|length > 110 ? excerptSliced|raw : excerpt|raw }}</div>
 									{% endif %}
-								</a>
+								</div>
 								<div class="post__widget-title">{{ podcastDetailsIframeTitle }}</div>
 								{% if podcastDetailsIframeWidget %}
 									<div class="post__widget-hld">
