@@ -3,13 +3,13 @@
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider-hld {% endif %}">
         <div class="hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider swiper-container {% endif %}">
             {% if itemsMatrix|length > 1 %}
-                <div class="arrow arrow--prev js-hero-slider-button-prev">
+                <div class="arrow arrow--prev arrow--desktop js-hero-slider-button-prev">
                     <span class="icon icon-dropdown-up"></span>
                 </div>
-                <div class="arrow arrow--next js-hero-slider-button-next">
+                <div class="arrow arrow--next arrow--desktop js-hero-slider-button-next">
                     <span class="icon icon-dropdown-down"></span>
                 </div>
-                <div class="hero-slider__progress-bar js-hero-slider-progress-bar"></div>
+                <div class="hero-slider__progress-bar hero-slider__progress-bar--desktop js-hero-slider-progress-bar"></div>
             {% endif %}
             <div class="hero-slider__inner swiper-wrapper">
                 {% for item in itemsMatrix %}
@@ -49,13 +49,31 @@
                                 {% if itemDesktopVideoLink %}
                                     <div class="hero-slider__item-video-hld is-mobile">
                                         {% if loop.index0 == 0 %}
-                                            <video controls preload playsinline width="560" height="315">
+                                            {#
+                                            <video controls preload playsinline>
+                                                <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
+                                            </video>
+                                            #}
+                                            <video autoplay loop muted preload playsinline>
                                                 <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
                                             </video>
                                         {% else %}
-                                            <video class="js-lazy" controls preload playsinline width="560" height="315">
+                                            {#
+                                            <video class="js-lazy" controls preload playsinline>
                                                 <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
                                             </video>
+                                            #}
+                                            <video class="js-lazy" autoplay loop muted preload playsinline>
+                                                <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
+                                            </video>
+                                        {% endif %}
+                                        {% if itemsMatrix|length > 1 %}
+                                            <div class="arrow arrow--prev arrow--mobile js-hero-slider-button-prev">
+                                                <span class="icon icon-dropdown-up"></span>
+                                            </div>
+                                            <div class="arrow arrow--next arrow--mobile js-hero-slider-button-next">
+                                                <span class="icon icon-dropdown-down"></span>
+                                            </div>
                                         {% endif %}
                                     </div>
                                 {% endif %}
