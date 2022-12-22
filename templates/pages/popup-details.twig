@@ -10,10 +10,10 @@
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
 {% block og %}
-	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
-	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
-	<meta property="og:type" content="article"/>
-	<meta property="article:modified_time" content="{{ postModifyDate }}" />
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="article">
+	<meta property="article:modified_time" content="{{ postModifyDate }}">
 {% endblock %}
 {% block main %}
 	{% set popupTopSubtitle = entry.popupTopSubtitle %}

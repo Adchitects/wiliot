@@ -27,41 +27,42 @@
     {% endif %}
 	{% block head %}
 		<head>
-			<meta charset="UTF-8" />
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>
 				{% block title %}
 					{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 				{% endblock %}
 			</title>
 			{% block description %}
-				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}" />
+				<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 			{% endblock %}
-			<link rel="canonical" href="{{ craft.app.request.absoluteUrl }}" />
-            <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-			<meta property="og:locale" content="en_US" />
+			<link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
+            <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+			<meta property="og:locale" content="en_US">
 			{% block og %}
-				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}" />
-				<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}" />
-				<meta property="og:type" content="website" />
+				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+				<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+				<meta property="og:type" content="website">
 			{% endblock %}
             {% block ogurl %}
-			<meta property="og:url" content="{{ alias('@web') }}" />
+			<meta property="og:url" content="{{ alias('@web') }}">
             {% endblock %}
-			<meta property="og:site_name" content="Wiliot" />
+			<meta property="og:site_name" content="Wiliot">
             {% block articleMeta %}
             {% endblock %}
-			<meta property="og:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}" name="image" />
-			<meta property="og:image:width" content="1200" />
-			<meta property="og:image:height" content="628" />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:creator" content="@WiliotHQ" />
-			<meta name="twitter:site" content="@WiliotHQ" />
-			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}" />
-			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}" />
-			<meta name="twitter:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}" />
-			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon" />
-            <link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}" />
+			<meta property="og:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}">
+			<meta property="og:image:width" content="1200">
+			<meta property="og:image:height" content="628">
+            <meta property="og:image:type" content="image/jpeg">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:creator" content="@WiliotHQ">
+			<meta name="twitter:site" content="@WiliotHQ">
+			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+			<meta name="twitter:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}">
+			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon">
+            <link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}">
             <link href="https://player.vimeo.com" rel="preconnect" crossorigin>
 			<style>
 				@font-face {
@@ -93,7 +94,8 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=A20DEC2022" />
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=A20DEC2022">
+            {#
 			<script>
 				var scriptsExecuted = false;
 				var head = document.getElementsByTagName('head')[0] || document.documentElement;
@@ -134,16 +136,32 @@
 					initScripts();
 				};
 			</script>
+            #}
 			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104066415-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+				gtag('config', 'UA-104066415-1');
+                gtag('config', 'G-WWMYNJC96E');
+			</script>
+            {#
 			<fscript src="https://www.googletagmanager.com/gtag/js?id=UA-104066415-1"></fscript>
-			<fscript>
+            #}
+			{#
+            <fscript>
 				window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
 				gtag('config', 'UA-104066415-1');
                 gtag('config', 'G-WWMYNJC96E');
 			</fscript>
-            <fscript type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4249967.js"></fscript>
+            #}
+            <script id="hs-script-loader" async defer src="//js.hs-scripts.com/4249967.js"></script>
+            {#
+            <fscript id="hs-script-loader" async defer src="//js.hs-scripts.com/4249967.js"></fscript>
+            #}
 			<script type="application/ld+json">
 				{
 					"@context": "https://schema.org",
@@ -185,8 +203,8 @@
                     "@type": "ImageObject",
                     "@id": "https://www.wiliot.com/#primaryimage",
                     "inLanguage": "en-US",
-                    "url": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
-                    "contentUrl": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/image.jpg') }}",
+                    "url": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}",
+                    "contentUrl": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}",
                     "width": 1200,
                     "height": 628,
                     "caption": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() and entry.heroTitle ? entry.heroTitle : 'Wiliot Platform powered by IoT Pixels.' }}"
@@ -248,12 +266,10 @@
             #}
             {% block additionalJsonMeta %}
             {% endblock %}
-
             <!-- WebSights Header HTML Snippet -->
             <script>
                 (function(){var zi=document.createElement("script");zi.type="text/javascript";zi.async=true;zi.referrerPolicy="unsafe-url";zi.src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(zi,s)})();
             </script>
-
 		</head>
 	{% endblock %}
 	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% endif %}">
@@ -361,10 +377,10 @@
             </div>
         {% endif %}
         <script src="//embed.typeform.com/next/embed.js"></script>
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=09DEC2022"></script>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=22DEC2022"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
-            <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights"/>
+            <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights" />
         </noscript>
 	</body>
 </html>

@@ -1,6 +1,6 @@
 {% set itemsMatrix = entry.heroSliderItemsMatrix.all() %}
 {% if itemsMatrix|length > 0 %}
-    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider-hld {% endif %}">
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider-hld {% endif %}">
         <div class="hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider swiper-container {% endif %}">
             {% if itemsMatrix|length > 1 %}
                 <div class="arrow arrow--prev js-hero-slider-button-prev">
@@ -30,7 +30,7 @@
                                     <img src="{{ itemDesktopVideoPoster.getUrl() }}" alt="{{ itemDesktopVideoPoster.title }}" />
                                 {% endif %}
                                 <video class="js-lazy js-hero-slider-iframe" autoplay loop muted preload playsinline width="1920" height="768">
-                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoLink }}" type="video/mp4"> </source>
+                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoLink }}" type="video/mp4">
                                 </video>
                             </div>
                         {% elseif (itemImage) %}
@@ -50,11 +50,11 @@
                                     <div class="hero-slider__item-video-hld is-mobile">
                                         {% if loop.index0 == 0 %}
                                             <video controls preload playsinline width="560" height="315">
-                                                <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4"> </source>
+                                                <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
                                             </video>
                                         {% else %}
                                             <video class="js-lazy" controls preload playsinline width="560" height="315">
-                                                <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4"> </source>
+                                                <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
                                             </video>
                                         {% endif %}
                                     </div>
@@ -162,7 +162,7 @@
                         <div class="video-modal__inner">
                             <div class="video-modal__modal">
                                 <video class="js-lazy js-hero-modal-iframe" autoplay controls preload playsinline width="560" height="315" data-source="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}">
-                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4"> </source>
+                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
                                 </video>
                             </div>
                             <span class="video-modal__close js-hero-modal-close">

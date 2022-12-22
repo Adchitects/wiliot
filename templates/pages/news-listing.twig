@@ -18,12 +18,12 @@
 	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
 {% block og %}
-	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}"/>
-	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}"/>
-	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="website">
 {% endblock %}
 {% block ogurl %}
-    <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}"/>
+    <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
 {% endblock %}
 {% block main %}
 	{% set newsListingSection = craft.entries.section('newsListing') %}
@@ -64,7 +64,7 @@
                                         <use xlink:href="#svg-search"></use>
                                     </svg>
                                 </button>
-                                <input class="search-form__bar js-search-form-input js-search-news-input" type="search" name="news_q" aria-label="Search" placeholder="Search" value="{{ craft.app.request.getParam('news_q') }}" />
+                                <input class="search-form__bar js-search-form-input js-search-news-input" type="search" name="news_q" aria-label="Search" placeholder="Search" value="{{ craft.app.request.getParam('news_q') }}">
                             </form>
                         </li>
 					</ul>
