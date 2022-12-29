@@ -94,7 +94,7 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=22DEC2022">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=29DEC2022">
             {#
 			<script>
 				var scriptsExecuted = false;
@@ -340,8 +340,10 @@
 				{% set sectionId = '07' %}
 				{{ include('/sections/events-slider.twig') }}
 				{% set sectionId = '08' %}
-				{{ include('/sections/latest-news.twig') }}
+				{{ include('/sections/latest-podcasts.twig') }}
 				{% set sectionId = '09' %}
+				{{ include('/sections/latest-news.twig') }}
+				{% set sectionId = '10' %}
 				{{ include('/sections/outro.twig') }}
 				{% set sectionId = '' %}
 			{% endblock %}

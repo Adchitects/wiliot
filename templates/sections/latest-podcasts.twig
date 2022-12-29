@@ -1,0 +1,61 @@
+{% set showSection = entry.latestPodcastsShowSection %}
+{% set subtitle = entry.latestPodcastsSubtitle %}
+{% set title = entry.latestPodcastsTitle %}
+{% set entries = craft.entries.section('podcastDetails') %}
+{% set podcasts = entries.limit(3).all() %}
+{% set link = entry.latestPodcastsButton %}
+{% if showSection and podcasts|length %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section--latest-podcasts u-section js-bg-shape-hld">
+	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+        <img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+        <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+    </div>
+	<div class="u-wrapper u-wrapper--events-listing">
+		<div class="latest-podcasts-hld">
+            {% if subtitle %}
+                <span class="latest-podcasts__subtitle u-subtitle u-subtitle--section u-subtitle--centered">{{ subtitle }}</span>
+            {% endif %}
+            {% if title %}
+                <h2 class="latest-podcasts__title u-title u-title--section u-title--centered">{{ title }}</h2>
+            {% endif %}
+			<div class="latest-podcasts">
+				{% for podcast in podcasts %}
+                    {% set image = podcast.podcastDetailsImage.one() %}
+                    {% if image %}
+                        {% set imageUrl = image.getUrl('latestPostThumb') %}
+                        {% set imageAlt = image.title %}
+                    {% endif %}
+                    {% set number = podcast.podcastDetailsNumber %}
+                    {% set title = podcast.title %}
+                    {% set excerpt = podcast.podcastDetailsExcerpt %}
+					{% set excerptSliced = excerpt|slice(0, 100) ~ '...' %}
+                    <a class="podcast-item" href="{{ podcast.url }}">
+                        <div class="podcast-item__img-hld">
+                            {% if image %}
+                                <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                            {% endif %}
+                        </div>
+                        <div class="podcast-item__text-hld">
+                            <div class="podcast-item__date">
+                                Episode #{{number}}
+                                {{ podcast.postDate | date("F d, Y") }}
+                            </div>
+                            <div class="podcast-item__title">{{ title }}</div>
+                            {% if excerpt %}
+                                <div class="podcast-item__excerpt">{{ excerpt|length > 110 ? excerptSliced|raw : excerpt|raw }}</div>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+			</div>
+            {% if link.getUrl() %}
+                <div class="latest-podcasts__btn-hld">
+                    <a href="{{ link.getUrl() }}" class="latest-podcasts__btn u-btn u-btn--light is-narrow">
+                        <span class="text">{{ link.customText }}</span>
+                    </a>
+                </div>
+            {% endif %}
+		</div>
+	</div>
+</section>
+{% endif %}
