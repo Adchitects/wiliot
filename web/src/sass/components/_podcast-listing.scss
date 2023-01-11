@@ -75,7 +75,7 @@
 			margin-top: 60px;
 
 			@include media-max(1100) {
-				grid-gap: 0 24px;
+				grid-gap: 32px 24px;
 			}
 
 			@include media-max(959) {
@@ -176,6 +176,11 @@
 				font-weight: 900;
 				letter-spacing: 0;
 				line-height: 26px;
+				transition: color 0.2s;
+
+				&:hover {
+					color: $c-accent;
+				}
 			}
 
 			&__description {
@@ -185,7 +190,7 @@
 
 			&__btn {
 				display: block;
-				padding-top: 20px;
+				padding-top: 12px;
 			}
 
 			&__widget-title {

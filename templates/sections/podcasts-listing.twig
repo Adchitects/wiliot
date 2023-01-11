@@ -71,7 +71,7 @@
 									<div class="post__date">
 										Episode #{{number}}
 										{{ post.postDate | date("F d, Y") }}</div>
-									<div class="post__title">{{ title }}</div>
+									<a class="post__title" href="{{ post.url}}">{{ title }}</a>
 									{% if excerpt %}
 										<div class="post__excerpt">{{ excerpt|length > 110 ? excerptSliced|raw : excerpt|raw }}</div>
 									{% endif %}
