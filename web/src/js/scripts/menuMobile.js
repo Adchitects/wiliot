@@ -1,8 +1,9 @@
 // Handle menu toggling
 const body = document.querySelector('body');
 const menuMobileHld = document.querySelector('.js-menu-mobile-hld');
-if (menuMobileHld) {
-	const menuMobileButtonsAll = menuMobileHld.querySelectorAll('.js-menu-mobile-btn');
+const menuMobileMenuHld = document.querySelector('.js-menu-mobile-menu-hld');
+if (menuMobileHld && menuMobileMenuHld) {
+	const menuMobileButtonsAll = document.querySelectorAll('.js-menu-mobile-btn');
 	let isOpen = false;
 	const openMobile = () => {
 		isOpen = true;
@@ -21,13 +22,13 @@ if (menuMobileHld) {
 			body.style.overflow = '';
 		}
 	};
-	if (menuMobileHld) {
+	if (menuMobileButtonsAll) {
 		menuMobileButtonsAll.forEach((button) => {
 			button.addEventListener('click', toggleMobile);
 		});
 	}
 	// Handle dropdowns toggling
-	const menuMobileDropdownHldAll = menuMobileHld.querySelectorAll('.js-menu-mobile-dropdown-hld');
+	const menuMobileDropdownHldAll = menuMobileMenuHld.querySelectorAll('.js-menu-mobile-dropdown-hld');
 	menuMobileDropdownHldAll.forEach(dropdownHld => {
 		// Dropdown variables
 		const openDropdown = (hld, el, inn) => {

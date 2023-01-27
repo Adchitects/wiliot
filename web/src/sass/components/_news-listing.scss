@@ -50,10 +50,6 @@
 			padding-bottom: 20px;
 			font-weight: 500;
 
-			@include mobile-767 {
-				padding-bottom: 0;
-			}
-
 			.icon {
 				position: absolute;
 				top: 2px;
@@ -61,6 +57,20 @@
 				padding: 10px;
 				font-size: 12px;
 				transition: color 0.2s;
+			}
+
+			@include tablet-big-1365 {
+				.icon {
+					position: relative;
+					top: 0;
+					left: 0;
+					margin-right: -6px;
+					margin-left: -10px;
+				}
+			}
+
+			@include mobile-767 {
+				padding-bottom: 0;
 			}
 		}
 

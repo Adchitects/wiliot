@@ -94,7 +94,7 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=11JAN2023">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=28JAN2023">
             {#
 			<script>
 				var scriptsExecuted = false;
@@ -285,6 +285,66 @@
             {% block headerPopupMobile %}
             {% endblock %}
 		</header>
+        {% set pages = craft.entries.section('menuMobile').all() %}
+        {% set socials = pageOptions.pageOptionsSocials.all() %}
+        {% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
+        <div class="menu-mobile-menu-hld js-menu-mobile-menu-hld">
+            <div class="menu-mobile__overlay js-menu-mobile-btn"></div>
+            <div class="menu-mobile__inner">
+                <nav class="menu-mobile__nav-hld">
+                    <ul class="menu-mobile__nav-list">
+                        {% nav page in pages %}
+                            {% set menuMobileTitle = page.title %}
+                            {% set menuMobilePageLink = page.menuMobilePageLink %}
+                            <li class="menu-mobile__nav-list-item {% if entry is defined and menuMobilePageLink == entry.url %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
+                                {% if lastIsTypeform and loop.index == 1 %}
+                                    {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                    <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+                                        <span class="text">{{ menuMobileTitle }}</span>
+                                    </button>
+                                {% elseif menuMobilePageLink.url %}
+                                    <a href="{{ menuMobilePageLink.url }}" target="{{ menuMobilePageLink.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink.target ? 'noopener noreferrer' : null }}" class="inner">
+                                        <span class="text">{{ menuMobileTitle }}</span>
+                                    </a>
+                                {% else %}
+                                    <div class="inner">
+                                        <span class="text">{{ menuMobileTitle }}</span>
+                                        <span class="link-icon-hld js-menu-mobile-dropdown-icon">
+                                            <span class="icon icon-dropdown-down"></span>
+                                        </span>
+                                    </div>
+                                {% endif %}
+                                {% ifchildren %}
+                                    <div class="menu-mobile__nav-dropdown js-menu-mobile-dropdown">
+                                        <ul class="menu-mobile__nav-dropdown-list js-menu-mobile-dropdown-list">
+                                            {% children %}
+                                        </ul>
+                                    </div>
+                                {% endifchildren %}
+                            </li>
+                        {% endnav %}
+                    </ul>
+                </nav>
+                <div class="menu-mobile__search-hld">
+                    {{ include('/sections/search-bar.twig') }}
+                </div>
+                {% if socials %}
+                    <div class="menu-mobile__socials-hld">
+                        <div class="inner">
+                            {% for social in socials %}
+                                <div class="link">
+                                    {% if social.socialLink and social.socialName and social.socialIcon %}
+                                        <a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
+                                            <span class="icon icon-{{ social.socialName|lower }}"></span>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
 		<main>
 			{% block main %}
 				{% set latestPopup = craft.entries.section('popupPosts').limit(1) %}
@@ -379,7 +439,7 @@
             </div>
         {% endif %}
         <script src="//embed.typeform.com/next/embed.js"></script>
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=22aDEC2022"></script>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=28JAN2023"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
             <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights" />

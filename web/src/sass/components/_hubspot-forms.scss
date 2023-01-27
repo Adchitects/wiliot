@@ -226,12 +226,9 @@
 
 		.hs-error-msgs {
 			position: relative;
-			// position: absolute;
-			// bottom: -24px;
 			left: 0;
 			width: 100%;
-			margin-top: 4px;
-			// margin-bottom: -16px;
+			margin-top: 12px;
 			color: $c-orange;
 			font-size: 13px;
 			font-weight: 500;
@@ -239,19 +236,13 @@
 			line-height: 20px;
 
 			label {
-				padding-left: 4px;
+				margin-top: 6px;
 				color: $c-orange;
 				font-size: 13px;
 				font-weight: 500;
 				letter-spacing: 0;
 				line-height: 20px;
 				transform: translate(0);
-
-				@include mobile-599 {
-					font-size: 10px;
-					font-weight: 300;
-					line-height: 13px;
-				}
 
 				.is-buy-page-form & {
 					font-size: 12px;
@@ -297,6 +288,19 @@
 			}
 		}
 
+		&.hs-fieldtype-checkbox {
+			>label {
+				display: block;
+				position: relative;
+				top: 0;
+
+				span {
+					display: inline;
+					opacity: 1;
+				}
+			}
+		}
+
 		&.hs-fieldtype-textarea {
 			label {
 				position: relative;
@@ -315,7 +319,7 @@
 	}
 
 	.hs-richtext {
-		margin-top: 35px;
+		margin-top: 16px;
 	}
 
 	.hs-fieldtype-booleancheckbox,
@@ -339,7 +343,7 @@
 
 				.u-bigger-form & {
 					position: relative;
-					top: -2px;
+					top: -1px;
 					font-size: 16px;
 					line-height: calc(26 / 16);
 				}
@@ -522,13 +526,17 @@
 				font-size: 16px !important;
 				font-weight: 500 !important;
 				line-height: 26px !important;
+
+				&.hs-form-required {
+					display: inline-block;
+					margin-left: 4px !important;
+				}
 			}
 		}
 
 		.inputs-list.inputs-list {
 			display: flex !important;
 			flex-wrap: wrap !important;
-			margin-top: 10px !important;
 
 			.hs-form-checkbox {
 				width: 100% !important;
@@ -540,8 +548,10 @@
 		}
 
 		.inputs-list {
-			margin: 0 !important;
-			padding: 0 !important;
+			&:not(.hs-error-msgs) {
+				margin: 0 !important;
+				padding: 0 !important;
+			}
 		}
 
 		input {
@@ -566,7 +576,6 @@
 		}
 
 		span {
-			display: inline-block !important;
 			margin-left: 10px;
 			color: rgba($c-white, 0.8) !important;
 			font-family: $font-head !important;
@@ -575,6 +584,10 @@
 			letter-spacing: 0 !important;
 			line-height: 20px !important;
 			transform: translateY(0) !important;
+
+			.u-dark-form & {
+				color: rgba($c-black, 0.8) !important;
+			}
 		}
 	}
 
@@ -785,7 +798,6 @@
 			}
 
 			span {
-				display: inline-block !important;
 				margin-left: 10px;
 				color: rgba($c-white, 0.8) !important;
 				font-family: $font-head !important;
