@@ -417,6 +417,10 @@
 .event-item__excerpt {
 	margin-top: 16px;
 	color: rgba($c-black, 0.8);
+
+	p + p {
+		margin-top: 0.5em;
+	}
 }
 
 .event-item__btn {
