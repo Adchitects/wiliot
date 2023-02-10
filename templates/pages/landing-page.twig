@@ -1,8 +1,11 @@
 {% extends "index.twig" %}
+
 {% set metaTitle = entry.metaTitle %}
 {% set metaDescription = entry.metaDescription %}
 {% set postModifyDate = entry.dateUpdated|date("Y-m-d\\TH:i:s+00:00") %}
-{% block head %} {{ parent() }} {% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
 {% block title %}
 	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
@@ -14,6 +17,9 @@
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 	<meta property="og:type" content="article">
 	<meta property="article:modified_time" content="{{ postModifyDate }}">
+{% endblock %}
+{% block ogurl %}
+    <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
 {% endblock %}
 {% block main %}
 
@@ -238,7 +244,6 @@
                 </div>
             </div>
         </section>
-
     {% endif %}
     {% if relatedItem.type.handle == 'singleEvent' %}
         {% set sectionId = '02' %}

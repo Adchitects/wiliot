@@ -7,16 +7,16 @@
     {{ parent() }}
 {% endblock %}
 {% block title %}
-	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+    {{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 {% endblock %}
 {% block description %}
-	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+    <meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
 {% block og %}
-	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
-	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
-	<meta property="og:type" content="article">
-	<meta property="article:modified_time" content="{{ postModifyDate }}">
+    <meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+    <meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+    <meta property="og:type" content="article">
+    <meta property="article:modified_time" content="{{ postModifyDate }}">
 {% endblock %}
 {% block ogurl %}
     <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
@@ -90,94 +90,291 @@
 </script>
 {% endblock %}
 
+{# THERE ARE 2 DIFFERENT layouts: 1 for the standard/centered version, and 2, for the one with sidebar, for Raports/Whitepapers #}
 {% block main %}
-	{% set query = entry.postRelatedCategories.all() %}
-	{% set category = entry.postMainCategory.one() %}
-	{% if category == 'Events' %}
-		{% set category = 'Event' %}
-	{% elseif category == 'Announcements' %}
-		{% set category = 'Announcement' %}
-	{% endif %}
-	{% set heroTitle = entry.heroTitle %}
-	{% if entry.newsPostsHeroImage.one() %}
-		{% set heroImage = entry.newsPostsHeroImage.one() %}
-	{% else %}
-		{% set heroImage = entry.newsPostsfeaturedImage.one() %}
-	{% endif %}
-	{% set newsContent = entry.postContent %}
-	{% set newsPostsEventText = entry.newsPostsEventText %}
-	{% set postDate = entry.postDate|date("F d, Y") %}
-	{% set sectionId = '01' %}
-	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-news {{ heroImage ? null : 'is-no-featured-image' }}">
-		<div class="bg-shape-hld js-bg-shape-hld">
-			<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
-				<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
-				<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
-				<img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
-			</div>
-			<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
-				<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
-			</div>
-		</div>
-		<div class="u-wrapper">
-			<div class="hero-news">
-				<span class="hero-news__category">{{ category }}</span>
-				<h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
-				<div class="hero-news__publish-date">{{ newsPostsEventText ? newsPostsEventText : postDate }}</div>
-				{% if heroImage %}
-					<img src="{{ heroImage.getUrl('postImage') }}" class="hero-news__image" alt="{{ heroTitle }}">
-				{% endif %}
-			</div>
-		</div>
-	</section>
-	{% set sectionId = '02' %}
-	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="news-single js-bg-shape-hld {{ heroImage ? null : 'is-no-featured-image' }}">
-		<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
-			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
-		</div>
-		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
-			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
-			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
-		</div>
-		<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
-			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
-		</div>
-		<div class="u-wrapper">
-			<div class="news-single__content">
-				{{ newsContent }}
-			</div>
-			<div class="news-single__bottom-toolbar">
-				<div class="news-single__share">
-					<span>Share</span>
-					<a href="{{'https://www.facebook.com/sharer/sharer.php?u='~entry.getUrl()}}">
-						<span class="icon icon-facebook"></span>
-					</a>
-					<a href="{{'https://twitter.com/intent/tweet?url='~entry.getUrl()}}">
-						<span class="icon icon-twitter"></span>
-					</a>
-					<a href="{{'https://www.linkedin.com/shareArticle?mini=true&url='~entry.getUrl()}}">
-						<span class="icon icon-linkedin"></span>
-					</a>
-					<a href="{{'mailto:info@example.com?&subject=&cc=&bcc=&body='~entry.getUrl()~'%0A'}}">
-						<span class="icon icon-email"></span>
-					</a>
-				</div>
-                {% if query %}
-				<div class="news-single__tags">
-					<div class="title">Related tags</div>
-					<div class="items">
-						{% for cat in query %}
-							<a class="news-single__tag" href="{{ url(cat.uri) }}">
-								{{ cat.title }}
-							</a>
-						{% endfor %}
-					</div>
-				</div>
-                {% endif %}
-			</div>
-		</div>
-	</section>
-	{% set sectionId = '03' %}
-	{{ include('/sections/related-posts.twig') }}
-	{% set sectionId = '' %}
+
+    {% if entry.type.handle == 'singleWithSidebar' %}
+
+        {% set category = entry.postMainCategory.one() %}
+        {% if category == 'Events' %}
+            {% set category = 'Event' %}
+        {% elseif category == 'Announcements' %}
+            {% set category = 'Announcement' %}
+        {% endif %}
+
+        {% set event = entry %}
+        {% set image = event.newsPostsHeroImage.one() %}
+        {% set date = event.eventDate %}
+        {% set readingTime = event.eventReadingTime %}
+        {% if entry.heroTitle %}
+            {% set title = event.heroTitle %}
+        {% else %}
+            {% set title = event.title %}
+        {% endif %}
+        {% set subtitle = category %}
+        {% set showShareIcons = event.eventShareIcons %}
+        {% set content = entry.postContent %}
+        {% set video = entry.eventVideo.one() %}
+        {% set videoPlaceholder = entry.eventVideoPlaceholder.one() %}
+        {% set sidebarTitle = event.eventSidebarTitle %}
+        {% set sidebarText = event.eventSidebarText %}
+        {% set sidebarButton = event.eventSidebarButton %}
+        {% set sidebarFormID = event.eventSidebarFormId %}
+
+        {% set sectionId = '01' %}
+        <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--event-details">
+            {% if not image %}
+            <div class="event-details__hero">
+                <div class="event-details__hero-blur">
+                    <img src="{{ alias('@web/src/img/bg-shape/hero-blur.png') }}" alt="blur decoration">
+                </div>
+                <div class="event-details__hero-text-hld">
+                    <div class="u-wrapper u-wrapper--normal">
+                        {% if subtitle %}
+                            <span class="event-details__hero-subtitle">{{ subtitle }}</span>
+                        {% endif %}
+                        <h1 class="event-details__hero-title">{{ title }}</h1>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="u-wrapper u-wrapper--events-listing">
+                <div class="event-details-hld">
+                    {% if image %}
+                        {% set imageUrl = image.getUrl %}
+                        {% set imageAlt = image.title %}
+                        <div class="event-details__img-hld">
+                            <img class="event-details__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+                        </div>
+                        <div class="event-details-title-hld">
+                            <h1 class="event-details-title">{{ title }}</h1>
+                            {% if showShareIcons %}
+                                <div class="event-details-share">
+                                    <a href="{{ 'https://www.facebook.com/sharer/sharer.php?u='~entry.getUrl() }}" title="Share event on Facebook">
+                                        <span class="icon icon-facebook"></span>
+                                    </a>
+                                    <a href="{{ 'https://twitter.com/intent/tweet?url='~entry.getUrl() }}" title="Share event on Twitter">
+                                        <span class="icon icon-twitter"></span>
+                                    </a>
+                                    <a href="{{ 'https://www.linkedin.com/shareArticle?mini=true&url='~entry.getUrl() }}" title="Share event on LinkedIn">
+                                        <span class="icon icon-linkedin"></span>
+                                    </a>
+                                    <a href="{{ 'mailto:info@example.com?&subject=&cc=&bcc=&body='~entry.getUrl()~'%0A' }}" title="Share event in e-mail">
+                                        <span class="icon icon-email"></span>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <div class="event-details-main {% if not image %}event-details-main--no-image{% endif %}">
+                        <div class="event-details-content">
+                            <div class="event-details-content-inner event-details-content-inner--landing-page">
+                                {% if date or readingTime or image %}
+                                    <div class="event-details-info">
+                                        {% if subtitle and image %}
+                                            <div class="event-details__labels">
+                                                <span class="event-details__label event-details__label--medium-light">{{ subtitle }}</span>
+                                            </div>
+                                        {% endif %}
+                                        {% if date or readingTime %}
+                                            <div class="event-details__time-and-date event-details__time-and-date--landing-page">
+                                                {% if date %}
+                                                    <span class="event-details__date">{{ date }}</span>
+                                                {% endif %}
+                                                {% if readingTime %}
+                                                    <span class="event-details__length event-details__length--reading-time">{{ readingTime }}</span>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                {% if content %}
+                                    <div class="event-details__content u-content">
+                                        {{ content }}
+                                    </div>
+                                {% endif %}
+                                {% if video %}
+                                    <div class="event-details__video-hld js-video-hld is-paused is-before-play">
+                                        <span class="icon icon-button_play"></span>
+                                        {% if videoPlaceholder %}
+                                            <div class="event-details__video-placeholder">
+                                                <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
+                                            </div>
+                                        {% endif %}
+                                        <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="event-details-sidebar">
+                            {% if sidebarTitle or sidebarText or sidebarButton.customText or sidebarFormID %}
+                                <div class="event-details-sidebar-box event-details-sidebar-box--{% if sidebarFormID %}normal{% else %}sticky{% endif %}">
+                                    {% if sidebarTitle %}
+                                        <span class="event-details-sidebar-box__title">{{ sidebarTitle }}</span>
+                                    {% endif %}
+                                    {% if sidebarText %}
+                                        <p class="event-details-sidebar-box__text">{{ sidebarText }}</p>
+                                    {% endif %}
+                                    {% if sidebarButton.customText %}
+                                        <div class="event-details-sidebar-box__btn-hld">
+                                            {% if sidebarButton.url %}
+                                                <a href="{{ sidebarButton.url }}" class="event-details-sidebar-box__btn u-btn u-btn--accent" target="{{ sidebarButton.target ? '_blank' : '_self' }}" rel="{{ sidebarButton.target ? 'noopener noreferrer' : null }}">
+                                                    <span class="text">{{ sidebarButton.customText }}</span>
+                                                </a>
+                                            {% else %}
+                                                <span class="event-details-sidebar-box__btn u-btn u-btn--disabled">
+                                                    <span class="text">{{ sidebarButton.customText }}</span>
+                                                </span>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    {% if sidebarFormID %}
+                                        <div class="event-details-form u-dark-form u-bigger-form u-sidebar-form">
+                                            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                                            <script
+                                                    src="https://code.jquery.com/jquery-3.6.0.min.js"
+                                                    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                                                    crossorigin="anonymous">
+                                            </script>
+                                            <script>
+                                                function handleState() {
+                                                    const fields = document.querySelectorAll('.field input');
+                                                    const selects = document.querySelectorAll('.hs-fieldtype-select select');
+                                                    if (fields && fields.length > 0) {
+                                                        fields.forEach(field => {
+                                                            field.addEventListener('input', () => {
+                                                                field.parentNode.parentNode.classList.add('is-active');
+                                                                if (!field.value) {
+                                                                    field.parentNode.parentNode.classList.remove('is-active');
+                                                                }
+                                                            });
+                                                        });
+                                                    }
+                                                    if (selects && selects.length > 0) {
+                                                        selects.forEach(select => {
+                                                            select.addEventListener('change', () => {
+                                                                select.parentNode.parentNode.classList.add('is-active');
+                                                                handleState();
+                                                            });
+                                                        });
+                                                    }
+                                                };
+                                                hbspt.forms.create({
+                                                    region: "na1",
+                                                    portalId: "4249967",
+                                                    formId: "{{ sidebarFormID }}",
+                                                    onFormReady: function() {
+                                                        handleState();
+                                                    },
+                                                });
+                                            </script>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% set sectionId = '02' %}
+        {{ include('/sections/related-posts.twig') }}
+        {% set sectionId = '03' %}
+        {{ include('/sections/subscribe.twig') }}
+        {% set sectionId = '' %}
+
+    {% else %}
+
+        {% set query = entry.postRelatedCategories.all() %}
+        {% set category = entry.postMainCategory.one() %}
+        {% if category == 'Events' %}
+            {% set category = 'Event' %}
+        {% elseif category == 'Announcements' %}
+            {% set category = 'Announcement' %}
+        {% endif %}
+        {% set heroTitle = entry.heroTitle %}
+        {% if entry.newsPostsHeroImage.one() %}
+            {% set heroImage = entry.newsPostsHeroImage.one() %}
+        {% else %}
+            {% set heroImage = entry.newsPostsfeaturedImage.one() %}
+        {% endif %}
+        {% set newsContent = entry.postContent %}
+        {% set newsPostsEventText = entry.newsPostsEventText %}
+        {% set postDate = entry.postDate|date("F d, Y") %}
+        {% set sectionId = '01' %}
+        <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-news {{ heroImage ? null : 'is-no-featured-image' }}">
+            <div class="bg-shape-hld js-bg-shape-hld">
+                <div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+                    <img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
+                    <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
+                    <img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
+                </div>
+                <div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+                    <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+                </div>
+            </div>
+            <div class="u-wrapper">
+                <div class="hero-news">
+                    <span class="hero-news__category">{{ category }}</span>
+                    <h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
+                    <div class="hero-news__publish-date">{{ newsPostsEventText ? newsPostsEventText : postDate }}</div>
+                    {% if heroImage %}
+                        <img src="{{ heroImage.getUrl('postImage') }}" class="hero-news__image" alt="{{ heroTitle }}">
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        {% set sectionId = '02' %}
+        <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="news-single js-bg-shape-hld {{ heroImage ? null : 'is-no-featured-image' }}">
+            <div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
+                <img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
+            </div>
+            <div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+                <img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+                <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+            </div>
+            <div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+                <img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
+            </div>
+            <div class="u-wrapper">
+                <div class="news-single__content">
+                    {{ newsContent }}
+                </div>
+                <div class="news-single__bottom-toolbar">
+                    <div class="news-single__share">
+                        <span>Share</span>
+                        <a href="{{'https://www.facebook.com/sharer/sharer.php?u='~entry.getUrl()}}">
+                            <span class="icon icon-facebook"></span>
+                        </a>
+                        <a href="{{'https://twitter.com/intent/tweet?url='~entry.getUrl()}}">
+                            <span class="icon icon-twitter"></span>
+                        </a>
+                        <a href="{{'https://www.linkedin.com/shareArticle?mini=true&url='~entry.getUrl()}}">
+                            <span class="icon icon-linkedin"></span>
+                        </a>
+                        <a href="{{'mailto:info@example.com?&subject=&cc=&bcc=&body='~entry.getUrl()~'%0A'}}">
+                            <span class="icon icon-email"></span>
+                        </a>
+                    </div>
+                    {% if query %}
+                    <div class="news-single__tags">
+                        <div class="title">Related tags</div>
+                        <div class="items">
+                            {% for cat in query %}
+                                <a class="news-single__tag" href="{{ url(cat.uri) }}">
+                                    {{ cat.title }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        {% set sectionId = '03' %}
+        {{ include('/sections/related-posts.twig') }}
+        {% set sectionId = '' %}
+
+    {% endif %}
+
 {% endblock %}
