@@ -94,7 +94,7 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=10FEB2023">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=10AFEB2023">
             {#
 			<script>
 				var scriptsExecuted = false;
@@ -272,7 +272,7 @@
             </script>
 		</head>
 	{% endblock %}
-	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% endif %}">
+	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% if entry.type.handle == 'singleWithSidebar' %} is-with-sidebar{% endif %}{% endif %}">
         {{ include('/sections/svg-sprites.twig') }}
 		<header class="header header--desktop js-header js-search-bar-hld">
 			{{ include('/sections/search-bar.twig') }}
