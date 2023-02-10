@@ -111,7 +111,11 @@
         {% else %}
             {% set title = event.title %}
         {% endif %}
-        {% set subtitle = category %}
+        {% if event.eventSubtitle %}
+            {% set subtitle = event.eventSubtitle %}
+        {% else %}
+            {% set subtitle = category %}
+        {% endif %}
         {% set showShareIcons = event.eventShareIcons %}
         {% set content = entry.postContent %}
         {% set video = entry.eventVideo.one() %}
