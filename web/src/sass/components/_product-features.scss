@@ -48,7 +48,7 @@
 			flex-direction: column;
 			align-items: flex-start;
 			position: sticky;
-			top: 105px;
+			top: calc(50vh - 120px);
 			max-width: 450px;
 
 			@include media-max(850) {
@@ -93,5 +93,11 @@
 				opacity: 0.8;
 			}
 		}
+	}
+}
+
+@media only screen and (max-height: 700px) {
+	.product-features__header {
+		top: 120px;
 	}
 }

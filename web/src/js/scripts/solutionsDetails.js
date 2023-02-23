@@ -29,11 +29,11 @@ if (!isMobile()) {
 									onLeaveBack: () => navItem.classList.toggle('is-active'),
 								},
 							});
-						} 
+						}
 						if (navItem.dataset.key === contentItem.dataset.key) {
 							navItem.addEventListener('click', () => {
 								gsap.to(window, {
-									duration: 0.5, 
+									duration: 0.5,
 									scrollTo: {
 										y: contentItem,
 										offsetY: 100,

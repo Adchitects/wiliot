@@ -508,7 +508,7 @@
 				flex-direction: column;
 				align-items: flex-start;
 				position: sticky;
-				top: 110px;
+				top: calc(50vh - 240px);
 				height: 365px;
 				padding-top: 60px;
 				padding-left: 65px;
@@ -648,5 +648,11 @@
 				}
 			}
 		}
+	}
+}
+
+@media only screen and (max-height: 700px) {
+	.solutions-details__content-item .box--a {
+		top: 110px;
 	}
 }
