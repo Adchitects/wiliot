@@ -27,11 +27,32 @@ import algoliasearch from 'algoliasearch';
 const client = algoliasearch('BW16XZ9HAY', 'da53a277d8695f1185ede202a3ae958b');
 const index = client.initIndex('prod_Wiliot');
 
-console.log(index.exists());
+const objects = [{
+	firstname: 'Jimmie',
+	lastname: 'Barninger',
+	objectID: 'myID1',
+}, {
+	firstname: 'Warren',
+	lastname: 'Speach',
+	objectID: 'myID2',
+}];
 
-// let hits = [];
+index.saveObjects(objects).then(({ objectIDs }) => {
+	console.log(objectIDs);
+});
 
-// Get all records as an iterator
+index.browseObjects({
+	query: '', // empty query to retrieve all objects
+	batch: (batch) => {
+		console.log(batch);
+	},
+	complete: () => {
+		console.log('Done browsing');
+	},
+	onError: (err) => {
+		console.error(err);
+	},
+});
 // index.browseObjects({
 // 	batch: batch => {
 // 		hits = hits.concat(batch);

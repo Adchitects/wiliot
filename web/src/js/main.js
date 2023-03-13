@@ -21,7 +21,7 @@ import './scripts/sliders';
 import './scripts/popup';
 import './scripts/careersListing';
 import './scripts/singleCareer';
-import './scripts/sectionId';
+// import './scripts/sectionId';
 import './scripts/homepageLottieAnimation';
 import './scripts/alignLeftMargin';
 import './scripts/search';
