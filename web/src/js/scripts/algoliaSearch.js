@@ -24,7 +24,7 @@
 
 import algoliasearch from 'algoliasearch';
 
-const client = algoliasearch('BW16XZ9HAY', 'da53a277d8695f1185ede202a3ae958b');
+const client = algoliasearch('BW16XZ9HAY', '56e27ff1f9dc7d41a1d5204da1417d36');
 const index = client.initIndex('prod_Wiliot');
 
 const objects = [{
