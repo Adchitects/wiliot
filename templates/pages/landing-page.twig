@@ -248,7 +248,7 @@
     {% if relatedItem.type.handle == 'singleEvent' %}
         {% set sectionId = '02' %}
         {% set eventCategory = relatedItem.eventCategory.one() %}
-        {% set relatedEntries = craft.entries.section('eventItems').relatedTo(['or',{targetElement: eventCategory, field: 'eventCategory' }]).id('not '~relatedItem.id) %}
+        {% set relatedEntries = craft.entries.section('eventItems').relatedTo(['or',{targetElement: eventCategory, field: 'eventCategory' }]).id('not '~relatedItem.id).removeFromListings('not 1') %}
         {% set relatedEvents = relatedEntries.limit(3) %}
         {% if relatedEvents|length %}
         <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--related-events">

@@ -24,7 +24,7 @@
 {% endblock %}
 {% block main %}
 
-    {% set entryQuery = craft.entries().section('eventItems').orderBy('postDate DESC') %}
+    {% set entryQuery = craft.entries().section('eventItems').removeFromListings('not 1').orderBy('postDate DESC') %}
     {% set events = entryQuery.all() %}
 
     {% set itemsShown = entry.eventsListingItemsShown %}
