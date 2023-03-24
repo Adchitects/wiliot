@@ -115,6 +115,7 @@
 			}
 
 			.icon-hld {
+				height: 24px;
 				margin-bottom: 8px;
 
 				@include media-max(767) {
@@ -122,6 +123,7 @@
 				}
 
 				.icon {
+					max-height: 24px;
 					margin: 0 auto;
 					filter: brightness(0);
 					transition: opacity 0.2s;
