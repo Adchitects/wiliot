@@ -33,3 +33,4 @@ import './scripts/titleSwitcher';
 import './scripts/headerPopup';
 import './scripts/cookiesBox';
 import './scripts/typeformAnalytics';
+import './scripts/customHubspotForm';
