@@ -19,15 +19,26 @@
                     {% set itemImageDuration = item.itemImageDuration %}
                     {% set itemDesktopVideoLink = item.itemDesktopVideoLink %}
                     {% set itemShowWatchVideoButton = item.itemShowWatchVideoButton %}
-                    {% set itemDesktopVideoPoster = item.itemDesktopVideoPoster.one() %}
+                    {% set itemDesktopVideoPosterUrl = '' %}
+                    {% set itemDesktopVideoPosterAlt = '' %}
+                    {% if item.itemDesktopVideoPosterUrl %}
+                        {% set itemDesktopVideoPosterUrl = item.itemDesktopVideoPosterUrl %}
+                        {% set itemDesktopVideoPosterAlt = item.itemDesktopVideoPosterAlt %}
+                    {% else %}
+                        {% set itemDesktopVideoPoster = item.itemDesktopVideoPoster.one() %}
+                        {% if itemDesktopVideoPoster %}
+                            {% set itemDesktopVideoPosterUrl = itemDesktopVideoPoster.getURL() %}
+                            {% set itemDesktopVideoPosterAlt = itemDesktopVideoPoster.title %}
+                        {% endif %}
+                    {% endif %}
                     {% set itemDesktopVideoDuration = item.itemDesktopVideoDuration %}
                     {% set itemMobileVideoLink = item.itemMobileVideoLink %}
                     {% set itemButtonsMatrix = item.itemButtonsMatrix.all() %}
                     <div class="hero-slider__item swiper-slide js-hero-slider-slide {% if itemDesktopVideoLink %} is-iframe {% endif %} {% if itemDesktopVideoLink %} js-hero-modal-hld {% endif %}" data-swiper-autoplay="{% if itemDesktopVideoDuration %}{{ itemDesktopVideoDuration * 1000 }}{% elseif (itemImageDuration) %}{{ itemImageDuration * 1000 }}{% else %}5000{% endif %}">
                         {% if itemDesktopVideoLink %}
                             <div class="hero-slider__item-video-hld is-desktop">
-                                {% if itemDesktopVideoPoster %}
-                                    <img src="{{ itemDesktopVideoPoster.getUrl() }}" alt="{{ itemDesktopVideoPoster.title }}" />
+                                {% if itemDesktopVideoPosterUrl %}
+                                    <img src="{{ itemDesktopVideoPosterUrl }}" alt="{{ itemDesktopVideoPosterAlt }}" />
                                 {% endif %}
                                 <video class="js-lazy js-hero-slider-iframe" autoplay loop muted preload playsinline width="1920" height="768">
                                     <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoLink }}" type="video/mp4">
