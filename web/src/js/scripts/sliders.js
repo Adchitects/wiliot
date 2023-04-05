@@ -291,8 +291,8 @@ heroSliderHldAll.forEach(sliderHld => {
 		grabCursor: true,
 		threshold: 30,
 		watchSlidesProgress: true,
-		autoHeight: false,
-		loop: true, // not working properly
+		autoHeight: true,
+		loop: true,
 		navigation: {
 			prevEl: '.js-hero-slider-button-prev',
 			nextEl: '.js-hero-slider-button-next',

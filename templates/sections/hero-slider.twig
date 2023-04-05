@@ -33,6 +33,19 @@
                     {% endif %}
                     {% set itemDesktopVideoDuration = item.itemDesktopVideoDuration %}
                     {% set itemMobileVideoLink = item.itemMobileVideoLink %}
+                    {% set firstVideo = true %}
+                    {% set itemMobilePictureUrl = '' %}
+                    {% set itemMobilePictureAlt = '' %}
+                    {% if item.itemMobilePictureUrl %}
+                        {% set itemMobilePictureUrl = item.itemMobilePictureUrl %}
+                        {% set itemMobilePictureAlt = item.itemMobilePictureAlt %}
+                    {% elseif item.itemMobilePicture %}
+                        {% set itemMobilePicture = item.itemMobilePicture.one() %}
+                        {% if itemMobilePicture %}
+                            {% set itemMobilePictureUrl = itemMobilePicture.getURL() %}
+                            {% set itemMobilePictureAlt = itemMobilePicture.title %}
+                        {% endif %}
+                    {% endif %}
                     {% set itemButtonsMatrix = item.itemButtonsMatrix.all() %}
                     <div class="hero-slider__item swiper-slide js-hero-slider-slide {% if itemDesktopVideoLink %} is-iframe {% endif %} {% if itemDesktopVideoLink %} js-hero-modal-hld {% endif %}" data-swiper-autoplay="{% if itemDesktopVideoDuration %}{{ itemDesktopVideoDuration * 1000 }}{% elseif (itemImageDuration) %}{{ itemImageDuration * 1000 }}{% else %}5000{% endif %}">
                         {% if itemDesktopVideoLink %}
@@ -57,26 +70,30 @@
                             <div class="u-wrapper">
                                 <div class="u-subtitle u-subtitle--big hero-slider__item-subtitle">{{ itemSubtitle }}</div>
                                 <div class="u-title u-title--big hero-slider__item-title">{{ itemTitle|nl2br }}</div>
-                                {% if itemDesktopVideoLink %}
                                     <div class="hero-slider__item-video-hld is-mobile">
-                                        {% if loop.index0 == 0 %}
-                                            {#
-                                            <video controls preload playsinline>
-                                                <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
-                                            </video>
-                                            #}
-                                            <video autoplay loop muted preload playsinline>
-                                                <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
-                                            </video>
-                                        {% else %}
-                                            {#
-                                            <video class="js-lazy" controls preload playsinline>
-                                                <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
-                                            </video>
-                                            #}
-                                            <video class="js-lazy" autoplay loop muted preload playsinline>
-                                                <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
-                                            </video>
+                                        {% if itemMobilePictureUrl %}
+                                            <img src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
+                                        {% elseif itemDesktopVideoLink %}
+                                            {% if firstVideo %}
+                                                {% set firstVideo = false %}
+                                                {#
+                                                <video controls preload playsinline>
+                                                    <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
+                                                </video>
+                                                #}
+                                                <video autoplay loop muted preload playsinline>
+                                                    <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
+                                                </video>
+                                            {% else %}
+                                                {#
+                                                <video class="js-lazy" controls preload playsinline>
+                                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
+                                                </video>
+                                                #}
+                                                <video class="js-lazy" autoplay loop muted preload playsinline>
+                                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
+                                                </video>
+                                            {% endif %}
                                         {% endif %}
                                         {% if itemsMatrix|length > 1 %}
                                             <div class="arrow arrow--prev arrow--mobile js-hero-slider-button-prev">
@@ -87,7 +104,6 @@
                                             </div>
                                         {% endif %}
                                     </div>
-                                {% endif %}
                                 {% if itemButtonsMatrix|length > 0 %}
                                     <div class="hero-slider__buttons-hld">
                                         {% for btn in itemButtonsMatrix %}
