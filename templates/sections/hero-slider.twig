@@ -33,7 +33,6 @@
                     {% endif %}
                     {% set itemDesktopVideoDuration = item.itemDesktopVideoDuration %}
                     {% set itemMobileVideoLink = item.itemMobileVideoLink %}
-                    {% set firstVideo = true %}
                     {% set itemMobilePictureUrl = '' %}
                     {% set itemMobilePictureAlt = '' %}
                     {% if item.itemMobilePictureUrl %}
@@ -74,8 +73,7 @@
                                         {% if itemMobilePictureUrl %}
                                             <img src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
                                         {% elseif itemDesktopVideoLink %}
-                                            {% if firstVideo %}
-                                                {% set firstVideo = false %}
+                                            {% if loop.index0 %}
                                                 {#
                                                 <video controls preload playsinline>
                                                     <source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
