@@ -272,6 +272,7 @@
 			position: absolute;
 			left: 0;
 			cursor: pointer;
+			transition: background-color 0.2s;
 
 			span {
 				padding-left: 4px;
@@ -314,6 +315,226 @@
 
 			legend {
 				margin-top: 0 !important;
+			}
+		}
+	}
+
+	.multi-select-btn {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		margin-top: 16px;
+		padding: 0 6px 2px 4px;
+		border-bottom: 1px solid $c-white;
+
+		&::after {
+			content: '';
+			width: 8px;
+			height: 8px;
+			margin-top: -2px;
+			margin-left: auto;
+			border-right: 1px solid $c-white;
+			border-bottom: 1px solid $c-white;
+			transform: rotate(45deg);
+		}
+
+		span.text {
+			display: flex;
+			align-items: center;
+			margin-left: 0 !important;
+			font-size: 16px !important;
+			font-weight: 500 !important;
+			line-height: calc(26 / 16) !important;
+
+			.count {
+				display: block !important;
+				width: 20px;
+				height: 20px;
+				margin-top: -3px;
+				margin-right: 8px;
+				margin-left: 0 !important;
+				border-radius: 50%;
+				background-color: $c-white;
+				color: $c-neutral-10 !important;
+				font-size: 12px !important;
+				line-height: calc(22 / 12) !important;
+				text-align: center;
+			}
+		}
+
+		.u-dark-form & {
+			border-bottom: 1px solid $c-gray;
+
+			&::after {
+				border-right: 1px solid $c-neutral-10;
+				border-bottom: 1px solid $c-neutral-10;
+			}
+
+			span.text {
+				color: $c-gray !important;
+
+				&.is-active {
+					color: $c-neutral-10 !important;
+				}
+
+				.count {
+					background-color: $c-accent !important;
+					color: $c-white !important;
+				}
+			}
+		}
+	}
+
+	.multi-container-hld {
+		position: absolute;
+		top: calc(100% + 6px);
+		left: 0;
+		width: 100%;
+		border-radius: 6px;
+		background-color: $c-white;
+		box-shadow: 0 0 10px rgba(134, 134, 183, 0.32);
+		overflow: hidden;
+
+		.multi-container {
+			position: relative;
+			max-height: 364px;
+			overflow-y: auto;
+
+			@media only screen and (max-height: 800px) {
+				max-height: 254px;
+			}
+
+			li {
+				margin-top: 0;
+
+				label {
+					padding: 16px 16px 14px;
+
+					span {
+						display: block;
+						font-size: 14px;
+						line-height: calc(20 / 14);
+					}
+
+					&:hover {
+						background-color: #F5F9FC;
+					}
+				}
+
+				&.is-active {
+					label {
+						background-color: #F5F9FC;
+					}
+				}
+			}
+		}
+
+		.multi-container-buttons {
+			display: flex;
+			justify-content: space-between;
+			padding: 8px 16px;
+			border-top: 1px solid $c-neutral-90;
+		}
+
+		.multi-container-button {
+			display: block;
+			cursor: pointer;
+			width: calc(50% - 6px);
+			padding: 11px 12px;
+			border-radius: 44px;
+			text-align: center;
+			transition: border-color 0.2s, background-color 0.2s;
+
+			.text {
+				display: block;
+				margin-left: 0 !important;
+				font-size: 14px !important;
+				font-weight: 500 !important;
+				line-height: calc(20 / 14) !important;
+				transition: color 0.2s;
+			}
+
+			&--clear {
+				border: 1px solid $c-white;
+
+				.text {
+					color: $c-white !important;
+				}
+			}
+
+			&--done {
+				border: 1px solid $c-white;
+				background-color: $c-white;
+
+				.text {
+					color: $c-neutral-10 !important;
+				}
+			}
+		}
+
+		.multi-container {
+			li {
+				&:not(:last-child) {
+					border-bottom: 1px solid $c-neutral-90;
+				}
+
+				label {
+					span {
+						color: $c-neutral-10 !important;
+					}
+				}
+			}
+		}
+
+		.multi-container-button {
+			&--clear {
+				border: 1px solid $c-neutral-10;
+
+				.text {
+					color: $c-neutral-10 !important;
+				}
+
+				&:hover {
+					background-color: $c-neutral-90;
+				}
+			}
+
+			&--done {
+				border: 1px solid $c-accent;
+				background-color: $c-accent;
+
+				.text {
+					color: $c-white !important;
+				}
+
+				&:hover {
+					border-color: darken($c-accent, 10%);
+					background-color: darken($c-accent, 10%);
+				}
+			}
+		}
+	}
+
+	.hs-fieldtype-checkbox.hs-fieldtype-checkbox {
+		&.is-shortened {
+			.multi-container-hld {
+				display: none;
+			}
+		}
+
+		&.is-dropdown-open {
+			position: relative;
+			z-index: 10;
+
+			.multi-select-btn {
+				&::after {
+					margin-top: 2px;
+					transform: rotate(-135deg);
+				}
+			}
+
+			.multi-container-hld {
+				display: block;
 			}
 		}
 	}

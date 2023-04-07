@@ -292,7 +292,7 @@ heroSliderHldAll.forEach(sliderHld => {
 		threshold: 30,
 		watchSlidesProgress: true,
 		autoHeight: true,
-		loop: true, // not working properly
+		loop: true,
 		navigation: {
 			prevEl: '.js-hero-slider-button-prev',
 			nextEl: '.js-hero-slider-button-next',
@@ -309,10 +309,6 @@ heroSliderHldAll.forEach(sliderHld => {
 				);
 			},
 		},
-		// breakpoints: {
-		// 	1024: {
-		// 	},
-		// },
 		on: {
 			realIndexChange: function() {
 				lazyLoadInstance.update();

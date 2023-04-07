@@ -174,9 +174,14 @@
 
 	.post {
 		&__image-hld {
+			position: relative;
 			height: auto;
+			padding-bottom: calc(205 / 300 * 100%);
 
 			img {
+				position: absolute;
+				top: 0;
+				left: 0;
 				width: 100%;
 				height: 100%;
 				object-fit: contain;

@@ -1,0 +1,55 @@
+.u-section--algolia-hq {
+	padding-top: 40px;
+	padding-bottom: 128px;
+}
+
+.algolia-hq__items-hld {
+	&:not(:first-child) {
+		margin-top: 56px;
+	}
+}
+
+.algolia-hq__items-title {
+	display: block;
+	font-size: 32px;
+	font-weight: 700;
+}
+
+.algolia-hq__items {
+	margin-top: 24px;
+
+	a {
+		color: $c-accent;
+	}
+}
+
+.algolia-hq__actions {
+	display: flex;
+	grid-gap: 12px;
+	margin-top: 32px;
+
+	button {
+		cursor: pointer;
+		padding: 10px 14px 8px;
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		border-radius: 4px;
+		background-color: transparent;
+
+		&:hover {
+			border-color: $c-accent;
+			background-color: $c-accent;
+			color: #fff;
+		}
+
+		&.is-danger {
+			border-color: $c-error;
+			background-color: $c-error;
+			color: #fff;
+
+			&:hover {
+				border-color: darken($c-error, 10%);
+				background-color: darken($c-error, 10%);
+			}
+		}
+	}
+}

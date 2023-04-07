@@ -18,7 +18,9 @@
 	}
 
 	&--bar {
-		max-width: 300px;
+		.search-form__button {
+			pointer-events: none;
+		}
 	}
 
 	&--news {
@@ -47,6 +49,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+		z-index: 1;
 		cursor: pointer;
 		width: 36px;
 		height: 100%;
