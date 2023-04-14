@@ -16,10 +16,12 @@
 
 {% block main %}
 <section class="u-section u-section--algolia-hq {% if currentUser %}is-logged{% endif %}">
+{#
     <div class="u-wrapper u-wrapper--not-logged">
         <span class="u-title u-title--section">You have to be logged in.</span>
     </div>
-    <div class="u-wrapper u-wrapper--logged">
+#}
+    <div class="u-wrapper {#u-wrapper--logged#}">
         <div class="algolia-hq__items-hld">
             <h1 class="u-title u-title--section">ALGOLIA SEARCH HQ</h1>
             <div class="algolia-hq__actions">
