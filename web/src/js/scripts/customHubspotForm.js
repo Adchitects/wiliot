@@ -21,9 +21,9 @@ const handleState = (formEl, shortenSelects) => {
 							checkbox.classList.add('is-shortened');
 							const container = checkbox.querySelector('.input');
 							if (container) {
-								container.addEventListener('click', (e) => {
-									e.stopPropagation();
-								});
+								// container.addEventListener('click', (e) => {
+								// 	e.stopPropagation();
+								// });
 								// add select with clicking event for toggling dropdown
 								let selectToInsert = document.createElement('div');
 								selectToInsert.classList.add('multi-select-btn');
@@ -133,15 +133,17 @@ document.addEventListener('customHubspotFormScripts', (event) => {
 	const formEl = detail.form;
 	const shortenSelects = detail.shortenSelects;
 	handleState(formEl, shortenSelects);
-});
 
-const body = document.querySelector('body');
+	const body = document.querySelector('body');
 
-body.addEventListener('click', () => {
-	const openedDropdowns = document.querySelectorAll('.hs-fieldtype-checkbox.is-dropdown-open');
-	if (openedDropdowns) {
-		openedDropdowns.forEach(openedDropdown => {
-			openedDropdown.classList.remove('is-dropdown-open');
-		});
-	}
+	body.addEventListener('click', (e) => {
+		if (!e.target.closest('.is-shortened')) {
+			const openedDropdowns = document.querySelectorAll('.hs-fieldtype-checkbox.is-dropdown-open');
+			if (openedDropdowns) {
+				openedDropdowns.forEach(openedDropdown => {
+					openedDropdown.classList.remove('is-dropdown-open');
+				});
+			}
+		}
+	});
 });

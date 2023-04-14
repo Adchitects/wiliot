@@ -3,6 +3,9 @@ import algoliasearch from 'algoliasearch';
 const client = algoliasearch('BW16XZ9HAY', '56e27ff1f9dc7d41a1d5204da1417d36');
 const index = client.initIndex('prod_Wiliot');
 
+const urlString = window.location.href;
+const urlParams = new URL(urlString);
+
 const getItems = (type) => {
 	let hits = [];
 	return index.browseObjects({
@@ -15,7 +18,9 @@ const getItems = (type) => {
 		.then(() => {
 			let objectsToDeleteIDs = [];
 			hits.forEach((hit) => {
-				objectsToDeleteIDs.push(hit.objectID);
+				if (hit.pageType === type) {
+					objectsToDeleteIDs.push(hit.objectID);
+				}
 			});
 			return objectsToDeleteIDs;
 		});
@@ -45,15 +50,25 @@ const clearWholeIndex = () => {
 };
 
 const updateItem = (item) => {
-	const date = new Date();
 	const record = {
 		pageTitle: item.dataset.title,
 		pageType: item.dataset.type,
 		link: item.dataset.link,
 		objectID: item.dataset.objectId,
-		date: date.toLocaleDateString(),
 	};
-	index.saveObject(record);
+	index.saveObject(record).then(() => {
+		console.log('Item updated successfully');
+	}).catch(error => {
+		console.error('Error updating item:', error);
+	});
+};
+
+const removeItem = (objectID) => {
+	index.deleteObject(objectID).then(() => {
+		console.log('Item cleared successfully');
+	}).catch(error => {
+		console.error('Error clearing item:', error);
+	});
 };
 
 const updateAllItems = () => {
@@ -61,7 +76,7 @@ const updateAllItems = () => {
 	itemsToUpdate.forEach((item) => {
 		updateItem(item);
 	});
-	alert('Everything has been updated!');
+	alert('Everything has been updated.');
 };
 
 const updateItems = (type) => {
@@ -75,7 +90,7 @@ const updateItems = (type) => {
 				itemsToUpdate.forEach((item) => {
 					updateItem(item);
 				});
-				alert(type + 's updated!');
+				alert(type + 's updated.');
 			}
 		})
 		.catch(error => {
@@ -84,23 +99,77 @@ const updateItems = (type) => {
 };
 
 const logItems = (type) => {
+	let hits = [];
 	index.browseObjects({
 		query: type, // empty query to retrieve all objects
-		attributesToRetrieve: ['pageType'],
+		// attributesToRetrieve: ['pageType'],
 		batch: (batch) => {
-			console.log(batch);
+			hits = hits.concat(batch);
 		},
 		onError: (err) => {
 			console.error(err);
 		},
-	});
+	})
+		.then(() => {
+			let objectsToLog = [];
+			hits.forEach((hit) => {
+				if (hit.pageType === type) {
+					objectsToLog.push(hit);
+				}
+			});
+			console.log(objectsToLog);
+		});
 };
+
+if (urlParams.searchParams.get('updateRecord')) {
+	const item = document.querySelector('.js-algolia-item[data-object-id="' + urlParams.searchParams.get('updateRecord') + '"]');
+	updateItem(item);
+}
+
+if (urlParams.searchParams.get('removeRecord')) {
+	removeItem(urlParams.searchParams.get('removeRecord'));
+}
 
 const browseIndexBtns = document.querySelectorAll('.js-algolia-browse');
 const updateAllBtns = document.querySelectorAll('.js-algolia-update-all');
 const clearIndexBtns = document.querySelectorAll('.js-algolia-clear-index');
 const updateRecordsBtns = document.querySelectorAll('.js-algolia-update');
 const logRecordsBtns = document.querySelectorAll('.js-algolia-log');
+const updateRecordBtns = document.querySelectorAll('.js-algolia-item-update');
+const clearItemBtns = document.querySelectorAll('.js-algolia-item-remove');
+const algoliaInput = document.querySelector('.js-agolia-input');
+const algoliaInputRemove = document.querySelector('.js-algolia-remove-from-input');
+const algoliaInputUpdate = document.querySelector('.js-algolia-add-from-input');
+
+if (algoliaInput && algoliaInputRemove && algoliaInputUpdate) {
+	algoliaInputRemove.addEventListener('click', () => {
+		const objectID = algoliaInput.value;
+		removeItem(objectID);
+	});
+
+	algoliaInputUpdate.addEventListener('click', () => {
+		const objectID = algoliaInput.value;
+		const item = document.querySelector('.js-algolia-item[data-object-id="' + objectID + '"]');
+		updateItem(item);
+	});
+}
+
+if (updateRecordBtns) {
+	updateRecordBtns.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			updateItem(btn.closest('.js-algolia-item'));
+		});
+	});
+}
+
+if (clearItemBtns) {
+	clearItemBtns.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const objectID = btn.dataset.objectId;
+			removeItem(objectID);
+		});
+	});
+}
 
 if (browseIndexBtns) {
 	browseIndexBtns.forEach((btn) => {
