@@ -12,7 +12,6 @@ wiliot-staging.sql
 package-lock.json
 yarn.lock
 yarn-error.log
-composer.json
 composer.lock
 cpresources
 /cpresources
@@ -44,7 +43,6 @@ cpresources
 /web/index.php
 /web/web.config
 /config
-/modules
 /storage
 craft
-bootstrap.php
+composer.phar

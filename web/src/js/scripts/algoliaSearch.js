@@ -240,6 +240,7 @@ if (searchBars) {
 					} else {
 						result.setAttribute('href', hit.link);
 					}
+					result.setAttribute('data-id', hit.objectID);
 					result.classList.add('search-bar__algolia-result');
 					result.innerHTML = `<span class="title">${hit.pageTitle}</span> <span class="type">${hit.pageType}</span>`;
 					resultsContainer.appendChild(result);
