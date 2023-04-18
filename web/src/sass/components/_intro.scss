@@ -5,6 +5,19 @@
 
 	&__description {
 		max-width: 630px;
-		margin-top: 15px;
+
+		&:not(:first-child) {
+			margin-top: 15px;
+		}
+
+		p {
+			&:not(:first-child) {
+				margin-top: 1em;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 1em;
+			}
+		}
 	}
 }
