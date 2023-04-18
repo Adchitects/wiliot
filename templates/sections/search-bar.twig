@@ -1,13 +1,24 @@
 <div class="search-bar is-hidden js-search-bar">
-    <form class="search-form search-form--bar js-search-form-hld" action="{{ url('search') }}">
-        <button class="search-form__button" type="submit">
-            <svg class="svg-search">
-                <use xlink:href="#svg-search"></use>
-            </svg>
-        </button>
-        <input class="search-form__bar js-search-form-input" type="search" name="q" aria-label="Search" placeholder="Search" value="{{ craft.app.request.getParam('q') }}">
-        <div class="search-form__close js-search-bar-close-button">
-            <span class="icon icon-close"></span>
+    <div class="search-bar__inner">
+        {#
+        <form class="search-form search-form--bar js-search-form-hld" action="{{ url('search') }}">
+        #}
+        <div class="search-form search-form--bar js-search-form-hld">
+            <button class="search-form__button" type="submit">
+                <svg class="svg-search">
+                    <use xlink:href="#svg-search"></use>
+                </svg>
+            </button>
+            <input class="search-form__bar js-algolia-form-input" type="search" aria-label="Search" placeholder="Search">
+            {#
+            <input class="search-form__bar js-search-form-input" type="search" name="q" aria-label="Search" placeholder="Search" value="{{ craft.app.request.getParam('q') }}">
+            #}
+            <div class="search-form__close js-search-bar-close-button">
+                <span class="icon icon-close"></span>
+            </div>
         </div>
-    </form>
+        <div class="search-bar__algolia-results js-algolia-results">
+
+        </div>
+    </div>
 </div>

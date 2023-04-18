@@ -34,7 +34,6 @@
         "@babel/core": "^7.8.7",
         "@babel/preset-env": "^7.8.7",
         "autoprefixer": "^9.8.6",
-        "axios": "^0.21.1",
         "babel-eslint": "^10.1.0",
         "babel-loader": "^8.0.6",
         "browser-sync": "^2.26.7",
@@ -61,6 +60,8 @@
         "webpack-cli": "^3.3.11"
     },
     "dependencies": {
+        "algoliasearch": "^4.15.0",
+        "axios": "^0.21.4",
         "gsap": "file:web/src/js/libs/gsap-bonus.tgz",
         "jquery": "^3.6.0",
         "lottie-web": "^5.8.1",

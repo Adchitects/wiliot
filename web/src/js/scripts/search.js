@@ -5,15 +5,18 @@ import { lazyLoadInstance } from '../libs/lazyLoad';
 
 const searchHldAll = document.querySelectorAll('.js-search-form-hld');
 searchHldAll.forEach(hld => {
-	const input  = hld.querySelector('.js-search-form-input');
-	input.addEventListener('input', () => {
-		if (input.value !== '') {
-			hld.classList.add('is-active');
-		} else {
-			hld.classList.remove('is-active');
-		}
-	});
+	const input  = hld.querySelector('.js-search-form-input, .js-algolia-form-input');
+	if (input) {
+		input.addEventListener('input', () => {
+			if (input.value !== '') {
+				hld.classList.add('is-active');
+			} else {
+				hld.classList.remove('is-active');
+			}
+		});
+	}
 });
+
 const searchCountAll = document.querySelectorAll('.js-search-count-hld');
 searchCountAll.forEach(countHld => {
 	const input = countHld.querySelector('.js-search-count-input');

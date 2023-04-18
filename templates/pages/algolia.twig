@@ -1,0 +1,176 @@
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="website">
+{% endblock %}
+
+{% block main %}
+<section class="u-section u-section--algolia-hq {% if currentUser %}is-logged{% endif %}">
+    <div class="u-wrapper u-wrapper--not-logged">
+        <span class="u-title u-title--section">You have to be logged in.</span>
+    </div>
+    <div class="u-wrapper u-wrapper--logged">
+        <div class="algolia-hq__items-hld">
+            <h1 class="u-title u-title--section">ALGOLIA SEARCH HQ</h1>
+            <div class="algolia-hq__actions">
+                <button class="js-algolia-browse">Log current index</button>
+                <button class="js-algolia-update-all">Update all</button>
+                <button class="is-danger js-algolia-clear-index" data-type="partner">Clear index</button>
+            </div>
+            <div class="algolia-hq__actions">
+                <input class="js-agolia-input" type="text" value="" placeholder="Entry ID">
+                <button class="js-algolia-remove-from-input">Remove ID</button>
+                <button class="js-algolia-add-from-input">Update ID</button>
+            </div>
+        </div>
+        <div class="algolia-hq__items-hld">
+            <div class="algolia-hq__items-title">Pages</div>
+            <div class="algolia-hq__items">
+                {% set entriesQuery = craft.entries().section(['solutionsDetails', 'applicationsPostsV3', 'productDetails', 'newsListing', 'careers', 'company', 'eventsListing', 'partnerProgram', 'partners', 'podcasts', 'press']).removeFromListings('not 1').orderBy('postDate DESC') %}
+                {% set entries = entriesQuery.all() %}
+                {% if entries|length %}
+                    {% for entry in entries %}
+                        {% set entryID = entry.id %}
+                        {% set url = '/' ~ entry.uri ~ '/' %}
+                        {% set title = entry.title %}
+                        {% if (url) %}
+                        <div class="algolia-hq__item js-algolia-item" data-link="{{ url }}" data-title="{{ title }}" data-type="page" data-object-id="{{ entryID }}">
+                            <strong>{{ title }}</strong> <a href="{{ url }}">{{ url }}</a>
+                            <div class="btns">
+                                <button class="js-algolia-item-update is-ok" data-object-id="{{ entryID }}">Add/Update</button>
+                                <button class="js-algolia-item-remove is-danger" data-object-id="{{ entryID }}">Remove</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="algolia-hq__actions">
+                <button class="js-algolia-update" data-type="page">Update pages</button>
+                <button class="js-algolia-log" data-type="page">Log pages</button>
+            </div>
+        </div>
+        <div class="algolia-hq__items-hld">
+            <div class="algolia-hq__items-title">Events</div>
+            <div class="algolia-hq__items">
+                {% set entriesQuery = craft.entries().section('eventItems').removeFromListings('not 1').orderBy('postDate DESC') %}
+                {% set entries = entriesQuery.all() %}
+                {% if entries|length %}
+                    {% for entry in entries %}
+                        {% set entryID = entry.id %}
+                        {% set url = '/' ~ entry.uri ~ '/' %}
+                        {% if entry.eventExternalUrl %}
+                            {% set url = false %}
+                        {% endif %}
+                        {% set title = entry.title %}
+                        {% if (url) %}
+                        <div class="algolia-hq__item js-algolia-item" data-link="{{ url }}" data-title="{{ title }}" data-type="event" data-object-id="{{ entryID }}">
+                            <strong>{{ title }}</strong> <a href="{{ url }}">{{ url }}</a>
+                            <div class="btns">
+                                <button class="js-algolia-item-update is-ok" data-object-id="{{ entryID }}">Add/Update</button>
+                                <button class="js-algolia-item-remove is-danger" data-object-id="{{ entryID }}">Remove</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="algolia-hq__actions">
+                <button class="js-algolia-update" data-type="event">Update events</button>
+                <button class="js-algolia-log" data-type="event">Log events</button>
+            </div>
+        </div>
+        <div class="algolia-hq__items-hld">
+            <div class="algolia-hq__items-title">News</div>
+            <div class="algolia-hq__items">
+                {% set entriesQuery = craft.entries().section('newsPosts').removeFromListings('not 1').orderBy('postDate DESC') %}
+                {% set entries = entriesQuery.all() %}
+                {% if entries|length %}
+                    {% for entry in entries %}
+                        {% set entryID = entry.id %}
+                        {% set url = '/' ~ entry.uri ~ '/' %}
+                        {% set title = entry.title %}
+                        {% if (url) %}
+                        <div class="algolia-hq__item js-algolia-item" data-link="{{ url }}" data-title="{{ title }}" data-type="news" data-object-id="{{ entryID }}">
+                            <strong>{{ title }}</strong> <a href="{{ url }}">{{ url }}</a>
+                            <div class="btns">
+                                <button class="js-algolia-item-update is-ok" data-object-id="{{ entryID }}">Add/Update</button>
+                                <button class="js-algolia-item-remove is-danger" data-object-id="{{ entryID }}">Remove</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="algolia-hq__actions">
+                <button class="js-algolia-update" data-type="news">Update news</button>
+                <button class="js-algolia-log" data-type="news">Log news</button>
+            </div>
+        </div>
+        <div class="algolia-hq__items-hld">
+            <div class="algolia-hq__items-title">Podcasts</div>
+            <div class="algolia-hq__items">
+                {% set entriesQuery = craft.entries().section('podcastDetails').removeFromListings('not 1').orderBy('postDate DESC') %}
+                {% set entries = entriesQuery.all() %}
+                {% if entries|length %}
+                    {% for entry in entries %}
+                        {% set entryID = entry.id %}
+                        {% set url = '/' ~ entry.uri ~ '/' %}
+                        {% set title = entry.title %}
+                        {% if (url) %}
+                        <div class="algolia-hq__item js-algolia-item" data-link="{{ url }}" data-title="{{ title }}" data-type="podcast" data-object-id="{{ entryID }}">
+                            <strong>{{ title }}</strong> <a href="{{ url }}">{{ url }}</a>
+                            <div class="btns">
+                                <button class="js-algolia-item-update is-ok" data-object-id="{{ entryID }}">Add/Update</button>
+                                <button class="js-algolia-item-remove is-danger" data-object-id="{{ entryID }}">Remove</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="algolia-hq__actions">
+                <button class="js-algolia-update" data-type="podcast">Update podcasts</button>
+                <button class="js-algolia-log" data-type="podcast">Log podcasts</button>
+            </div>
+        </div>
+        <div class="algolia-hq__items-hld">
+            <div class="algolia-hq__items-title">Partners</div>
+            <div class="algolia-hq__items">
+                {% set entriesQuery = craft.entries().section('partnersDetails').removeFromListings('not 1').orderBy('postDate DESC') %}
+                {% set entries = entriesQuery.all() %}
+                {% if entries|length %}
+                    {% for entry in entries %}
+                        {% set entryID = entry.id %}
+                        {% set url = '/' ~ entry.uri ~ '/' %}
+                        {% set title = entry.title %}
+                        {% if (url) %}
+                        <div class="algolia-hq__item js-algolia-item" data-link="{{ url }}" data-title="{{ title }}" data-type="partner" data-object-id="{{ entryID }}">
+                            <strong>{{ title }}</strong> <a href="{{ url }}">{{ url }}</a>
+                            <div class="btns">
+                                <button class="js-algolia-item-update is-ok" data-object-id="{{ entryID }}">Add/Update</button>
+                                <button class="js-algolia-item-remove is-danger" data-object-id="{{ entryID }}">Remove</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="algolia-hq__actions">
+                <button class="js-algolia-update" data-type="partner">Update partners</button>
+                <button class="js-algolia-log" data-type="partner">Log partners</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
