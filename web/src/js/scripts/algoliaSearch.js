@@ -1,6 +1,10 @@
 import algoliasearch from 'algoliasearch';
 
-const client = algoliasearch('BW16XZ9HAY', '56e27ff1f9dc7d41a1d5204da1417d36');
+// be careful not to include the WRITE API KEY in the live version of the scripts on website
+// const client = algoliasearch('BW16XZ9HAY', '56e27ff1f9dc7d41a1d5204da1417d36');
+
+// API KEY WITH SEARCH-ONLY
+const client = algoliasearch('BW16XZ9HAY', 'da53a277d8695f1185ede202a3ae958b');
 const index = client.initIndex('prod_Wiliot');
 
 const urlString = window.location.href;
