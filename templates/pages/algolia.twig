@@ -16,20 +16,16 @@
 
 {% block main %}
 <section class="u-section u-section--algolia-hq {% if currentUser %}is-logged{% endif %}">
-{#
     <div class="u-wrapper u-wrapper--not-logged">
         <span class="u-title u-title--section">You have to be logged in.</span>
     </div>
-#}
-    <div class="u-wrapper {#u-wrapper--logged#}">
+    <div class="u-wrapper u-wrapper--logged">
         <div class="algolia-hq__items-hld">
             <h1 class="u-title u-title--section">ALGOLIA SEARCH HQ</h1>
             <div class="algolia-hq__actions">
                 <button class="js-algolia-browse">Log current index</button>
                 <button class="js-algolia-update-all">Update all</button>
-                {#
                 <button class="is-danger js-algolia-clear-index" data-type="partner">Clear index</button>
-                #}
             </div>
             <div class="algolia-hq__actions">
                 <input class="js-agolia-input" type="text" value="" placeholder="Entry ID">

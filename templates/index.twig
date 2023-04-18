@@ -94,7 +94,7 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=16aAPR2023">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=18APR2023">
 			<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104066415-1"></script>
 			<script>
@@ -191,6 +191,7 @@
             <script>
                 (function(){var zi=document.createElement("script");zi.type="text/javascript";zi.async=true;zi.referrerPolicy="unsafe-url";zi.src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(zi,s)})();
             </script>
+            <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0066/6039.js" async="async" ></script>
 		</head>
 	{% endblock %}
 	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% if entry.type.handle == 'singleWithSidebar' %} is-with-sidebar{% endif %}{% endif %}">
@@ -361,7 +362,7 @@
         {% endif %}
         {{ csrfInput() }}
         <script src="//embed.typeform.com/next/embed.js"></script>
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=16aAPR2023"></script>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=18aAPR2023"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
             <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights" />
