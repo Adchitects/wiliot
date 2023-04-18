@@ -288,6 +288,16 @@
 				max-width: 100%;
 				height: auto;
 			}
+
+			&--app {
+				width: auto;
+
+				img {
+					display: block;
+					width: auto;
+					height: 48px;
+				}
+			}
 		}
 
 		.name {
