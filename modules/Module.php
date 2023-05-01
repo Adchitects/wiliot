@@ -3,9 +3,6 @@ namespace modules;
 
 use Craft;
 
-// use craft\elements\Entry;
-// use craft\events\ModelEvent;
-// use yii\base\Event;
 use craft\base\Element;
 use craft\elements\Entry;
 use craft\events\ModelEvent;
@@ -76,21 +73,40 @@ class Module extends \yii\base\Module
                     $client = SearchClient::create('BW16XZ9HAY', '56e27ff1f9dc7d41a1d5204da1417d36');
                     $index = $client->initIndex('prod_Wiliot');
 
+                    $content = '';
+
                     if (in_array($handle, ['solutionsDetails', 'applicationsPostsV3', 'productDetails', 'newsListing', 'careers', 'company', 'eventsListing', 'partnerProgram', 'partners', 'podcasts', 'press'])) {
                         $type = 'page';
                     } elseif ($handle == 'eventItems') {
                         $type = 'event';
+                        if ($entry->eventContent) {
+                            // removes all html tags and new lines
+                            $content = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", strip_tags($entry->eventContent));
+                        }
                     } elseif ($handle == 'newsPosts') {
                         $type = 'news';
+                        if ($entry->postContent) {
+                            // removes all html tags and new lines
+                            $content = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", strip_tags($entry->postContent));
+                        }
                     } elseif ($handle == 'podcastDetails') {
                         $type = 'podcast';
+                        if ($entry->podcastDetailsContent) {
+                            // removes all html tags and new lines
+                            $content = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", strip_tags($entry->podcastDetailsContent));
+                        }
                     } elseif ($handle == 'partnersDetails') {
                         $type = 'partner';
+                        if ($entry->partnerDescription) {
+                            // removes all html tags and new lines
+                            $content = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", strip_tags($entry->partnerDescription));
+                        }
                     }
 
                     $record = [
                         'pageTitle' => $entry->title,
                         'pageType' => $type,
+                        'pageContent' => $content,
                         'link' => '/' . $entry->uri . '/',
                         'objectID' => $entry->id,
                     ];
@@ -108,6 +124,7 @@ class Module extends \yii\base\Module
 
                 $client = SearchClient::create('BW16XZ9HAY', '56e27ff1f9dc7d41a1d5204da1417d36');
                 $index = $client->initIndex('prod_Wiliot');
+
                 $index->deleteObject($entry->id);
             }
         );

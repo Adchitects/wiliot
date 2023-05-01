@@ -1,6 +1,6 @@
 import algoliasearch from 'algoliasearch';
 
-// be careful not to include the WRITE API KEY in the live version of the scripts on website
+// be careful not to include the WRITE API KEY in the live version of the scripts on website frontend
 // const client = algoliasearch('BW16XZ9HAY', '56e27ff1f9dc7d41a1d5204da1417d36');
 
 // API KEY WITH SEARCH-ONLY
