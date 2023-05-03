@@ -12,6 +12,7 @@ wiliot-staging.sql
 package-lock.json
 yarn.lock
 yarn-error.log
+composer.json
 composer.lock
 cpresources
 /cpresources
