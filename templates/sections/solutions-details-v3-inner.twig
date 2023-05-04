@@ -128,27 +128,38 @@
 						</div>
 					{% endif %}
                 </div>
-                {% if solutionHeroVideoShort and solutionHeroVideoLong %}
-                    <div class="solutions-details__hero-video js-modal-hld">
-                        <div class="short-video-hld js-modal-btn">
-                            <span class="icon icon-button_play"></span>
-                            <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" muted autoplay loop></video>
+                {% if solutionHeroVideoShort %}
+                    {% set videoShortFileExtension = solutionHeroVideoShort.getExtension() %}
+                    {% set imageExtensions = ['jpg', 'jpeg', 'png', 'gif'] %}
+                    {% set videoExtensions = ['mp4', 'webm', 'avi', 'mov', 'mkv'] %}
+                    {% if videoShortFileExtension in imageExtensions %}
+                        <div class="solutions-details__hero-video-image">
+                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" alt="Image description">
                         </div>
-                        <div class="video-modal js-modal-modal">
-                            <div class="overlay js-modal-close"></div>
-                            <div class="video-modal__inner">
-                                <div class="video-modal__modal">
-                                    <div class="video-hld js-video-hld show-thumbnail">
-                                        <span class="icon icon-button_play"></span>
-                                        <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoLong.url }}" autoplay loop controls></video>
+                    {% elseif videoShortFileExtension in videoExtensions %}
+                        {% if solutionHeroVideoLong %}
+                            <div class="solutions-details__hero-video js-modal-hld">
+                                <div class="short-video-hld js-modal-btn">
+                                    <span class="icon icon-button_play"></span>
+                                    <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" muted autoplay loop></video>
+                                </div>
+                                <div class="video-modal js-modal-modal">
+                                    <div class="overlay js-modal-close"></div>
+                                    <div class="video-modal__inner">
+                                        <div class="video-modal__modal">
+                                            <div class="video-hld js-video-hld show-thumbnail">
+                                                <span class="icon icon-button_play"></span>
+                                                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoLong.url }}" autoplay loop controls></video>
+                                            </div>
+                                        </div>
+                                        <span class="video-modal__close js-modal-close">
+                                            <span class="icon icon-close"></span>
+                                        </span>
                                     </div>
                                 </div>
-                                <span class="video-modal__close js-modal-close">
-                                    <span class="icon icon-close"></span>
-                                </span>
                             </div>
-                        </div>
-                    </div>
+                        {% endif %}
+                    {% endif %}
                 {% endif %}
 				<div class="solutions-details__hero-bottom {% if not heroBottomImage %} has-no-image {% endif %}">
 					<div class="text-hld">

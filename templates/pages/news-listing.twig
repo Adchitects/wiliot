@@ -116,9 +116,11 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <button class="news-listing__btn u-btn u-btn--light js-load-more-btn">
-                            <span class="text">Load More Results</span>
-                        </button>
+                        {% if allResults|length > 0 %}
+                            <button class="news-listing__btn u-btn u-btn--light js-load-more-btn">
+                                <span class="text">Load More Results</span>
+                            </button>
+                        {% endif %}
                     {% else %}
                         {% if category is not defined %}
                             <div class="news-listing__category-area area js-load-more-item">

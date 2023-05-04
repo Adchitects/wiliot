@@ -154,8 +154,13 @@
 		}
 	}
 
-	&__hero-video {
+	&__hero-video,
+	&__hero-video-image {
 		margin-top: 64px;
+
+		img {
+			border-radius: 6px;
+		}
 
 		.short-video-hld {
 			display: flex;
