@@ -42,7 +42,8 @@ cpresources
 /web/cpresources
 /web/index.php
 /web/web.config
-/config
+/config/*
+!/config/general.php
 /storage
 craft
 composer.phar
