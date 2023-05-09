@@ -1,0 +1,28 @@
+.u-section--hero-desc-image {
+	margin-top: 190px;
+}
+
+.hero-desc-image {
+	display: flex;
+	justify-content: space-between;
+
+	&__text-hld {
+		width: calc(100% - 556px);
+	}
+
+	&__description {
+		margin-top: 6px;
+		letter-spacing: 0.16px;
+	}
+
+	&__img-hld {
+		position: relative;
+		width: 556px;
+		// margin-top: -44px;
+		// margin-right: -116px;
+		img {
+			min-width: 576px;
+			transform: translate(98px, -44px);
+		}
+	}
+}
