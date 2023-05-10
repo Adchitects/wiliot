@@ -1,6 +1,10 @@
 {% set mainTitle = entry.bbApplicationsMainTitle %}
 {% set mainText = entry.bbApplicationsMainText %}
 {% set iconColumnsMatrix = entry.bbApplicationsIconColumnsMatrix.all() %}
+{% set middleText = entry.bbApplicationsMiddleText %}
+{% set middleColumnsMatrix = entry.bbApplicationsMiddleColumnsMatrix.all() %}
+{% set bottomText = entry.bbApplicationsBottomText %}
+{% set bottomColumnsMatrix = entry.bbApplicationsBottomColumnsMatrix.all() %}
 {% if mainTitle or mainText or iconColumnsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-applications">
 		<div class="u-wrapper">
@@ -30,6 +34,44 @@
 								{% if itemTitle %}
 									<h3 class="u-title item-title">{{ itemTitle }}</h3>
 								{% endif %}
+								{% if itemText %}
+									<div class="item-text">
+										{{ itemText }}
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+				{% if middleText %}
+					<div class="bb-applications__middle-text">
+						{{ middleText }}
+					</div>
+				{% endif %}
+				{% if middleColumnsMatrix %}
+					<div class="bb-applications__middle-columns-hld">
+						{% for item in middleColumnsMatrix %}
+							{% set itemText = item.itemText %}
+							<div class="bb-applications__middle-columns-item">
+								{% if itemText %}
+									<div class="item-text">
+										{{ itemText }}
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+				{% if bottomText %}
+					<div class="bb-applications__bottom-text">
+						{{ bottomText }}
+					</div>
+				{% endif %}
+				{% if bottomColumnsMatrix %}
+					<div class="bb-applications__bottom-columns-hld">
+						{% for item in bottomColumnsMatrix %}
+							{% set itemText = item.itemText %}
+							<div class="bb-applications__bottom-columns-item">
 								{% if itemText %}
 									<div class="item-text">
 										{{ itemText }}
