@@ -1,0 +1,45 @@
+{% set mainTitle = entry.bbApplicationsMainTitle %}
+{% set mainText = entry.bbApplicationsMainText %}
+{% set iconColumnsMatrix = entry.bbApplicationsIconColumnsMatrix.all() %}
+{% if mainTitle or mainText or iconColumnsMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-applications">
+		<div class="u-wrapper">
+			<div class="bb-applications">
+				{% if mainTitle or mainText %}
+					<div class="bb-applications__main-texts-hld">
+						{% if mainTitle %}
+							<h2 class="u-title u-title--section bb-applications__main-title">{{ mainTitle | raw  }}</h2>
+						{% endif %}
+						{% if mainText %}
+							<div class="bb-applications__main-text">
+								{{ mainText }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if iconColumnsMatrix %}
+					<div class="bb-applications__icon-columns-hld">
+						{% for item in iconColumnsMatrix %}
+							{% set itemIcon = item.itemIcon.one() %}
+							{% set itemTitle = item.itemTitle %}
+							{% set itemText = item.itemText %}
+							<div class="bb-applications__icon-columns-item">
+								{% if itemIcon %}
+									<img class="js-lazy item-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.getUrl() }}" alt="{{ itemIcon.title }}" />
+								{% endif %}
+								{% if itemTitle %}
+									<h3 class="u-title item-title">{{ itemTitle }}</h3>
+								{% endif %}
+								{% if itemText %}
+									<div class="item-text">
+										{{ itemText }}
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

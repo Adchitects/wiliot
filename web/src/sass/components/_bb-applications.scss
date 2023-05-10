@@ -1,0 +1,37 @@
+.u-section--bb-applications {
+	padding-top: 128px;
+	padding-bottom: 128px;
+	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+}
+
+.bb-applications {
+	strong {
+		color: $c-accent;
+	}
+
+	&__main-text {
+		max-width: 700px;
+		margin-top: 22px;
+	}
+
+	&__icon-columns-hld {
+		display: flex;
+		grid-gap: 0 30px;
+		margin-top: 60px;
+	}
+
+	&__icon-columns-item {
+		flex: 1;
+
+		.item-title {
+			margin-top: 20px;
+			font-size: 23px;
+			font-weight: 900;
+		}
+
+		.item-text {
+			max-width: 440px;
+			margin-top: 16px;
+		}
+	}
+}
