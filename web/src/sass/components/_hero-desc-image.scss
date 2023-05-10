@@ -1,5 +1,7 @@
 .u-section--hero-desc-image {
-	margin-top: 190px;
+	margin-top: 0;
+	padding-top: 190px;
+	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 }
 
 .hero-desc-image {
@@ -18,11 +20,11 @@
 	&__img-hld {
 		position: relative;
 		width: 556px;
-		// margin-top: -44px;
-		// margin-right: -116px;
+		margin-top: -44px;
+
 		img {
 			min-width: 576px;
-			transform: translate(98px, -44px);
+			transform: translateX(98px);
 		}
 	}
 }
