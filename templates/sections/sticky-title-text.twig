@@ -1,0 +1,23 @@
+{% set title = entry.stickyTitleTextTitle %}
+{% set text = entry.stickyTitleTextText %}
+{% if title and text %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--sticky-title-text js-bg-shape-hld">
+		<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+		</div>
+		<div class="u-wrapper">
+			<div class="sticky-title-text">
+				{% if title %}
+					<div class="sticky-title-text__title-hld">
+						<h2 class="u-title u-title--section sticky-title-text__title">{{ title | raw }}</h2>
+					</div>
+				{% endif %}
+				{% if text %}
+					<div class="sticky-title-text__text-hld">
+						{{ text }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

@@ -1,0 +1,32 @@
+.u-section--sticky-title-text {
+	padding-top: 128px;
+	padding-bottom: 128px;
+	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+}
+
+.sticky-title-text {
+	display: flex;
+
+	&__title-hld {
+		flex: 1;
+	}
+
+	&__text-hld {
+		flex: 1.45;
+
+		br {
+			content: '';
+			display: block;
+			margin-top: 14px;
+		}
+	}
+
+	&__title {
+		position: sticky;
+		top: 100px;
+
+		strong {
+			color: $c-accent;
+		}
+	}
+}
