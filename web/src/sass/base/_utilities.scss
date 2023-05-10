@@ -50,6 +50,11 @@
 	padding-right: 30px;
 	padding-left: 30px;
 
+	@include mobile {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
 	&--normal {
 		max-width: 1116px;
 	}
@@ -568,7 +573,6 @@
 }
 
 @include tablet-small {
-
 	.u-content {
 
 		h1,
@@ -579,12 +583,5 @@
 		h6 {
 			margin-top: 1.25em;
 		}
-	}
-}
-
-@include mobile {
-	.u-wrapper {
-		padding-right: 16px;
-		padding-left: 16px;
 	}
 }

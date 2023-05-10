@@ -1,0 +1,41 @@
+{% set mainTitle = entry.contentTwoColumnsV2MainTitle %}
+{% set mainText = entry.contentTwoColumnsV2MainText %}
+{% set columnsMatrix = entry.contentTwoColumnsV2ColumnsMatrix.all() %}
+{% if mainTitle or mainText or columnsMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--content-two-columns-v2">
+		<div class="u-wrapper u-wrapper--medium-small">
+			<div class="content-two-columns-v2">
+				{% if mainTitle or mainText %}
+					<div class="content-two-columns-v2__top">
+						{% if mainTitle %}
+							<h2 class="u-title u-title--section content-two-columns-v2__main-title">{{ mainTitle | raw }}</h2>
+						{% endif %}
+						{% if mainText %}
+							<div class="content-two-columns-v2__main-text">
+								{{ mainText }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if columnsMatrix %}
+					<div class="content-two-columns-v2__bottom">
+						{% for column in columnsMatrix %}
+							{% set itemTitle = column.itemTitle %}
+							{% set itemText = column.itemText %}
+							<div class="content-two-columns-v2__item">
+							{% if itemTitle %}
+								<h3 class="u-title content-two-columns-v2__item-title">{{ itemTitle }}</h3>
+							{% endif %}
+							{% if itemText %}
+								<div class="content-two-columns-v2__item-text">
+									{{ itemText }}
+								</div>
+							</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}
