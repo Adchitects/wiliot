@@ -1,41 +1,33 @@
-{% set title = entry.accordionTitle %}
-{% set accordionList = entry.accordionList.all() %}
+{% set mainTitle = entry.accordionTitle %}
+{% set accordionListMatrix = entry.accordionList.all() %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--accordion">
-	<div class="accordion js-accordion">
-		{% if title %}
-			<h2 class="accordion__title u-title">{{ title }}</h2>
-		{% endif %}
-		{% if accordionList %}
-			<div class="accordion__list js-accordion-list">
-				{% for item in accordionList %}
-					{% set title = item.accordionItemTitle %}
-					{% set subtitle = item.accordionItemSubtitle %}
-					{% set image = item.accordionItemImage.one() %}
-					{% if loop.index == 1  %}
-						<div class="accordion__column">
-                    {% endif  %}
-                    <div class="accordion__item item {% if image %} js-accordion-toggle-item {% endif %}">
-                        {% if image %}
-                            <div class="item__toggle">
-                                <span class="line"></span>
-                                <span class="line"></span>
+	<div class="u-wrapper u-wrapper--smaller">
+        <div class="accordion js-accordion">
+            {% if mainTitle %}
+                <h2 class="accordion__main-title u-title">{{ mainTitle }}</h2>
+            {% endif %}
+            {% if accordionListMatrix %}
+                <div class="accordion__list">
+                    {% for item in accordionListMatrix %}
+                        {% set title = item.accordionItemTitle %}
+                        {% set text = item.accordionItemText %}
+                        {% set button = item.accordionItemLink %}
+                        <div class="accordion__item item {% if loop.index0 == 0 %} is-active {% endif %} js-accordion-toggle-item">
+                            <img src="{{ alias('@web/src/img/svg/arrow-up.svg') }}" class="item-arrow" alt="Arrow">
+                            <h3 class="item-title">{{ title }}</h3>
+                            <div class="item-content">
+                                <span class="item-text">{{ text }}</span>
+                                {% if button %}
+                                    <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="u-btn u-btn--arrow item-btn">
+                                        <span class="text">{{ button.customText ? button.customText : button.text }}</span>
+                                    </a>
+                                {% endif %}
                             </div>
-                        {% endif %}
-                        <h3 class="item__title">{{ title }}</h3>
-                        <span class="item__subtitle">{{ subtitle }}</span>
-                        {% if image %}
-                            <img class="item__image" src="{{ image.getUrl('accordionImage') }}" alt="{{ title }}">
-                        {% endif %}
-                    </div>
-                    {% if loop.index == (accordionList|length / 2)|round(0, 'ceil') %}
+
                         </div>
-                        <div class="accordion__column">
-                    {% endif %}
-                    {% if loop.index == accordionList|length %}
-                        </div>
-					{% endif %}
-				{% endfor %}
-			</div>
-		{% endif %}
-	</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
 </section>

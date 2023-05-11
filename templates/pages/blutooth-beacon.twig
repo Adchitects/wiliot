@@ -1,0 +1,69 @@
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="website">
+{% endblock %}
+{% block main %}
+	{% set sectionId = '01' %}
+	{{ include('/sections/hero-desc-image.twig') }}
+	{% set sectionId = '02' %}
+	{{ include('/sections/fifty-fifty.twig') }}
+	{% set sectionId = '03' %}
+	{{ include('/sections/sticky-title-text.twig') }}
+	{% set sectionId = '04' %}
+	{% include '/sections/content-two-columns-v2.twig' with {
+		mainTitle: entry.contentTwoColumnsV2MainTitle,
+		mainText: entry.contentTwoColumnsV2MainText,
+		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrix.all()
+	} %}
+	{% set sectionId = '05' %}
+	{% include '/sections/bb-applications.twig' with {
+		mainTitle: entry.bbApplicationsMainTitle,
+		mainText: entry.bbApplicationsMainText,
+		iconColumnsMatrix: entry.bbApplicationsIconColumnsMatrix.all(),
+		middleText: entry.bbApplicationsMiddleText,
+		middleColumnsMatrix: entry.bbApplicationsMiddleColumnsMatrix.all(),
+		bottomText: entry.bbApplicationsBottomText,
+		bottomColumnsMatrix: entry.bbApplicationsBottomColumnsMatrix.all()
+	} %}
+	{% set sectionId = '06' %}
+	{{ include('/sections/bb-implementing.twig') }}
+	{% set sectionId = '07' %}
+	{% include '/sections/content-two-columns-v2.twig' with {
+		mainTitle: entry.contentTwoColumnsV2MainTitleVariant2,
+		mainText: entry.contentTwoColumnsV2MainTextVariant2,
+		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrixVariant2.all()
+	} %}
+	{% set sectionId = '08' %}
+	{% include '/sections/bb-applications.twig' with {
+		mainTitle: entry.bbApplicationsMainTitleVariant2,
+		mainText: entry.bbApplicationsMainTextVariant2,
+		iconColumnsMatrix: entry.bbApplicationsIconColumnsMatrixVariant2.all(),
+		middleText: entry.bbApplicationsMiddleTextVariant2,
+		middleColumnsMatrix: entry.bbApplicationsMiddleColumnsMatrixVariant2.all(),
+		bottomText: entry.bbApplicationsBottomTextVariant2,
+		bottomColumnsMatrix: entry.bbApplicationsBottomColumnsMatrixVariant2.all()
+	} %}
+	{% set sectionId = '09' %}
+	{% include '/sections/content-two-columns-v2.twig' with {
+		mainTitle: entry.contentTwoColumnsV2MainTitleVariant3,
+		mainText: entry.contentTwoColumnsV2MainTextVariant3,
+		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrixVariant3.all()
+	} %}
+	{% set sectionId = '10' %}
+	{{ include('/sections/fifty-fifty-v3.twig') }}
+	{% set sectionId = '11' %}
+	{{ include('/sections/accordion.twig') }}
+	{% set sectionId = '12' %}
+	{{ include('/sections/outro.twig') }}
+{% endblock %}

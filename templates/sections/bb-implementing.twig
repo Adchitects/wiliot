@@ -1,0 +1,50 @@
+{% set mainTitle = entry.bbImplementingMainTitle %}
+{% set mainText = entry.bbImplementingMainText %}
+{% set columnsMatrix = entry.bbImplementingColumnsMatrix.all() %}
+{% if mainTitle or mainText or ColumnsMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-implementing js-bb-implementing-tabs-hld">
+		<div class="u-wrapper u-wrapper--small">
+			<div class="bb-implementing">
+				{% if mainTitle or mainText %}
+					<div class="bb-implementing__main-texts-hld">
+						{% if mainTitle %}
+							<h2 class="u-title u-title--section bb-implementing__main-title">{{ mainTitle | raw  }}</h2>
+						{% endif %}
+						{% if mainText %}
+							<div class="bb-implementing__main-text">
+								{{ mainText }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if columnsMatrix %}
+					<div class="bb-implementing__columns-hld-top">
+						{% for item in columnsMatrix %}
+							{% set itemTitle = item.itemTitle %}
+							<div class="bb-implementing__columns-top-item {% if loop.index0 == 0 %} is-active {% endif %} js-bb-implementing-tabs-item-nav">
+								<div class="item-number">
+									{{ loop.index }}
+								</div>
+								{% if itemTitle %}
+									<h3 class="u-title item-title">{{ itemTitle }}</h3>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+					<div class="bb-implementing__columns-hld-bottom">
+						{% for item in columnsMatrix %}
+							{% set itemText = item.itemText %}
+							<div class="bb-implementing__columns-bottom-item {% if loop.index0 == 0 %} is-active {% endif %} js-bb-implementing-tabs-item-text">
+								{% if itemText %}
+									<div class="item-text">
+										{{ itemText }}
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

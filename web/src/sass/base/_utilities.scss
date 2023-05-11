@@ -45,13 +45,18 @@
 
 .u-wrapper {
 	position: relative;
-	max-width: 1115px;
+	max-width: 1116px;
 	margin: 0 auto;
 	padding-right: 30px;
 	padding-left: 30px;
 
+	@include mobile {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
 	&--normal {
-		max-width: 1115px;
+		max-width: 1116px;
 	}
 
 	&--wide {
@@ -80,6 +85,10 @@
 
 	&--small {
 		max-width: 900px;
+	}
+
+	&--smaller {
+		max-width: 856px;
 	}
 
 	&--content {
@@ -568,7 +577,6 @@
 }
 
 @include tablet-small {
-
 	.u-content {
 
 		h1,
@@ -579,12 +587,5 @@
 		h6 {
 			margin-top: 1.25em;
 		}
-	}
-}
-
-@include mobile {
-	.u-wrapper {
-		padding-right: 16px;
-		padding-left: 16px;
 	}
 }

@@ -1,0 +1,24 @@
+{% set title = entry.heroDescImageTitle %}
+{% set description = entry.heroDescImageDescription %}
+{% set image = entry.heroDescImageImage.one() %}
+{% if entry is defined %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-desc-image js-bg-shape-hld">
+		<div class="u-wrapper u-wrapper--normal">
+			<div class="hero-desc-image">
+				<div class="hero-desc-image__text-hld">
+					{% if title %}
+						<h1 class="hero-desc-image__title u-title u-title--big">{{ title }}</h1>
+					{% endif %}
+					{% if description %}
+						<div class="hero-desc-image__description">{{ description }}</div>
+					{% endif %}
+				</div>
+				{% if image %}
+					<div class="hero-desc-image__img-hld">
+						<img src="{{ image.getUrl() }}" alt="{{ image.title }}" class="hero-desc-image__image">
+					</div
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

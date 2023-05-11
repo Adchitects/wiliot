@@ -480,6 +480,69 @@
 	}
 }
 
+.is-page-bluetooth-beacon {
+	.u-section--fifty-fifty {
+		margin-top: 128px;
+
+		@include tablet-small {
+			margin-top: 60px;
+		}
+
+		.fifty-fifty {
+			max-width: 1040px;
+
+			.row {
+				&__content {
+					width: 508px;
+					max-width: unset;
+					padding-right: 6px;
+
+					@include mobile-767 {
+						max-width: 100%;
+					}
+				}
+
+				&__image {
+					width: calc(100% - 508px);
+
+					img {
+						width: 602px;
+						max-width: unset;
+						height: auto;
+						padding-right: 0;
+						padding-left: 0;
+						transform: translateX(-116px);
+
+						@include tablet-big-1365 {
+							width: 100%;
+							transform: none;
+						}
+					}
+				}
+
+				&__title {
+					font-size: 32px;
+				}
+
+				&__description {
+					margin-top: 22px;
+
+					strong {
+						color: $c-accent;
+						font-weight: 400;
+					}
+
+					br {
+						content: '';
+						display: block;
+						margin-top: 14px;
+					}
+				}
+			}
+		}
+	}
+}
+
 .is-page-partner {
 	.u-section--fifty-fifty {
 		.fifty-fifty {
