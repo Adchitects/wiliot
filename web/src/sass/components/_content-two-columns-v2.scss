@@ -1,6 +1,4 @@
-.u-section--content-two-columns-v2 {
-
-}
+.u-section--content-two-columns-v2 {}
 
 .content-two-columns-v2 {
 	&__main-text {
@@ -22,11 +20,21 @@
 		display: flex;
 		justify-content: space-between;
 		margin-top: 54px;
+
+		@include tablet-small {
+			flex-direction: column;
+			margin-top: 0;
+		}
 	}
 
 	&__item {
 		width: 100%;
 		max-width: 412px;
+
+		@include tablet-small {
+			max-width: unset;
+			margin-top: 30px;
+		}
 	}
 
 	&__item-title {
@@ -51,6 +59,11 @@
 		ul {
 			margin-top: 24px;
 			margin-bottom: 26px;
+
+			@include tablet-small {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
 	
 			li {
 				position: relative;

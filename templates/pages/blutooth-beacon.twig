@@ -54,6 +54,16 @@
 		bottomText: entry.bbApplicationsBottomTextVariant2,
 		bottomColumnsMatrix: entry.bbApplicationsBottomColumnsMatrixVariant2.all()
 	} %}
+	{% set sectionId = '09' %}
+	{% include '/sections/content-two-columns-v2.twig' with {
+		mainTitle: entry.contentTwoColumnsV2MainTitleVariant3,
+		mainText: entry.contentTwoColumnsV2MainTextVariant3,
+		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrixVariant3.all()
+	} %}
+	{% set sectionId = '10' %}
+	{{ include('/sections/fifty-fifty-v3.twig') }}
+	{% set sectionId = '11' %}
+	{{ include('/sections/accordion.twig') }}
 	{% set sectionId = '12' %}
 	{{ include('/sections/outro.twig') }}
 {% endblock %}

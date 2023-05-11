@@ -3,6 +3,10 @@
 		padding-top: 128px;
 		border-top: 1px solid #D7D7DE;
 
+		@include tablet-small {
+			padding-top: 60px;
+		}
+
 		.u-wrapper {
 			max-width: 900px;
 		}
@@ -43,6 +47,10 @@
 
 		&:nth-of-type(2):nth-last-of-type(2) {
 			width: 90%;
+
+			@include tablet-small {
+				width: 100%;
+			}
 		}
 
 		&:hover,
@@ -60,11 +68,26 @@
 			font-weight: 900;
 			text-align: center;
 			transition: color 0.2s;
+
+			@include tablet-small {
+				font-size: 26px;
+			}
 		}
 
 		.item-title {
 			margin-top: 12px;
 			text-align: center;
+
+			@include tablet-small {
+				margin-top: 4px;
+				font-size: 12px;
+			}
+
+			@include mobile-767 {
+				padding: 0 6px;
+				font-size: 10px;
+				line-height: 1.2;
+			}
 		}
 	}
 

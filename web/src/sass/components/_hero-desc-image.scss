@@ -2,14 +2,35 @@
 	margin-top: 0;
 	padding-top: 190px;
 	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+
+	@include tablet-big-1365 {
+		padding-bottom: 60px;
+	}
+
+	@include tablet-small {
+		padding-top: 60px;
+	}
 }
 
 .hero-desc-image {
 	display: flex;
 	justify-content: space-between;
 
+	@include tablet-small {
+		flex-direction: column;
+	}
+
 	&__text-hld {
 		width: calc(100% - 556px);
+
+		@include tablet-big-1365 {
+			padding-right: 30px;
+		}
+
+		@include tablet-small {
+			width: 100%;
+			padding-right: 0;
+		}
 	}
 
 	&__description {
@@ -22,9 +43,23 @@
 		width: 556px;
 		margin-top: -44px;
 
+		@include tablet-small {
+			width: 100%;
+			max-width: 556px;
+			margin-top: 0;
+		}
+
 		img {
 			min-width: 576px;
 			transform: translateX(98px);
+
+			@include tablet-big-1365 {
+				transform: none;
+			}
+
+			@include mobile-767 {
+				min-width: unset;
+			}
 		}
 	}
 }

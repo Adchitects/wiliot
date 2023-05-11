@@ -45,7 +45,7 @@
 
 .u-wrapper {
 	position: relative;
-	max-width: 1115px;
+	max-width: 1116px;
 	margin: 0 auto;
 	padding-right: 30px;
 	padding-left: 30px;
@@ -85,6 +85,10 @@
 
 	&--small {
 		max-width: 900px;
+	}
+
+	&--smaller {
+		max-width: 856px;
 	}
 
 	&--content {
