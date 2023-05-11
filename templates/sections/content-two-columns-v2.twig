@@ -1,6 +1,6 @@
-{% set mainTitle = entry.contentTwoColumnsV2MainTitle %}
-{% set mainText = entry.contentTwoColumnsV2MainText %}
-{% set columnsMatrix = entry.contentTwoColumnsV2ColumnsMatrix.all() %}
+{% set mainTitle = mainTitle %}
+{% set mainText = mainText %}
+{% set columnsMatrix = columnsMatrix %}
 {% if mainTitle or mainText or columnsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--content-two-columns-v2">
 		<div class="u-wrapper u-wrapper--medium-small">

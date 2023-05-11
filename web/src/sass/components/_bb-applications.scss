@@ -69,6 +69,10 @@
 	&__bottom-columns-item {
 		max-width: 482px;
 
+		.is-1-item & {
+			max-width: 840px;
+		}
+
 		.item-text {
 			ul {
 				li {

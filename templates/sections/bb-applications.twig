@@ -1,12 +1,15 @@
-{% set mainTitle = entry.bbApplicationsMainTitle %}
-{% set mainText = entry.bbApplicationsMainText %}
-{% set iconColumnsMatrix = entry.bbApplicationsIconColumnsMatrix.all() %}
-{% set middleText = entry.bbApplicationsMiddleText %}
-{% set middleColumnsMatrix = entry.bbApplicationsMiddleColumnsMatrix.all() %}
-{% set bottomText = entry.bbApplicationsBottomText %}
-{% set bottomColumnsMatrix = entry.bbApplicationsBottomColumnsMatrix.all() %}
+{% set mainTitle = mainTitle %}
+{% set mainText = mainText %}
+{% set iconColumnsMatrix = iconColumnsMatrix %}
+{% set middleText = middleText %}
+{% set middleColumnsMatrix = middleColumnsMatrix %}
+{% set bottomText = bottomText %}
+{% set bottomColumnsMatrix = bottomColumnsMatrix %}
 {% if mainTitle or mainText or iconColumnsMatrix %}
-	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-applications">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-applications js-bg-shape-hld">
+		<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/popup.png' )}}" alt="Background shape blurry blob">
+		</div>
 		<div class="u-wrapper">
 			<div class="bb-applications">
 				{% if mainTitle or mainText %}
@@ -32,7 +35,7 @@
 									<img class="js-lazy item-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.getUrl() }}" alt="{{ itemIcon.title }}" />
 								{% endif %}
 								{% if itemTitle %}
-									<h3 class="u-title item-title">{{ itemTitle }}</h3>
+									<h3 class="u-title item-title">{{ itemTitle | raw }}</h3>
 								{% endif %}
 								{% if itemText %}
 									<div class="item-text">
@@ -68,7 +71,8 @@
 					</div>
 				{% endif %}
 				{% if bottomColumnsMatrix %}
-					<div class="bb-applications__bottom-columns-hld">
+					{% set length = bottomColumnsMatrix | length %}
+					<div class="bb-applications__bottom-columns-hld {% if length == 1 %} is-1-item {% endif %}">
 						{% for item in bottomColumnsMatrix %}
 							{% set itemText = item.itemText %}
 							<div class="bb-applications__bottom-columns-item">

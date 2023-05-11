@@ -35,3 +35,4 @@ import './scripts/cookiesBox';
 import './scripts/typeformAnalytics';
 import './scripts/customHubspotForm';
 import './scripts/algoliaSearch';
+import './scripts/bbImplementingNav';
