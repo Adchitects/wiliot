@@ -1,20 +1,31 @@
 {% set title = entry.videoTextTitle %}
 {% set description = entry.videoTextDescription %}
 {% set video = entry.videoTextVideo.one() %}
+{% if video %}
+    {% set videoFileExtension = video.getExtension() %}
+    {% set imageExtensions = ['jpg', 'jpeg', 'png', 'gif'] %}
+    {% set videoExtensions = ['mp4', 'webm', 'avi', 'mov', 'mkv'] %}
+{% endif %}
 {% set videoPlaceholder = entry.videoTextPlaceholder.one() %}
 {% set buttonsMatrix = entry.videoTextButtonsMatrix.all() %}
 {% if video %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--video-text">
         <div class="u-wrapper u-wrapper--medium-middle">
             <div class="video-text">
-                <div class="video-text__video-hld js-video-hld is-paused is-before-play">
-                    <span class="icon icon-button_play"></span>
-                    {% if videoPlaceholder %}
-                        <div class="video-text__video-placeholder">
-                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
+                <div class="video-text__video-hld js-video-hld is-paused is-before-play {% if videoFileExtension in imageExtensions %} has-image {% endif %}">
+                    {% if videoFileExtension in imageExtensions %}
+                        <div class="video-text__image-hld">
+                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}" alt="{{ video.title }}">
                         </div>
+                    {% elseif videoFileExtension in videoExtensions %}
+                        <span class="icon icon-button_play"></span>
+                        {% if videoPlaceholder %}
+                            <div class="video-text__video-placeholder">
+                                <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
+                            </div>
+                        {% endif %}
+                        <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
                     {% endif %}
-                    <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
                 </div>
                 <div class="video-text__text-hld">
                     {% if title %}

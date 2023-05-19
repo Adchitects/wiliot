@@ -35,6 +35,10 @@
 			}
 		}
 
+		&.has-image {
+			cursor: default;
+		}
+
 		&.is-before-play {
 			.video-text__video-placeholder {
 				display: block;
