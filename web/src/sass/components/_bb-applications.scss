@@ -20,6 +20,16 @@
 		color: $c-accent;
 	}
 
+	a {
+		color: $c-accent;
+		font-weight: 400;
+		transition: opacity 0.2s;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
 	&__main-text {
 		max-width: 700px;
 		margin-top: 22px;
@@ -44,9 +54,10 @@
 		}
 
 		.item-icon {
+			height: auto;
+
 			@include mobile-767 {
 				width: 40px;
-				height: auto;
 			}
 		}
 

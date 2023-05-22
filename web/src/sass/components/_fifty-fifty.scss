@@ -543,6 +543,16 @@
 							margin-top: 14px;
 						}
 					}
+
+					a {
+						color: $c-accent;
+						font-weight: 400;
+						transition: opacity 0.2s;
+			
+						&:hover {
+							opacity: 0.7;
+						}
+					}
 				}
 			}
 		}
