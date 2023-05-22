@@ -10,6 +10,12 @@
 			margin-top: 14px;
 		}
 
+		p {
+			&:not(:first-of-type) {
+				margin-top: 14px;
+			}
+		}
+
 		strong {
 			color: $c-accent;
 			font-weight: 400;

@@ -60,6 +60,10 @@
 			.item-number {
 				color: $c-accent;
 			}
+
+			.item-title {
+				color: $c-black;
+			}
 		}
 
 		.item-number {
@@ -76,7 +80,9 @@
 
 		.item-title {
 			margin-top: 12px;
+			color: #C7C7C7;
 			text-align: center;
+			transition: color 0.2s;
 
 			@include tablet-small {
 				margin-top: 4px;

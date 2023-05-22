@@ -51,6 +51,7 @@
 
 		img {
 			min-width: 576px;
+			height: auto;
 			transform: translateX(98px);
 
 			@include tablet-big-1365 {

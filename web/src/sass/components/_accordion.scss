@@ -47,21 +47,21 @@
 		.item-arrow {
 			position: absolute;
 			top: 64px;
-			right: -40px;
+			left: -40px;
 			width: auto;
 			height: 12px;
 			transform: rotate(180deg);
 
 			@include tablet-big-1365 {
-				right: 0;
+				left: 0;
 			}
 
 			@include tablet-small {
-				top: 32px;
+				top: 36px;
 			}
 
 			@include mobile-767 {
-				right: 16px;
+				left: 16px;
 			}
 		}
 
@@ -70,8 +70,13 @@
 			font-weight: 900;
 			transition: opacity 0.2s;
 
+			@include tablet-big-1365 {
+				padding-left: 32px;
+			}
+
 			@include mobile-767 {
 				padding-right: 30px;
+				padding-left: 64px;
 				font-size: 18px;
 			}
 		}
