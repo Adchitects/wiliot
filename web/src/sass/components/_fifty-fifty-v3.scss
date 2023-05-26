@@ -23,10 +23,16 @@
 	}
 
 	&__text {
-		flex: 1.65;
+		width: 524px;
 
 		@include tablet-big-1365 {
 			padding-right: 30px;
+		}
+
+		p {
+			&:not(:first-of-type) {
+				margin-top: 14px;
+			}
 		}
 
 		strong {
@@ -43,7 +49,7 @@
 	}
 
 	&__image-hld {
-		flex: 1;
+		width: calc(100% - 524px);
 
 		@include tablet-small {
 			margin-top: 30px;
@@ -51,7 +57,7 @@
 
 		img {
 			border-radius: 48px;
-			transform: translate(104px, 60px);
+			transform: translate(110px, 66px) scale(1.1);
 
 			@include tablet-big-1365 {
 				transform: none;

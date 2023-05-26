@@ -10,6 +10,22 @@
 			margin-top: 14px;
 		}
 
+		p {
+			&:not(:first-of-type) {
+				margin-top: 14px;
+			}
+		}
+
+		a {
+			color: $c-accent;
+			font-weight: 400;
+			transition: opacity 0.2s;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
 		strong {
 			color: $c-accent;
 			font-weight: 400;
