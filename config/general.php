@@ -24,7 +24,7 @@ return [
     'cpTrigger' => App::env('CP_TRIGGER') ?: 'admin',
 
     // The secure key Craft will use for hashing and encrypting data
-    'securityKey' => App::env('SECURITY_KEY'),
+    'securityKey' => 'lFwwEzy8P8pynM_pBjiLKBuhxA4Y-jlq',
 
     // Whether Dev Mode should be enabled (see https://craftcms.com/guides/what-dev-mode-does)
     'devMode' => $isDev,
@@ -35,7 +35,7 @@ return [
     // Whether crawlers should be allowed to index pages and following links
     'disallowRobots' => !$isProd,
 
-    'maxUploadFileSize' => 158334976,
+    'maxUploadFileSize' => 158334976, // 15MiB
 
     'aliases' => [
         '@assets' => 'src',
