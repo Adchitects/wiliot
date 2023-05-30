@@ -57,6 +57,8 @@
 		top: unset;
 		bottom: calc(100% + 12px);
 		pointer-events: auto;
+		width: 100%;
+		background-color: $c-white;
 		opacity: 1;
 	}
 }
