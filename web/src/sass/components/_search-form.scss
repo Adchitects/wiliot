@@ -9,7 +9,7 @@
 	background-clip: padding-box;
 	transition: border-color 0.2s;
 
-	&.is-active {
+	.is-visible & {
 		border-color: $c-accent;
 	}
 
