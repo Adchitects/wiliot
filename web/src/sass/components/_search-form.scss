@@ -3,18 +3,14 @@
 	align-items: center;
 	position: relative;
 	width: 100%;
-	height: 48px;
+	height: 44px;
 	border: 1px solid $c-black;
 	border-radius: 28px;
 	background-clip: padding-box;
 	transition: border-color 0.2s;
 
 	&.is-active {
-		border-color: transparent;
-
-		&::before {
-			opacity: 1;
-		}
+		border-color: $c-accent;
 	}
 
 	&--bar {
@@ -25,21 +21,6 @@
 
 	&--news {
 		max-width: 238px;
-	}
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: -1;
-		margin: -1px;
-		border-radius: inherit;
-		background: linear-gradient(90deg, #11B583 0%, #00F0F3 100%);
-		transition: opacity 0.2s;
-		opacity: 0;
 	}
 
 	&__button {
@@ -78,6 +59,7 @@
 		height: 100%;
 		padding: 3px 20px 0 40px;
 		border-radius: 28px;
+		background-color: transparent;
 		font-size: 14px;
 		font-weight: 300;
 		letter-spacing: 0;
@@ -115,7 +97,12 @@
 		border-top-right-radius: 22px;
 		border-bottom-right-radius: 22px;
 		transform: translateY(-50%);
-		transition: transform 0.2s;
+		transition: opacity 0.2s;
+		opacity: 0;
+
+		.is-visible & {
+			opacity: 1;
+		}
 
 		&:hover {
 			.icon {
