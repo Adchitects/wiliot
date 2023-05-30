@@ -6,23 +6,21 @@
 	top: 0;
 	left: 0;
 	z-index: 9999;
-	pointer-events: none;
+	// pointer-events: none;
 	width: 100%;
 	height: 100%;
-	background-color: $c-white;
-	transform: translateY(-100%);
 	transition: transform 0.2s ease-in-out;
 
 	&.is-visible {
-		pointer-events: all;
-		transform: translateY(0);
+		// pointer-events: all;
 
 		.search-bar__algolia-results {
 			pointer-events: auto;
+			background-color: $c-white;
 			opacity: 1;
 
 			.header.is-scrolled-down & {
-				pointer-events: none;
+				// pointer-events: none;
 				opacity: 0;
 			}
 		}
@@ -44,13 +42,13 @@
 .search-bar__algolia-results {
 	position: absolute;
 	top: calc(100% + 12px);
-	left: 0;
+	left: 50%;
 	pointer-events: none;
-	width: 100%;
+	width: 400px;
 	max-height: 300px;
 	border-radius: 8px;
-	background-color: $c-white;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	transform: translate(-50%);
 	transition: opacity 0.2s;
 	overflow-y: auto;
 	opacity: 0;

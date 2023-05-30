@@ -145,6 +145,21 @@ const algoliaInput = document.querySelector('.js-agolia-input');
 const algoliaInputRemove = document.querySelector('.js-algolia-remove-from-input');
 const algoliaInputUpdate = document.querySelector('.js-algolia-add-from-input');
 
+const searchBarHld = document.querySelector('.js-search-bar-hld');
+if (searchBarHld) {
+	const searchBar = searchBarHld.querySelector('.js-search-bar');
+	const searchInput = searchBarHld.querySelector('.js-algolia-form-input');
+	const closeButton = searchBarHld.querySelector('.js-search-bar-close-button');
+	if (searchInput && closeButton) {
+		closeButton.addEventListener('click', () => {
+			searchBar.classList.remove('is-visible');
+		});
+		searchInput.addEventListener('click', () => {
+			searchBar.classList.add('is-visible');
+		});
+	}
+}
+
 if (algoliaInput && algoliaInputRemove && algoliaInputUpdate) {
 	algoliaInputRemove.addEventListener('click', () => {
 		const objectID = algoliaInput.value;

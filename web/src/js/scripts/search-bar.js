@@ -1,20 +1,24 @@
 const searchBarHld = document.querySelector('.js-search-bar-hld');
 if (searchBarHld) {
-	const bar = searchBarHld.querySelector('.js-search-bar');
-	const openButton = searchBarHld.querySelector('.js-search-bar-open-button');
+	const searchBar = searchBarHld.querySelector('.js-search-bar');
 	const closeButton = searchBarHld.querySelector('.js-search-bar-close-button');
-	// const searchBarInput = searchBarHld.querySelector('.js-search-form-input');
 	const searchBarInput = searchBarHld.querySelector('.js-algolia-form-input');
-	const toggleBar = () => {
-		bar.classList.toggle('is-visible');
-		if (bar.classList.contains('is-visible')) {
-			searchBarInput.focus();
-		} else {
-			searchBarInput.blur();
-		}
+	const closeResults = () => {
+		searchBarInput.value = '';
+		searchBarInput.focus();
 	};
-	openButton.addEventListener('click', toggleBar);
-	closeButton.addEventListener('click', toggleBar);
+	document.addEventListener('click', (e) => {
+		if (!searchBar.contains(e.target)) {
+			searchBar.classList.remove('is-visible');
+		}
+	});
+	document.addEventListener('scroll', () => {
+		if (!searchBar.classList.contains('is-visible')) {
+			return;
+		}
+		searchBar.classList.remove('is-visible');
+	});
+	closeButton.addEventListener('click', closeResults);
 	document.onkeydown = function(evt) {
 		evt = evt || window.event;
 		let isEscape = false;
@@ -24,7 +28,7 @@ if (searchBarHld) {
 			isEscape = (evt.keyCode === 27);
 		}
 		if (isEscape) {
-			toggleBar();
+			closeResults();
 		}
 	};
 }
