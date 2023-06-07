@@ -92,7 +92,7 @@
                                         {% set content = post.postContent|striptags %}
                                         {% if query|lower in title|lower or query|lower in content|lower %}
                                             {% set allResults = allResults|merge([post.id]) %}
-                                            <a href="{{ post.url}}" class="area__post post js-load-more-item" data-max-items="9" data-load-items="9" data-query="{{ query }}">
+                                            <a href="{{ 'bbpost' in post.url ? '/bluetooth-beacon' : post.url }}" class="area__post post js-load-more-item" data-max-items="9" data-load-items="9" data-query="{{ query }}">
                                                 <div class="post__image-hld">
                                                     {% if image %}
                                                         <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
@@ -141,7 +141,7 @@
                                             {% set title = post.title %}
                                             {% set desc = post.newsPostsExcerpt|striptags|striptags %}
                                             {% set descSliced = desc|slice(0, 97) ~ '...' %}
-                                            <a href="{{ post.url }}" class="area__post post">
+                                            <a href="{{ 'bbpost' in post.url ? '/bluetooth-beacon' : post.url }}" class="area__post post">
                                                 <div class="post__image-hld">
                                                     {% if image %}
                                                         <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
@@ -180,7 +180,7 @@
                                                 {% set title = catPost.title %}
                                                 {% set desc = catPost.newsPostsExcerpt|striptags %}
                                                 {% set descSliced = desc|slice(0, 97) ~ '...' %}
-                                                <a href="{{ catPost.url}}" class="area__post post">
+                                                <a href="{{ 'bbpost' in catPost.url ? '/bluetooth-beacon' : catPost.url }}" class="area__post post">
                                                     <div class="post__image-hld">
                                                         {% if image %}
                                                             <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
@@ -219,7 +219,7 @@
                                         {% set title = catPost.title %}
                                         {% set desc = catPost.newsPostsExcerpt|striptags %}
                                         {% set descSliced = desc|slice(0, 97) ~ '...' %}
-                                        <a href="{{ catPost.url}}" class="area__post post js-load-more-item" data-max-items="12" data-load-items="6">
+                                        <a href="{{ 'bbpost' in catPost.url ? '/bluetooth-beacon' : catPost.url }}" class="area__post post js-load-more-item" data-max-items="12" data-load-items="6">
                                             <div class="post__image-hld">
                                                 {% if image %}
                                                     <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />

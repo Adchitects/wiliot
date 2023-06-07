@@ -22,7 +22,7 @@
 						{% set title = post.title %}
 						{% set desc = post.newsPostsExcerpt|striptags|striptags %}
 						{% set descSliced = desc|slice(0, 97) ~ '...' %}
-						<a href="{{ post.url}}" class="post">
+						<a href="{{ 'bbpost' in post.url ? '/bluetooth-beacon' : post.url }}" class="post">
 							<div class="post__image-hld">
 								{% if image %}
 									<img class="js-lazy" width="328" height="225" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
