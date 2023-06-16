@@ -45,7 +45,7 @@
         <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--events-featured">
             <div class="u-wrapper u-wrapper--events-listing">
                 <div class="events-featured-hld">
-                    {% set url = featuredPost.url %}
+                    {% set url = 'bbpost' in featuredPost.url ? '/bluetooth-beacon' : featuredPost.url %}
                     {% set additionalUrlParams = false %}
                     {% set image = featuredPost.newsPostsfeaturedImage.one() %}
                     {% if image %}
@@ -119,7 +119,7 @@
                     <div class="events-listing-outer">
                         <div class="events-listing js-events-listing" data-count="{{ itemsShown }}" data-category="all">
                             {% for post in posts %}
-                                {% set url = post.url %}
+                                {% set url = 'bbpost' in post.url ? '/bluetooth-beacon' : post.url %}
                                 {% set additionalUrlParams = false %}
                                 {% set image = post.newsPostsfeaturedImage.one() %}
                                 {% if image %}
