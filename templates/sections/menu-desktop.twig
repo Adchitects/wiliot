@@ -47,7 +47,14 @@
                     {% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
                     {% set menuDesktopSecondSubnavTitle = page.menuDesktopSecondSubnavTitle %}
                     {% set menuDesktopSecondSubnavElementsNumber = page.menuDesktopSecondSubnavElementsNumber %}
-					<div class="menu-desktop__dropdown {% if menuDesktopSecondSubnavElementsNumber > 0 %} menu-desktop__dropdown--big {% endif %}">
+					{% set subitemMatrixHasElements = 0 %}
+					{% for subnavItem in menuDesktopSubnavItemsMatrix %}
+						{% set subitemMatrix = subnavItem.subitemMatrix %}
+						{% if subitemMatrix|length > 0 %}
+							{% set subitemMatrixHasElements = 1 %}
+						{% endif %}
+					{% endfor %}
+					<div class="menu-desktop__dropdown {% if subitemMatrixHasElements > 0 %} menu-desktop__dropdown--big {% endif %}">
 						<div class="subnav-hld subnav-hld--first {% if menuDesktopSubnavTitle %} has-subnav-title {% endif %}">
                             {% if menuDesktopSubnavTitle %}
                                 <div class="subnav-title subnav-title--first">{{ menuDesktopSubnavTitle }}</div>
@@ -56,15 +63,33 @@
                                 {% if loop.revindex > menuDesktopSecondSubnavElementsNumber %}
                                     {% set item = subnavItem.item %}
                                     {% set icon = subnavItem.icon.one() %}
+									{% set subitemMatrix = subnavItem.subitemMatrix %}
                                     {% if icon %}
                                         {% set icon = subnavItem.icon.one().getUrl() %}
                                     {% endif %}
-                                    <a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
-                                        <div class="text">
-                                            <img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
-                                            {{ item.customText }}
-                                        </div>
-                                    </a>
+									{% if subitemMatrix|length > 0 %}
+										<div class="subnav-item is-subitem">
+											<div class="text">
+												<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+												{{ item.customText }}
+											</div>
+											{% for subitem in subitemMatrix %}
+												{% set subitemLink = subitem.subitemLink %}
+												<a href="{{ subitemLink.url }}" class="subitem-link {% if entry is defined %} {% if subitemLink.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ subitemLink.target ? '_blank' : '_self' }}" rel="{{ subitemLink.target ? 'noopener noreferrer' : null }}">
+													<div class="subtext">
+														{{ subitemLink.customText }}
+													</div>
+												</a>
+											{% endfor %}
+										</div>
+									{% else %}
+										<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
+											<div class="text">
+												<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+												{{ item.customText }}
+											</div>
+										</a>
+									{% endif %}
                                 {% endif %}
 							{% endfor %}
 						</div>
@@ -80,12 +105,12 @@
                                         {% if icon %}
                                             {% set icon = subnavItem.icon.one().getUrl() %}
                                         {% endif %}
-                                        <a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
-                                            <div class="text">
-                                                <img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
-                                                {{ item.customText }}
-                                            </div>
-                                        </a>
+										<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
+											<div class="text">
+												<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+												{{ item.customText }}
+											</div>
+										</a>
                                     {% endif %}
                                 {% endfor %}
                             </div>

@@ -16,11 +16,11 @@
 				</div>
 				{% if imageExternalUrl %}
 					<div class="hero-desc-image__img-hld">
-						<img src="{{ imageExternalUrl }}" alt="{{ image.title }}" class="hero-desc-image__image" width="328" height="246">
+						<img src="{{ imageExternalUrl }}" alt="{{ title }}" class="hero-desc-image__image" width="328" height="246">
 					</div
 				{% elseif image %}
 					<div class="hero-desc-image__img-hld">
-						<img src="{{ image.getUrl() }}" alt="{{ image.title }}" class="hero-desc-image__image" width="328" height="246">
+						<img src="{{ image.getUrl() }}" alt="{{ title }}" class="hero-desc-image__image" width="328" height="246">
 					</div
 				{% endif %}
 			</div>

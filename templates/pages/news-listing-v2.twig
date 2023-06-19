@@ -44,7 +44,12 @@
         {% set sectionId = '01' %}
         <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--events-featured">
             <div class="u-wrapper u-wrapper--events-listing">
-                <div class="events-featured-hld">
+                <div class="events-featured-hld news-featured-hld">
+					<div class="bg-shape-hld js-bg-shape-hld">
+						<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+							<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+						</div>
+					</div>
                     {% set url = 'bbpost' in featuredPost.url ? '/bluetooth-beacon' : featuredPost.url %}
                     {% set additionalUrlParams = false %}
                     {% set image = featuredPost.newsPostsfeaturedImage.one() %}
@@ -55,7 +60,7 @@
                     {% set category = featuredPost.postMainCategory.one() %}
                     {% set date = featuredPost.postDate | date("F d, Y") %}
                     {% set title = featuredPost.title %}
-                    <a href="{{ url }}" class="events-featured" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                    <a href="{{ url }}" class="events-featured news-featured" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %}>
                         <div class="events-featured__text-hld">
                             <div class="events-featured__text-inner">
                                 {% if category %}
