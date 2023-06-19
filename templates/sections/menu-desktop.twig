@@ -68,11 +68,11 @@
                                         {% set icon = subnavItem.icon.one().getUrl() %}
                                     {% endif %}
 									{% if subitemMatrix|length > 0 %}
-										<div class="subnav-item is-subitem">
-											<div class="text">
+										<div class="subnav-item is-subitem {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}">
+											<a href="{{ item.url }}" class="text" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
 												<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
 												{{ item.customText }}
-											</div>
+											</a>
 											{% for subitem in subitemMatrix %}
 												{% set subitemLink = subitem.subitemLink %}
 												<a href="{{ subitemLink.url }}" class="subitem-link {% if entry is defined %} {% if subitemLink.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ subitemLink.target ? '_blank' : '_self' }}" rel="{{ subitemLink.target ? 'noopener noreferrer' : null }}">
