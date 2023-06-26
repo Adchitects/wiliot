@@ -213,11 +213,8 @@
 			position: relative;
 
 			.inner {
-				padding: 0 10px;
-
-				@include media-max(1260) {
-					padding: 0 10px;
-				}
+				margin-right: -12px;
+				padding: 0 12px;
 			}
 
 			.logout-dropdown {
@@ -258,6 +255,7 @@
 			width: 168px;
 
 			.inner {
+
 				&:hover,
 				&:focus,
 				&:active {
@@ -495,7 +493,7 @@
 					}
 				}
 
-				+ a.subnav-item {
+				+a.subnav-item {
 					padding-top: 4px;
 				}
 

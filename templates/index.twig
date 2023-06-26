@@ -94,7 +94,7 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=19jun2023">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=26jun2023">
 			<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104066415-1"></script>
 			<script>
@@ -213,7 +213,7 @@
             {% block headerPopupMobile %}
             {% endblock %}
 		</header>
-        {% set pages = craft.entries.section('menuMobile').all() %}
+        {% set pages = craft.entries.section('menuMobile').level(1) %}
         {% set socials = pageOptions.pageOptionsSocials.all() %}
         {% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
         <div class="menu-mobile-menu-hld js-menu-mobile-menu-hld">
@@ -242,13 +242,30 @@
                                         </span>
                                     </div>
                                 {% endif %}
-                                {% ifchildren %}
+								{% set secondLevelEntries = craft.entries.section('menuMobile').level(2).descendantOf(page) %}
+                                {% if secondLevelEntries.exists() %}
                                     <div class="menu-mobile__nav-dropdown js-menu-mobile-dropdown">
                                         <ul class="menu-mobile__nav-dropdown-list js-menu-mobile-dropdown-list">
-                                            {% children %}
+                                            {% for secondLevelEntry in secondLevelEntries.all() %}
+												{% set menuMobilePageLink2 = secondLevelEntry.menuMobilePageLink %}
+												<li>
+													<a href="{{ menuMobilePageLink2 }}" target="{{ menuMobilePageLink2.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink2.target ? 'noopener noreferrer' : null }}">{{ secondLevelEntry.title }}</a>
+													{% set thirdLevelEntries = craft.entries.section('menuMobile').level(3).descendantOf(secondLevelEntry) %}
+													{% if thirdLevelEntries.exists() %}
+														<ul>
+															{% for thirdLevelEntry in thirdLevelEntries.all() %}
+																{% set menuMobilePageLink3 = thirdLevelEntry.menuMobilePageLink %}
+																<li>
+																	<a href="{{ menuMobilePageLink3 }}" target="{{ menuMobilePageLink3.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink3.target ? 'noopener noreferrer' : null }}">{{ thirdLevelEntry.title }}</a>
+																</li>
+															{% endfor %}
+														</ul>
+													{% endif %}
+												</li>
+											{% endfor %}
                                         </ul>
                                     </div>
-                                {% endifchildren %}
+                                {% endif %}
                             </li>
                         {% endnav %}
                     </ul>

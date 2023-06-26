@@ -147,7 +147,7 @@
 
 		.inner {
 			display: flex;
-			padding: 13px 0;
+			padding: 10px 0;
 			background-color: transparent;
 			color: $c-black;
 
@@ -190,7 +190,26 @@
 
 .menu-mobile__nav-dropdown-list {
 	li {
-		padding-left: 10px;
+		padding-left: 12px;
+
+		& > a {
+			display: block;
+			padding: 6px 0;
+		}
+	}
+
+	ul {
+		padding-top: 4px;
+		padding-bottom: 4px;
+
+		li {
+			padding-left: 12px;
+
+			& > a {
+				display: block;
+				padding: 4px 0;
+			}
+		}
 	}
 }
 
