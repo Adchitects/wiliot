@@ -1,6 +1,4 @@
-.u-section--related-articles {
-
-}
+.u-section--related-articles {}
 
 .related-articles {
 	&__main-title {
@@ -141,12 +139,14 @@
 
 			.image-hld {
 				width: 100%;
-				height: 342px;
+				// height: 342px;
+				height: 296px;
 
 				@include tablet-big {
 					min-width: 304px;
 					max-width: 304px;
-					height: 172px;
+					// height: 172px;
+					height: 148px;
 				}
 
 				img {
@@ -183,6 +183,7 @@
 
 				.title {
 					margin-top: 8px;
+					padding-bottom: 0;
 					font-size: 32px;
 					line-height: calc(40 / 32);
 
@@ -199,7 +200,8 @@
 			position: relative;
 			min-width: 304px;
 			max-width: 100%;
-			height: 172px;
+			// height: 172px;
+			height: 148px;
 
 			img {
 				height: auto;
@@ -261,6 +263,11 @@
 				font-size: 20px;
 				font-weight: 900;
 				line-height: 1.5;
+				padding-bottom: 12px;
+
+				@include mobile {
+					padding-bottom: 0;
+				}
 			}
 
 			.excerpt {
