@@ -29,6 +29,12 @@
 			padding-right: 30px;
 		}
 
+		@include mobile {
+			width: 100%;
+			max-width: 524px;
+			padding-right: 0;
+		}
+
 		p {
 			&:not(:first-of-type) {
 				margin-top: 14px;
@@ -39,6 +45,10 @@
 			display: block;
 			padding-right: 36px;
 			font-weight: 500;
+
+			@include mobile {
+				padding-right: 0;
+			}
 		}
 
 		br {
