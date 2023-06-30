@@ -81,7 +81,7 @@
 							{% set isEvent = post.eventCategory %}
 							{% set isPodcast = post.podcastDetailsID %}
 							{% if loop.index0 > 0 %}
-								<a class="related-articles__item" href="{{ post.url }}">
+								<a class="related-articles__item is-normal" href="{{ post.url }}">
 									<div class="image-hld">
 										{% if isNews %}
 											{% set image = post.newsPostsfeaturedImage.one() %}

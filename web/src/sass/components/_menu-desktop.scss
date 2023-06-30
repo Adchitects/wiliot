@@ -79,6 +79,7 @@
 	.menu-desktop__logo-hld {
 		display: block;
 		width: 114px;
+		min-width: 114px;
 		margin-right: 2px;
 		transition: opacity 0.2s;
 
@@ -86,6 +87,10 @@
 			min-width: 0;
 			max-width: 80px;
 			margin-right: 20px;
+		}
+
+		@include media-min(1280) {
+			margin-right: 16px;
 		}
 
 		&:hover {
@@ -105,6 +110,10 @@
 		display: flex;
 		width: 100%;
 		height: 100%;
+
+		@include media-min(1280) {
+			width: calc(100% - 114px - 16px);
+		}
 	}
 
 	.menu-desktop__list-item {
@@ -252,7 +261,7 @@
 		}
 
 		&.is-search {
-			width: 168px;
+			// width: 168px;
 
 			.inner {
 
@@ -266,6 +275,26 @@
 				.title {
 					font-weight: 300;
 				}
+			}
+
+			.search-form__bar {
+				width: 168px;
+			}
+
+			.search-bar {
+				position: relative;
+
+				@include media-min(1280) {
+					&.is-visible {
+						.search-form__bar {
+							width: 280px;
+						}
+					}
+				}
+			}
+
+			.search-form__button {
+				top: 2px;
 			}
 		}
 

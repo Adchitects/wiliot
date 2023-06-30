@@ -269,6 +269,15 @@ if (searchBars) {
 			}
 		};
 
+		// if (searchBarInput) {
+		// 	searchBarInput.addEventListener('focus', () => {
+		// 		searchBar.classList.add('is-focused');
+		// 	});
+		// 	searchBarInput.addEventListener('blur', () => {
+		// 		searchBar.classList.remove('is-focused');
+		// 	});
+		// }
+
 		if (searchBarInput && resultsContainer) {
 			let typingTimer;
 			searchBarInput.addEventListener('keyup', (e) => {

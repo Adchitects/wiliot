@@ -59,6 +59,12 @@
 	}
 }
 
+.u-section--video-text {
+	& + .u-section--outro {
+		margin-top: 0;
+	}
+}
+
 .outro {
 	&__text-hld {
 		color: $c-white;

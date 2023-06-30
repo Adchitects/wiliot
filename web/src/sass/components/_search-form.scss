@@ -28,7 +28,7 @@
 		align-items: center;
 		justify-content: center;
 		position: absolute;
-		top: 2px;
+		top: 0;
 		left: 0;
 		z-index: 1;
 		cursor: pointer;
@@ -63,6 +63,7 @@
 		font-size: 14px;
 		font-weight: 300;
 		letter-spacing: 0;
+		transition: width 0.15s;
 
 		&::placeholder {
 			color: $c-black;
