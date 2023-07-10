@@ -159,6 +159,38 @@ const featuredSlider = new Swiper('.js-featured-slider', {
 });
 featuredSlider;
 
+const featuredSliderUnder = new Swiper('.js-featured-slider-under', {
+	slidesPerView: 1,
+	spaceBetween: 24,
+	speed: 400,
+	autoplay: false,
+	navigation: {
+		nextEl: '.js-featured-slider-under-button-next',
+		prevEl: '.js-featured-slider-under-button-prev',
+	},
+	breakpoints: {
+		480: {
+			slidesPerView: 2,
+			autoplay: {
+				delay: 2000,
+				disableOnInteraction: true,
+			},
+		},
+		768: {
+			slidesPerView: 3,
+			autoplay: {
+				delay: 2000,
+				disableOnInteraction: true,
+			},
+		},
+		1280: {
+			slidesPerView: 5,
+			autoplay: false,
+		},
+	},
+});
+featuredSliderUnder;
+
 const tabsSliderEl = document.querySelector('.js-tabs-slider');
 const tabsSlider = new Swiper('.js-tabs-slider', {
 	slidesPerView: 1,
