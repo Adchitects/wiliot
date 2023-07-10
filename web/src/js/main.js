@@ -21,12 +21,11 @@ import './scripts/sliders';
 import './scripts/popup';
 import './scripts/careersListing';
 import './scripts/singleCareer';
-// import './scripts/sectionId';
+// import './scripts/sectionId'; // hidden # on scrolls on behalf of the client
 import './scripts/homepageLottieAnimation';
 import './scripts/alignLeftMargin';
 import './scripts/search';
 import './scripts/search-bar';
-import './scripts/searchResults';
 import './scripts/stickyTextSwitch';
 import './scripts/eventsListing';
 import './scripts/titleSwitcher';

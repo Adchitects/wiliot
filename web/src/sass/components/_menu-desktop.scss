@@ -263,6 +263,11 @@
 		&.is-search {
 			// width: 168px;
 
+			body.is-page-search & {
+				pointer-events: none;
+				opacity: 0.25;
+			}
+
 			.inner {
 
 				&:hover,

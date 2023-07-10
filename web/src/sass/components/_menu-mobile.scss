@@ -236,6 +236,11 @@
 			display: none;
 		}
 	}
+
+	body.is-page-search & {
+		pointer-events: none;
+		opacity: 0.25;
+	}
 }
 
 .menu-mobile__socials-hld {
