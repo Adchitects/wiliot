@@ -138,10 +138,10 @@
 			@include tablet-big {
 				display: flex;
 				height: unset;
+				min-height: 207px;
 				// padding: 30px 0;
 				// box-shadow: unset;
 				padding-left: 304px;
-				min-height: 207px;
 			}
 
 			@include mobile {
@@ -235,10 +235,10 @@
 		}
 
 		&.is-normal {
+			min-height: 207px;
 			padding-top: 0;
 			padding-bottom: 0;
 			padding-left: 304px;
-			min-height: 207px;
 			box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
 
 			@include mobile {
@@ -297,7 +297,7 @@
 				}
 			}
 
-			&+.is-normal {
+			& + .is-normal {
 				margin-top: 24px;
 			}
 		}

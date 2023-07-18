@@ -381,20 +381,31 @@
 
 			@include mobile-599 {
 				font-size: 28px;
-				line-height: 26px;
+				// line-height: 26px;
 			}
 		}
 
 		.items-hld {
 			display: grid;
 			justify-content: center;
-			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 40px 110px;
 			margin-top: 70px;
+
+			@include tablet-small {
+				grid-template-columns: repeat(1, 1fr);
+				grid-gap: 40px 0;
+			}
 		}
 
 		.item {
 			text-align: center;
+
+			@include tablet-small {
+				max-width: 408px;
+				margin-right: auto;
+				margin-left: auto;
+			}
 
 			.icon-hld {
 				img {

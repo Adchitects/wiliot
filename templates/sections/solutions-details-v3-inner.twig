@@ -23,6 +23,17 @@
 	{% set heroBottomImageHeight = heroBottomImage.getHeight() %}
 	{% set heroBottomImageAlt = heroBottomImage.title %}
 {% endif %}
+{# Quote #}
+{% if entry.quote %}
+    {% set showQuote = true %}
+    {% set quoteText = entry.quote %}
+	{% set quoteImage = entry.quoteImage.one() %}
+	{% set quoteImageIsPortrait = entry.quoteImageIsPortrait %}
+	{% set quoteImageStyles = entry.quoteImageStyles %}
+	{% set quoteSource = entry.quoteSource %}
+{% else %}
+    {% set showQuote = false %}
+{% endif %}
 {# Infobox #}
 {% if entry.infoboxMatrix %}
     {% if entry.infoboxTitle %}
@@ -177,6 +188,25 @@
 				</div>
 			</div>
 		</div>
+        {% if showQuote %}
+            <div class="solutions-details__quote">
+                <div class="u-wrapper">
+                    <div class="quote">
+						{% if quoteText %}
+							<div class="quote__text">{{ quoteText }}</div>
+						{% endif %}
+						<div class="quote__bottom">
+							{% if quoteImage %}
+								<img class="js-lazy {{ quoteImageIsPortrait ? 'is-portrait' : '' }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ quoteImage.getUrl() }}" alt="" style="{{ quoteImageStyles }}">
+							{% endif %}
+							{% if quoteSource %}
+								<span class="quote__source">{{ quoteSource }}</span>
+							{% endif %}
+						</div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
         {% if infoboxMatrix %}
             <div class="solutions-details__infobox">
                 <div class="u-wrapper u-wrapper--medium">
