@@ -460,6 +460,7 @@ if (mainSearchBar) {
 				} else {
 					index.search(query, {
 						attributesToRetrieve: ['pageType', 'pageTitle', 'link'],
+						hitsPerPage: 999,
 					}).then(({ hits }) => {
 						createSearchResults(hits, query);
 					});
@@ -471,6 +472,7 @@ if (mainSearchBar) {
 	if (searchBarInput.value !== '') {
 		index.search(searchBarInput.value, {
 			attributesToRetrieve: ['pageType', 'pageTitle', 'link'],
+			hitsPerPage: 999,
 		}).then(({ hits }) => {
 			createSearchResults(hits, searchBarInput.value);
 		});
