@@ -199,9 +199,22 @@
 					y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 				})(window, document, "clarity", "script", "hkuq4apk2z");
 			</script>
+			<!-- Google Tag Manager -->
+			{# added 26.07.2023 #}
+			<fscript>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-KX9RFV5L');</fscript>
+			<!-- End Google Tag Manager -->
 		</head>
 	{% endblock %}
 	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% if entry.type.handle == 'singleWithSidebar' %} is-with-sidebar{% endif %}{% endif %}">
+		<!-- Google Tag Manager (noscript) -->
+		{# added 26.07.2023 #}
+		<noscript><iframe class="js-lazy" data-src="https://www.googletagmanager.com/ns.html?id=GTM-KX9RFV5L"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
         {{ include('/sections/svg-sprites.twig') }}
 		<header class="header header--desktop js-header js-search-bar-hld">
 			{{ include('/sections/menu-desktop.twig') }}
