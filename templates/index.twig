@@ -100,7 +100,6 @@
 				// fScript sourcecode
 				var b=!1,c=document.getElementsByTagName("head")[0]||document.documentElement;function d(){var a=document.querySelectorAll("fscript");[].forEach.call(a,function(a){var b=document.createElement("script");if(b.type="text/javascript",a.hasAttributes())for(var d in a.attributes)a.attributes.hasOwnProperty(d)&&(b[a.attributes[d].name]=a.attributes[d].value||!0);else b.appendChild(document.createTextNode(a.innerHTML));c.insertBefore(b,c.firstChild)})}function e(){b||(b=!0,setTimeout(function(){"requestIdleCallback"in window?requestIdleCallback(d,{timeout:1e3}):d()},1e3))}const a=["scroll","mouseover","keydown","touchmove","touchstart","click"];a.forEach(a=>{window.addEventListener(a,e,{passive:!0,once:!0})})
 			</script>
-            <fscript id="hs-script-loader" async defer src="//js.hs-scripts.com/4249967.js"></fscript>
 			<script type="application/ld+json">
 				{
 					"@context": "https://schema.org",
@@ -378,7 +377,7 @@
             </div>
         {% endif %}
         {{ csrfInput() }}
-        <script src="//embed.typeform.com/next/embed.js"></script>
+        <fscript src="//embed.typeform.com/next/embed.js"></fscript>
         <script src="{{ alias('@web/src/js/main.min.js') }}?v=27c072023"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
