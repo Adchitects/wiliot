@@ -99,16 +99,7 @@
 				// fScript sourcecode
 				var b=!1,c=document.getElementsByTagName("head")[0]||document.documentElement;function d(){var a=document.querySelectorAll("fscript");[].forEach.call(a,function(a){var b=document.createElement("script");if(b.type="text/javascript",a.hasAttributes())for(var d in a.attributes)a.attributes.hasOwnProperty(d)&&(b[a.attributes[d].name]=a.attributes[d].value||!0);else b.appendChild(document.createTextNode(a.innerHTML));c.insertBefore(b,c.firstChild)})}function e(){b||(b=!0,setTimeout(function(){"requestIdleCallback"in window?requestIdleCallback(d,{timeout:1e3}):d()},1e3))}const a=["scroll","mouseover","keydown","touchmove","touchstart","click"];a.forEach(a=>{window.addEventListener(a,e,{passive:!0,once:!0})})
 			</script>
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<fscript async src="https://www.googletagmanager.com/gtag/js?id=UA-104066415-1"></fscript>
-			<fscript>
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
-				gtag('config', 'UA-104066415-1');
-                gtag('config', 'G-WWMYNJC96E');
-			</fscript>
-            <script id="hs-script-loader" async defer src="//js.hs-scripts.com/4249967.js"></script>
+            <fscript id="hs-script-loader" async defer src="//js.hs-scripts.com/4249967.js"></fscript>
 			<script type="application/ld+json">
 				{
 					"@context": "https://schema.org",
@@ -195,14 +186,6 @@
             <script>
                 (function(){var zi=document.createElement("script");zi.type="text/javascript";zi.async=true;zi.referrerPolicy="unsafe-url";zi.src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(zi,s)})();
             </script>
-            <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0066/6039.js" async="async" ></script>
-			<script type="text/javascript">
-				(function(c,l,a,r,i,t,y){
-					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-					t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-					y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-				})(window, document, "clarity", "script", "hkuq4apk2z");
-			</script>
 			{% if customScripts.customScriptsHead %}
 				{{ customScripts.customScriptsHead|raw }}
 			{% endif %}
