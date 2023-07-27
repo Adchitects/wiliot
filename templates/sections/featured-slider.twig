@@ -29,7 +29,7 @@
                                     {% endif %}
                                         <div class="featured-slider-item__image-hld">
                                             {% if image %}
-                                                <img class="featured-slider-item__image" src="{{ image.url }}" alt="{{ title }}">
+                                                <img class="js-lazy featured-slider-item__image" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.url }}" alt="{{ title }}">
                                             {% endif %}
                                         </div>
                                     {% if link != '' %}
@@ -72,7 +72,7 @@
 									{% endif %}
 										<div class="featured-slider-under-item__image-hld">
 											{% if image %}
-												<img class="featured-slider-under-item__image" src="{{ image.url }}" alt="{{ title }}" style="{{ additionalStyles }}">
+												<img class="js-lazy featured-slider-under-item__image" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.url }}" alt="{{ title }}" style="{{ additionalStyles }}">
 											{% endif %}
 										</div>
 									{% if link != '' %}

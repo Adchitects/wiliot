@@ -50,7 +50,7 @@
                         {% if itemDesktopVideoLink %}
                             <div class="hero-slider__item-video-hld is-desktop">
                                 {% if itemDesktopVideoPosterUrl %}
-                                    <img src="{{ itemDesktopVideoPosterUrl }}" alt="{{ itemDesktopVideoPosterAlt }}" />
+                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoPosterUrl }}" alt="{{ itemDesktopVideoPosterAlt }}" />
                                 {% endif %}
                                 <video class="js-lazy js-hero-slider-iframe" autoplay loop muted playsinline width="1920" height="768">
                                     <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoLink }}" type="video/mp4">
@@ -58,11 +58,7 @@
                             </div>
                         {% elseif (itemImage) %}
                             <div class="hero-slider__item-image-hld">
-                                {% if loop.index0 == 0 %}
-                                    <img src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" />
-                                {% else %}
-                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" />
-                                {% endif %}
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" />
                             </div>
                         {% endif %}
                         <div class="hero-slider__item-text-hld">
@@ -71,7 +67,11 @@
                                 <div class="u-title u-title--big hero-slider__item-title">{{ itemTitle|nl2br }}</div>
 								<div class="hero-slider__item-video-hld is-mobile">
 									{% if itemMobilePictureUrl %}
-										<img src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
+										{% if loop.index0 == 0 %}
+											<img src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
+										{% else %}
+											<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
+										{% endif %}
 									{% elseif itemDesktopVideoLink %}
 										{% if loop.index0 == 0 %}
 											<video autoplay loop muted playsinline>
