@@ -27,7 +27,7 @@
                                 <div class="{{loop.index == 1 ? 'is-active' : ''}} tabs__nav-item js-tabs-slider-nav-item">
                                     {% if itemIcon %}
                                         <div class="icon-hld">
-                                            <img class="icon" src="{{ itemIcon.url }}" alt="{{ title }}">
+                                            <img class="js-lazy icon" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.url }}" alt="{{ title }}">
                                         </div>
                                     {% endif %}
                                     <span class="text">{{ title }}</span>

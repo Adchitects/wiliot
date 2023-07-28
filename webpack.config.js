@@ -1,9 +1,19 @@
 const webpack = require('webpack');
 const path = require('path');
+const glob = require('glob');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const RemovePlugin = require('remove-files-webpack-plugin');
 const DelayCopyWebpackPlugin = require('delay-copy-webpack-plugin');
+const componentsJS = Object.assign(
+	...glob.sync('web/src/js/local_components/*.js').map((section) => {
+		const name = path.basename(section, '.js');
+		const files = glob.sync(`./${section}`);
+		if (files.length !== 0) {
+			return {[name]: files};
+		}
+	}),
+);
 const userConfig = {
 	proxy: {
 		dirname: path.basename(__dirname),
@@ -20,7 +30,7 @@ const userConfig = {
 		'web/src/fonts/',
 		'web/src/css/style.min.css',
 		'web/src/css/comeet-form-style.css',
-		'web/src/js/main.min.js',
+		'web/src/js/*.min.js',
 		'web/src/favicon.ico',
 		'sitemap.xml',
 	],
@@ -45,11 +55,12 @@ const webpackConfig = {
 		publicPath: false,
 	},
 	entry: {
-		app: './web/src/js/main.js',
+		main: './web/src/js/main.js',
+		...componentsJS,
 	},
 	output: {
-		filename: 'js/main.min.js',
 		path: path.resolve(__dirname, 'web/src'),
+        filename: 'js/[name].min.js',
 	},
 	module: {
 		rules: [

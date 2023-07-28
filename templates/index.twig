@@ -63,6 +63,11 @@
 			<meta name="twitter:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}">
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon">
             <link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}">
+			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_300_book.woff2') }}" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_500_medium.woff2') }}" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_900_heavy.woff2') }}" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="{{ alias('@web/src/fonts/icomoon/fonts/icomoon.woff') }}" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="{{ alias('@web/src/css/style.min.css') }}?v=28a072023" as="style">
             <link href="https://player.vimeo.com" rel="preconnect" crossorigin>
 			<link rel="preload" href="{{ alias('@web/src/css/style.min.css') }}?v=27e072023" as="style">
 			<style>
@@ -95,7 +100,7 @@
 					font-display: swap;
 				}
 			</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=27e072023">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.min.css') }}?v=28a072023">
 			<script>
 				// fScript sourcecode
 				var b=!1,c=document.getElementsByTagName("head")[0]||document.documentElement;function d(){var a=document.querySelectorAll("fscript");[].forEach.call(a,function(a){var b=document.createElement("script");if(b.type="text/javascript",a.hasAttributes())for(var d in a.attributes)a.attributes.hasOwnProperty(d)&&(b[a.attributes[d].name]=a.attributes[d].value||!0);else b.appendChild(document.createTextNode(a.innerHTML));c.insertBefore(b,c.firstChild)})}function e(){b||(b=!0,setTimeout(function(){"requestIdleCallback"in window?requestIdleCallback(d,{timeout:1e3}):d()},1e3))}const a=["scroll","mouseover","keydown","touchmove","touchstart","click"];a.forEach(a=>{window.addEventListener(a,e,{passive:!0,once:!0})})
@@ -378,7 +383,8 @@
         {% endif %}
         {{ csrfInput() }}
         <fscript src="//embed.typeform.com/next/embed.js"></fscript>
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=27e072023"></script>
+        <fscript src="{{ alias('@web/src/js/fusionAuth.min.js') }}"></fscript>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=28a072023"></script>
         <!-- WebSights Footer HTML Snippet -->
         <noscript>
             <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights" />
