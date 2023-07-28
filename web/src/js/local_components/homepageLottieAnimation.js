@@ -10,7 +10,7 @@ animationAll.forEach(animation => {
 	gsap.to({}, {
 		scrollTrigger: {
 			trigger: animation,
-			start: 'top 95%',
+			start: 'top 150%',
 			once: true,
 			onEnter: () => {
 				const anim = Lottie.loadAnimation({
