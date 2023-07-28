@@ -1,3 +1,5 @@
+console.log('homepageLottieAnimation script loaded');
+
 import Lottie from 'lottie-web';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

@@ -5,7 +5,6 @@ lazyLoadInstance;
 import './scripts/animations';
 import './scripts/ytVideoPlaceholder';
 import './scripts/header';
-import './scripts/fusionAuth';
 import './scripts/menuMobile';
 import './scripts/partnersFilters';
 import './scripts/video';
@@ -22,7 +21,6 @@ import './scripts/popup';
 import './scripts/careersListing';
 import './scripts/singleCareer';
 // import './scripts/sectionId'; // hidden # on scrolls on behalf of the client
-import './scripts/homepageLottieAnimation';
 import './scripts/alignLeftMargin';
 import './scripts/search';
 import './scripts/search-bar';
