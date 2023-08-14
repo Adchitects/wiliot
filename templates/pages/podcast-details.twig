@@ -20,6 +20,7 @@
 	{% set podcastDetailsHeroButton = entry.podcastDetailsHeroButton %}
 	{% set content = entry.podcastDetailsContent %}
 	{% set transcript = entry.podcastDetailsTranscript %}
+	{% set transcriptContinuation = entry.podcastDetailsTranscriptContinuation %}
 	{% set date = entry.postDate|date("F d, Y") %}
 	{% set sectionId = '01' %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-podcast-details js-modal-hld">
@@ -136,6 +137,9 @@
 					<ul class="transcript__listing">
 						<li class="transcript__part part">
 							<div class="part__text">{{ transcript }}</div>
+							{% if transcriptContinuation %}
+								<div class="part__text">{{ transcriptContinuation }}</div>
+							{% endif %}
 						</li>
 					</ul>
 			</div>

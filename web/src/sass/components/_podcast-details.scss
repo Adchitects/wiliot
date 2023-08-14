@@ -355,6 +355,10 @@
 							color: $c-black;
 							font-weight: 500;
 						}
+
+						+ .part__text {
+							margin-top: 16px;
+						}
 					}
 
 					&__title {
