@@ -52,7 +52,7 @@
                                 {% if itemDesktopVideoPosterUrl %}
                                     <img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoPosterUrl }}" alt="{{ itemDesktopVideoPosterAlt }}" />
                                 {% endif %}
-                                <video class="js-lazy js-hero-slider-iframe" autoplay loop muted playsinline width="1920" height="768">
+                                <video class="js-lazy js-hero-slider-iframe" autoplay loop muted playsinline preload="auto" width="1920" height="768">
                                     <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoLink }}" type="video/mp4">
                                 </video>
                             </div>
@@ -74,7 +74,7 @@
 										{% endif %}
 									{% elseif itemDesktopVideoLink %}
 										{% if loop.index0 == 0 %}
-											<video autoplay loop muted playsinline>
+											<video autoplay loop muted playsinline preload="auto">
 												<source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
 											</video>
 										{% else %}
