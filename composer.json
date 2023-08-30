@@ -2,14 +2,16 @@
     "require": {
         "algolia/algoliasearch-client-php": "^3.3",
         "born05/craft-assetusage": "2.3.1",
-        "craftcms/cms": "3.8.17",
+        "craftcms/cms": "3.9.1",
         "craftcms/redactor": "2.10.12",
         "dolphiq/redirect": "1.1.1",
         "dolphiq/sitemap": "1.3.2",
         "ether/seo": "3.7.5",
         "gudehus/searchexcerpt": "1.3.1",
         "mustasj/expanded-search": "1.3.7",
+        "pennebaker/craft-architect": "2.4.3",
         "sebastianlenz/linkfield": "1.0.25",
+        "trendyminds/craft-reporter": "1.4.0",
         "utakka/redactor-anchors": "1.4.1",
         "verbb/field-manager": "2.2.5",
         "verbb/image-resizer": "2.2.1",
@@ -23,7 +25,8 @@
     },
     "autoload": {
         "psr-4": {
-            "modules\\": "modules/"
+            "modules\\": "modules/",
+			"custom_module\\": "custom_module/"
         }
     },
     "config": {
@@ -41,5 +44,12 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.craftcms.com",
+            "canonical": false
+        }
+    ]
 }
