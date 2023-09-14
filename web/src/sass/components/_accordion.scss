@@ -1,4 +1,8 @@
-.u-section--accordion {}
+.u-section--accordion {
+	&.is-top-section {
+		margin-top: 120px;
+	}
+}
 
 .accordion {
 	&__main-title {
@@ -44,6 +48,16 @@
 			}
 		}
 
+		&.is-title-only {
+			pointer-events: none;
+			margin-top: 30px;
+			border-bottom: 0;
+
+			.item-title {
+				font-size: 28px;
+			}
+		}
+
 		.item-arrow {
 			position: absolute;
 			top: 64px;
@@ -68,6 +82,7 @@
 		.item-title {
 			font-size: 24px;
 			font-weight: 900;
+			line-height: 1.5;
 			transition: opacity 0.2s;
 
 			@include tablet-big-1365 {
@@ -86,7 +101,7 @@
 			margin-top: 30px;
 			padding-left: 10px;
 		}
-	
+
 		.item-text {
 			font-size: 16px;
 			font-weight: 300;
@@ -96,7 +111,7 @@
 				color: $c-accent;
 				font-weight: 400;
 				transition: opacity 0.2s;
-	
+
 				&:hover {
 					opacity: 0.7;
 				}
