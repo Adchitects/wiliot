@@ -8,26 +8,43 @@
 				<h2 class="press-kit__title u-title u-title--section">{{ title }}</h2>
 			{% endif %}
 			{% if images %}
-				<div class="press-kit__images">
+				<ul class="press-kit__assets-hld">
 					{% for image in images %}
 						{% set imageTitle = image.imageTitle %}
-						{% set imageAsset = image.imageAsset.one() %}
-						{% if imageAsset and imageTitle %}
-							<div class="press-kit__image">
-								<div class="press-kit-image__asset">
-									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageAsset.getUrl('pressKitThumb') }}" class="js-lazy" alt="{{ imageTitle }}">
+						{% set assetsAll = image.imageAsset %}
+						{% set firstAsset = image.imageAsset.one() %}
+						{% if firstAsset and imageTitle %}
+							<li class="press-kit__asset">
+								<h3 class="title">{{ imageTitle }}</h3>
+								<div class="image-hld">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ firstAsset.getUrl('pressKitThumb') }}" class="js-lazy" alt="{{ imageTitle }}">
 								</div>
-								<div class="press-kit-image__content">
-									<h3 class="press-kit-image__title">{{ imageTitle }}</h3>
-									<a download href="{{ imageAsset.getUrl() }}" class="press-kit__btn">
-										<span class="icon icon-arrow-right"></span>
-										<span class="text">Download</span>
-									</a>
+								<div class="buttons-hld">
+									{% for asset in assetsAll %}
+										<a download href="{{ asset.getUrl() }}" class="btn">
+											<svg class="svg-download"><use xlink:href="#svg-download"></use></svg>
+											<span class="text">{{ asset.getExtension()|upper }}</span>
+										</a>
+									{% endfor %}
 								</div>
-							</div>
+							</li>
+						{% elseif imageTitle %}
+							<li class="press-kit__subtitle press-kit__subtitle--{{ imageTitle|replace({' ': '-', '_': '-'})|lower }}">
+							{% if imageTitle == "Industries Guideliness" %}
+								{% set svgIcon = alias('@web/src/img/svg/press-guideliness.svg') %}
+							{% elseif imageTitle == "Case Studies" %}
+								{% set svgIcon = alias('@web/src/img/svg/press-case-study.svg') %}
+							{% elseif imageTitle == "Assets" %}
+								{% set svgIcon = alias('@web/src/img/svg/press-asset.svg') %}
+							{% else %}
+								{% set svgIcon = alias('@web/src/img/svg/press-logo-wiliot.svg') %}
+							{% endif %}
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ svgIcon }}" width="24" height="24" alt="Wiliot logo">
+								<h2 class="subtitle">{{ imageTitle }}</h2>
+							</li>
 						{% endif %}
 					{% endfor %}
-				</div>
+				</ul>
 			{% endif %}
 			{% if videos %}
 				<div class="press-kit__videos">
