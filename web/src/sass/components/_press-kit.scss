@@ -14,6 +14,10 @@
 		&__assets-hld {
 			width: 100%;
 			margin-top: 62px;
+
+			@include media-max(767) {
+				margin-top: 32px;
+			}
 		}
 
 		&__subtitle {
@@ -25,6 +29,12 @@
 			padding: 0 16px;
 			border-radius: 6px;
 			background-color: $c-blue-lighter-green;
+
+			@include mobile-767 {
+				min-height: 56px;
+				margin-top: 24px;
+				margin-bottom: 12px;
+			}
 
 			&--industries-guidelines {
 				background-color: $c-blue-light-green;
@@ -48,6 +58,10 @@
 				font-size: 24px;
 				font-weight: 500;
 				letter-spacing: 0.35px;
+
+				@include mobile-767 {
+					font-size: 20px;
+				}
 			}
 		}
 
@@ -59,6 +73,11 @@
 			padding: 18px 16px 14px;
 			border-bottom: 1px solid $c-neutral-80;
 			transition: background-color 0.2s;
+
+			@include mobile-767 {
+				flex-direction: column;
+				align-items: flex-start;
+			}
 
 			&:hover {
 				background-color: rgba($c-neutral-80, 0.2);
@@ -85,6 +104,10 @@
 				background-color: $c-neutral-60;
 				transition: opacity 0.2s;
 				opacity: 0;
+
+				@include mobile-767 {
+					display: none;
+				}
 			}
 
 			.buttons-hld {
@@ -97,10 +120,18 @@
 
 					&:not(:first-of-type) {
 						padding-left: 12px;
+
+						@include mobile-767 {
+							padding-left: 4px;
+						}
 					}
 
 					&:not(:last-of-type) {
 						padding-right: 12px;
+
+						@include mobile-767 {
+							padding-right: 4px;
+						}
 					}
 
 					svg {
@@ -113,6 +144,10 @@
 						color: $c-accent;
 						font-size: 16px;
 						font-weight: 500;
+
+						@include mobile-767 {
+							font-size: 14px;
+						}
 					}
 				}
 			}
@@ -202,6 +237,10 @@
 						transform: translate(-50%, -50%);
 						transition: opacity 0.2s, color 0.2s;
 						opacity: 0;
+
+						@include mobile-767 {
+							font-size: 100px;
+						}
 					}
 
 					&.is-paused {
@@ -217,6 +256,10 @@
 					width: 100%;
 					margin-top: 10px;
 					padding: 0 8px;
+
+					@include mobile-767 {
+						flex-direction: column;
+					}
 				}
 
 				.title {
@@ -225,10 +268,19 @@
 					font-weight: 500;
 					letter-spacing: 0.25px;
 					line-height: calc(26 / 16);
+
+					@include mobile-767 {
+						padding-right: 0;
+					}
 				}
 
 				.btn {
 					display: flex;
+					margin-left: auto;
+
+					@include mobile-767 {
+						margin-top: 8px;
+					}
 
 					svg {
 						width: 16px;
@@ -240,6 +292,10 @@
 						color: $c-accent;
 						font-size: 16px;
 						font-weight: 500;
+
+						@include mobile-767 {
+							font-size: 14px;
+						}
 					}
 				}
 			}
