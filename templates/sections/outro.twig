@@ -9,6 +9,7 @@
     {% set outroButtonsMatrix = false %}
 {% endif %}
 {% if subtitle or title %}
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/outro.css') }}?v=19092023">
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--outro {{ description ? null : 'is-small' }}">
 		<div class="outro__bg-img">
 			<?xml version="1.0" encoding="UTF-8"?>

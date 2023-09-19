@@ -10,21 +10,20 @@
     "config": {
         "css": {
             "src": "web/src/sass",
-            "srcFile": "web/src/sass/style.scss",
-            "minFile": "web/src/css/style.min.css"
+            "srcFile": "web/src/sass/",
+            "minFile": "web/src/css/"
         }
     },
     "scripts": {
         "sass-development": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=expanded",
         "postsass-development": "stylelint \"$npm_package_config_css_src/**/*\" --cache --fix",
         "sass-production": "sass $npm_package_config_css_srcFile:$npm_package_config_css_minFile --style=compressed --no-source-map",
-        "postcss": "postcss $npm_package_config_css_minFile -u autoprefixer --no-map -r",
         "webpack-development": "webpack --mode=development --watch --progress",
         "webpack-production": "webpack --mode=production",
         "watch:sass": "onchange \"$npm_package_config_css_src/**/*\" -e \".DS_Store\" -- npm run sass-development --silent",
         "watch:webpack": "npm run webpack-development",
         "dev": "npm-run-all -p sass-development -p watch:*",
-        "build": "npm-run-all -p sass-production -p webpack-production -p postcss"
+        "build": "npm-run-all -p sass-production -p webpack-production -p"
     },
     "engines": {
         "node": ">= 12.0.0",

@@ -28,8 +28,7 @@ const userConfig = {
 		'web/src/uploads/',
 		'web/src/img/',
 		'web/src/fonts/',
-		'web/src/css/style.min.css',
-		'web/src/css/comeet-form-style.css',
+		'web/src/css/',
 		'web/src/js/*.min.js',
 		'web/src/favicon.ico',
 		'sitemap.xml',
@@ -104,7 +103,7 @@ const webpackConfig = {
 		}),
 		new BrowserSyncPlugin({
 			logPrefix: 'webpack',
-			files: ['**/*.twig', '**/*.php', './web/src/css/style.min.css'],
+			files: ['**/*.twig', '**/*.php', './web/src/css/style.css', './web/src/css/components/*.css'],
 			host: 'localhost',
 			port: 3000,
 			proxy: `http://${userConfig.proxy.dirname}:${userConfig.proxy.port}`,
