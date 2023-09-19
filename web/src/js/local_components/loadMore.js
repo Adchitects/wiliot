@@ -1,3 +1,5 @@
+console.log('loadMore script lazy-loaded');
+
 import gsap from 'gsap';
 const loadMoreHld = document.querySelectorAll('.js-load-more-hld');
 if (loadMoreHld) {

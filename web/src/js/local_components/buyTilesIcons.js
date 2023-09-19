@@ -1,3 +1,5 @@
+console.log('buyTilesIcons script lazy-loaded');
+
 import Vivus from 'vivus';
 const tilesHld = document.querySelector('.js-buy-tiles-hld');
 if (tilesHld) {

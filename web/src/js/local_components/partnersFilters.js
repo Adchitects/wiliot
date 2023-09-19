@@ -1,3 +1,5 @@
+console.log('partnersFilters script lazy-loaded');
+
 const partnersFiltersHld = document.querySelector('.js-partners-filters-hld');
 
 /* eslint-disable */

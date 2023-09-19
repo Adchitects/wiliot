@@ -1,3 +1,5 @@
+console.log('alignLeftMargin script lazy-loaded');
+
 const alignLeftMargin = () => {
 	const hldAll = document.querySelectorAll('.js-align-left-margin-hld');
 	hldAll.forEach(hld => {
@@ -9,7 +11,6 @@ const alignLeftMargin = () => {
 		elementHld.style.marginRight = sampleLeftPadding;
 		element.style.marginLeft = sampleLeftMargin + 'px';
 		element.style.paddingLeft = sampleLeftPadding;
-
 		const mQuery = window.matchMedia('(max-width: 599px)');
 		const elementDesktopGrid = element.dataset.desktopGtc;
 		const elementMobileGrid = element.dataset.mobileGtc;
@@ -24,5 +25,5 @@ const alignLeftMargin = () => {
 		handleMediaQueries(mQuery);
 	});
 };
-window.addEventListener('load', alignLeftMargin);
+alignLeftMargin();
 window.addEventListener('resize', alignLeftMargin);

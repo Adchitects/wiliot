@@ -56,14 +56,14 @@ if ( document.body.matches('.is-page-single-career') ) {
 
 			const careerLevelHld = careerDetailsHld.querySelector('.js-career-level');
 			if (careerLevel) {
-			    careerLevelHld.innerText = careerLevel;
+				careerLevelHld.innerText = careerLevel;
 			} else {
 				careerLevelHld.remove();
 			}
 
 			const careerTypeHld = careerDetailsHld.querySelector('.js-career-type');
 			if (careerType) {
-			    careerTypeHld.innerText = careerType;
+				careerTypeHld.innerText = careerType;
 			} else {
 				careerTypeHld.remove();
 			}

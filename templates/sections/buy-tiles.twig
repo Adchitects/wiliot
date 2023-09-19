@@ -2,100 +2,101 @@
 {% set title = entry.buyTitle %}
 {% set tilesMatrix = entry.tiles.all() %}
 {% if title or subtitle %}
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--buy-tiles js-bg-shape-hld">
-	<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
-		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
-	</div>
-	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
-		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
-	</div>
-	<div class="buy-tiles">
-		<div class="u-wrapper">
-			<div class="buy-tiles__text-hld">
-				<div class="subtitle u-subtitle u-subtitle--medium">{{ subtitle }}</div>
-				<h1 class="title u-title u-title--big">{{ title|nl2br }}</h1>
-			</div>
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--buy-tiles js-bg-shape-hld">
+		<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
 		</div>
-		<div class="u-wrapper u-wrapper--medium-wide js-modal-hld">
-			<div class="buy-tiles__tiles-hld js-buy-tiles-hld">
-				{% for item in tilesMatrix %}
-                    {% if item.tileIcon.one() %}
-                        {% set icon = item.tileIcon.one().getUrl() %}
-                    {% else %}
-                        {% set icon = alias('@web/src/img/svg/circles.svg') %}
-                    {% endif %}
-					{% set title = item.tileTitle %}
-					{% set topDescription = item.tileTopDescription %}
-					{% set topDescriptionSliced = topDescription|slice(0, 307) ~ '...' %}
-					{% set bottomDescription = item.tileBottomDescription %}
-					{% set button = item.tileButton %}
-					{% set arrowButtons = item.tileArrowButtons.all() %}
-					<div class="buy-tiles__item item js-buy-tiles-item">
-						{% if icon %}
-                            <img class="js-lazy item__icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ icon }}" alt="{{ item.title }}">
+		<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
+		</div>
+		<div class="buy-tiles">
+			<div class="u-wrapper">
+				<div class="buy-tiles__text-hld">
+					<div class="subtitle u-subtitle u-subtitle--medium">{{ subtitle }}</div>
+					<h1 class="title u-title u-title--big">{{ title|nl2br }}</h1>
+				</div>
+			</div>
+			<div class="u-wrapper u-wrapper--medium-wide js-modal-hld">
+				<div class="buy-tiles__tiles-hld js-buy-tiles-hld">
+					{% for item in tilesMatrix %}
+						{% if item.tileIcon.one() %}
+							{% set icon = item.tileIcon.one().getUrl() %}
+						{% else %}
+							{% set icon = alias('@web/src/img/svg/circles.svg') %}
 						{% endif %}
-						<div class="item__title">{{ title }}</div>
-						<div class="item__description-hld">
-							<div class="item__description item__description--top">{{ topDescription|length > 310 ? topDescriptionSliced|raw : topDescription|raw }}</div>
-							{% if bottomDescription %}
-								<div class="item__description item__description--bottom">{{ bottomDescription }}</div>
+						{% set title = item.tileTitle %}
+						{% set topDescription = item.tileTopDescription %}
+						{% set topDescriptionSliced = topDescription|slice(0, 307) ~ '...' %}
+						{% set bottomDescription = item.tileBottomDescription %}
+						{% set button = item.tileButton %}
+						{% set arrowButtons = item.tileArrowButtons.all() %}
+						<div class="buy-tiles__item item js-buy-tiles-item">
+							{% if icon %}
+								<img class="js-lazy item__icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ icon }}" alt="{{ item.title }}">
+							{% endif %}
+							<div class="item__title">{{ title }}</div>
+							<div class="item__description-hld">
+								<div class="item__description item__description--top">{{ topDescription|length > 310 ? topDescriptionSliced|raw : topDescription|raw }}</div>
+								{% if bottomDescription %}
+									<div class="item__description item__description--bottom">{{ bottomDescription }}</div>
+								{% endif %}
+							</div>
+							{% if button.url %}
+								<a href="{{ button.url }}" target="{{ button.target ? '_blank' : null }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item__btn u-btn u-btn--accent">
+									<span class="text">{{ button.customText }}</span>
+								</a>
+							{% endif %}
+							{% if arrowButtons %}
+								<div class="item__buttons-hld">
+									{% for item in arrowButtons %}
+										{% set arrowButton = item.tileArrowButton %}
+										<a href="{{ arrowButton.url }}" target="{{ arrowButton.target ? '_blank' : '_self' }}" rel="{{ arrowButton.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
+											<span class="text">{{ arrowButton.customText }}</span>
+										</a>
+									{% endfor %}
+								</div>
 							{% endif %}
 						</div>
-						{% if button.url %}
-							<a href="{{ button.url }}" target="{{ button.target ? '_blank' : null }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item__btn u-btn u-btn--accent">
-								<span class="text">{{ button.customText }}</span>
-							</a>
-						{% endif %}
-						{% if arrowButtons %}
-							<div class="item__buttons-hld">
-                                {% for item in arrowButtons %}
-                                    {% set arrowButton = item.tileArrowButton %}
-                                    <a href="{{ arrowButton.url }}" target="{{ arrowButton.target ? '_blank' : '_self' }}" rel="{{ arrowButton.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
-                                        <span class="text">{{ arrowButton.customText }}</span>
-                                    </a>
-                                {% endfor %}
-                            </div>
-						{% endif %}
-					</div>
-				{% endfor %}
-			</div>
-			<div class="subscribe-modal js-modal-modal">
-				<div class="overlay js-modal-close"></div>
-				<div class="subscribe-modal__inner">
-					<div class="subscribe-modal__modal">
-						<div class="form-hld">
-							<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-							<script
-									src="https://code.jquery.com/jquery-3.6.0.min.js"
-									integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-									crossorigin="anonymous">
-							</script>
-							<script>
-								hbspt.forms.create({
-									region: "na1",
-									portalId: "4249967",
-									formId: "8734a0de-7dee-4402-8cfd-64943947ef0e",
-									onFormReady: function(form) {
-										document.body.classList.add('is-buy-page-form');
-										const formEl = form[0];
-                                        const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
-                                            detail: {
-                                                form: formEl,
-                                                shortenSelects: false,
-                                            },
-                                        });
-                                        document.dispatchEvent(customHubspotFormScripts);
-									},
-								});
-							</script>
+					{% endfor %}
+				</div>
+				<div class="subscribe-modal js-modal-modal">
+					<div class="overlay js-modal-close"></div>
+					<div class="subscribe-modal__inner">
+						<div class="subscribe-modal__modal">
+							<div class="form-hld">
+								<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+								<script
+										src="https://code.jquery.com/jquery-3.6.0.min.js"
+										integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+										crossorigin="anonymous">
+								</script>
+								<script>
+									hbspt.forms.create({
+										region: "na1",
+										portalId: "4249967",
+										formId: "8734a0de-7dee-4402-8cfd-64943947ef0e",
+										onFormReady: function(form) {
+											document.body.classList.add('is-buy-page-form');
+											const formEl = form[0];
+											const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+												detail: {
+													form: formEl,
+													shortenSelects: false,
+												},
+											});
+											document.dispatchEvent(customHubspotFormScripts);
+										},
+									});
+								</script>
+							</div>
 						</div>
+						<span class="subscribe-modal__close js-modal-close">
+							<span class="icon icon-close"></span>
+						</span>
 					</div>
-					<span class="subscribe-modal__close js-modal-close">
-						<span class="icon icon-close"></span>
-					</span>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+	<fscript src="{{ alias('@web/src/js/buyTilesIcons.min.js') }}"></fscript>
 {% endif %}

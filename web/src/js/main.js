@@ -3,33 +3,22 @@ import { lazyLoadInstance } from './libs/lazyLoad';
 lazyLoadInstance;
 // SCRIPTS
 import './scripts/animations';
-import './scripts/ytVideoPlaceholder';
 import './scripts/header';
 import './scripts/menuMobile';
-import './scripts/partnersFilters';
 import './scripts/video';
 import './scripts/accordion';
 import './scripts/modal';
 import './scripts/heroSliderModal';
-import './scripts/buyTilesIcons';
-import './scripts/loadMore';
-import './scripts/sliding-boxes';
-import './scripts/solutionsDetails';
 import './scripts/bgShape';
 import './scripts/sliders';
 import './scripts/popup';
-import './scripts/careersListing';
-import './scripts/singleCareer';
-// import './scripts/sectionId'; // hidden # on scrolls on behalf of the client
-import './scripts/alignLeftMargin';
 import './scripts/search';
 import './scripts/search-bar';
-import './scripts/stickyTextSwitch';
-import './scripts/eventsListing';
-import './scripts/titleSwitcher';
-import './scripts/headerPopup';
 import './scripts/cookiesBox';
 import './scripts/typeformAnalytics';
 import './scripts/customHubspotForm';
 import './scripts/algoliaSearch';
-import './scripts/bbImplementingNav';
+// import './scripts/sectionId'; // Currently hidden at the client's request
+// import './scripts/ytVideoPlaceholder'; // Currently not used
+// import './scripts/sliding-boxes'; // Currently not used
+// import './scripts/headerPopup'; // Currently not used

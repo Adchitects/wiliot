@@ -1,7 +1,11 @@
+console.log('eventsListing script loaded');
+
 const eventsListing = document.querySelector('.js-events-listing');
 const eventsItems = document.querySelectorAll('.js-event-item');
 
+console.log(eventsItems);
 if (eventsListing && eventsItems) {
+	console.log(eventsListing);
 	const maxItems = eventsListing.dataset.count ? eventsListing.dataset.count : false;
 	const noResults = document.querySelector('.js-events-listing-no-results');
 	const showMoreBtnHld = document.querySelector('.js-more-events-btn-hld');

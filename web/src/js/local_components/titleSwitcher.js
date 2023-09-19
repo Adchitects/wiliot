@@ -1,5 +1,6 @@
-const titleSwitchers = document.querySelectorAll('.js-title-switcher-switch-title-hld');
+console.log('titleSwitcher script lazy-loaded');
 
+const titleSwitchers = document.querySelectorAll('.js-title-switcher-switch-title-hld');
 if (titleSwitchers) {
 	titleSwitchers.forEach(titleSwitcher => {
 		const switchCount = titleSwitcher.dataset.count;
