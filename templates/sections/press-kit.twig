@@ -30,7 +30,7 @@
 							</li>
 						{% elseif imageTitle %}
 							<li class="press-kit__subtitle press-kit__subtitle--{{ imageTitle|replace({' ': '-', '_': '-'})|lower }}">
-							{% if imageTitle == "Industries Guideliness" %}
+							{% if imageTitle == "Industries Guidelines" %}
 								{% set svgIcon = alias('@web/src/img/svg/press-guideliness.svg') %}
 							{% elseif imageTitle == "Case Studies" %}
 								{% set svgIcon = alias('@web/src/img/svg/press-case-study.svg') %}
