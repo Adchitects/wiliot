@@ -1,3 +1,6 @@
+@import '../base/variables';
+@import '../base/mixins';
+
 .u-section--events-slider + .u-section--latest-news {
 	margin-top: 160px;
 }

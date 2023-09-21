@@ -5,6 +5,7 @@
 	{% set numeration = numeration.contains('true') %}
 {% endif %}
 {% set rows = entry.fiftyFiftyRows.all() %}
+<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/fifty-fifty.css') }}?v=21092023">
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--fifty-fifty {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %}">
 	{% if entry.section|lower == 'homepage' %}
 		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">

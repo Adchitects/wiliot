@@ -1,5 +1,6 @@
 {% set PartnersDetailsPosts = craft.entries.section('partnersDetails').all() %}
 {% if PartnersDetailsPosts %}
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-listing.css') }}?v=21092023">
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-listing">
 		<div class="u-wrapper u-wrapper--wide">
 			<div class="partners-listing js-partners-filters-hld">

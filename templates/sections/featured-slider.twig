@@ -5,6 +5,7 @@
 {% set subtitleUnder = entry.featuredSliderUnderSubtitle %}
 {% set blocksUnder = entry.featuredSliderBlocksUnder %}
 {% if blocks|length > 0 %}
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/featured-slider.css') }}?v=21092023">
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--featured-slider">
         <div class="u-wrapper">
             <div class="featured-slider-hld">

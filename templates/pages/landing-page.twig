@@ -184,6 +184,7 @@
 </section>
 
 {% if relatedItem %}
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/related-posts.css') }}?v=21092023">
     {% if relatedItem.type.handle == 'singleNews' %}
         {% set sectionId = '02' %}
         <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--related-news">

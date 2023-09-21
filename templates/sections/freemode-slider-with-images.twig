@@ -1,5 +1,6 @@
 {% set title = entry.accordionTitle %}
 {% if title %}
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/freemode-slider-with-images.css') }}?v=21092023">
 	{% set slides = entry.accordionList.all() %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--freemode-slider-with-images">
 		<div class="freemode-slider-with-images">

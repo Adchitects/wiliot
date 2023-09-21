@@ -2,6 +2,7 @@
 {% set title = entry.fiftyFiftyV2Title %}
 {% set itemsMatrix = entry.fiftyFiftyV2ItemsMatrix.all() %}
 {% if itemsMatrix %}
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/fifty-fifty-v2.css') }}?v=21092023">
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--fifty-fifty-v2 {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %}">
         <div class="u-wrapper u-wrapper--medium-wide">
             <div class="fifty-fifty-v2">

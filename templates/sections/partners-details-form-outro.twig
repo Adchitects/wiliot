@@ -2,6 +2,7 @@
 {% set partnerFormOutroSubtitle = entry.partnerFormOutroSubtitle %}
 {% set partnerFormOutroFormId = entry.partnerFormOutroFormId %}
 {% if partnerFormOutroFormId %}
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-details-form-outro.css') }}?v=21092023">
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-details-form-outro">
 		<div class="u-wrapper u-wrapper--content">
 			<div class="partners-details-form-outro">
