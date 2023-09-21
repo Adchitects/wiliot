@@ -1,6 +1,7 @@
 {% set careersTitle = entry.careersTitle %}
 {% set careersDescription = entry.careersDescription %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--careers-listing">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/careers-listing.css') }}?v=21092023">
 	<div class="careers-listing">
 		<div class="u-wrapper">
 			<div class="careers-listing__text-hld">

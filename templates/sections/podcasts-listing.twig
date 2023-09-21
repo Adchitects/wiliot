@@ -8,6 +8,7 @@
 {% set link2 = entry.podcastsListingLink2 %}
 {% if podcasts %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--podcasts-listing">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/podcast-listing.css') }}?v=21092023">
 		<div class="u-wrapper">
 			<div class="podcasts-listing js-load-more-hld">
 				<div class="podcasts-listing__header">

@@ -7,8 +7,8 @@
 	{% set showArrows = showArrows.contains('true') %}
 {% endif %}
 {% if slides|length > 0 %}
-	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/logos-slider.css') }}?v=21092023">
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--logos-slider {{ showArrows ? '' : 'u-section--logos-slider-no-arrows' }}">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/logos-slider.css') }}?v=21092023">
         <div class="logos-slider">
             {% if subtitle %}
                 <h3 class="logos-slider__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h3>

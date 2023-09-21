@@ -3,6 +3,7 @@
 {% set list = entry.productFeaturesList.all() %}
 {% if subtitle or title %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-features-v2 js-bg-shape-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/product-features-v2.css') }}?v=21092023">
 		<div class="bg-shape bg-shape--center-left bg-shape--center-left-sticky js-bg-shape" data-version="center-left-sticky">
 			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png')}}" alt="Background shape blurry blob">
 		</div>

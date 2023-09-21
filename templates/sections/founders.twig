@@ -2,8 +2,8 @@
 {% set title = entry.foundersTitle %}
 {% set image = entry.foundersImage.one() %}
 {% if title %}
-	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/founders.css') }}?v=21092023">
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--founders js-bg-shape-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/founders.css') }}?v=21092023">
 		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 			<img class="s1 js-s1" src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
 			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">

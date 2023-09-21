@@ -6,6 +6,7 @@
 {% set offices = entry.contactOffices.all() %}
 {% set socials = pageOptions.pageOptionsSocials.all() %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--contact-company">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/contact-company.css') }}?v=21092023">
 	<div class="u-wrapper u-wrapper--normal">
 		<div class="contact-company">
 			<div class="contact-company__header">

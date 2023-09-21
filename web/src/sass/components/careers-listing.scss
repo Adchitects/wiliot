@@ -1,3 +1,7 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/icomoon';
+
 .is-page-careers {
 	.hero__text-hld {
 		@include media-min(1024) {
@@ -77,10 +81,10 @@
 							transform: rotateX(180deg);
 						}
 					}
-		
+
 					&::before {
 						@extend .icon-dropdown-down;
-		
+
 						display: inline-block;
 						position: absolute;
 						top: 10px;

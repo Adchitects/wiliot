@@ -1,8 +1,10 @@
+{# Currently not used #}
 {% set subtitle = entry.editorialSubtitle %}
 {% set title = entry.editorialTitle %}
 {% set magazine = entry.editorialMagazine.one() %}
 {% set button = entry.editorialButton %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--editorial">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/editorial.css') }}?v=21092023">
 	<div class="u-wrapper">
 		<div class="editorial">
 			{% if subtitle %}

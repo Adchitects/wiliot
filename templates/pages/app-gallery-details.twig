@@ -47,8 +47,8 @@
 	{% set sectionId = '01' %}
 	{{ include('/sections/hero.twig') }}
 	{% set sectionId = '02' %}
-	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-details.css') }}?v=21092023">
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-details">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-details.css') }}?v=21092023">
 		<div class="u-wrapper">
 			<div class="partners-details">
 				<a href="{{ newsListingSectionUrl }}" class="partners-details__backlink">
