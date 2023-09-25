@@ -1,0 +1,156 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--video-text {
+	padding-top: 120px;
+	padding-bottom: 120px;
+	background-image: radial-gradient(circle, #F5F5FC 0%, #F5F9FC 100%);
+
+	@include mobile-767 {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+}
+
+.video-text {
+	display: flex;
+	justify-content: space-between;
+
+	@include tablet-small-1023 {
+		flex-direction: column;
+	}
+
+	&__video-hld {
+		position: relative;
+		cursor: pointer;
+		width: 50%;
+		max-width: 516px;
+		height: fit-content;
+
+		@include tablet-small-1023 {
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		&:hover {
+			.icon {
+				color: rgba($c-white, 0.75);
+			}
+		}
+
+		&.has-image {
+			cursor: default;
+		}
+
+		&.is-before-play {
+			.video-text__video-placeholder {
+				display: block;
+			}
+
+			video {
+				opacity: 0;
+			}
+		}
+
+		video {
+			display: block;
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			max-width: 516px;
+			height: auto;
+			max-height: 300px;
+			border-radius: 6px;
+			object-fit: cover;
+
+			@include media-max(767) {
+				max-width: 100%;
+			}
+		}
+
+		.icon {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 2;
+			pointer-events: none;
+			color: $c-white;
+			font-size: 116px;
+			transform: translate(-50%, -50%);
+			transition: opacity 0.2s, color 0.2s;
+			opacity: 0;
+		}
+
+		&.is-paused {
+			.icon {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__video-placeholder {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 6px;
+		overflow: hidden;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__text-hld {
+		width: 50%;
+		padding: 10px 68px 0 84px;
+
+		@include tablet-small-1023 {
+			width: 100%;
+			max-width: 516px;
+			margin: 0 auto;
+			padding: 30px 0 0;
+			text-align: center;
+		}
+	}
+
+	&__title {
+		@include mobile-599 {
+			font-size: 28px;
+			line-height: 36px;
+		}
+	}
+
+	&__description {
+		margin-top: 12px;
+	}
+
+	&__buttons-hld {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin-top: 36px;
+
+		@include tablet-small-1023 {
+			justify-content: center;
+		}
+
+		.btn {
+			margin: 10px;
+			margin-left: 0;
+			padding: 16px 58px 14px;
+
+			&--2 {
+				margin-right: 0;
+			}
+		}
+	}
+}

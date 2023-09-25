@@ -1,6 +1,7 @@
 {% set twoBoxesTitle = entry.twoBoxesTitle %}
 {% set twoBoxesMatrix = entry.twoBoxesMatrix.all() %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--two-boxes">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/two-boxes.css') }}?v=21092023">
 	<div class="u-wrapper">
 		<div class="two-boxes">
 			<div class="two-boxes__title u-title u-title--section">{{ twoBoxesTitle }}</div>

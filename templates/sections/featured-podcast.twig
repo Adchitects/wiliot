@@ -3,6 +3,7 @@
 {% set video = entry.featuredPodcastVideo.one() %}
 {% set button = entry.featuredPodcastButton %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--featured-podcast">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/featured-podcast.css') }}?v=21092023">
 	<div class="u-wrapper">
 		<div class="featured-podcast">
 			<div class="featured-podcast__video js-video-hld is-paused">

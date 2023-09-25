@@ -1,5 +1,3 @@
-console.log('fusionAuth script loaded');
-
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import jwkToPem from 'jwk-to-pem';

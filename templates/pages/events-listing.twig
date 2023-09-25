@@ -23,7 +23,6 @@
 	<meta property="og:type" content="website">
 {% endblock %}
 {% block main %}
-
     {% set entryQuery = craft.entries().section('eventItems').removeFromListings('not 1').orderBy('postDate DESC') %}
     {% set events = entryQuery.all() %}
 
@@ -262,4 +261,6 @@
 	{% set sectionId = '03' %}
 	{{ include('/sections/subscribe.twig') }}
 	{% set sectionId = '' %}
+
+	<script src="{{ alias('@web/src/js/eventsListing.min.js') }}"></script>
 {% endblock %}

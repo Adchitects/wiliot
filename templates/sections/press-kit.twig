@@ -2,6 +2,7 @@
 {% set images = entry.pressKitImages.all() %}
 {% set videos = entry.pressKitVideos.all() %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--press-kit">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/press-kit.css') }}?v=21092023">
 	<div class="u-wrapper">
 		<div class="press-kit">
 			{% if title %}

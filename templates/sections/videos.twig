@@ -4,6 +4,7 @@
 {% set buttons = entry.VideosButtons.all() %}
 
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--videos">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/videos.css') }}?v=21092023">
 	<div class="u-wrapper">
         {% if subtitle %}
             <span class="videos-section-subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>

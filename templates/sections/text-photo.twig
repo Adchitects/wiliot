@@ -11,6 +11,7 @@
 {% set image = entry.textPhotoImage.one() %}
 {% if subtitle or title %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--text-photo">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/text-photo.css') }}?v=21092023">
         <div class="u-wrapper">
             <div class="text-photo">
                 {% if subtitle %}

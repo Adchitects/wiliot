@@ -4,6 +4,7 @@
 {% set steps = entry.processSteps.all() %}
 {% if steps %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--process">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/process.css') }}?v=21092023">
 		<div class="process">
 			<div class="u-wrapper">
 				<div class="u-subtitle u-subtitle--section process__subtitle">{{ processSubtitle }}</div>

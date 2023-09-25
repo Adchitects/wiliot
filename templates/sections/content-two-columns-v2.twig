@@ -3,6 +3,7 @@
 {% set columnsMatrix = columnsMatrix %}
 {% if mainTitle or mainText or columnsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--content-two-columns-v2">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/content-two-columns-v2.css') }}?v=25092023">
 		<div class="u-wrapper u-wrapper--medium-small">
 			<div class="content-two-columns-v2">
 				{% if mainTitle or mainText %}

@@ -1,6 +1,7 @@
 {% set title = entry.freemodeSliderTitle %}
 {% set slides = entry.freemodeSliderItems.all() %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--freemode-slider">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/freemode-slider.css') }}?v=21092023">
 	<div class="freemode-slider">
 		{% if title %}
 			<h2 class="freemode-slider__title u-title">{{ title }}</h2>

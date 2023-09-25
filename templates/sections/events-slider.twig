@@ -12,6 +12,7 @@
 {% set link = entry.eventsSliderButton %}
 {% if events|length %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section--events-slider u-section">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/events-slider.css') }}?v=21092023">
 	<div class="u-wrapper u-wrapper--events-listing">
 		<div class="events-slider-hld">
             {% if subtitle %}

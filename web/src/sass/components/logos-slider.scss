@@ -1,0 +1,272 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--logos-slider {
+	margin-top: 96px;
+
+	.is-page-redirection-kit-pages & {
+		margin-top: 48px;
+	}
+
+	.is-page-company & {
+		margin-top: 0;
+		padding-top: 140px;
+		padding-bottom: 140px;
+		background-color: $c-white;
+
+		@include media-max(1023) {
+			padding-top: 120px;
+			padding-bottom: 120px;
+		}
+
+		@include media-max(767) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+	}
+
+	.is-page-press & {
+		margin-top: 65px;
+	}
+
+	.is-page-getting & {
+		margin-bottom: 95px;
+	}
+
+	// .is-page-partner & {
+	// 	position: relative;
+	// 	margin-top: 130px;
+
+	// 	&::before {
+	// 		content: '';
+	// 		position: absolute;
+	// 		top: -80px;
+	// 		left: 0;
+	// 		pointer-events: none;
+	// 		width: 100%;
+	// 		height: 1px;
+	// 		background-color: #dddddd;
+	// 	}
+	// }
+
+	.logos-slider {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 1332px;
+		margin: 0 auto;
+		padding: 0 30px;
+
+		.btn {
+			margin-top: 72px;
+			padding: 16px 55px 14px;
+
+			@include mobile {
+				margin-top: 48px;
+			}
+		}
+	}
+
+	&.u-section--logos-slider-no-arrows {
+		.logos-slider__slider-wrapper {
+			margin-top: 0;
+		}
+	}
+
+	& + .u-section--form {
+		margin-top: 96px;
+
+		@include media-max(1023) {
+			margin-top: 48px;
+		}
+
+		@include media-max(767) {
+			margin-top: 64px;
+		}
+	}
+
+	.logos-slider__title {
+		margin-bottom: 48px;
+		font-size: 32px;
+		font-weight: 900;
+		line-height: 40px;
+		text-align: center;
+	}
+
+	.logos-slider__slider-wrapper {
+		position: relative;
+		width: 100%;
+		margin-top: 40px;
+
+		.is-page-press & {
+			margin-top: 24px;
+		}
+
+		.is-page-getting & {
+			margin-top: 0;
+		}
+	}
+
+	.swiper-wrapper {
+		@include media-min(480) {
+
+			&[data-slides-count='1'],
+			&[data-slides-count='2'],
+			&[data-slides-count='3'],
+			&[data-slides-count='4'] {
+				justify-content: center;
+
+				.swiper-logos__slider-item {
+					&:last-child {
+						margin-right: 0 !important;
+					}
+				}
+			}
+		}
+
+		@include media-min(1000) {
+			&[data-slides-count='5'] {
+				justify-content: center;
+
+				.swiper-logos__slider-item {
+					&:last-child {
+						margin-right: 0 !important;
+					}
+				}
+			}
+		}
+
+		@include media-min(1360) {
+
+			&[data-slides-count='6'],
+			&[data-slides-count='7'] {
+				justify-content: center;
+
+				.swiper-logos__slider-item {
+					&:last-child {
+						margin-right: 0 !important;
+					}
+				}
+			}
+		}
+
+		.is-page-getting & {
+			align-items: flex-start;
+			justify-content: center;
+
+			@include media-max(479) {
+				justify-content: unset;
+			}
+		}
+	}
+
+	.logos-slider__subtitle {
+		margin-bottom: 16px;
+		color: $c-gray;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 19px;
+		text-align: center;
+	}
+
+	.swiper-logos__slider {
+		width: calc(100% - 160px);
+		max-width: 1104px;
+
+		.is-page-redirection-kit-pages & {
+			max-width: 1055px;
+		}
+
+		@include media-max(640) {
+			width: 100%;
+		}
+	}
+
+	.swiper-logos__slider-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: auto;
+
+		&.is-title {
+			flex-direction: column;
+		}
+
+		&.is-link {
+			transition: filter 0.2s;
+
+			&:hover {
+				img {
+					filter: grayscale(0);
+				}
+			}
+		}
+
+		a {
+			color: $c-accent;
+			transition: opacity 0.2s;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		.links {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 110%;
+			transform: translateX(-50%);
+		}
+	}
+
+	.swiper-slide {
+		>.title {
+			position: relative;
+			width: 110%;
+			min-height: 20px;
+			margin-top: 14px;
+			color: $c-gray;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 16px;
+			text-align: center;
+		}
+
+		img {
+			height: auto;
+			filter: grayscale(1);
+			transition: filter 0.2s, opacity 0.2s;
+
+			.is-page-getting & {
+				width: auto;
+				height: 76px;
+			}
+		}
+	}
+
+	.swiper-button {
+		position: absolute;
+		top: 50%;
+		cursor: pointer;
+		color: $c-black;
+		transform: translateY(-50%);
+
+		@include media-max(640) {
+			display: none;
+		}
+
+		&-disabled {
+			cursor: default;
+			color: $c-gray;
+		}
+	}
+
+	.swiper-button-prev {
+		left: 0;
+	}
+
+	.swiper-button-next {
+		right: 0;
+	}
+}

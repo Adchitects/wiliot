@@ -1,0 +1,175 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--bb-applications {
+	padding-top: 128px;
+	padding-bottom: 128px;
+	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
+
+	@include tablet-small {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	.bg-shape {
+		@include tablet-small {
+			display: none;
+		}
+	}
+}
+
+.bb-applications {
+	strong {
+		color: $c-accent;
+	}
+
+	a {
+		color: $c-accent;
+		font-weight: 400;
+		transition: opacity 0.2s;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__main-text {
+		max-width: 700px;
+		margin-top: 22px;
+	}
+
+	&__icon-columns-hld {
+		display: flex;
+		grid-gap: 0 30px;
+		margin-top: 60px;
+
+		@include tablet-small {
+			flex-direction: column;
+			margin-top: 0;
+		}
+	}
+
+	&__icon-columns-item {
+		flex: 1;
+
+		@include tablet-small {
+			margin-top: 30px;
+		}
+
+		.item-icon {
+			height: auto;
+
+			@include mobile-767 {
+				width: 40px;
+			}
+		}
+
+		.item-title {
+			margin-top: 20px;
+			font-size: 23px;
+			font-weight: 900;
+		}
+
+		.item-text {
+			max-width: 440px;
+			margin-top: 16px;
+
+			@include tablet-small {
+				max-width: 100%;
+			}
+		}
+	}
+
+	&__middle-text {
+		max-width: 830px;
+		margin-top: 78px;
+
+		@include tablet-small {
+			margin-top: 30px;
+		}
+	}
+
+	&__middle-columns-hld {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 40px;
+
+		@include tablet-small {
+			flex-direction: column;
+			margin-top: 0;
+		}
+	}
+
+	&__middle-columns-item {
+		max-width: 220px;
+
+		@include tablet-small {
+			max-width: 100%;
+			margin-top: 30px;
+		}
+
+		.item-text {
+			strong {
+				font-weight: 400;
+			}
+		}
+	}
+
+	&__bottom-text {
+		max-width: 830px;
+		margin-top: 60px;
+
+		@include tablet-small {
+			margin-top: 30px;
+		}
+	}
+
+	&__bottom-columns-hld {
+		display: flex;
+		justify-content: space-between;
+
+		@include tablet-small {
+			flex-direction: column;
+		}
+	}
+
+	&__bottom-columns-item {
+		max-width: 482px;
+
+		@include tablet-small {
+			max-width: unset;
+		}
+
+		.is-1-item & {
+			max-width: 840px;
+
+			@include tablet-small {
+				max-width: unset;
+			}
+		}
+
+		.item-text {
+			ul {
+				li {
+					position: relative;
+					margin-top: 14px;
+					padding-right: 12px;
+					padding-left: 22px;
+					line-height: calc(26 / 16);
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 8px;
+						left: 4px;
+						pointer-events: none;
+						width: 4px;
+						height: 4px;
+						border-radius: 50%;
+						background-color: $c-accent;
+					}
+				}
+			}
+		}
+	}
+}

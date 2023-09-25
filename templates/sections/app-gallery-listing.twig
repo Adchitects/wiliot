@@ -1,6 +1,7 @@
 {% set AppGalleryPosts = craft.entries.section('appGalleryDetails').all() %}
 {% if AppGalleryPosts %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-listing">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-listing.css') }}?v=21092023">
 		<div class="u-wrapper u-wrapper--wide">
 			<div class="partners-listing js-partners-filters-hld">
 				<div class="partners-listing__box partners-listing__box--a">

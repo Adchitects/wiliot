@@ -3,6 +3,7 @@
 {% set tiles = entry.kitContentsTiles.all() %}
 {% if tiles|length > 0 %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--kit-contents">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/kit-contents.css') }}?v=25092023">
         <div class="u-wrapper u-wrapper--normal">
             <div class="kit-contents-hld">
                 {% if subtitle %}

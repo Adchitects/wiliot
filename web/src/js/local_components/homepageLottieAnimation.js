@@ -1,4 +1,4 @@
-console.log('homepageLottieAnimation script loaded');
+console.log('homepageLottieAnimation script lazy-loaded');
 
 import Lottie from 'lottie-web';
 import gsap from 'gsap';

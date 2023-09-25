@@ -2,6 +2,7 @@
 {% set image = entry.fiftyFiftyV3Image.one() %}
 {% if text and image %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--fifty-fifty-v3 js-bg-shape-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/fifty-fifty-v3.css') }}?v=21092023">
         <div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
             <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/popup.png' )}}" alt="Background shape blurry blob">
         </div>
