@@ -3,6 +3,7 @@
 {% set columnsMatrix = entry.bbImplementingColumnsMatrix.all() %}
 {% if mainTitle or mainText or ColumnsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-implementing js-bb-implementing-tabs-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/bb-implementing.css') }}?v=25092023">
 		<div class="u-wrapper u-wrapper--small">
 			<div class="bb-implementing">
 				{% if mainTitle or mainText %}

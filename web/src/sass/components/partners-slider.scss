@@ -1,3 +1,6 @@
+@import '../base/variables';
+@import '../base/mixins';
+
 .u-section--partners-slider {
 	padding-top: 130px;
 	padding-bottom: 130px;
@@ -72,28 +75,28 @@
 				margin-right: 0;
 				margin-bottom: 0;
 			}
-	
+
 			.img-hld {
 				width: 105px;
 				padding-left: 4px;
-	
+
 				&.is-avery {
 					width: 210px;
 					padding: 12px 0;
 				}
-	
+
 				img {
 					max-width: 100%;
 					height: auto;
 				}
 			}
-	
+
 			.name {
 				margin-top: 5px;
 				padding-left: 5px;
 				font-weight: 500;
 			}
-	
+
 			.description {
 				position: relative;
 				margin-top: 35px;
@@ -103,7 +106,7 @@
 				font-weight: 300;
 				letter-spacing: 0;
 				line-height: 24px;
-	
+
 				&::before {
 					content: '';
 					position: absolute;

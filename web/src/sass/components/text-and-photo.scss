@@ -1,5 +1,7 @@
-.u-section--text-and-photo {
+@import '../base/variables';
+@import '../base/mixins';
 
+.u-section--text-and-photo {
 	.text-and-photo-section-title,
 	.text-and-photo-section-subtitle {
 		display: block;

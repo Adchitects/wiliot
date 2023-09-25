@@ -1,3 +1,6 @@
+@import '../base/variables';
+@import '../base/mixins';
+
 .u-section--bb-applications {
 	padding-top: 128px;
 	padding-bottom: 128px;
@@ -153,7 +156,7 @@
 					padding-right: 12px;
 					padding-left: 22px;
 					line-height: calc(26 / 16);
-		
+
 					&::before {
 						content: '';
 						position: absolute;

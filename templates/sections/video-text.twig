@@ -10,6 +10,7 @@
 {% set buttonsMatrix = entry.videoTextButtonsMatrix.all() %}
 {% if video %}
     <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--video-text">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/video-text.css') }}?v=21092023">
         <div class="u-wrapper u-wrapper--medium-middle">
             <div class="video-text">
                 <div class="video-text__video-hld js-video-hld is-paused is-before-play {% if videoFileExtension in imageExtensions %} has-image {% endif %}">

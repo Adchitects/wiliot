@@ -2,6 +2,7 @@
 {% set mainSubtitle = entry.relatedArticlesMainSubtitle %}
 {% if mainTitle %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section--related-articles u-section">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/related-articles.css') }}?v=25092023">
 		<div class="u-wrapper u-wrapper--medium-wide">
 			<div class="related-articles">
 				<span class="u-subtitle u-subtitle--section u-subtitle--centered related-articles__main-subtitle">{{ mainSubtitle }}</span>
