@@ -1,0 +1,35 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--vendors-table {
+
+}
+
+.vendors-table {
+	&__subtitle {
+		display: block;
+		text-align: center;
+	}
+
+	&__title {
+		margin-top: 14px;
+		text-align: center;
+
+		@include mobile-767 {
+			font-size: 28px;
+			line-height: 1.3;
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	&__items-hld {
+		margin-top: 132px;
+
+		@include mobile-767 {
+			margin-top: 0;
+		}
+	}
+}
