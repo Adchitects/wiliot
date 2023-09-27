@@ -2,33 +2,101 @@
 {% set subtitle = entry.vendorsTableSubtitle %}
 {% set itemsMatrix = entry.vendorsTableMatrix.all() %}
 {% if itemsMatrix %}
-    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--vendors-table {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %}">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--vendors-table {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %}">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/vendors-table.css') }}?v=21092023">
-        <div class="u-wrapper u-wrapper--medium-wide">
-            <div class="vendors-table">
-                {% if subtitle %}
-                    <span class="vendors-table__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
-                {% endif %}
-                {% if title %}
-                    <h2 class="vendors-table__title u-title u-title--section">{{ title|nl2br }}</h2>
-                {% endif %}
-                <div class="vendors-table__items-hld">
-                    {% for item in itemsMatrix %}
-                        {% set vendor = item.vendor %}
-                        {# {% set image = item.itemImage.one() %} #}
-                        <div class="vendors-table__item">
-                            {# <div class="vendors-table__item-image-hld image-hld">
-                                <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl('fiftyFiftyV2Image') }}" alt="{{ title }}">
-                            </div> #}
-                            <div class="vendors-table__item-text-hld text-hld">
-                                {% if vendor %}
-                                    <h2 class="vendors-table__item-title">{{ vendor|nl2br }}</h2>
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </section>
+		<div class="u-wrapper u-wrapper--medium-wide">
+			<div class="vendors-table">
+				{% if title %}
+					<h2 class="vendors-table__title u-title u-title--section">{{ title|nl2br }}</h2>
+				{% endif %}
+				{% if subtitle %}
+					<span class="vendors-table__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+				{% endif %}
+				<div class="vendors-table__items-hld-outer">
+					<div class="vendors-table__items-hld-inner">
+						<div class="vendors-table__item vendors-table__item--first">
+							<div class="box box--label">Vendor</div>
+							<div class="box box--label box--double">Product</div>
+							<div class="box box--wide box--label">Services</div>
+							<div class="box box--label">Customized Hardware</div>
+							<div class="box box--label">Gateway Offering</div>
+							<div class="box box--label">Form Factor</div>
+							<div class="box box--label">Solutions /Apps</div>
+							<div class="box box--wide box--label">Hardware Only Sold as Part of SaaS Service</div>
+							<div class="box box--label">Beacon Protocols</div>
+							<div class="box box--label">UWB Supported</div>
+							<div class="box box--label">HQ</div>
+							<div class="box box--label">Year Founded</div>
+							<div class="box box--wide box--label">Podcast</div>
+						</div>
+						{% for item in itemsMatrix %}
+							{% set vendor = item.vendor %}
+							{% set productMatrix = item.productMatrix %}
+							{% set services = item.services %}
+							{% set customizedHardware = item.customizedHardware %}
+							{% set gatewayOffering = item.gatewayOffering %}
+							{% set formFactor = item.formFactor %}
+							{% set solutionsApps = item.solutionsApps %}
+							{% set hardwareOnly = item.hardwareOnlySoldAsPartOfSaasService %}
+							{% set beaconProtocols = item.beaconProtocols %}
+							{% set uwbSupported = item.uwbSupported %}
+							{% set hq = item.hq %}
+							{% set yearFounded = item.yearFounded %}
+							{% set podcastButton = item.podcast %}
+							<div class="vendors-table__item">
+								<h3 class="box box--vendor">{{ vendor|nl2br }}</h2>
+								<div class="box box--double box--product-hld-outer">
+									{% for product in productMatrix %}
+										{% set image = product.productImage.one() %}
+										{% set name = product.productName %}
+										<div class="box box--product-hld-inner">
+											<div class="image-hld">
+												<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ name }}">
+											</div>
+											<div class="name">
+												{{ name|nl2br }}
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+								<div class="box box--wide box--services">
+									{{ services }}
+								</div>
+								<div class="box box--customized-hardware {% if customizedHardware %} is-checked {% endif %}">
+								</div>
+								<div class="box box--gateway-offering {% if gatewayOffering %} is-checked {% endif %}">
+								</div>
+								<div class="box box--form-actor">
+									{{ formFactor }}
+								</div>
+								<div class="box box--solutions-apps">
+									{{ solutionsApps }}
+								</div>
+								<div class="box box--wide box--hardware-only {% if hardwareOnly %} is-checked {% endif %}">
+								</div>
+								<div class="box box--beacon-protocols">
+									{{ beaconProtocols }}
+								</div>
+								<div class="box box--uwb-supported {% if uwbSupported %} is-checked {% endif %}">
+								</div>
+								<div class="box box--hq">
+									{{ hq }}
+								</div>
+								<div class="box box--year-founded">
+									{{ yearFounded }}
+								</div>
+								<div class="box box--wide box--podcast-button">
+									{% if podcastButton.url %}
+										<a href="{{ podcastButton.url }}" target="{{ podcastButton.target ? '_blank' : '_self' }}" rel="{{ podcastButton.target ? 'noopener noreferrer' : null }}">
+											<span class="text"> {% if podcastButton.customText %} {{ podcastButton.customText}} {% else %} {{ podcastButton.url }} {% endif %}</span>
+										</a>
+									{% endif %}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 {% endif %}

@@ -25,11 +25,41 @@
 		}
 	}
 
-	&__items-hld {
+	&__items-hld-outer {
 		margin-top: 132px;
+		overflow-x: auto;
 
 		@include mobile-767 {
 			margin-top: 0;
+		}
+	}
+
+	&__item {
+		display: flex;
+
+		.box {
+			min-width: 124px;
+			outline: 1px solid red;
+
+			&--wide {
+				min-width: 180px;
+			}
+
+			&--double {
+				min-width: 248px;
+			}
+
+			&--product-hld-inner {
+				display: flex;
+
+				.image-hld {
+					width: 50%;
+				}
+
+				.name {
+					width: 50%;
+				}
+			}
 		}
 	}
 }
