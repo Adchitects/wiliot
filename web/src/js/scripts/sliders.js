@@ -362,3 +362,61 @@ heroSliderHldAll.forEach(sliderHld => {
 	heroSlider;
 });
 
+
+const vendorsSliderHldAll = document.querySelectorAll('.js-vendors-table-slider-hld');
+vendorsSliderHldAll.forEach(sliderHld => {
+	const toggleSlidesDisplay = (swiperInstance) => {
+		const activeIndex = swiperInstance.activeIndex;
+		const slides = swiperInstance.slides;
+		slides.forEach((slide, index) => {
+			if (index === activeIndex) {
+				slide.style.display = 'block';
+			} else {
+				slide.style.display = 'none';
+			}
+			slide.style.left = `${index * 100}%`;
+		});
+	};
+	const updateSlideNumbers = (swiperInstance, totalItems) => {
+		const activeIndex = swiperInstance.activeIndex;
+		const slidesPerView = 3; // Assuming slidesPerView is 3 as per your example
+		const start = activeIndex * slidesPerView + 1;
+		const end = Math.min((activeIndex + 1) * slidesPerView, totalItems);
+		const sliderCurrentElement = document.querySelector('.js-vendors-table-slider-current');
+		if (start === end) {
+			sliderCurrentElement.textContent = `${totalItems}`;
+		} else {
+			sliderCurrentElement.textContent = `${start}-${end}`;
+		}
+	};
+
+	const totalItems = sliderHld.querySelector('.js-vendors-table-slider-total-items').textContent;
+	const vendorSlider = new Swiper(sliderHld.querySelector('.js-vendors-table-slider'), {
+		slidesPerView: 1,
+		touchMoveStopPropagation: false,
+		simulateTouch: false,
+		pagination: {
+			el: '.js-vendors-table-slider-pagination',
+			clickable: true,
+			renderBullet: (index, className) => {
+				return '<span class="' + className + '">' + (index + 1) + '</span>';
+			},
+		},
+		navigation: {
+			nextEl: '.js-vendors-table-slider-button-next',
+			prevEl: '.js-vendors-table-slider-button-prev',
+		},
+		on: {
+			slideChange: function() {
+				toggleSlidesDisplay(this);
+				updateSlideNumbers(this, totalItems);
+			},
+			init: function() {
+				setTimeout(() => toggleSlidesDisplay(this), 0);
+			},
+		},
+	});
+	vendorSlider;
+});
+
+
