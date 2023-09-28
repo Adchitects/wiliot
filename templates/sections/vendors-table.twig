@@ -1,7 +1,7 @@
 {% set title = entry.vendorsTableTitle %}
 {% set subtitle = entry.vendorsTableSubtitle %}
 {% set itemsMatrix = entry.vendorsTableMatrix.all() %}
-{% if itemsMatrix %}
+{% if title and itemsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--vendors-table {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %} js-vendors-table-slider-hld">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/vendors-table.css') }}?v=21092023">
 		<div class="u-wrapper u-wrapper--medium-wide">
@@ -17,7 +17,7 @@
 						<div class="vendors-table__item vendors-table__item--first">
 							<div class="box box--label"><span>Vendor</span></div>
 							<div class="box box--label box--double"><span>Product</span></div>
-							<div class="box box--wide box--label"><span>Services</span></div>
+							<div class="box box--wide box--label box--services"><span>Services</span></div>
 							<div class="box box--label"><span>Customized Hardware</span></div>
 							<div class="box box--label"><span>Gateway Offering</span></div>
 							<div class="box box--label"><span>Form Factor</span></div>
@@ -149,4 +149,6 @@
 			</div>
 		</div>
 	</section>
+
+	<fscript src="{{ alias('@web/src/js/vendorsTable.min.js') }}"></fscript>
 {% endif %}
