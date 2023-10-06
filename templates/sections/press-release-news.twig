@@ -1,6 +1,6 @@
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section--press-release u-section">
 	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/press-release-news.css') }}?v=21092023">
-	<div class="u-wrapper">
+	<div class="u-wrapper u-wrapper--medium-wide">
 		<div class="press-release js-load-more-hld">
 			<h2 class="u-title u-title--section u-title--centered press-release__title">Wiliot Press Releases</h2>
 			{% set cat = craft.categories.slug('press-release').one() %}
@@ -16,19 +16,20 @@
 							{% set imageAlt = image.title %}
 						{% endif %}
 						{% set title = post.title %}
+						{% set excerpt = post.newsPostsExcerpt|striptags|slice(0, 177) ~ '...' %}
 						<a href="{{ post.url}}" class="post js-load-more-item" data-max-items="3" data-load-items="3">
 							<div class="post__image-hld">
-								<div class="tip">Press release</div>
 								{% if image %}
 									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
 								{% else %}
 									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
 								{% endif %}
 							</div>
-							<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
-							<div class="post__title">{{ title }}</div>
-							<div class="post__btn u-btn u-btn--arrow">
-								<span class="text">Read more</span>
+							<div class="post__text-hld">
+								<div class="tip">Press release</div>
+								<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
+								<div class="post__title">{{ title }}</div>
+								<div class="post__excerpt">{{ excerpt }}</div>
 							</div>
 						</a>
 					{% endfor %}
