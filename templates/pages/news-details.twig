@@ -327,7 +327,7 @@
             </div>
             <div class="u-wrapper">
                 <div class="news-single__content">
-                    {{ newsContent }}
+                    {{ newsContent|replace({'&nbsp;': ' '})|raw  }}
                 </div>
                 <div class="news-single__bottom-toolbar">
                     <div class="news-single__share">
