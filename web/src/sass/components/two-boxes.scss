@@ -18,8 +18,10 @@
 
 	&__items-hld {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		margin-top: 55px;
+		gap: 30px;
 
 		@include tablet-small-1023 {
 			flex-direction: column;
