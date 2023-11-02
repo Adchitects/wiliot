@@ -491,30 +491,29 @@
 			margin-top: 60px;
 		}
 
+		.u-wrapper {
+			max-width: 1260px;
+		}
+
 		.fifty-fifty {
-			max-width: 1040px;
+			max-width: 100%;
 
 			.row {
 				&__content {
-					width: 508px;
-					max-width: unset;
-					padding-right: 6px;
-
-					@include mobile-767 {
-						max-width: 100%;
-					}
+					width: 572px;
+					max-width: 100%;
 				}
 
 				&__image {
 					width: calc(100% - 508px);
 
 					img {
-						width: 602px;
+						width: 660px;
 						max-width: unset;
 						height: auto;
 						padding-right: 0;
 						padding-left: 0;
-						transform: translateX(-116px);
+						transform: translate(-48px, 16px);
 
 						@include tablet-big-1365 {
 							width: 100%;
@@ -528,7 +527,7 @@
 				}
 
 				&__description {
-					margin-top: 22px;
+					margin-top: 8px;
 
 					strong {
 						color: $c-accent;
