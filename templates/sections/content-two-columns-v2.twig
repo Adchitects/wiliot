@@ -1,15 +1,17 @@
 {% set mainTitle = mainTitle %}
 {% set mainText = mainText %}
+{% set highlightTitle = highlightTitle %}
+{% set highlightText = highlightText %}
 {% set columnsMatrix = columnsMatrix %}
 {% if mainTitle or mainText or columnsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--content-two-columns-v2">
-		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/content-two-columns-v2.css') }}?v=25092023">
-		<div class="u-wrapper u-wrapper--medium-small">
-			<div class="content-two-columns-v2">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/content-two-columns-v2.css') }}?v=02112023">
+		<div class="content-two-columns-v2">
+			<div class="u-wrapper u-wrapper--medium">
 				{% if mainTitle or mainText %}
 					<div class="content-two-columns-v2__top">
 						{% if mainTitle %}
-							<h2 class="u-title u-title--section content-two-columns-v2__main-title">{{ mainTitle | raw }}</h2>
+							<h2 class="u-title u-title--section content-two-columns-v2__main-title">{{ mainTitle|raw }}</h2>
 						{% endif %}
 						{% if mainText %}
 							<div class="content-two-columns-v2__main-text">
@@ -18,7 +20,23 @@
 						{% endif %}
 					</div>
 				{% endif %}
-				{% if columnsMatrix %}
+			</div>
+			{% if highlightTitle or highlightText %}
+				<div class="content-two-columns-v2__highlight">
+					<div class="u-wrapper u-wrapper--medium">
+						<div class="content-two-columns-v2__highlight-inner">
+							{% if highlightTitle %}
+								<div class="title">{{ highlightTitle|raw|nl2br }}</div>
+							{% endif %}
+							{% if highlightText %}
+								<div class="text">{{ highlightText }}</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if columnsMatrix %}
+				<div class="u-wrapper u-wrapper--medium">
 					<div class="content-two-columns-v2__bottom">
 						{% for column in columnsMatrix %}
 							{% set itemTitle = column.itemTitle %}
@@ -35,8 +53,8 @@
 							{% endif %}
 						{% endfor %}
 					</div>
-				{% endif %}
-			</div>
+				</div>
+			{% endif %}
 		</div>
 	</section>
 {% endif %}
