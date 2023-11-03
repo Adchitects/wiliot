@@ -2,11 +2,13 @@
 @import '../base/mixins';
 
 .u-section--bb-applications {
-	padding-top: 128px;
-	padding-bottom: 128px;
+	margin-top: 146px;
+	padding-top: 178px;
+	padding-bottom: 150px;
 	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 
 	@include tablet-small {
+		margin-top: 60px;
 		padding-top: 60px;
 		padding-bottom: 60px;
 	}
@@ -33,14 +35,20 @@
 		}
 	}
 
+	&__main-title {
+		font-size: 42px;
+		font-weight: 900;
+		line-height: 1.2;
+	}
+
 	&__main-text {
-		max-width: 700px;
+		max-width: 780px;
 		margin-top: 22px;
 	}
 
 	&__icon-columns-hld {
 		display: flex;
-		grid-gap: 0 30px;
+		grid-gap: 0 96px;
 		margin-top: 60px;
 
 		@include tablet-small {
@@ -57,32 +65,80 @@
 		}
 
 		.item-icon {
-			height: auto;
+			width: auto;
+			height: 58px;
 
 			@include mobile-767 {
 				width: 40px;
+				height: auto;
 			}
 		}
 
 		.item-title {
-			margin-top: 20px;
+			margin-top: 18px;
 			font-size: 23px;
 			font-weight: 900;
 		}
 
 		.item-text {
-			max-width: 440px;
-			margin-top: 16px;
+			max-width: 550px;
+			margin-top: 8px;
 
 			@include tablet-small {
 				max-width: 100%;
 			}
 		}
+
+		&.is-even {
+			.item-icon {
+				margin-left: 8px;
+			}
+
+			.item-title,
+			.item-text {
+				padding-left: 8px;
+			}
+
+			.item-text {
+				max-width: 500px;
+			}
+		}
 	}
 
 	&__middle-text {
-		max-width: 830px;
+		display: flex;
+		position: relative;
 		margin-top: 78px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 98px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #dcdde0;
+		}
+
+		p {
+			max-width: 650px;
+			font-size: 18px;
+			font-weight: 500;
+			line-height: 1.55;
+
+			&:first-of-type {
+				margin-top: 134px;
+			}
+		}
+
+		figure {
+			margin-top: -60px;
+			margin-right: -26px;
+
+			img {
+				transform: translateX(76px);
+			}
+		}
 
 		@include tablet-small {
 			margin-top: 30px;
@@ -92,7 +148,6 @@
 	&__middle-columns-hld {
 		display: flex;
 		justify-content: space-between;
-		margin-top: 40px;
 
 		@include tablet-small {
 			flex-direction: column;
@@ -101,7 +156,7 @@
 	}
 
 	&__middle-columns-item {
-		max-width: 220px;
+		max-width: 263px;
 
 		@include tablet-small {
 			max-width: 100%;
@@ -112,12 +167,21 @@
 			strong {
 				font-weight: 400;
 			}
+
+			figure {
+				display: flex;
+				align-items: center;
+				min-height: 216px;
+				margin-bottom: 10px;
+			}
 		}
 	}
 
 	&__bottom-text {
-		max-width: 830px;
+		max-width: 450px;
 		margin-top: 60px;
+		font-size: 18px;
+		font-weight: 900;
 
 		@include tablet-small {
 			margin-top: 30px;
@@ -141,34 +205,43 @@
 		}
 
 		.is-1-item & {
-			max-width: 840px;
-
-			@include tablet-small {
-				max-width: unset;
-			}
+			max-width: unset;
 		}
 
 		.item-text {
+			display: flex;
+
 			ul {
+				margin-top: 8px;
+
+				.is-1-item & {
+					max-width: 390px;
+				}
+
 				li {
 					position: relative;
-					margin-top: 14px;
+					margin-top: 12px;
 					padding-right: 12px;
-					padding-left: 22px;
+					padding-left: 24px;
 					line-height: calc(26 / 16);
 
 					&::before {
 						content: '';
 						position: absolute;
 						top: 8px;
-						left: 4px;
+						left: 0;
 						pointer-events: none;
-						width: 4px;
-						height: 4px;
+						width: 6px;
+						height: 6px;
 						border-radius: 50%;
-						background-color: $c-accent;
+						background-color: #313131;
 					}
 				}
+			}
+
+			figure {
+				margin-top: -54px;
+				transform: translateX(80px);
 			}
 		}
 	}
