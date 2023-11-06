@@ -24,6 +24,7 @@
 	{{ include('/sections/bb-brief-history.twig') }}
 	{% set sectionId = '05' %}
 	{% include '/sections/content-two-columns-v2.twig' with {
+		isSimple: false,
 		mainTitle: entry.contentTwoColumnsV2MainTitle,
 		mainText: entry.contentTwoColumnsV2MainText,
 		highlightTitle: entry.contentTwoColumnsV2HighlightTitle,
@@ -57,6 +58,7 @@
 	} %}
 	{% set sectionId = '10' %}
 	{% include '/sections/content-two-columns-v2.twig' with {
+		isSimple: true,
 		mainTitle: entry.contentTwoColumnsV2MainTitleVariant3,
 		mainText: entry.contentTwoColumnsV2MainTextVariant3,
 		highlightTitle: entry.contentTwoColumnsV2HighlightTitleVariant3,
