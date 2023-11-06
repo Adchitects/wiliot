@@ -2,8 +2,8 @@
 @import '../base/mixins';
 
 .u-section--fifty-fifty-v3 {
-	padding-top: 128px;
-	padding-bottom: 128px;
+	padding-top: 210px;
+	padding-bottom: 184px;
 	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 
 	@include tablet-small {
@@ -16,6 +16,10 @@
 			display: none;
 		}
 	}
+
+	.u-wrapper {
+		max-width: 1034px;
+	}
 }
 
 .fifty-fifty-v3 {
@@ -26,7 +30,8 @@
 	}
 
 	&__text {
-		width: 524px;
+		min-width: 550px;
+		max-width: 550px;
 
 		@include tablet-big-1365 {
 			padding-right: 30px;
@@ -39,19 +44,27 @@
 		}
 
 		p {
-			&:not(:first-of-type) {
-				margin-top: 14px;
+			+ p {
+				margin-top: 12px;
+				padding-right: 12px;
+			}
+		}
+
+		a {
+			color: $c-accent;
+			transition: color 0.2s;
+
+			&:hover {
+				color: $c-accent-light;
 			}
 		}
 
 		strong {
 			display: block;
-			padding-right: 36px;
+			display: block;
+			margin-bottom: 24px;
+			font-size: 17px;
 			font-weight: 500;
-
-			@include mobile {
-				padding-right: 0;
-			}
 		}
 
 		br {
@@ -62,27 +75,14 @@
 	}
 
 	&__image-hld {
-		width: calc(100% - 524px);
-
-		@include tablet-small {
-			margin-top: 30px;
-		}
+		min-width: 458px;
+		margin-top: -6px;
 
 		img {
-			border-radius: 48px;
-			transform: translate(110px, 66px) scale(1.1);
-
-			@include tablet-big-1365 {
-				transform: none;
-			}
-
-			@include tablet-small {
-				max-width: 400px;
-			}
-
-			@include mobile-767 {
-				max-width: 300px;
-			}
+			width: 100%;
+			height: auto;
+			border-radius: 38px;
+			transform: translateX(112px);
 		}
 	}
 }
