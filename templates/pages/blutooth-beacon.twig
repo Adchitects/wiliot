@@ -44,14 +44,7 @@
 	{% set sectionId = '07' %}
 	{{ include('/sections/bb-implementing.twig') }}
 	{% set sectionId = '08' %}
-	{% include '/sections/content-two-columns-v2.twig' with {
-		mainTitle: entry.contentTwoColumnsV2MainTitleVariant2,
-		mainText: entry.contentTwoColumnsV2MainTextVariant2,
-		highlightTitle: entry.contentTwoColumnsV2HighlightTitleVariant2,
-		highlightText: entry.contentTwoColumnsV2HighlightTextVariant2,
-		rowMatrix: entry.contentTwoColumnsV2RowMatrixVariant2.all(),
-		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrixVariant2.all()
-	} %}
+	{{ include('/sections/highlighter.twig') }}
 	{% set sectionId = '09' %}
 	{% include '/sections/bb-applications.twig' with {
 		mainTitle: entry.bbApplicationsMainTitleVariant2,
