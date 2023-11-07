@@ -33,12 +33,28 @@
 		display: flex;
 		justify-content: space-between;
 
+		@include tablet-big {
+			grid-gap: 30px;
+		}
+
+		@include tablet-small {
+			flex-direction: column;
+		}
+
 		&.is-even {
 			flex-direction: row-reverse;
+
+			@include tablet-small {
+				flex-direction: column;
+			}
 		}
 
 		+ .bb-brief-history__row {
 			margin-top: 84px;
+
+			@include tablet-small {
+				margin-top: 30px;
+			}
 		}
 	}
 
@@ -46,12 +62,24 @@
 		flex: 1;
 		max-width: 596px;
 
+		@include tablet-small {
+			max-width: 100%;
+		}
+
 		.is-odd & {
 			margin-top: 52px;
+
+			@include tablet-small {
+				margin-top: 30px;
+			}
 		}
 
 		.is-even & {
 			transform: translateX(60px);
+
+			@include tablet-big {
+				transform: none;
+			}
 		}
 
 		p + p {
@@ -72,8 +100,17 @@
 			width: 100%;
 			height: auto;
 
+			@include tablet-small {
+				width: auto;
+				height: 300px;
+			}
+
 			.is-odd & {
 				transform: translate(22px, -32px);
+
+				@include tablet-big {
+					transform: none;
+				}
 			}
 		}
 	}

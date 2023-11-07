@@ -11,6 +11,11 @@
 .highlighter {
 	display: flex;
 
+	@include tablet-small {
+		flex-direction: column;
+		grid-gap: 30px;
+	}
+
 	&__main-title {
 		width: 354px;
 		padding-right: 30px;
@@ -18,6 +23,15 @@
 		font-size: 32px;
 		font-weight: 900;
 		line-height: 1.25;
+
+		@include tablet-big {
+			max-width: 100%;
+			padding-right: 0;
+		}
+
+		@include tablet-small {
+			width: 100%;
+		}
 
 		strong {
 			color: $c-accent;
@@ -28,6 +42,10 @@
 		flex: 1;
 		padding-right: 12px;
 		color: $c-white;
+
+		@include tablet-big {
+			padding-right: 0;
+		}
 
 		p {
 			+ p {

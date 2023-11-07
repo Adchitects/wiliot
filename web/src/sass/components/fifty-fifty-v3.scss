@@ -26,22 +26,22 @@
 .fifty-fifty-v3 {
 	display: flex;
 
+	@include tablet-big {
+		grid-gap: 30px;
+	}
+
 	@include tablet-small {
-		flex-direction: column;
+		flex-direction: column-reverse;
 	}
 
 	&__text {
 		min-width: 550px;
 		max-width: 550px;
 
-		@include tablet-big-1365 {
-			padding-right: 30px;
-		}
-
-		@include mobile {
-			width: 100%;
-			max-width: 524px;
-			padding-right: 0;
+		@include tablet-big {
+			flex: 1;
+			min-width: unset;
+			max-width: 100%;
 		}
 
 		p {
@@ -79,11 +79,27 @@
 		min-width: 458px;
 		margin-top: -6px;
 
+		@include tablet-big {
+			flex: 1;
+			min-width: unset;
+			max-width: 100%;
+			margin-top: 0;
+		}
+
 		img {
 			width: 100%;
 			height: auto;
 			border-radius: 38px;
 			transform: translateX(112px);
+
+			@include tablet-big {
+				transform: none;
+			}
+
+			@include tablet-small {
+				width: auto;
+				height: 200px;
+			}
 		}
 	}
 }

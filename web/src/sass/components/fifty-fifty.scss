@@ -54,6 +54,11 @@
 		max-width: 972px;
 		margin: 0 auto;
 
+		@include tablet-small {
+			max-width: 100%;
+			margin: 0;
+		}
+
 		.is-page-partner & {
 			max-width: 100%;
 		}
@@ -92,6 +97,10 @@
 			display: flex;
 			align-items: center;
 			margin-bottom: 80px;
+
+			@include tablet-small {
+				align-items: unset;
+			}
 
 			&:last-of-type {
 				margin-bottom: 0;
@@ -137,8 +146,8 @@
 			&__image {
 				position: relative;
 
-				@include tablet-small-1023 {
-					max-width: 500px;
+				@include tablet-small {
+					max-width: 100%;
 				}
 
 				.platform & {
@@ -225,6 +234,11 @@
 				max-width: 408px;
 				margin: 0 auto;
 				margin-bottom: 56px;
+
+				@include tablet-small {
+					max-width: 100%;
+					margin: 0;
+				}
 			}
 
 			&__content {
@@ -234,7 +248,8 @@
 				width: 100%;
 				max-width: 408px;
 
-				@include tablet-small-1023 {
+				@include tablet-small {
+					max-width: 100%;
 					margin-bottom: 32px;
 				}
 
@@ -502,10 +517,18 @@
 				&__content {
 					width: 572px;
 					max-width: 100%;
+
+					@include tablet-small {
+						width: 100%;
+					}
 				}
 
 				&__image {
 					width: calc(100% - 508px);
+
+					@include tablet-small {
+						width: 100%;
+					}
 
 					img {
 						width: 660px;
@@ -518,6 +541,11 @@
 						@include tablet-big-1365 {
 							width: 100%;
 							transform: none;
+						}
+
+						@include tablet-small {
+							width: auto;
+							height: 200px;
 						}
 					}
 				}
@@ -605,9 +633,8 @@
 							transform: none;
 						}
 
-						@include tablet-small-1023 {
-							max-width: 600px;
-							margin: 0 auto;
+						@include tablet-small {
+							max-width: 100%;
 						}
 					}
 				}

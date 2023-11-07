@@ -1,6 +1,10 @@
 .u-section--accordion {
 	&.is-top-section {
 		margin-top: 194px;
+
+		@include tablet-small {
+			margin-top: 80px;
+		}
 	}
 
 	.u-wrapper {

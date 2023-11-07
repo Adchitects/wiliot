@@ -3,11 +3,23 @@
 
 .u-section--bb-deployment {
 	margin-top: 160px;
+
+	@include tablet-big {
+		margin-top: 80px;
+	}
 }
 
 .bb-deployment {
 	&__item {
 		display: flex;
+
+		@include tablet-big {
+			grid-gap: 30px;
+		}
+
+		@include tablet-small {
+			flex-direction: column;
+		}
 
 		.item-text-hld {
 			flex: 1;
@@ -17,6 +29,12 @@
 			font-size: 32px;
 			font-weight: 900;
 			line-height: 1.25;
+
+			br {
+				@include tablet-small {
+					display: none;
+				}
+			}
 		}
 
 		.item-text {
@@ -24,11 +42,19 @@
 
 			p {
 				max-width: 530px;
+
+				@include tablet-small {
+					max-width: 100%;
+				}
 			}
 
 			ul {
 				max-width: 632px;
 				margin-top: 20px;
+
+				@include tablet-small {
+					min-width: 100%;
+				}
 
 				li {
 					position: relative;
@@ -56,6 +82,13 @@
 			margin-top: 12px;
 			margin-right: 4px;
 
+			@include tablet-big {
+				width: 400px;
+				max-width: 100%;
+				margin-top: 0;
+				margin-right: 0;
+			}
+
 			img {
 				width: 100%;
 				height: auto;
@@ -66,21 +99,47 @@
 			flex-direction: row-reverse;
 			margin-top: 118px;
 
+			@include tablet-big {
+				margin-top: 60px;
+			}
+
+			@include tablet-small {
+				flex-direction: column;
+				margin-top: 30px;
+			}
+
 			.item-text-hld {
 				margin-top: 6px;
 				margin-left: 60px;
+
+				@include tablet-big {
+					margin-top: 0;
+					margin-left: 0;
+				}
 			}
 
 			.item-text {
 				margin-top: 22px;
 
+				@include tablet-big {
+					margin-top: 0;
+				}
+
 				p {
 					max-width: 690px;
+
+					@include tablet-big {
+						max-width: 100%;
+					}
 				}
 
 				ul {
 					max-width: 702px;
 					margin-top: 30px;
+
+					@include tablet-big {
+						max-width: 100%;
+					}
 				}
 			}
 
@@ -88,6 +147,10 @@
 				width: 412px;
 				margin-top: 0;
 				margin-right: 0;
+
+				@include tablet-big {
+					width: 400px;
+				}
 			}
 		}
 	}
