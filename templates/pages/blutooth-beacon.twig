@@ -48,6 +48,8 @@
 	{% set sectionId = '08' %}
 	{{ include('/sections/highlighter.twig') }}
 	{% set sectionId = '09' %}
+	{{ include('/sections/bb-deployment.twig') }}
+	{% set sectionId = '10' %}
 	{% include '/sections/bb-applications.twig' with {
 		isSecond: true,
 		mainTitle: entry.bbApplicationsMainTitleVariant2,
@@ -58,7 +60,7 @@
 		bottomText: entry.bbApplicationsBottomTextVariant2,
 		bottomColumnsMatrix: entry.bbApplicationsBottomColumnsMatrixVariant2.all()
 	} %}
-	{% set sectionId = '10' %}
+	{% set sectionId = '11' %}
 	{% include '/sections/content-two-columns-v2.twig' with {
 		isSimple: true,
 		mainTitle: entry.contentTwoColumnsV2MainTitleVariant3,
@@ -68,11 +70,11 @@
 		rowMatrix: entry.contentTwoColumnsV2RowMatrixVariant3.all(),
 		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrixVariant3.all()
 	} %}
-	{% set sectionId = '11' %}
-	{{ include('/sections/fifty-fifty-v3.twig') }}
 	{% set sectionId = '12' %}
-	{{ include('/sections/accordion.twig') }}
+	{{ include('/sections/fifty-fifty-v3.twig') }}
 	{% set sectionId = '13' %}
+	{{ include('/sections/accordion.twig') }}
+	{% set sectionId = '14' %}
 	{{ include('/sections/outro.twig') }}
 	{% set sectionId = '' %}
 {% endblock %}

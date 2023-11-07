@@ -1,0 +1,94 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--bb-deployment {
+	margin-top: 160px;
+}
+
+.bb-deployment {
+	&__item {
+		display: flex;
+
+		.item-text-hld {
+			flex: 1;
+		}
+
+		.item-title {
+			font-size: 32px;
+			font-weight: 900;
+			line-height: 1.25;
+		}
+
+		.item-text {
+			margin-top: 16px;
+
+			p {
+				max-width: 530px;
+			}
+
+			ul {
+				max-width: 632px;
+				margin-top: 20px;
+
+				li {
+					position: relative;
+					margin-top: 12px;
+					padding-left: 28px;
+					line-height: calc(26 / 16);
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 8px;
+						left: 4px;
+						pointer-events: none;
+						width: 6px;
+						height: 6px;
+						border-radius: 50%;
+						background-color: #313131;
+					}
+				}
+			}
+		}
+
+		.image-hld {
+			width: 506px;
+			margin-top: 12px;
+			margin-right: 4px;
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&.is-even {
+			flex-direction: row-reverse;
+			margin-top: 118px;
+
+			.item-text-hld {
+				margin-top: 6px;
+				margin-left: 60px;
+			}
+
+			.item-text {
+				margin-top: 22px;
+
+				p {
+					max-width: 690px;
+				}
+
+				ul {
+					max-width: 702px;
+					margin-top: 30px;
+				}
+			}
+
+			.image-hld {
+				width: 412px;
+				margin-top: 0;
+				margin-right: 0;
+			}
+		}
+	}
+}
