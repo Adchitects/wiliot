@@ -46,6 +46,10 @@
 
 	&__title {
 		font-size: 66px;
+
+		@include mobile {
+			font-size: 32px;
+		}
 	}
 
 	&__description {

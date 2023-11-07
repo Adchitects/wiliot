@@ -24,6 +24,10 @@
 		font-weight: 900;
 		line-height: 1.2;
 
+		@include mobile {
+			font-size: 32px;
+		}
+
 		strong {
 			color: $c-accent;
 		}

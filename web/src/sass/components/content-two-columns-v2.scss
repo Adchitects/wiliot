@@ -14,6 +14,10 @@
 		max-width: 400px;
 		font-size: 42px;
 		line-height: 1.2;
+
+		@include mobile {
+			font-size: 32px;
+		}
 	}
 
 	&__main-text {
@@ -175,6 +179,11 @@
 					max-width: 100%;
 					height: 450px;
 				}
+
+				@include mobile {
+					width: 100%;
+					height: auto;
+				}
 			}
 		}
 
@@ -211,6 +220,11 @@
 						height: 450px;
 						transform: none;
 					}
+
+					@include mobile {
+						width: 100%;
+						height: auto;
+					}
 				}
 			}
 		}
@@ -245,6 +259,10 @@
 		&.is-last {
 			position: relative;
 			padding-bottom: 72px;
+
+			@include mobile {
+				padding-bottom: 30px;
+			}
 
 			&::after {
 				content: '';
@@ -328,12 +346,12 @@
 						content: '';
 						position: absolute;
 						top: 8px;
-						left: 4px;
+						left: 6px;
 						pointer-events: none;
-						width: 4px;
-						height: 4px;
+						width: 6px;
+						height: 6px;
 						border-radius: 50%;
-						background-color: $c-accent;
+						background-color: #313131;
 					}
 				}
 			}
