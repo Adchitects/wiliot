@@ -6,6 +6,7 @@
 {% set links = entry.contactLinksMatrix.all() %}
 {% set offices = entry.contactOffices.all() %}
 {% set socials = pageOptions.pageOptionsSocials.all() %}
+{% set contactHubspotFormId = pageOptions.pageOptionsContactHubspotFormId %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--contact js-bg-shape-hld">
 	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
 		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
@@ -89,16 +90,17 @@
 				<div class="contact__form form">
 					<h2 class="form__title">Contact & Subscribe</h2>
 					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-					<script
-							src="https://code.jquery.com/jquery-3.6.0.min.js"
-							integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-							crossorigin="anonymous">
+					<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 					</script>
 					<script>
 						hbspt.forms.create({
 							region: "na1",
 							portalId: "4249967",
-							formId: "9dcd0c70-c053-4b14-b04c-876fcb93b4b1",
+							{% if contactHubspotFormId %}
+								formId: "{{ contactHubspotFormId }}",
+							{% else %}
+								formId: "9dcd0c70-c053-4b14-b04c-876fcb93b4b1",
+							{% endif %}
 							onFormReady: function(form) {
 								const formEl = form[0];
                                 const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
