@@ -57,8 +57,17 @@
 		margin-top: 6px;
 		letter-spacing: 0.16px;
 
-		strong {
+		strong,
+		a {
 			color: $c-accent;
+		}
+
+		a {
+			transition: opacity 0.2s ease;
+
+			&:hover {
+				opacity: 0.7;
+			}
 		}
 	}
 
