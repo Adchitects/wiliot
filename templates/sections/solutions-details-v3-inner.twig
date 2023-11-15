@@ -170,6 +170,12 @@
                                     </div>
                                 </div>
                             </div>
+						{% else %}
+							<div class="solutions-details__hero-video">
+                                <div class="short-video-hld">
+                                    <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" muted autoplay loop></video>
+                                </div>
+                            </div>
                         {% endif %}
                     {% endif %}
                 {% endif %}
