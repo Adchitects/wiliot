@@ -153,7 +153,7 @@
                             <div class="solutions-details__hero-video js-modal-hld">
                                 <div class="short-video-hld js-modal-btn">
                                     <span class="icon icon-button_play"></span>
-                                    <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" muted autoplay loop></video>
+                                    <video src="{{ solutionHeroVideoShort.url }}" playsinline muted autoplay loop type="video/mp4" preload="auto"></video>
                                 </div>
                                 <div class="video-modal js-modal-modal">
                                     <div class="overlay js-modal-close"></div>
@@ -161,7 +161,7 @@
                                         <div class="video-modal__modal">
                                             <div class="video-hld js-video-hld show-thumbnail">
                                                 <span class="icon icon-button_play"></span>
-                                                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoLong.url }}" autoplay loop controls></video>
+                                                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoLong.url }}" autoplay loop controls playsinline></video>
                                             </div>
                                         </div>
                                         <span class="video-modal__close js-modal-close">
@@ -172,8 +172,15 @@
                             </div>
 						{% else %}
 							<div class="solutions-details__hero-video">
-                                <div class="short-video-hld">
-                                    <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" muted autoplay loop></video>
+                                <div class="short-video-hld no-before">
+                                    <style>
+                                        .no-before::before {
+                                            display: none;
+                                        }
+                                    </style>
+                                    <video playsinline muted autoplay loop preload="auto">
+                                        <source src="{{ solutionHeroVideoShort.url }}" type="video/mp4">
+                                    </video>
                                 </div>
                             </div>
                         {% endif %}
