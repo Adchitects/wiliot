@@ -1,5 +1,15 @@
 .hbspt-form,
 .hs-form {
+	.no-list.hs-error-msgs.inputs-list {
+		font-size: 14px;
+	}
+
+	label.hs-form-booleancheckbox-display {
+		input {
+			top: 0 !important;
+		}
+	}
+
 	p {
 		color: $c-white;
 		font-size: 13px;
@@ -89,7 +99,7 @@
 	.hs-fieldtype-textarea {
 		textarea {
 			width: 100%;
-			height: 55px !important;
+			min-height: 55px !important;
 			padding: 5px !important;
 			border: 0 !important;
 			border-bottom: 1px solid rgba($c-white, 0.8) !important;
@@ -100,7 +110,7 @@
 			font-size: 16px !important;
 			letter-spacing: 0 !important;
 			line-height: 22px !important;
-			resize: none !important;
+			resize: vertical !important;
 
 			.u-dark-form & {
 				border-bottom: 1px solid rgba($c-black, 0.8) !important;
@@ -129,6 +139,15 @@
 
 				.u-dark-form & {
 					border-bottom: 1px solid rgba($c-black, 0.8) !important;
+				}
+			}
+		}
+
+		label {
+			span {
+				.u-dark-form & {
+					color: rgba($c-black, 0.8) !important;
+					opacity: 1;
 				}
 			}
 		}
@@ -171,6 +190,8 @@
 			transition: border-color 0.2s;
 
 			.u-dark-form & {
+				position: relative;
+				top: 2px;
 				border-bottom: 1px solid rgba($c-black, 0.8) !important;
 				color: $c-black !important;
 			}
@@ -278,7 +299,7 @@
 				padding-left: 4px;
 				color: rgba($c-white, 0.8);
 				font-size: 16px;
-				font-weight: 500;
+				font-weight: 300;
 				line-height: 26px;
 				transition: transform 0.2s;
 				opacity: 0.5;
@@ -541,6 +562,8 @@
 
 	.hs-richtext {
 		margin-top: 16px;
+		color: rgba($c-black, 0.8);
+		font-size: 14px;
 	}
 
 	.hs-fieldtype-booleancheckbox,
@@ -570,7 +593,11 @@
 				}
 
 				.u-dark-form & {
+					top: 0;
 					color: rgba($c-black, 0.8);
+					font-size: 13px;
+					font-weight: 300;
+					line-height: 20px !important;
 				}
 
 				>p {
@@ -777,7 +804,7 @@
 
 		input {
 			width: 16px !important;
-			height: 16px !important;
+			height: auto !important;
 			min-height: unset !important;
 			margin: 0 !important;
 			padding: 0 !important;

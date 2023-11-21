@@ -87,32 +87,36 @@
 						</ul>
 					{% endif %}
 				</div>
-				<div class="contact__form form">
-					<h2 class="form__title">Contact & Subscribe</h2>
-					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-					<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-					</script>
-					<script>
-						hbspt.forms.create({
-							region: "na1",
-							portalId: "4249967",
-							{% if contactHubspotFormId %}
-								formId: "{{ contactHubspotFormId }}",
-							{% else %}
-								formId: "9dcd0c70-c053-4b14-b04c-876fcb93b4b1",
-							{% endif %}
-							onFormReady: function(form) {
-								const formEl = form[0];
-                                const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
-                                    detail: {
-                                        form: formEl,
-                                        shortenSelects: false,
-                                    },
-                                });
-                                document.dispatchEvent(customHubspotFormScripts);
-							},
-						});
-					</script>
+				<div class="contact__form-hld">
+					<div class="form-outer event-details-sidebar-box">
+						<h2 class="event-details-sidebar-box__title">Contact & Subscribe</h2>
+						<div class="u-dark-form form">
+							<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+							<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+							</script>
+							<script>
+								hbspt.forms.create({
+									region: "na1",
+									portalId: "4249967",
+									{% if contactHubspotFormId %}
+										formId: "{{ contactHubspotFormId }}",
+									{% else %}
+										formId: "9dcd0c70-c053-4b14-b04c-876fcb93b4b1",
+									{% endif %}
+									onFormReady: function(form) {
+										const formEl = form[0];
+										const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+											detail: {
+												form: formEl,
+												shortenSelects: false,
+											},
+										});
+										document.dispatchEvent(customHubspotFormScripts);
+									},
+								});
+							</script>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
