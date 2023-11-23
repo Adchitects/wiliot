@@ -1,7 +1,7 @@
 {% set mainTitle = entry.accordionTitle %}
 {% set accordionListMatrix = entry.accordionList.all() %}
 <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--accordion {% if sectionId is defined %} is-top-section {% endif %}">
-	<div class="u-wrapper u-wrapper--smaller">
+	<div class="u-wrapper">
 		<div class="accordion js-accordion">
 			{% if mainTitle %}
 				<h2 class="accordion__main-title u-title">{{ mainTitle }}</h2>

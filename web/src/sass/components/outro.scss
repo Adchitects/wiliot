@@ -2,7 +2,7 @@
 @import '../base/mixins';
 
 .u-section--outro {
-	padding: 96px 0;
+	padding: 96px 0 100px;
 	background-color: $c-accent-dark;
 	overflow: hidden;
 
@@ -24,6 +24,10 @@
 			padding-top: 80px;
 			padding-bottom: 80px;
 		}
+	}
+
+	.is-page-bluetooth-beacon & {
+		margin-top: 152px;
 	}
 
 	& + .u-section--outro {
@@ -79,6 +83,7 @@
 
 	&__title {
 		margin: 0 auto;
+		letter-spacing: 0.55px;
 
 		@include mobile-599 {
 			font-size: 28px;
@@ -150,7 +155,9 @@
 	}
 
 	&__btn {
-		margin: 48px 10px 0;
+		min-width: 198px;
+		margin: 50px 10px 0;
+		padding: 16px 46px;
 
 		&[data-tf-popup] {
 			min-width: 192px;
@@ -162,7 +169,6 @@
 
 		&:nth-of-type(2) {
 			margin-top: 48px;
-			padding: 16px 45px 14px;
 
 			@include mobile-599 {
 				margin-top: 16px;

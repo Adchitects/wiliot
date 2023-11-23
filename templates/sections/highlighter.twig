@@ -1,0 +1,19 @@
+{% set mainTitle = entry.highlighterMainTitle %}
+{% set mainText = entry.highlighterMainText %}
+{% if mainTitle or mainText %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--highlighter">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/highlighter.css') }}?v=06112023">
+		<div class="u-wrapper u-wrapper--medium">
+			<div class="highlighter">
+				{% if mainTitle %}
+					<h2 class="u-title u-title--section highlighter__main-title">{{ mainTitle|raw|nl2br }}</h2>
+				{% endif %}
+				{% if mainText %}
+					<div class="highlighter__main-text">
+						{{ mainText }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

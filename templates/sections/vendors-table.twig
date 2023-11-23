@@ -29,7 +29,6 @@
 							<div class="box box--label"><span>HQ</span></div>
 							<div class="box box--label"><span>Year Founded</span></div>
 							<div class="box box--label"><span>Podcast</span></div>
-							<div class="box box--label"><span>Corrections and Addditions</span></div>
 						</div>
 						<div class="swiper-container js-vendors-table-slider">
 							<div class="swiper-wrapper">
@@ -55,7 +54,6 @@
 												{% set hq = item.hq %}
 												{% set yearFounded = item.yearFounded %}
 												{% set podcastMatrix = item.podcast %}
-												{% set correctionsMatrix = item.correctionsAndAddditionsMatrix %}
 												<div class="vendors-table__item">
 													<div class="box box--vendor">{{ vendor|nl2br }}</div>
 													<div class="box box--double box--product-hld-outer">
@@ -105,16 +103,6 @@
 													<div class="box box--podcast-buttons">
 														{% for podcastButton in podcastMatrix %}
 															{% set linkButton = podcastButton.linkButton %}
-															{% if linkButton.url %}
-																<a href="{{ linkButton.url }}" target="{{ linkButton.target ? '_blank' : '_self' }}" rel="{{ linkButton.target ? 'noopener noreferrer' : null }}">
-																	<span class="text"> {% if linkButton.customText %} {{ linkButton.customText}} {% else %} {{ linkButton.url }} {% endif %}</span>
-																</a>
-															{% endif %}
-														{% endfor %}
-													</div>
-													<div class="box box--corrections-buttons">
-														{% for correctionsButton in correctionsMatrix %}
-															{% set linkButton = correctionsButton.linkButton %}
 															{% if linkButton.url %}
 																<a href="{{ linkButton.url }}" target="{{ linkButton.target ? '_blank' : '_self' }}" rel="{{ linkButton.target ? 'noopener noreferrer' : null }}">
 																	<span class="text"> {% if linkButton.customText %} {{ linkButton.customText}} {% else %} {{ linkButton.url }} {% endif %}</span>

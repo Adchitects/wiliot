@@ -1,3 +1,4 @@
+{% set isSecond = isSecond %}
 {% set mainTitle = mainTitle %}
 {% set mainText = mainText %}
 {% set iconColumnsMatrix = iconColumnsMatrix %}
@@ -6,17 +7,17 @@
 {% set bottomText = bottomText %}
 {% set bottomColumnsMatrix = bottomColumnsMatrix %}
 {% if mainTitle or mainText or iconColumnsMatrix %}
-	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-applications js-bg-shape-hld">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-applications {% if isSecond %} is-second-layout {% endif %} js-bg-shape-hld">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/bb-applications.css') }}?v=25092023">
 		<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
-			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/popup.png' )}}" alt="Background shape blurry blob">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
 		</div>
-		<div class="u-wrapper">
+		<div class="u-wrapper u-wrapper--medium">
 			<div class="bb-applications">
 				{% if mainTitle or mainText %}
 					<div class="bb-applications__main-texts-hld">
 						{% if mainTitle %}
-							<h2 class="u-title u-title--section bb-applications__main-title">{{ mainTitle | raw  }}</h2>
+							<h2 class="bb-applications__main-title">{{ mainTitle | raw  }}</h2>
 						{% endif %}
 						{% if mainText %}
 							<div class="bb-applications__main-text">
@@ -31,7 +32,7 @@
 							{% set itemIcon = item.itemIcon.one() %}
 							{% set itemTitle = item.itemTitle %}
 							{% set itemText = item.itemText %}
-							<div class="bb-applications__icon-columns-item">
+							<div class="bb-applications__icon-columns-item {{ loop.first ? ' is-first' : '' }} {{ loop.index is even ? 'is-even' : 'is-odd' }} {{ loop.last ? ' is-last' : '' }}">
 								{% if itemIcon %}
 									<img class="js-lazy item-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.getUrl() }}" alt="{{ itemIcon.title }}" width="40" height="40" />
 								{% endif %}
