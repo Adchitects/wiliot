@@ -20,6 +20,12 @@
 		flex-direction: column;
 	}
 
+	&.is-column {
+		flex-direction: column-reverse;
+		align-items: center;
+		width: 100%;
+	}
+
 	&__video-hld {
 		position: relative;
 		cursor: pointer;
@@ -30,6 +36,12 @@
 		@include tablet-small-1023 {
 			width: 100%;
 			margin: 0 auto;
+		}
+
+		.is-column & {
+			width: 100%;
+			max-width: 534px;
+			margin-top: 30px;
 		}
 
 		&:hover {
@@ -65,6 +77,14 @@
 
 			@include media-max(767) {
 				max-width: 100%;
+			}
+
+			.is-column & {
+				max-width: 534px;
+
+				@include media-max(767) {
+					max-width: 100%;
+				}
 			}
 		}
 
@@ -118,6 +138,12 @@
 			max-width: 516px;
 			margin: 0 auto;
 			padding: 30px 0 0;
+			text-align: center;
+		}
+
+		.is-column & {
+			width: 100%;
+			padding: 0;
 			text-align: center;
 		}
 	}
