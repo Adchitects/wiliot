@@ -109,7 +109,14 @@
 			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
 			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 			<meta name="twitter:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}">
+			<meta name="theme-color" content="#27bcbc">
 			<link rel="icon" href="{{ alias('@web/favicon.ico') }}" type="image/x-icon">
+			<link rel="apple-touch-icon" sizes="180x180" href="{{ alias('@web/apple-touch-icon.png') }}">
+			<link rel="icon" type="image/png" sizes="32x32" href="{{ alias('@web/favicon-32x32.png') }}">
+			<link rel="icon" type="image/png" sizes="16x16" href="{{ alias('@web/favicon-16x16.png') }}">
+			<link rel="manifest" href="{{ alias('@web/site.webmanifest') }}">
+			<link rel="mask-icon" href="{{ alias('@web/safari-pinned-tab.svg') }}" color="#5bbad5">
+			<meta name="msapplication-TileColor" content="#da532c">
             <link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}">
 			<script type="application/ld+json">
 				{
