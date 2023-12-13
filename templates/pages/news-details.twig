@@ -12,6 +12,13 @@
 {% block description %}
     <meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 {% endblock %}
+{% block canonical %}
+	{% if 'bbpost' in entry.url %}
+			<link rel="canonical" href="{{ siteUrl ~ 'bluetooth-beacon' }}">
+		{% else %}
+			<link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
+	{% endif %}
+{% endblock %}
 {% block og %}
     <meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
     <meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
@@ -19,9 +26,8 @@
     <meta property="article:modified_time" content="{{ postModifyDate }}">
 {% endblock %}
 {% block ogurl %}
-    <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
+	<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
 {% endblock %}
-
 {% set metaPublishDate = entry.postDate|date("Y-m-d\\TH:i:s+00:00") %}
 {% block articleMeta %}
     <meta property="article:publisher" content="https://www.facebook.com/WiliotHQ">
