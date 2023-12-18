@@ -1,16 +1,21 @@
-{% set relatedEntries = craft.entries.section('productDetails').id('not '~entry.id) %}
+{% set relatedEntries = craft.entries.section('productDetails').id('not '~entry.id).orderBy('postDate asc') %}
 {% set relatedProducts = relatedEntries.limit(2) %}
 {% set relatedProductsTitle = solutionsGlobals.relatedProductsTitle %}
 {% if relatedProductsTitle %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-other-v2">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/product-other-v2.css') }}?v=21092023">
+		<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
+			<img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
+		</div>
 		<div class="u-wrapper">
 			<div class="product-other-v2">
 				<div class="product-other-v2__title u-title u-title--section">{{ relatedProductsTitle }}</div>
 				{% if relatedProducts|length %}
 					<div class="product-other-v2__items-hld">
 						{% for item in relatedProducts.all() %}
-							{% set image = item.productOtherImage.one() %}
+							{% set image = item.productHeroImage.one() %}
 							{% if image %}
 								{% set imageUrl = image.getUrl() %}
 								{% set imageWidth = image.getWidth() %}
@@ -18,8 +23,18 @@
 								{% set imageAlt = image.title %}
 							{% endif %}
 							{% set title = item.title %}
-							{% set desc = item.solutionHeroBottomDescription|striptags %}
-							{% set descSliced = desc|slice(0, 52) ~ '...' %}
+							{% set rows = item.fiftyFiftyRows.all() %}
+							{% set description = null %}
+							{% set found = false %}
+							{% for row in rows %}
+								{% if not found %}
+									{% set description = row.rowExcerpt %}
+									{% if description %}
+											{% set found = true %}
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+							{% set descSliced = description|slice(0, 81) ~ '...' %}
 							<a href="{{ item.url}}" class="product-other-v2__item item">
 								<div class="item__image-hld">
 									{% if image %}
@@ -30,7 +45,7 @@
 								</div>
 								<div class="item__text-hld">
 									<div class="item__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
-									<div class="item__description">{{ desc|length > 55 ? descSliced|raw : desc|raw }}</div>
+									<div class="item__description">{{ description|length > 85 ? descSliced|raw : description|raw }}</div>
 									<div class="item__btn u-btn u-btn--arrow">
 										<span class="text">Learn more</span>
 									</div>
