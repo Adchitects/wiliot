@@ -1,0 +1,238 @@
+{% set title = entry.vendorsTableTitle %}
+{% set subtitle = entry.vendorsTableSubtitle %}
+{% set itemsMatrix = entry.vendorsTableMatrix.all() %}
+{% set summary = entry.vendorsTableSummary %}
+{% if title and itemsMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--vendors-table {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %} js-vendors-slider-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/vendors-slides.css') }}?v=09102023">
+		<div class="u-wrapper u-wrapper--medium-wide">
+			<div class="vendors-table">
+				{% if title %}
+					<h2 class="vendors-table__title u-title u-title--section">{{ title|nl2br }}</h2>
+				{% endif %}
+				{% if subtitle %}
+					<span class="vendors-table__subtitle">{{ subtitle }}</span>
+				{% endif %}
+				<div class="vendors-table__items-hld-outer">
+					<div class="swiper-container js-vendors-slider">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide vendor-slide">
+								<div class="vendor-logo">
+									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
+									loading="lazy" />
+								</div>
+								<div class="vendor-body">
+									<div>
+									<h3>Accent Advanced Systems, SLU.</h3>
+									<hr />
+									<p>Location-based asset tracking, Indoor navigation, Data
+										privacy,
+										Temperature
+										monitoring.</p>
+									</div>
+									<div class="vendor-image">
+									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
+										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
+										loading="lazy" data-ll-status="loaded">
+									<p><strong>iBKS 105 Beacon</strong></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="vendors-table__bottom">
+					<div class="vendors-table__nav-hld">
+						<div class="nav-btn nav-btn--prev swiper-button swiper-button--prev js-vendors-slider-button-prev">
+							<span class="icon icon-dropdown-down"></span>
+						</div>
+						<div class="nav-btn nav-btn--next swiper-button swiper-button--next js-vendors-slider-button-next">
+							<span class="icon icon-dropdown-down"></span>
+						</div>
+					</div>
+				</div>
+				{% if summary %}
+					<div class="vendors-table__summary">
+						{{ summary|nl2br }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}
