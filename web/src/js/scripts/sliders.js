@@ -421,17 +421,25 @@ if (!isMobile) {
 
 const vendorsSliderHldAll = document.querySelectorAll('.js-vendors-slider-hld');
 vendorsSliderHldAll.forEach(sliderHld => {
-	console.log('test44');
 	const vendorSlider = new Swiper(sliderHld.querySelector('.js-vendors-slider'), {
-		slidesPerView: 3,
+		slidesPerView: 1.1,
+		spaceBetween: 20,
 		simulateTouch: true,
 		grabCursor: true,
 		threshold: 30,
-		slidesPerGroup: 3,
-		spaceBetween: 40,
 		navigation: {
 			nextEl: '.js-vendors-slider-button-next',
 			prevEl: '.js-vendors-slider-button-prev',
+		},
+		breakpoints: {
+			650: {
+				slidesPerView: 2.1,
+				slidesPerGroup: 2,
+			},
+			1024: {
+				slidesPerView: 3,
+				slidesPerGroup: 3,
+			},
 		},
 		on: {
 			slideChange: function() {

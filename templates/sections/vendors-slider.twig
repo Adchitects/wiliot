@@ -4,7 +4,7 @@
 {% set summary = entry.vendorsTableSummary %}
 {% if title and itemsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--vendor-slider {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %} js-vendors-slider-hld">
-		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/vendors-slides.css') }}?v=09102023">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/vendors-slides.css') }}?v=09-01-2024">
 		<div class="u-wrapper u-wrapper--medium-wide">
 			<div class="vendors-table">
 				{% if title %}
@@ -16,32 +16,11 @@
 				<div class="vendors-table__items-hld-outer vendor-slider-items-hld">
 					<div class="swiper-container js-vendors-slider">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide vendor-slide">
-								<div class="vendor-logo">
-									<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
-									loading="lazy" />
-								</div>
-								<div class="vendor-body">
-									<div>
-									<h3>Accent Advanced Systems, SLU.</h3>
-									<hr />
-									<p>Location-based asset tracking, Indoor navigation, Data
-										privacy,
-										Temperature
-										monitoring.</p>
-									</div>
-									<div class="vendor-image">
-									<img class="js-lazy loaded" src="https://www.wiliot.com/src/uploads/ibks-105.png"
-										data-src="https://www.wiliot.com/src/uploads/ibks-105.png" alt="iBKS 105 Beacon"
-										loading="lazy" data-ll-status="loaded">
-									<p><strong>iBKS 105 Beacon</strong></p>
-									</div>
-								</div>
-							</div>
 							{% for item in itemsMatrix %}
 								{% set vendor = item.vendor %}
-								{% set productMatrix = item.productMatrix %}
+								{% set logo = item.logo.one() %}
 								{% set services = item.services %}
+								{% set productMatrix = item.productMatrix %}
 
 								{% set customizedHardware = item.customizedHardware %}
 								{% set gatewayOffering = item.gatewayOffering %}
@@ -56,21 +35,20 @@
 
 								<div class="swiper-slide vendor-slide">
 									<div class="vendor-logo">
-										<img src="logo/hirez/accent-logo.png" alt="accent logo" title="accent logo" width="95" height="25"
-										loading="lazy" />
+										<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logo.getUrl() }}" alt="{{ logo.title }}">
 									</div>
 									<div class="vendor-body">
 										<div>
 											<h3>{{ vendor }}</h3>
 											<hr />
-											<p>{{ services | raw }}</p>
+											<p>{{ services }}</p>
 										</div>
 										<div class="vendor-image">
 											{% for product in productMatrix %}
 												{% set image = product.productImage.one() %}
 												{% set name = product.productName %}
 												{% if loop.index0 == 0 %}
-													<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ name }}">
+													<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ image.title }}">
 													<p><strong>{{ name|nl2br }}</strong></p>
 												{% endif %}
 											{% endfor %}
