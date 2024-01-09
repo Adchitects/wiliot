@@ -15,10 +15,10 @@ const componentsJS = Object.assign(
 	}),
 );
 const userConfig = {
-	proxy: {
-		dirname: path.basename(__dirname),
-		port: 8888,
-	},
+	// proxy: {
+	// 	dirname: path.basename(__dirname),
+	// 	port: 8888,
+	// },
 	distDirectory: `../${path.basename(__dirname)}-dist/`,
 	distFiles: [
 		'config/general.php',
@@ -106,7 +106,7 @@ const webpackConfig = {
 			files: ['**/*.twig', '**/*.php', './web/src/css/style.css', './web/src/css/components/*.css'],
 			host: 'localhost',
 			port: 3000,
-			proxy: `http://${userConfig.proxy.dirname}:${userConfig.proxy.port}`,
+			proxy: `https://wiliot.ddev.site/`,
 			ghostMode: false,
 		}),
 	],

@@ -428,6 +428,7 @@ vendorsSliderHldAll.forEach(sliderHld => {
 		grabCursor: true,
 		threshold: 30,
 		slidesPerGroup: 3,
+		spaceBetween: 40,
 		navigation: {
 			nextEl: '.js-vendors-slider-button-next',
 			prevEl: '.js-vendors-slider-button-prev',
