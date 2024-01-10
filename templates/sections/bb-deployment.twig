@@ -8,7 +8,7 @@
 					{% set itemTitle = item.itemTitle %}
 					{% set itemText = item.itemText %}
 					{% set itemImage = item.itemImage.one() %}
-					<div class="bb-deployment__item {{ loop.first ? ' is-first' : '' }} {{ (loop.index is even) ? 'is-even' : 'is-odd' }} {{ loop.last ? 'is-last' : '' }}">
+					<div class="bb-deployment__item {{ loop.first ? ' is-first' : '' }} {{ (loop.index is even) ? 'is-even' : 'is-odd' }}">
 						<div class="item-text-hld">
 							<div class="item-title">
 								{{ itemTitle|raw|nl2br }}

@@ -439,6 +439,7 @@ vendorsSliderHldAll.forEach(sliderHld => {
 			1024: {
 				slidesPerView: 3,
 				slidesPerGroup: 3,
+				spaceBetween: 40,
 			},
 		},
 		on: {
