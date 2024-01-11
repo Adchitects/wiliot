@@ -101,8 +101,8 @@
                                                     {% endif %}
                                                 </div>
                                                 <div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
-                                                <div class="post__title">{{ title|searchExcerpt(query, 20, 'u-highlight') }}</div>
-                                                <div class="post__description">{{ content|searchExcerpt(query, 38, 'u-highlight') }}</div>
+                                                <div class="post__title">{{ title }}</div>
+                                                <div class="post__description">{{ content }}</div>
                                                 <div class="post__btn u-btn u-btn--arrow">
                                                     <span class="text">Read more</span>
                                                 </div>
