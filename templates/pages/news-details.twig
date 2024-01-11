@@ -96,11 +96,9 @@
 </script>
 {% endblock %}
 
-{# THERE ARE 2 DIFFERENT layouts: 1 for the standard/centered version, and 2, for the one with sidebar, for Raports/Whitepapers #}
 {% block main %}
-
+	{# THERE ARE 2 DIFFERENT layouts: 1 for the standard/centered version, and 2, for the one with sidebar, for Raports/Whitepapers #}
     {% if entry.type.handle == 'singleWithSidebar' %}
-
         {% set category = entry.postMainCategory.one() %}
         {% if category == 'Events' %}
             {% set category = 'Event' %}
@@ -130,23 +128,22 @@
         {% set sidebarText = event.eventSidebarText %}
         {% set sidebarButton = event.eventSidebarButton %}
         {% set sidebarFormID = event.eventSidebarFormId %}
-
         {% set sectionId = '01' %}
         <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--event-details">
             {% if not image %}
-            <div class="event-details__hero">
-                <div class="event-details__hero-blur">
-                    <img src="{{ alias('@web/src/img/bg-shape/hero-blur.png') }}" alt="blur decoration">
-                </div>
-                <div class="event-details__hero-text-hld">
-                    <div class="u-wrapper u-wrapper--normal">
-                        {% if subtitle %}
-                            <span class="event-details__hero-subtitle">{{ subtitle }}</span>
-                        {% endif %}
-                        <h1 class="event-details__hero-title">{{ title }}</h1>
-                    </div>
-                </div>
-            </div>
+				<div class="event-details__hero">
+					<div class="event-details__hero-blur">
+						<img src="{{ alias('@web/src/img/bg-shape/hero-blur.png') }}" alt="blur decoration">
+					</div>
+					<div class="event-details__hero-text-hld">
+						<div class="u-wrapper u-wrapper--normal">
+							{% if subtitle %}
+								<span class="event-details__hero-subtitle">{{ subtitle }}</span>
+							{% endif %}
+							<h1 class="event-details__hero-title">{{ title }}</h1>
+						</div>
+					</div>
+				</div>
             {% endif %}
             <div class="u-wrapper u-wrapper--events-listing">
                 <div class="event-details-hld">
@@ -277,9 +274,7 @@
         {% set sectionId = '03' %}
         {{ include('/sections/subscribe.twig') }}
         {% set sectionId = '' %}
-
     {% else %}
-
         {% set query = entry.postRelatedCategories.all() %}
         {% set category = entry.postMainCategory.one() %}
         {% if category == 'Events' %}
@@ -369,7 +364,5 @@
         {% set sectionId = '03' %}
         {{ include('/sections/related-posts.twig') }}
         {% set sectionId = '' %}
-
     {% endif %}
-
 {% endblock %}
