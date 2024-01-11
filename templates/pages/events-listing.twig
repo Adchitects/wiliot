@@ -231,7 +231,7 @@
                                         <span class="event-item__title">{{ title }}</span>
                                         {% if excerpt %}
                                             <div class="event-item__excerpt">
-                                                {{ excerpt }}
+                                                {{ excerpt|replace({'&nbsp;': ' '})|raw }}
                                             </div>
                                         {% endif %}
                                         <div class="event-item__btn u-btn u-btn--arrow">
