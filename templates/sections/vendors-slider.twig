@@ -4,6 +4,7 @@
 {% set summary = entry.vendorsTableSummary %}
 {% if title and itemsMatrix %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--vendor-slider {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %} js-vendors-slider-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/vendors-table.css') }}?v=09-01-2024">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/vendors-slides.css') }}?v=09-01-2024">
 		<div class="u-wrapper u-wrapper--medium-wide">
 			<div class="vendors-table">
@@ -17,22 +18,10 @@
 					<div class="swiper-container js-vendors-slider">
 						<div class="swiper-wrapper">
 							{% for item in itemsMatrix %}
-								{% set vendor = item.vendor %}
 								{% set logo = item.logo.one() %}
+								{% set vendor = item.vendor %}
 								{% set services = item.services %}
 								{% set productMatrix = item.productMatrix %}
-
-								{% set customizedHardware = item.customizedHardware %}
-								{% set gatewayOffering = item.gatewayOffering %}
-								{% set formFactor = item.formFactor %}
-								{% set solutionsApps = item.solutionsApps %}
-								{% set hardwareOnly = item.hardwareOnlySoldAsPartOfSaasService %}
-								{% set beaconProtocols = item.beaconProtocols %}
-								{% set uwbSupported = item.uwbSupported %}
-								{% set hq = item.hq %}
-								{% set yearFounded = item.yearFounded %}
-								{% set podcastMatrix = item.podcast %}
-
 								<div class="swiper-slide vendor-slide">
 									<div class="vendor-logo">
 										<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logo.getUrl() }}" alt="{{ logo.title }}">
