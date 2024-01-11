@@ -15,10 +15,6 @@ const componentsJS = Object.assign(
 	}),
 );
 const userConfig = {
-	// proxy: {
-	// 	dirname: path.basename(__dirname),
-	// 	port: 8888,
-	// },
 	distDirectory: `../${path.basename(__dirname)}-dist/`,
 	distFiles: [
 		'config/general.php',

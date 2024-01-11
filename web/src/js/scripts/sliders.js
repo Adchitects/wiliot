@@ -362,12 +362,10 @@ heroSliderHldAll.forEach(sliderHld => {
 	heroSlider;
 });
 
-
 const isMobile = window.innerWidth < 768;
-
 if (!isMobile) {
-	const vendorsSliderHldAll = document.querySelectorAll('.js-vendors-table-slider-hld');
-	vendorsSliderHldAll.forEach(sliderHld => {
+	const vendorsTableSliderHldAll = document.querySelectorAll('.js-vendors-table-slider-hld');
+	vendorsTableSliderHldAll.forEach(sliderHld => {
 		const toggleSlidesDisplay = (swiperInstance) => {
 			const activeIndex = swiperInstance.activeIndex;
 			const slides = swiperInstance.slides;
@@ -392,9 +390,8 @@ if (!isMobile) {
 				sliderCurrentElement.textContent = `${start}-${end}`;
 			}
 		};
-
 		const totalItems = sliderHld.querySelector('.js-vendors-table-slider-total-items').textContent;
-		const vendorSlider = new Swiper(sliderHld.querySelector('.js-vendors-table-slider'), {
+		const vendorTableSlider = new Swiper(sliderHld.querySelector('.js-vendors-table-slider'), {
 			slidesPerView: 1,
 			touchMoveStopPropagation: false,
 			simulateTouch: false,
@@ -418,9 +415,38 @@ if (!isMobile) {
 				},
 			},
 		});
-
-		vendorSlider;
+		vendorTableSlider;
 	});
 }
 
-
+const vendorsSliderHldAll = document.querySelectorAll('.js-vendors-slider-hld');
+vendorsSliderHldAll.forEach(sliderHld => {
+	const vendorSlider = new Swiper(sliderHld.querySelector('.js-vendors-slider'), {
+		slidesPerView: 1.1,
+		spaceBetween: 20,
+		simulateTouch: true,
+		grabCursor: true,
+		threshold: 30,
+		navigation: {
+			nextEl: '.js-vendors-slider-button-next',
+			prevEl: '.js-vendors-slider-button-prev',
+		},
+		breakpoints: {
+			650: {
+				slidesPerView: 2.1,
+				slidesPerGroup: 2,
+			},
+			1024: {
+				slidesPerView: 3,
+				slidesPerGroup: 3,
+				spaceBetween: 40,
+			},
+		},
+		on: {
+			slideChange: function() {
+				lazyLoadInstance.update();
+			},
+		},
+	});
+	vendorSlider;
+});
