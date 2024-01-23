@@ -105,11 +105,8 @@
         {% elseif category == 'Announcements' %}
             {% set category = 'Announcement' %}
         {% endif %}
-
         {% set event = entry %}
         {% set image = event.newsPostsHeroImage.one() %}
-        {% set date = event.eventDate %}
-        {% set readingTime = event.eventReadingTime %}
         {% if entry.heroTitle %}
             {% set title = event.heroTitle %}
         {% else %}
@@ -120,6 +117,15 @@
         {% else %}
             {% set subtitle = category %}
         {% endif %}
+		{% set authorImage = event.authorImage.one() %}
+		{% set authorName = event.authorName.one() %}
+		{% set authorTitle = event.authorTitle.one() %}
+		{% if event.eventDate is defined and event.eventDate %}
+			{% set date = event.eventDate %}
+		{% else %}
+			{% set date = entry.postDate|date("F d, Y") %}
+		{% endif %}
+        {% set readingTime = event.eventReadingTime %}
         {% set showShareIcons = event.eventShareIcons %}
         {% set content = entry.postContent %}
         {% set video = entry.eventVideo.one() %}
