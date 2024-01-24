@@ -118,8 +118,8 @@
             {% set subtitle = category %}
         {% endif %}
 		{% set authorImage = event.authorImage.one() %}
-		{% set authorName = event.authorName.one() %}
-		{% set authorTitle = event.authorTitle.one() %}
+		{% set authorName = event.authorName %}
+		{% set authorTitle = event.authorTitle %}
 		{% if event.eventDate is defined and event.eventDate %}
 			{% set date = event.eventDate %}
 		{% else %}
@@ -189,11 +189,27 @@
                                                 <span class="event-details__label event-details__label--medium-light">{{ subtitle }}</span>
                                             </div>
                                         {% endif %}
-                                        {% if date or readingTime %}
-                                            <div class="event-details__time-and-date event-details__time-and-date--landing-page">
-                                                {% if date %}
-                                                    <span class="event-details__date">{{ date }}</span>
+                                        <div class="event-details__author-info-hld">
+                                            {% if authorImage %}
+                                                <div class="box box--author-image-hld">
+                                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ authorImage.url }}" alt="{{ authorImage.title }}" width="50" height="50" />
+                                                </div>
+                                            {% endif %}
+                                            <div class="box box--author-name-date-hld">
+                                                {% if authorName or authorTitle %}
+                                                    <div class="top">
+                                                        {% if authorName %}<span class="author-name">{{ authorName }}</span>{% endif %}{% if authorName and authorTitle %}<span class="author-title">, {{ authorTitle }}</span>{% endif %}
+                                                    </div>
                                                 {% endif %}
+                                                <div class="bottom">
+                                                    <div class="date">
+                                                        {{ date }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% if readingTime %}
+                                            <div class="event-details__time event-details__time--landing-page">
                                                 {% if readingTime %}
                                                     <span class="event-details__length event-details__length--reading-time">{{ readingTime }}</span>
                                                 {% endif %}
