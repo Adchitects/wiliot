@@ -3,7 +3,7 @@ import { Swiper, EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Aut
 Swiper.use([EffectFade, Navigation, Pagination, Thumbs, HashNavigation, Autoplay]);
 import { clearClassActive } from './utilities';
 import { lazyLoadInstance } from '../libs/lazyLoad';
-import { heroSliderModalLoad } from './heroSliderModal';
+// import { heroSliderModalLoad } from './heroSliderModal';
 
 const freemodeSlider = new Swiper('.js-freemode-slider', {
 	slidesPerView: 2.1,
@@ -344,7 +344,7 @@ heroSliderHldAll.forEach(sliderHld => {
 		on: {
 			realIndexChange: function() {
 				lazyLoadInstance.update();
-				heroSliderModalLoad();
+				// heroSliderModalLoad();
 				let activeSlide = slidesAll[this.realIndex];
 				let iframeAll = sliderHld.querySelectorAll('.js-hero-slider-iframe');
 				let activeIframe = activeSlide.querySelector('.js-hero-slider-iframe');
