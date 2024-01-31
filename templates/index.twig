@@ -324,14 +324,14 @@
 										<div class="popup__subtitle popup__subtitle--bottom u-subtitle u-subtitle--big">{{ popupBottomSubtitle }}</div>
 									{% endif %}
 									<div class="popup__text">{{ popupText }}</div>
-									{% if popupButton and popupButton.getUrl() %}
-										<a href="{{ popupButton.getUrl() }}" target="{{ popupButton.target ? '_blank' : '_self' }}" rel="{{ popupButton.target ? 'noopener noreferrer' : null }}" class="popup__btn u-btn u-btn--accent js-popup-close">
-											<span class="text">
-												{{ popupButton.customText }}
-											</span>
-										</a>
-									{% endif %}
 								</div>
+								{% if popupButton and popupButton.getUrl() %}
+									<a href="{{ popupButton.getUrl() }}" target="{{ popupButton.target ? '_blank' : '_self' }}" rel="{{ popupButton.target ? 'noopener noreferrer' : null }}" class="popup__btn u-btn u-btn--accent js-popup-close">
+										<span class="text">
+											{{ popupButton.customText }}
+										</span>
+									</a>
+								{% endif %}
 							</div>
 						</div>
 					{% endfor %}
