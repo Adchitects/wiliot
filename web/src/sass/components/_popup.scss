@@ -97,6 +97,8 @@
 	&__text-hld {
 		position: relative;
 		z-index: 10;
+		max-height: 80vh;
+		overflow-y: auto;
 	}
 
 	&__title {
