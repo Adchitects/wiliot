@@ -305,6 +305,7 @@
 						{% set popupTitle = post.title %}
 						{% set popupBottomSubtitle = post.popupBottomSubtitle %}
 						{% set popupText = post.popupText %}
+						{% set popupTextSliced = popupText|slice(0, 487) ~ '...' %}
 						{% set popupButton = post.popupButton %}
 						<div class="popup js-popup">
 							<div class="popup__overlay js-popup-close"></div>
@@ -323,7 +324,7 @@
 									{% if popupBottomSubtitle %}
 										<div class="popup__subtitle popup__subtitle--bottom u-subtitle u-subtitle--big">{{ popupBottomSubtitle }}</div>
 									{% endif %}
-									<div class="popup__text">{{ popupText }}</div>
+									<div class="popup__text">{{ popupText|length > 490 ? popupTextSliced|raw : popupText|raw }}</div>
 								</div>
 								{% if popupButton and popupButton.getUrl() %}
 									<a href="{{ popupButton.getUrl() }}" target="{{ popupButton.target ? '_blank' : '_self' }}" rel="{{ popupButton.target ? 'noopener noreferrer' : null }}" class="popup__btn u-btn u-btn--accent js-popup-close">

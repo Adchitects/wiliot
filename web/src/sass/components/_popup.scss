@@ -29,7 +29,7 @@
 		// &:hover {} Hovering in popup.js
 	}
 
-	&__bg-hld {
+	.popup__bg-hld.popup__bg-hld {
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -44,7 +44,7 @@
 		}
 	}
 
-	&__close-hld {
+	.popup__close-hld.popup__close-hld {
 		position: absolute;
 		top: 50px;
 		right: 50px;
@@ -57,7 +57,7 @@
 			right: 5px;
 		}
 
-		// &:hover {} Hovering in popup.js
+		// &:hover {} Hovering logic is in popup.js
 
 		.icon {
 			display: block;
@@ -66,7 +66,7 @@
 		}
 	}
 
-	&__inner {
+	.popup__inner.popup__inner {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -98,10 +98,11 @@
 		position: relative;
 		z-index: 10;
 		max-height: 80vh;
+		padding-right: 16px;
 		overflow-y: auto;
 	}
 
-	&__title {
+	.popup__title.popup__title {
 		margin-top: 10px;
 		padding-right: 5%;
 
@@ -111,7 +112,7 @@
 		}
 	}
 
-	&__subtitle {
+	.popup__subtitle.popup__subtitle {
 		@include mobile-767 {
 			font-size: 16px;
 			line-height: 20px;
@@ -122,22 +123,22 @@
 		}
 	}
 
-	&__text {
+	.popup__text.popup__text {
 		margin-top: 20px;
 
 		@include mobile-767 {
 			margin-top: 10px;
-			padding-right: 10%;
+			padding-right: 0;
 			font-size: 15px;
 			line-height: 20px;
 		}
 	}
 
-	&__btn {
+	.popup__btn.popup__btn {
 		margin-top: 40px;
 
 		@include mobile-767 {
-			margin-top: 20px;
+			margin-top: 10px;
 		}
 	}
 }
