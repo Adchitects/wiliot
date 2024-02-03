@@ -4,9 +4,7 @@ const mainFuncion = () => {
 		const modalAll = document.querySelectorAll('.js-hero-modal-modal');
 		const openModal = modalHld.querySelector('.js-hero-modal-btn');
 		const closeModalAll = document.querySelectorAll('.js-hero-modal-close');
-		let videoIsPlayed = false;
 		if (openModal) {
-			videoIsPlayed;
 			openModal.addEventListener('click', () => {
 				const buttonId = openModal.dataset.modalId;
 				modalAll.forEach(modal => {
