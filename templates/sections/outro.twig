@@ -1,0 +1,127 @@
+{% set subtitle = entry.outroSubtitle %}
+{% set title = entry.outroTitle %}
+{% set description = entry.outroDescription %}
+{% set button = entry.outroButton %}
+{% set button2 = entry.outroButton2 %}
+{% if entry.outroButtonsMatrix %}
+    {% set outroButtonsMatrix = entry.outroButtonsMatrix.all() %}
+{% else %}
+    {% set outroButtonsMatrix = false %}
+{% endif %}
+{% if subtitle or title %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--outro {{ description ? null : 'is-small' }}">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/outro.css') }}?v=25092023">
+		<div class="outro__bg-img">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<svg width="628px" height="822px" viewBox="0 0 628 822" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<title>CTA</title>
+				<g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.8">
+					<g id="cta_ornament" transform="translate(0.000000, 0.000000)" fill="#016A6A" fill-rule="nonzero">
+						<path d="M312.5,205 C140.097757,205 0,342.75792 0,513.115866 C0,683.473813 140.097757,821.231733 312.5,821.231733 C484.902243,821.231733 625,683.473813 625,513.115866 C625,342.75792 484.902243,205 312.5,205 Z M312.5,305 C430.047251,305 525,398.3669 525,513.115866 C525,627.864833 430.047251,721.231733 312.5,721.231733 C194.952749,721.231733 100,627.864833 100,513.115866 C100,398.3669 194.952749,305 312.5,305 Z" id="Oval-Copy-23"></path>
+						<path d="M511.5,0 C447.554484,0 395.5,51.1850976 395.5,114.597077 C395.5,178.009057 447.554484,229.194154 511.5,229.194154 C575.445516,229.194154 627.5,178.009057 627.5,114.597077 C627.5,51.1850976 575.445516,0 511.5,0 Z M511.5,64 C540.338321,64 563.5,86.7748446 563.5,114.597077 C563.5,142.41931 540.338321,165.194154 511.5,165.194154 C482.661679,165.194154 459.5,142.41931 459.5,114.597077 C459.5,86.7748446 482.661679,64 511.5,64 Z" id="Oval-Copy-25"></path>
+					</g>
+				</g>
+			</svg>
+		</div>
+		<div class="outro">
+			<div class="outro__text-hld u-wrapper">
+				{% if subtitle %}
+					<span class="outro__subtitle">{{subtitle}}</span>
+				{% endif %}
+				{% if title %}
+					<h2 class="outro__title u-title u-title--section">{{ title|nl2br }}</h2>
+				{% endif %}
+				{% if description %}
+					<div class="outro__description">{{ description }}</div>
+				{% endif %}
+				{% if button and button.url and button2 and button2.url %}
+					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--bordered">
+						<span class="text">{{ button.title }}</span>
+					</a>
+					<a href="{{ button2.url }}" target="{{ button2.target ? '_blank' : '_self' }}" rel="{{ button2.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
+						<span class="text">{{ button2.title }}</span>
+					</a>
+				{% elseif button and button.url %}
+					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--white">
+						<span class="text">{{ button.title }}</span>
+					</a>
+				{% endif %}
+                {% if outroButtonsMatrix %}
+					<div class="outro__btn-hld">
+						{% for item in outroButtonsMatrix %}
+							{% set button = item.button %}
+                            {% if item.buttonColor != '' %}
+                                {% set buttonColor = item.buttonColor %}
+                            {% else %}
+                                {% set buttonColor = 'bordered' %}
+                            {% endif %}
+                            {% set isHubspotModal = false %}
+							{% set isHubspotModalRadio = item.isHubspotModal %}
+                            {% for option in isHubspotModalRadio.options %}
+                                {% if option.value == 'true' %}
+                                    {% if option.selected %}
+                                        {% set isHubspotModal = true %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% set hubspotFormId = item.hubspotFormId %}
+                            {% set isTypeFormBtn = item.isTypeformButton %}
+                            {% if isHubspotModal %}
+                                <div class="outro__btn-hld js-modal-hld">
+                                    <div class="outro__btn u-btn u-btn--{{ buttonColor }} js-modal-btn">
+                                        <span class="text">{{ button.customText }}</span>
+                                    </div>
+                                    <div class="subscribe-modal js-modal-modal">
+                                        <div class="overlay js-modal-close"></div>
+                                        <div class="subscribe-modal__inner">
+                                            <div class="subscribe-modal__modal">
+                                                <div class="form-hld">
+                                                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                                                    <script
+                                                        src="https://code.jquery.com/jquery-3.6.0.min.js"
+                                                        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                                                        crossorigin="anonymous">
+                                                    </script>
+                                                    <script>
+                                                        hbspt.forms.create({
+                                                            region: "na1",
+                                                            portalId: "4249967",
+                                                            formId: "{{ hubspotFormId }}",
+                                                            onFormReady: function(form) {
+                                                                document.body.classList.add('is-buy-page-form');
+                                                                const formEl = form[0];
+                                                                const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+                                                                    detail: {
+                                                                        form: formEl,
+                                                                        shortenSelects: false,
+                                                                    },
+                                                                });
+                                                                document.dispatchEvent(customHubspotFormScripts);
+                                                            },
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <span class="subscribe-modal__close js-modal-close">
+                                                <span class="icon icon-close"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% elseif isTypeFormBtn %}
+                            {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                <button class="outro__btn u-btn u-btn--{{ buttonColor }} is-narrow" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+                                    <span class="text">{{ button.customText }}</span>
+                                </button>
+                            {% else %}
+                                <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="outro__btn u-btn u-btn--{{ buttonColor }}">
+                                    <span class="text">{{ button.customText }}</span>
+                                </a>
+                            {% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

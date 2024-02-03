@@ -1,0 +1,48 @@
+{% set subtitle = entry.partnersSliderSubtitle %}
+{% set title = entry.partnersSliderTitle %}
+{% set items = entry.partnersSliderItemsMatrix.all() %}
+{% if items %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-slider js-bg-shape-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-slider.css') }}?v=25092023">
+		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+		</div>
+		<div class="partners-slider">
+			{% if title %}
+				<h2 class="partners-slider__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h2>
+				<h2 class="partners-slider__title u-title u-title--section">{{ title }}</h2>
+			{% endif %}
+			<div class="partners-slider__slider-hld {% if items|length > 3 %} js-partners-slider swiper-container is-slider {% endif %}">
+				<div class="partners-slider__slider-hld-inner swiper-wrapper {% if items|length > 3 %} is-slider {% endif %}">
+					{% for item in items %}
+						{# Item logo #}
+						{% set logo = item.itemLogo.one() %}
+						{% if logo %}
+							{% set logoUrl = logo.getUrl() %}
+							{% set logoWidth = logo.getWidth() %}
+							{% set logoHeight = logo.getHeight() %}
+							{% set logoAlt = logo.title %}
+						{% endif %}
+						{# Item texts #}
+						{% set name = item.itemName %}
+						{% set description = item.itemDescription %}
+						{% set descSliced = description|slice(0, 267) ~ '...' %}
+						{% set person = item.itemPerson %}
+						<div class="partners-slider__slider-item swiper-slide {% if items|length > 3 %} is-slider {% endif %}">
+							{% if logo %}
+								<div class="img-hld">
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+								</div>
+							{% endif %}
+							<div class="name">{{ name }}</div>
+							<div class="description">{{ description|length > 270 ? descSliced|raw : description|raw }}</div>
+							<div class="person">{{ person }}</div>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="swiper-pagination js-partners-slide-pagination partners-slider__pagination"></div>
+			</div>
+		</div>
+	</section>
+{% endif %}

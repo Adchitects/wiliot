@@ -1,0 +1,93 @@
+{% set carouselSubtitle = entry.carouselSubtitle %}
+{% set carouselTitle = entry.carouselTitle %}
+{% set carouselImages = entry.carouselImages.all() %}
+{% if carouselTitle %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--carousel js-carousel-slider-hld">
+		<div class="carousel">
+			<div class="u-wrapper">
+				{% if carouselSubtitle %}
+					<div class="carousel__subtitle u-subtitle u-subtitle--section">{{ carouselSubtitle }}</div>
+				{% endif %}
+				{% if carouselTitle %}
+					<h2 class="carousel__title u-title u-title--section">{{ carouselTitle }}</h2>
+				{% endif %}
+			</div>
+			{% if carouselImages|length > 0 %}
+				<div class="carousel__slider-hld">
+					<div class="carousel__slider js-carousel-slider swiper-container">
+						<div class="swiper-wrapper">
+							{% for image in carouselImages %}
+								{% set asset = image.asset.one() %}
+								{% if asset.kind == 'video' %}
+									<div class="carousel__slider-item carousel__slider-item--video swiper-slide">
+										<div class="slider-item__video-hld js-video-hld is-paused show-thumbnail">
+											<span class="icon icon-button_play"></span>
+											<img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.videoThumbnail.one().getUrl('carouselItem') }}"/>
+											<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ asset.getUrl() }}"></video>
+										</div>
+								{% else %}
+									<div class="carousel__slider-item swiper-slide">
+										<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ asset.getUrl('carouselItem') }}" width="515" height="405" class="js-lazy" alt="{{ asset.title }}">
+								{% endif %}
+										{% if image.itemLink.customText != null %}
+											<a href="{{ image.itemLink.url }}" target="{{ image.itemLink.target ? '_blank' : '_self' }}" rel="{{ image.itemLink.target ? 'noopener noreferrer' : null }}" class="btn u-btn u-btn--arrow">
+												<span class="text">{{ image.itemLink.customText }}</span>
+											</a>
+										{% elseif image.itemTitle %}
+											<div class="title-text">{{ image.itemTitle }}</div>
+										{% endif %}
+									</div>
+							{% endfor %}
+							<div class="carousel__slider-item carousel__slider-item--additional-last swiper-slide">
+							</div>
+						</div>
+						<div class="carousel__arrows-hld">
+							<div class="arrow arrow--prev js-carousel-slider-button-prev">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40.0048505px" height="12px" viewBox="0 0 40.0048505 12" version="1.1">
+									<title>Icons/navigation/forward</title>
+									<defs>
+										<polygon id="path-1" points="40.0048505 6.01993355 39.4865781 5.46179402 34.0247841 0 33.1477076 0.837209302 37.7324252 5.42192691 -1.01431172e-12 5.69078753 -1.01431172e-12 6.88680082 37.7324252 6.6179402 33.1477076 11.1627907 34.0247841 12 39.4865781 6.53820598"></polygon>
+									</defs>
+									<g id="Icons/navigation/forward" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<g id="Colors/blue">
+										<mask id="mask-2" fill="white">
+											<use xlink:href="#path-1"></use>
+										</mask>
+										<use id="Mask" fill="#EEEEF2" fill-rule="nonzero" xlink:href="#path-1"></use>
+										<g id="Group" mask="url(#mask-2)" fill="#000000">
+											<g id="Colors/blue">
+											<rect id="Rectangle" x="0" y="0" width="40" height="12"></rect>
+											</g>
+										</g>
+										</g>
+									</g>
+								</svg>
+							</div>
+							<div class="arrow arrow--next js-carousel-slider-button-next">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40.0048505px" height="12px" viewBox="0 0 40.0048505 12" version="1.1">
+									<title>Icons/navigation/forward</title>
+									<defs>
+										<polygon id="path-1" points="40.0048505 6.01993355 39.4865781 5.46179402 34.0247841 0 33.1477076 0.837209302 37.7324252 5.42192691 -1.01431172e-12 5.69078753 -1.01431172e-12 6.88680082 37.7324252 6.6179402 33.1477076 11.1627907 34.0247841 12 39.4865781 6.53820598"></polygon>
+									</defs>
+									<g id="Icons/navigation/forward" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<g id="Colors/blue">
+										<mask id="mask-2" fill="white">
+											<use xlink:href="#path-1"></use>
+										</mask>
+										<use id="Mask" fill="#EEEEF2" fill-rule="nonzero" xlink:href="#path-1"></use>
+										<g id="Group" mask="url(#mask-2)" fill="#000000">
+											<g id="Colors/blue">
+											<rect id="Rectangle" x="0" y="0" width="40" height="12"></rect>
+											</g>
+										</g>
+										</g>
+									</g>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

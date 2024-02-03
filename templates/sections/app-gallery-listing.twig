@@ -1,0 +1,110 @@
+{% set AppGalleryPosts = craft.entries.section('appGalleryDetails').all() %}
+{% if AppGalleryPosts %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-listing">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-listing.css') }}?v=21092023">
+		<div class="u-wrapper u-wrapper--wide">
+			<div class="partners-listing js-partners-filters-hld">
+				<div class="partners-listing__box partners-listing__box--a">
+					<div class="inner">
+                        <div class="top">
+                            <div class="title">Filter by</div>
+                        </div>
+                        <div class="middle">
+                            <div class="filters-type-hld">
+                                <div class="partners-listing__filter js-partners-filters-filter-everything is-active">
+                                    <div class="checkbox">
+                                        <span class="icon icon-tick"></span>
+                                    </div>
+                                    <span class="text">All</span>
+                                </div>
+                            </div>
+                            <div class="filters-type-hld">
+                                <div class="partners-listing__filter-box partners-listing__filter-box--search">
+                                    <input class="partners-listing__search-input js-partners-filters-search-input" placeholder="Search by app name" type="text" value="" />
+                                </div>
+                            </div>
+                            {% set catHasMinimumOneItem = false %}
+                            {% for item in AppGalleryPosts %}
+                                {% set partnerCategory = item.appGalleryIndustry.all() %}
+                                {% if partnerCategory %}
+                                    {% set catHasMinimumOneItem = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if catHasMinimumOneItem %}
+                                <div class="filters-type-hld">
+                                    <div class="filter-type">Industry</div>
+                                    <div class="partners-listing__filter-box js-partners-filters-category" data-filters-category="type">
+                                        {% set categories = craft.categories().group('appGalleryIndustry') %}
+                                        {% for cat in categories.all() %}
+                                            <div class="partners-listing__filter js-partners-filters-filter" data-category="{{ cat.slug|lower }}">
+                                                <div class="checkbox">
+                                                    <span class="icon icon-tick"></span>
+                                                </div>
+                                                <span class="text">{{ cat.title }}</span>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+					</div>
+				</div>
+				<div class="partners-listing__box partners-listing__box--b">
+					<div class="partners-listing__active-filters">
+						<div class="title">Results:
+							<span class="js-partners-filters-results-number"></span>
+						</div>
+						<div class="results">
+							<div class="results__filter results__filter--everything is-chosen js-partners-filters-active-everything">
+								<span class="text">All</span>
+							</div>
+                            {% set categories = craft.categories().group('appGalleryIndustry') %}
+                            {% for cat in categories.all() %}
+                                <div class="results__filter js-partners-filters-active" data-category="{{ cat.slug|lower }}">
+                                    <span class="text">{{ cat.title }}</span>
+                                    <span class="icon icon-close"></span>
+                                </div>
+                            {% endfor %}
+						</div>
+					</div>
+					<div class="partners-listing__items-hld js-partners-items-hld">
+						{% for item in AppGalleryPosts %}
+							{# Item logo #}
+							{% set logo = item.partnerLogo.one() %}
+							{% if logo %}
+								{% set logoUrl = logo.getUrl('partnersListingLogo') %}
+								{% set logoWidth = logo.getWidth() %}
+								{% set logoHeight = logo.getHeight() %}
+								{% set logoAlt = logo.title %}
+							{% endif %}
+							{# Item texts #}
+							{% set name = item.title %}
+							{% set description = item.partnerDescription %}
+							{% set descSliced = description|slice(0, 177) ~ '...' %}
+							{% set excerpt = item.partnerExcerpt %}
+							{% set excerptSliced = excerpt|slice(0, 177) ~ '...' %}
+							{# Item link #}
+							{% set detailsLink = item.uri %}
+							{# Item category #}
+							{% set categories = item.appGalleryIndustry.all() %}
+							<div class="partners-listing__item js-partners-filters-item" {% for cat in categories %} data-{{ cat.slug|lower }}="1" {% endfor %}>
+								{% if logo %}
+									<div class="img-hld img-hld--app">
+										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+									</div>
+								{% endif %}
+								<div class="name">{{ name }}</div>
+								<div class="description">{{ excerpt ? (excerpt|length > 180 ? excerptSliced|raw : excerpt|raw) : (description|length > 180 ? descSliced|raw : description|raw) }}</div>
+								{% if detailsLink %}
+									<a href="{{ detailsLink }}" class="btn u-btn u-btn--arrow">
+										<span class="text">Learn more</span>
+									</a>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

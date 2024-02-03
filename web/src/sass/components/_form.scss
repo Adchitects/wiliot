@@ -1,0 +1,24 @@
+.u-section--form {
+	margin-top: 0;
+	padding: 96px 0;
+	background-color: $c-accent-dark;
+
+	.form-title,
+	.form-subtitle {
+		color: $c-white;
+		text-align: center;
+	}
+
+	.form-subtitle {
+		max-width: 650px;
+		margin-top: 16px;
+		margin-right: auto;
+		margin-left: auto;
+		font-weight: 300;
+	}
+
+	form {
+		max-width: 410px;
+		margin: 48px auto 0 auto;
+	}
+}

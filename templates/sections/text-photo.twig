@@ -1,0 +1,55 @@
+{% set subtitle = entry.textPhotoSubtitle %}
+{% set title = entry.textPhotoTitle %}
+{% set text = entry.textPhotoText %}
+{% set button = entry.textPhotoButton %}
+{% if entry.textPhotoArrowButtonsMatrix %}
+	{% set arrowButtonsMatrix = entry.textPhotoArrowButtonsMatrix.all() %}
+{% else %}
+    {% set arrowButtonsMatrix = null %}
+{% endif %}
+
+{% set image = entry.textPhotoImage.one() %}
+{% if subtitle or title %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--text-photo">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/text-photo.css') }}?v=21092023">
+        <div class="u-wrapper">
+            <div class="text-photo">
+                {% if subtitle %}
+                    <span class="u-subtitle u-subtitle--section text-photo__subtitle">{{ subtitle }}</span>
+                {% endif %}
+                {% if title %}
+                    <h2 class="u-title u-title--section text-photo__title">{{ title }}</h2>
+                {% endif %}
+                <div class="text-photo__boxes-hld">
+                    <div class="text-photo__box text-photo__box--a">
+                        <div class="text-hld">
+                            <div class="text">{{ text|raw }}</div>
+                            {% if button and button.getUrl() %}
+                                <a href="{{ button.getUrl() }}" class="u-btn u-btn--accent btn">
+                                    <span class="text">
+                                        {{ button.customText }}
+                                    </span>
+                                </a>
+                            {% endif %}
+                            {% if arrowButtonsMatrix %}
+                                <div class="buttons-hld">
+                                    {% for item in arrowButtonsMatrix %}
+                                        {% set button = item.button %}
+                                        <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
+                                            <span class="text">{{ button.customText }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="text-photo__box text-photo__box--b">
+                        <div class="image-hld">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" width="515" height="385" class="js-lazy text-photo__image" alt="{{ title }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

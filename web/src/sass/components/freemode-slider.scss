@@ -1,0 +1,132 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--freemode-slider {
+	margin-top: 140px;
+	overflow: hidden;
+
+	@include tablet-small {
+		&.u-section {
+			margin-top: 108px;
+		}
+	}
+
+	@include mobile-767 {
+		&.u-section {
+			margin-top: 88px;
+		}
+	}
+
+	.freemode-slider {
+		max-width: 1116px;
+		margin: 0 auto;
+		padding-right: 30px;
+		padding-bottom: 188px;
+		padding-left: 30px;
+
+		@include mobile {
+			padding-right: 16px;
+			padding-bottom: 108px;
+			padding-left: 16px;
+		}
+
+		&__title {
+			font-size: 32px;
+			font-weight: 900;
+			letter-spacing: 0;
+			line-height: 44px;
+			text-align: center;
+		}
+
+		.swiper-freemode__slider {
+			margin-top: 64px;
+			overflow: visible;
+
+			@include media-max(767) {
+				margin-top: 48px;
+			}
+
+			.slide {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				max-width: 516px;
+				height: auto;
+				min-height: 407px;
+				padding: 50px 55px 50px 45px;
+
+				@include media-max(550) {
+					padding: 32px;
+				}
+
+				&:nth-of-type(3n + 1) {
+					background-color: $c-blue-green;
+				}
+
+				&:nth-of-type(3n + 2) {
+					background-color: $c-blue-light-green;
+				}
+
+				&:nth-of-type(3n + 3) {
+					background-color: $c-blue-lighter-green;
+				}
+
+				&__title {
+					margin-bottom: 24px;
+					font-size: 40px;
+					font-weight: 900;
+					line-height: 44px;
+
+					@include media-max(550) {
+						font-size: 34px;
+					}
+				}
+
+				&__description {
+					margin-bottom: 32px;
+					font-size: 16px;
+					font-weight: 300;
+					line-height: 26px;
+					opacity: 0.8;
+
+					@include media-max(550) {
+						font-size: 14px;
+					}
+				}
+
+				&__codes {
+					display: flex;
+					flex-direction: column;
+				}
+
+				&__code {
+					font-size: 16px;
+					font-weight: 900;
+					line-height: 26px;
+					opacity: 0.8;
+				}
+
+				&__link {
+					margin-top: auto;
+
+					.text {
+						color: $c-black;
+					}
+				}
+			}
+
+			.freemode-slider__pagination {
+				top: unset;
+				bottom: -40px;
+				height: 2px;
+				background-color: rgba(151, 151, 151, 0.27);
+
+				>span {
+					height: 2px;
+					background-color: $c-black;
+					opacity: 0.27;
+				}
+			}
+		}
+	}
+}

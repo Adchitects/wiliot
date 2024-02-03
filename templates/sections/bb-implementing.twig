@@ -1,0 +1,47 @@
+{% set mainTitle = entry.bbImplementingMainTitle %}
+{% set mainText = entry.bbImplementingMainText %}
+{% set columnsMatrix = entry.bbImplementingColumnsMatrix.all() %}
+{% if mainTitle or mainText or ColumnsMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--bb-implementing">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/bb-implementing.css') }}?v=25092023">
+		<div class="u-wrapper u-wrapper--medium-middle">
+			<div class="bb-implementing">
+				{% if mainTitle or mainText %}
+					<div class="bb-implementing__main-texts-hld">
+						{% if mainTitle %}
+							<h2 class="u-title u-title--section bb-implementing__main-title">{{ mainTitle | raw  }}</h2>
+						{% endif %}
+						{% if mainText %}
+							<div class="bb-implementing__main-text">
+								{{ mainText }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if columnsMatrix %}
+					<div class="bb-implementing__items-hld">
+						{% for item in columnsMatrix %}
+							{% set itemTitle = item.itemTitle %}
+							{% set itemText = item.itemText %}
+							<div class="bb-implementing__item is-{{ loop.index0 }} {{ loop.first ? ' is-first' : '' }} {{ loop.index is even ? 'is-even' : 'is-odd' }} {{ loop.last ? ' is-last' : '' }}">
+								{% if itemTitle %}
+									<div class="item-title-hld">
+										<div class="item-number">
+											{{ loop.index }}
+										</div>
+										<h3 class="item-title">{{ itemTitle }}</h3>
+									</div>
+								{% endif %}
+								{% if itemText %}
+									<div class="item-text">
+										{{ itemText }}
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

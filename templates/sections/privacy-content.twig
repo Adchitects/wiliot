@@ -1,0 +1,9 @@
+{% set privacyPostsContent = entry.privacyPostsContent %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--privacy-content">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/privacy-content.css') }}?v=21092023">
+	<div class="u-wrapper u-wrapper--small">
+		<div class="privacy-content">
+			{{ privacyPostsContent }}
+		</div>
+	</div>
+</section>

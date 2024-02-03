@@ -1,0 +1,81 @@
+.careerHld {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 100px;
+	padding: 90px 0;
+
+	@include mobile-959 {
+		grid-template-columns: 1fr;
+	}
+
+	.career__title {
+		font-size: 32px;
+		font-weight: 900;
+		line-height: 40px;
+	}
+
+	.career__subtitle {
+		margin-top: 40px;
+		font-weight: 900;
+	}
+
+	.career__details {
+		transition: opacity 1s ease;
+
+		&.hidden {
+			opacity: 0;
+		}
+
+		p {
+			margin-top: 20px;
+		}
+
+		ul,
+		ol {
+			margin-top: 20px;
+			padding-left: 18px;
+			list-style-type: initial;
+
+			li {
+				margin-bottom: 12px;
+				padding-left: 5px;
+				font-size: 16px;
+				font-weight: 300;
+				line-height: 26px;
+
+				&::marker {
+					font-weight: 900;
+				}
+			}
+		}
+
+		.career__info {
+			display: flex;
+			margin-top: 15px;
+			color: $c-accent;
+
+			p {
+				margin: 0;
+
+				&:not(:first-child) {
+					position: relative;
+					padding-left: 20px;
+
+					&::before {
+						content: '•';
+						position: absolute;
+						left: 6px;
+					}
+				}
+			}
+		}
+	}
+
+	.career__form {
+		transition: opacity 1s ease;
+
+		&.hidden {
+			opacity: 0;
+		}
+	}
+}

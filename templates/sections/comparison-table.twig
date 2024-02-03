@@ -1,0 +1,41 @@
+{% set comparisonTableSubtitle = entry.comparisonTableSubtitle %}
+{% set comparisonTableTitle = entry.comparisonTableTitle %}
+{% set comparisonTable = entry.comparisonTable %}
+{% set rows = comparisonTable.rows %}
+{% if comparisonTable.rows|length > 0 %}
+    {% set columns = comparisonTable.columns %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--comparison-table js-align-left-margin-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/comparison-table.css') }}?v=21092023">
+        <div class="comparison-table">
+            <div class="u-wrapper js-align-left-margin-sample">
+                {% if comparisonTableSubtitle or comparisonTableSubtitle %}
+                    <div class="u-subtitle u-subtitle--section comparison-table__subtitle">{{ comparisonTableSubtitle }}</div>
+                    <div class="u-title u-title--section comparison-table__title">{{ comparisonTableTitle|nl2br }}</div>
+                {% endif %}
+            </div>
+            <div class="comparison-table__table-hld js-align-left-margin-element-hld">
+                <table class="js-align-left-margin-element" style="grid-template-columns: {% for column in columns %} {% if loop.index0 == 0 %} 195px {% else %} 305px {% endif %} {% endfor %};" data-desktop-gtc="{% for column in columns %} {% if loop.index0 == 0 %} 195px {% else %} 305px {% endif %} {% endfor %}" data-mobile-gtc="{% for column in columns %} {% if loop.index0 == 0 %} 120px {% else %} 150px {% endif %} {% endfor %}">
+                    <thead class="u-subtitle u-subtitle--big">
+                        <tr>
+                            {% for column in columns %}
+                                {% set columnText = column.heading|replace({'<br>': '\n'}) %}
+                                <th>{{ columnText|nl2br }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                            <tr>
+                                {% for column in columns %}
+									{% set rowText = row[loop.index0]|replace({'<br>': '\n'}) %}
+									<td>{{ rowText|nl2br }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+	<fscript src="{{ alias('@web/src/js/alignLeftMargin.min.js') }}"></fscript>
+{% endif %}

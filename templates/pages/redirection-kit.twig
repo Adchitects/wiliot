@@ -1,0 +1,68 @@
+{# Currently not used #}
+
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="website">
+{% endblock %}
+
+{% set headerPopupShow = entry.headerPopupShow %}
+{% set headerPopupText = entry.headerPopupText %}
+{% block headerPopup %}
+    {% if headerPopupShow and headerPopupText %}
+	<div class="header-popup-hld js-header-popup-hld">
+        <div class="header-popup-inner">
+            <div class="header-popup">
+                <span class="text">{{ headerPopupText }}</span>
+            </div>
+            <button class="header-popup-close js-header-popup-close">
+				<svg class="svg-close">
+					<use xlink:href="#svg-close"></use>
+				</svg>
+            </button>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block headerPopupMobile %}
+    {% if headerPopupShow and headerPopupText %}
+	<div class="header-popup-hld js-header-popup-hld">
+        <div class="header-popup-inner">
+            <div class="header-popup">
+                <span class="text">{{ headerPopupText }}</span>
+            </div>
+            <button class="header-popup-close js-header-popup-close">
+				<svg class="svg-close">
+					<use xlink:href="#svg-close"></use>
+				</svg>
+            </button>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+	{% set sectionId = '01' %}
+	{{ include('/sections/hero.twig') }}
+    {% set sectionId = '02' %}
+	{{ include('/sections/logos-slider.twig') }}
+    {% set sectionId = '03' %}
+	{{ include('/sections/kit-contents.twig') }}
+    {% set sectionId = '04' %}
+	{{ include('/sections/outro.twig') }}
+	{% set sectionId = '05' %}
+	{{ include('/sections/cards.twig') }}
+	{% set sectionId = '' %}
+{% endblock %}

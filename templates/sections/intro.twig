@@ -1,0 +1,16 @@
+{% set title = entry.introTitle %}
+{% set description = entry.introDescription %}
+{% if title or description %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--intro">
+	<div class="intro">
+		<div class="intro__text-hld u-wrapper">
+			{% if title %}
+			<h2 class="intro__title u-title u-title--section">{{ title }}</h2>
+			{% endif %}
+			{% if description %}
+			<div class="intro__description">{{ description }}</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+{% endif %}

@@ -1,0 +1,115 @@
+{% set podcasts = craft.entries.section('podcastDetails').orderBy('postDate desc') %}
+{% set title = entry.podcastsListingTitle %}
+{% set subtitle = entry.podcastsListingSubtitle %}
+{% set boldText = entry.podcastsListingBoldText %}
+{% set content = entry.podcastsListingContent %}
+{% set logo = entry.podcastsListingLogo.one() %}
+{% set link1 = entry.podcastsListingLink1 %}
+{% set link2 = entry.podcastsListingLink2 %}
+{% if podcasts %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--podcasts-listing">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/podcast-listing.css') }}?v=21092023">
+		<div class="u-wrapper">
+			<div class="podcasts-listing js-load-more-hld">
+				<div class="podcasts-listing__header">
+                    {% if title %}
+                        <h1 class="u-title u-title--medium-big">{{ title }}</h1>
+                    {% endif %}
+					{% if subtitle %}
+						<span class="u-subtitle u-subtitle--section">{{ subtitle }}</span>
+					{% endif %}
+					{% if boldText %}
+						<span class="u-title u-title--section">{{ boldText }}</span>
+					{% endif %}
+                    {% if content %}
+                        <div class="u-content u-content--centered">
+                            {{ content|raw }}
+                        </div>
+                    {% endif %}
+				</div>
+                {% if logo is not null %}
+					<img src="{{ logo.getUrl() }}" alt="Mr. Beacon Podcast" class="podcasts-listing__logo">
+				{% endif %}
+                {% if link1 or link2 %}
+                    <div class="podcasts-listing__links">
+                        {% if link1 %}
+                            <a href="{{ link1.url }}" class="podcasts-listing__link u-btn u-btn--light" target="_blank">
+                                <span class="text">{{ link1.text }}</span>
+                            </a>
+                        {% endif %}
+                        {% if link2 %}
+                            <a href="{{ link2.url }}" class="podcasts-listing__link u-btn u-btn--light" target="_blank">
+                                <span class="text">{{ link2.text }}</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+				<div class="podcasts-listing__items">
+					{% if podcasts|length %}
+						{% for post in podcasts.all() %}
+							{% set image = post.podcastDetailsImage.one() %}
+							{% set videoId = post.podcastDetailsID %}
+							{% set excerpt = post.podcastDetailsExcerpt %}
+							{% set excerptSliced = excerpt|slice(0, 107) ~ '...' %}
+							{% set number = post.podcastDetailsNumber %}
+							{% if image %}
+								{% set imageUrl = image.getUrl('latestPostThumb') %}
+								{% set imageWidth = image.getWidth() %}
+								{% set imageHeight = image.getHeight() %}
+								{% set imageAlt = image.title %}
+							{% endif %}
+							{% set title = post.title %}
+							{% set podcastDetailsIframeTitle = post.podcastDetailsIframeTitle ? post.podcastDetailsIframeTitle : podcastsGlobals.podcastDetailsIframeTitle %}
+							{% set podcastDetailsIframeWidget = post.podcastDetailsIframeWidget %}
+							<div class="post js-load-more-item js-modal-hld" data-max-items="9" data-load-items="3">
+								<div class="post__image-hld js-modal-btn is-paused">
+									{% if image %}
+										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+										<span class="icon icon-button_play"></span>
+									{% endif %}
+								</div>
+								<div class="post__text-hld">
+									<div class="post__date">
+										Episode #{{number}}
+										{{ post.postDate | date("F d, Y") }}</div>
+									<a class="post__title" href="{{ post.url}}">{{ title }}</a>
+									{% if excerpt %}
+										<div class="post__excerpt">{{ excerpt|length > 110 ? excerptSliced|raw : excerpt|raw }}</div>
+									{% endif %}
+								</div>
+								<div class="post__widget-title">{{ podcastDetailsIframeTitle }}</div>
+								{% if podcastDetailsIframeWidget %}
+									<div class="post__widget-hld">
+										{{ podcastDetailsIframeWidget|raw }}
+									</div>
+								{% endif %}
+								<a href="{{ post.url}}" class="post__btn u-btn u-btn--arrow">
+									<span class="text">See details</span>
+								</a>
+								<div class="video-modal js-modal-modal">
+									<div class="overlay js-modal-close"></div>
+									<div class="video-modal__inner">
+										<div class="video-modal__modal">
+											<iframe width="560" height="315" class="js-lazy js-modal-iframe" data-src="https://www.youtube.com/embed/{{ videoId }}?rel=1&amp;autoplay=1&amp;playlist={{ videoId }}&amp;origin=https://www.wiliot.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+										<span class="video-modal__close js-modal-close">
+											<span class="icon icon-close"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+				{% if podcasts|length > 3 %}
+				<button class="podcasts-listing__btn u-btn u-btn--light js-load-more-btn">
+					<span class="text">
+						More podcasts
+					</span>
+				</button>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	<fscript src="{{ alias('@web/src/js/loadMore.min.js') }}"></fscript>
+{% endif %}

@@ -1,0 +1,32 @@
+// FONTS (@font-faces are in <style> of index.twig
+$font-head: 'avenir', arial;
+$font-std: $font-head;
+
+// COLORS
+$c-white: #ffffff;
+$c-black: #000000;
+$c-accent: #27bcbc;
+$c-accent-dark: #017777;
+$c-accent-light: #44f3f3;
+$c-border: #dddddd;
+$c-border-light: #e7e7e7;
+$c-light: #f5f8fc;
+$c-gray: #a7a7ac;
+$c-orange: #ff6c00;
+$c-green: #5ce3b3;
+$c-yellow: #fff200;
+$c-blue-green: #86ffd2;
+$c-blue-green-strong: #00f69b;
+$c-blue-light-green: #d0fef5;
+$c-blue-lighter-green: #edfbf8;
+
+$c-neutral-10: #262832;
+$c-neutral-60: #A7A7AC;
+$c-neutral-80: #D7D7DE;
+$c-neutral-90: #EEEEF2;
+
+$c-success: #135E13;
+$c-error: #CC0000;
+
+// OTHER
+$box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);

@@ -1,0 +1,49 @@
+{% set title = entry.pressPublicationTitle %}
+{% set publications = entry.pressPublicationList.all() %}
+{% if publications|length > 0 %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--press-publication">
+        <div class="u-wrapper">
+            <div class="press-publication js-load-more-hld">
+                {% if title %}
+                    <h2 class="press-publication__title u-title u-title--section u-title--centered">{{ title }}</h2>
+                {% endif %}
+                <div class="press-publication-list" data-slides-count="{{ publications|length }}">
+                    {% for item in publications %}
+                        {% set image = item.itemLogo.one() %}
+                        {% set title = item.itemTitle %}
+                        {% set date = item.itemDate %}
+                        {% set text = item.itemText %}
+                        {% set itemURL = item.itemURL %}
+                        {% if itemURL %}
+                            <a class="press-publication-item js-load-more-item" data-display-type="flex" data-max-items="6" data-load-items="2" href="{{ itemURL }}" target="_blank" rel="noopener noreferrer">
+                                <div class="press-publication-item__img-hld">
+                                    {% if image %}
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl('pressPublicationItem') }}" class="js-lazy" alt="logo" />
+                                    {% endif %}
+                                </div>
+                                <div class="press-publication-item__text-hld">
+                                    {% if date %}
+                                        <span class="date">{{ date }}</span>
+                                    {% endif %}
+                                    {% if text %}
+                                        <span class="text">{{ text }}</span>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% if publications|length > 6 %}
+                <div class="press-publication__btn-hld js-load-more-btn-hld">
+                    <button class="press-publication__btn u-btn u-btn--light js-load-more-btn">
+                        <span class="text">
+                            Load More
+                        </span>
+                    </button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}
+<fscript src="{{ alias('@web/src/js/loadMore.min.js') }}"></fscript>

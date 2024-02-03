@@ -1,0 +1,122 @@
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="website">
+{% endblock %}
+{% block main %}
+	{# Backlink #}
+	{% set newsListingSection = craft.entries.section('partners') %}
+	{% set newsListingSectionId = newsListingSection.sectionId[0] %}
+	{% set newsListingSectionEntry = craft.entries.sectionId(newsListingSectionId)[0] %}
+	{% set newsListingSectionUrl = newsListingSectionEntry.url %}
+	{# Logo #}
+	{% set logo = entry.partnerLogo.one() %}
+	{% if logo %}
+		{% set logoUrl = logo.getUrl() %}
+		{% set logoWidth = logo.getWidth() %}
+		{% set logoHeight = logo.getHeight() %}
+		{% set logoAlt = logo.title %}
+	{% endif %}
+	{# Texts #}
+	{% set name = entry.title %}
+	{% set description = entry.partnerDescription %}
+	{# Link #}
+	{% set websiteLink = entry.partnerLink %}
+	{# Categories #}
+	{% set categoryPartnerType = entry.partnerCategory.all() %}
+	{% set categoryPartnerServiceOffering = entry.partnerServiceOffering.all() %}
+	{% set categoryPartnerOperatingRegions = entry.partnerOperatingRegions.all() %}
+	{% set categoryPartnerIndustryExpertise = entry.partnerIndustryExpertise.all() %}
+	{# Video #}
+	{% set partnerVideoFile = entry.partnerVideoFile.one %}
+	{% if partnerVideoFile %}
+		{% set partnerVideoFileUrl = partnerVideoFile.getUrl() %}
+	{% endif %}
+    {% set partnerVideoPlayColor = entry.partnerVideoPlayColor %}
+	{% set sectionId = '01' %}
+	{{ include('/sections/hero.twig') }}
+	{% set sectionId = '02' %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--partners-details">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/partners-details.css') }}?v=21092023">
+		<div class="u-wrapper">
+			<div class="partners-details">
+				<a href="{{ newsListingSectionUrl }}" class="partners-details__backlink">
+					<span class="icon icon-arrow-left"></span>
+					<span class="text">Back to Partners Listing</span>
+				</a>
+				<div class="partners-details__content-hld">
+					{% if logo %}
+						<div class="partners-details__logo-hld">
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logoUrl }}" alt="{{ logoAlt }}" width="{{ logoWidth }}" height="{{ logoHeight }}"/>
+						</div>
+					{% endif %}
+					<div class="partners-details__middle">
+						<div class="partners-details__text-hld">
+							<div class="partners-details__name u-subtitle u-subtitle--big">{{ name }}</div>
+							<div class="partners-details__description">{{ description }}
+							</div>
+                        </div>
+                        <div class="partners-details__middle-right">
+                            <div class="partners-details__categories-hld">
+                                {% if categoryPartnerType %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Partner Type:</div>
+                                        {% for cat in categoryPartnerType %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if categoryPartnerServiceOffering %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Service Offering:</div>
+                                        {% for cat in categoryPartnerServiceOffering %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if categoryPartnerOperatingRegions %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Operating Regions:</div>
+                                        {% for cat in categoryPartnerOperatingRegions %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if categoryPartnerIndustryExpertise %}
+                                    <div class="single-category-hld">
+                                        <div class="name">Industry Expertise:</div>
+                                        {% for cat in categoryPartnerIndustryExpertise %}
+                                        <div class="value">{{ cat.title }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+							</div>
+                            <a href="{{ websiteLink }}" target="_blank" rel="noopener noreferrer" class="partners-details__website-btn u-btn u-btn--light">
+                                <span class="text">Visit website</span>
+                            </a>
+                        </div>
+					</div>
+					{% if partnerVideoFile|length %}
+						<div class="partners-details__video-hld js-video-hld is-paused">
+							<span class="icon icon-button_play {% if not partnerVideoPlayColor is empty %}is-{{ partnerVideoPlayColor }}{% endif %}"></span>
+							<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ partnerVideoFileUrl }}#t=0.15" preload="metadata"></video>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+	{% set sectionId = '03' %}
+	{{ include('/sections/partners-details-form-outro.twig') }}
+	{% set sectionId = '' %}
+{% endblock %}

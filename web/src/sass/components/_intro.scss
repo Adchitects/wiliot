@@ -1,0 +1,23 @@
+.u-section--intro {}
+
+.intro {
+	&__title {}
+
+	&__description {
+		max-width: 630px;
+
+		&:not(:first-child) {
+			margin-top: 15px;
+		}
+
+		p {
+			&:not(:first-child) {
+				margin-top: 1em;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 1em;
+			}
+		}
+	}
+}

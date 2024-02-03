@@ -1,0 +1,17 @@
+{% set videoFileArray = entry.videoFile %}
+{% if videoFileArray|length %}
+	{% set videoFile = videoFileArray.one() %}
+	{% set videoFileUrl = videoFile.getUrl() %}
+{% endif %}
+{% if videoFileArray|length %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--video">
+	<div class="u-wrapper u-wrapper--medium-small">
+		<div class="video">
+			<div class="video__hld js-video-hld is-paused">
+				<span class="icon icon-button_play"></span>
+				<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoFileUrl }}" preload="metadata"></video>
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}

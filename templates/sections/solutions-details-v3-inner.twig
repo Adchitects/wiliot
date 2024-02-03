@@ -1,0 +1,254 @@
+{# Hero #}
+{% set heroSubtitle = entry.solutionHeroSubtitle %}
+{% set heroTitle = entry.solutionHeroTitle %}
+{% set solutionButtonsMatrix = entry.solutionButtonsMatrix.all() %}
+{% set heroImage = entry.solutionHeroImage.one() %}
+{% if heroImage %}
+{% set heroImageUrl = heroImage.getUrl() %}
+{% set heroImageWidth = heroImage.getWidth() %}
+{% set heroImageHeight = heroImage.getHeight() %}
+{% set heroImageAlt = heroImage.title %}
+{% endif %}
+{# Hero Video #}
+{% set solutionHeroVideoShort = entry.solutionHeroVideoShort.one() %}
+{% set solutionHeroVideoLong = entry.solutionHeroVideoLong.one() %}
+{# Hero bottom #}
+{% set heroBottomSubtitle = entry.solutionHeroBottomSubtitle %}
+{% set heroBottomTitle = entry.solutionHeroBottomTitle %}
+{% set heroBottomDescription = entry.solutionHeroBottomDescription %}
+{% set heroBottomImage = entry.solutionHeroBottomImage.one() %}
+{% if heroBottomImage %}
+	{% set heroBottomImageUrl = heroBottomImage.getUrl() %}
+	{% set heroBottomImageWidth = heroBottomImage.getWidth() %}
+	{% set heroBottomImageHeight = heroBottomImage.getHeight() %}
+	{% set heroBottomImageAlt = heroBottomImage.title %}
+{% endif %}
+{# Quote #}
+{% if entry.quote %}
+    {% set showQuote = true %}
+    {% set quoteText = entry.quote %}
+	{% set quoteImage = entry.quoteImage.one() %}
+	{% set quoteImageIsPortrait = entry.quoteImageIsPortrait %}
+	{% set quoteImageStyles = entry.quoteImageStyles %}
+	{% set quoteSource = entry.quoteSource %}
+{% else %}
+    {% set showQuote = false %}
+{% endif %}
+{# Infobox #}
+{% if entry.infoboxMatrix %}
+    {% if entry.infoboxTitle %}
+        {% set infoboxTitle = entry.infoboxTitle %}
+    {% else %}
+        {% set infoboxTitle = null %}
+    {% endif %}
+    {% if entry.infoboxSubtitle %}
+        {% set infoboxSubtitle = entry.infoboxSubtitle %}
+    {% else %}
+        {% set infoboxSubtitle = null %}
+    {% endif %}
+	{% set infoboxMatrix = entry.infoboxMatrix.all() %}
+{% else %}
+    {% set infoboxSubtitle = null %}
+    {% set infoboxTitle = null %}
+	{% set infoboxMatrix = null %}
+{% endif %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--solutions-details js-bg-shape-hld">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/solutions-details.css') }}?v=21092023">
+	<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="solutions-details is-v3">
+		<div class="solutions-details__hero {% if not heroImage %} has-no-image {% endif %}">
+			<div class="u-wrapper">
+				<div class="solutions-details__hero-top">
+					<div class="text-hld">
+						<div class="subtitle u-subtitle u-subtitle--big">{{ heroSubtitle|nl2br }}</div>
+						<h1 class="title u-title u-title--big">{{ heroTitle|nl2br }}</h1>
+						{% if solutionButtonsMatrix %}
+							<div class="buttons-hld">
+								{% for item in solutionButtonsMatrix %}
+									{% set button = item.button %}
+                                    {% if item.buttonColor != '' %}
+                                        {% set buttonColor = item.buttonColor %}
+                                    {% else %}
+                                        {% set buttonColor = 'accent' %}
+                                    {% endif %}
+                                    {% set isTypeFormBtn = item.isTypeformButton %}
+                                    {% set hubspotFormId = item.hubspotFormId %}
+                                    {% if hubspotFormId %}
+                                        <div class="js-modal-hld">
+                                            <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
+                                                <span class="text">{{ button.customText }}</span>
+                                            </button>
+                                            <div class="subscribe-modal js-modal-modal">
+                                                <div class="overlay js-modal-close"></div>
+                                                <div class="subscribe-modal__inner">
+                                                    <div class="subscribe-modal__modal">
+                                                        <div class="form-hld">
+                                                            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                                                            <script
+                                                                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                                                                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                                                                crossorigin="anonymous">
+                                                            </script>
+                                                            <script>
+                                                                hbspt.forms.create({
+                                                                    region: "na1",
+                                                                    portalId: "4249967",
+                                                                    formId: "{{ hubspotFormId }}",
+                                                                    onFormReady: function(form) {
+                                                                        document.body.classList.add('is-buy-page-form');
+                                                                        const formEl = form[0];
+                                                                        const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+                                                                            detail: {
+                                                                                form: formEl,
+                                                                                shortenSelects: false,
+                                                                            },
+                                                                        });
+                                                                        document.dispatchEvent(customHubspotFormScripts);
+                                                                    },
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                    <span class="subscribe-modal__close js-modal-close">
+                                                        <span class="icon icon-close"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% elseif isTypeFormBtn %}
+                                        {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                                        <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+                                            <span class="text">{{ button.customText }}</span>
+                                        </button>
+                                    {% else %}
+                                        <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
+                                            <span class="text">{{ button.customText }}</span>
+                                        </a>
+                                    {% endif %}
+								{% endfor %}
+							</div>
+						{% endif %}
+					</div>
+					{% if heroImage %}
+						<div class="image-hld">
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ heroImageUrl }}" alt="{{ heroImageAlt }}" width="{{ heroImageWidth }}" height="{{ heroImageHeight }}"/>
+						</div>
+					{% endif %}
+                </div>
+                {% if solutionHeroVideoShort %}
+                    {% set videoShortFileExtension = solutionHeroVideoShort.getExtension() %}
+                    {% set imageExtensions = ['jpg', 'jpeg', 'png', 'gif'] %}
+                    {% set videoExtensions = ['mp4', 'webm', 'avi', 'mov', 'mkv'] %}
+                    {% if videoShortFileExtension in imageExtensions %}
+                        <div class="solutions-details__hero-video-image">
+                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" alt="Image description">
+                        </div>
+                    {% elseif videoShortFileExtension in videoExtensions %}
+                        {% if solutionHeroVideoLong %}
+                            <div class="solutions-details__hero-video js-modal-hld">
+                                <div class="short-video-hld js-modal-btn">
+                                    <span class="icon icon-button_play"></span>
+                                    <video src="{{ solutionHeroVideoShort.url }}" playsinline muted autoplay loop type="video/mp4" preload="auto"></video>
+                                </div>
+                                <div class="video-modal js-modal-modal">
+                                    <div class="overlay js-modal-close"></div>
+                                    <div class="video-modal__inner">
+                                        <div class="video-modal__modal">
+                                            <div class="video-hld js-video-hld show-thumbnail">
+                                                <span class="icon icon-button_play"></span>
+                                                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoLong.url }}" autoplay loop controls playsinline></video>
+                                            </div>
+                                        </div>
+                                        <span class="video-modal__close js-modal-close">
+                                            <span class="icon icon-close"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+						{% else %}
+							<div class="solutions-details__hero-video">
+                                <div class="short-video-hld no-before">
+                                    <style>
+                                        .no-before::before {
+                                            display: none;
+                                        }
+                                    </style>
+                                    <video playsinline muted autoplay loop preload="auto">
+                                        <source src="{{ solutionHeroVideoShort.url }}" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+				<div class="solutions-details__hero-bottom {% if not heroBottomImage %} has-no-image {% endif %}">
+					<div class="text-hld">
+                        {% if heroBottomSubtitle %}
+                            <div class="subtitle u-subtitle u-subtitle--section">{{ heroBottomSubtitle }}</div>
+                        {% endif %}
+						<div class="title u-title u-title--section">{{ heroBottomTitle }}</div>
+						<div class="description">{{ heroBottomDescription }}</div>
+					</div>
+					{% if heroBottomImage %}
+						<div class="image-hld">
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ heroBottomImageUrl }}" alt="{{ heroBottomImageAlt }}" width="{{ heroBottomImageWidth }}" height="{{ heroBottomImageHeight }}"/>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+        {% if showQuote %}
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/quote.css') }}?v=25092023">
+            <div class="solutions-details__quote">
+                <div class="u-wrapper">
+                    <div class="quote">
+						{% if quoteText %}
+							<div class="quote__text">{{ quoteText }}</div>
+						{% endif %}
+						<div class="quote__bottom">
+							{% if quoteImage %}
+								<img class="js-lazy {{ quoteImageIsPortrait ? 'is-portrait' : '' }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ quoteImage.getUrl() }}" alt="" style="{{ quoteImageStyles }}">
+							{% endif %}
+							{% if quoteSource %}
+								<span class="quote__source">{{ quoteSource }}</span>
+							{% endif %}
+						</div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if infoboxMatrix %}
+            <div class="solutions-details__infobox">
+                <div class="u-wrapper u-wrapper--medium">
+                    {% if infoboxSubtitle %}
+                        <div class="items-subtitle u-subtitle u-subtitle--section">{{ infoboxSubtitle }}</div>
+                    {% endif %}
+                    {% if infoboxTitle %}
+                        <div class="items-title u-title u-title--section">{{ infoboxTitle|nl2br }}</div>
+                    {% endif %}
+                    <div class="items-hld">
+                    {% for item in infoboxMatrix %}
+                        {% set itemIcon = item.itemIcon.one() %}
+                        {% set itemName = item.itemName %}
+                        {% set itemDescription = item.itemDescription %}
+                        <div class="item">
+                            {% if itemIcon %}
+                                <div class="icon-hld">
+                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemIcon.url }}" alt="{{ itemName }}">
+                                </div>
+                            {% endif %}
+                            <div class="name u-subtitle u-subtitle--big">{{ itemName|nl2br }}</div>
+                            <div class="description">{{ itemDescription }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
+        {% endif %}
+	</div>
+</section>

@@ -1,0 +1,144 @@
+.popup {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9999;
+	visibility: hidden;
+	opacity: 0;
+
+	&.is-active {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&.is-visible {
+		visibility: visible !important;
+		opacity: 1 !important;
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($c-neutral-10, 0.3);
+		// opacity: 0;
+		// &:hover {} Hovering in popup.js
+	}
+
+	.popup__bg-hld.popup__bg-hld {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		pointer-events: none;
+		width: 335px;
+		height: auto;
+		user-select: none;
+
+		@include mobile-767 {
+			display: none;
+		}
+	}
+
+	.popup__close-hld.popup__close-hld {
+		position: absolute;
+		top: 50px;
+		right: 50px;
+		z-index: 10;
+		cursor: pointer;
+		padding: 10px;
+
+		@include mobile-767 {
+			top: 5px;
+			right: 5px;
+		}
+
+		// &:hover {} Hovering logic is in popup.js
+
+		.icon {
+			display: block;
+			color: $c-gray;
+			transition: color 0.2s;
+		}
+	}
+
+	.popup__inner.popup__inner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		width: 670px;
+		height: auto;
+		padding: 120px 60px;
+		background-color: #EBF2F7;
+		transform: translate(-50%, -50%);
+		overflow: hidden;
+
+		@include mobile-767 {
+			width: calc(100% - 30px);
+			padding: 30px;
+		}
+
+		.bg-shape {
+			bottom: -10px;
+			left: 0;
+			width: 100%;
+
+			@include mobile-767 {
+				display: none;
+			}
+		}
+	}
+
+	&__text-hld {
+		position: relative;
+		z-index: 10;
+		max-height: 80vh;
+		padding-right: 16px;
+		overflow-y: auto;
+	}
+
+	.popup__title.popup__title {
+		margin-top: 10px;
+		padding-right: 5%;
+
+		@include mobile-767 {
+			font-size: 25px;
+			line-height: 30px;
+		}
+	}
+
+	.popup__subtitle.popup__subtitle {
+		@include mobile-767 {
+			font-size: 16px;
+			line-height: 20px;
+		}
+
+		&--bottom {
+			margin-top: 5px;
+		}
+	}
+
+	.popup__text.popup__text {
+		margin-top: 20px;
+
+		@include mobile-767 {
+			margin-top: 10px;
+			padding-right: 0;
+			font-size: 15px;
+			line-height: 20px;
+		}
+	}
+
+	.popup__btn.popup__btn {
+		margin-top: 40px;
+
+		@include mobile-767 {
+			margin-top: 10px;
+		}
+	}
+}

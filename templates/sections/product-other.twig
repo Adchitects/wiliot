@@ -1,0 +1,38 @@
+{% set title = entry.productOtherTitle %}
+{% set subtitle = entry.productOtherSubtitle %}
+{% set excerpt = entry.productOtherExcerpt %}
+{% set image = entry.productOtherImage.one() %}
+{% set button = entry.productOtherButton %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-other js-bg-shape-hld">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/product-other.css') }}?v=21092023">
+	<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
+		<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
+		<img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="u-wrapper u-wrapper--medium-wide">
+		<div class="product-other">
+			<div class="product-other__header">
+				{% if subtitle %}
+					<span class="product-other__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+				{% endif %}
+				{% if title %}
+					<h2 class="product-other__title u-title u-title--section">{{ title }}</h2>
+				{% endif %}
+				{% if excerpt %}
+					<p class="product-other__excerpt">{{ excerpt }}</p>
+				{% endif %}
+				{% if button.getUrl() %}
+					<a href="{{button.getUrl()}}" class="btn u-btn u-btn--light product-other__btn">
+						<span class="text">
+							{{ button.customText }}
+						</span>
+					</a>
+				{% endif %}
+			</div>
+			{% if image %}
+				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ title }}" class="product-other__image js-lazy">
+			{% endif %}
+		</div>
+	</div>
+</section>

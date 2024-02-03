@@ -1,0 +1,75 @@
+{% set pages = craft.entries.section('menuFooter').level(1) %}
+{% set socials = pageOptions.pageOptionsSocials.all() %}
+{% set bottomPages = pageOptions.pageOptionsBottomPages.all() %}
+{% set logos = pageOptions.pageOptionsLogos.all() %}
+<div class="footer">
+	<div class="u-wrapper">
+		<div class="footer__main">
+			<div class="footer__primary">
+				<div class="footer__links-columns">
+					{% nav page in pages.all() %}
+                        <div class="footer__links-column">
+                            <span class="footer__links-column-title">{{ page.title }}</span>
+                            <ul class="footer__links">
+                                {% for child in page.children().all() %}
+                                    <li class="footer__link {% if entry is defined %}{% if child.menuFooterPageLink == entry.url %}is-active{% endif %}{% endif %}">
+                                        <a href="{{ child.menuFooterPageLink }}" target="{{ child.menuFooterPageLink.target ? '_blank' : '_self' }}" rel="{{ child.menuFooterPageLink.target ? 'noopener noreferrer' : null }}">
+                                            {{ child.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+					{% endnav %}
+				</div>
+				<a href="{{ craft.app.sites.primarySite.baseUrl }}" class="footer__logo">
+					<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/svg/logo.svg') }}" width="123" height="48" alt="Wiliot logo">
+				</a>
+			</div>
+			<div class="footer__secondary">
+				<ul class="footer__socials">
+					{% if socials %}
+						{% for social in socials %}
+							<li class="footer__link">
+								{% if social.socialLink and social.socialName and social.socialIcon %}
+									<a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
+										<span class="icon icon-{{ social.socialName|lower }}"></span>
+									</a>
+								{% endif %}
+							</li>
+						{% endfor %}
+					{% endif %}
+				</ul>
+				<ul class="footer__additional-links">
+					{% if bottomPages %}
+						{% for page in bottomPages %}
+							{% set name = page.bottomPageName %}
+							{% set link = page.bottomPageLink %}
+							<li class="footer__link {% if entry is defined %}{% if link == entry.url %}is-active{% endif %}{% endif %}">
+								{% if name and link %}
+									<a href="{{ link }}">{{ name }}</a>
+								{% endif %}
+							</li>
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+		<div class="footer__partners">
+			{% if logos %}
+				<div class="swiper-container js-footer-slider">
+					<div class="swiper-wrapper">
+						{% for logo in logos %}
+							{% if logo.logoImage.one() %}
+								{% set image = logo.logoImage.one().getUrl() %}
+								<div class="swiper-slide">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image }}" class="js-lazy" alt="">
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

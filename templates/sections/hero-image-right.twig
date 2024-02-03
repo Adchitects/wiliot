@@ -1,0 +1,60 @@
+{# Currently not used #}
+{% set videoBackgroundLink = entry.heroImageRightBackgroundVideoLink %}
+{% set title = entry.heroImageRightTitle %}
+{% set excerpt = entry.heroImageRightExcerpt %}
+{% set videoLink = entry.heroImageRightVideoLink %}
+{% if entry.heroImageRightVideoLinkPlaceholder.one() %}
+    {% set videoLinkPlaceholder = entry.heroImageRightVideoLinkPlaceholder.one().getUrl() %}
+{% else %}
+    {% set videoLinkPlaceholder = null %}
+{% endif %}
+{% set button = entry.heroImageRightButton %}
+{% if entry is defined %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-img-right">
+        {% if videoBackgroundLink %}
+            <div class="video-wrapper">
+                <iframe allow="autoplay" data-src="{{ videoBackgroundLink }}" frameborder="0" width="1920" height="768" class="youtube-video js-lazy"></iframe>
+            </div>
+        {% endif %}
+		<div class="u-wrapper">
+			<div class="hero-img-right js-modal-hld">
+				<div class="hero-img-right__content">
+					{% if excerpt %}
+						<span class="hero-img-right__excerpt u-subtitle u-subtitle--big">{{ excerpt }}</span>
+					{% endif %}
+					{% if title %}
+						<h1 class="hero-img-right__title u-title u-title--big">{{ title }}</h1>
+					{% endif %}
+					<div class="hero-img-right__mobile-video-hld {% if videoLinkPlaceholder %} has-placeholder js-yt-video-placeholder-hld {% endif %}">
+                        {% if videoLinkPlaceholder %}
+                            <img class="img-placeholder js-lazy js-yt-video-placeholder-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoLinkPlaceholder }}" alt="Image">
+                        {% endif %}
+						<iframe width="560" height="315" class="js-lazy js-yt-video-placeholder-iframe" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="hero-img-right__buttons">
+						<a href="{{ button.getUrl()}}" class="btn btn--learn-more u-btn u-btn--accent">
+							<span class="text">
+								{{ button.customText }}
+							</span>
+						</a>
+						<button class="btn u-btn u-btn--light js-modal-btn">
+							<span class="icon icon-play"></span>
+							<span data-video-src="{{ videoLink.getUrl() }}" class="text">Watch video</span>
+						</button>
+						<div class="video-modal js-modal-modal">
+							<div class="overlay js-modal-close"></div>
+							<div class="video-modal__inner">
+								<div class="video-modal__modal">
+									<iframe width="560" height="315" class="js-lazy js-modal-iframe" data-src="{{ videoLink.getUrl() }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div>
+								<span class="video-modal__close js-modal-close">
+									<span class="icon icon-close"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

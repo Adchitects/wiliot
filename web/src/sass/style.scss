@@ -1,0 +1,53 @@
+// CORE STYLES
+@import '_reset/reset';
+@import '_reset/print';
+
+// BASE STYLES
+@import 'base/variables';
+@import 'base/icomoon';
+@import 'base/mixins';
+@import 'base/core';
+@import 'base/animations';
+@import 'base/utilities';
+
+// EXTERNAL LIBRARIES
+@import '../../../node_modules/swiper/swiper';
+@import '../../../node_modules/swiper/components/pagination/pagination.scss'; // Import needed modules of swiper
+// @import '../../node_modules/swiper/components/navigation/navigation.scss'; // Import needed modules of swiper
+
+// CONTENT / COMPONENTS / SECTIONS / TABS / VIEWS
+@import 'components/bg-shape';
+@import 'components/contact.scss';
+@import 'components/footer';
+@import 'components/header';
+@import 'components/hero-desc-image';
+@import 'components/hero-slider';
+@import 'components/hero';
+@import 'components/intro';
+@import 'components/menu-desktop';
+@import 'components/menu-mobile';
+@import 'components/news-details';
+@import 'components/news-listing';
+@import 'components/popup';
+@import 'components/hubspot-forms';
+@import 'components/podcast-details';
+@import 'components/subscribe';
+@import 'components/podcasts-hero';
+@import 'components/press-publication';
+@import 'components/product-hero';
+@import 'components/accordion';
+@import 'components/accordion-text';
+@import 'components/products-hero';
+@import 'components/video';
+@import 'components/video-modal';
+@import 'components/single-career';
+@import 'components/carousel';
+@import 'components/form';
+@import 'components/sticky-text';
+@import 'components/search-form';
+@import 'components/search-bar';
+@import 'components/search-results';
+@import 'components/events-listing';
+@import 'components/event-details';
+@import 'components/cookies-box';
+@import 'components/algolia-hq';

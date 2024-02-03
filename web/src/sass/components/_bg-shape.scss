@@ -1,0 +1,199 @@
+.bg-shape {
+	position: absolute;
+	// filter: blur(45px);
+	user-select: none;
+
+	img {
+		object-fit: contain;
+		user-select: none;
+	}
+
+	&--top-right {
+		top: 0;
+		right: 0;
+		width: 500px;
+		height: 600px;
+
+		@include mobile-599 {
+			width: 250px;
+			height: 250px;
+		}
+
+		.s1,
+		.s2,
+		.s3 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: auto;
+			height: auto;
+			// background-image: linear-gradient(300deg, #1CBF44 0%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+		
+		.s1 {
+			// clip-path: polygon(49% 1%, 80% 0, 90% 25%, 90% 61%, 90% 75%, 70% 77%, 58% 66%, 25% 69%, 6% 45%, 24% 16%);
+		}
+
+		.s2 {
+			opacity: 0;
+			// clip-path: polygon(36% 0, 100% 4%, 96% 46%, 100% 71%, 100% 94%, 69% 100%, 50% 85%, 19% 89%, 8% 61%, 2% 18%);
+		}
+
+		.s3 {
+			opacity: 0;
+			// clip-path: polygon(66% 0, 100% 0, 100% 40%, 100% 71%, 88% 90%, 62% 90%, 44% 75%, 16% 79%, 28% 54%, 28% 23%);
+		}
+
+		.s2,
+		.s3 {
+			@include mobile-767 {
+				display: none;
+			}
+		}
+	}
+
+	&--center-right {
+		top: 200px;
+		right: 0;
+		width: 400px;
+		height: 800px;
+
+		@include mobile-767 {
+			width: 200px;
+			height: 250px;
+		}
+
+		.s1 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: auto;
+			height: auto;
+			// background-image: linear-gradient(15deg, #00F0F3 0%, #1CBF44 0.38%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+		
+		.s1 {
+			// clip-path: polygon(100% 7%, 100% 95%, 93% 87%, 88% 74%, 87% 59%, 84% 49%, 58% 23%, 56% 12%, 67% 5%, 89% 2%);
+		}
+	}
+
+	&--bottom-right {
+		right: 0;
+		bottom: 0;
+		width: 600px;
+		height: 300px;
+
+		@include mobile-767 {
+			width: 200px;
+			height: 250px;
+		}
+
+		.s1,
+		.s2 {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: auto;
+			height: auto;
+			// background-image: radial-gradient(circle, rgba(#00F0F3, 0.5) 0%, #1CBF44 42.79%, #00F0F3 80.25%, #FFFFFF 100%);
+		}
+		
+		.s1 {
+			// clip-path: polygon(58% 47%, 71% 42%, 87% 38%, 100% 36%, 100% 100%, 70% 100%, 49% 100%, 20% 100%, 28% 71%, 43% 55%);
+		}
+
+		.s2 {
+			opacity: 0;
+			// clip-path: polygon(30% 35%, 40% 48%, 51% 64%, 68% 73%, 100% 100%, 70% 100%, 18% 100%, 10% 80%, 5% 61%, 13% 41%);
+		}
+	}
+
+	&--bottom-left {
+		bottom: 0;
+		left: 0;
+		width: 800px;
+		height: 300px;
+
+		@include mobile-767 {
+			width: 200px;
+			height: 250px;
+		}
+
+		.s2 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: auto;
+			height: auto;
+			// background-image: linear-gradient(121.16deg, #00F0F3 0%, #1CBF44 0.38%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+
+		.s2 {
+			opacity: 0;
+			// clip-path: polygon(46% 71%, 57% 60%, 73% 28%, 88% 58%, 92% 99%, 70% 100%, 35% 100%, 4% 100%, 16% 63%, 28% 56%);
+			@include mobile-767 {
+				opacity: 1;
+			}
+		}
+	}
+
+	&--center-left {
+		top: 320px;
+		left: 0;
+		width: 300px;
+		height: 450px;
+
+		@include mobile-767 {
+			width: 200px;
+			height: 250px;
+		}
+
+		.s1 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: auto;
+			height: auto;
+			// background-image: linear-gradient(15deg, #00F0F3 0%, #1CBF44 0.38%, #00F0F3 86.59%, #00F0F3 99.94%);
+		}
+		
+		.s1 {
+			// clip-path: polygon(37% 47%, 35% 61%, 27% 76%, 17% 89%, 0 99%, 0 9%, 10% 10%, 22% 13%, 32% 22%, 36% 34%);
+		}
+	}
+
+	&--center-left-sticky {
+		height: 100%;
+
+		.s1 {
+			position: sticky;
+			top: 350px;
+		}
+	}
+
+	&--center-center {
+		top: 57%;
+		left: 52%;
+		width: 700px;
+		height: 650px;
+		transform: translate(-50%, -50%);
+
+		@include mobile-767 {
+			width: 200px;
+			height: 250px;
+		}
+
+		.s1 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: auto;
+			height: auto;
+			// background-image: linear-gradient(350deg, #00F0F3 0%, #1CBF44 0%, #00F0F3 81.86%, #00F0F3 99.94%);
+		}
+
+		.s1 {
+			// clip-path: polygon(51% 1%, 70% 3%, 88% 14%, 96% 25%, 99% 43%, 99% 62%, 93% 78%, 80% 89%, 69% 95%, 54% 100%, 35% 95%, 18% 80%, 8% 61%, 1% 40%, 4% 20%, 14% 6%, 36% 1%);
+		}
+	}
+}

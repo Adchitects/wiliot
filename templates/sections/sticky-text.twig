@@ -1,0 +1,62 @@
+{% set subtitle = entry.stickyTextSubtitle %}
+{% set title = entry.stickyTextTitle %}
+{% set rows = entry.stickyTextRows.all() %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--sticky-text">
+    <div class="u-wrapper">
+        <div class="sticky-text-hld">
+            {% if subtitle %}
+                <h5 class="sticky-text__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</h5>
+            {% endif %}
+            {% if title %}
+                <h2 class="sticky-text__title u-title u-title--section u-title--centered">{{ title }}</h2>
+            {% endif %}
+            {% if rows|length > 0 %}
+                <div class="sticky-text">
+                    <div class="sticky-text__left">
+                        {% for item in rows %}
+                            {% set itemImage = item.itemImage.one() %}
+                            {% set itemContent = item.itemContent %}
+                            <div class="sticky-text-image-item js-sticky-image-item" data-id="{{ loop.index }}">
+                                {% if itemImage %}
+                                    <div class="sticky-text-image-item__img-hld">
+                                        <img class="sticky-text-image-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemImage.getUrl('stickyText') }}" alt="" />
+                                    </div>
+                                {% endif %}
+                                {% if itemContent %}
+                                    <div class="sticky-text-image-item__content-hld">
+                                        <div class="sticky-text-image-item__content u-content">
+                                            {% if itemContent %}
+                                                {{ itemContent }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="sticky-text__right">
+                        <div class="sticky-text__right-inner">
+                            {% for item in rows %}
+                                {% set itemContent = item.itemContent %}
+                                {% set itemImage = item.itemImage.one() %}
+                                <div class="sticky-text-content-item {{ loop.first ? 'is-active' : '' }} js-sticky-text-item" data-id="{{ loop.index }}">
+                                    <div class="sticky-text-content-item__content u-content">
+                                        {% if itemContent %}
+                                            {{ itemContent }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% if itemImage %}
+                                    <div class="sticky-text-content-item__img-hld {{ loop.first ? 'is-active' : '' }} js-sticky-text-item-img" data-id="{{ loop.index }}">
+                                        <img class="sticky-text-content-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemImage.getUrl('stickyText') }}" alt="" />
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<fscript src="{{ alias('@web/src/js/stickyTextSwitch.min.js') }}"></fscript>

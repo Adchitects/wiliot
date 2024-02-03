@@ -1,0 +1,298 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--bb-implementing {
+	margin-top: 218px;
+
+	@include tablet-big {
+		margin-top: 100px;
+	}
+}
+
+.bb-implementing {
+	padding: 0 32px 0 76px;
+
+	@include tablet-small {
+		padding: 0;
+	}
+
+	&__main-text {
+		margin-top: 18px;
+		padding-right: 22px;
+
+		br {
+			content: '';
+			display: block;
+			margin-top: 14px;
+		}
+
+		p {
+			margin-top: 12px;
+		}
+
+		a {
+			color: $c-accent;
+			font-weight: 400;
+			transition: opacity 0.2s;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		strong {
+			display: block;
+			margin-top: 24px;
+			font-size: 18px;
+			font-weight: 900;
+		}
+	}
+
+	&__items-hld {
+		margin-top: 72px;
+
+		@include tablet-small {
+			margin-top: 30px;
+		}
+	}
+
+	&__item {
+		@include tablet-small {
+			margin-top: 30px;
+		}
+
+		.item-title-hld {
+			margin-bottom: 26px;
+			font-weight: 900;
+
+			.item-number {
+				color: $c-accent;
+				font-size: 39px;
+			}
+
+			.item-title {
+				margin-top: 18px;
+				font-size: 23px;
+			}
+		}
+
+		.item-text {
+			display: flex;
+
+			@include tablet-small {
+				flex-direction: column;
+				grid-gap: 12px;
+			}
+
+			.top {
+				display: flex;
+
+				@include tablet-small {
+					flex-direction: column-reverse;
+					grid-gap: 12px;
+				}
+			}
+
+			.paragraphs {
+				flex: 1;
+				max-width: 486px;
+
+				@include tablet-big {
+					max-width: 100%;
+				}
+
+				p {
+					+ p {
+						margin-top: 12px;
+					}
+				}
+			}
+
+			a {
+				text-decoration: underline;
+				transition: color 0.2s;
+
+				&:hover {
+					color: $c-accent;
+				}
+			}
+
+			figure {
+				img {
+					width: 100%;
+					height: auto;
+
+					@include tablet-small {
+						width: auto;
+						height: 200px;
+					}
+				}
+			}
+
+			.columns-hld {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 52px;
+
+				@include tablet-big {
+					grid-gap: 30px;
+				}
+
+				@include tablet-small {
+					flex-direction: column;
+					grid-gap: 12px;
+					margin-top: 12px;
+				}
+
+				p {
+					+ p {
+						margin-top: 12px;
+					}
+				}
+
+				.left-column {
+					max-width: 480px;
+
+					@include tablet-big {
+						flex: 1;
+						max-width: 100%;
+					}
+				}
+
+				.right-column {
+					max-width: 480px;
+
+					@include tablet-big {
+						flex: 1;
+						max-width: 100%;
+					}
+				}
+			}
+		}
+
+		&.is-odd {
+			.item-text {
+				@include tablet-small {
+					flex-direction: column-reverse;
+				}
+
+				figure {
+					width: 530px;
+					margin-top: -86px;
+
+					@include tablet-big {
+						flex: 1;
+						max-width: 100%;
+						margin-top: 0;
+					}
+
+					img {
+						transform: translateX(28px);
+
+						@include tablet-big {
+							transform: none;
+						}
+					}
+				}
+			}
+		}
+
+		&.is-first {
+			.item-text {
+				flex-direction: column;
+
+				figure {
+					width: 486px;
+					margin-top: -114px;
+
+					@include tablet-big {
+						flex: 1;
+						max-width: 100%;
+						margin-top: 0;
+					}
+
+					img {
+						transform: translateX(52px);
+
+						@include tablet-big {
+							transform: none;
+						}
+					}
+				}
+			}
+		}
+
+		&.is-even {
+			position: relative;
+			margin-top: 170px;
+
+			@include tablet-small {
+				margin-top: 30px;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: -88px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: #dcdde0;
+
+				@include tablet-small {
+					display: none;
+				}
+			}
+
+			.item-title-hld {
+				max-width: 476px;
+				margin-left: auto;
+
+				@include tablet-big {
+					max-width: 100%;
+					margin-left: unset;
+				}
+			}
+
+			.item-text {
+				justify-content: space-between;
+
+				@include tablet-big {
+					grid-gap: 30px;
+				}
+
+				@include tablet-small {
+					grid-gap: 12px;
+				}
+
+				.paragraphs {
+					max-width: 476px;
+
+					@include tablet-big {
+						flex: 1;
+						max-width: 100%;
+					}
+				}
+
+				figure {
+					width: 408px;
+					margin-top: -34px;
+
+					@include tablet-big {
+						flex: 1;
+						max-width: 100%;
+						margin-top: 0;
+					}
+
+					img {
+						transform: translate(4px, -116px);
+
+						@include tablet-big {
+							transform: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

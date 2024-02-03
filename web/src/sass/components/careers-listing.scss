@@ -1,0 +1,263 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/icomoon';
+
+.is-page-careers {
+	.hero__text-hld {
+		@include media-min(1024) {
+			margin-top: 220px;
+		}
+	}
+}
+
+.u-section--careers-listing {
+	margin-bottom: 135px;
+
+	@include mobile-599 {
+		margin-bottom: 80px;
+	}
+}
+
+.careers-listing {
+	&__text-hld {
+		max-width: 630px;
+
+		.description {
+			margin-top: 15px;
+		}
+	}
+
+	&__filters-n-sort-hld {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__filters-hld,
+	&__sort-hld {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: flex-end;
+		position: relative;
+		width: 300px;
+		max-width: 100%;
+		margin-top: 92px;
+
+		@include media-max(659) {
+			width: 100%;
+		}
+
+		.filter-item-chosen,
+		.sort-item-chosen {
+			width: 100%;
+
+			.chosen {
+				position: relative;
+				width: 100%;
+
+				.text {
+					display: inline-block;
+					position: relative;
+					cursor: pointer;
+					width: 100%;
+					padding: 10px 16px 10px 0;
+					border-bottom: 1px solid $c-gray;
+					border-radius: 0;
+					color: $c-black;
+					font-size: 16px;
+					letter-spacing: 0;
+					line-height: 26px;
+					transition: border-bottom-color 0.2s;
+
+					&:hover {
+						border-bottom-color: $c-accent-dark;
+					}
+
+					&.is-active {
+						pointer-events: none;
+						border-bottom-color: $c-accent-dark;
+
+						&::before {
+							transform: rotateX(180deg);
+						}
+					}
+
+					&::before {
+						@extend .icon-dropdown-down;
+
+						display: inline-block;
+						position: absolute;
+						top: 10px;
+						right: 1px;
+						font-family: 'icomoon', sans-serif;
+						font-size: 12px;
+						transition: transform 0.2s;
+					}
+				}
+			}
+		}
+
+		.filters-dropdown,
+		.sort-dropdown {
+			position: absolute;
+			top: 50px;
+			left: 0;
+			z-index: 1;
+			width: 300px;
+			max-width: 100%;
+			padding: 10px 0;
+			border-radius: 4px;
+			background-color: $c-white;
+			box-shadow: 0 5px 20px 0 rgba(134, 134, 183, 0.15);
+			transform: translateY(0);
+			transition: transform 0.2s, opacity 0.2s;
+
+			@include media-max(659) {
+				width: 100%;
+			}
+
+			&.is-hidden {
+				pointer-events: none;
+				transform: translateY(10px);
+				opacity: 0;
+			}
+		}
+
+		.filters-dropdown {
+			z-index: 2;
+		}
+
+		.filter-item,
+		.sort-item {
+			cursor: pointer;
+			padding: 8px 16px;
+			color: rgba($c-black, 0.8);
+			font-size: 14px;
+			letter-spacing: 0;
+			line-height: 19px;
+			transition: color 0.2s;
+
+			&:hover,
+			&.is-active {
+				color: $c-accent;
+			}
+
+			&.is-active {
+				pointer-events: none;
+			}
+		}
+	}
+
+	&__filters-hld {
+		margin-right: 12px;
+
+		@include media-max(659) {
+			margin-right: 0;
+		}
+	}
+
+	&__sort-hld {
+		@include media-max(659) {
+			margin-top: 20px;
+		}
+	}
+
+	&__items-hld {
+		display: flex;
+		flex-direction: column;
+		max-width: 865px;
+		margin-top: 60px;
+		transition: opacity 1s ease;
+
+		&.hidden {
+			opacity: 0;
+		}
+
+		@include mobile-599 {
+			margin-top: 40px;
+		}
+	}
+
+	&__item {
+		display: block;
+		position: relative;
+		padding: 32px 0;
+		padding-right: 60px;
+		border-radius: 6px;
+
+		&:hover {
+			&::before {
+				opacity: 1;
+			}
+
+			&::after {
+				opacity: 0;
+			}
+
+			.arrow {
+				color: $c-accent;
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: -1px;
+			right: 0;
+			bottom: 0;
+			left: -25px;
+			z-index: -1;
+			pointer-events: none;
+			background-color: $c-white;
+			box-shadow: 0 5px 20px 0 rgba(134, 134, 183, 0.15);
+			transition: opacity 0.2s;
+			opacity: 0;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 25px;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			pointer-events: none;
+			height: 1px;
+			background-color: $c-border;
+			transition: opacity 0.2s;
+		}
+
+		&.is-hidden {
+			display: none;
+		}
+
+		.title {
+			@include mobile-599 {
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+
+		.city {
+			margin-top: 10px;
+
+			@include mobile-599 {
+				font-size: 14px;
+			}
+		}
+
+		.arrow {
+			position: absolute;
+			top: 50%;
+			right: 25px;
+			font-size: 12px;
+			transform: translateY(-50%);
+			transition: color 0.2s;
+		}
+	}
+
+	.comeet-social-wrap {
+		max-width: 840px;
+		margin-top: 40px;
+	}
+}

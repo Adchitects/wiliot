@@ -1,0 +1,79 @@
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--related-news">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/related-posts.css') }}?v=21092023">
+	<div class="u-wrapper">
+		<div class="related-news">
+            {% if category is defined and category.relatedItemsTitle %}
+                {% set moreText = category.relatedItemsTitle %}
+            {% else %}
+                {% set moreText = 'Related news' %}
+			{% endif %}
+			<h2 class="u-title related-news__title">{{ moreText }}</h2>
+			{% set chosenRelatedPostsMatrix = entry.chosenRelatedPostsMatrix.all()%}
+			{% set postRelatedCategories = entry.postRelatedCategories %}
+			{% set postMainCategory = entry.postMainCategory %}
+			{% set relatedEntries = craft.entries.section('newsPosts').relatedTo(['or',{ targetElement: postRelatedCategories,field: 'postRelatedCategories' },{targetElement: postMainCategory, field: 'postMainCategory' }]).id('not '~entry.id) %}
+			<div class="related-news__listing">
+				{% if chosenRelatedPostsMatrix|length %}
+					{% for item in chosenRelatedPostsMatrix %}
+						{% set chosenPostEntry = item.chosenPostEntry.one() %}
+						{% set image = item.chosenPostImage.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl() %}
+							{% set imageWidth = image.getWidth() %}
+							{% set imageHeight = image.getHeight() %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{% set title = item.chosenPostTitle %}
+						{% set desc = item.chosenPostDescription|striptags|striptags %}
+						{% set descSliced = desc|slice(0, 97) ~ '...' %}
+						<a href="{{ chosenPostEntry.getUrl() }}" class="post">
+							<div class="post__image-hld">
+								{% if image %}
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+								{% else %}
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+								{% endif %}
+							</div>
+							<div class="post__date">{{ chosenPostEntry.postDate | date("F d, Y") }}</div>
+							<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+							<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
+							<div class="post__btn u-btn u-btn--arrow">
+								<span class="text">Read more</span>
+							</div>
+						</a>
+					{% endfor %}
+				{% endif %}
+				{% set relatedNews = relatedEntries.limit(3 - chosenRelatedPostsMatrix|length) %}
+				{% if relatedNews|length %}
+					{% for post in relatedNews.all() %}
+						{% set image = post.newsPostsfeaturedImage.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl() %}
+							{% set imageWidth = image.getWidth() %}
+							{% set imageHeight = image.getHeight() %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{% set title = post.title %}
+						{% set desc = post.newsPostsExcerpt|striptags|striptags %}
+						{% set descSliced = desc|slice(0, 97) ~ '...' %}
+						<a href="{{ 'bbpost' in post.url ? '/bluetooth-beacon' : post.url }}" class="post">
+							<div class="post__image-hld">
+								{% if image %}
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+								{% else %}
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder.jpg') }}" width="300" height="225" alt="Wiliot placeholder image">
+								{% endif %}
+							</div>
+							<div class="post__date">{{ post.postDate | date("F d, Y") }}</div>
+							<div class="post__title">{{ title|length > 45 ? title|slice(0, 42) ~ '...' : title }}</div>
+							<div class="post__description">{{ desc|length > 100 ? descSliced|raw : desc|raw }}</div>
+							<div class="post__btn u-btn u-btn--arrow">
+								<span class="text">Read more</span>
+							</div>
+						</a>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>

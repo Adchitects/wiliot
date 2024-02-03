@@ -1,0 +1,94 @@
+{% set showSection = entry.cardsShowSection %}
+{% set subtitle = entry.cardsSubtitle %}
+{% set title = entry.cardsTitle %}
+{% set items = entry.cardsItemsMatrix.all() %}
+{% set cardsButtonsMatrix = entry.cardsButtonsMatrix.all() %}
+{% if items and showSection %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--cards">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/cards.css') }}?v=21092023">
+        <div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+		</div>
+        <div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+            <img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+        </div>
+		<div class="u-wrapper u-wrapper--wide u-wrapper--medium-wide">
+			<div class="cards">
+                {% if subtitle %}
+                    <h3 class="cards__subtitle u-subtitle u-subtitle--section u-subtitle--centered">{{ subtitle }}</h3>
+                {% endif %}
+                {% if title %}
+                    <h2 class="cards__title u-title u-title--section u-title--centered">{{ title }}</h2>
+                {% endif %}
+				<div class="cards__hld">
+					{% for item in items %}
+						{% set label = item.itemLabel %}
+						{# Item image #}
+						{% set image = item.itemImage.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl() %}
+							{% set imageWidth = image.getWidth() %}
+							{% set imageHeight = image.getHeight() %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{# Item texts #}
+						{% set name = item.itemName %}
+						{% set price = item.itemPrice %}
+						{% set description = item.itemDescription %}
+						{% set contentTitle = item.itemContentTitle %}
+						{% set content = item.itemContent %}
+						{% set button = item.itemButton %}
+						<div class="cards__item {% if label %} is-coming-soon {% endif %}">
+							{% if image %}
+								<div class="img-hld">
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}"/>
+									{% if label %}
+										<div class="coming-soon-label">
+											<span class="text">{{ label }}</span>
+										</div>
+									{% endif %}
+								</div>
+							{% endif %}
+							<div class="text-hld js-accordion">
+								{% if name %}
+									<div class="name">{{ name|nl2br }}</div>
+								{% endif %}
+								{% if price %}
+									<div class="price">{{ price }}</div>
+								{% endif %}
+								{% if description %}
+									<div class="description">{{ description|nl2br }}</div>
+								{% endif %}
+								{% if contentTitle %}
+									<div class="content-hld js-accordion-toggle-item">
+										<div class="title">
+											<span class="text">{{ contentTitle }}</span>
+											<span class="icon icon-dropdown-down"></span>
+										</div>
+										<div class="content">{{ content }}</div>
+									</div>
+								{% endif %}
+								{% if button.url %}
+									<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--light">
+										<span class="text">{{ button.customText }}</span>
+									</a>
+								{% endif %}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				{% if cardsButtonsMatrix %}
+					<div class="cards__bottom">
+						{% for item in cardsButtonsMatrix %}
+							{% set button = item.button %}
+							<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--accent' : 'u-btn--light' }}">
+								<span class="text">{{ button.customText }}</span>
+							</a>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

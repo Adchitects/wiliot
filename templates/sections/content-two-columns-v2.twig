@@ -1,0 +1,76 @@
+{% set isSimple = isSimple %}
+{% set mainTitle = mainTitle %}
+{% set mainText = mainText %}
+{% set highlightTitle = highlightTitle %}
+{% set highlightText = highlightText %}
+{% set columnsMatrix = columnsMatrix %}
+{% set rowMatrix = rowMatrix %}
+{% if mainTitle or mainText or columnsMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--content-two-columns-v2 {% if isSimple %} is-simple-layout {% endif %}">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/content-two-columns-v2.css') }}?v=02112023">
+		<div class="content-two-columns-v2">
+			<div class="u-wrapper u-wrapper--medium">
+				{% if mainTitle or mainText %}
+					<div class="content-two-columns-v2__top">
+						{% if mainTitle %}
+							<h2 class="u-title u-title--section content-two-columns-v2__main-title">{{ mainTitle|raw }}</h2>
+						{% endif %}
+						{% if mainText %}
+							<div class="content-two-columns-v2__main-text">
+								{{ mainText }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+			{% if highlightTitle or highlightText %}
+				<div class="content-two-columns-v2__highlight">
+					<div class="u-wrapper u-wrapper--medium">
+						<div class="content-two-columns-v2__highlight-inner">
+							{% if highlightTitle %}
+								<div class="title">{{ highlightTitle|raw|nl2br }}</div>
+							{% endif %}
+							{% if highlightText %}
+								<div class="text">{{ highlightText }}</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if rowMatrix %}
+				<div class="u-wrapper u-wrapper--medium">
+					{% for row in rowMatrix %}
+						{% set itemText = row.itemText %}
+						{% set itemImage = row.itemImage.one() %}
+							<div class="content-two-columns-v2__row {{ loop.first ? ' is-first' : '' }} {{ (loop.index is even) ? 'is-even' : 'is-odd' }} {{ loop.last ? 'is-last' : '' }}">
+								<div class="text">{{ itemText }}</div>
+								<div class="image-hld">
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" width="300" height="222">
+								</div>
+							</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if columnsMatrix %}
+				<div class="u-wrapper u-wrapper--medium">
+					<div class="content-two-columns-v2__bottom">
+						{% for column in columnsMatrix %}
+							{% set itemTitle = column.itemTitle %}
+							{% set itemText = column.itemText %}
+							<div class="content-two-columns-v2__item {{ (loop.index is even) ? 'is-even' : 'is-odd' }}">
+								{% if itemTitle %}
+									<h3 class="item-title">{{ itemTitle }}</h3>
+								{% endif %}
+								{% if itemText %}
+									<div class="item-text">
+										{{ itemText }}
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

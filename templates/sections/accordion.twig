@@ -1,0 +1,38 @@
+{% set mainTitle = entry.accordionTitle %}
+{% set accordionListMatrix = entry.accordionList.all() %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--accordion {% if sectionId is defined %} is-top-section {% endif %}">
+	<div class="u-wrapper">
+		<div class="accordion js-accordion">
+			{% if mainTitle %}
+				<h2 class="accordion__main-title u-title">{{ mainTitle }}</h2>
+			{% endif %}
+			{% if accordionListMatrix %}
+				<div class="accordion__list">
+					{% for item in accordionListMatrix %}
+						{% set title = item.accordionItemTitle %}
+						{% set text = item.accordionItemText %}
+						{% set button = item.accordionItemLink %}
+						<div class="accordion__item item {% if text == '' and button == '' %} is-title-only {% endif %} {% if loop.index0 == 0 %} is-active {% endif %} js-accordion-toggle-item">
+							{% if text != '' or button != '' %}
+								<img src="{{ alias('@web/src/img/svg/arrow-up.svg') }}" class="item-arrow" alt="Arrow">
+							{% endif %}
+							<h3 class="item-title">{{ title }}</h3>
+							{% if text != '' or button != '' %}
+								<div class="u-content item-content">
+									<span class="item-text">{{ text }}</span>
+									{% if button %}
+										{% if button.url != '' %}
+											<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="u-btn u-btn--arrow item-btn">
+												<span class="text">{{ button.customText ? button.customText : button.text }}</span>
+											</a>
+										{% endif %}
+									{% endif %}
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>

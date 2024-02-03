@@ -1,0 +1,111 @@
+{% set title = entry.VideosTitle %}
+{% set subtitle = entry.VideosSubtitle %}
+{% set videos = entry.videos.all() %}
+{% set buttons = entry.VideosButtons.all() %}
+
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--videos">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/videos.css') }}?v=21092023">
+	<div class="u-wrapper">
+        {% if subtitle %}
+            <span class="videos-section-subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+        {% endif %}
+        {% if title %}
+            <h2 class="videos-section-title u-title u-title--section">{{ title }}</h2>
+        {% endif %}
+
+        {% if videos|length %}
+            <div class="videos-list">
+                {% for video in videos %}
+                    {% if loop.index < 3 %}
+                        <div class="videos-list__item is-{{ loop.index }}">
+                            <div class="video-hld js-video-hld is-paused show-thumbnail">
+                                <span class="icon icon-button_play"></span>
+                                <img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.thumbnail.one().getUrl() }}"/>
+                                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.file.one().getUrl() }}"></video>
+                            </div>
+                            <div class="video-desc">{{ video.description }}</div>
+                        </div>
+                    {% endif %}
+                    {% if loop.index == 1 %}
+                        {% if buttons|length %}
+                            <div class="video-buttons-title video-buttons-title--mobile u-subtitle u-subtitle--medium">Download the Wiliot App</div>
+                            <div class="video-buttons-hld video-buttons-hld--mobile">
+                                {% for button in buttons %}
+                                    {% if loop.index < 3 %}
+                                        {% set class = button.color == 'regular' ? 'u-btn--light' : 'u-btn--accent' %}
+                                        <div class="video-button-hld is-{{ loop.index }}">
+                                            <a class="video-button-button u-btn {{ class }} {% if button.button.getUrl()|length == '0' %} is-disabled {% endif %}" href="{{ button.button }}" target="{{ button.button.target ? '_blank' : '_self' }}" rel="{{ button.button.target ? 'noopener noreferrer' : null }}"><span class="text">{{ button.button.customText }}</span></a>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if buttons|length %}
+            <div class="video-buttons-title u-subtitle u-subtitle--medium">Download the Wiliot App</div>
+            <div class="video-buttons-hld">
+                {% for button in buttons %}
+                    {% if loop.index < 3 %}
+                        {% set class = button.color == 'regular' ? 'u-btn--light' : 'u-btn--accent' %}
+                        <div class="video-button-hld is-{{ loop.index }}">
+                            <a class="video-button-button u-btn {{ class }} {% if button.button.getUrl()|length == '0' %} is-disabled {% endif %}" href="{{ button.button }}" target="{{ button.button.target ? '_blank' : '_self' }}" rel="{{ button.button.target ? 'noopener noreferrer' : null }}"><span class="text">{{ button.button.customText }}</span></a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if videos|length > 2 %}
+            <div class="videos-list">
+                {% for video in videos %}
+                    {% if loop.index > 2 %}
+                        <div class="videos-list__item">
+                            <div class="video-hld {% if video.file.one() %}js-video-hld is-paused{% endif %} show-thumbnail">
+                                {% if video.file.one() %}
+                                    <span class="icon icon-button_play"></span>
+                                {% endif %}
+                                <img class="js-lazy thumbnail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.thumbnail.one().getUrl() }}"/>
+                                {% if video.file.one() %}
+                                    <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.file.one().getUrl() }}"></video>
+                                {% else  %}
+                                    <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"></video>
+                                {% endif %}
+                            </div>
+                            <div class="video-desc">{{ video.description }}</div>
+                        </div>
+                    {% endif %}
+                    {% if loop.index == 3 %}
+                        <div class="video-buttons-hld video-buttons-hld--mobile video-buttons-hld--coming-soon">
+                            {% if buttons|length %}
+                                {% for button in buttons %}
+                                    {% if loop.index > 2 %}
+                                        {% set class = button.color == 'regular' ? 'u-btn--light' : 'u-btn--accent' %}
+                                        <div class="video-button-hld">
+                                            <a class="video-button-button u-btn {{ class }} {% if button.button.getUrl()|length == '0' %} is-disabled {% endif %}" href="{{ button.button }}" target="{{ button.button.target ? '_blank' : '_self' }}" rel="{{ button.button.target ? 'noopener noreferrer' : null }}"><span class="text">{{ button.button.customText }}</span></a>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if buttons|length %}
+            {% for button in buttons %}
+                {% if loop.index > 2 %}
+                    {% set class = button.color == 'regular' ? 'u-btn--light' : 'u-btn--accent' %}
+                    <div class="video-button-hld is-{{ loop.index }}">
+                        <a class="video-button-button u-btn {{ class }} {% if button.button.getUrl()|length == '0' %} is-disabled {% endif %}" href="{{ button.button }}" target="{{ button.button.target ? '_blank' : '_self' }}" rel="{{ button.button.target ? 'noopener noreferrer' : null }}"><span class="text">{{ button.button.customText }}</span></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    </div>
+</section>
