@@ -97,7 +97,7 @@
 {% endblock %}
 
 {% block main %}
-	{# THERE ARE 2 DIFFERENT layouts: 1 for the standard/centered version, and 2, for the one with sidebar, for Raports/Whitepapers #}
+	{# THERE ARE 2 DIFFERENT layouts: 1 for the one with sidebar, for Raports/Whitepapers, and 2, for the standard/centered version #}
     {% if entry.type.handle == 'singleWithSidebar' %}
         {% set category = entry.postMainCategory.one() %}
         {% if category == 'Events' %}
@@ -117,6 +117,7 @@
         {% else %}
             {% set subtitle = category %}
         {% endif %}
+		{% set eventDescription = event.eventDescription %}
 		{% set authorImage = event.authorImage.one() %}
 		{% set authorName = event.authorName %}
 		{% set authorTitle = event.authorTitle %}
@@ -135,18 +136,71 @@
         {% set sidebarButton = event.eventSidebarButton %}
         {% set sidebarFormID = event.eventSidebarFormId %}
         {% set sectionId = '01' %}
-        <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--event-details">
+        <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--blog-details-with-sidebar">
             {% if not image %}
-				<div class="event-details__hero">
-					<div class="event-details__hero-blur">
-						<img src="{{ alias('@web/src/img/bg-shape/hero-blur.png') }}" alt="blur decoration">
+				<div class="blog-details-with-sidebar__hero js-bg-shape-hld">
+					<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+						<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
 					</div>
-					<div class="event-details__hero-text-hld">
-						<div class="u-wrapper u-wrapper--normal">
-							{% if subtitle %}
-								<span class="event-details__hero-subtitle">{{ subtitle }}</span>
-							{% endif %}
-							<h1 class="event-details__hero-title">{{ title }}</h1>
+					<div class="u-wrapper u-wrapper--normal">
+						<div class="blog-details-with-sidebar__hero-inner">
+							<div class="blog-details-with-sidebar__hero-text-hld">
+								<h1 class="u-title u-title--section title">{{ title }}</h1>
+								{% if subtitle %}
+									<div class="subtitle">
+										{{ subtitle }}
+									</div>
+								{% endif %}
+								<div class="description">
+									{{ eventDescription }}
+								</div>
+							</div>
+							<div class="blog-details-with-sidebar__hero-sidebar">
+								{% if sidebarTitle or sidebarText or sidebarButton.customText or sidebarFormID %}
+									{% if sidebarTitle %}
+										<span class="title">{{ sidebarTitle }}</span>
+									{% endif %}
+									{% if sidebarText %}
+										<p class="sidetext">{{ sidebarText }}</p>
+									{% endif %}
+									{% if sidebarButton.customText %}
+										<div class="btn-hld">
+											{% if sidebarButton.url %}
+												<a href="{{ sidebarButton.url }}" class="btn u-btn u-btn--accent" target="{{ sidebarButton.target ? '_blank' : '_self' }}" rel="{{ sidebarButton.target ? 'noopener noreferrer' : null }}">
+													<span class="text">{{ sidebarButton.customText }}</span>
+												</a>
+											{% else %}
+												<span class="btn u-btn u-btn--disabled">
+													<span class="text">{{ sidebarButton.customText }}</span>
+												</span>
+											{% endif %}
+										</div>
+									{% endif %}
+									{% if sidebarFormID %}
+										<div class="form u-dark-form u-bigger-form u-sidebar-form">
+											<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+											<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+											<script>
+												hbspt.forms.create({
+													region: "na1",
+													portalId: "4249967",
+													formId: "{{ sidebarFormID }}",
+													onFormReady: function(form) {
+														const formEl = form[0];
+														const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+															detail: {
+																form: formEl,
+																shortenSelects: true,
+															},
+														});
+														document.dispatchEvent(customHubspotFormScripts);
+													},
+												});
+											</script>
+										</div>
+									{% endif %}
+								{% endif %}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -179,7 +233,7 @@
                             {% endif %}
                         </div>
                     {% endif %}
-                    <div class="event-details-main {% if not image %}event-details-main--no-image{% endif %}">
+                    <div class="event-details-main {% if not image %} event-details-main--no-image {% endif %}">
                         <div class="event-details-content">
                             <div class="event-details-content-inner event-details-content-inner--landing-page">
                                 {% if date or readingTime or image %}
@@ -201,11 +255,13 @@
                                                         {% if authorName %}<span class="author-name">By {{ authorName }}</span>{% endif %}{% if authorName and authorTitle %}<span class="author-title">, {{ authorTitle }}</span>{% endif %}
                                                     </div>
                                                 {% endif %}
-                                                <div class="bottom">
-                                                    <div class="date">
-                                                        {{ date }}
-                                                    </div>
-                                                </div>
+												{% if date %}
+													<div class="bottom">
+														<div class="date">
+															{{ date }}
+														</div>
+													</div>
+												{% endif %}
                                             </div>
                                         </div>
                                         {% if readingTime %}
@@ -234,58 +290,6 @@
                                     </div>
                                 {% endif %}
                             </div>
-                        </div>
-                        <div class="event-details-sidebar">
-                            {% if sidebarTitle or sidebarText or sidebarButton.customText or sidebarFormID %}
-                                <div class="event-details-sidebar-box event-details-sidebar-box--{% if sidebarFormID %}normal{% else %}sticky{% endif %}">
-                                    {% if sidebarTitle %}
-                                        <span class="event-details-sidebar-box__title">{{ sidebarTitle }}</span>
-                                    {% endif %}
-                                    {% if sidebarText %}
-                                        <p class="event-details-sidebar-box__text">{{ sidebarText }}</p>
-                                    {% endif %}
-                                    {% if sidebarButton.customText %}
-                                        <div class="event-details-sidebar-box__btn-hld">
-                                            {% if sidebarButton.url %}
-                                                <a href="{{ sidebarButton.url }}" class="event-details-sidebar-box__btn u-btn u-btn--accent" target="{{ sidebarButton.target ? '_blank' : '_self' }}" rel="{{ sidebarButton.target ? 'noopener noreferrer' : null }}">
-                                                    <span class="text">{{ sidebarButton.customText }}</span>
-                                                </a>
-                                            {% else %}
-                                                <span class="event-details-sidebar-box__btn u-btn u-btn--disabled">
-                                                    <span class="text">{{ sidebarButton.customText }}</span>
-                                                </span>
-                                            {% endif %}
-                                        </div>
-                                    {% endif %}
-                                    {% if sidebarFormID %}
-                                        <div class="event-details-form u-dark-form u-bigger-form u-sidebar-form">
-                                            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-                                            <script
-                                                    src="https://code.jquery.com/jquery-3.6.0.min.js"
-                                                    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                                                    crossorigin="anonymous">
-                                            </script>
-                                            <script>
-                                                hbspt.forms.create({
-                                                    region: "na1",
-                                                    portalId: "4249967",
-                                                    formId: "{{ sidebarFormID }}",
-                                                    onFormReady: function(form) {
-                                                        const formEl = form[0];
-                                                        const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
-                                                            detail: {
-                                                                form: formEl,
-                                                                shortenSelects: true,
-                                                            },
-                                                        });
-                                                        document.dispatchEvent(customHubspotFormScripts);
-                                                    },
-                                                });
-                                            </script>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            {% endif %}
                         </div>
                     </div>
                 </div>

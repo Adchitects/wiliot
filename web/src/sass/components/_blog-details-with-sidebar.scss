@@ -1,0 +1,151 @@
+.u-section--blog-details-with-sidebar {
+	margin-top: 176px;
+}
+
+.blog-details-with-sidebar {
+	&__hero {
+		position: relative;
+		padding-bottom: 64px;
+	}
+
+	&__hero-inner {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__hero-text-hld {
+		width: 408px;
+		max-width: 100%;
+		margin-top: 26px;
+
+		.subtitle {
+			display: inline-flex;
+			margin-top: 24px;
+			padding: 5px 12px 4px;
+			border-radius: 4px;
+			background-color: $c-accent;
+			color: $c-white;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: calc(16 / 12);
+		}
+
+		.description {
+			margin-top: 12px;
+		}
+	}
+
+	&__hero-sidebar {
+		position: relative;
+		width: 516px;
+		max-width: 100%;
+		padding: 40px 26px 32px;
+		border-radius: 6px;
+		background-color: $c-white;
+		box-shadow: 0 0 10px 0 rgba(134, 134, 183, 0.15);
+
+		.title {
+			display: block;
+			color: $c-black;
+			font-size: 24px;
+			font-weight: 900;
+			line-height: calc(40 / 24);
+
+			& + .text {
+				margin-top: 8px;
+			}
+		}
+
+		.sidetext {
+			display: block;
+			color: rgba($c-black, 0.8);
+			font-size: 16px;
+			font-weight: 500;
+			line-height: calc(26 / 16);
+			text-align: center;
+		}
+
+		.btn-hld {
+			display: flex;
+			margin-top: 24px;
+			text-align: left;
+		}
+
+		.btn {}
+
+		.form.form {
+			margin-top: 10px;
+
+			.hs_firstname,
+			.hs_lastname,
+			.hs_email,
+			.hs_company {
+				display: inline-block;
+				width: calc(50% - 8px);
+				margin-bottom: 20px;
+
+				label {
+					span {
+						color: $c-neutral-60 !important;
+						font-size: 14px !important;
+					}
+				}
+			}
+
+			.hs_firstname,
+			.hs_email {
+				margin-right: 12px;
+			}
+
+			input[type='text'],
+			input[type='email'] {
+				border-bottom-color: $c-neutral-60 !important;
+				font-size: 14px !important;
+				font-weight: 400 !important;
+			}
+
+			.legal-consent-container {
+				.field.hs-form-field {
+					margin-bottom: 0;
+				}
+
+				.hs-richtext {
+					margin-top: 0;
+
+					p {
+						font-size: 13px !important;
+					}
+				}
+			}
+
+			.inputs-list {
+				margin-top: 0 !important;
+
+				.hs-form-booleancheckbox-display {
+					span {
+						top: -1px;
+
+						p {
+							font-size: 13px !important;
+						}
+					}
+				}
+			}
+
+			.hs_submit {
+				margin-top: 18px !important;
+
+				.actions {
+					text-align: left;
+				}
+
+				input.hs-button {
+					width: 178px;
+					height: 44px;
+					padding: 0;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
