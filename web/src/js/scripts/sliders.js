@@ -132,6 +132,7 @@ const featuredSlider = new Swiper('.js-featured-slider', {
 	spaceBetween: 24,
 	speed: 400,
 	autoplay: false,
+	grabCursor: true,
 	navigation: {
 		nextEl: '.js-featured-slider-button-next',
 		prevEl: '.js-featured-slider-button-prev',
@@ -144,7 +145,7 @@ const featuredSlider = new Swiper('.js-featured-slider', {
 				disableOnInteraction: true,
 			},
 		},
-		768: {
+		769: {
 			slidesPerView: 3,
 			autoplay: {
 				delay: 2000,

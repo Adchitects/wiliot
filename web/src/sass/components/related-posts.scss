@@ -14,6 +14,10 @@
 		grid-gap: 0 78px;
 		margin-top: 56px;
 
+		.is-with-sidebar & {
+			margin-top: 20px;
+		}
+
 		@include media-max(1100) {
 			grid-gap: 0 24px;
 		}
@@ -34,6 +38,13 @@
 		font-size: 32px;
 		font-weight: 900;
 		line-height: 40px;
+
+		.is-with-sidebar & {
+			color: #939393;
+			font-size: 15px;
+			text-align: center;
+			text-transform: uppercase;
+		}
 	}
 
 	.post {

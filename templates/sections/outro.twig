@@ -1,12 +1,12 @@
-{% set subtitle = entry.outroSubtitle %}
-{% set title = entry.outroTitle %}
-{% set description = entry.outroDescription %}
+{% set subtitle = entry.outroSubtitle ? entry.outroSubtitle : outroGlobals.outroSubtitle %}
+{% set title = entry.outroTitle ? entry.outroTitle : outroGlobals.outroTitle %}
+{% set description = entry.outroDescription ? entry.outroDescription : outroGlobals.outroDescription %}
 {% set button = entry.outroButton %}
 {% set button2 = entry.outroButton2 %}
 {% if entry.outroButtonsMatrix %}
     {% set outroButtonsMatrix = entry.outroButtonsMatrix.all() %}
 {% else %}
-    {% set outroButtonsMatrix = false %}
+    {% set outroButtonsMatrix = outroGlobals.outroButtonsMatrix %}
 {% endif %}
 {% if subtitle or title %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--outro {{ description ? null : 'is-small' }}">
