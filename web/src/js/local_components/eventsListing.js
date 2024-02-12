@@ -2,15 +2,11 @@ console.log('eventsListing script loaded');
 
 const eventsListing = document.querySelector('.js-events-listing');
 const eventsItems = document.querySelectorAll('.js-event-item');
-
-console.log(eventsItems);
 if (eventsListing && eventsItems) {
-	console.log(eventsListing);
 	const maxItems = eventsListing.dataset.count ? eventsListing.dataset.count : false;
 	const noResults = document.querySelector('.js-events-listing-no-results');
 	const showMoreBtnHld = document.querySelector('.js-more-events-btn-hld');
 	const showMoreBtn = document.querySelector('.js-more-events-btn');
-
 	const checkItems = (showMore = false) => {
 		let currentIndex = 0;
 		eventsItems.forEach(item => {
@@ -58,18 +54,40 @@ if (eventsListing && eventsItems) {
 			noResults.classList.remove('is-active');
 		}
 	};
-
-	const eventsCategories = document.querySelectorAll('.js-events-listing-category');
-	if (eventsCategories) {
-		eventsCategories.forEach(category => {
+	const currentHash = window.location.hash.replace('#', '');
+	const decodedHash = decodeURIComponent(currentHash);
+	eventsListing.classList.add('is-active');
+	if (decodedHash) {
+		const eventsCategoriesAll = document.querySelectorAll('.js-events-listing-category');
+		eventsCategoriesAll.forEach(category => {
+			const categoryTitle = category.dataset.title.toLowerCase().replace(/\s+/g, '-');
+			if (categoryTitle === decodedHash) {
+				category.classList.add('is-active');
+				eventsListing.dataset.category = category.dataset.id;
+				checkItems();
+			} else {
+				category.classList.remove('is-active');
+			}
+		});
+	}
+	const eventsCategoriesAll = document.querySelectorAll('.js-events-listing-category');
+	if (eventsCategoriesAll) {
+		eventsCategoriesAll.forEach(category => {
 			category.addEventListener('click', () => {
 				if (!category.classList.contains('is-active')) {
-					eventsCategories.forEach(categoryDeeper => {
+					eventsCategoriesAll.forEach(categoryDeeper => {
 						categoryDeeper.classList.remove('is-active');
 					});
 					category.classList.add('is-active');
 					eventsListing.dataset.category = category.dataset.id;
 					checkItems();
+					if (category.dataset.title !== 'all') {
+						const formattedTitle = category.dataset.title.toLowerCase().replace(/\s+/g, '-');
+						const newUrl = `${window.location.pathname}#${encodeURIComponent(formattedTitle)}`;
+						window.history.pushState({ path: newUrl }, '', newUrl);
+					} else {
+						window.history.pushState({ path: window.location.pathname }, '', window.location.pathname);
+					}
 				}
 			});
 		});
