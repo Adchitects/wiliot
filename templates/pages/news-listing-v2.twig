@@ -108,11 +108,11 @@
                             {% if newsCategories %}
                                 <div class="events-listing-categories-hld">
                                     <div class="events-listing-categories">
-                                        <span class="events-listing-category js-events-listing-category is-active" data-id="all">
+                                        <span class="events-listing-category js-events-listing-category is-active" data-id="all" data-title="all">
                                             <span class="text">All</span>
                                         </span>
                                         {% for category in newsCategories %}
-                                            <span class="events-listing-category js-events-listing-category" data-id="{{ category.id }}">
+                                            <span class="events-listing-category js-events-listing-category" data-id="{{ category.id }}" data-title="{{ category.title }}">
                                                 <span class="text">{{ category.title }}</span>
                                             </span>
                                         {% endfor %}
@@ -193,6 +193,5 @@
 	{% set sectionId = '03' %}
 	{{ include('/sections/subscribe.twig') }}
 	{% set sectionId = '' %}
-
 	<script src="{{ alias('@web/src/js/eventsListing.min.js') }}"></script>
 {% endblock %}
