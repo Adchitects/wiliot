@@ -91,3 +91,15 @@
 		}
 	}
 }
+
+.related-news {
+	&__btn-hld {
+		margin: 0 auto;
+		margin-top: 50px;
+		text-align: center;
+
+		.btn {
+			padding: 16px 40px 14px;
+		}
+	}
+}

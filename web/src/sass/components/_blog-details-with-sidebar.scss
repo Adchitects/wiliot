@@ -8,6 +8,7 @@
 		padding-top: 176px;
 		padding-bottom: 64px;
 		background-image: radial-gradient(45.23% 45.23% at 98.7% -7.48%, #F5F5FC 0%, #F5F9FC 100%);
+		overflow: hidden;
 
 		@include tablet-small {
 			padding-top: 64px;
@@ -96,7 +97,7 @@
 		.btn {}
 
 		.form.form {
-			margin-top: 10px;
+			margin-top: 16px;
 
 			.hs_firstname,
 			.hs_lastname,
@@ -104,7 +105,7 @@
 			.hs_company {
 				display: inline-block;
 				width: calc(50% - 8px);
-				margin-bottom: 20px;
+				margin-bottom: 28px;
 
 				label {
 					span {
@@ -195,6 +196,10 @@
 		.left,
 		.right {
 			flex: 1 1;
+
+			strong {
+				color: $c-accent;
+			}
 		}
 
 		.right {
