@@ -1,5 +1,6 @@
 .u-section--press-publication {
-	& + .u-section--press-release {
+	& + .u-section--press-release,
+	& + .u-section--freemode-slider-with-images {
 		margin-top: 140px;
 	}
 }

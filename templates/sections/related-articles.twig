@@ -8,8 +8,46 @@
 				<span class="u-subtitle u-subtitle--section u-subtitle--centered related-articles__main-subtitle">{{ mainSubtitle }}</span>
 				<h2 class="u-title u-title--section u-subtitle--centered related-articles__main-title">{{ mainTitle }}</h2>
 				<div class="related-articles__items-hld">
-					{% set chosenEntries = entry.relatedArticlesChosenEntries %}
+					{% set chosenRelatedPostsMatrix = entry.chosenRelatedPostsMatrix.all()%}
+					{% set chosenEntries = chosenRelatedPostsMatrix|length ? null : entry.relatedArticlesChosenEntries %}
 					<div class="left">
+						{% if chosenRelatedPostsMatrix|length %}
+							{% for item in chosenRelatedPostsMatrix %}
+								{% set chosenPostEntry = item.chosenPostEntry.one() %}
+								{% set image = item.chosenPostImage.one() %}
+								{% if image %}
+									{% set imageUrl = image.getUrl() %}
+									{% set imageWidth = image.getWidth() %}
+									{% set imageHeight = image.getHeight() %}
+									{% set imageAlt = image.title %}
+								{% endif %}
+								{% set title = item.chosenPostTitle %}
+								{% set desc = item.chosenPostDescription|striptags|striptags %}
+								{% set descSliced = desc|slice(0, 97) ~ '...' %}
+								{% if loop.index0 == 0 %}
+									<a class="related-articles__item is-featured" href="{{ chosenPostEntry.getUrl() }}">
+										<div class="image-hld">
+											{% if image %}
+												<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="600" height="342">
+											{% else %}
+												<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder-image.jpg') }}" width="600" height="342" alt="Wiliot placeholder image">
+											{% endif %}
+										</div>
+										<div class="text-hld">
+											<div class="date">
+												{{ chosenPostEntry.postDate | date("F d, Y") }}
+											</div>
+											<div class="title">
+												{{ title|length > 110 ? title|slice(0, 107) ~ '...' : title }}
+											</div>
+											<div class="excerpt">
+												{{ desc|length > 100 ? descSliced|raw : desc|raw }}
+											</div>
+										</div>
+									</a>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
 						{% for post in chosenEntries %}
 							{% set isNews = post.postMainCategory %}
 							{% set isEvent = post.eventCategory %}
@@ -77,6 +115,43 @@
 						{% endfor %}
 					</div>
 					<div class="right">
+						{% if chosenRelatedPostsMatrix|length %}
+							{% for item in chosenRelatedPostsMatrix %}
+								{% set chosenPostEntry = item.chosenPostEntry.one() %}
+								{% set image = item.chosenPostImage.one() %}
+								{% if image %}
+									{% set imageUrl = image.getUrl() %}
+									{% set imageWidth = image.getWidth() %}
+									{% set imageHeight = image.getHeight() %}
+									{% set imageAlt = image.title %}
+								{% endif %}
+								{% set title = item.chosenPostTitle %}
+								{% set desc = item.chosenPostDescription|striptags|striptags %}
+								{% set descSliced = desc|slice(0, 97) ~ '...' %}
+								{% if loop.index0 > 0 %}
+									<a class="related-articles__item is-normal" href="{{ chosenPostEntry.getUrl() }}">
+										<div class="image-hld">
+											{% if image %}
+												<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" width="600" height="342">
+											{% else %}
+												<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/placeholder-image.jpg') }}" width="600" height="342" alt="Wiliot placeholder image">
+											{% endif %}
+										</div>
+										<div class="text-hld">
+											<div class="date">
+												{{ chosenPostEntry.postDate | date("F d, Y") }}
+											</div>
+											<div class="title">
+												{{ title|length > 110 ? title|slice(0, 107) ~ '...' : title }}
+											</div>
+											<div class="excerpt">
+												{{ desc|length > 100 ? descSliced|raw : desc|raw }}
+											</div>
+										</div>
+									</a>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
 						{% for post in chosenEntries %}
 							{% set isNews = post.postMainCategory %}
 							{% set isEvent = post.eventCategory %}
