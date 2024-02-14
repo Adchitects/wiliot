@@ -107,7 +107,7 @@
 											{% elseif isPodcast %}
 												{% set excerpt = post.podcastDetailsExcerpt|striptags|slice(0, 210) ~ '...' %}
 											{% endif %}
-											{{ excerpt }}
+											{{ excerpt|replace({'&nbsp;': ' '}) }}
 										</div>
 									</div>
 								</a>
