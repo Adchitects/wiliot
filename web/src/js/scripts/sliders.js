@@ -128,24 +128,25 @@ const logosSlider = new Swiper('.js-logos-slider', {
 logosSlider;
 
 const featuredSlider = new Swiper('.js-featured-slider', {
-	slidesPerView: 1,
+	slidesPerView: 1.2,
 	spaceBetween: 24,
 	speed: 400,
 	autoplay: false,
+	grabCursor: true,
 	navigation: {
 		nextEl: '.js-featured-slider-button-next',
 		prevEl: '.js-featured-slider-button-prev',
 	},
 	breakpoints: {
 		480: {
-			slidesPerView: 2,
+			slidesPerView: 2.3,
 			autoplay: {
 				delay: 2000,
 				disableOnInteraction: true,
 			},
 		},
-		768: {
-			slidesPerView: 3,
+		769: {
+			slidesPerView: 3.3,
 			autoplay: {
 				delay: 2000,
 				disableOnInteraction: true,
