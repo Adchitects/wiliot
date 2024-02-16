@@ -27,7 +27,9 @@
 	{% set readingTime = event.eventReadingTime %}
 	{% set title = event.title %}
 	{% set subtitle = event.eventSubtitle %}
+	{% set eventDescription = event.eventDescription %}
 	{% set showShareIcons = event.eventShareIcons %}
+	{% set postContentLeft = entry.postContentLeft %}
 	{% set postContent = event.eventContent %}
 	{% set video = entry.eventVideo.one() %}
 	{% set videoPlaceholder = entry.eventVideoPlaceholder.one() %}
@@ -53,6 +55,9 @@
 								{{ subtitle }}
 							</div>
 						{% endif %}
+						<div class="description">
+							{{ eventDescription }}
+						</div>
 					</div>
 					{% if sidebarTitle or sidebarText or sidebarButton.customText or sidebarFormID %}
 						<div class="blog-details-with-sidebar__hero-sidebar">
@@ -103,18 +108,12 @@
 				</div>
 			</div>
 		</div>
-		{% if postContent or video %}
+		{% if postContent or postContentLeft or video %}
 			<div class="u-wrapper u-wrapper--normal">
-				<div class="event-details-hld blog-details-with-sidebar__hld">
-					<div class="event-details-main">
-						<div class="event-details-content-inner event-details-content-inner--landing-page">
-							<div class="blog-details-with-sidebar__content-hld u-content">
-								{% if postContent %}
-									<div class="right">
-										{{ postContent }}
-									</div>
-								{% endif %}
-							</div>
+				<div class="blog-details-with-sidebar__content-hld u-content">
+					{% if postContentLeft %}
+						<div class="left">
+							{{ postContentLeft }}
 							{% if video %}
 								<div class="event-details__video-hld js-video-hld is-paused is-before-play">
 									<span class="icon icon-button_play"></span>
@@ -127,7 +126,12 @@
 								</div>
 							{% endif %}
 						</div>
-					</div>
+					{% endif %}
+					{% if postContent %}
+						<div class="right">
+							{{ postContent }}
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		{% endif %}
@@ -177,8 +181,7 @@
 							{% endif %}
 						</div>
 						<a href="/blog" class="u-btn u-btn--light related-news__btn">
-							<span class="text">
-							View all News                    </span>
+							<span class="text">View all News</span>
 						</a>
 					</div>
 				</div>

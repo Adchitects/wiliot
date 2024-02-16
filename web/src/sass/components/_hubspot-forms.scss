@@ -1,6 +1,8 @@
 .hbspt-form,
 .hs-form {
 	.no-list.hs-error-msgs.inputs-list {
+		position: absolute;
+		bottom: -24px;
 		font-size: 14px;
 	}
 
