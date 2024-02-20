@@ -122,7 +122,7 @@
 		<div class="solutions-details__content-hld js-solutions-slider-hld js-toggle-active-hld">
 			<div class="solutions-details__content-subtitle">{{ contentSubtitle|nl2br }}</div>
 			<div class="solutions-details__content-title u-title u-title--section">{{ contentTitle|nl2br }}</div>
-			{% if tabMatrix|length > 1 %}
+			{% if tabMatrix|length > 0 %}
 				<div class="solutions-details__tabs-slider swiper-container js-solutions-slider-tabs">
 					<div class="solutions-details__tabs-slider-wrapper swiper-wrapper">
 						{% set counter = 0 %}
@@ -160,7 +160,7 @@
 											{% set tabItemImageHeight = tabItemImage.getHeight() %}
 											{% set tabItemImageAlt = tabItemImage.title %}
 										{% endif %}
-										<li class="box__nav-item js-toggle-active-nav-item {% if loop.index == 1 %} is-active {% endif %}" data-key="{{ loop.index }}">
+										<li class="box__nav-item js-toggle-active-nav-item {% if loop.index == 1 %} is-active {% endif %} {{ tabItemImage ? '' : 'is-no-image' }}" data-key="{{ loop.index }}">
 											<div class="text-hld">
 												<div class="index">
 												{% if loop.index < 10 %}0{% endif %}{{ loop.index }}
