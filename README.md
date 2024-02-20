@@ -1,12 +1,12 @@
-# ADCHITECTS Craft CMS STARTER PACK BOILERPLATE
+# Wiliot Craft CMS 4 Project
+
+# Local Environment setup:
+- Use Docker with DDEV: https://craftcms.com/docs/getting-started-tutorial/environment/
+
 # Run project:
 
-Go to your project in *YOUR-THEME-NAME* directory.
-
-Create new host with MAMP and run the server. Important! Name of the host have to be exactly the same as *YOUR-THEME-NAME*.
-
 Run commands:
-// Please use node version 12 - to switch use nvm and type `$ nvm use 12`
+// Please use node version 12 - 16
 
 ```
 $ npm install
@@ -17,12 +17,11 @@ $ npm run build (build dist) (OR yarn build)
 # With this boilerplate you get:
 - SCSS injection
 - JS reloading
-- PHP reloading
+- Twig reloading
 - JS linter
 - SCSS linter with properties order
 - JS minification
 - CSS minification
-- CSS versioning
 - Images lazyload
 - GSAP 3
 - Swiper
