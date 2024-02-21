@@ -1,0 +1,32 @@
+{% set title = entry.fullWidthImageTitle %}
+{% set description = entry.fullWidthImageDescription %}
+{% set image = entry.fullWidthImage.one() %}
+{% set link = entry.fullWidthImageLink %}
+{% if entry is defined %}
+	{% if image %}
+		<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--full-width-image js-bg-shape-hld">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/full-width-image.css') }}?v=21022024">
+			<div class="u-wrapper">
+				<div class="full-width-image">
+					<div class="full-width-image__text-hld">
+						{% if title %}
+							<h2 class="full-width-image__title u-title u-title--big">{{ title|nl2br }}</h2>
+						{% endif %}
+						{% if description %}
+							<div class="full-width-image__description">{{ description|raw }}</div>
+						{% endif %}
+					</div>
+					{% if link and image %}
+						<a href="{{ link }}" target="{{ link.target ? '_blank' : '_self' }}" rel="{{ link.target ? 'noopener noreferrer' : null }}" aria-label="Image link" class="full-width-image__img-hld">
+							<img src="{{ image.getUrl() }}" alt="{{ title }}" class="full-width-image__image" width="328" height="246">
+						</a>
+					{% elseif image %}
+						<div class="full-width-image__img-hld">
+							<img src="{{ image.getUrl() }}" alt="{{ title }}" class="full-width-image__image" width="328" height="246">
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</section>
+	{% endif %}
+{% endif %}

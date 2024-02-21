@@ -528,11 +528,11 @@
 				align-items: flex-start;
 				position: sticky;
 				top: calc(50vh - 240px);
-				min-height: 365px;
 				height: fit-content;
+				min-height: 365px;
 				padding-top: 60px;
-				padding-left: 65px;
 				padding-bottom: 30px;
+				padding-left: 65px;
 
 				@include tablet-medium-1199 {
 					padding-left: 30px;
