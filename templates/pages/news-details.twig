@@ -292,6 +292,7 @@
 		{% else %}
 			{% set heroImage = entry.newsPostsfeaturedImage.one() %}
 		{% endif %}
+		{% set heroImageLink = entry.newsPostsHeroImageLink %}
 		{% set newsContent = entry.postContent %}
 		{% set newsPostsEventText = entry.newsPostsEventText %}
 		{% set postDate = entry.postDate|date("F d, Y") %}
@@ -313,7 +314,13 @@
 					<h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
 					<div class="hero-news__publish-date">{{ newsPostsEventText ? newsPostsEventText : postDate }}</div>
 					{% if heroImage %}
-						<img src="{{ heroImage.getUrl('postImage') }}" class="hero-news__image" alt="{{ heroTitle }}">
+						{% if heroImageLink.url %}
+							<a href="{{ heroImageLink.url }}" target="{{ heroImageLink.target ? '_blank' : '_self' }}" rel="{{ heroImageLink.target ? 'noopener noreferrer' : null }}" class="hero-news__image-hld">
+								<img src="{{ heroImage.getUrl('postImage') }}" class="hero-news__image" alt="{{ heroTitle }}" width="328" height="375">
+							</a>
+						{% else %}
+							<img src="{{ heroImage.getUrl('postImage') }}" class="hero-news__image" alt="{{ heroTitle }}" width="328" height="375">
+						{% endif %}
 					{% endif %}
 				</div>
 			</div>

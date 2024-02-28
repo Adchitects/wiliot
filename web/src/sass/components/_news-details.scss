@@ -73,6 +73,26 @@
 			line-height: 30px;
 		}
 
+		&__image-hld {
+			position: absolute;
+			bottom: -600px;
+			left: 50%;
+			z-index: 1;
+			width: 100%;
+			height: 575px;
+			transform: translateX(-50%);
+
+			@include mobile-767 {
+				bottom: -400px;
+				height: 375px;
+			}
+
+			img {
+				position: static;
+				transform: none;
+			}
+		}
+
 		&__image {
 			position: absolute;
 			bottom: -600px;
