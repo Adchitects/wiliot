@@ -204,7 +204,7 @@
             {% endblock %}
 		</head>
 	{% endblock %}
-	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% if entry.type.handle == 'singleWithSidebar' %} is-with-sidebar{% endif %}{% endif %}">
+	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% if entry.type.handle == 'singleWithSidebar' or entry.type.handle == 'singleEventWithHeroForm' %} is-with-sidebar{% endif %}{% endif %}">
 		{% if customScripts.customScriptsBodyStart %}
 			{{ customScripts.customScriptsBodyStart|raw }}
 		{% endif %}

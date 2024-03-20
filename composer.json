@@ -2,7 +2,7 @@
     "require": {
         "algolia/algoliasearch-client-php": "^3.3",
         "born05/craft-assetusage": "dev-craft4",
-        "craftcms/cms": "4.8.0",
+        "craftcms/cms": "4.8.4",
         "craftcms/redactor": "3.0.4",
         "dolphiq/redirect": "2.0.1",
         "ether/seo": "4.2.2",
@@ -13,7 +13,7 @@
         "verbb/image-resizer": "3.0.11",
         "verbb/smith": "2.0.0",
         "verbb/super-table": "3.0.12",
-        "verbb/tablemaker": "4.0.7",
+        "verbb/tablemaker": "4.0.9",
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {
