@@ -26,11 +26,7 @@
 		{% set authorImage = event.authorImage.one() %}
 		{% set authorName = event.authorName %}
 		{% set authorTitle = event.authorTitle %}
-		{% if event.eventDate is defined and event.eventDate %}
-			{% set date = event.eventDate %}
-		{% else %}
-			{% set date = entry.postDate|date("F d, Y") %}
-		{% endif %}
+		{% set date = event.eventDate %}
 		{% set time = event.eventTime %}
 		{% set showShareIcons = event.eventShareIcons %}
 		{% set topic = event.eventTopic.one() %}
@@ -38,7 +34,6 @@
 		{% set length = event.eventLength %}
 		{% set speakersTitle = event.eventSpeakersTitle %}
 		{% set speakers = event.eventSpeakers %}
-		{# TODO #}
 		{% set eventContentLeft = entry.eventContentLeft %}
 		{% set eventContent = event.eventContent %}
 		{% set content = event.eventContent|striptags %}
@@ -124,6 +119,22 @@
 				<div class="event-details-hld blog-details-with-sidebar__hld">
 					<div class="event-details-main">
 						<div class="event-details-content-inner event-details-content-inner--landing-page">
+														{% if showShareIcons %}
+									<div class="event-details-share">
+										<a href="{{ 'https://www.facebook.com/sharer/sharer.php?u='~entry.getUrl() }}" title="Share event on Facebook">
+											<span class="icon icon-facebook"></span>
+										</a>
+										<a href="{{ 'https://twitter.com/intent/tweet?url='~entry.getUrl() }}" title="Share event on Twitter">
+											<span class="icon icon-twitter"></span>
+										</a>
+										<a href="{{ 'https://www.linkedin.com/shareArticle?mini=true&url='~entry.getUrl() }}" title="Share event on LinkedIn">
+											<span class="icon icon-linkedin"></span>
+										</a>
+										<a href="{{ 'mailto:info@example.com?&subject=&cc=&bcc=&body='~entry.getUrl()~'%0A' }}" title="Share event in e-mail">
+											<span class="icon icon-email"></span>
+										</a>
+									</div>
+								{% endif %}
 							{% if category or topic or date or time or place or length %}
 								<div class="event-details-info blog-details-with-sidebar__info">
 									{% if category or topic or length %}
@@ -174,6 +185,17 @@
 												</div>
 											{% endif %}
 											{{ eventContentLeft }}
+											{% if video %}
+												<div class="event-details__video-hld js-video-hld is-paused is-before-play">
+													<span class="icon icon-button_play"></span>
+													{% if videoPlaceholder %}
+														<div class="event-details__video-placeholder">
+															<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
+														</div>
+													{% endif %}
+													<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
+												</div>
+											{% endif %}
 										</div>
 									{% elseif image %}
 										{% set imageUrl = image.getUrl %}
@@ -189,15 +211,29 @@
 									{% endif %}
 								</div>
 							{% endif %}
-							{% if video %}
-								<div class="event-details__video-hld js-video-hld is-paused is-before-play">
-									<span class="icon icon-button_play"></span>
-									{% if videoPlaceholder %}
-										<div class="event-details__video-placeholder">
-											<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
-										</div>
+							{% if speakers|length %}
+								<div class="event-details-speakers-hld">
+									{% if speakersTitle %}
+										<span class="event-details-speakers-title">{{ speakersTitle }}</span>
 									{% endif %}
-									<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
+									<div class="event-details-speakers">
+										{% for speaker in speakers %}
+											{% set image = speaker.speakerPhoto.one() %}
+											<div class="event-details-speaker {% if image %}event-details-speaker--with-photo{% endif %}">
+												{% if image %}
+													{% set imageUrl = image.getUrl('eventItemSpeaker') %}
+													{% set imageAlt = image.title %}
+													<div class="event-details-speaker__photo-hld">
+														<img class="event-details-speaker__photo js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+													</div>
+												{% endif %}
+												<span class="event-details-speaker__name">{{ speaker.speakerTitle }}</span>
+												{% if speaker.speakerPosition %}
+													<span class="event-details-speaker__position">{{ speaker.speakerPosition }}</span>
+												{% endif %}
+											</div>
+										{% endfor %}
+									</div>
 								</div>
 							{% endif %}
 						</div>
@@ -208,7 +244,7 @@
 		{% set sectionId = '02' %}
 		{{ include('/sections/featured-slider.twig') }}
 		{% set sectionId = '03' %}
-		{{ include('/sections/related-posts.twig') }}
+		{{ include('/sections/related-events.twig') }}
 		{% set sectionId = '04' %}
 		{{ include('/sections/outro.twig') }}
 		{% set sectionId = '' %}

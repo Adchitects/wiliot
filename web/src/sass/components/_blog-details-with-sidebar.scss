@@ -196,6 +196,7 @@
 		.left,
 		.right {
 			flex: 1 1;
+			max-width: 100%;
 
 			strong {
 				color: $c-accent;
@@ -243,6 +244,18 @@
 			width: 408px;
 			max-width: 100%;
 			height: auto;
+			box-shadow: 0 0 20px 0 #00000033;
+		}
+
+		.event-details__video-placeholder {
+			width: 408px;
+			max-width: 100%;
+		}
+
+		.event-details__video-hld {
+			position: relative;
+			width: 408px;
+			max-width: 100%;
 			box-shadow: 0 0 20px 0 #00000033;
 		}
 
