@@ -33,19 +33,21 @@
 		{% endif %}
 		{% set time = event.eventTime %}
 		{% set showShareIcons = event.eventShareIcons %}
-
-		{# TODO #}
 		{% set topic = event.eventTopic.one() %}
 		{% set place = event.eventPlace %}
 		{% set length = event.eventLength %}
 		{% set speakersTitle = event.eventSpeakersTitle %}
 		{% set speakers = event.eventSpeakers %}
+		{# TODO #}
 		{% set eventContentLeft = entry.eventContentLeft %}
-
 		{% set eventContent = event.eventContent %}
+		{% set content = event.eventContent|striptags %}
+		{% set desiredLength = 104 %}
+		{% set bufferLength = 120 %}
+		{% set words = content|slice(0, bufferLength)|split(' ') %}
+		{% set eventDescription = event.eventExcerpt|striptags %}
 		{% set video = entry.eventVideo.one() %}
 		{% set videoPlaceholder = entry.eventVideoPlaceholder.one() %}
-
 		{% set sidebarTitle = event.eventSidebarTitle %}
 		{% set sidebarText = event.eventSidebarText %}
 		{% set sidebarButton = event.eventSidebarButton %}
@@ -66,7 +68,7 @@
 								</div>
 							{% endif %}
 							<div class="description">
-								{{ eventDescription }}
+								{{ eventDescription ~ '...' }}
 							</div>
 						</div>
 						{% if sidebarTitle or sidebarText or sidebarButton.customText or sidebarFormID %}
