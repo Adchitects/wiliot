@@ -227,9 +227,13 @@
 	font-weight: 500;
 	line-height: calc(24 / 14);
 
+	.is-with-sidebar & {
+		margin-left: unset;
+	}
 	&--reading-time {
 		text-transform: uppercase;
 	}
+
 }
 
 .event-details__time {
