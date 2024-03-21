@@ -222,6 +222,37 @@
 						}
 					}
 
+					&.is-before-play {
+						.video-placeholder {
+							display: block;
+						}
+
+						video {
+							opacity: 0;
+						}
+					}
+
+					.video-placeholder {
+						display: none;
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 0;
+						width: 100%;
+						height: 100%;
+						border-radius: 6px;
+						overflow: hidden;
+
+						img {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+
 					video {
 						width: 100%;
 						height: auto;
