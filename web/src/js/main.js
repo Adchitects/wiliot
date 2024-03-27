@@ -18,6 +18,7 @@ import './scripts/cookiesBox';
 import './scripts/typeformAnalytics';
 import './scripts/customHubspotForm';
 import './scripts/algoliaSearch';
+import './scripts/logrocket';
 // import './scripts/sectionId'; // Currently hidden at the client's request
 // import './scripts/ytVideoPlaceholder'; // Currently not used
 // import './scripts/sliding-boxes'; // Currently not used

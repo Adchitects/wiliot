@@ -64,6 +64,7 @@
         "axios": "^0.21.4",
         "gsap": "file:web/src/js/libs/gsap-bonus.tgz",
         "jquery": "^3.6.0",
+        "logrocket": "^8.1.0",
         "lottie-web": "^5.8.1",
         "simple-ajax-vanilla": "^4.3.0",
         "swiper": "^6.8.4",
