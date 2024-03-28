@@ -34,19 +34,13 @@
 					{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 				{% endblock %}
 			</title>
-			{% if handle == 'homepage' %}
-				<link href="https://player.vimeo.com" rel="preconnect" crossorigin>
-			{% endif %}
             <script>
 				var b=!1,c=document.getElementsByTagName("head")[0]||document.documentElement;function d(){var a=document.querySelectorAll("fscript");[].forEach.call(a,function(a){var b=document.createElement("script");if(b.type="text/javascript",a.hasAttributes())for(var d in a.attributes)a.attributes.hasOwnProperty(d)&&(b[a.attributes[d].name]=a.attributes[d].value||!0);else b.appendChild(document.createTextNode(a.innerHTML));c.insertBefore(b,c.firstChild)})}function e(){b||(b=!0,setTimeout(function(){"requestIdleCallback"in window?requestIdleCallback(d,{timeout:1e3}):d()},1e3))}const a=["scroll","mouseover","keydown","touchmove","touchstart","click"];a.forEach(a=>{window.addEventListener(a,e,{passive:!0,once:!0})})
 			</script>
-            <script>
-                (function(){var zi=document.createElement("script");zi.type="text/javascript";zi.async=true;zi.referrerPolicy="unsafe-url";zi.src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(zi,s)})();
-            </script>
-            {% if customScripts.customScriptsHead %}
+			{% if customScripts.customScriptsHead %}
 				{{ customScripts.customScriptsHead|raw }}
 			{% endif %}
-            <style>
+			<style>
 				@font-face {
 					font-family: 'avenir';
 					src: url('{{ alias('@web/src/fonts/avenir/avenir_300_book.woff2') }}') format('woff2'), url('{{ alias('@web/src/fonts/avenir/avenir_300_book.otf') }}') format('opentype');
@@ -392,11 +386,8 @@
         {% endif %}
         {{ csrfInput() }}
         <fscript src="//embed.typeform.com/next/embed.js"></fscript>
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=16022024"></script>
-        <!-- WebSights Footer HTML Snippet -->
-        <noscript>
-            <img src="https://ws.zoominfo.com/pixel/62fffbb373e2d6008f07ab09" width="1" height="1" style="display: none;" alt="websights" />
-        </noscript>
+        <script src="{{ alias('@web/src/js/main.min.js') }}?v=28032024"></script>
+		<!-- WebSights Footer HTML Snippet -->
 		{% if customScripts.customScriptsFooter %}
 			{{ customScripts.customScriptsFooter|raw }}
 		{% endif %}
