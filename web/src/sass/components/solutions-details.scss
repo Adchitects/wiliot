@@ -74,6 +74,14 @@
 				}
 			}
 		}
+
+		.is-page-dei & {
+			padding-bottom: 118px;
+
+			@include tablet-small {
+				padding-bottom: 60px;
+			}
+		}
 	}
 
 	&__hero-top {
@@ -178,6 +186,10 @@
 		img {
 			margin: 0 auto;
 			border-radius: 6px;
+
+			.is-page-dei & {
+				width: 790px;
+			}
 		}
 
 		.short-video-hld {
@@ -419,6 +431,15 @@
 
 		@include mobile-767 {
 			padding-bottom: 60px;
+		}
+
+		.is-page-dei & {
+			padding-top: 92px;
+
+			@include tablet-small {
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
 		}
 
 		.items-title {

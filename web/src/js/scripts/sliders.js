@@ -458,10 +458,16 @@ multirowSliderHldAll.forEach(sliderHld => {
 		slidesPerView: 1,
 		grabCursor: true,
 		threshold: 30,
+		spaceBetween: 10,
 		autoHeight: true,
+		effect: 'fade',
 		navigation: {
 			nextEl: '.js-multirow-slider-button-next',
 			prevEl: '.js-multirow-slider-button-prev',
+		},
+		pagination: {
+			el: '.js-multirow-slider-pagination',
+			type: 'progressbar',
 		},
 		on: {
 			slideChange: function() {
