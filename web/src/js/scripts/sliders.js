@@ -451,3 +451,23 @@ vendorsSliderHldAll.forEach(sliderHld => {
 	});
 	vendorSlider;
 });
+
+const multirowSliderHldAll = document.querySelectorAll('.js-multirow-slider-hld');
+multirowSliderHldAll.forEach(sliderHld => {
+	const multirowSlider = new Swiper(sliderHld.querySelector('.js-multirow-slider'), {
+		slidesPerView: 1,
+		grabCursor: true,
+		threshold: 30,
+		autoHeight: true,
+		navigation: {
+			nextEl: '.js-multirow-slider-button-next',
+			prevEl: '.js-multirow-slider-button-prev',
+		},
+		on: {
+			slideChange: function() {
+				lazyLoadInstance.update();
+			},
+		},
+	});
+	multirowSlider;
+});

@@ -35,6 +35,12 @@
     {% set showQuote = false %}
 {% endif %}
 {# Infobox #}
+{% if entry.multirowSliderItemsMatrix %}
+	{% set multirowSliderItemsMatrix = entry.multirowSliderItemsMatrix.all() %}
+{% else %}
+	{% set multirowSliderItemsMatrix = false %}
+{% endif %}
+{# Infobox #}
 {% if entry.infoboxMatrix %}
     {% if entry.infoboxTitle %}
         {% set infoboxTitle = entry.infoboxTitle %}
@@ -230,6 +236,11 @@
                 </div>
             </div>
         {% endif %}
+		{% if multirowSliderItemsMatrix %}
+			{% include '/sections/multirow-slider.twig' with {
+				itemsMatrix: multirowSliderItemsMatrix,
+			} %}
+		{% endif %}
         {% if infoboxMatrix %}
             <div class="solutions-details__infobox">
                 <div class="u-wrapper u-wrapper--medium">
