@@ -276,6 +276,10 @@
 
 			.is-page-dei & {
 				margin-top: 64px;
+
+				@include mobile {
+					margin-top: 30px;
+				}
 			}
 		}
 
@@ -293,6 +297,10 @@
 
 				.is-page-dei & {
 					width: 59%;
+
+					@include mobile {
+						width: 100%;
+					}
 				}
 
 				.subtitle {

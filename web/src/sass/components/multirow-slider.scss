@@ -43,7 +43,9 @@
 			}
 
 			img {
-				width: 260px;
+				@include tablet-small {
+					width: 260px;
+				}
 			}
 		}
 
@@ -59,9 +61,14 @@
 			}
 
 			@include tablet-small {
+				margin-top: 30px;
 				margin-left: 0;
 				padding-right: 0;
 				text-align: center;
+			}
+
+			@include mobile {
+				padding: 0 50px;
 			}
 		}
 
@@ -69,6 +76,10 @@
 			font-size: 32px;
 			font-weight: 900;
 			line-height: calc(40 / 32);
+
+			@include mobile {
+				font-size: 24px;
+			}
 		}
 
 		.description {
@@ -100,6 +111,10 @@
 			@include media-max(1230) {
 				font-size: 14px;
 			}
+
+			@include tablet-small {
+				margin-top: 20px;
+			}
 		}
 	}
 
@@ -118,16 +133,28 @@
 		transform: translateY(-50%);
 		transition: background-color 0.2s;
 
+		@include mobile {
+			top: 394px;
+		}
+
 		&:hover {
 			background-color: $c-accent-dark;
 		}
 
 		&--prev {
 			left: -22px;
+
+			@include mobile {
+				left: 0;
+			}
 		}
 
 		&--next {
 			right: -22px;
+
+			@include mobile {
+				right: 0;
+			}
 		}
 
 		.icon {
