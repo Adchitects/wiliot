@@ -1,195 +1,219 @@
 {% set itemsMatrix = entry.heroSliderItemsMatrix.all() %}
 {% if itemsMatrix|length > 0 %}
-    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider-hld {% endif %}">
-        <div class="hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider swiper-container {% endif %}">
-            {% if itemsMatrix|length > 1 %}
-                <div class="arrow arrow--prev arrow--desktop js-hero-slider-button-prev">
-                    <span class="icon icon-dropdown-up"></span>
-                </div>
-                <div class="arrow arrow--next arrow--desktop js-hero-slider-button-next">
-                    <span class="icon icon-dropdown-down"></span>
-                </div>
-                <div class="hero-slider__progress-bar hero-slider__progress-bar--desktop js-hero-slider-progress-bar"></div>
-            {% endif %}
-            <div class="hero-slider__inner swiper-wrapper">
-                {% for item in itemsMatrix %}
-                    {% set itemSubtitle = item.itemSubtitle %}
-                    {% set itemTitle = item.itemTitle %}
-                    {% set itemImage = item.itemImage.one() %}
-                    {% set itemImageDuration = item.itemImageDuration %}
-                    {% set itemDesktopVideoLink = item.itemDesktopVideoLink %}
-                    {% set itemShowWatchVideoButton = item.itemShowWatchVideoButton %}
-                    {% set itemDesktopVideoPosterUrl = '' %}
-                    {% set itemDesktopVideoPosterAlt = '' %}
-                    {% if item.itemDesktopVideoPosterUrl %}
-                        {% set itemDesktopVideoPosterUrl = item.itemDesktopVideoPosterUrl %}
-                        {% set itemDesktopVideoPosterAlt = item.itemDesktopVideoPosterAlt %}
-                    {% else %}
-                        {% set itemDesktopVideoPoster = item.itemDesktopVideoPoster.one() %}
-                        {% if itemDesktopVideoPoster %}
-                            {% set itemDesktopVideoPosterUrl = itemDesktopVideoPoster.getURL() %}
-                            {% set itemDesktopVideoPosterAlt = itemDesktopVideoPoster.title %}
-                        {% endif %}
-                    {% endif %}
-                    {% set itemDesktopVideoDuration = item.itemDesktopVideoDuration %}
-                    {% set itemMobileVideoLink = item.itemMobileVideoLink %}
-                    {% set itemMobilePictureUrl = '' %}
-                    {% set itemMobilePictureAlt = '' %}
-                    {% if item.itemMobilePictureUrl %}
-                        {% set itemMobilePictureUrl = item.itemMobilePictureUrl %}
-                        {% set itemMobilePictureAlt = item.itemMobilePictureAlt %}
-                    {% elseif item.itemMobilePicture %}
-                        {% set itemMobilePicture = item.itemMobilePicture.one() %}
-                        {% if itemMobilePicture %}
-                            {% set itemMobilePictureUrl = itemMobilePicture.getURL() %}
-                            {% set itemMobilePictureAlt = itemMobilePicture.title %}
-                        {% endif %}
-                    {% endif %}
-                    {% set itemButtonsMatrix = item.itemButtonsMatrix.all() %}
-                    <div class="hero-slider__item swiper-slide js-hero-slider-slide {% if itemDesktopVideoLink %} is-iframe {% endif %} {% if itemDesktopVideoLink %} js-hero-modal-hld {% endif %}" data-swiper-autoplay="{% if itemDesktopVideoDuration %}{{ itemDesktopVideoDuration * 1000 }}{% elseif (itemImageDuration) %}{{ itemImageDuration * 1000 }}{% else %}5000{% endif %}">
-                        {% if itemDesktopVideoLink %}
-                            <div class="hero-slider__item-video-hld is-desktop">
-                                {% if itemDesktopVideoPosterUrl %}
-                                    <img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoPosterUrl }}" alt="{{ itemDesktopVideoPosterAlt }}" />
-                                {% endif %}
-                                <video class="js-lazy js-hero-slider-iframe" autoplay loop muted playsinline preload="auto" width="1920" height="768">
-                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemDesktopVideoLink }}" type="video/mp4">
-                                </video>
-                            </div>
-                        {% elseif (itemImage) %}
-                            <div class="hero-slider__item-image-hld">
-								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" />
-                            </div>
-                        {% endif %}
-                        <div class="hero-slider__item-text-hld">
-                            <div class="u-wrapper">
-                                <div class="u-subtitle u-subtitle--big hero-slider__item-subtitle">{{ itemSubtitle }}</div>
-                                <div class="u-title u-title--big hero-slider__item-title">{{ itemTitle|nl2br }}</div>
-								<div class="hero-slider__item-video-hld is-mobile">
-									{% if itemMobilePictureUrl %}
-										{% if loop.index0 == 0 %}
-											<img src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
-										{% else %}
-											<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
-										{% endif %}
-									{% elseif itemDesktopVideoLink %}
-										{% if loop.index0 == 0 %}
-											<video autoplay loop muted playsinline preload="auto">
-												<source src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
-											</video>
-										{% else %}
-											<video class="js-lazy" autoplay loop muted playsinline>
-												<source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
-											</video>
-										{% endif %}
-									{% endif %}
-									{% if itemsMatrix|length > 1 %}
-										<div class="arrow arrow--prev arrow--mobile js-hero-slider-button-prev">
-											<span class="icon icon-dropdown-up"></span>
-										</div>
-										<div class="arrow arrow--next arrow--mobile js-hero-slider-button-next">
-											<span class="icon icon-dropdown-down"></span>
-										</div>
-									{% endif %}
-								</div>
-                                {% if itemButtonsMatrix|length > 0 %}
-                                    <div class="hero-slider__buttons-hld">
-                                        {% for btn in itemButtonsMatrix %}
-                                            {% set button = btn.button %}
-                                            {% set buttonColor = btn.buttonColor %}
-                                            {% set buttonIcon = btn.buttonIcon %}
-                                            {% set hubspotFormId = btn.hubspotFormId %}
-                                            {% set isTypeFormBtn = btn.isTypeformButton %}
-                                            {% if hubspotFormId %}
-                                                <div class="js-modal-hld">
-                                                    <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
-                                                        <span class="text">{{ button.customText }}</span>
-                                                    </button>
-                                                    <div class="subscribe-modal js-modal-modal">
-                                                        <div class="overlay js-modal-close"></div>
-                                                        <div class="subscribe-modal__inner">
-                                                            <div class="subscribe-modal__modal">
-                                                                <div class="form-hld">
-                                                                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-                                                                    <script
-                                                                        src="https://code.jquery.com/jquery-3.6.0.min.js"
-                                                                        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                                                                        crossorigin="anonymous">
-                                                                    </script>
-                                                                    <script>
-                                                                        hbspt.forms.create({
-                                                                            region: "na1",
-                                                                            portalId: "4249967",
-                                                                            formId: "{{ hubspotFormId }}",
-                                                                            onFormReady: function(form) {
-                                                                                document.body.classList.add('is-buy-page-form');
-                                                                                const formEl = form[0];
-                                                                                const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
-                                                                                    detail: {
-                                                                                        form: formEl,
-                                                                                        shortenSelects: false,
-                                                                                    },
-                                                                                });
-                                                                                document.dispatchEvent(customHubspotFormScripts);
-                                                                            },
-                                                                        });
-                                                                    </script>
-                                                                </div>
-                                                            </div>
-                                                            <span class="subscribe-modal__close js-modal-close">
-                                                                <span class="icon icon-close"></span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% elseif isTypeFormBtn %}
-                                                {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                                                <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
-                                                    <span class="text">{{ button.customText }}</span>
-                                                </button>
-                                            {% else %}
-                                                <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
-                                                    {% if buttonIcon == 'download' %}
-                                                        <svg class="svg-caret-down">
-                                                            <use xlink:href="#svg-caret-down"></use>
-                                                        </svg>
-                                                    {% endif %}
-                                                    <span class="text">{{ button.customText }}</span>
-                                                </a>
-                                            {% endif %}
-                                        {% endfor %}
-                                        {% if itemDesktopVideoLink and itemShowWatchVideoButton %}
-                                            <button class="btn u-btn u-btn--light js-hero-modal-btn" data-modal-id="{{ loop.index0 }}">
-                                                <span class="icon icon-play"></span>
-                                                <span class="text">Watch video</span>
-                                            </button>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %}
+    class="u-section u-section--hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider-hld {% endif %}">
+    <div class="hero-slider {% if itemsMatrix|length > 1 %} js-hero-slider swiper-container {% endif %}">
+        {% if itemsMatrix|length > 1 %}
+        <div class="arrow arrow--prev arrow--desktop js-hero-slider-button-prev">
+            <span class="icon icon-dropdown-up"></span>
+        </div>
+        <div class="arrow arrow--next arrow--desktop js-hero-slider-button-next">
+            <span class="icon icon-dropdown-down"></span>
+        </div>
+        <div class="hero-slider__progress-bar hero-slider__progress-bar--desktop js-hero-slider-progress-bar"></div>
+        {% endif %}
+        <div class="hero-slider__inner swiper-wrapper">
             {% for item in itemsMatrix %}
-                {% set itemDesktopVideoLink = item.itemDesktopVideoLink %}
-                {% set itemModalVideoLink = item.itemModalVideoLink %}
+            {% set itemSubtitle = item.itemSubtitle %}
+            {% set itemTitle = item.itemTitle %}
+            {% set itemImage = item.itemImage.one() %}
+            {% set itemImageDuration = item.itemImageDuration %}
+            {% set itemDesktopVideoLink = item.itemDesktopVideoLink %}
+            {% set itemShowWatchVideoButton = item.itemShowWatchVideoButton %}
+            {% set itemDesktopVideoPosterUrl = '' %}
+            {% set itemDesktopVideoPosterAlt = '' %}
+            {% if item.itemDesktopVideoPosterUrl %}
+            {% set itemDesktopVideoPosterUrl = item.itemDesktopVideoPosterUrl %}
+            {% set itemDesktopVideoPosterAlt = item.itemDesktopVideoPosterAlt %}
+            {% else %}
+            {% set itemDesktopVideoPoster = item.itemDesktopVideoPoster.one() %}
+            {% if itemDesktopVideoPoster %}
+            {% set itemDesktopVideoPosterUrl = itemDesktopVideoPoster.getURL() %}
+            {% set itemDesktopVideoPosterAlt = itemDesktopVideoPoster.title %}
+            {% endif %}
+            {% endif %}
+            {% set itemDesktopVideoDuration = item.itemDesktopVideoDuration %}
+            {% set itemMobileVideoLink = item.itemMobileVideoLink %}
+            {% set itemMobilePictureUrl = '' %}
+            {% set itemMobilePictureAlt = '' %}
+            {% if item.itemMobilePictureUrl %}
+            {% set itemMobilePictureUrl = item.itemMobilePictureUrl %}
+            {% set itemMobilePictureAlt = item.itemMobilePictureAlt %}
+            {% elseif item.itemMobilePicture %}
+            {% set itemMobilePicture = item.itemMobilePicture.one() %}
+            {% if itemMobilePicture %}
+            {% set itemMobilePictureUrl = itemMobilePicture.getURL() %}
+            {% set itemMobilePictureAlt = itemMobilePicture.title %}
+            {% endif %}
+            {% endif %}
+            {% set itemButtonsMatrix = item.itemButtonsMatrix.all() %}
+            <div class="hero-slider__item swiper-slide js-hero-slider-slide {% if itemDesktopVideoLink %} is-iframe {% endif %} {% if itemDesktopVideoLink %} js-hero-modal-hld {% endif %}"
+                data-swiper-autoplay="{% if itemDesktopVideoDuration %}{{ itemDesktopVideoDuration * 1000 }}{% elseif (itemImageDuration) %}{{ itemImageDuration * 1000 }}{% else %}5000{% endif %}">
                 {% if itemDesktopVideoLink %}
-                    <div class="video-modal js-hero-modal-modal" data-modal-id="{{ loop.index0 }}">
-                        <div class="overlay js-hero-modal-close"></div>
-                        <div class="video-modal__inner">
-                            <div class="video-modal__modal">
-                                <video class="js-lazy js-hero-modal-iframe" controls playsinline width="560" height="315" data-source="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}">
-                                    <source src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}" type="video/mp4">
-                                </video>
-                            </div>
-                            <span class="video-modal__close js-hero-modal-close">
-                                <span class="icon icon-close"></span>
-                            </span>
-                        </div>
-                    </div>
+                <div class="hero-slider__item-video-hld is-desktop">
+                    {% if itemDesktopVideoPosterUrl %}
+                    <img class="js-lazy"
+                        src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"
+                        data-src="{{ itemDesktopVideoPosterUrl }}" alt="{{ itemDesktopVideoPosterAlt }}" />
+                    {% endif %}
+                    <video class="js-lazy js-hero-slider-iframe" autoplay loop muted playsinline preload="auto"
+                        width="1920" height="768">
+                        <source
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"
+                            data-src="{{ itemDesktopVideoLink }}" type="video/mp4">
+                    </video>
+                </div>
+                {% elseif (itemImage) %}
+                <div class="hero-slider__item-image-hld">
+                    <img src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" width="360" height="674">
+                </div>
                 {% endif %}
+                <div class="hero-slider__item-text-hld">
+                    <div class="u-wrapper">
+                        <div class="u-subtitle u-subtitle--big hero-slider__item-subtitle">{{ itemSubtitle }}</div>
+                        <div class="u-title u-title--big hero-slider__item-title">{{ itemTitle|nl2br }}</div>
+                        {% if itemMobilePictureUrl or itemDesktopVideoLink %}
+							<div class="hero-slider__item-video-hld is-mobile">
+								{% if itemMobilePictureUrl %}
+								{% if loop.index0 == 0 %}
+								<img src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
+								{% else %}
+								<img class="js-lazy"
+									src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"
+									data-src="{{ itemMobilePictureUrl }}" alt="{{ itemMobilePictureAlt }}" />
+								{% endif %}
+								{% elseif itemDesktopVideoLink %}
+								{% if loop.index0 == 0 %}
+								<video autoplay loop muted playsinline preload="auto">
+									<source
+										src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}"
+										type="video/mp4">
+								</video>
+								{% else %}
+								<video class="js-lazy" autoplay loop muted playsinline>
+									<source
+										src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"
+										data-src="{% if itemMobileVideoLink %} {{ itemMobileVideoLink }} {% else %} {{ itemDesktopVideoLink }} {% endif %}"
+										type="video/mp4">
+								</video>
+								{% endif %}
+								{% endif %}
+								{% if itemsMatrix|length > 1 %}
+								<div class="arrow arrow--prev arrow--mobile js-hero-slider-button-prev">
+									<span class="icon icon-dropdown-up"></span>
+								</div>
+								<div class="arrow arrow--next arrow--mobile js-hero-slider-button-next">
+									<span class="icon icon-dropdown-down"></span>
+								</div>
+								{% endif %}
+							</div>
+                        {% endif %}
+                        {% if itemButtonsMatrix|length > 0 %}
+                        <div class="hero-slider__buttons-hld">
+                            {% for btn in itemButtonsMatrix %}
+                            {% set button = btn.button %}
+                            {% set buttonColor = btn.buttonColor %}
+                            {% set buttonIcon = btn.buttonIcon %}
+                            {% set hubspotFormId = btn.hubspotFormId %}
+                            {% set isTypeFormBtn = btn.isTypeformButton %}
+                            {% if hubspotFormId %}
+                            <div class="js-modal-hld">
+                                <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
+                                    <span class="text">{{ button.customText }}</span>
+                                </button>
+                                <div class="subscribe-modal js-modal-modal">
+                                    <div class="overlay js-modal-close"></div>
+                                    <div class="subscribe-modal__inner">
+                                        <div class="subscribe-modal__modal">
+                                            <div class="form-hld">
+                                                <script charset="utf-8" type="text/javascript"
+                                                    src="//js.hsforms.net/forms/v2.js"></script>
+                                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                                                    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                                                    crossorigin="anonymous">
+                                                    </script>
+                                                <script>
+                                                    hbspt.forms.create({
+                                                        region: "na1",
+                                                        portalId: "4249967",
+                                                        formId: "{{ hubspotFormId }}",
+                                                        onFormReady: function (form) {
+                                                            document.body.classList.add('is-buy-page-form');
+                                                            const formEl = form[0];
+                                                            const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+                                                                detail: {
+                                                                    form: formEl,
+                                                                    shortenSelects: false,
+                                                                },
+                                                            });
+                                                            document.dispatchEvent(customHubspotFormScripts);
+                                                        },
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <span class="subscribe-modal__close js-modal-close">
+                                            <span class="icon icon-close"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% elseif isTypeFormBtn %}
+                            {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                            <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}"
+                                data-tf-popup="{{ typeformID }}"
+                                data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+                                <span class="text">{{ button.customText }}</span>
+                            </button>
+                            {% else %}
+                            <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}"
+                                rel="{{ button.target ? 'noopener noreferrer' : null }}"
+                                class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
+                                {% if buttonIcon == 'download' %}
+                                <svg class="svg-caret-down">
+                                    <use xlink:href="#svg-caret-down"></use>
+                                </svg>
+                                {% endif %}
+                                <span class="text">{{ button.customText }}</span>
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                            {% if itemDesktopVideoLink and itemShowWatchVideoButton %}
+                            <button class="btn u-btn u-btn--light js-hero-modal-btn" data-modal-id="{{ loop.index0 }}">
+                                <span class="icon icon-play"></span>
+                                <span class="text">Watch video</span>
+                            </button>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </div>
-    </section>
+        {% for item in itemsMatrix %}
+        {% set itemDesktopVideoLink = item.itemDesktopVideoLink %}
+        {% set itemModalVideoLink = item.itemModalVideoLink %}
+        {% if itemDesktopVideoLink %}
+        <div class="video-modal js-hero-modal-modal" data-modal-id="{{ loop.index0 }}">
+            <div class="overlay js-hero-modal-close"></div>
+            <div class="video-modal__inner">
+                <div class="video-modal__modal">
+                    <video class="js-lazy js-hero-modal-iframe" controls playsinline muted width="560" height="315"
+                        data-source="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}">
+                        <source
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E"
+                            data-src="{% if itemModalVideoLink %} {{ itemModalVideoLink }} {% elseif (itemDesktopVideoLink) %} {{ itemDesktopVideoLink }} {% endif %}"
+                            type="video/mp4">
+                    </video>
+                </div>
+                <span class="video-modal__close js-hero-modal-close">
+                    <span class="icon icon-close"></span>
+                </span>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
 {% endif %}

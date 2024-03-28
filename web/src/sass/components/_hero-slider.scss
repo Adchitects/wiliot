@@ -286,6 +286,9 @@
 		transform: translateY(-50%);
 
 		@include tablet-small-1023 {
+			left: 50%;
+			transform: translate(-50%, -50%);
+
 			.is-iframe & {
 				position: static;
 				max-width: none;
@@ -313,6 +316,10 @@
 
 		.u-wrapper {
 			margin: 0;
+
+			@include tablet-small-1023 {
+				margin: 0 auto;
+			}
 		}
 	}
 
@@ -387,7 +394,7 @@
 				@include mobile-767 {
 					display: none;
 
-					& + .btn {
+					&+.btn {
 						margin-top: 0;
 					}
 				}
