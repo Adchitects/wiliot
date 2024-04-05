@@ -1,0 +1,37 @@
+{% set itemsMatrix = itemsMatrix %}
+{% if itemsMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--multirow-slider js-multirow-slider-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/multirow-slider.css') }}?v=09-01-2024">
+		<div class="u-wrapper u-wrapper--events-listing">
+			<div class="multirow-slider">
+				<div class="swiper-container js-multirow-slider">
+					<div class="swiper-wrapper">
+						{% for item in itemsMatrix %}
+							{% set image = item.image.one() %}
+							{% set heading = item.heading %}
+							{% set description = item.description %}
+							{% set text = item.text %}
+							<div class="swiper-slide multirow-slider__item">
+								<div class="image-hld">
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ image.heading }}">
+								</div>
+								<div class="text-hld">
+									<div class="heading">{{ heading }}</div>
+									<div class="description">{{ description }}</div>
+									<div class="text">{{ text }}</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="swiper-button swiper-button--prev multirow-slider__nav-btn multirow-slider__nav-btn--prev js-multirow-slider-button-prev">
+					<span class="icon icon-arrow-left"></span>
+				</div>
+				<div class="swiper-button swiper-button--next multirow-slider__nav-btn multirow-slider__nav-btn--next js-multirow-slider-button-next">
+					<span class="icon icon-arrow-right"></span>
+				</div>
+				<div class="swiper-pagination multirow-slider__pagination js-multirow-slider-pagination"></div>
+			</div>
+		</div>
+	</section>
+{% endif %}

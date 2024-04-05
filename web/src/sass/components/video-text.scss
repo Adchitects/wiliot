@@ -10,6 +10,13 @@
 		padding-top: 60px;
 		padding-bottom: 60px;
 	}
+
+	.is-page-dei & {
+		@include tablet-small {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+	}
 }
 
 .video-text {

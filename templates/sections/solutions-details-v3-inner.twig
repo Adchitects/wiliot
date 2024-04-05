@@ -35,6 +35,12 @@
     {% set showQuote = false %}
 {% endif %}
 {# Infobox #}
+{% if entry.multirowSliderItemsMatrix %}
+	{% set multirowSliderItemsMatrix = entry.multirowSliderItemsMatrix.all() %}
+{% else %}
+	{% set multirowSliderItemsMatrix = false %}
+{% endif %}
+{# Infobox #}
 {% if entry.infoboxMatrix %}
     {% if entry.infoboxTitle %}
         {% set infoboxTitle = entry.infoboxTitle %}
@@ -64,76 +70,78 @@
 		<div class="solutions-details__hero {% if not heroImage %} has-no-image {% endif %}">
 			<div class="u-wrapper">
 				<div class="solutions-details__hero-top">
-					<div class="text-hld">
-						<div class="subtitle u-subtitle u-subtitle--big">{{ heroSubtitle|nl2br }}</div>
-						<h1 class="title u-title u-title--big">{{ heroTitle|nl2br }}</h1>
-						{% if solutionButtonsMatrix %}
-							<div class="buttons-hld">
-								{% for item in solutionButtonsMatrix %}
-									{% set button = item.button %}
-                                    {% if item.buttonColor != '' %}
-                                        {% set buttonColor = item.buttonColor %}
-                                    {% else %}
-                                        {% set buttonColor = 'accent' %}
-                                    {% endif %}
-                                    {% set isTypeFormBtn = item.isTypeformButton %}
-                                    {% set hubspotFormId = item.hubspotFormId %}
-                                    {% if hubspotFormId %}
-                                        <div class="js-modal-hld">
-                                            <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
-                                                <span class="text">{{ button.customText }}</span>
-                                            </button>
-                                            <div class="subscribe-modal js-modal-modal">
-                                                <div class="overlay js-modal-close"></div>
-                                                <div class="subscribe-modal__inner">
-                                                    <div class="subscribe-modal__modal">
-                                                        <div class="form-hld">
-                                                            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-                                                            <script
-                                                                src="https://code.jquery.com/jquery-3.6.0.min.js"
-                                                                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                                                                crossorigin="anonymous">
-                                                            </script>
-                                                            <script>
-                                                                hbspt.forms.create({
-                                                                    region: "na1",
-                                                                    portalId: "4249967",
-                                                                    formId: "{{ hubspotFormId }}",
-                                                                    onFormReady: function(form) {
-                                                                        document.body.classList.add('is-buy-page-form');
-                                                                        const formEl = form[0];
-                                                                        const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
-                                                                            detail: {
-                                                                                form: formEl,
-                                                                                shortenSelects: false,
-                                                                            },
-                                                                        });
-                                                                        document.dispatchEvent(customHubspotFormScripts);
-                                                                    },
-                                                                });
-                                                            </script>
-                                                        </div>
-                                                    </div>
-                                                    <span class="subscribe-modal__close js-modal-close">
-                                                        <span class="icon icon-close"></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% elseif isTypeFormBtn %}
-                                        {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                                        <button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
-                                            <span class="text">{{ button.customText }}</span>
-                                        </button>
-                                    {% else %}
-                                        <a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
-                                            <span class="text">{{ button.customText }}</span>
-                                        </a>
-                                    {% endif %}
-								{% endfor %}
-							</div>
-						{% endif %}
-					</div>
+					{% if heroSubtitle or heroTitle or solutionButtonsMatrix %}
+						<div class="text-hld">
+							<div class="subtitle u-subtitle u-subtitle--big">{{ heroSubtitle|nl2br }}</div>
+							<h1 class="title u-title u-title--big">{{ heroTitle|nl2br }}</h1>
+							{% if solutionButtonsMatrix %}
+								<div class="buttons-hld">
+									{% for item in solutionButtonsMatrix %}
+										{% set button = item.button %}
+										{% if item.buttonColor != '' %}
+											{% set buttonColor = item.buttonColor %}
+										{% else %}
+											{% set buttonColor = 'accent' %}
+										{% endif %}
+										{% set isTypeFormBtn = item.isTypeformButton %}
+										{% set hubspotFormId = item.hubspotFormId %}
+										{% if hubspotFormId %}
+											<div class="js-modal-hld">
+												<button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
+													<span class="text">{{ button.customText }}</span>
+												</button>
+												<div class="subscribe-modal js-modal-modal">
+													<div class="overlay js-modal-close"></div>
+													<div class="subscribe-modal__inner">
+														<div class="subscribe-modal__modal">
+															<div class="form-hld">
+																<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+																<script
+																	src="https://code.jquery.com/jquery-3.6.0.min.js"
+																	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+																	crossorigin="anonymous">
+																</script>
+																<script>
+																	hbspt.forms.create({
+																		region: "na1",
+																		portalId: "4249967",
+																		formId: "{{ hubspotFormId }}",
+																		onFormReady: function(form) {
+																			document.body.classList.add('is-buy-page-form');
+																			const formEl = form[0];
+																			const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+																				detail: {
+																					form: formEl,
+																					shortenSelects: false,
+																				},
+																			});
+																			document.dispatchEvent(customHubspotFormScripts);
+																		},
+																	});
+																</script>
+															</div>
+														</div>
+														<span class="subscribe-modal__close js-modal-close">
+															<span class="icon icon-close"></span>
+														</span>
+													</div>
+												</div>
+											</div>
+										{% elseif isTypeFormBtn %}
+											{% set typeformID = pageOptions.pageOptionsTypeFormID %}
+											<button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+												<span class="text">{{ button.customText }}</span>
+											</button>
+										{% else %}
+											<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
+												<span class="text">{{ button.customText }}</span>
+											</a>
+										{% endif %}
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
 					{% if heroImage %}
 						<div class="image-hld">
 							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ heroImageUrl }}" alt="{{ heroImageAlt }}" width="{{ heroImageWidth }}" height="{{ heroImageHeight }}"/>
@@ -187,13 +195,19 @@
                     {% endif %}
                 {% endif %}
 				<div class="solutions-details__hero-bottom {% if not heroBottomImage %} has-no-image {% endif %}">
-					<div class="text-hld">
-                        {% if heroBottomSubtitle %}
-                            <div class="subtitle u-subtitle u-subtitle--section">{{ heroBottomSubtitle }}</div>
-                        {% endif %}
-						<div class="title u-title u-title--section">{{ heroBottomTitle }}</div>
-						<div class="description">{{ heroBottomDescription }}</div>
-					</div>
+					{% if heroBottomSubtitle or heroBottomTitle or heroBottomDescription %}
+						<div class="text-hld">
+							{% if heroBottomSubtitle %}
+								<div class="subtitle u-subtitle u-subtitle--section">{{ heroBottomSubtitle }}</div>
+							{% endif %}
+							{% if heroBottomTitle %}
+								<div class="title u-title u-title--section">{{ heroBottomTitle }}</div>
+							{% endif %}
+							{% if heroBottomDescription %}
+								<div class="description">{{ heroBottomDescription }}</div>
+							{% endif %}
+						</div>
+					{% endif %}
 					{% if heroBottomImage %}
 						<div class="image-hld">
 							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ heroBottomImageUrl }}" alt="{{ heroBottomImageAlt }}" width="{{ heroBottomImageWidth }}" height="{{ heroBottomImageHeight }}"/>
@@ -222,6 +236,11 @@
                 </div>
             </div>
         {% endif %}
+		{% if multirowSliderItemsMatrix %}
+			{% include '/sections/multirow-slider.twig' with {
+				itemsMatrix: multirowSliderItemsMatrix,
+			} %}
+		{% endif %}
         {% if infoboxMatrix %}
             <div class="solutions-details__infobox">
                 <div class="u-wrapper u-wrapper--medium">
