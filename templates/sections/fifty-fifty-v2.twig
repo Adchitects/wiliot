@@ -17,6 +17,7 @@
                         {% set image = item.itemImage.one() %}
                         {% set itemTitle = item.itemTitle %}
                         {% set itemDescription = item.itemDescription %}
+                        {% set itemButtonsMatrix = item.itemButtonsMatrix.all() %}
                         <div class="fifty-fifty-v2__item">
                             <div class="fifty-fifty-v2__item-image-hld image-hld">
                                 <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl('fiftyFiftyV2Image') }}" alt="{{ title }}">
@@ -28,6 +29,27 @@
                                 {% if itemDescription %}
                                     <div class="fifty-fifty-v2__item-description">{{ itemDescription|nl2br }}</div>
                                 {% endif %}
+								{% if itemButtonsMatrix|length > 0 %}
+									<div class="fifty-fifty-v2__item-buttons-hld">
+										{% for btn in itemButtonsMatrix %}
+											{% set supertitle = btn.supertitle %}
+											{% set button = btn.button %}
+											{% if supertitle %}
+												<div class="supertitle">
+													{{ supertitle }}
+												</div>
+											{% endif %}
+											<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="u-btn u-btn--accent btn btn--{{ loop.index }}">
+												{% if button.customText == 'Download' %}
+													<svg class="svg-caret-down">
+														<use xlink:href="#svg-caret-down"></use>
+													</svg>
+												{% endif %}
+												<span class="text">{{ button.customText ? button.customText : 'Learn more' }}</span>
+											</a>
+										{% endfor %}
+									</div>
+								{% endif %}
                             </div>
                         </div>
                     {% endfor %}
