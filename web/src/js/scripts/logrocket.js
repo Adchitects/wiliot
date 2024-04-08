@@ -35,8 +35,8 @@ const loadScript = async() => {
 // Determine if the user qualifies for LogRocket initialization
 const qualifyUser = () => {
 	if (getCookie('LogRocketQualified') === undefined) {
-		// Randomly qualify users (100% chance)
-		if (Math.random() < 1) {
+		// Randomly qualify users (5% chance)
+		if (Math.random() < 0.05) {
 			setCookie('LogRocketQualified', 'true', 1); // Expires in 1 hour
 			console.log('User qualified for LogRocket');
 			loadScript(); // Directly attempt to load LogRocket if qualified
