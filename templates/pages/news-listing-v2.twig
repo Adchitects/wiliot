@@ -112,9 +112,12 @@
                                             <span class="text">All</span>
                                         </span>
                                         {% for category in newsCategories %}
-                                            <span class="events-listing-category js-events-listing-category" data-id="{{ category.id }}" data-title="{{ category.title }}">
-                                                <span class="text">{{ category.title }}</span>
-                                            </span>
+											{% set relatedEntries = craft.entries().section('newsPosts').relatedTo(category).all() %}
+											{% if relatedEntries|length %}
+												<span class="events-listing-category js-events-listing-category" data-id="{{ category.id }}" data-title="{{ category.title }}">
+													<span class="text">{{ category.title }}</span>
+												</span>
+											{% endif %}
                                         {% endfor %}
                                     </div>
                                 </div>
