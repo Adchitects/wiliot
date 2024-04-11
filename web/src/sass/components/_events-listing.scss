@@ -166,14 +166,14 @@
 
 .events-listing-categories-hld {}
 
-.events-listing-categories {}
+.events-listing-categories {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 32px;
+}
 
 .events-listing-category {
 	cursor: pointer;
-
-	&:not(:first-child) {
-		margin-left: 44px;
-	}
 
 	.text {
 		color: $c-gray;
@@ -481,12 +481,6 @@
 		padding-left: 32px;
 	}
 
-	.events-listing-category {
-		&:not(:first-child) {
-			margin-left: 32px;
-		}
-	}
-
 	.events-featured__text-hld {
 		min-height: 0;
 		padding-right: 64px;
@@ -583,16 +577,6 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		width: 100%;
-	}
-
-	.events-listing-category {
-		margin-right: 16px;
-		margin-bottom: 16px;
-		margin-left: 16px;
-
-		&:not(:first-child) {
-			margin-left: 16px;
-		}
 	}
 
 	.events-listing-topics-hld {
