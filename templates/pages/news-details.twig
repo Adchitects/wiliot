@@ -287,6 +287,7 @@
 			{% set category = 'Announcement' %}
 		{% endif %}
 		{% set heroTitle = entry.heroTitle %}
+		{% set heroLogo = entry.heroLogo.one() %}
 		{% if entry.newsPostsHeroImage.one() %}
 			{% set heroImage = entry.newsPostsHeroImage.one() %}
 		{% else %}
@@ -311,6 +312,11 @@
 			<div class="u-wrapper">
 				<div class="hero-news">
 					<span class="hero-news__category">{{ category }}</span>
+					{% if heroLogo.getUrl() %}
+						<div class="hero-news__logo-hld">
+							<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="" height="">
+						</div>
+					{% endif %}
 					<h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
 					<div class="hero-news__publish-date">{{ newsPostsEventText ? newsPostsEventText : postDate }}</div>
 					{% if heroImage %}
