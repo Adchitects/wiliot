@@ -288,6 +288,7 @@
 		{% endif %}
 		{% set heroTitle = entry.heroTitle %}
 		{% set heroLogo = entry.heroLogo.one() %}
+		{% set heroLogoPlacement = entry.heroLogoPlacement %}
 		{% if entry.newsPostsHeroImage.one() %}
 			{% set heroImage = entry.newsPostsHeroImage.one() %}
 		{% else %}
@@ -313,11 +314,29 @@
 				<div class="hero-news">
 					<span class="hero-news__category">{{ category }}</span>
 					{% if heroLogo.getUrl() %}
-						<div class="hero-news__logo-hld">
-							<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="" height="">
-						</div>
+						{% if heroLogoPlacement == 'center' %}
+							<div class="hero-news__logo-hld hero-news__logo-hld--center">
+								<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="100" height="76">
+							</div>
+						{% endif %}
 					{% endif %}
-					<h1 class="hero-news__title">{{ heroTitle is not empty ? heroTitle : entry.title }}</h1>
+					<h1 class="hero-news__title">
+						{% if heroLogo.getUrl() %}
+							{% if heroLogoPlacement == 'left' %}
+								<div class="hero-news__logo-hld hero-news__logo-hld--left">
+									<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="46" height="36">
+								</div>
+							{% endif %}
+						{% endif %}
+						{{ heroTitle is not empty ? heroTitle : entry.title }}
+						{% if heroLogo.getUrl() %}
+							{% if heroLogoPlacement == 'right' %}
+								<div class="hero-news__logo-hld hero-news__logo-hld--right">
+									<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="46" height="36">
+								</div>
+							{% endif %}
+						{% endif %}
+					</h1>
 					<div class="hero-news__publish-date">{{ newsPostsEventText ? newsPostsEventText : postDate }}</div>
 					{% if heroImage %}
 						{% if heroImageLink.url %}

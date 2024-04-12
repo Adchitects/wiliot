@@ -67,11 +67,33 @@
 		}
 
 		&__logo-hld {
-			margin-bottom: 12px;
+			&--center {
+				margin-bottom: 12px;
 
-			img {
-				width: 100px;
-				height: auto;
+				img {
+					width: 100px;
+					height: auto;
+				}
+			}
+
+			&--left {
+				display: inline-block;
+
+				img {
+					display: inline-block;
+					width: auto;
+					height: 36px;
+				}
+			}
+
+			&--right {
+				display: inline-block;
+
+				img {
+					display: inline-block;
+					width: auto;
+					height: 36px;
+				}
 			}
 		}
 
