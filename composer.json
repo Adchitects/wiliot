@@ -7,13 +7,12 @@
         "dolphiq/redirect": "2.0.1",
         "ether/seo": "4.2.2",
         "sebastianlenz/linkfield": "2.1.5",
-        "trendyminds/craft-reporter": "2.2.0",
         "utakka/redactor-anchors": "1.4.3",
         "verbb/field-manager": "3.0.8",
         "verbb/image-resizer": "3.0.11",
         "verbb/smith": "2.0.1",
         "verbb/super-table": "3.0.13",
-        "verbb/tablemaker": "4.0.9",
+        "verbb/tablemaker": "4.0.10",
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {
