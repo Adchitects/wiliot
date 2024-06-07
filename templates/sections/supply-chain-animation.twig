@@ -1,12 +1,39 @@
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-bg-shape-hld">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation">
 	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/supply-chain-animation.css') }}?v=06062024">
 	<div class="u-wrapper">
 		<div class="supply-chain-animation">
 			<div class="supply-chain-animation__animation-hld">
-				<div class="animation animation--desktop js-supply-chain-animation" data-rwd="desktop" data-animation-path="/src/img/supply-chain-animation.json?v=06062024"></div>
-				<div class="animation animation--mobile js-supply-chain-animation" data-rwd="mobile" data-animation-path="/src/img/supply-chain-animation-mobile.json?v=06062024"></div>
+				<div class="animation animation--desktop js-lottie-animation" data-rwd="desktop" data-animation-path="/src/img/supply-chain-animation.json?v=06062024"></div>
+				<div class="animation animation--mobile js-lottie-animation" data-rwd="mobile" data-animation-path="/src/img/supply-chain-animation-mobile.json?v=06062024"></div>
+			</div>
+		</div>
+	</div>
+	<div class="supply-chain-animation-labels-hld">
+		<div class="label label--warehouse js-supply-chain-lottie-animation" data-label="warehouse">
+			<div class="image-hld">
+			</div>
+			<div class="text-hld">
+				<div class="title">
+					Supply Chain Management, Transformed
+				</div>
+				<div class="description">
+					Eliminate chronic mismatch conditions. Wiliot assures that the right products and shipments are delivered to the right locations on time, thanks to our continuous visibility and unique, secure IDs.
+				</div>
+			</div>
+		</div>
+		<div class="label label--warehouse js-supply-chain-lottie-animation" data-label="transport">
+			<div class="image-hld">
+			</div>
+			<div class="text-hld">
+				<div class="title">
+					Monitoring Items In-Transit
+				</div>
+				<div class="description">
+					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
+<fscript src="{{ alias('@web/src/js/lottieAnimation.min.js') }}"></fscript>
 <fscript src="{{ alias('@web/src/js/supplyChainLottieAnimation.min.js') }}"></fscript>

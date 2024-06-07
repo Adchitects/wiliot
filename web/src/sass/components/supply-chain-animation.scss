@@ -20,5 +20,66 @@
 				}
 			}
 		}
+
+		g {
+			// Warehouse
+			&[transform='matrix(1,0,0,1,380.34698486328125,251.5240020751953)'],
+			&[transform='matrix(0.3333300054073334,0,0,0.3333300054073334,140.50054931640625,252.0009307861328)'] {
+				position: relative;
+				z-index: 10;
+				cursor: pointer;
+				outline: 1px solid red;
+			}
+		}
+	}
+}
+
+.supply-chain-animation-labels-hld {
+	.label {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 9999;
+		pointer-events: none;
+		width: 646px;
+		min-height: 168px;
+		padding: 20px;
+		background-color: $c-white;
+		box-shadow: 0 0 32px 0 #8686B752;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.2s, visibility 0.2s;
+		visibility: hidden;
+		opacity: 0;
+		gap: 20px;
+
+		&.is-active {
+			pointer-events: all;
+			visibility: visible;
+			opacity: 1;
+		}
+
+		.image-hld {
+			min-width: 120px;
+			height: 120px;
+			outline: 1px solid red;
+		}
+
+		.text-hld {
+			.title {
+				columns: $c-black;
+				font-size: 20px;
+				font-weight: 900;
+			}
+
+			.description {
+				margin-top: 10px;
+				color: $c-black;
+				font-size: 14px;
+				line-height: calc(20 / 14);
+			}
+		}
 	}
 }
