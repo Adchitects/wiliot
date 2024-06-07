@@ -1,0 +1,12 @@
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-bg-shape-hld">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/supply-chain-animation.css') }}?v=06062024">
+	<div class="u-wrapper">
+		<div class="supply-chain-animation">
+			<div class="supply-chain-animation__animation-hld">
+				<div class="animation animation--desktop js-supply-chain-animation" data-rwd="desktop" data-animation-path="/src/img/supply-chain-animation.json?v=06062024"></div>
+				<div class="animation animation--mobile js-supply-chain-animation" data-rwd="mobile" data-animation-path="/src/img/supply-chain-animation-mobile.json?v=06062024"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<fscript src="{{ alias('@web/src/js/supplyChainLottieAnimation.min.js') }}"></fscript>

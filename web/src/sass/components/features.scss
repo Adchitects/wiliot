@@ -75,7 +75,9 @@
 		}
 
 		&__animation {
-			&--desktop {}
+			&--desktop {
+				height: 340px;
+			}
 
 			&--mobile {
 				display: none;

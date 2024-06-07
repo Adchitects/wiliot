@@ -1,0 +1,24 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.supply-chain-animation {
+	&__animation-hld {
+		.animation {
+			&--desktop {
+				height: 400px;
+
+				@include mobile {
+					display: none;
+				}
+			}
+
+			&--mobile {
+				display: none;
+
+				@include mobile {
+					display: block;
+				}
+			}
+		}
+	}
+}
