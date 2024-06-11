@@ -112,6 +112,7 @@
 		visibility: hidden;
 		opacity: 0;
 		gap: 20px;
+		transition: .4s;
 
 		&.is-active {
 			pointer-events: all;
