@@ -1,144 +1,93 @@
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-supply-chain-lottie-animation-hld">
-	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/supply-chain-animation.css') }}?v=06062024">
-	<div class="u-wrapper">
-		<div class="supply-chain-animation">
-			<div class="supply-chain-animation__animation-hld">
-				<div class="animation animation--desktop js-lottie-animation" data-rwd="desktop" data-animation-path="/src/img/supply-chain-animation.json?v=06062024">
-				</div>
-				<div class="animation animation--mobile js-lottie-animation" data-rwd="mobile" data-animation-path="/src/img/supply-chain-animation-mobile.json?v=06062024"></div>
-				<div class="label-hover-area-hld">
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="warehouse">
+{% set textContentMatrix = entry.textContentMatrix.all() %}
+{% if textContentMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-supply-chain-lottie-animation-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/supply-chain-animation.css') }}?v=06062024">
+		<div class="u-wrapper">
+			<div class="supply-chain-animation">
+				<div class="supply-chain-animation__animation-hld">
+					<div class="animation animation--desktop js-lottie-animation" data-rwd="desktop" data-animation-path="/src/img/supply-chain-animation.json?v=06062024">
 					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="transport">
+					<div class="animation animation--mobile js-lottie-animation" data-rwd="mobile" data-animation-path="/src/img/supply-chain-animation-mobile.json?v=06062024"></div>
+					<div class="label-hover-area-hld">
+						{% for item in textContentMatrix %}
+							{% set itemLink = item.itemLink %}
+							{% if loop.index0 == 0 %}
+								{% set label = 'warehouse' %}
+							{% elseif loop.index0 == 1 %}
+								{% set label = 'transport' %}
+							{% elseif loop.index0 == 2 %}
+								{% set label = 'distribution' %}
+							{% elseif loop.index0 == 3 %}
+								{% set label = 'return' %}
+							{% elseif loop.index0 == 4 %}
+								{% set label = 'home' %}
+							{% elseif loop.index0 == 5 %}
+								{% set label = 'store' %}
+							{% elseif loop.index0 == 6 %}
+								{% set label = 'delivery' %}
+							{% elseif loop.index0 == 7 %}
+								{% set label = 'farm' %}
+							{% elseif loop.index0 == 8 %}
+								{% set label = 'processing' %}
+							{% endif %}
+							{% if itemLink %}
+								{% if itemLink.url != '' %}
+									<a href="{{ itemLink.url }}" target="{{ itemLink.target ? '_blank' : '_self' }}" rel="{{ itemLink.target ? 'noopener noreferrer' : null }}" class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="{{ label }}"></a>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
 					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="distribution">
+				</div>
+			</div>
+			<div class="supply-chain-animation-labels-hld">
+				{% for item in textContentMatrix %}
+					{% set heading = item.heading %}
+					{% set description = item.description %}
+					{% set itemLink = item.itemLink %}
+					{% if loop.index0 == 0 %}
+						{% set label = 'warehouse' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/warehouse.png') %}
+					{% elseif loop.index0 == 1 %}
+						{% set label = 'transport' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/transport.png') %}
+					{% elseif loop.index0 == 2 %}
+						{% set label = 'distribution' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/distribution.png') %}
+					{% elseif loop.index0 == 3 %}
+						{% set label = 'return' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/return.png') %}
+					{% elseif loop.index0 == 4 %}
+						{% set label = 'home' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/home.png') %}
+					{% elseif loop.index0 == 5 %}
+						{% set label = 'store' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/store.png') %}
+					{% elseif loop.index0 == 6 %}
+						{% set label = 'delivery' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/delivery.png') %}
+					{% elseif loop.index0 == 7 %}
+						{% set label = 'farm' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/farm.png') %}
+					{% elseif loop.index0 == 8 %}
+						{% set label = 'processing' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/processing.png') %}
+					{% endif %}
+					<div class="label js-supply-chain-lottie-animation-label" data-label="{{ label }}">
+						<div class="image-hld">
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imagePath }}" alt="{{ label }}">
+						</div>
+						<div class="text-hld">
+							<div class="title">
+								{{ heading }}
+							</div>
+							<div class="description">
+								{{ description }}
+							</div>
+						</div>
 					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="return">
-					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="home">
-					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="store">
-					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="delivery">
-					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="farm">
-					</div>
-					<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="processing">
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
-	</div>
-	<div class="supply-chain-animation-labels-hld">
-		<div class="label js-supply-chain-lottie-animation-label" data-label="warehouse">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					Supply Chain Management, Transformed
-				</div>
-				<div class="description">
-					Eliminate chronic mismatch conditions. Wiliot assures that the right products and shipments are delivered to the right locations on time, thanks to our continuous visibility and unique, secure IDs.
-				</div>
-			</div>
-		</div>
-		<div class="label js-supply-chain-lottie-animation-label" data-label="transport">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					Monitoring Items In-Transit
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-		<div class="label js-supply-chain-lottie-animation-label" data-label="distribution">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					distribution
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-		<div class="label label--transport js-supply-chain-lottie-animation-label" data-label="return">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					return
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-		<div class="label label--transport js-supply-chain-lottie-animation-label" data-label="home">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					home
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-		<div class="label label--transport js-supply-chain-lottie-animation-label" data-label="store">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					store
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-		<div class="label label--transport js-supply-chain-lottie-animation-label" data-label="delivery">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					delivery
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-		<div class="label label--transport js-supply-chain-lottie-animation-label" data-label="farm">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					farm
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-		<div class="label label--transport js-supply-chain-lottie-animation-label" data-label="processing">
-			<div class="image-hld">
-			</div>
-			<div class="text-hld">
-				<div class="title">
-					processing
-				</div>
-				<div class="description">
-					Track shipments with WIliot: Monitor items in transit for safety, temperature integrity, and shrink detection via real-time, continuous updates.
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<fscript src="{{ alias('@web/src/js/lottieAnimation.min.js') }}"></fscript>
-<fscript src="{{ alias('@web/src/js/supplyChainLottieAnimation.min.js') }}"></fscript>
+	<fscript src="{{ alias('@web/src/js/lottieAnimation.min.js') }}"></fscript>
+	<fscript src="{{ alias('@web/src/js/supplyChainLottieAnimation.min.js') }}"></fscript>
+{% endif %}

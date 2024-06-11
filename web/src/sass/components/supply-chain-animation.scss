@@ -32,7 +32,6 @@
 				left: 8%;
 				width: 12%;
 				height: 38%;
-				outline: 1px solid red;
 			}
 
 			&[data-label='transport'] {
@@ -40,7 +39,6 @@
 				left: 30%;
 				width: 12%;
 				height: 35%;
-				outline: 1px solid green;
 			}
 
 			&[data-label='distribution'] {
@@ -48,7 +46,6 @@
 				left: 42%;
 				width: 16%;
 				height: 42%;
-				outline: 1px solid blue;
 			}
 
 			&[data-label='return'] {
@@ -56,7 +53,6 @@
 				left: 59%;
 				width: 15%;
 				height: 34%;
-				outline: 1px solid pink;
 			}
 
 			&[data-label='home'] {
@@ -64,7 +60,6 @@
 				left: 82%;
 				width: 14%;
 				height: 41%;
-				outline: 1px solid orange;
 			}
 
 			&[data-label='store'] {
@@ -72,7 +67,6 @@
 				left: 80%;
 				width: 12%;
 				height: 33%;
-				outline: 1px solid purple;
 			}
 
 			&[data-label='delivery'] {
@@ -80,7 +74,6 @@
 				left: 62%;
 				width: 10%;
 				height: 33%;
-				outline: 1px solid cyan;
 			}
 
 			&[data-label='farm'] {
@@ -88,7 +81,6 @@
 				left: 27%;
 				width: 8%;
 				height: 25%;
-				outline: 1px solid black;
 			}
 
 			&[data-label='processing'] {
@@ -96,20 +88,8 @@
 				left: 8%;
 				width: 13%;
 				height: 29%;
-				outline: 1px solid greenyellow;
 			}
 		}
-
-		// g {
-		// 	// Warehouse
-		// 	&[transform='matrix(1,0,0,1,380.34698486328125,251.5240020751953)'],
-		// 	&[transform='matrix(0.3333300054073334,0,0,0.3333300054073334,140.50054931640625,252.0009307861328)'] {
-		// 		position: relative;
-		// 		z-index: 10;
-		// 		cursor: pointer;
-		// 		outline: 1px solid red;
-		// 	}
-		// }
 	}
 }
 
@@ -142,7 +122,6 @@
 		.image-hld {
 			min-width: 120px;
 			height: 120px;
-			outline: 1px solid red;
 		}
 
 		.text-hld {
