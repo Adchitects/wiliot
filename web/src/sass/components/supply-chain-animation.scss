@@ -3,6 +3,8 @@
 
 .supply-chain-animation {
 	&__animation-hld {
+		position: relative;
+
 		.animation {
 			&--desktop {
 				height: 400px;
@@ -21,16 +23,93 @@
 			}
 		}
 
-		g {
-			// Warehouse
-			&[transform='matrix(1,0,0,1,380.34698486328125,251.5240020751953)'],
-			&[transform='matrix(0.3333300054073334,0,0,0.3333300054073334,140.50054931640625,252.0009307861328)'] {
-				position: relative;
-				z-index: 10;
-				cursor: pointer;
+		.label-hover-area {
+			position: absolute;
+			z-index: 99991;
+
+			&[data-label='warehouse'] {
+				bottom: 4%;
+				left: 8%;
+				width: 12%;
+				height: 38%;
 				outline: 1px solid red;
 			}
+
+			&[data-label='transport'] {
+				bottom: 4%;
+				left: 30%;
+				width: 12%;
+				height: 35%;
+				outline: 1px solid green;
+			}
+
+			&[data-label='distribution'] {
+				bottom: 25%;
+				left: 42%;
+				width: 16%;
+				height: 42%;
+				outline: 1px solid blue;
+			}
+
+			&[data-label='return'] {
+				bottom: 4%;
+				left: 59%;
+				width: 15%;
+				height: 34%;
+				outline: 1px solid pink;
+			}
+
+			&[data-label='home'] {
+				bottom: 4%;
+				left: 82%;
+				width: 14%;
+				height: 41%;
+				outline: 1px solid orange;
+			}
+
+			&[data-label='store'] {
+				top: 16%;
+				left: 80%;
+				width: 12%;
+				height: 33%;
+				outline: 1px solid purple;
+			}
+
+			&[data-label='delivery'] {
+				top: 9%;
+				left: 62%;
+				width: 10%;
+				height: 33%;
+				outline: 1px solid cyan;
+			}
+
+			&[data-label='farm'] {
+				top: 13%;
+				left: 27%;
+				width: 8%;
+				height: 25%;
+				outline: 1px solid black;
+			}
+
+			&[data-label='processing'] {
+				top: 19%;
+				left: 8%;
+				width: 13%;
+				height: 29%;
+				outline: 1px solid greenyellow;
+			}
 		}
+
+		// g {
+		// 	// Warehouse
+		// 	&[transform='matrix(1,0,0,1,380.34698486328125,251.5240020751953)'],
+		// 	&[transform='matrix(0.3333300054073334,0,0,0.3333300054073334,140.50054931640625,252.0009307861328)'] {
+		// 		position: relative;
+		// 		z-index: 10;
+		// 		cursor: pointer;
+		// 		outline: 1px solid red;
+		// 	}
+		// }
 	}
 }
 
@@ -50,7 +129,6 @@
 		background-color: $c-white;
 		box-shadow: 0 0 32px 0 #8686B752;
 		transform: translate(-50%, -50%);
-		transition: opacity 0.2s, visibility 0.2s;
 		visibility: hidden;
 		opacity: 0;
 		gap: 20px;
