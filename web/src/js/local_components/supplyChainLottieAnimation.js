@@ -1,10 +1,11 @@
-setTimeout(() => {
+console.log('supplyChainLottieAnimation script lazy-loaded');
+
+function setupHoverEffects() {
 	const hldAll = document.querySelectorAll('.js-supply-chain-lottie-animation-hld');
 	hldAll.forEach(hld => {
 		const labelHoverAreaAll = hld.querySelectorAll('.js-supply-chain-lottie-animation-hover-area');
 		const labelAll = hld.querySelectorAll('.js-supply-chain-lottie-animation-label');
 		labelHoverAreaAll.forEach(area => {
-			console.log(area);
 			labelAll.forEach(label => {
 				if (area && label && area.dataset.label === label.dataset.label) {
 					area.addEventListener('mouseover', function() {
@@ -17,4 +18,7 @@ setTimeout(() => {
 			});
 		});
 	});
-}, 3000);
+}
+
+setTimeout(setupHoverEffects, 2000);
+setTimeout(setupHoverEffects, 3000);

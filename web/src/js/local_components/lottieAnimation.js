@@ -20,8 +20,9 @@ const setupSupplyChainAnimation = (animation) => {
 			scrollTrigger: {
 				trigger: animation,
 				start: 'top 95%',
-				end: 'bottom 10%',
+				end: 'bottom 0%',
 				scrub: true,
+				// markers: true,
 				onEnter: () => anim.play(),
 				onEnterBack: () => anim.play(),
 				onLeave: () => anim.pause(),
