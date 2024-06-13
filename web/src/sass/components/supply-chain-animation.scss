@@ -40,6 +40,10 @@
 			line-height: calc(72 / 56);
 			text-align: center;
 
+			@include mobile {
+				font-size: 32px;
+			}
+
 			strong {
 				color: $c-accent;
 			}
