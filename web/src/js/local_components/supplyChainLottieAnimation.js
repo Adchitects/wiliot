@@ -14,6 +14,15 @@ function setupHoverEffects() {
 					area.addEventListener('mouseout', function() {
 						label.classList.remove('is-active');
 					});
+					// area.addEventListener('mouseover', function() {
+					// 	labelAll.forEach(l => l.classList.remove('is-active'));
+					// 	label.classList.add('is-active');
+					// });
+					// document.addEventListener('click', function(event) {
+					// 	if (!label.contains(event.target)) {
+					// 		label.classList.remove('is-active');
+					// 	}
+					// });
 				}
 			});
 		});

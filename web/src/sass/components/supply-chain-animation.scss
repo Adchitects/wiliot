@@ -214,8 +214,6 @@
 				height: 29%;
 
 				@include mobile {
-
-
 					top: 5%;
 					left: 62%;
 					width: 27%;
@@ -235,6 +233,7 @@
 		top: 64%;
 		left: 50%;
 		z-index: 9999;
+		// z-index: 99991;
 		pointer-events: none;
 		width: 646px;
 		min-height: 168px;
