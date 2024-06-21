@@ -1,0 +1,122 @@
+{% set mainTitle = entry.suppyChainMainTitle %}
+{% set mainSubtitle = entry.suppyChainMainSubtitle %}
+{% set textContentMatrix = entry.textContentMatrix.all() %}
+{% if textContentMatrix %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-supply-chain-lottie-animation-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/supply-chain-animation.css') }}?v=06062024">
+		<div class="bg-shape-hld js-bg-shape-hld">
+			<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+				<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
+				<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
+				<img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
+			</div>
+			<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+				<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+			</div>
+		</div>
+		<div class="u-wrapper u-wrapper--extra-wide">
+			<div class="supply-chain-animation">
+				{% if mainTitle or mainSubtitle %}
+					<div class="supply-chain-animation__main-title-hld">
+						{% if mainTitle %}
+							<h2 class="main-title">
+								{{ mainTitle }}
+							</h2>
+						{% endif %}
+						{% if mainSubtitle %}
+							<div class="main-subtitle">
+								{{ mainSubtitle }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				<div class="supply-chain-animation__animation-hld">
+					<div class="animation animation--desktop js-lottie-animation" data-rwd="desktop" data-animation-path="/src/img/supply-chain-animation.json?v=06062024">
+					</div>
+					<div class="animation animation--mobile js-lottie-animation" data-rwd="mobile" data-animation-path="/src/img/supply-chain-animation-mobile.json?v=06062024"></div>
+					<div class="label-hover-area-hld">
+						{% for item in textContentMatrix %}
+							{% set itemLink = item.itemLink %}
+							{% if loop.index0 == 0 %}
+								{% set label = 'warehouse' %}
+							{% elseif loop.index0 == 1 %}
+								{% set label = 'transport' %}
+							{% elseif loop.index0 == 2 %}
+								{% set label = 'distribution' %}
+							{% elseif loop.index0 == 3 %}
+								{% set label = 'return' %}
+							{% elseif loop.index0 == 4 %}
+								{% set label = 'home' %}
+							{% elseif loop.index0 == 5 %}
+								{% set label = 'store' %}
+							{% elseif loop.index0 == 6 %}
+								{% set label = 'delivery' %}
+							{% elseif loop.index0 == 7 %}
+								{% set label = 'farm' %}
+							{% elseif loop.index0 == 8 %}
+								{% set label = 'processing' %}
+							{% endif %}
+							{% if itemLink %}
+								{% if itemLink.url != '' %}
+									<a href="{{ itemLink.url }}" target="{{ itemLink.target ? '_blank' : '_self' }}" rel="{{ itemLink.target ? 'noopener noreferrer' : null }}" class="label-hover-area is-link js-supply-chain-lottie-animation-hover-area" data-label="{{ label }}"></a>
+								{% else %}
+									<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="{{ label }}"></div>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="supply-chain-animation-labels-hld">
+				{% for item in textContentMatrix %}
+					{% set itemLink = item.itemLink %}
+					{% set heading = item.heading %}
+					{% set description = item.description %}
+					{% if loop.index0 == 0 %}
+						{% set label = 'warehouse' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/warehouse.png') %}
+					{% elseif loop.index0 == 1 %}
+						{% set label = 'transport' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/transport.png') %}
+					{% elseif loop.index0 == 2 %}
+						{% set label = 'distribution' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/distribution.png') %}
+					{% elseif loop.index0 == 3 %}
+						{% set label = 'return' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/return.png') %}
+					{% elseif loop.index0 == 4 %}
+						{% set label = 'home' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/home.png') %}
+					{% elseif loop.index0 == 5 %}
+						{% set label = 'store' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/store.png') %}
+					{% elseif loop.index0 == 6 %}
+						{% set label = 'delivery' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/delivery.png') %}
+					{% elseif loop.index0 == 7 %}
+						{% set label = 'farm' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/farm.png') %}
+					{% elseif loop.index0 == 8 %}
+						{% set label = 'processing' %}
+						{% set imagePath = alias('@web/src/img/supply-chain-static/processing.png') %}
+					{% endif %}
+					<div class="label {% if itemLink %}{% if itemLink.url != '' %} has-link {% endif %}{% endif %} js-supply-chain-lottie-animation-label" data-label="{{ label }}">
+						<div class="image-hld">
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imagePath }}" alt="{{ label }}">
+						</div>
+						<div class="text-hld">
+							<div class="title">
+								{{ heading }}
+							</div>
+							<div class="description">
+								{{ description }}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	<fscript src="{{ alias('@web/src/js/lottieAnimation.min.js') }}"></fscript>
+	<fscript src="{{ alias('@web/src/js/supplyChainLottieAnimation.min.js') }}"></fscript>
+{% endif %}

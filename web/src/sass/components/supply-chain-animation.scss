@@ -1,0 +1,287 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--supply-chain-animation.u-section--supply-chain-animation.u-section--supply-chain-animation {
+	margin-top: 0;
+	padding-top: 100px;
+	padding-bottom: 222px;
+	overflow: hidden;
+
+	@include mobile {
+		margin-top: 0;
+		padding-bottom: 20px;
+	}
+
+	.bg-shape--top-right {
+		top: -100px;
+		right: -320px;
+
+		@include mobile {
+			right: -100px;
+		}
+	}
+
+	.bg-shape--bottom-left {
+		left: -500px;
+
+		@include mobile {
+			left: -100px;
+		}
+	}
+}
+
+.supply-chain-animation {
+	&__main-title-hld {
+		.main-title {
+			max-width: 624px;
+			margin: 0 auto;
+			font-size: 56px;
+			font-weight: 900;
+			line-height: calc(72 / 56);
+			text-align: center;
+
+			@include mobile {
+				font-size: 32px;
+			}
+
+			strong {
+				color: $c-accent;
+			}
+		}
+
+		.main-subtitle {
+			margin-top: 22px;
+			font-size: 20px;
+			font-weight: 500;
+			text-align: center;
+		}
+	}
+
+	&__animation-hld {
+		position: relative;
+
+		.animation {
+			&--desktop {
+				height: 518px;
+
+				@include mobile {
+					display: none;
+				}
+			}
+
+			&--mobile {
+				display: none;
+
+				@include mobile {
+					display: block;
+					min-height: 1000px;
+				}
+
+				@include media-max(600) {
+					min-height: 780px;
+				}
+
+				@include media-max(500) {
+					min-height: 640px;
+				}
+
+				@include media-max(400) {
+					min-height: 500px;
+				}
+			}
+		}
+
+		.label-hover-area {
+			position: absolute;
+			z-index: 99991;
+
+			&[data-label='warehouse'] {
+				bottom: 4%;
+				left: 8%;
+				width: 12%;
+				height: 38%;
+
+				@include mobile {
+					top: 2%;
+					left: 16%;
+					width: 22%;
+					height: 21%;
+				}
+			}
+
+			&[data-label='transport'] {
+				bottom: 4%;
+				left: 30%;
+				width: 12%;
+				height: 35%;
+
+				@include mobile {
+					top: 26%;
+					left: 8%;
+					width: 25%;
+					height: 18%;
+				}
+			}
+
+			&[data-label='distribution'] {
+				bottom: 25%;
+				left: 42%;
+				width: 16%;
+				height: 42%;
+
+				@include mobile {
+					top: 35%;
+					left: 34%;
+					width: 33%;
+					height: 24%;
+				}
+			}
+
+			&[data-label='return'] {
+				bottom: 4%;
+				left: 59%;
+				width: 15%;
+				height: 34%;
+
+				@include mobile {
+					top: 46%;
+					left: 10%;
+					width: 23%;
+					height: 21%;
+				}
+			}
+
+			&[data-label='home'] {
+				bottom: 4%;
+				left: 82%;
+				width: 14%;
+				height: 41%;
+
+				@include mobile {
+					top: 68%;
+					left: 10%;
+					width: 31%;
+					height: 19%;
+				}
+			}
+
+			&[data-label='store'] {
+				top: 16%;
+				left: 80%;
+				width: 12%;
+				height: 33%;
+
+				@include mobile {
+					top: 68%;
+					left: 59%;
+					width: 25%;
+					height: 19%;
+				}
+			}
+
+			&[data-label='delivery'] {
+				top: 9%;
+				left: 62%;
+				width: 10%;
+				height: 33%;
+
+				@include mobile {
+					top: 49%;
+					left: 69%;
+					width: 22%;
+					height: 17%;
+				}
+			}
+
+			&[data-label='farm'] {
+				top: 13%;
+				left: 27%;
+				width: 8%;
+				height: 25%;
+
+				@include mobile {
+					top: 27%;
+					left: 71%;
+					width: 18%;
+					height: 16%;
+				}
+			}
+
+			&[data-label='processing'] {
+				top: 19%;
+				left: 8%;
+				width: 13%;
+				height: 29%;
+
+				@include mobile {
+					top: 5%;
+					left: 62%;
+					width: 27%;
+					height: 17%;
+				}
+			}
+		}
+	}
+}
+
+.supply-chain-animation-labels-hld {
+	.label {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 64%;
+		left: 50%;
+		z-index: 9999;
+		// z-index: 99991;
+		pointer-events: none;
+		width: 646px;
+		min-height: 168px;
+		padding: 20px;
+		background-color: $c-white;
+		box-shadow: 0 0 32px 0 #8686B752;
+		transform: translate(-50%, -50%);
+		transition: 0.4s;
+		visibility: hidden;
+		opacity: 0;
+		gap: 20px;
+
+		@include mobile {
+			width: calc(100% - 30px);
+			max-width: 646px;
+		}
+
+		&.is-active {
+			pointer-events: all;
+			visibility: visible;
+			opacity: 1;
+		}
+
+		&.has-link {
+			@include mobile {
+				display: none;
+			}
+		}
+
+		.image-hld {
+			min-width: 120px;
+			max-width: 120px;
+			height: 120px;
+		}
+
+		.text-hld {
+			.title {
+				columns: $c-black;
+				font-size: 20px;
+				font-weight: 900;
+			}
+
+			.description {
+				margin-top: 10px;
+				color: $c-black;
+				font-size: 14px;
+				line-height: calc(20 / 14);
+			}
+		}
+	}
+}
