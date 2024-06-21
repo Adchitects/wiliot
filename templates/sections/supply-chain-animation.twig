@@ -1,7 +1,7 @@
 {% set mainTitle = entry.suppyChainMainTitle %}
 {% set mainSubtitle = entry.suppyChainMainSubtitle %}
 {% set textContentMatrix = entry.textContentMatrix.all() %}
-{% if textContentMatrix %}
+{% if mainTitle %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-supply-chain-lottie-animation-hld">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/supply-chain-animation.css') }}?v=06062024">
 		<div class="bg-shape-hld js-bg-shape-hld">
@@ -16,13 +16,11 @@
 		</div>
 		<div class="u-wrapper u-wrapper--extra-wide">
 			<div class="supply-chain-animation">
-				{% if mainTitle or mainSubtitle %}
+				{% if mainSubtitle %}
 					<div class="supply-chain-animation__main-title-hld">
-						{% if mainTitle %}
-							<h2 class="main-title">
-								{{ mainTitle }}
-							</h2>
-						{% endif %}
+						<h2 class="main-title">
+							{{ mainTitle }}
+						</h2>
 						{% if mainSubtitle %}
 							<div class="main-subtitle">
 								{{ mainSubtitle }}
