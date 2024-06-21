@@ -58,7 +58,7 @@
 							{% endif %}
 							{% if itemLink %}
 								{% if itemLink.url != '' %}
-									<a href="{{ itemLink.url }}" target="{{ itemLink.target ? '_blank' : '_self' }}" rel="{{ itemLink.target ? 'noopener noreferrer' : null }}" class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="{{ label }}"></a>
+									<a href="{{ itemLink.url }}" target="{{ itemLink.target ? '_blank' : '_self' }}" rel="{{ itemLink.target ? 'noopener noreferrer' : null }}" class="label-hover-area is-link js-supply-chain-lottie-animation-hover-area" data-label="{{ label }}"></a>
 								{% else %}
 									<div class="label-hover-area js-supply-chain-lottie-animation-hover-area" data-label="{{ label }}"></div>
 								{% endif %}
@@ -69,6 +69,7 @@
 			</div>
 			<div class="supply-chain-animation-labels-hld">
 				{% for item in textContentMatrix %}
+					{% set itemLink = item.itemLink %}
 					{% set heading = item.heading %}
 					{% set description = item.description %}
 					{% if loop.index0 == 0 %}
@@ -99,7 +100,7 @@
 						{% set label = 'processing' %}
 						{% set imagePath = alias('@web/src/img/supply-chain-static/processing.png') %}
 					{% endif %}
-					<div class="label js-supply-chain-lottie-animation-label" data-label="{{ label }}">
+					<div class="label {% if itemLink %}{% if itemLink.url != '' %} has-link {% endif %}{% endif %} js-supply-chain-lottie-animation-label" data-label="{{ label }}">
 						<div class="image-hld">
 							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imagePath }}" alt="{{ label }}">
 						</div>

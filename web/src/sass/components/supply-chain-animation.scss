@@ -257,6 +257,12 @@
 			opacity: 1;
 		}
 
+		&.has-link {
+			@include mobile {
+				display: none;
+			}
+		}
+
 		.image-hld {
 			min-width: 120px;
 			max-width: 120px;
