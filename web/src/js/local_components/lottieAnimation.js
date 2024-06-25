@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-const setupSupplyChainAnimation = (animation) => {
+const setupLottieAnimation = (animation) => {
 	const rwd = animation.dataset.rwd;
 	const mediaQuery = rwd === 'mobile' ? '(max-width: 767px)' : rwd === 'desktop' ? '(min-width: 768px)' : '';
 	if (mediaQuery && window.matchMedia(mediaQuery).matches) {
@@ -34,22 +34,31 @@ const setupSupplyChainAnimation = (animation) => {
 	return null;
 };
 
-const initializeSupplyChainAnimations = () => {
+const initializelottieAnimations = () => {
 	ScrollTrigger.refresh();
-	const supplyChainAnimationsAll = document.querySelectorAll('.js-lottie-animation');
-	let supplyChainAnimations = Array.from(supplyChainAnimationsAll).map(setupSupplyChainAnimation);
+	const lottieAnimationAll = document.querySelectorAll('.js-lottie-animation');
+	let lottieAnimations = Array.from(lottieAnimationAll).map(setupLottieAnimation);
 
-	const handleResizeSupplyChain = () => {
-		supplyChainAnimations.forEach((anim, index) => {
+	const handleResize = () => {
+		lottieAnimations.forEach((anim, index) => {
 			if (anim) {
 				anim.destroy();
-				supplyChainAnimations[index] = null;
+				lottieAnimations[index] = null;
 			}
 		});
-		supplyChainAnimations = Array.from(supplyChainAnimationsAll).map(setupSupplyChainAnimation);
+		lottieAnimations = Array.from(lottieAnimationAll).map(setupLottieAnimation);
 	};
 
-	window.addEventListener('resize', handleResizeSupplyChain);
+	const checkAndInitResize = () => {
+		if (window.innerWidth > 767) {
+			window.addEventListener('resize', handleResize);
+		} else {
+			window.removeEventListener('resize', handleResize);
+		}
+	};
+
+	checkAndInitResize();
+	window.addEventListener('resize', checkAndInitResize);
 };
 
-initializeSupplyChainAnimations();
+initializelottieAnimations();
