@@ -1,3 +1,5 @@
+// CURRENTLY NOT USED, main.js
+
 const mainFuncion = () => {
 	const modalHldAll = document.querySelectorAll('.js-hero-modal-hld');
 	modalHldAll.forEach(modalHld => {

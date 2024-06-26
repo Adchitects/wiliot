@@ -331,6 +331,8 @@
 						</div>
 					{% endfor %}
 				{% endif %}
+				{% set sectionId = '01' %}
+				{{ include('/sections/hero-tiles-slider.twig') }}
 				{% set sectionId = '02' %}
 				{{ include('/sections/supply-chain-animation.twig') }}
 				{% set sectionId = '03' %}
