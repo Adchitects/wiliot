@@ -1,6 +1,7 @@
 .u-section--hero-tiles-slider.u-section--hero-tiles-slider {
 	margin-top: 196px;
 	padding-bottom: 40px;
+	overflow: hidden;
 
 	@include tablet-small-1023 {
 		&.u-section--hero-tiles-slider {
