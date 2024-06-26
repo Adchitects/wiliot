@@ -2,8 +2,8 @@
 @import '../base/mixins';
 
 .u-section--features {
-	margin-top: 120px;
-	padding: 96px 0 128px 0;
+	margin-top: 0;
+	padding: 134px 0 84px 0;
 	background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 0%);
 	overflow: hidden;
 
@@ -20,7 +20,12 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			margin-top: 48px;
+			margin-top: 62px;
+			gap: 20px 66px;
+
+			@include tablet-small {
+				flex-direction: column;
+			}
 		}
 
 		&__col {
@@ -30,9 +35,9 @@
 
 			&--content {
 				display: flex;
+				flex: 1;
 				justify-content: space-between;
-				width: calc(50% - 52px);
-				margin-top: 40px;
+				text-align: center;
 			}
 
 			.item {
@@ -42,20 +47,23 @@
 				position: relative;
 				padding-bottom: 42px;
 
-				&__content {
-					display: flex;
-					flex-direction: column;
-					width: 100%;
+				&__image-hld {
+					margin: 0 auto 24px;
+
+					img {
+						width: auto;
+						height: auto;
+					}
 				}
 
 				&__title {
-					margin-bottom: 12px;
 					font-size: 24px;
 					font-weight: 900;
 					line-height: 36px;
 				}
 
 				&__description {
+					margin-top: 24px;
 					color: rgba($c-black, 0.8);
 					font-size: 16px;
 					font-weight: 300;
@@ -77,6 +85,7 @@
 		&__animation {
 			&--desktop {
 				height: 340px;
+				margin-bottom: 80px;
 			}
 
 			&--mobile {
@@ -101,65 +110,12 @@
 	}
 }
 
-@include tablet-big {
-	.u-section--features {
-		.features {
-			&__row {
-				max-width: 800px;
-				margin-right: auto;
-				margin-left: auto;
-			}
-		}
-	}
-}
-
-@include tablet-small {
-	.u-section--features {
-		.features {
-			&__row {
-				max-width: 664px;
-			}
-
-			&__col {
-				&--content {
-					width: calc(50% - 32px);
-				}
-			}
-		}
-	}
-}
-
 @include mobile {
 	.u-section--features {
-		padding-top: 60px;
+		padding-top: 80px;
 		padding-bottom: 60px;
 
 		.features {
-			&__row {
-				max-width: 442px;
-			}
-
-			&__col {
-				&--animation {
-					order: 1;
-				}
-
-				&--content {
-					order: 3;
-					width: 100%;
-
-					&[data-index='1'] {
-						order: 0;
-						margin-top: 0;
-						margin-bottom: 48px;
-					}
-
-					&[data-index='2'] {
-						order: 2;
-					}
-				}
-			}
-
 			&__animation {
 				&--desktop {
 					display: none;

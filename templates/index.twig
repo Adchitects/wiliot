@@ -331,27 +331,15 @@
 						</div>
 					{% endfor %}
 				{% endif %}
-				{% set sectionId = '01' %}
-				{{ include('/sections/hero-slider.twig') }}
 				{% set sectionId = '02' %}
-				{{ include('/sections/title-switcher.twig') }}
-				{% set sectionId = '03' %}
 				{{ include('/sections/supply-chain-animation.twig') }}
+				{% set sectionId = '03' %}
+				{{ include('/sections/features.twig') }}
 				{% set sectionId = '04' %}
 				{{ include('/sections/featured-slider.twig') }}
 				{% set sectionId = '05' %}
-				{{ include('/sections/tabs.twig') }}
-				{% set sectionId = '06' %}
-				{{ include('/sections/features.twig') }}
-				{% set sectionId = '07' %}
-				{{ include('/sections/logos-slider.twig') }}
-				{% set sectionId = '08' %}
-				{{ include('/sections/events-slider.twig') }}
-				{% set sectionId = '09' %}
-				{{ include('/sections/latest-podcasts.twig') }}
-				{% set sectionId = '10' %}
 				{{ include('/sections/latest-news.twig') }}
-				{% set sectionId = '11' %}
+				{% set sectionId = '06' %}
 				{{ include('/sections/outro.twig') }}
 				{% set sectionId = '' %}
 			{% endblock %}
