@@ -19,7 +19,7 @@
 							{{ mainTitle }}
 						</h1>
 						<div class="main-btn-hld">
-							<a href="{{ mainButton.url }}" target="{{ mainButton.target ? '_blank' : '_self' }}" rel="{{ mainButton.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--bordered">
+							<a href="{{ mainButton.url }}" target="{{ mainButton.target ? '_blank' : '_self' }}" rel="{{ mainButton.target ? 'noopener noreferrer' : null }}" class="btn u-btn u-btn--light">
 								<span class="text">{{ mainButton.customText ? mainButton.customText : "Learn More" }}</span>
 							</a>
 						</div>
@@ -31,35 +31,35 @@
 					</div>
 				</div>
 			</div>
-			<div class="u-wrapper">
-				<div class="hero-tiles-slider js-hero-tiles-slider swiper-container">
+			<div class="u-wrapper u-wrapper--medium-big">
+				<div class="hero-tiles-slider__slider-hld js-hero-tiles-slider swiper-container">
 					<div class="hero-tiles-slider__inner swiper-wrapper">
 						{% for item in itemsMatrix %}
 							{% set itemImage = item.itemImage.one() %}
 							{% set itemButton = item.itemButton %}
-							<div class="hero-tiles-slider__item swiper-slide js-hero-tiles-slider-slide">
-								<div class="hero-tiles-slider__item-image-hld">
-									<img src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" width="360" height="674">
-								</div>
-								{% if itemButton %}
-									<div class="hero-tiles-slider__item-button-hld">
-										<a href="{{ itemButton.url }}" target="{{ itemButton.target ? '_blank' : '_self' }}" rel="{{ itemButton.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
-											<span class="text">{{ itemButton.customText }}</span>
-										</a>
+							{% if itemButton %}
+								<a href="{{ itemButton.url }}" target="{{ itemButton.target ? '_blank' : '_self' }}" rel="{{ itemButton.target ? 'noopener noreferrer' : null }}" class="hero-tiles-slider__item swiper-slide">
+									<div class="item-image-hld">
+										<img src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" width="360" height="674">
 									</div>
-								{% endif %}
-							</div>
+									<div class="item-button-hld">
+										<div class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
+											<span class="text">{{ itemButton.customText ? itemButton.customText : "Learn More" }}</span>
+										</div>
+									</div>
+								</a>
+							{% endif %}
 						{% endfor %}
 					</div>
-					{% if itemsMatrix|length > 3 %}
-						<div class="arrow arrow--prev js-hero-tiles-slider-button-prev">
-							<span class="icon icon-dropdown-up"></span>
-						</div>
-						<div class="arrow arrow--next js-hero-tiles-slider-button-next">
-							<span class="icon icon-dropdown-down"></span>
-						</div>
-					{% endif %}
 				</div>
+				{% if itemsMatrix|length > 3 %}
+					<div class="hero-tiles-slider__arrow hero-tiles-slider__arrow--prev js-hero-tiles-slider-button-prev">
+						<span class="icon icon-dropdown-up"></span>
+					</div>
+					<div class="hero-tiles-slider__arrow hero-tiles-slider__arrow--next js-hero-tiles-slider-button-next">
+						<span class="icon icon-dropdown-down"></span>
+					</div>
+				{% endif %}
 			</div>
 		</div>
 	</section>

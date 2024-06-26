@@ -4,11 +4,11 @@
 .u-section--supply-chain-animation.u-section--supply-chain-animation.u-section--supply-chain-animation {
 	margin-top: 0;
 	padding-top: 100px;
-	padding-bottom: 222px;
+	padding-bottom: 118px;
 	overflow: hidden;
 
 	@include tablet-big-1365 {
-		padding-bottom: 100px;
+		padding-bottom: 80px;
 	}
 
 	@include mobile {
@@ -39,7 +39,8 @@
 		.main-title {
 			max-width: 624px;
 			margin: 0 auto;
-			font-size: 56px;
+			// font-size: 56px;
+			font-size: 32px;
 			font-weight: 900;
 			line-height: calc(72 / 56);
 			text-align: center;
