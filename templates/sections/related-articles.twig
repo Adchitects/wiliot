@@ -84,7 +84,7 @@
 										{% endif %}
 									</div>
 									<div class="text-hld">
-										<div class="label {% if isNews %} label--medium {% elseif isEvent %} label--very-light {% elseif isPodcast %} label--very-dark {% endif %}">
+										<div class="label {% if isNews %} label--medium {% elseif isEvent %} label--very-light {% elseif isPodcast %} label--dark {% endif %}">
 											{% if isNews %}
 												{{ post.postMainCategory.one().title }}
 											{% elseif isEvent %}
@@ -188,7 +188,7 @@
 										{% endif %}
 									</div>
 									<div class="text-hld">
-										<div class="label {% if isNews %} label--medium {% elseif isEvent %} label--very-light {% elseif isPodcast %} label--very-dark {% endif %}">
+										<div class="label {% if isEvent %} label--very-light {% elseif isPodcast %} label--dark {% endif %}">
 											{% if isNews %}
 												{{ post.postMainCategory.one().title }}
 											{% elseif isEvent %}

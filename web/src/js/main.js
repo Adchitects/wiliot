@@ -8,7 +8,7 @@ import './scripts/menuMobile';
 import './scripts/video';
 import './scripts/accordion';
 import './scripts/modal';
-import './scripts/heroSliderModal';
+// import './scripts/heroSliderModal';
 import './scripts/bgShape';
 import './scripts/sliders';
 import './scripts/popup';

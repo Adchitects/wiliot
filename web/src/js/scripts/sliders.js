@@ -363,6 +363,37 @@ heroSliderHldAll.forEach(sliderHld => {
 	heroSlider;
 });
 
+const heroTilesSliderHldAll = document.querySelectorAll('.js-hero-tiles-slider-hld');
+heroTilesSliderHldAll.forEach(sliderHld => {
+	const heroTilesSlider = new Swiper(sliderHld.querySelector('.js-hero-tiles-slider'), {
+		slidesPerView: 1.2,
+		grabCursor: true,
+		threshold: 30,
+		spaceBetween: 12,
+		navigation: {
+			prevEl: '.js-hero-tiles-slider-button-prev',
+			nextEl: '.js-hero-tiles-slider-button-next',
+		},
+		breakpoints: {
+			460: {
+				slidesPerView: 2.2,
+			},
+			768: {
+				slidesPerView: 3.2,
+			},
+			1281: {
+				slidesPerView: 3,
+			},
+		},
+		on: {
+			realIndexChange: function() {
+				lazyLoadInstance.update();
+			},
+		},
+	});
+	heroTilesSlider;
+});
+
 const isMobile = window.innerWidth < 768;
 if (!isMobile) {
 	const vendorsTableSliderHldAll = document.querySelectorAll('.js-vendors-table-slider-hld');

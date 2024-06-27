@@ -339,22 +339,19 @@
 				display: inline-block;
 				padding: 5px 12px 3px;
 				border-radius: 4px;
+				background-color: $c-accent;
+				color: $c-white;
 				font-size: 12px;
 				font-weight: 500;
 				line-height: calc(16 / 12);
 
-				&--very-dark {
-					background-color: $c-neutral-10;
-					color: $c-white;
-				}
-
-				&--medium {
-					background-color: $c-accent;
+				&--dark {
+					background-color: $c-accent-dark;
 					color: $c-white;
 				}
 
 				&--very-light {
-					background-color: $c-blue-light-green;
+					background-color: $c-brand-primary-40;
 					color: $c-black;
 				}
 			}
