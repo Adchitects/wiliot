@@ -15,23 +15,6 @@
 		margin-top: 0;
 		padding-bottom: 20px;
 	}
-
-	.bg-shape--top-right {
-		top: -100px;
-		right: -320px;
-
-		@include mobile {
-			right: -100px;
-		}
-	}
-
-	.bg-shape--bottom-left {
-		left: -500px;
-
-		@include mobile {
-			left: -100px;
-		}
-	}
 }
 
 .supply-chain-animation {
