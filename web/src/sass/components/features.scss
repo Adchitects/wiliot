@@ -20,7 +20,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			margin-top: 62px;
+			margin-top: 28px;
 			gap: 20px 66px;
 
 			@include tablet-small {
@@ -48,7 +48,7 @@
 				padding-bottom: 42px;
 
 				&__image-hld {
-					margin: 0 auto 24px;
+					margin: 0 auto 34px;
 
 					img {
 						width: auto;
