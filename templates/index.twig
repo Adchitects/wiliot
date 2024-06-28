@@ -10,21 +10,21 @@
 		{% set metaDescription = category.metaDescription %}
 		{% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
 		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
-    {% else %}
-        {% set metaTitle = globalMetaTags.metaTitle %}
+	{% else %}
+		{% set metaTitle = globalMetaTags.metaTitle %}
 		{% set metaDescription = globalMetaTags.metaDescription %}
 		{% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
 		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
 	{% endif %}
-    {% if entry is defined %}
-        {% set handle = entry.section.handle %}
-    {% elseif category is defined %}
-        {% set handle = category.group.handle %}
-    {% endif %}
-    {% if handle == 'homepage' %}
-        {% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
+	{% if entry is defined %}
+		{% set handle = entry.section.handle %}
+	{% elseif category is defined %}
+		{% set handle = category.group.handle %}
+	{% endif %}
+	{% if handle == 'homepage' %}
+		{% set postCreatedDate = pageOptions.pageOptionsSchemaPublishedDate|date("Y-m-d\\TH:i:s+00:00") %}
 		{% set postModifyDate = pageOptions.pageOptionsSchemaModifiedDate|date("Y-m-d\\TH:i:s+00:00") %}
-    {% endif %}
+	{% endif %}
 	{% block head %}
 		<head>
 			<meta charset="UTF-8">
@@ -34,7 +34,7 @@
 					{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
 				{% endblock %}
 			</title>
-            <script>
+			<script>
 				var b=!1,c=document.getElementsByTagName("head")[0]||document.documentElement;function d(){var a=document.querySelectorAll("fscript");[].forEach.call(a,function(a){var b=document.createElement("script");if(b.type="text/javascript",a.hasAttributes())for(var d in a.attributes)a.attributes.hasOwnProperty(d)&&(b[a.attributes[d].name]=a.attributes[d].value||!0);else b.appendChild(document.createTextNode(a.innerHTML));c.insertBefore(b,c.firstChild)})}function e(){b||(b=!0,setTimeout(function(){"requestIdleCallback"in window?requestIdleCallback(d,{timeout:1e3}):d()},1e3))}const a=["scroll","mouseover","keydown","touchmove","touchstart","click"];a.forEach(a=>{window.addEventListener(a,e,{passive:!0,once:!0})})
 			</script>
 			{% if customScripts.customScriptsHead %}
@@ -70,9 +70,9 @@
 					font-display: swap;
 				}
 			</style>
-            <style>fscript {display: none;}</style>
-            <link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.css') }}?v=27026024">
-            <link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_300_book.woff2') }}" as="font" type="font/woff2" crossorigin>
+			<style>fscript {display: none;}</style>
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.css') }}?v=27026024">
+			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_300_book.woff2') }}" as="font" type="font/woff2" crossorigin>
 			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_500_medium.woff2') }}" as="font" type="font/woff2" crossorigin>
 			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_900_heavy.woff2') }}" as="font" type="font/woff2" crossorigin>
 			<link rel="preload" href="{{ alias('@web/src/fonts/icomoon/fonts/icomoon.woff') }}" as="font" type="font/woff2" crossorigin>
@@ -82,25 +82,25 @@
 			{% block canonical %}
 				<link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
 			{% endblock %}
-            <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+			<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 			<meta property="og:locale" content="en_US">
 			{% block og %}
 				<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
 				<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 				<meta property="og:type" content="website">
 			{% endblock %}
-            {% block ogurl %}
+			{% block ogurl %}
 			<meta property="og:url" content="{{ alias('@web') }}">
-            {% endblock %}
+			{% endblock %}
 			<meta property="og:site_name" content="Wiliot">
-            {% block articleMeta %}
-            {% endblock %}
+			{% block articleMeta %}
+			{% endblock %}
 			<meta property="og:image" content="{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}">
 			<meta property="og:image:width" content="1200">
 			<meta property="og:image:height" content="628">
-            <meta property="og:image:type" content="image/jpeg">
-            <meta name="twitter:card" content="summary_large_image">
-            <meta name="twitter:creator" content="@WiliotHQ">
+			<meta property="og:image:type" content="image/jpeg">
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:creator" content="@WiliotHQ">
 			<meta name="twitter:site" content="@WiliotHQ">
 			<meta name="twitter:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
 			<meta name="twitter:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
@@ -113,140 +113,140 @@
 			<link rel="manifest" href="{{ alias('@web/site.webmanifest') }}">
 			<link rel="mask-icon" href="{{ alias('@web/safari-pinned-tab.svg') }}" color="#5bbad5">
 			<meta name="msapplication-TileColor" content="#da532c">
-            <link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}">
+			<link rel="alternate" type="application/rss+xml" href="{{ url('feed.rss') }}">
 			<script type="application/ld+json">
 				{
 					"@context": "https://schema.org",
-                    "@type": "Organization",
-                    "name": "Wiliot",
-                    "url": "https://www.wiliot.com",
-                    "logo": "https://www.wiliot.com/src/img/svg/logo.svg",
-                    "sameAs": [
-                        "https://www.facebook.com/WiliotHQ",
-                        "https://twitter.com/WiliotHQ",
-                        "https://www.linkedin.com/company/wiliot/"
-                    ]
-                }
-            </script>
-            <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "WebSite",
-                    "@id": "https://www.wiliot.com/#website",
-                    "url": "https://www.wiliot.com/",
-                    "name": "{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}",
-                    "description": "{{ globalMetaTags.metaDescription }}",
-                    "potentialAction": [
-                        {
-                            "@type": "SearchAction",
-                            "target": {
-                                "@type": "EntryPoint",
-                                "urlTemplate": "https://www.wiliot.com/search?q={search_term_string}"
-                            },
-                            "query-input": "required name=search_term_string"
-                        }
-                    ],
-                    "inLanguage": "en-US"
-                }
-            </script>
-            <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "ImageObject",
-                    "@id": "https://www.wiliot.com/#primaryimage",
-                    "inLanguage": "en-US",
-                    "url": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}",
-                    "contentUrl": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}",
-                    "width": 1200,
-                    "height": 628,
-                    "caption": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() and entry.heroTitle ? entry.heroTitle : 'Wiliot Platform powered by IoT Pixels.' }}"
-                }
-            </script>
-            <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "WebPage",
-                    "@id": "https://www.wiliot.com#webpage",
-                    "url": "https://www.wiliot.com",
-                    "name": "{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}",
-                    "isPartOf": {
-                        "@id": "https://www.wiliot.com/#website"
-                    },
-                    "publisher":
-                    {
-                        "name": "Wiliot",
-                        "url": "https://www.wiliot.com"
-                    },
-                    "datePublished": "{{ postCreatedDate }}",
-                    "dateModified": "{{ postModifyDate }}",
-                    "description": "{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}",
-                    "breadcrumb": {
-                        "@id": "https://www.wiliot.com/#breadcrumb"
-                    },
-                    "inLanguage": "en-US",
-                    "potentialAction": [
-                        {
-                            "@type": "ReadAction",
-                            "target": [
-                                "https://www.wiliot.com"
-                            ]
-                        }
-                    ]
-                }
-            </script>
-            {% block additionalJsonMeta %}
-            {% endblock %}
+					"@type": "Organization",
+					"name": "Wiliot",
+					"url": "https://www.wiliot.com",
+					"logo": "https://www.wiliot.com/src/img/svg/logo.svg",
+					"sameAs": [
+						"https://www.facebook.com/WiliotHQ",
+						"https://twitter.com/WiliotHQ",
+						"https://www.linkedin.com/company/wiliot/"
+					]
+				}
+			</script>
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "WebSite",
+					"@id": "https://www.wiliot.com/#website",
+					"url": "https://www.wiliot.com/",
+					"name": "{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}",
+					"description": "{{ globalMetaTags.metaDescription }}",
+					"potentialAction": [
+						{
+							"@type": "SearchAction",
+							"target": {
+								"@type": "EntryPoint",
+								"urlTemplate": "https://www.wiliot.com/search?q={search_term_string}"
+							},
+							"query-input": "required name=search_term_string"
+						}
+					],
+					"inLanguage": "en-US"
+				}
+			</script>
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "ImageObject",
+					"@id": "https://www.wiliot.com/#primaryimage",
+					"inLanguage": "en-US",
+					"url": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}",
+					"contentUrl": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() ? entry.newsPostsShareImage.one().getUrl() : alias('@web/src/img/share-image.jpg') }}",
+					"width": 1200,
+					"height": 628,
+					"caption": "{{ entry is defined and entry.newsPostsShareImage and entry.newsPostsShareImage.one() and entry.heroTitle ? entry.heroTitle : 'Wiliot Platform powered by IoT Pixels.' }}"
+				}
+			</script>
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "WebPage",
+					"@id": "https://www.wiliot.com#webpage",
+					"url": "https://www.wiliot.com",
+					"name": "{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}",
+					"isPartOf": {
+						"@id": "https://www.wiliot.com/#website"
+					},
+					"publisher":
+					{
+						"name": "Wiliot",
+						"url": "https://www.wiliot.com"
+					},
+					"datePublished": "{{ postCreatedDate }}",
+					"dateModified": "{{ postModifyDate }}",
+					"description": "{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}",
+					"breadcrumb": {
+						"@id": "https://www.wiliot.com/#breadcrumb"
+					},
+					"inLanguage": "en-US",
+					"potentialAction": [
+						{
+							"@type": "ReadAction",
+							"target": [
+								"https://www.wiliot.com"
+							]
+						}
+					]
+				}
+			</script>
+			{% block additionalJsonMeta %}
+			{% endblock %}
 		</head>
 	{% endblock %}
 	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% if entry.type.handle == 'singleWithSidebar' or entry.type.handle == 'singleEventWithHeroForm' %} is-with-sidebar {% endif %}{% endif %}">
 		{% if customScripts.customScriptsBodyStart %}
 			{{ customScripts.customScriptsBodyStart|raw }}
 		{% endif %}
-        {{ include('/sections/svg-sprites.twig') }}
+		{{ include('/sections/svg-sprites.twig') }}
 		<header class="header header--desktop js-header js-search-bar-hld">
 			{{ include('/sections/menu-desktop.twig') }}
-            {% block headerPopup %}
-            {% endblock %}
+			{% block headerPopup %}
+			{% endblock %}
 		</header>
 		<header class="header header--mobile js-header">
-            {{ include('/sections/menu-mobile.twig') }}
-            {% block headerPopupMobile %}
-            {% endblock %}
+			{{ include('/sections/menu-mobile.twig') }}
+			{% block headerPopupMobile %}
+			{% endblock %}
 		</header>
-        {% set pages = craft.entries.section('menuMobile').level(1) %}
-        {% set socials = pageOptions.pageOptionsSocials.all() %}
-        {% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
-        <div class="menu-mobile-menu-hld js-menu-mobile-menu-hld">
-            <div class="menu-mobile__overlay js-menu-mobile-btn"></div>
-            <div class="menu-mobile__inner">
-                <nav class="menu-mobile__nav-hld">
-                    <ul class="menu-mobile__nav-list">
-                        {% nav page in pages %}
-                            {% set menuMobileTitle = page.title %}
-                            {% set menuMobilePageLink = page.menuMobilePageLink %}
-                            <li class="menu-mobile__nav-list-item {% if entry is defined and menuMobilePageLink == entry.url %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
-                                {% if lastIsTypeform and loop.index == 1 %}
-                                    {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                                    <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
-                                        <span class="text">{{ menuMobileTitle }}</span>
-                                    </button>
-                                {% elseif menuMobilePageLink.url %}
-                                    <a href="{{ menuMobilePageLink.url }}" target="{{ menuMobilePageLink.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink.target ? 'noopener noreferrer' : null }}" class="inner">
-                                        <span class="text">{{ menuMobileTitle }}</span>
-                                    </a>
-                                {% else %}
-                                    <div class="inner">
-                                        <span class="text">{{ menuMobileTitle }}</span>
-                                        <span class="link-icon-hld js-menu-mobile-dropdown-icon">
-                                            <span class="icon icon-dropdown-down"></span>
-                                        </span>
-                                    </div>
-                                {% endif %}
+		{% set pages = craft.entries.section('menuMobile').level(1) %}
+		{% set socials = pageOptions.pageOptionsSocials.all() %}
+		{% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
+		<div class="menu-mobile-menu-hld js-menu-mobile-menu-hld">
+			<div class="menu-mobile__overlay js-menu-mobile-btn"></div>
+			<div class="menu-mobile__inner">
+				<nav class="menu-mobile__nav-hld">
+					<ul class="menu-mobile__nav-list">
+						{% nav page in pages %}
+							{% set menuMobileTitle = page.title %}
+							{% set menuMobilePageLink = page.menuMobilePageLink %}
+							<li class="menu-mobile__nav-list-item {% if entry is defined and menuMobilePageLink == entry.url %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
+								{% if lastIsTypeform and loop.index == 1 %}
+									{% set typeformID = pageOptions.pageOptionsTypeFormID %}
+									<button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+										<span class="text">{{ menuMobileTitle }}</span>
+									</button>
+								{% elseif menuMobilePageLink.url %}
+									<a href="{{ menuMobilePageLink.url }}" target="{{ menuMobilePageLink.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink.target ? 'noopener noreferrer' : null }}" class="inner">
+										<span class="text">{{ menuMobileTitle }}</span>
+									</a>
+								{% else %}
+									<div class="inner">
+										<span class="text">{{ menuMobileTitle }}</span>
+										<span class="link-icon-hld js-menu-mobile-dropdown-icon">
+											<span class="icon icon-dropdown-down"></span>
+										</span>
+									</div>
+								{% endif %}
 								{% set secondLevelEntries = craft.entries.section('menuMobile').level(2).descendantOf(page) %}
-                                {% if secondLevelEntries.exists() %}
-                                    <div class="menu-mobile__nav-dropdown js-menu-mobile-dropdown">
-                                        <ul class="menu-mobile__nav-dropdown-list js-menu-mobile-dropdown-list">
-                                            {% for secondLevelEntry in secondLevelEntries.all() %}
+								{% if secondLevelEntries.exists() %}
+									<div class="menu-mobile__nav-dropdown js-menu-mobile-dropdown">
+										<ul class="menu-mobile__nav-dropdown-list js-menu-mobile-dropdown-list">
+											{% for secondLevelEntry in secondLevelEntries.all() %}
 												{% set menuMobilePageLink2 = secondLevelEntry.menuMobilePageLink %}
 												<li>
 													<a href="{{ menuMobilePageLink2 }}" target="{{ menuMobilePageLink2.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink2.target ? 'noopener noreferrer' : null }}">{{ secondLevelEntry.title }}</a>
@@ -263,33 +263,33 @@
 													{% endif %}
 												</li>
 											{% endfor %}
-                                        </ul>
-                                    </div>
-                                {% endif %}
-                            </li>
-                        {% endnav %}
-                    </ul>
-                </nav>
-                <div class="menu-mobile__search-hld">
-                    {{ include('/sections/search-bar.twig') }}
-                </div>
-                {% if socials %}
-                    <div class="menu-mobile__socials-hld">
-                        <div class="inner">
-                            {% for social in socials %}
-                                <div class="link">
-                                    {% if social.socialLink and social.socialName and social.socialIcon %}
-                                        <a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
-                                            <span class="icon icon-{{ social.socialName|lower }}"></span>
-                                        </a>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
+										</ul>
+									</div>
+								{% endif %}
+							</li>
+						{% endnav %}
+					</ul>
+				</nav>
+				<div class="menu-mobile__search-hld">
+					{{ include('/sections/search-bar.twig') }}
+				</div>
+				{% if socials %}
+					<div class="menu-mobile__socials-hld">
+						<div class="inner">
+							{% for social in socials %}
+								<div class="link">
+									{% if social.socialLink and social.socialName and social.socialIcon %}
+										<a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
+											<span class="icon icon-{{ social.socialName|lower }}"></span>
+										</a>
+									{% endif %}
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
 		<main>
 			{% block main %}
 				{% set latestPopup = craft.entries.section('popupPosts').limit(1) %}
@@ -351,34 +351,34 @@
 				{{ include('/sections/footer.twig') }}
 			{% endblock %}
 		</footer>
-        {% set cookieBoxEnabled = cookieBox.cookieBoxEnabled %}
-        {% if cookieBoxEnabled %}
-            {% set cookieBoxTitle = cookieBox.cookieBoxTitle %}
-            {% set cookieBoxContent = cookieBox.cookieBoxContent %}
-            {% set cookieBoxButtonText = cookieBox.cookieBoxButtonText %}
-            <div class="site-cookie-box-hld js-cookie-box">
-                <div class="site-cookie-box">
-                    <div class="site-cookie-box__text-hld">
-                        {% if cookieBoxTitle %}
-                            <span class="site-cookie-box__title">{{ cookieBoxTitle }}</span>
-                        {% endif %}
-                        {% if cookieBoxContent %}
-                            <div class="site-cookie-box__content">
-                                {{ cookieBoxContent }}
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="site-cookie-box__btn-hld">
-                        <button class="site-cookie-box__btn u-btn u-btn--accent js-cookie-box-accept">
-                            <span class="text">{{ cookieBoxButtonText }}</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        {% endif %}
-        {{ csrfInput() }}
-        <fscript src="//embed.typeform.com/next/embed.js"></fscript>
-        <script src="{{ alias('@web/src/js/main.min.js') }}?v=27062024"></script>
+		{% set cookieBoxEnabled = cookieBox.cookieBoxEnabled %}
+		{% if cookieBoxEnabled %}
+			{% set cookieBoxTitle = cookieBox.cookieBoxTitle %}
+			{% set cookieBoxContent = cookieBox.cookieBoxContent %}
+			{% set cookieBoxButtonText = cookieBox.cookieBoxButtonText %}
+			<div class="site-cookie-box-hld js-cookie-box">
+				<div class="site-cookie-box">
+					<div class="site-cookie-box__text-hld">
+						{% if cookieBoxTitle %}
+							<span class="site-cookie-box__title">{{ cookieBoxTitle }}</span>
+						{% endif %}
+						{% if cookieBoxContent %}
+							<div class="site-cookie-box__content">
+								{{ cookieBoxContent }}
+							</div>
+						{% endif %}
+					</div>
+					<div class="site-cookie-box__btn-hld">
+						<button class="site-cookie-box__btn u-btn u-btn--accent js-cookie-box-accept">
+							<span class="text">{{ cookieBoxButtonText }}</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		{{ csrfInput() }}
+		<fscript src="//embed.typeform.com/next/embed.js"></fscript>
+		<script src="{{ alias('@web/src/js/main.min.js') }}?v=27062024"></script>
 		<!-- WebSights Footer HTML Snippet -->
 		{% if customScripts.customScriptsFooter %}
 			{{ customScripts.customScriptsFooter|raw }}

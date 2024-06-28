@@ -35,7 +35,11 @@
 										</div>
 										<div class="text-hld">
 											<div class="date">
-												{{ chosenPostEntry.postDate | date("F d, Y") }}
+												{% if chosenPostEntry.eventDate %}
+													{{ chosenPostEntry.eventDate | date("F d, Y") }}
+												{% else %}
+													{{ chosenPostEntry.postDate | date("F d, Y") }}
+												{% endif %}
 											</div>
 											<div class="title">
 												{{ title|length > 110 ? title|slice(0, 107) ~ '...' : title }}
@@ -94,7 +98,11 @@
 											{% endif %}
 										</div>
 										<div class="date">
-											{{ post.postDate | date("F d, Y") }}
+											{% if isEvent %}
+												{{ post.eventDate | date("F d, Y") }}
+											{% else %}
+												{{ post.postDate | date("F d, Y") }}
+											{% endif %}
 										</div>
 										<div class="title">
 											{{ post.title|length > 110 ? post.title|slice(0, 107) ~ '...' : post.title }}
