@@ -142,7 +142,9 @@
 			}
 
 			.inputs-list {
-				margin-top: 0 !important;
+				margin-top: 5px !important;
+				position: relative;
+				bottom: initial;
 
 				.hs-form-booleancheckbox-display {
 					span {
