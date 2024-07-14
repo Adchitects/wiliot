@@ -1,0 +1,68 @@
+{% set title = entry.featuresTitleDuplicate %}
+{% set subtitle = entry.featuresSubtitleDuplicate %}
+{% set showAnimationLightswitch = entry.featuresTitleShowAnimationLightswitchDuplicate %}
+{% set contentList = entry.featuresContentListDuplicate.all() %}
+{% set button = entry.featuresButtonDuplicate %}
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--features js-bg-shape-hld">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/features.css') }}?v=21092023">
+	<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+		<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="u-wrapper u-wrapper--events-listing">
+		<div class="features">
+			{% if subtitle %}
+				<span class="features__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
+			{% endif %}
+			{% if title %}
+				<h2 class="features__title u-title u-title--section">{{ title }}</h2>
+			{% endif %}
+			<div class="features__row">
+				{% if showAnimationLightswitch %}
+					<div class="features__col features__col--animation">
+						<div class="features__animation features__animation--desktop js-lottie-animation" data-rwd="desktop" data-animation-path="{% if (craft.app.sites.primarySite.baseUrl == 'http://wiliot.adchitects.co/web/') %}/web{% endif %}/src/img/homepage-animation.json?v=07112022"></div>
+						<div class="features__animation features__animation--mobile js-lottie-animation" data-rwd="mobile" data-animation-path="{% if (craft.app.sites.primarySite.baseUrl == 'http://wiliot.adchitects.co/web/') %}/web{% endif %}/src/img/homepage-animation-mobile.json?v=07112022"></div>
+					</div>
+				{% endif %}
+				{% for content in contentList %}
+					{% set image = content.featureImage.one() %}
+					{% if image %}
+						{% set imageUrl = image.getUrl() %}
+						{% set imageAlt = image.title %}
+					{% endif %}
+					{% set title = content.featureContentTitle %}
+					{% set description = content.featureContentDescription %}
+					{% set featureButton = content.featureButton %}
+					<div class="features__col features__col--content" data-index="{{ loop.index }}">
+						<div class="item">
+							{% if image %}
+								<div class="item__image-hld">
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+								</div>
+							{% endif %}
+							<h3 class="item__title">{{ title }}</h3>
+							<div class="item__description">{{ description }}</div>
+							{% if featureButton and featureButton.getUrl() %}
+								<a href="{{ featureButton.getUrl() }}" class="item__btn u-btn u-btn--arrow">
+									<span class="text">
+										{{ featureButton.customText }}
+									</span>
+								</a>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			{% if button.url %}
+				<div class="features__btn-hld">
+					<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="features__btn u-btn u-btn--light">
+						<span class="text">{{ button.title }}</span>
+					</a>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+<!-- Already declared in supply-chain-animation.twig if it's homepage
+	<fscript src="{{ alias('@web/src/js/lottieAnimation.min.js') }}"></fscript>
+-->

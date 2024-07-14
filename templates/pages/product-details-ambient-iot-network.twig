@@ -1,0 +1,39 @@
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="website">
+{% endblock %}
+{% block main %}
+	{% set sectionId = '01' %}
+	{{ include('/sections/product-hero.twig') }}
+
+	{% set sectionId = '02' %}
+
+	{% set sectionId = '03' %}
+	{{ include('/sections/features.twig') }}
+
+	{% set sectionId = '04' %}
+
+	{% set sectionId = '05' %}
+
+	{% set sectionId = '06' %}
+	{{ include('/sections/logos-slider.twig') }}
+
+	{% set sectionId = '07' %}
+	{% set sectionId = '08' %}
+	{% set sectionId = '09' %}
+
+	{% set sectionId = '10' %}
+	{{ include('/sections/features-duplicate.twig') }}
+
+{% endblock %}
