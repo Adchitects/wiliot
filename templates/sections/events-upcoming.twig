@@ -1,0 +1,65 @@
+{% set pretitle = entry.eventsUpcomingPretitle %}
+{% set title = entry.eventsUpcomingTitle %}
+{% set eventEntries = craft.entries.section('eventItems').eventStartingDate(':notempty:').orderBy('eventStartingDate').all() %}
+{% set now = now|date('U') %}
+{% set upcomingEvent = null %}
+{% set closestDiff = null %}
+
+{% for event in eventEntries %}
+    {% set eventStartingDate = event.eventStartingDate|date('U') %}
+    {% set diff = eventStartingDate - now %}
+    {% if diff > 0 and (closestDiff is null or diff < closestDiff) %}
+        {% set upcomingEvent = event %}
+        {% set closestDiff = diff %}
+    {% endif %}
+
+{% endfor %}
+
+
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section--events-upcoming u-section">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/events-upcoming.css') }}?v=21092023">
+		<div class="u-wrapper u-wrapper--events-listing">
+			<div class="events-upcoming-hld">
+				{% if pretitle %}
+					<span class="events-upcoming__pretitle u-subtitle u-subtitle--section">{{ pretitle }}</span>
+				{% endif %}
+				{% if title %}
+					<h2 class="events-upcoming__title u-title u-title--section">{{ title }}</h2>
+				{% endif %}
+					{% set date = upcomingEvent.eventStartingDate | date("F d, Y") %}
+					<div class="events-upcoming__item-hld">
+						{% set url = upcomingEvent.url %}
+						{% set image = upcomingEvent.eventImage.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl('eventItemListing') %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{% set time = upcomingEvent.eventTime %}
+						{% set place = upcomingEvent.eventPlace %}
+						{% set title = upcomingEvent.title %}
+						{% set excerpt = upcomingEvent.eventExcerpt %}
+						<a href="{{ url }}" class="item">
+							<div class="text-hld">
+								<h3>{{ title }}</h3>
+								<p>{{ date }}</p>
+								{% if time %}
+									<p>{{ time }}</p>
+								{% endif %}
+								{% if place %}
+									<p>{{ place }}</p>
+								{% endif %}
+								{% if excerpt %}
+									<p>{{ excerpt }}</p>
+								{% endif %}
+							</div>
+							<div class="image-hld">
+								{% if image %}
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+								{% endif %}
+							</div>
+						</a>
+					</div>
+			</div>
+		</div>
+	</section>
+
