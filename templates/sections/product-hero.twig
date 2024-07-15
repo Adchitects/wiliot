@@ -1,6 +1,9 @@
 {% set subtitle = entry.heroSubtitle ? entry.heroSubtitle : entry.title %}
 {% set title = entry.productHeroTitle %}
 {% set image = entry.productHeroImage.one() %}
+{% set bottomTitle = entry.productHeroBottomTitle %}
+{% set bottomDescription = entry.productHeroBottomDescription %}
+{% set bottomImage = entry.productHeroBottomImage.one() %}
 {% if entry is defined %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="u-wrapper--medium-wide u-wrapper">
@@ -12,14 +15,25 @@
 				</div>
 				<div class="product-hero__content">
 					{% if subtitle %}
-						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
+						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle | nl2br }}</span>
 					{% endif %}
 					{% if title %}
-						<h1 class="product-hero__title u-title u-title--big">{{ title }}</h1>
+						<h1 class="product-hero__title u-title u-title--big">{{ title| nl2br }}</h1>
 					{% endif %}
 				</div>
 				{% if image %}
 					<img src="{{ image.getUrl() }}" alt="{{ title }}" class="product-hero__image">
+				{% endif %}
+			</div>
+			<div class="product-hero-bottom">
+				{% if bottomTitle %}
+					<div class="product-hero-bottom__title u-title u-title--section">{{ bottomTitle | nl2br }}</div>
+				{% endif %}
+				{% if bottomDescription %}
+					<div class="product-hero-bottom__description">{{ bottomDescription | nl2br }}</div>
+				{% endif %}
+				{% if bottomImage %}
+					<img src="{{ bottomImage.getUrl() }}" alt="{{ bottomTitle }}" class="product-hero-bottom__image">
 				{% endif %}
 			</div>
 		</div>

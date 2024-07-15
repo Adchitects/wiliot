@@ -5,6 +5,10 @@
 	background-image: linear-gradient(188.82deg, #f5f5fc 0%, #f5f9fc 100%);
 	overflow: hidden;
 
+	.is-page-product-posts---ambient-iot-network & {
+		padding-top: 196px;
+	}
+
 	@include tablet-small-1023 {
 		&.u-section--product-hero {
 			margin-top: 0;
@@ -14,61 +18,88 @@
 	@include media-max(899) {
 		padding-top: 80px;
 	}
+}
 
-	.product-hero {
-		display: grid;
-		align-items: center;
-		grid-template-columns: repeat(12, 1fr);
-		grid-gap: 24px;
+.product-hero {
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: 24px;
+	position: relative;
+
+	@include media-max(850) {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@include mobile-599 {
+		align-items: flex-start;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		grid-column: 2 / 7;
 		position: relative;
 
-		@include media-max(850) {
-			display: flex;
-			flex-direction: column;
+		@include media-max(899) {
+			grid-column: 1 / 7;
+		}
+	}
+
+	&__title {
+		@include media-max(899) {
+			font-size: 50px;
+			line-height: 66px;
 		}
 
-		@include mobile-599 {
-			align-items: flex-start;
+		@include media-max(580) {
+			font-size: 28px;
+			line-height: 36px;
+		}
+	}
+
+	&__subtitle {
+		margin-bottom: 12px;
+	}
+
+	&__image {
+		grid-column: 7 / 13;
+		position: relative;
+		z-index: 1;
+
+		@include media-max(899) {
+			width: 100%;
+			max-width: 624px;
+			margin: 0 auto;
+			margin-top: 32px;
 		}
 
-		&__content {
-			display: flex;
-			flex-direction: column;
-			grid-column: 2 / 7;
-			position: relative;
+		.is-page-product-posts---ambient-iot-network & {
+			transform: translateX(7.4vw);
 
-			@include media-max(899) {
-				grid-column: 1 / 7;
+			@include media-max(1310) {
+				transform: none;
 			}
 		}
+	}
+}
 
-		&__title {
-			@include media-max(899) {
-				font-size: 50px;
-				line-height: 66px;
-			}
+.product-hero-bottom {
+	position: relative;
+	z-index: 1;
+	margin-top: 100px;
+	text-align: center;
 
-			@include media-max(580) {
-				font-size: 28px;
-				line-height: 36px;
-			}
-		}
+	&__title {}
 
-		&__subtitle {
-			margin-bottom: 12px;
-		}
+	&__description {
+		max-width: 540px;
+		margin: 0 auto;
+		margin-top: 24px;
+	}
 
-		&__image {
-			grid-column: 7 / 13;
-			position: relative;
-			z-index: 1;
-
-			@include media-max(899) {
-				width: 100%;
-				max-width: 624px;
-				margin: 0 auto;
-				margin-top: 32px;
-			}
-		}
+	&__image {
+		margin-top: 60px;
 	}
 }
