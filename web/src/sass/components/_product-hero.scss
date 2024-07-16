@@ -42,6 +42,13 @@
 		grid-column: 2 / 7;
 		position: relative;
 
+		@include tablet-small-1023 {
+			.is-page-product-posts---ambient-iot-network & {
+				width: 100%;
+				text-align: center;
+			}
+		}
+
 		@include media-max(899) {
 			grid-column: 1 / 7;
 		}

@@ -7,6 +7,13 @@
 	background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 0%);
 	overflow: hidden;
 
+	@include tablet-small-1023 {
+		&.u-section {
+			margin-top: 0;
+			padding: 60px 0;
+		}
+	}
+
 	.is-page-product-posts---ambient-iot-network & {
 		padding-top: 76px;
 		background-image: linear-gradient(0deg, rgba(245, 245, 252, 0) 3.19%, #F5F9FC 17.78%);
