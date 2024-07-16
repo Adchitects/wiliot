@@ -1,3 +1,7 @@
+:root {
+	--brand-gradient-off-white: radial-gradient(closest-side, rgba(245, 245, 252, 1) 0%, rgba(245, 249, 252, 1) 100%);
+}
+
 // FONTS (@font-faces are in <style> of index.twig
 $font-head: 'avenir', arial;
 $font-std: $font-head;
@@ -23,6 +27,7 @@ $c-blue-light-green: #d0fef5;
 $c-blue-lighter-green: #edfbf8;
 $c-brand-primary-40: #ACFFFE;
 
+$c-neutral-5: #1B1D24;
 $c-neutral-10: #262832;
 $c-neutral-60: #A7A7AC;
 $c-neutral-80: #D7D7DE;
