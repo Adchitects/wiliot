@@ -19,10 +19,10 @@
 		<div class="u-wrapper u-wrapper--events-listing">
 			<div class="events-upcoming">
 				{% if pretitle %}
-					<span class="events-upcoming__pretitle u-subtitle u-subtitle--section">{{ pretitle | nl2br }}</span>
+					<span class="events-upcoming__pretitle u-subtitle u-subtitle--section">{{ pretitle|nl2br }}</span>
 				{% endif %}
 				{% if title %}
-					<h2 class="events-upcoming__title u-title u-title--section">{{ title | nl2br }}</h2>
+					<h2 class="events-upcoming__title u-title u-title--section">{{ title|nl2br }}</h2>
 				{% endif %}
 				{% set event = chosenEntry.one() ? chosenEntry.one() : upcomingEvent %}
 				{% set date = event.eventDate %}

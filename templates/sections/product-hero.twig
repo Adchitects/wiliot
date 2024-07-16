@@ -15,10 +15,10 @@
 				</div>
 				<div class="product-hero__content">
 					{% if subtitle %}
-						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle | nl2br }}</span>
+						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle|nl2br }}</span>
 					{% endif %}
 					{% if title %}
-						<h1 class="product-hero__title u-title u-title--big">{{ title| nl2br }}</h1>
+						<h1 class="product-hero__title u-title u-title--big">{{ title|nl2br }}</h1>
 					{% endif %}
 				</div>
 				{% if image %}
@@ -27,10 +27,10 @@
 			</div>
 			<div class="product-hero-bottom">
 				{% if bottomTitle %}
-					<div class="product-hero-bottom__title u-title u-title--section">{{ bottomTitle | nl2br }}</div>
+					<div class="product-hero-bottom__title u-title u-title--section">{{ bottomTitle|nl2br }}</div>
 				{% endif %}
 				{% if bottomDescription %}
-					<div class="product-hero-bottom__description">{{ bottomDescription | nl2br }}</div>
+					<div class="product-hero-bottom__description">{{ bottomDescription|nl2br }}</div>
 				{% endif %}
 				{% if bottomImage %}
 					<img src="{{ bottomImage.getUrl() }}" alt="{{ bottomTitle }}" class="product-hero-bottom__image">

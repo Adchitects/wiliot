@@ -1,0 +1,48 @@
+{% set itemsMatrix = entry.productTableItemsMatrix.all() %}
+{% if itemsMatrix|length %}
+    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-table">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/product-table.css') }}?v=21092023">
+		<div class="u-wrapper u-wrapper--events-listing">
+			<div class="product-table">
+				<div class="product-table__item product-table__item--first">
+					<div class="box box--company"><span>Company</span></div>
+					<div class="box box--product-name"><span>Product name</span></div>
+					<div class="box box--certified-component"><span>Certified vomponents</span></div>
+					<div class="box box--cert-version"><span>Cert. version</span></div>
+					<div class="box box--firmware"><span>Firmware</span></div>
+				</div>
+				{% for item in itemsMatrix %}
+					{% set company = item.company %}
+					{% set productName = item.productName %}
+					{% set certifiedComponentsMatrix = item.certifiedComponentsMatrix.all() %}
+					{% set certVersion = item.certVersion %}
+					{% set firmware = item.firmware %}
+					<div class="product-table__item">
+						<div class="box box--company">
+							<div class="image-hld">
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ company.one().getUrl() }}" alt="{{ company.title }}" width="24" height="24"/>
+							</div>
+						</div>
+						<div class="box box--product-name">
+							<div class="name">{{ productName }}</div>
+						</div>
+						<div class="box box--certified-components">
+							{% for certifiedComponent in certifiedComponentsMatrix %}
+								{% set component = certifiedComponent.component %}
+								<div class="certified-component">
+									<div class="name">{{ component }}</div>
+								</div>
+							{% endfor %}
+						</div>
+						<div class="box box--cert-version">
+							<div class="name">{{ certVersion }}</div>
+						</div>
+						<div class="box box--firmware">
+							<div class="name">{{ firmware }}</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+    </section>
+{% endif %}
