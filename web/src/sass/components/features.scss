@@ -30,6 +30,10 @@
 
 		&__title {
 			text-align: center;
+
+			.is-page-product-posts---ambient-iot-network & {
+				max-width: 500px;
+			}
 		}
 
 		&__row {
@@ -40,6 +44,7 @@
 			gap: 20px 66px;
 
 			.is-page-product-posts---ambient-iot-network & {
+				width: 100%;
 				margin-top: 56px;
 			}
 
@@ -59,6 +64,10 @@
 				flex: 1;
 				justify-content: space-between;
 				text-align: center;
+
+				.is-page-product-posts---ambient-iot-network & {
+					justify-content: center;
+				}
 			}
 
 			.item {
@@ -72,6 +81,7 @@
 					margin: 0 auto 34px;
 
 					.is-page-product-posts---ambient-iot-network & {
+						max-width: 366px;
 						margin-bottom: 20px;
 					}
 
@@ -95,7 +105,8 @@
 					line-height: 26px;
 
 					.is-page-product-posts---ambient-iot-network & {
-						margin-top: 16px;
+						max-width: 480px;
+						margin: 16px auto 0;
 					}
 
 					@include tablet-small-1023 {
@@ -148,6 +159,31 @@
 
 				&--mobile {
 					display: block;
+				}
+			}
+		}
+	}
+}
+
+.u-section--featrues-duplicate.u-section--featrues-duplicate {
+	padding-bottom: 126px;
+
+	.features-duplicate {
+		.features__col {
+			.item {
+				padding-bottom: 82px;
+
+				&__image-hld {
+					height: 260px;
+				}
+
+				.item__btn {
+					left: 50%;
+					transform: translateX(-50%);
+
+					.text {
+						white-space: nowrap;
+					}
 				}
 			}
 		}
