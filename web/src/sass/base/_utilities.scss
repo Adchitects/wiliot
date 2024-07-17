@@ -458,25 +458,6 @@
 		}
 	}
 
-	&--bordered-dark {
-		padding: 16px 40px 14px;
-		border: 1px solid $c-black;
-		border-radius: 30px;
-		background-color: transparent;
-		transition: background-color 0.2s, border-color 0.2s;
-
-		.text {
-			color: $c-black;
-		}
-
-		&.is-hovered,
-		&:hover {
-			.text {
-				color: $c-accent;
-			}
-		}
-	}
-
 	&--light {
 		padding: 16px 75px 14px;
 		border: 1px solid rgba($c-black, 0.6);

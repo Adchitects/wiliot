@@ -79,14 +79,13 @@ const partnersSlider = new Swiper('.js-partners-slider', {
 partnersSlider;
 
 const logosSlider = new Swiper('.js-logos-slider', {
-	noSwiping: true,
 	slidesPerView: 2,
 	spaceBetween: 32,
-	speed: 200,
 	autoplay: {
 		delay: 1500,
 		disableOnInteraction: false,
 	},
+	threshold: 40,
 	breakpoints: {
 		480: {
 			slidesPerView: 4,
@@ -97,7 +96,6 @@ const logosSlider = new Swiper('.js-logos-slider', {
 			spaceBetween: 32,
 		},
 		641: {
-			allowTouchMove: false,
 			slidesPerView: 4,
 			spaceBetween: 48,
 			navigation: {
@@ -106,7 +104,6 @@ const logosSlider = new Swiper('.js-logos-slider', {
 			},
 		},
 		1000: {
-			allowTouchMove: false,
 			slidesPerView: 6,
 			spaceBetween: 48,
 			navigation: {
@@ -114,14 +111,10 @@ const logosSlider = new Swiper('.js-logos-slider', {
 				prevEl: '.swiper-button-prev',
 			},
 		},
-		1360: {
-			allowTouchMove: false,
-			slidesPerView: 7,
-			spaceBetween: 70,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
+	},
+	on: {
+		realIndexChange: function() {
+			lazyLoadInstance.update();
 		},
 	},
 });
