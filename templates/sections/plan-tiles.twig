@@ -1,0 +1,41 @@
+{% set title = entry.planTitlesTitle %}
+{% set itemsMatrix = entry.planTilesItemsMatrix.all() %}
+{% set button = entry.planTitlesButton %}
+{% if title %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--plan-tiles js-bg-shape-hld">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/plan-tiles.css') }}?v=21092023">
+		<div class="plan-tiles">
+			<div class="u-wrapper u-wrapper--events-listing">
+				<h2 class="u-title u-title--section plan-tiles__title">{{ title|nl2br }}</h2>
+				<div class="plan-tiles__items-hld">
+					{% for item in itemsMatrix %}
+						{% set planName = item.planName %}
+						{% set featuresMatrix = item.featuresMatrix.all() %}
+						<div class="plan-tiles__item">
+							<h3 class="u-subtitle u-subtitle--big title">{{ planName|nl2br }}</h3>
+							<div class="features-hld">
+								{% for feature in featuresMatrix %}
+									{% set text = feature.text %}
+									<div class="feature">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M9 11L12 14L20 6" stroke="#464659" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M20 12V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6C4 4.89543 4.89543 4 6 4H15" stroke="#464659" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+										</svg>
+										<span class="text">{{ text }}</span>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="plan-tiles__btn-hld">
+					{% if button.url %}
+						<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="u-btn u-btn--bordered-dark btn">
+							<span class="text">{{ button.customText }}</span>
+						</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
