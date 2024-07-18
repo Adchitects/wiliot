@@ -4,6 +4,7 @@
 {% set bottomTitle = entry.productHeroBottomTitle %}
 {% set bottomDescription = entry.productHeroBottomDescription %}
 {% set bottomImage = entry.productHeroBottomImage.one() %}
+{% set bottomImageMobile = entry.productHeroBottomImageMobile.one() %}
 {% if entry is defined %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="u-wrapper--medium-wide u-wrapper">
@@ -32,8 +33,11 @@
 				{% if bottomDescription %}
 					<div class="product-hero-bottom__description">{{ bottomDescription|nl2br }}</div>
 				{% endif %}
-				{% if bottomImage %}
-					<img src="{{ bottomImage.getUrl() }}" alt="{{ bottomTitle }}" class="product-hero-bottom__image">
+				{% if bottomImage or bottomImageMobile %}
+					<img src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ bottomImage.getUrl() }}" alt="{{ bottomTitle }}" class="js-lazy product-hero-bottom__image">
+					{% if bottomImageMobile %}
+						<img src="{{ bottomImageMobile.getUrl() }}" alt="{{ bottomTitle }}" class="product-hero-bottom__image product-hero-bottom__image--mobile">
+					{% endif %}
 				{% endif %}
 			</div>
 		</div>

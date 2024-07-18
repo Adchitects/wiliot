@@ -80,6 +80,7 @@
 			max-width: 624px;
 			margin: 0 auto;
 			margin-top: 32px;
+			padding: 0 20px;
 		}
 
 		.is-page-product-posts---ambient-iot-network & {
@@ -107,6 +108,22 @@
 	}
 
 	&__image {
-		margin-top: 60px;
+		margin: 60px auto 0;
+
+		@include mobile-959 {
+			display: none;
+		}
+
+		&--mobile {
+			display: none;
+
+			@include mobile-959 {
+				display: block;
+				width: 100%;
+				max-width: 400px;
+				height: auto;
+				padding: 0 20px;
+			}
+		}
 	}
 }
