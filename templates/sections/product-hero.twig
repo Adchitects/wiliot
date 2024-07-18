@@ -1,6 +1,10 @@
 {% set subtitle = entry.heroSubtitle ? entry.heroSubtitle : entry.title %}
 {% set title = entry.productHeroTitle %}
 {% set image = entry.productHeroImage.one() %}
+{% set bottomTitle = entry.productHeroBottomTitle %}
+{% set bottomDescription = entry.productHeroBottomDescription %}
+{% set bottomImage = entry.productHeroBottomImage.one() %}
+{% set bottomImageMobile = entry.productHeroBottomImageMobile.one() %}
 {% if entry is defined %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="u-wrapper--medium-wide u-wrapper">
@@ -12,14 +16,28 @@
 				</div>
 				<div class="product-hero__content">
 					{% if subtitle %}
-						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
+						<span class="product-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle|nl2br }}</span>
 					{% endif %}
 					{% if title %}
-						<h1 class="product-hero__title u-title u-title--big">{{ title }}</h1>
+						<h1 class="product-hero__title u-title u-title--big">{{ title|nl2br }}</h1>
 					{% endif %}
 				</div>
 				{% if image %}
 					<img src="{{ image.getUrl() }}" alt="{{ title }}" class="product-hero__image">
+				{% endif %}
+			</div>
+			<div class="product-hero-bottom">
+				{% if bottomTitle %}
+					<div class="product-hero-bottom__title u-title u-title--section">{{ bottomTitle|nl2br }}</div>
+				{% endif %}
+				{% if bottomDescription %}
+					<div class="product-hero-bottom__description">{{ bottomDescription|nl2br }}</div>
+				{% endif %}
+				{% if bottomImage or bottomImageMobile %}
+					<img src="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ bottomImage.getUrl() }}" alt="{{ bottomTitle }}" class="js-lazy product-hero-bottom__image">
+					{% if bottomImageMobile %}
+						<img src="{{ bottomImageMobile.getUrl() }}" alt="{{ bottomTitle }}" class="product-hero-bottom__image product-hero-bottom__image--mobile">
+					{% endif %}
 				{% endif %}
 			</div>
 		</div>

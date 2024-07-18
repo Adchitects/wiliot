@@ -1,0 +1,40 @@
+{% set pretitle = entry.iconTilesPretitle %}
+{% set title = entry.iconTilesTitle %}
+{% set itemsMatrix = entry.iconTilesMatrix.all() %}
+{% if itemsMatrix|length %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--icon-tiles">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/icon-tiles.css') }}?v=13102023">
+		<div class="u-wrapper u-wrapper--events-listing">
+			<div class="icon-tiles">
+				<p class="icon-tiles__pretitle u-subtitle u-subtitle--section">{{ pretitle|raw|nl2br }}</p>
+				<h2 class="icon-tiles__title u-title u-title--section">{{ title }}</h2>
+				<div class="icon-tiles__items-hld">
+					{% for item in itemsMatrix %}
+						{% set image = item.image.one() %}
+						{% if image %}
+							{% set imageUrl = image.getUrl() %}
+							{% set imageAlt = image.title %}
+						{% endif %}
+						{% set heading = item.heading %}
+						{% set description = item.description %}
+						{% set button = item.button %}
+						<a href="{{ button.url}}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="icon-tiles__item item {% if not image %} is-no-image {% endif %}">
+							{% if image %}
+								<div class="item__image-hld">
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+								</div>
+							{% endif %}
+							<div class="item__text-hld">
+								<div class="title">{{ heading|nl2br }}</div>
+								<div class="description">{{ description|nl2br }}</div>
+								<div class="u-btn u-btn--arrow btn">
+									<span class="text">{{ button.customText ? : 'Read more' }}</span>
+								</div>
+							</div>
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

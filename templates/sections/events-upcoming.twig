@@ -1,0 +1,82 @@
+{% set pretitle = entry.eventsUpcomingPretitle %}
+{% set title = entry.eventsUpcomingTitle %}
+{% set chosenEntry = entry.eventsUpcomingChosenEntry %}
+{% set eventEntries = craft.entries.section('eventItems').eventStartingDate(':notempty:').orderBy('eventStartingDate').all() %}
+{% set now = now|date('U') %}
+{% set upcomingEvent = null %}
+{% set closestDiff = null %}
+{% for event in eventEntries %}
+	{% set eventStartingDate = event.eventStartingDate|date('U') %}
+	{% set diff = eventStartingDate - now %}
+	{% if diff > 0 and (closestDiff is null or diff < closestDiff) %}
+		{% set upcomingEvent = event %}
+		{% set closestDiff = diff %}
+	{% endif %}
+{% endfor %}
+{% if chosenEntry or upcomingEvent %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section--events-upcoming u-section">
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/events-upcoming.css') }}?v=21092023">
+		<div class="u-wrapper u-wrapper--events-listing">
+			<div class="events-upcoming">
+				{% if pretitle %}
+					<span class="events-upcoming__pretitle u-subtitle u-subtitle--section">{{ pretitle|nl2br }}</span>
+				{% endif %}
+				{% if title %}
+					<h2 class="events-upcoming__title u-title u-title--section">{{ title|nl2br }}</h2>
+				{% endif %}
+				{% set event = chosenEntry.one() ? chosenEntry.one() : upcomingEvent %}
+				{% set date = event.eventDate %}
+				<div class="events-upcoming__item-hld">
+					{% set url = event.url %}
+					{% set image = event.eventImage.one() %}
+					{% if image %}
+						{% set imageUrl = image.getUrl('eventItemFeatured') %}
+						{% set imageAlt = image.title %}
+					{% endif %}
+					{% set time = event.eventTime %}
+					{% set place = event.eventPlace %}
+					{% set title = event.title %}
+					{% set excerpt = event.eventExcerpt %}
+					<div class="item">
+						<div class="text-hld js-bg-shape-hld">
+							<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+								<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+							</div>
+							<div class="top">
+								<div class="date">{{ date }}</div>
+								{% if time %}
+									<div class="time">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58893 0 0 3.58879 0 8C0 12.4112 3.58893 16 8 16C12.4111 16 16 12.4112 16 8C16 3.58879 12.4111 0 8 0ZM8 15.0327C4.12211 15.0327 0.967235 11.878 0.967235 8C0.967235 4.122 4.12211 0.967264 8 0.967264C11.8779 0.967264 15.0328 4.122 15.0328 8C15.0328 11.878 11.8779 15.0327 8 15.0327ZM7.03277 2.69093H8V8H12.1107V8.96726H7.03277V2.69093Z" fill="black"/>
+										</svg>
+										<span class="text">{{ time }}</span>
+									</div>
+								{% endif %}
+								{% if place %}
+									<div class="place">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M7.68075 15.8385C7.75618 15.9402 7.87398 16 7.999 16C8.12403 16 8.24182 15.9402 8.31725 15.8385L12.7887 9.80772C14.6557 7.28475 14.332 3.72653 12.0418 1.59708C9.75158 -0.532361 6.24842 -0.532361 3.9582 1.59708C1.66799 3.72653 1.34429 7.28475 3.21127 9.80772L7.68075 15.8385ZM8 0.813421C9.97382 0.811271 11.7785 1.94974 12.6584 3.7521C13.5382 5.55445 13.3413 7.70964 12.1502 9.31516L8 14.9185L3.84977 9.31516C2.65866 7.70964 2.4618 5.55445 3.34165 3.7521C4.22149 1.94974 6.02618 0.811271 8 0.813421ZM10.9431 6.02804C10.9431 4.36999 9.62541 3.02587 8 3.02587C6.37459 3.02587 5.05693 4.36999 5.05693 6.02804C5.05913 7.68516 6.3755 9.02797 8 9.03021C9.62541 9.03021 10.9431 7.68609 10.9431 6.02804ZM10.145 6.02804C10.145 7.23645 9.18462 8.21606 8 8.21606C6.81538 8.21606 5.85505 7.23645 5.85505 6.02804C5.85615 4.82009 6.81583 3.84114 8 3.84002C9.18462 3.84002 10.145 4.81963 10.145 6.02804Z" fill="black"/>
+									</svg>
+										<span class="text">{{ place }}</span>
+									</div>
+								{% endif %}
+							</div>
+							<div class="bottom">
+								<h2 class="u-title u-title--section title">{{ title }}</h2>
+								<div class="excerpt">{{ excerpt }}</div>
+								<a href="{{ url }}" class="btn u-btn u-btn--arrow">
+									<span class="text">Learn more</span>
+								</a>
+							</div>
+						</div>
+						<div class="image-hld">
+							{% if image %}
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

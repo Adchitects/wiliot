@@ -1,0 +1,284 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--product-table {
+}
+
+.product-table {
+	padding-bottom: 20px;
+	overflow-x: scroll;
+
+	&__item {
+		display: flex;
+		min-width: 1272px;
+		padding: 10px 24px;
+
+		@include tablet-medium-1199 {
+			min-width: 1042px;
+			padding: 10px 20px;
+		}
+
+		@include tablet-small-1023 {
+			min-width: 836px;
+			padding: 10px 16px;
+		}
+
+		@include mobile {
+			min-width: 782px;
+			padding: 10px 12px;
+			font-size: 14px;
+		}
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $c-neutral-80;
+		}
+
+		&--first {
+			height: 72px;
+			background-image: var(--brand-gradient-off-white, radial-gradient(45.77% 45.77% at 98.7% -7.48%, #F5F5FC 0%, #F5F9FC 100%));
+
+			@include tablet-medium-1199 {
+				height: 64px;
+			}
+
+			@include tablet-small-1023 {
+				height: 56px;
+			}
+
+			@include mobile {
+				height: 48px;
+			}
+
+			.box {
+				span {
+					display: flex;
+					align-items: center;
+					width: 100%;
+					height: 100%;
+					color: $c-neutral-20;
+				}
+			}
+		}
+
+		.box {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			min-width: 100px;
+
+			@include tablet-medium-1199 {
+				min-width: 80px;
+			}
+
+			@include tablet-small-1023 {
+				min-width: 80px;
+			}
+
+			&--company {
+				min-width: 210px;
+
+				@include tablet-medium-1199 {
+					min-width: 180px;
+				}
+
+				@include tablet-small-1023 {
+					min-width: 150px;
+				}
+
+				@include mobile {
+					min-width: 120px;
+				}
+
+				.image-hld {
+					display: flex;
+					justify-content: center;
+					padding-right: 70px;
+
+					@include tablet-medium-1199 {
+						padding-right: 50px;
+					}
+
+					@include tablet-small-1023 {
+						padding-right: 30px;
+					}
+
+					@include mobile {
+						padding-right: 20px;
+					}
+				}
+
+				img {
+					width: auto;
+					height: 42px;
+
+					@include tablet-medium-1199 {
+						height: 36px;
+					}
+
+					@include tablet-small-1023 {
+						height: 30px;
+					}
+
+					@include mobile {
+						height: 24px;
+					}
+
+					&.is-android,
+					&.is-rigado {
+						height: 56px;
+
+						@include tablet-medium-1199 {
+							height: 48px;
+						}
+
+						@include tablet-small-1023 {
+							height: 40px;
+						}
+
+						@include mobile {
+							height: 32px;
+						}
+					}
+
+					&.is-energous {
+						height: 62px;
+
+						@include tablet-medium-1199 {
+							height: 54px;
+						}
+
+						@include tablet-small-1023 {
+							height: 46px;
+						}
+
+						@include mobile {
+							height: 38px;
+						}
+					}
+
+					&.is-erm {
+						height: 40px;
+
+						@include tablet-medium-1199 {
+							height: 34px;
+						}
+
+						@include tablet-small-1023 {
+							height: 28px;
+						}
+
+						@include mobile {
+							height: 22px;
+						}
+					}
+
+					&.is-koamtac {
+						height: 60px;
+
+						@include tablet-medium-1199 {
+							height: 52px;
+						}
+
+						@include tablet-small-1023 {
+							height: 44px;
+						}
+
+						@include mobile {
+							height: 36px;
+						}
+					}
+
+					&.is-fanstel {
+						height: 48px;
+
+						@include tablet-medium-1199 {
+							height: 42px;
+						}
+
+						@include tablet-small-1023 {
+							height: 36px;
+						}
+
+						@include mobile {
+							height: 30px;
+						}
+					}
+				}
+			}
+
+			&--product-name {
+				min-width: 444px;
+
+				@include tablet-medium-1199 {
+					min-width: 360px;
+				}
+
+				@include tablet-small-1023 {
+					min-width: 280px;
+				}
+			}
+
+			&--certified-component {
+				min-width: 328px;
+
+				@include tablet-medium-1199 {
+					min-width: 260px;
+				}
+
+				@include tablet-small-1023 {
+					min-width: 200px;
+				}
+
+				@include mobile {
+					min-width: 180px;
+				}
+			}
+
+			&--cert-version {
+				min-width: 176px;
+
+				@include tablet-medium-1199 {
+					min-width: 140px;
+				}
+
+				@include tablet-small-1023 {
+					min-width: 110px;
+				}
+
+				.name {
+					padding-right: 86px;
+					text-align: right;
+
+					@include tablet-medium-1199 {
+						padding-right: 70px;
+					}
+
+					@include tablet-small-1023 {
+						padding-right: 50px;
+					}
+
+					@include mobile {
+						padding-right: 30px;
+					}
+				}
+			}
+
+			&--firmware {
+				padding-right: 36px;
+				text-align: right;
+
+				@include tablet-medium-1199 {
+					padding-right: 30px;
+				}
+
+				@include tablet-small-1023 {
+					padding-right: 24px;
+				}
+
+				@include mobile {
+					padding-right: 18px;
+				}
+			}
+		}
+	}
+}
