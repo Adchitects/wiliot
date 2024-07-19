@@ -82,14 +82,6 @@
 			margin-top: 32px;
 			padding: 0 20px;
 		}
-
-		.is-page-product-posts---ambient-iot-network & {
-			transform: translateX(7.4vw);
-
-			@include media-max(1310) {
-				transform: none;
-			}
-		}
 	}
 }
 

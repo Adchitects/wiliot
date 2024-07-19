@@ -18,7 +18,7 @@
 						{% set heading = item.heading %}
 						{% set description = item.description %}
 						{% set button = item.button %}
-						<a href="{{ button.url}}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="icon-tiles__item item {% if not image %} is-no-image {% endif %}">
+						<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="item {% if not image %} is-no-image {% endif %} {% if button.url == '/' %} is-disabled {% endif %}">
 							{% if image %}
 								<div class="item__image-hld">
 									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />

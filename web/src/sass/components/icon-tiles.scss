@@ -79,6 +79,17 @@
 			opacity: 0;
 		}
 
+		&.is-disabled {
+			cursor: default;
+			pointer-events: none;
+
+			.btn {
+				.text {
+					color: $c-neutral-20;
+				}
+			}
+		}
+
 		&__image-hld {
 			display: flex;
 			align-items: center;
