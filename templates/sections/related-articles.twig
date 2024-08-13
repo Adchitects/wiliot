@@ -99,7 +99,7 @@
 										</div>
 										<div class="date">
 											{% if isEvent %}
-												{{ post.eventDate | date("F d, Y") }}
+												{{ post.eventDate }}
 											{% else %}
 												{{ post.postDate | date("F d, Y") }}
 											{% endif %}
