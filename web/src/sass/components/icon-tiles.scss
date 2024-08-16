@@ -80,8 +80,8 @@
 		}
 
 		&.is-disabled {
-			cursor: default;
 			pointer-events: none;
+			cursor: default;
 
 			.btn {
 				.text {

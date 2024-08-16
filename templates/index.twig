@@ -198,7 +198,7 @@
 			{% endblock %}
 		</head>
 	{% endblock %}
-	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% if entry.type.handle == 'singleWithSidebar' or entry.type.handle == 'singleEventWithHeroForm' %} is-with-sidebar {% endif %}{% endif %}">
+	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% endif %} {% if entry.slug %} is-slug-{{ entry.slug|lower|replace('_', '-') }} {% endif %} {% if entry.type.handle == 'singleWithSidebar' or entry.type.handle == 'singleEventWithHeroForm' %} is-with-sidebar {% endif %}">
 		{% if customScripts.customScriptsBodyStart %}
 			{{ customScripts.customScriptsBodyStart|raw }}
 		{% endif %}

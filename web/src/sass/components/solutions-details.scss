@@ -283,6 +283,14 @@
 			}
 		}
 
+		.is-slug-ai & {
+			margin-top: 260px;
+
+			@include media-max(1299) {
+				margin-top: 30px;
+			}
+		}
+
 		&.has-no-image {
 			.text-hld {
 				width: 55%;
