@@ -4,7 +4,6 @@
     {% set imageAlt = image.title %}
     {% set imageWidth = image.getWidth() %}
     {% set imageHeight = image.getHeight() %}
-	{% set imageSize = image.getSize() %}
 {% endif %}
 {% set subtitle = entry.outroSubtitle ? entry.outroSubtitle : outroGlobals.outroSubtitle %}
 {% set title = entry.outroTitle ? entry.outroTitle : outroGlobals.outroTitle %}
@@ -34,7 +33,7 @@
 		<div class="outro {% if image | default(null) %} outro--with-image{% endif %}">
 			{% if image %}
 				<div class="outro__img-hld">
-					<img src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}" sizes="{{ imageSize }}" />
+					<img src="{{ imageUrl }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}" />
 				</div>
 			{% endif %}
 			<div class="outro__text-hld {% if image | default(true) %} u-wrapper{% endif %}" >

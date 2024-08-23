@@ -3,8 +3,10 @@
 {% set heroTitle = entry.solutionHeroTitle %}
 {% set solutionButtonsMatrix = entry.solutionButtonsMatrix.all() %}
 {% set heroImage = entry.solutionHeroImage.one() %}
+{% if entry.tile %}
 {% set tile = entry.tile.all() %}
 {% set tilesDisclaimer = entry.tilesDisclaimer %}
+{% endif %}
 {% if heroImage %}
 {% set heroImageUrl = heroImage.getUrl() %}
 {% set heroImageWidth = heroImage.getWidth() %}
@@ -102,74 +104,8 @@
 						</div>
 					{% endif %}
                 </div>
-                {% if solutionHeroVideoShort %}
-                    {% set videoShortFileExtension = solutionHeroVideoShort.getExtension() %}
-                    {% set imageExtensions = ['jpg', 'jpeg', 'png', 'gif'] %}
-                    {% set videoExtensions = ['mp4', 'webm', 'avi', 'mov', 'mkv'] %}
-                    {% if videoShortFileExtension in imageExtensions %}
-                        <div class="solutions-details__hero-video-image">
-                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoShort.url }}" alt="Image description">
-                        </div>
-                    {% elseif videoShortFileExtension in videoExtensions %}
-                        {% if solutionHeroVideoLong %}
-                            <div class="solutions-details__hero-video js-modal-hld">
-                                <div class="short-video-hld js-modal-btn">
-                                    <span class="icon icon-button_play"></span>
-                                    <video src="{{ solutionHeroVideoShort.url }}" playsinline muted autoplay loop type="video/mp4" preload="auto"></video>
-                                </div>
-                                <div class="video-modal js-modal-modal">
-                                    <div class="overlay js-modal-close"></div>
-                                    <div class="video-modal__inner">
-                                        <div class="video-modal__modal">
-                                            <div class="video-hld js-video-hld show-thumbnail">
-                                                <span class="icon icon-button_play"></span>
-                                                <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ solutionHeroVideoLong.url }}" autoplay loop controls playsinline></video>
-                                            </div>
-                                        </div>
-                                        <span class="video-modal__close js-modal-close">
-                                            <span class="icon icon-close"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-						{% else %}
-							<div class="solutions-details__hero-video">
-                                <div class="short-video-hld no-before">
-                                    <style>
-                                        .no-before::before {
-                                            display: none;
-                                        }
-                                    </style>
-                                    <video playsinline muted autoplay loop preload="auto">
-                                        <source src="{{ solutionHeroVideoShort.url }}" type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endif %}
-                {% endif %}
-				<div class="solutions-details__hero-bottom {% if not heroBottomImage %} has-no-image {% endif %}">
-					{% if heroBottomSubtitle or heroBottomTitle or heroBottomDescription %}
-						<div class="text-hld">
-							{% if heroBottomSubtitle %}
-								<div class="subtitle u-subtitle u-subtitle--section">{{ heroBottomSubtitle }}</div>
-							{% endif %}
-							{% if heroBottomTitle %}
-								<div class="title u-title u-title--section">{{ heroBottomTitle }}</div>
-							{% endif %}
-							{% if heroBottomDescription %}
-								<div class="description">{{ heroBottomDescription }}</div>
-							{% endif %}
-						</div>
-					{% endif %}
-					{% if heroBottomImage %}
-						<div class="image-hld">
-							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ heroBottomImageUrl }}" alt="{{ heroBottomImageAlt }}" width="{{ heroBottomImageWidth }}" height="{{ heroBottomImageHeight }}"/>
-						</div>
-					{% endif %}
-				</div>
 			</div>
-			{% if tile %}
+			{% if entry.tile and tile %}
 			<div class="u-wrapper u-wrapper--tiles">
 				<div class="solutions-details__tiles-hld">
 					<div class="solutions-details__tiles">
