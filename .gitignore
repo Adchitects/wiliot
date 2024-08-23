@@ -5,6 +5,7 @@ wiliot-staging.sql
 *.sql
 .vscode/
 .DS_Store
+.ddev/
 .env
 .env.example
 .idea
