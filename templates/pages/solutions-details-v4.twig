@@ -1,0 +1,24 @@
+{% extends "index.twig" %}
+{% set metaTitle = entry.metaTitle %}
+{% set metaDescription = entry.metaDescription %}
+{% block head %} {{ parent() }} {% endblock %}
+{% block title %}
+	{{ metaTitle ? metaTitle : entry.title ~ ' | ' ~ siteName  }}
+{% endblock %}
+{% block description %}
+	<meta name="description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+{% endblock %}
+{% block og %}
+	<meta property="og:title" content="{{ metaTitle ? metaTitle : globalMetaTags.metaTitle }}">
+	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
+	<meta property="og:type" content="website">
+{% endblock %}
+{% block main %}
+	{% set sectionId = '01' %}
+    {{ include('/sections/solutions-details-v4-inner.twig') }}
+    {% set sectionId = '02' %}
+	{{ include('/sections/outro-with-image.twig') }}
+    {% set sectionId = '03' %}
+    {{ include('/sections/related-articles.twig') }}
+    {% set sectionId = '' %}
+{% endblock %}
