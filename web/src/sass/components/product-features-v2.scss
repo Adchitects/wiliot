@@ -6,6 +6,10 @@
 	padding-top: 122px;
 	border-top: 1px solid #dddddd;
 
+	& + .u-section--featrues-duplicate {
+		margin-top: 96px;
+	}
+
 	@include mobile-599 {
 		padding-top: 60px;
 	}

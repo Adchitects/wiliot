@@ -9,6 +9,16 @@
 		padding-top: 196px;
 	}
 
+	.is-page-product-posts & {
+		.product-hero__content {
+			grid-column: 2 / 8;
+		}
+
+		.product-hero__image {
+			grid-column: 8 / 13;
+		}
+	}
+
 	@include tablet-small-1023 {
 		&.u-section--product-hero {
 			margin-top: 0;

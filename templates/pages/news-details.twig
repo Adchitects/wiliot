@@ -313,27 +313,33 @@
 			<div class="u-wrapper">
 				<div class="hero-news">
 					<span class="hero-news__category">{{ category }}</span>
-					{% if heroLogo.getUrl() %}
-						{% if heroLogoPlacement == 'center' %}
-							<div class="hero-news__logo-hld hero-news__logo-hld--center">
-								<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="100" height="76">
-							</div>
-						{% endif %}
-					{% endif %}
-					<h1 class="hero-news__title">
-						{% if heroLogo.getUrl() %}
-							{% if heroLogoPlacement == 'left' %}
-								<div class="hero-news__logo-hld hero-news__logo-hld--left">
-									<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="46" height="36">
+					{% if heroLogo %}
+						{% if  heroLogo.getUrl()%}
+							{% if heroLogoPlacement == 'center' %}
+								<div class="hero-news__logo-hld hero-news__logo-hld--center">
+									<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="100" height="76">
 								</div>
 							{% endif %}
 						{% endif %}
+					{% endif %}
+					<h1 class="hero-news__title">
+						{% if heroLogo %}
+							{% if heroLogo.getUrl() %}
+								{% if heroLogoPlacement == 'left' %}
+									<div class="hero-news__logo-hld hero-news__logo-hld--left">
+										<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="46" height="36">
+									</div>
+								{% endif %}
+							{% endif %}
+						{% endif %}
 						{{ heroTitle is not empty ? heroTitle : entry.title }}
-						{% if heroLogo.getUrl() %}
-							{% if heroLogoPlacement == 'right' %}
-								<div class="hero-news__logo-hld hero-news__logo-hld--right">
-									<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="46" height="36">
-								</div>
+						{% if  heroLogo %}
+							{% if heroLogo.getUrl() %}
+								{% if heroLogoPlacement == 'right' %}
+									<div class="hero-news__logo-hld hero-news__logo-hld--right">
+										<img src="{{ heroLogo.getUrl() }}" alt="{{ heroLogo.title }}" width="46" height="36">
+									</div>
+								{% endif %}
 							{% endif %}
 						{% endif %}
 					</h1>

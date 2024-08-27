@@ -146,6 +146,12 @@
 			&__image {
 				position: relative;
 
+				&--contained {
+					img {
+						height: auto;
+					}
+				}
+
 				@include tablet-small {
 					max-width: 100%;
 				}

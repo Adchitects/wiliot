@@ -29,6 +29,7 @@
 						{% set excerpt = item.rowExcerpt %}
 						{% set subtitle = item.rowSubtitle %}
 						{% set image = item.rowImage.one() %}
+						{% set imageContained = item.imageContained %}
 						{% set button = item.rowButton %}
 						<div class="row {{ loop.index % 2 == 0 ? '' : 'is-row-reversed' }}">
 							<div class="row__content">
@@ -55,8 +56,9 @@
 									</a>
 								{% endif %}
 							</div>
+
 							{% if image and image.getUrl()%}
-								<div class="row__image">
+								<div class="row__image {{ item.imageContained.options[0].value == 'contained' and item.imageContained.options[0].selected == true ? 'row__image--contained' : '' }}">
 									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ title }}" width="602" height="458" />
 								</div>
 							{% endif %}
