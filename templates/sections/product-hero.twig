@@ -3,8 +3,17 @@
 {% set image = entry.productHeroImage.one() %}
 {% set bottomTitle = entry.productHeroBottomTitle %}
 {% set bottomDescription = entry.productHeroBottomDescription %}
+{% if entry.productHeroBottomImage.one() is defined %}
 {% set bottomImage = entry.productHeroBottomImage.one() %}
+{% else %}
+{% set bottomImage = false %}
+{% endif %}
+{% if entry.productHeroBottomImageMobile.one() is defined %}
 {% set bottomImageMobile = entry.productHeroBottomImageMobile.one() %}
+{% else %}
+{% set bottomImageMobile = false %}
+{% endif %}
+
 {% if entry is defined %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="u-wrapper--medium-wide u-wrapper">
