@@ -1,0 +1,56 @@
+{% set mainTitle = entry.heroTilesSliderMainTitle %}
+{% set mainSubtitle = entry.heroTilesSliderv2Subtitle %}
+{% set itemsMatrix = entry.heroTilesSliderItemsMatrix.all() %}
+{% if itemsMatrix|length > 0 %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--hero-tiles-slider js-hero-tiles-slider-hld is-v2">
+		<div class="bg-shape-hld js-bg-shape-hld">
+			<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+				<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
+				<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
+				<img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
+			</div>
+		</div>
+		<div class="hero-tiles-slider">
+			<div class="u-wrapper">
+				<div class="hero-tiles-slider__main-text-hld">
+					<span class="u-subtitle u-subtitle--section">
+						{{ mainSubtitle }}
+					</span>
+					<h1 class="u-title u-title--section">
+						{{ mainTitle }}
+					</h1>
+				</div>
+			</div>
+			<div class="u-wrapper u-wrapper--medium-big">
+				<div class="hero-tiles-slider__slider-hld js-hero-tiles-slider swiper-container">
+					<div class="hero-tiles-slider__inner swiper-wrapper">
+						{% for item in itemsMatrix %}
+							{% set itemImage = item.itemImage.one() %}
+							{% set itemButton = item.itemButton %}
+							{% if itemButton %}
+								<a href="{{ itemButton.url }}" target="{{ itemButton.target ? '_blank' : '_self' }}" rel="{{ itemButton.target ? 'noopener noreferrer' : null }}" class="hero-tiles-slider__item swiper-slide">
+									<div class="item-image-hld">
+										<img src="{{ itemImage.getUrl() }}" alt="{{ itemImage.title }}" width="360" height="674">
+									</div>
+									<div class="item-button-hld">
+										<div class="btn btn--{{ loop.index }} u-btn u-btn--arrow">
+											<span class="text">{{ itemButton.customText ? itemButton.customText : "Learn More" }}</span>
+										</div>
+									</div>
+								</a>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+				{% if itemsMatrix|length > 3 %}
+					<div class="hero-tiles-slider__arrow hero-tiles-slider__arrow--prev js-hero-tiles-slider-button-prev">
+						<span class="icon icon-dropdown-up"></span>
+					</div>
+					<div class="hero-tiles-slider__arrow hero-tiles-slider__arrow--next js-hero-tiles-slider-button-next">
+						<span class="icon icon-dropdown-down"></span>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}

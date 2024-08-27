@@ -35,6 +35,7 @@
 					<img src="{{ image.getUrl() }}" alt="{{ title }}" class="product-hero__image">
 				{% endif %}
 			</div>
+			{% if bottomTitle or bottomDescription or bottomImage or bottomImageMobile %}
 			<div class="product-hero-bottom">
 				{% if bottomTitle %}
 					<div class="product-hero-bottom__title u-title u-title--section">{{ bottomTitle|nl2br }}</div>
@@ -49,6 +50,7 @@
 					{% endif %}
 				{% endif %}
 			</div>
+			{% endif %}
 		</div>
 	</section>
 {% endif %}

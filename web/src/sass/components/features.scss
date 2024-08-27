@@ -27,7 +27,7 @@
 		background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 100%);
 
 		.bg-shape {
-			display: none;
+			//display: none;
 		}
 	}
 
@@ -206,5 +206,9 @@
 				}
 			}
 		}
+	}
+
+	@include tablet-small-1023 {
+		padding-bottom: 60px;
 	}
 }
