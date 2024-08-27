@@ -1,0 +1,254 @@
+{# Hero #}
+{% set heroSubtitle = entry.solutionHeroSubtitle %}
+{% set heroTitle = entry.solutionHeroTitle %}
+{% set solutionButtonsMatrix = entry.solutionButtonsMatrix.all() %}
+{% set heroImage = entry.solutionHeroImage.one() %}
+{% if entry.tile %}
+{% set tile = entry.tile.all() %}
+{% set tilesDisclaimer = entry.tilesDisclaimer %}
+{% endif %}
+{% if heroImage %}
+{% set heroImageUrl = heroImage.getUrl() %}
+{% set heroImageWidth = heroImage.getWidth() %}
+{% set heroImageHeight = heroImage.getHeight() %}
+{% set heroImageAlt = heroImage.title %}
+{% endif %}
+
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--solutions-details u-section--solutions-details-v4 js-bg-shape-hld">
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/solutions-details-v4.css') }}?v=21092023">
+	<div class="bg-shape bg-shape--center-right js-bg-shape" data-version="center-right">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-right.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="bg-shape bg-shape--center-left js-bg-shape" data-version="center-left">
+		<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/center-left.png' )}}" alt="Background shape blurry blob">
+	</div>
+	<div class="solutions-details">
+		<div class="solutions-details__hero {% if not heroImage %} has-no-image {% endif %}">
+			<div class="u-wrapper">
+				<div class="solutions-details__hero-top">
+					{% if heroSubtitle or heroTitle or solutionButtonsMatrix %}
+						<div class="text-hld">
+							<h1 class="title u-title u-title--big">{{ heroTitle|nl2br }}</h1>
+							<div class="subtitle u-subtitle">{{ heroSubtitle|nl2br }}</div>
+							{% if solutionButtonsMatrix %}
+								<div class="buttons-hld">
+									{% for item in solutionButtonsMatrix %}
+										{% set button = item.button %}
+										{% if item.buttonColor != '' %}
+											{% set buttonColor = item.buttonColor %}
+										{% else %}
+											{% set buttonColor = 'accent' %}
+										{% endif %}
+										{% set isTypeFormBtn = item.isTypeformButton %}
+										{% set hubspotFormId = item.hubspotFormId %}
+										{% if hubspotFormId %}
+											<div class="js-modal-hld">
+												<button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }} js-modal-btn">
+													<span class="text">{{ button.customText }}</span>
+												</button>
+												<div class="subscribe-modal js-modal-modal">
+													<div class="overlay js-modal-close"></div>
+													<div class="subscribe-modal__inner">
+														<div class="subscribe-modal__modal">
+															<div class="form-hld">
+																<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+																<script
+																	src="https://code.jquery.com/jquery-3.6.0.min.js"
+																	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+																	crossorigin="anonymous">
+																</script>
+																<script>
+																	hbspt.forms.create({
+																		region: "na1",
+																		portalId: "4249967",
+																		formId: "{{ hubspotFormId }}",
+																		onFormReady: function(form) {
+																			document.body.classList.add('is-buy-page-form');
+																			const formEl = form[0];
+																			const customHubspotFormScripts = new CustomEvent('customHubspotFormScripts', {
+																				detail: {
+																					form: formEl,
+																					shortenSelects: false,
+																				},
+																			});
+																			document.dispatchEvent(customHubspotFormScripts);
+																		},
+																	});
+																</script>
+															</div>
+														</div>
+														<span class="subscribe-modal__close js-modal-close">
+															<span class="icon icon-close"></span>
+														</span>
+													</div>
+												</div>
+											</div>
+										{% elseif isTypeFormBtn %}
+											{% set typeformID = pageOptions.pageOptionsTypeFormID %}
+											<button class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+												<span class="text">{{ button.customText }}</span>
+											</button>
+										{% else %}
+											<a href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn u-btn--{{ buttonColor }}">
+												<span class="text">{{ button.customText }}</span>
+											</a>
+										{% endif %}
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+					{% if heroImage %}
+						<div class="image-hld">
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ heroImageUrl }}" alt="{{ heroImageAlt }}" width="{{ heroImageWidth }}" height="{{ heroImageHeight }}"/>
+						</div>
+					{% endif %}
+                </div>
+			</div>
+			{% if entry.tile and tile %}
+			<div class="u-wrapper u-wrapper--tiles">
+				<div class="solutions-details__tiles-hld">
+					<div class="solutions-details__tiles">
+						{% for item in tile %}
+							{% set tileImage = item.tileIcon.one() %}
+							{% if tileImage %}
+								{% set tileIconUrl = tileImage.getUrl() %}
+								{% set tileIconAlt = tileImage.title %}
+							{% endif %}
+							{% set tileTitle = item.tileTitle %}
+							{% set tileContent = item.tileContent %}
+
+							<div class="solutions-details__tile">
+								<div class="solutions-details__tile-icon">
+									<img class="" src="{{ tileIconUrl }}" alt="{{ tileIconAlt }}" fetchpriority="low" />
+								</div>
+								<h3 class="solutions-details__tile-title">{{ tileTitle }}</h3>
+								<div class="solutions-details__tile-content">
+									<p>{{ tileContent | nl2br }}</p>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="solutions-details__tiles-disclaimer">
+						<p>{{ tilesDisclaimer }}</p>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% set title = entry.fiftyFiftyTitle %}
+	{% set subtitle = entry.fiftyFiftySubtitle %}
+	{% set numeration = entry.fiftyFiftyNumeration %}
+	{% if numeration %}
+		{% set numeration = numeration.contains('true') %}
+	{% endif %}
+	{% set rows = entry.fiftyFiftyRows.all() %}
+
+	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/fifty-fifty.css') }}?v=21092023">
+	{% if entry.section|lower == 'homepage' %}
+		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
+			<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-1.png' )}}" alt="Background shape blurry blob">
+			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
+		</div>
+	{% endif %}
+	{% if rows %}
+		<div class="u-wrapper u-wrapper--tiles">
+			<div class="fifty-fifty fifty-fifty-v4">
+				{% if subtitle %}
+					<span class="fifty-fifty__subtitle u-subtitle">{{ subtitle }}</span>
+				{% endif %}
+				{% if title %}
+					<h2 class="fifty-fifty__title u-title">{{ image.title }}</h2>
+				{% endif %}
+				<div class="fifty-fifty__rows">
+					{% for item in rows %}
+						{% set title = item.rowTitle %}
+						{% set description = item.rowDescription %}
+						{% set excerpt = item.rowExcerpt %}
+						{% set subtitle = item.rowSubtitle %}
+						{% set image = item.rowImage.one() %}
+						{% set button = item.rowButton %}
+						<div class="row {{ loop.index % 2 == 0 ? '' : 'is-row-reversed' }}">
+							<div class="row__content">
+								{% if numeration %}
+									<span class="row__number">{{ loop.index < 10 ? '0'~loop.index : loop.index }}</span>
+								{% endif %}
+								{% if subtitle %}
+									<h4 class="row__subtitle">{{ subtitle }}</h4>
+								{% endif %}
+								{% if title %}
+									<h2 class="row__title">{{ title }}</h2>
+								{% endif %}
+								{% if excerpt %}
+									<p class="row__excerpt">{{ excerpt }}</p>
+								{% endif %}
+								{% if description %}
+									<div class="row__description">{{ description }}</div>
+								{% endif %}
+								{% if button and button.getUrl() %}
+									<a href="{{ button.getUrl() }}" class="btn u-btn {{ entry.section|lower != 'homepage' ? 'u-btn--light' : 'u-btn--arrow' }} row__button">
+										<span class="text">
+											{{ button.customText }}
+										</span>
+									</a>
+								{% endif %}
+							</div>
+							{% if image and image.getUrl()%}
+								<div class="row__image">
+									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ title }}" width="602" height="458" />
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	{% set rows = entry.itemListing.all() %}
+	{% set title = entry.itemListingTitle %}
+	{% set subtitle = entry.itemListingSubtitle %}
+	{% if rows %}
+		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/item-listing.css') }}?v=21092023">
+		<div class="u-wrapper u-wrapper--tiles u-wrapper--listing">
+			<div class="item-listing__title-box">
+				<span class="item-listing__subtitle u-subtitle">{{ subtitle }}</span>
+				<h2 class="u-title u-title--section item-listing__title">{{ title }}</h2>
+			</div>
+			<div class="item-listing">
+				{% for item in rows %}
+					{% set title = item.itemTitle %}
+					{% set text = item.itemText %}
+					{% set image = item.itemImage.one() %}
+					{% set link = item.itemLink %}
+
+					<a href="{{ link.getUrl() }}" class="item-listing__item">
+						{% if image and image.getUrl()%}
+							<div class="item-listing__item-image">
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ title }}" width="306" height="208" />
+							</div>
+						{% endif %}
+						<div class="item-listing__item-content">
+							<div>
+								{% if title %}
+									<h3 class="item-listing__item-title">{{ title }}</h3>
+								{% endif %}
+								{% if text %}
+									<p class="item-listing__item-text">{{ text }}</p>
+								{% endif %}
+							</div>
+							{% if link and link.getUrl() %}
+								<span class="btn u-btn u-btn--arrow item-listing__item-button">
+									<span class="text">
+										{{ link.customText }}
+									</span>
+								</span>
+							{% endif %}
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+</section>
