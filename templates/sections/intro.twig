@@ -16,8 +16,11 @@
 					<div class="intro__buttons-hld">
 						{% for item in buttonsMatrix %}
 							{% set button = item.button %}
+
+							{% set additionalLinkAttributes = item.additionalLinkAttributes ? item.additionalLinkAttributes : '' %}
+
 							{% if button.getUrl() %}
-								<a href="{{ button.getUrl() }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="u-btn {% if loop.index0 == 0 %} u-btn--light is-narrow {% else %} u-btn--arrow {% endif %} btn">
+								<a href="{{ button.getUrl() }}{{ additionalLinkAttributes }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="u-btn {% if loop.index0 == 0 %} u-btn--light is-narrow {% else %} u-btn--arrow {% endif %} btn">
 									<span class="text">{{ button.customText ? button.customText : "Learn More" }}</span>
 								</a>
 							{% endif %}
