@@ -47,13 +47,50 @@
 
 	&__animation-hld {
 		position: relative;
+		aspect-ratio: 2.66 / 1;
+
+		@include mobile {
+			aspect-ratio: 0.668 / 1;
+		}
+
+		.animation-placeholder {
+			position: absolute;
+			top: 3.5px;
+			left: 1.5px;
+			z-index: 0;
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+
+			.is-lottie-animation-loaded & {
+				display: none;
+			}
+
+			&--desktop {
+				@include mobile {
+					display: none;
+				}
+			}
+
+			&--mobile {
+				display: none;
+
+				@include mobile {
+					display: block;
+				}
+			}
+		}
 
 		.animation {
+			background-color: $c-white;
+
 			&--desktop {
 				height: 518px;
+				aspect-ratio: 2.66 / 1;
 
 				@include mobile {
 					display: none;
+					aspect-ratio: 0.668 / 1;
 				}
 			}
 
@@ -75,6 +112,20 @@
 
 				@include media-max(400) {
 					min-height: 500px;
+				}
+			}
+		}
+
+		.label-hover-area-hld {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			.js-supply-chain-lottie-animation-floating-text {
+				@include mobile {
+					display: none;
 				}
 			}
 		}

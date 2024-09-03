@@ -8,6 +8,6 @@ export const lazyLoadInstance = new LazyLoad({
 	callback_loaded: ScrollTrigger.refresh(),
 	// threshold: 250,
 	restore_on_error: true,
-	use_native: false,
+	use_native: true,
 	// container: document.querySelector('.js-your-smooth-scroll-container'),
 });
