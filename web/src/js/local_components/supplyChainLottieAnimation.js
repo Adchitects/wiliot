@@ -38,6 +38,7 @@ function setupHoverEffects() {
 				boxText.style.borderRadius = '4px';
 				area.appendChild(boxText);
 
+
 				area.addEventListener('mouseenter', () => {
 					gsap.to(boxText, { opacity: 1, duration: 0.3 });
 				});
