@@ -2,6 +2,7 @@
 {% set mainSubtitle = entry.suppyChainMainSubtitle %}
 {% set mobileSubtitle = entry.suppyChainMobileSubtitle %}
 {% set textContentMatrix = entry.textContentMatrix.all() %}
+
 {% if mainTitle %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-supply-chain-lottie-animation-hld">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/supply-chain-animation.css') }}?v=06062024">
