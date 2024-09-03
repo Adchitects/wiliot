@@ -71,7 +71,7 @@
 				}
 			</style>
 			<style>fscript {display: none;}</style>
-			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.css') }}?v=16082024">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/style.css') }}?v=03092024">
 			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_300_book.woff2') }}" as="font" type="font/woff2" crossorigin>
 			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_500_medium.woff2') }}" as="font" type="font/woff2" crossorigin>
 			<link rel="preload" href="{{ alias('@web/src/fonts/avenir/avenir_900_heavy.woff2') }}" as="font" type="font/woff2" crossorigin>
@@ -196,6 +196,67 @@
 			</script>
 			{% block additionalJsonMeta %}
 			{% endblock %}
+			<style>
+                .is-page-applications-posts-v4 .fifty-fifty-v4 ul {
+                    list-style-type: none;
+                    padding-left: 20px;
+                }
+
+                .is-page-applications-posts-v4 .fifty-fifty-v4 ul li {
+                    position: relative;
+                    padding-left: 16px;
+                    margin-bottom: 8px;
+                }
+
+                .is-page-applications-posts-v4 .fifty-fifty-v4 ul li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 12px;
+                    transform: translateY(-50%);
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 4px;
+                    background: #27BCBC;
+                }
+
+                .is-page-applications-posts-v4 .outro__img-hld img {
+                    height: auto;
+                }
+                .is-page-applications-posts-v4 .outro__text-hld {
+                    padding-top: 80px;
+                }
+                .outro__text-hld {
+                    max-width: 100%;
+                }
+                .is-page-applications-posts-v4 .u-section--solutions-details-v4 .fifty-fifty .row__image {
+                    margin: 0 auto !important;
+                }
+                .is-page-applications-posts-v4 .u-section--solutions-details-v4 .fifty-fifty .row__image img {
+                    margin: 0 auto !important;
+                }
+                .is-page-applications-posts-v4 .u-section--solutions-details-v4 .solutions-details__hero-top .text-hld {
+                    padding-right: 9%;
+                }
+                .is-page-applications-posts-v4 .solutions-details__hero-top .image-hld img {
+                    position: static;
+                    max-width: 100%;
+                    width: 100%;
+                }
+                @media only screen and (max-width: 1023px) {
+                    .is-page-applications-posts-v4 .u-section--solutions-details-v4 .solutions-details__hero-top .text-hld {
+                        min-height: unset;
+                        padding-right: 0;
+                    }
+                    .is-page-applications-posts-v4 .u-section--solutions-details-v4 .subtitle {
+                        max-width: 100%;
+                        text-align: center;
+                    }
+                    .is-page-applications-posts-v4 .u-section--solutions-details-v4 .fifty-fifty-v4 {
+                        padding-top: 20px;
+                    }
+                }
+            </style>
 		</head>
 	{% endblock %}
 	<body class="{% if entry is defined %} is-page-{{ entry.section|replace(' ', '-')|lower }} {% endif %} {% if entry.slug %} is-slug-{{ entry.slug|lower|replace('_', '-') }} {% endif %} {% if entry.type.handle == 'singleWithSidebar' or entry.type.handle == 'singleEventWithHeroForm' %} is-with-sidebar {% endif %}">
@@ -378,7 +439,7 @@
 		{% endif %}
 		{{ csrfInput() }}
 		<fscript src="//embed.typeform.com/next/embed.js"></fscript>
-		<script src="{{ alias('@web/src/js/main.min.js') }}?v=18072024"></script>
+		<script src="{{ alias('@web/src/js/main.min.js') }}?v=03092024"></script>
 		<!-- WebSights Footer HTML Snippet -->
 		{% if customScripts.customScriptsFooter %}
 			{{ customScripts.customScriptsFooter|raw }}
