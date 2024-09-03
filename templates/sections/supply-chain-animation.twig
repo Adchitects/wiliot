@@ -1,5 +1,6 @@
 {% set mainTitle = entry.suppyChainMainTitle %}
 {% set mainSubtitle = entry.suppyChainMainSubtitle %}
+{% set mobileSubtitle = entry.suppyChainMobileSubtitle %}
 {% set textContentMatrix = entry.textContentMatrix.all() %}
 {% if mainTitle %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--supply-chain-animation js-supply-chain-lottie-animation-hld">
@@ -10,11 +11,18 @@
 					<h2 class="main-title">
 						{{ mainTitle }}
 					</h2>
-					{% if mainSubtitle %}
-						<div class="main-subtitle">
-							{{ mainSubtitle }}
-						</div>
-					{% endif %}
+					<div class="supply-chain-animation__main-subtitle-hld {% if mobileSubtitle %} has-mobile-subtitle {% endif %}">
+						{% if mainSubtitle %}
+							<div class="main-subtitle main-subtitle--desktop">
+								{{ mainSubtitle }}
+							</div>
+						{% endif %}
+						{% if mobileSubtitle %}
+							<div class="main-subtitle main-subtitle--mobile">
+								{{ mobileSubtitle }}
+							</div>
+						{% endif %}
+					</div>
 				</div>
 				<div class="supply-chain-animation__animation-hld">
 					<img class="js-lazy animation-placeholder animation-placeholder--desktop" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/supply-chain-animation-placeholder-desktop.jpg') }}" alt="supply chain animation">

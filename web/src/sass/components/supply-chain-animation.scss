@@ -36,6 +36,26 @@
 				color: $c-accent;
 			}
 		}
+	}
+
+	&__main-subtitle-hld {
+		&.has-mobile-subtitle {
+			.main-subtitle {
+				&--desktop {
+					@include mobile {
+						display: none;
+					}
+				}
+
+				&--mobile {
+					display: none;
+
+					@include mobile {
+						display: block;
+					}
+				}
+			}
+		}
 
 		.main-subtitle {
 			margin-top: 22px;
