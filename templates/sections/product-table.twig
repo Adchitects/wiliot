@@ -7,13 +7,14 @@
 				<div class="product-table__item product-table__item--first">
 					<div class="box box--company"><span>Company</span></div>
 					<div class="box box--product-name"><span>Product name</span></div>
-					<div class="box box--certified-component"><span>Certified vomponents</span></div>
+					<div class="box box--certified-component"><span>Certified components</span></div>
 					<div class="box box--cert-version"><span>Cert. version</span></div>
 					<div class="box box--firmware"><span>Firmware</span></div>
 				</div>
 				{% for item in itemsMatrix %}
 					{% set company = item.company %}
 					{% set productName = item.productName %}
+					{% set productLink = item.productLink %}
 					{% set certifiedComponentsMatrix = item.certifiedComponentsMatrix.all() %}
 					{% set certVersion = item.certVersion %}
 					{% set firmware = item.firmware %}
@@ -24,7 +25,11 @@
 							</div>
 						</div>
 						<div class="box box--product-name">
-							<div class="name">{{ productName }}</div>
+							{% if productLink %}
+								<a href="{{ productLink }}" target="_blank" rel="noopener noreferrer">{{ productName }}</a>
+							{% else %}
+								<div class="name">{{ productName }}</div>
+							{% endif %}
 						</div>
 						<div class="box box--certified-component">
 							{% for certifiedComponent in certifiedComponentsMatrix %}

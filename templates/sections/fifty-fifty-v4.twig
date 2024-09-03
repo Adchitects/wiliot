@@ -5,7 +5,7 @@
 	{% set numeration = numeration.contains('true') %}
 {% endif %}
 {% set rows = entry.fiftyFiftyRows.all() %}
-<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--fifty-fifty {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %}">
+<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--fifty-fifty u-section--fifty-fifty-v4 {% if entry.section|lower == 'homepage' %} js-bg-shape-hld {% endif %}">
 	<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/fifty-fifty.css') }}?v=21092023">
 	{% if entry.section|lower == 'homepage' %}
 		<div class="bg-shape bg-shape--bottom-right js-bg-shape" data-version="bottom-right">
@@ -13,7 +13,7 @@
 			<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-right-2.png' )}}" alt="Background shape blurry blob">
 		</div>
 	{% endif %}
-	<div class="u-wrapper">
+	<div class="u-wrapper u-wrapper--tiles">
 		<div class="fifty-fifty">
 			{% if subtitle %}
 				<span class="fifty-fifty__subtitle u-subtitle">{{ subtitle }}</span>
@@ -29,7 +29,6 @@
 						{% set excerpt = item.rowExcerpt %}
 						{% set subtitle = item.rowSubtitle %}
 						{% set image = item.rowImage.one() %}
-						{% set imageContained = item.imageContained %}
 						{% set button = item.rowButton %}
 						<div class="row {{ loop.index % 2 == 0 ? '' : 'is-row-reversed' }}">
 							<div class="row__content">
@@ -56,9 +55,8 @@
 									</a>
 								{% endif %}
 							</div>
-
 							{% if image and image.getUrl()%}
-								<div class="row__image {{ item.imageContained.options[0].value == 'contained' and item.imageContained.options[0].selected == true ? 'row__image--contained' : '' }}">
+								<div class="row__image">
 									<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ image.getUrl() }}" alt="{{ title }}" width="602" height="458" />
 								</div>
 							{% endif %}

@@ -3,8 +3,17 @@
 {% set image = entry.productHeroImage.one() %}
 {% set bottomTitle = entry.productHeroBottomTitle %}
 {% set bottomDescription = entry.productHeroBottomDescription %}
+{% if entry.productHeroBottomImage.one() is defined %}
 {% set bottomImage = entry.productHeroBottomImage.one() %}
+{% else %}
+{% set bottomImage = false %}
+{% endif %}
+{% if entry.productHeroBottomImageMobile.one() is defined %}
 {% set bottomImageMobile = entry.productHeroBottomImageMobile.one() %}
+{% else %}
+{% set bottomImageMobile = false %}
+{% endif %}
+
 {% if entry is defined %}
 	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--product-hero js-bg-shape-hld">
 		<div class="u-wrapper--medium-wide u-wrapper">
@@ -26,6 +35,7 @@
 					<img src="{{ image.getUrl() }}" alt="{{ title }}" class="product-hero__image">
 				{% endif %}
 			</div>
+			{% if bottomTitle or bottomDescription or bottomImage or bottomImageMobile %}
 			<div class="product-hero-bottom">
 				{% if bottomTitle %}
 					<div class="product-hero-bottom__title u-title u-title--section">{{ bottomTitle|nl2br }}</div>
@@ -40,6 +50,7 @@
 					{% endif %}
 				{% endif %}
 			</div>
+			{% endif %}
 		</div>
 	</section>
 {% endif %}

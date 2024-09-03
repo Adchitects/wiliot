@@ -3,8 +3,10 @@ wiliot.sql
 wiliot-live.sql
 wiliot-staging.sql
 *.sql
+.ddev
 .vscode/
 .DS_Store
+.ddev/
 .env
 .env.example
 .idea

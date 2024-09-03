@@ -8,6 +8,24 @@
 			margin-top: 100px;
 		}
 	}
+
+	&.is-v2 {
+		margin-top: 0;
+		padding: 128px 0 0;
+
+		.bg-shape-hld {
+			display: none;
+		}
+
+		@include tablet-small-1023 {
+			margin: 0;
+			padding: 60px 0 0;
+
+			.hero-tiles-slider__main-text-hld {
+				text-align: center;
+			}
+		}
+	}
 }
 
 .hero-tiles-slider {
@@ -193,6 +211,15 @@
 			.icon {
 				transform: rotate(-90deg);
 			}
+		}
+	}
+
+	.is-v2 & {
+		.hero-tiles-slider__main-text-hld {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			gap: 0;
 		}
 	}
 }

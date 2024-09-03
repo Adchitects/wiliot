@@ -15,20 +15,10 @@
 {% endblock %}
 {% block main %}
 	{% set sectionId = '01' %}
-	{{ include('/sections/product-hero.twig') }}
-	{% set sectionId = '02' %}
-	{{ include('/sections/fifty-fifty.twig') }}
-	{% set sectionId = '03' %}
-	{{ include('/sections/full-width-image.twig') }}
-	{% set sectionId = '04' %}
-	{{ include('/sections/product-features-v2.twig') }}
-	{% set sectionId = '05' %}
-	{{ include('/sections/comparison-table.twig') }}
-	{% set sectionId = '06' %}
-	{{ include('/sections/features-duplicate.twig') }}
-	{% set sectionId = '07' %}
-	{{ include('/sections/hero-tiles-slider-v2.twig') }}
-	{% set sectionId = '08' %}
-	{{ include('/sections/outro.twig') }}
-	{% set sectionId = '' %}
+    {{ include('/sections/solutions-details-v4-inner.twig') }}
+    {% set sectionId = '02' %}
+	{{ include('/sections/outro-with-image.twig') }}
+    {% set sectionId = '03' %}
+    {{ include('/sections/related-articles.twig') }}
+    {% set sectionId = '' %}
 {% endblock %}

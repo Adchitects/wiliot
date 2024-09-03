@@ -14,12 +14,20 @@
 		}
 	}
 
-	.is-page-product-posts---ambient-iot-network & {
+	.is-page-product-posts---ambient-iot-network {
 		padding-top: 76px;
 		background-image: linear-gradient(0deg, rgba(245, 245, 252, 0) 3.19%, #F5F9FC 17.78%);
 
 		.bg-shape {
 			display: none;
+		}
+	}
+
+	.is-page-product-posts & {
+		background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 100%);
+
+		.bg-shape {
+			//display: none;
 		}
 	}
 
@@ -31,7 +39,8 @@
 		&__title {
 			text-align: center;
 
-			.is-page-product-posts---ambient-iot-network & {
+			.is-page-product-posts---ambient-iot-network &,
+			.is-page-product-posts & {
 				max-width: 500px;
 			}
 		}
@@ -43,7 +52,8 @@
 			margin-top: 28px;
 			gap: 20px 66px;
 
-			.is-page-product-posts---ambient-iot-network & {
+			.is-page-product-posts---ambient-iot-network &,
+			.is-page-product-posts & {
 				width: 100%;
 				margin-top: 56px;
 			}
@@ -65,7 +75,8 @@
 				justify-content: space-between;
 				text-align: center;
 
-				.is-page-product-posts---ambient-iot-network & {
+				.is-page-product-posts---ambient-iot-network &,
+				.is-page-product-posts & {
 					justify-content: center;
 				}
 			}
@@ -80,7 +91,8 @@
 				&__image-hld {
 					margin: 0 auto 34px;
 
-					.is-page-product-posts---ambient-iot-network & {
+					.is-page-product-posts---ambient-iot-network &,
+					.is-page-product-posts & {
 						max-width: 366px;
 						margin-bottom: 20px;
 					}
@@ -104,7 +116,8 @@
 					font-weight: 300;
 					line-height: 26px;
 
-					.is-page-product-posts---ambient-iot-network & {
+					.is-page-product-posts---ambient-iot-network &,
+					.is-page-product-posts & {
 						max-width: 480px;
 						margin: 16px auto 0;
 					}
@@ -142,6 +155,12 @@
 
 		&__btn {
 			padding: 16px 40px 14px;
+		}
+	}
+
+	.is-page-product-posts & {
+		& + .u-section--tabs {
+			margin-top: 0;
 		}
 	}
 }
@@ -187,5 +206,9 @@
 				}
 			}
 		}
+	}
+
+	@include tablet-small-1023 {
+		padding-bottom: 60px;
 	}
 }
