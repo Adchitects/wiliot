@@ -34,7 +34,7 @@
 					<div class="label-hover-area-hld">
 						{% for item in textContentMatrix %}
 							{% set itemLink = item.itemLink %}
-        					{% set itemLinkEntry = itemLink ? itemLink.getElement() : null %}
+							{% set itemLinkEntry = itemLink ? itemLink.getElement() : null %}
 							{% if loop.index0 == 0 %}
 								{% set label = 'warehouse' %}
 							{% elseif loop.index0 == 1 %}
