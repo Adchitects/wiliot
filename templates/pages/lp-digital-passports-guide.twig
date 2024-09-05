@@ -13,65 +13,28 @@
 	<meta property="og:description" content="{{ metaDescription ? metaDescription : globalMetaTags.metaDescription }}">
 	<meta property="og:type" content="website">
 {% endblock %}
+{% set mainClass = 'lp-digital-passports-guide' %}
 {% block main %}
 	{% set sectionId = '01' %}
 	{{ include('/sections/hero-desc-image.twig') }}
-	{% set sectionId = '02' %}
-	{{ include('/sections/fifty-fifty.twig') }}
-	{% set sectionId = '03' %}
-	{{ include('/sections/vendors-slider.twig') }}
-	{% set sectionId = '04' %}
-	{{ include('/sections/bb-brief-history.twig') }}
-	{% set sectionId = '05' %}
-	{% include '/sections/content-two-columns-v2.twig' with {
-		isSimple: false,
-		mainTitle: entry.contentTwoColumnsV2MainTitle,
-		mainText: entry.contentTwoColumnsV2MainText,
-		highlightTitle: entry.contentTwoColumnsV2HighlightTitle,
-		highlightText: entry.contentTwoColumnsV2HighlightText,
-		rowMatrix: entry.contentTwoColumnsV2RowMatrix.all(),
-		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrix.all()
-	} %}
-	{% set sectionId = '06' %}
-	{% include '/sections/bb-applications.twig' with {
-		isSecond: false,
-		mainTitle: entry.bbApplicationsMainTitle,
-		mainText: entry.bbApplicationsMainText,
-		iconColumnsMatrix: entry.bbApplicationsIconColumnsMatrix.all(),
-		middleText: entry.bbApplicationsMiddleText,
-		middleColumnsMatrix: entry.bbApplicationsMiddleColumnsMatrix.all(),
-		bottomText: entry.bbApplicationsBottomText,
-		bottomColumnsMatrix: entry.bbApplicationsBottomColumnsMatrix.all()
-	} %}
+		{% set sectionId = '04' %}
+		{# use tabs #}
+		{% set sectionId = '05' %}
+		{# use bb-applications #}
+		{% set sectionId = '06' %}
+		{# use content-two-columns-v2 #}
 	{% set sectionId = '07' %}
-	{{ include('/sections/bb-implementing.twig') }}
-	{% set sectionId = '08' %}
-	{{ include('/sections/highlighter.twig') }}
-	{% set sectionId = '09' %}
-	{{ include('/sections/bb-deployment.twig') }}
-	{% set sectionId = '10' %}
-	{% include '/sections/bb-applications.twig' with {
-		isSecond: true,
-		mainTitle: entry.bbApplicationsMainTitleVariant2,
-		mainText: entry.bbApplicationsMainTextVariant2,
-		iconColumnsMatrix: entry.bbApplicationsIconColumnsMatrixVariant2.all(),
-		middleText: entry.bbApplicationsMiddleTextVariant2,
-		middleColumnsMatrix: entry.bbApplicationsMiddleColumnsMatrixVariant2.all(),
-		bottomText: entry.bbApplicationsBottomTextVariant2,
-		bottomColumnsMatrix: entry.bbApplicationsBottomColumnsMatrixVariant2.all()
-	} %}
+	{{ include('/sections/intro.twig') }}
+		{% set sectionId = '08' %}
+		{# numbers slider -> bb-implementing #}
+		{% set sectionId = '09' %}
+		{# 3 columns #}
+		{% set sectionId = '10' %}
+		{# partners #}
 	{% set sectionId = '11' %}
-	{% include '/sections/content-two-columns-v2.twig' with {
-		isSimple: true,
-		mainTitle: entry.contentTwoColumnsV2MainTitleVariant3,
-		mainText: entry.contentTwoColumnsV2MainTextVariant3,
-		highlightTitle: entry.contentTwoColumnsV2HighlightTitleVariant3,
-		highlightText: entry.contentTwoColumnsV2HighlightTextVariant3,
-		rowMatrix: entry.contentTwoColumnsV2RowMatrixVariant3.all(),
-		columnsMatrix: entry.contentTwoColumnsV2ColumnsMatrixVariant3.all()
-	} %}
-	{% set sectionId = '12' %}
 	{{ include('/sections/fifty-fifty-v3.twig') }}
+		{% set sectionId = '12' %}
+		{# 2 columns #}
 	{% set sectionId = '13' %}
 	{{ include('/sections/accordion.twig') }}
 	{% set sectionId = '14' %}
