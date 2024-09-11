@@ -425,9 +425,16 @@
 
 					img {
 						width: 100%;
-						max-width: 624px;
+						max-width: 350px;
 						height: 350px;
 						border-radius: 8px;
+					}
+
+					.row__image--contained {
+						img {
+							max-width: 624px;
+							height: auto;
+						}
 					}
 				}
 			}
@@ -561,6 +568,7 @@
 				width: 655px;
 				max-width: unset;
 				height: auto;
+				border-radius: 8px;
 
 				@include media-max(1299) {
 					position: static;

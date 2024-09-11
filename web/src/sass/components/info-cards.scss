@@ -1,0 +1,64 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.u-section--info-cards {
+	margin-top: 270px;
+
+	@include tablet-small {
+		margin-top: 100px;
+	}
+}
+
+.info-cards {
+	&__description {
+		max-width: 810px;
+		color: #313131;
+		font-size: 16px;
+		font-weight: 300;
+		line-height: calc(26 / 16);
+	}
+
+	&__cards-hld {
+		display: flex;
+		gap: 22px 28px;
+		flex-wrap: wrap;
+		margin-top: 36px;
+
+		.card {
+			width: 100%;
+			max-width: 300px;
+			min-height: 346px;
+			padding: 26px 20px 26px 28px;
+			border-radius: 6px;
+			box-shadow: 0 0 10px 0 #8686B726;
+
+			@include tablet-small {
+				max-width: 600px;
+				min-height: unset;
+			}
+
+			.logo-hld {
+				display: flex;
+				align-items: center;
+				min-height: 52px;
+
+				img {
+					max-height: 100%;
+				}
+			}
+
+			.heading {
+				margin-top: 10px;
+				font-size: 16px;
+				font-weight: 500;
+			}
+
+			.text {
+				margin-top: 30px;
+				font-size: 14px;
+				font-weight: 300;
+				line-height: calc(24 / 14);
+			}
+		}
+	}
+}
