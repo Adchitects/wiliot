@@ -351,7 +351,7 @@
 				{% endif %}
 			</div>
 		</div>
-		<main>
+		<main {% if mainClass is defined %} class="{{ mainClass }}"{% endif %}>
 			{% block main %}
 				{% set latestPopup = craft.entries.section('popupPosts').limit(1) %}
 				{% if latestPopup|length %}

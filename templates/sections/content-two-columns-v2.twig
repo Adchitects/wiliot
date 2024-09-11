@@ -13,7 +13,7 @@
 				{% if mainTitle or mainText %}
 					<div class="content-two-columns-v2__top">
 						{% if mainTitle %}
-							<h2 class="u-title u-title--section content-two-columns-v2__main-title">{{ mainTitle|raw }}</h2>
+							<h2 class="u-title u-title--section content-two-columns-v2__main-title">{{ mainTitle|raw|nl2br }}</h2>
 						{% endif %}
 						{% if mainText %}
 							<div class="content-two-columns-v2__main-text">
