@@ -1,0 +1,37 @@
+{% set infoCardsSection = entry.infoCardsSectionMatrix.all() %}
+{% if infoCardsSection|length > 0 %}
+	{% for infoCard in infoCardsSection %}
+		{% set description = infoCard.description %}
+		{% set cards = infoCard.cardsMatrix.all() %}
+		<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--info-cards" aria-labelledby="info-cards-heading">
+			<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/info-cards.css') }}?v=21092023">
+			<div class="u-wrapper">
+				<div class="info-cards">
+					{% if description %}
+						<div class="u-content info-cards__description">{{ description }}</div>
+					{% endif %}
+					<div class="info-cards__cards-hld" role="group" aria-labelledby="info-cards-heading">
+						{% for card in cards %}
+							{% set logo = card.logo.one() %}
+							{% set heading = card.heading %}
+							{% set text = card.text %}
+							<div class="card" role="article" aria-labelledby="card-heading-{{ loop.index }}">
+								{% if logo %}
+									<div class="logo-hld">
+										<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ logo.getUrl() }}" alt="{{ heading }}">
+									</div>
+								{% endif %}
+								{% if heading %}
+									<div class="heading">{{ heading }}</div>
+								{% endif %}
+								{% if text %}
+									<div class="text">{{ text }}</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endfor %}
+{% endif %}

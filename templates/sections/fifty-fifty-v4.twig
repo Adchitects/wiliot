@@ -37,7 +37,7 @@
 									<h4 class="row__subtitle">{{ subtitle }}</h4>
 								{% endif %}
 								{% if title %}
-									<h2 class="row__title">{{ title }}</h2>
+									<h2 class="row__title">{{ title|raw|nl2br }}</h2>
 								{% endif %}
 								{% if excerpt %}
 									<p class="row__excerpt">{{ excerpt }}</p>
