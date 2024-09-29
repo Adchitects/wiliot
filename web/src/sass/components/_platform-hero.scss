@@ -1,0 +1,29 @@
+.u-section--platform-hero.u-section--platform-hero {
+	margin-top: 0;
+	padding-top: 206px;
+	padding-bottom: 84px;
+	background-image: radial-gradient(circle, #f5f5fc 0%, #f5f9fc 0%);
+	overflow: hidden;
+
+	@include tablet-small-1023 {
+		&.u-section--hero {
+			margin-top: 0;
+			padding-top: 80px;
+		}
+	}
+}
+
+.platform-hero {
+	&__subtitle {
+	}
+
+	&__title {
+		max-width: 920px;
+		margin-top: 16px;
+	}
+
+	&__image {
+		margin-top: 56px;
+		padding: 0 20px;
+	}
+}
