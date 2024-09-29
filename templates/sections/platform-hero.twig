@@ -1,0 +1,34 @@
+{% set subtitle = entry.heroSubtitle %}
+{% set title = entry.heroTitle %}
+{% set image = entry.heroImage.one() %}
+{% if entry is defined %}
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--platform-hero js-bg-shape-hld">
+		<div class="bg-shape-hld js-bg-shape-hld">
+			<div class="bg-shape bg-shape--top-right js-bg-shape" data-version="top-right">
+				<img class="s1 js-s1 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-1.png' )}}" alt="Background shape blurry blob">
+				<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-2.png' )}}" alt="Background shape blurry blob">
+				<img class="s3 js-s3 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/top-right-3.png' )}}" alt="Background shape blurry blob">
+			</div>
+			<div class="bg-shape bg-shape--bottom-left js-bg-shape" data-version="bottom-left">
+				<img class="s2 js-s2 js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ alias('@web/src/img/bg-shape/optimized/bottom-left-2.png' )}}" alt="Background shape blurry blob">
+			</div>
+		</div>
+		<div class="platform-hero">
+			<div class="platform-hero__content">
+				<div class="u-wrapper">
+					{% if subtitle %}
+						<span class="platform-hero__subtitle u-subtitle u-subtitle--big">{{ subtitle }}</span>
+					{% endif %}
+					{% if title %}
+						<h1 class="platform-hero__title u-title u-title--big">{{ title }}</h1>
+					{% endif %}
+				</div>
+				{% if image %}
+					<div class="u-wrapper u-wrapper--extra-wide">
+						<img src="{{ image.getUrl() }}" alt="{{ title }}" class="platform-hero__image">
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endif %}
