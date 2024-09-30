@@ -15,7 +15,7 @@
 				<span class="features__subtitle u-subtitle u-subtitle--section">{{ subtitle }}</span>
 			{% endif %}
 			{% if title %}
-				<h2 class="features__title u-title u-title--section">{{ title }}</h2>
+				<h2 class="features__title u-title u-title--section">{{ title | nl2br }}</h2>
 			{% endif %}
 			<div class="features__row">
 				{% if showAnimationLightswitch %}
@@ -43,7 +43,7 @@
 							<h3 class="item__title">{{ title }}</h3>
 							<div class="item__description">{{ description }}</div>
 							{% if featureButton and featureButton.getUrl() %}
-								<a href="{{ featureButton.getUrl() }}" class="item__btn u-btn u-btn--arrow">
+								<a href="{{ featureButton.getUrl() }}" class="item__btn u-btn u-btn--light">
 									<span class="text">
 										{{ featureButton.customText }}
 									</span>

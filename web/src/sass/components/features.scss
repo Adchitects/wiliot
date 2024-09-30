@@ -31,6 +31,10 @@
 		}
 	}
 
+	.is-page-wiliot-platform-v2 & {
+		background-image: none;
+	}
+
 	.features {
 		display: flex;
 		flex-direction: column;
@@ -40,7 +44,8 @@
 			text-align: center;
 
 			.is-page-product-posts---ambient-iot-network &,
-			.is-page-product-posts & {
+			.is-page-product-posts &,
+			.is-page-wiliot-platform-v2 & {
 				max-width: 500px;
 			}
 		}
@@ -84,6 +89,7 @@
 			.item {
 				display: flex;
 				flex-direction: column;
+				align-items: center;
 				justify-content: flex-start;
 				position: relative;
 				padding-bottom: 42px;
@@ -128,9 +134,8 @@
 				}
 
 				&__btn {
-					position: absolute;
-					bottom: 0;
-					left: 0;
+					margin-top: 30px;
+					padding: 16px 36px;
 				}
 			}
 		}
