@@ -651,12 +651,12 @@
 		transition: opacity 0.2s;
 		opacity: 0;
 
-		&.is-tab-active {
-			pointer-events: auto;
+		&.is-default-tab-active {
 			opacity: 1;
 		}
 
-		&.is-default-tab-active {
+		&.is-tab-active {
+			pointer-events: auto;
 			opacity: 1;
 		}
 	}

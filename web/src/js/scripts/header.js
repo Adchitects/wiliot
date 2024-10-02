@@ -58,11 +58,24 @@ headerAll.forEach(header => {
 		itemWithDropdown.addEventListener('mouseover', () => {
 			itemWithDropdown.classList.add('is-dropdown-active');
 			header.classList.add('is-dropdown-active');
+
+			// Add this block to set is-tab-active on the default active tab
+			const defaultActiveTab = header.querySelector('.is-default-tab-active');
+			if (defaultActiveTab) {
+				defaultActiveTab.classList.add('is-tab-active');
+			}
 		});
-		// itemWithDropdown.addEventListener('mouseleave', () => {
-		// 	itemWithDropdown.classList.remove('is-dropdown-active');
-		// 	header.classList.remove('is-dropdown-active');
-		// });
+
+		itemWithDropdown.addEventListener('mouseleave', () => {
+			itemWithDropdown.classList.remove('is-dropdown-active');
+			header.classList.remove('is-dropdown-active');
+
+			// Add this block to remove is-tab-active from all tabs
+			const allTabs = header.querySelectorAll('.js-menu-desktop-tab, .js-menu-desktop-tab-content');
+			allTabs.forEach(tab => {
+				tab.classList.remove('is-tab-active');
+			});
+		});
 	});
 
 	const tabs = header.querySelectorAll('.js-menu-desktop-tab');
