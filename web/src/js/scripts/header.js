@@ -59,9 +59,72 @@ headerAll.forEach(header => {
 			itemWithDropdown.classList.add('is-dropdown-active');
 			header.classList.add('is-dropdown-active');
 		});
-		itemWithDropdown.addEventListener('mouseleave', () => {
-			itemWithDropdown.classList.remove('is-dropdown-active');
-			header.classList.remove('is-dropdown-active');
+		// itemWithDropdown.addEventListener('mouseleave', () => {
+		// 	itemWithDropdown.classList.remove('is-dropdown-active');
+		// 	header.classList.remove('is-dropdown-active');
+		// });
+	});
+
+	const tabs = header.querySelectorAll('.js-menu-desktop-tab');
+	const tabContents = header.querySelectorAll('.js-menu-desktop-tab-content');
+
+	function activateTab(tabNumber, isDefault = false) {
+		tabs.forEach(t => {
+			t.classList.remove('is-tab-active');
+			t.classList.remove('is-default-tab-active');
+		});
+		tabContents.forEach(content => {
+			content.classList.remove('is-tab-active');
+			content.classList.remove('is-default-tab-active');
+		});
+
+		const activeTab = header.querySelector(`.js-menu-desktop-tab[data-tab="${tabNumber}"]`);
+		const activeContent = header.querySelector(`.js-menu-desktop-tab-content[data-tab-content="${tabNumber}"]`);
+
+		if (activeTab && activeContent) {
+			if (isDefault) {
+				activeTab.classList.add('is-default-tab-active');
+				activeContent.classList.add('is-default-tab-active');
+			} else {
+				activeTab.classList.add('is-tab-active');
+				activeContent.classList.add('is-tab-active');
+			}
+		}
+	}
+
+	// Set the first tab and content as default without activating it
+	const firstTab = header.querySelector('.js-menu-desktop-tab[data-tab="1"]');
+	const firstTabContent = header.querySelector('.js-menu-desktop-tab-content[data-tab-content="1"]');
+	if (firstTab && firstTabContent) {
+		firstTab.classList.add('is-default-tab-active');
+		firstTabContent.classList.add('is-default-tab-active');
+	}
+
+	tabs.forEach(tab => {
+		tab.addEventListener('mouseenter', () => {
+			const tabNumber = tab.getAttribute('data-tab');
+			activateTab(tabNumber);
 		});
 	});
+
+	const dropdown = header.querySelector('.menu-desktop__dropdown--tabs');
+	if (dropdown) {
+		dropdown.addEventListener('mouseleave', () => {
+			// Remove active classes from all tabs and contents
+			tabs.forEach(t => {
+				t.classList.remove('is-tab-active');
+				t.classList.remove('is-default-tab-active');
+			});
+			tabContents.forEach(content => {
+				content.classList.remove('is-tab-active');
+				content.classList.remove('is-default-tab-active');
+			});
+
+			// Ensure the first tab and content have the is-default-tab-active class
+			if (firstTab && firstTabContent) {
+				firstTab.classList.add('is-default-tab-active');
+				firstTabContent.classList.add('is-default-tab-active');
+			}
+		});
+	}
 });

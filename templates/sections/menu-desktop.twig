@@ -9,11 +9,17 @@
 			{% set menuDesktopPageLink = page.menuDesktopPageLink %}
 			{% set menuDesktopSubnavItemsMatrix = page.menuDesktopSubnavItemsMatrix.all() %}
 			{% set isSubnav = menuDesktopSubnavItemsMatrix|length > 0 %}
-            {% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
+			{% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
+			{% set hasTabs = false %}
+			{% for block in menuDesktopSubnavItemsMatrix %}
+				{% if block.type == 'tab' %}
+					{% set hasTabs = true %}
+				{% endif %}
+			{% endfor %}
 			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 5 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% if  page.slug == 'contact-us' and entry.slug == 'contact' %} is-active {% endif %} {% if page.slug == 'get-started' and entry.slug == 'starterkit' %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Resources' %} is-support {% endif %} {% if menuDesktopTitle|lower == 'login' %} is-login {% endif %} {% if menuDesktopTitle|lower == 'login is-hidden' %} is-login is-hidden {% endif %} {% if menuDesktopTitle|lower == 'search' %} is-search {% endif %}">
-                {% if lastIsTypeform and loop.revindex == 1 %}
-                    {% set typeformID = pageOptions.pageOptionsTypeFormID %}
-                    <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+				{% if lastIsTypeform and loop.revindex == 1 %}
+					{% set typeformID = pageOptions.pageOptionsTypeFormID %}
+					<button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
 						<span class="text">{{ menuDesktopTitle }}</span>
 					</button>
 				{% elseif menuDesktopPageLink.url %}
@@ -44,77 +50,152 @@
 					</div>
 				{% endif %}
 				{% if isSubnav %}
-                    {% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
-                    {% set menuDesktopSecondSubnavTitle = page.menuDesktopSecondSubnavTitle %}
-                    {% set menuDesktopSecondSubnavElementsNumber = page.menuDesktopSecondSubnavElementsNumber %}
-					{% set subitemMatrixHasElements = 0 %}
-					{% for subnavItem in menuDesktopSubnavItemsMatrix %}
-						{% set subitemMatrix = subnavItem.subitemMatrix %}
-						{% if subitemMatrix|length > 0 %}
-							{% set subitemMatrixHasElements = 1 %}
-						{% endif %}
-					{% endfor %}
-					<div class="menu-desktop__dropdown {% if subitemMatrixHasElements > 0 %} menu-desktop__dropdown--big {% endif %}">
-						<div class="subnav-hld subnav-hld--first {% if menuDesktopSubnavTitle %} has-subnav-title {% endif %}">
-                            {% if menuDesktopSubnavTitle %}
-                                <div class="subnav-title subnav-title--first">{{ menuDesktopSubnavTitle }}</div>
-                            {% endif %}
-							{% for subnavItem in menuDesktopSubnavItemsMatrix %}
-                                {% if loop.revindex > menuDesktopSecondSubnavElementsNumber %}
-                                    {% set item = subnavItem.item %}
-                                    {% set icon = subnavItem.icon.one() %}
-									{% set subitemMatrix = subnavItem.subitemMatrix %}
-                                    {% if icon %}
-                                        {% set icon = subnavItem.icon.one().getUrl() %}
-                                    {% endif %}
-									{% if subitemMatrix|length > 0 %}
-										<div class="subnav-item is-subitem {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}">
-											<a href="{{ item.url }}" class="text" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
-												<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
-												{{ item.customText }}
-											</a>
-											{% for subitem in subitemMatrix %}
-												{% set subitemLink = subitem.subitemLink %}
-												<a href="{{ subitemLink.url }}" class="subitem-link {% if entry is defined %} {% if subitemLink.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ subitemLink.target ? '_blank' : '_self' }}" rel="{{ subitemLink.target ? 'noopener noreferrer' : null }}">
-													<div class="subtext">
-														{{ subitemLink.customText }}
-													</div>
-												</a>
-											{% endfor %}
+					{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
+					{% set menuDesktopSecondSubnavTitle = page.menuDesktopSecondSubnavTitle %}
+					{% set menuDesktopSecondSubnavElementsNumber = page.menuDesktopSecondSubnavElementsNumber %}
+					<div class="menu-desktop__dropdown {% if hasTabs %} menu-desktop__dropdown--tabs {% endif %}">
+						{% if hasTabs %}
+							<div class="menu-desktop__tabs">
+								{% for block in menuDesktopSubnavItemsMatrix %}
+									{% if block.type == 'tab' %}
+										<div class="menu-desktop__tab js-menu-desktop-tab" data-tab="{{ loop.index }}">
+											{{ block.tabName }}
 										</div>
-									{% else %}
-										<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
-											<div class="text">
-												<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
-												{{ item.customText }}
-											</div>
-										</a>
 									{% endif %}
-                                {% endif %}
-							{% endfor %}
-						</div>
-                        {% if menuDesktopSecondSubnavElementsNumber > 0 %}
-                            <div class="subnav-hld subnav-hld--second {% if menuDesktopSecondSubnavTitle %} has-subnav-title {% endif %}">
-                                {% if menuDesktopSecondSubnavTitle %}
-                                    <div class="subnav-title subnav-title--second">{{ menuDesktopSecondSubnavTitle }}</div>
-                                {% endif %}
-                                {% for subnavItem in menuDesktopSubnavItemsMatrix %}
-                                    {% if loop.revindex <= menuDesktopSecondSubnavElementsNumber %}
-                                        {% set item = subnavItem.item %}
-                                        {% set icon = subnavItem.icon.one() %}
-                                        {% if icon %}
-                                            {% set icon = subnavItem.icon.one().getUrl() %}
-                                        {% endif %}
-										<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
-											<div class="text">
-												<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
-												{{ item.customText }}
+								{% endfor %}
+							</div>
+							<div class="menu-desktop__tab-content-hld">
+								{% for block in menuDesktopSubnavItemsMatrix %}
+									{% if block.type == 'tab' %}
+										<div class="menu-desktop__tab-content js-menu-desktop-tab-content" data-tab-content="{{ loop.index }}">
+											<div class="menu-desktop__tab-left-column">
+												{% for leftItem in block.leftColumnMatrix.all() %}
+													<div class="menu-desktop__tab-item">
+														{% if leftItem.icon.one() %}
+															<img src="{{ leftItem.icon.one().getUrl() }}" alt="{{ leftItem.heading }}" class="menu-desktop__tab-item-icon">
+														{% endif %}
+														<h3 class="menu-desktop__tab-item-heading">{{ leftItem.heading }}</h3>
+														<p class="menu-desktop__tab-item-description">{{ leftItem.description }}</p>
+														{% if leftItem.singleLink.url %}
+															<a href="{{ leftItem.singleLink.url }}" class="u-btn u-btn--arrow menu-desktop__tab-item-link" {{ leftItem.singleLink.target ? 'target="_blank"' : '' }}>
+																<span class="text">{{ leftItem.singleLink.text }}</span>
+															</a>
+														{% endif %}
+														{% if leftItem.linksMatrix|length %}
+															<ul class="menu-desktop__tab-item-links">
+																{% for link in leftItem.linksMatrix.all() %}
+																	<li>
+																		<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
+																			{% if link.icon.one() %}
+																				<img src="{{ link.icon.one().getUrl() }}" alt="{{ link.itemLink.text }}" class="menu-desktop__tab-item-link-icon">
+																			{% endif %}
+																			{{ link.itemLink.text }}
+																		</a>
+																	</li>
+																{% endfor %}
+															</ul>
+														{% endif %}
+													</div>
+												{% endfor %}
 											</div>
-										</a>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        {% endif %}
+											<div class="menu-desktop__tab-right-column">
+												{% for rightItem in block.rightColumnMatrix.all() %}
+													{% if rightItem.featuredLink.one() %}
+														<div class="menu-desktop__tab-featured-link">
+															{% set featuredEntry = rightItem.featuredLink.one() %}
+															<a href="{{ featuredEntry.url }}">
+																{% if featuredEntry.type.handle == 'singleNews' %}
+																	{% if featuredEntry.newsPostsfeaturedImage.one() %}
+																		<img src="{{ featuredEntry.newsPostsfeaturedImage.one().getUrl('postImage') }}" alt="{{ featuredEntry.title }}" class="menu-desktop__tab-featured-link-image">
+																	{% endif %}
+																	{% set mainCategory = featuredEntry.postMainCategory.one() %}
+																	{% if mainCategory %}
+																		<span class="menu-desktop__tab-featured-link-tag">{{ mainCategory.title }}</span>
+																	{% endif %}
+																{% endif %}
+																<h3>{{ featuredEntry.title }}</h3>
+															</a>
+														</div>
+													{% endif %}
+													{% if rightItem.linksMatrix|length %}
+														<ul class="menu-desktop__tab-links">
+															{% for link in rightItem.linksMatrix.all() %}
+																<li>
+																	<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
+																		{{ link.itemLink.text }}
+																	</a>
+																</li>
+															{% endfor %}
+														</ul>
+													{% endif %}
+												{% endfor %}
+											</div>
+										</div>
+									{% endif %}
+								{% endfor %}
+							</div>
+						{% else %}
+							<div class="subnav-hld subnav-hld--first {% if menuDesktopSubnavTitle %} has-subnav-title {% endif %}">
+								{% if menuDesktopSubnavTitle %}
+									<div class="subnav-title subnav-title--first">{{ menuDesktopSubnavTitle }}</div>
+								{% endif %}
+								{% for subnavItem in menuDesktopSubnavItemsMatrix %}
+									{% if loop.revindex > menuDesktopSecondSubnavElementsNumber %}
+										{% set item = subnavItem.item %}
+										{% set icon = subnavItem.icon.one() %}
+										{% set subitemMatrix = subnavItem.subitemMatrix %}
+										{% if icon %}
+											{% set icon = subnavItem.icon.one().getUrl() %}
+										{% endif %}
+										{% if subitemMatrix|length > 0 %}
+											<div class="subnav-item is-subitem {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}">
+												<a href="{{ item.url }}" class="text" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
+													<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+													{{ item.customText }}
+												</a>
+												{% for subitem in subitemMatrix %}
+													{% set subitemLink = subitem.subitemLink %}
+													<a href="{{ subitemLink.url }}" class="subitem-link {% if entry is defined %} {% if subitemLink.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ subitemLink.target ? '_blank' : '_self' }}" rel="{{ subitemLink.target ? 'noopener noreferrer' : null }}">
+														<div class="subtext">
+															{{ subitemLink.customText }}
+														</div>
+													</a>
+												{% endfor %}
+											</div>
+										{% else %}
+											<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
+												<div class="text">
+													<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+													{{ item.customText }}
+												</div>
+											</a>
+										{% endif %}
+									{% endif %}
+								{% endfor %}
+							</div>
+							{% if menuDesktopSecondSubnavElementsNumber > 0 %}
+								<div class="subnav-hld subnav-hld--second {% if menuDesktopSecondSubnavTitle %} has-subnav-title {% endif %}">
+									{% if menuDesktopSecondSubnavTitle %}
+										<div class="subnav-title subnav-title--second">{{ menuDesktopSecondSubnavTitle }}</div>
+									{% endif %}
+									{% for subnavItem in menuDesktopSubnavItemsMatrix %}
+										{% if loop.revindex <= menuDesktopSecondSubnavElementsNumber %}
+											{% set item = subnavItem.item %}
+											{% set icon = subnavItem.icon.one() %}
+											{% if icon %}
+												{% set icon = subnavItem.icon.one().getUrl() %}
+											{% endif %}
+											<a href="{{ item.url }}" class="subnav-item {% if entry is defined %} {% if item.url == entry.url %} is-active {% endif %} {% endif %}" target="{{ item.target ? '_blank' : '_self' }}" rel="{{ item.target ? 'noopener noreferrer' : null }}">
+												<div class="text">
+													<img src="{{ alias('@web/src/img/svg/circles.svg' )}}" data-src="{{ icon }}" alt="{{ item.customText }}" class="icon js-lazy">
+													{{ item.customText }}
+												</div>
+											</a>
+										{% endif %}
+									{% endfor %}
+								</div>
+							{% endif %}
+						{% endif %}
 					</div>
 				{% endif %}
 				{% ifchildren %}
