@@ -59,10 +59,12 @@ headerAll.forEach(header => {
 			itemWithDropdown.classList.add('is-dropdown-active');
 			header.classList.add('is-dropdown-active');
 
-			// Add this block to set is-tab-active on the default active tab
-			const defaultActiveTab = header.querySelector('.is-default-tab-active');
-			if (defaultActiveTab) {
+			// Update this block to set is-tab-active on both tab and content
+			const defaultActiveTab = header.querySelector('.js-menu-desktop-tab.is-default-tab-active');
+			const defaultActiveContent = header.querySelector('.js-menu-desktop-tab-content.is-default-tab-active');
+			if (defaultActiveTab && defaultActiveContent) {
 				defaultActiveTab.classList.add('is-tab-active');
+				defaultActiveContent.classList.add('is-tab-active');
 			}
 		});
 
@@ -70,7 +72,7 @@ headerAll.forEach(header => {
 			itemWithDropdown.classList.remove('is-dropdown-active');
 			header.classList.remove('is-dropdown-active');
 
-			// Add this block to remove is-tab-active from all tabs
+			// Update this block to remove is-tab-active from all tabs and contents
 			const allTabs = header.querySelectorAll('.js-menu-desktop-tab, .js-menu-desktop-tab-content');
 			allTabs.forEach(tab => {
 				tab.classList.remove('is-tab-active');
