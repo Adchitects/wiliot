@@ -102,6 +102,19 @@
 		<div class="u-wrapper u-wrapper--events-listing">
 			<div class="events-listing-hld">
 				{% if posts|length or (featuredPost and entry.newsListingIncludeFeatured) %}
+					<div class="news-listing-topics-hld js-news-listing-topics-hld">
+						{% set newsTopics = craft.categories().group('newsTopics').all() %}
+						{% if newsTopics %}
+							<div class="events-listing-categories-hld">
+								<select class="events-listing-category-select js-news-listing-topics-select">
+									<option value="all" selected>All Topics</option>
+									{% for topic in newsTopics %}
+										<option value="{{ topic.id }}">{{ topic.title }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						{% endif %}
+					</div>
 					<div class="events-listing-filters-hld">
 						{% if entry.newsListingShowCategories %}
 							{% set newsCategories = craft.categories().group('newsCategories').all() %}
@@ -125,7 +138,7 @@
 						{% endif %}
 					</div>
 					<div class="events-listing-outer">
-						<div class="events-listing js-events-listing" data-count="{{ itemsShown }}" data-category="all">
+						<div class="events-listing js-events-listing js-news-listing-hld" data-count="{{ itemsShown }}" data-category="all">
 							{% if featuredPost and entry.newsListingIncludeFeatured %}
 								{% set url = 'bbpost' in featuredPost.url ? '/bluetooth-beacon' : featuredPost.url %}
 								{% set additionalUrlParams = false %}
@@ -138,7 +151,8 @@
 								{% set date = featuredPost.postDate | date("F d, Y") %}
 								{% set title = featuredPost.title %}
 								{% set excerpt = featuredPost.newsPostsExcerpt|striptags|slice(0, 177) ~ '...' %}
-								<a href="{{ url }}" class="event-item js-event-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}">
+								{% set topics = featuredPost.postTopic.all() %}
+								<a href="{{ url }}" class="event-item js-event-item js-news-listing-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}" data-topics="{% if topics %}{{ topics|map(t => t.id)|join(',') }}{% endif %}">
 									<div class="event-item__img-hld">
 										{% if image %}
 											<img class="event-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
@@ -187,7 +201,8 @@
 								{% set date = post.postDate | date("F d, Y") %}
 								{% set title = post.title %}
 								{% set excerpt = post.newsPostsExcerpt|striptags|slice(0, 177) ~ '...' %}
-								<a href="{{ url }}" class="event-item js-event-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}">
+								{% set topics = post.postTopic.all() %}
+								<a href="{{ url }}" class="event-item js-event-item js-news-listing-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}" data-topics="{% if topics %}{{ topics|map(t => t.id)|join(',') }}{% endif %}">
 									<div class="event-item__img-hld">
 										{% if image %}
 											<img class="event-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
@@ -245,5 +260,6 @@
 	{% set sectionId = '03' %}
 	{{ include('/sections/subscribe.twig') }}
 	{% set sectionId = '' %}
+	<script src="{{ alias('@web/src/js/newsListing.min.js') }}"></script>
 	<script src="{{ alias('@web/src/js/eventsListing.min.js') }}"></script>
 {% endblock %}
