@@ -282,12 +282,6 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 48px 24px;
-	transition: opacity 0.2s;
-	opacity: 0;
-
-	&.is-active {
-		opacity: 1;
-	}
 }
 
 .event-item {
