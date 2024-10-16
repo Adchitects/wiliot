@@ -169,7 +169,7 @@
 .events-listing-categories {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px 32px;
+	gap: 20px;
 }
 
 .events-listing-category {
@@ -194,6 +194,9 @@
 .events-listing-topics-hld {
 	position: relative;
 	z-index: 1;
+	max-width: 228px;
+	margin-bottom: 24px;
+	margin-left: auto;
 
 	&:hover {
 		.events-listing-topics-list-hld {
@@ -238,7 +241,7 @@
 .events-listing-topics-list-hld {
 	position: absolute;
 	top: 100%;
-	right: -108px;
+	right: 0;
 	pointer-events: none;
 	padding-top: 12px;
 	transition: opacity 0.2s;
@@ -282,12 +285,6 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 48px 24px;
-	transition: opacity 0.2s;
-	opacity: 0;
-
-	&.is-active {
-		opacity: 1;
-	}
 }
 
 .event-item {
@@ -580,7 +577,18 @@
 	}
 
 	.events-listing-topics-hld {
-		display: none;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.events-listing-topics-list-hld {
+		right: unset;
+		left: 0;
+		width: 100%;
+	}
+
+	.events-listing-topics-list {
+		width: 100%;
 	}
 
 	.events-listing {

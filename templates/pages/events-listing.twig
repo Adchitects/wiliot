@@ -142,21 +142,23 @@
 								</div>
 							{% endif %}
 						{% endif %}
+					</div>
+					<div class="events-listing-outer">
 						{% if entry.eventsListingShowTopics %}
 							{% set eventsTopics = craft.categories().group('eventsTopics').all() %}
 							{% if eventsTopics %}
 								<div class="events-listing-topics-hld">
 									<div class="events-listing-topics">
 										<div class="events-listing-current-topic js-events-listing-current-topic" data-id="all">
-											<span class="text">Topic</span>
+											<span class="text js-common-listing-current-topic">Select a Topic</span>
 										</div>
-										<div class="events-listing-topics-list-hld">
+										<div class="events-listing-topics-list-hld js-events-listing-topics-list-hld">
 											<div class="events-listing-topics-list">
-												<div class="events-listing-topic js-events-listing-topic is-active" data-id="all">
-													<span class="text">Any topic</span>
+												<div class="events-listing-topic js-common-listing-topic is-active" data-id="all">
+													<span class="text">All Topics</span>
 												</div>
 												{% for topic in eventsTopics %}
-													<div class="events-listing-topic js-events-listing-topic" data-id="{{ topic.id }}">
+													<div class="events-listing-topic js-common-listing-topic" data-id="{{ topic.id }}">
 														<span class="text">{{ topic.title }}</span>
 													</div>
 												{% endfor %}
@@ -166,8 +168,6 @@
 								</div>
 							{% endif %}
 						{% endif %}
-					</div>
-					<div class="events-listing-outer">
 						<div class="events-listing js-events-listing" data-count="{{ itemsShown }}" data-category="all" data-topic="all">
 							{% if featuredEvent and entry.newsListingIncludeFeatured %}
 								{% set url = featuredEvent.url %}
@@ -188,7 +188,7 @@
 								{% set place = featuredEvent.eventPlace %}
 								{% set title = featuredEvent.title %}
 								{% set excerpt = featuredEvent.eventExcerpt %}
-								<a href="{{ url }}" class="event-item js-event-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}" data-topic="{% if topic %}{{ topic.id }}{% endif %}">
+								<a href="{{ url }}" class="event-item js-event-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}" data-topics="{% if topics %}{{ topics|map(t => t.id)|join(',') }}{% endif %}">
 									<div class="event-item__img-hld">
 										{% if image %}
 											<img class="event-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
@@ -197,17 +197,16 @@
 										{% endif %}
 									</div>
 									<div class="event-item__text-hld">
-										{% if category or topic %}
+										{% if category or topics %}
 											<div class="event-item__labels">
 												{% if category %}
 													{% set categoryColor = category.categoryColor %}
 													{% set categoryTitle = category.titleSingular %}
 													<span class="event-item__label event-item__label--{{ categoryColor }}">{{ categoryTitle }}</span>
 												{% endif %}
-												{% if topic %}
-													{% set topicTitle = topic.title %}
-													<span class="event-item__label event-item__label--very-light">{{ topicTitle }}</span>
-												{% endif %}
+												{% for topic in topics|slice(0, 2) %}
+													<span class="event-item__label event-item__label--very-light">{{ topic.title }}</span>
+												{% endfor %}
 											</div>
 										{% endif %}
 										{% if date or time %}
@@ -253,13 +252,13 @@
 									{% set imageAlt = image.title %}
 								{% endif %}
 								{% set category = event.eventCategory.one() %}
-								{% set topic = event.eventTopic.one() %}
+								{% set topics = event.eventTopic.all() %}
 								{% set date = event.eventDate %}
 								{% set time = event.eventTime %}
 								{% set place = event.eventPlace %}
 								{% set title = event.title %}
 								{% set excerpt = event.eventExcerpt %}
-								<a href="{{ url }}" class="event-item js-event-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}" data-topic="{% if topic %}{{ topic.id }}{% endif %}">
+								<a href="{{ url }}" class="event-item js-event-item" {% if additionalUrlParams %}target="_blank" rel="noopener noreferrer"{% endif %} data-show="true" data-category="{% if category %}{{ category.id }}{% endif %}" data-topics="{% if topics %}{{ topics|map(t => t.id)|join(',') }}{% endif %}">
 									<div class="event-item__img-hld">
 										{% if image %}
 											<img class="event-item__img js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ imageUrl }}" alt="{{ imageAlt }}" />
@@ -268,17 +267,16 @@
 										{% endif %}
 									</div>
 									<div class="event-item__text-hld">
-										{% if category or topic %}
+										{% if category or topics %}
 											<div class="event-item__labels">
 												{% if category %}
 													{% set categoryColor = category.categoryColor %}
 													{% set categoryTitle = category.titleSingular %}
 													<span class="event-item__label event-item__label--{{ categoryColor }}">{{ categoryTitle }}</span>
 												{% endif %}
-												{% if topic %}
-													{% set topicTitle = topic.title %}
-													<span class="event-item__label event-item__label--very-light">{{ topicTitle }}</span>
-												{% endif %}
+												{% for topic in topics|slice(0, 2) %}
+													<span class="event-item__label event-item__label--very-light">{{ topic.title }}</span>
+												{% endfor %}
 											</div>
 										{% endif %}
 										{% if date or time %}
@@ -332,6 +330,6 @@
 	{% set sectionId = '03' %}
 	{{ include('/sections/subscribe.twig') }}
 	{% set sectionId = '' %}
-
-	<script src="{{ alias('@web/src/js/eventsListing.min.js') }}"></script>
+<script type="module" src="{{ alias('@web/src/js/listingCommon.min.js') }}"></script>
+	<script type="module" src="{{ alias('@web/src/js/eventsListing.min.js') }}"></script>
 {% endblock %}
