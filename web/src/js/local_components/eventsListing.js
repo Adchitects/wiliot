@@ -9,6 +9,6 @@ initializeListing({
 	showMoreBtnHldSelector: '.js-more-events-btn-hld',
 	showMoreBtnSelector: '.js-more-events-btn',
 	categorySelector: '.js-events-listing-category',
-	topicSelector: '.js-events-listing-topic',
+	topicSelector: '.js-events-listing-topics-list-hld',
 	listingType: 'Events',
 });

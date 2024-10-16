@@ -9,6 +9,6 @@ initializeListing({
 	showMoreBtnHldSelector: '.js-more-news-btn-hld',
 	showMoreBtnSelector: '.js-more-news-btn',
 	categorySelector: '.js-news-listing-category',
-	topicSelector: '.js-news-listing-topics-select',
+	topicSelector: '.js-news-listing-topics-list-hld',
 	listingType: 'News',
 });

@@ -141,17 +141,34 @@ export function initializeListing(options) {
 		};
 
 		const initializeTopics = () => {
-			const topicsSelect = document.querySelector(topicSelector);
-			if (topicsSelect) {
-				topicsSelect.addEventListener('change', () => {
-					listing.dataset.topic = topicsSelect.value;
-					checkItems();
+			const topicsElement = document.querySelector(topicSelector);
+			const currentTopicElement = document.querySelector('.js-common-listing-current-topic');
+
+			if (topicsElement) {
+				const topicElements = document.querySelectorAll(`${topicSelector} .js-common-listing-topic`);
+				topicElements.forEach(topic => {
+					topic.addEventListener('click', () => {
+						topicElements.forEach(t => t.classList.remove('is-active'));
+						topic.classList.add('is-active');
+						listing.dataset.topic = topic.dataset.id;
+
+						// Update the current topic text
+						if (currentTopicElement) {
+							const topicText = topic.querySelector('.text').textContent;
+							currentTopicElement.textContent = topic.dataset.id === 'all' ? 'Select a Topic' : topicText;
+						}
+
+						checkItems();
+					});
 				});
 			}
 
 			// Set initial topic value if not already set
 			if (!listing.dataset.topic) {
 				listing.dataset.topic = 'all';
+				if (currentTopicElement) {
+					currentTopicElement.textContent = 'Select a Topic';
+				}
 			}
 		};
 

@@ -102,19 +102,6 @@
 		<div class="u-wrapper u-wrapper--events-listing">
 			<div class="events-listing-hld">
 				{% if posts|length or (featuredPost and entry.newsListingIncludeFeatured) %}
-					<div class="news-listing-topics-hld js-news-listing-topics-hld">
-						{% set newsTopics = craft.categories().group('newsTopics').all() %}
-						{% if newsTopics %}
-							<div class="events-listing-categories-hld">
-								<select class="events-listing-category-select js-news-listing-topics-select">
-									<option value="all" selected>All Topics</option>
-									{% for topic in newsTopics %}
-										<option value="{{ topic.id }}">{{ topic.title }}</option>
-									{% endfor %}
-								</select>
-							</div>
-						{% endif %}
-					</div>
 					<div class="events-listing-filters-hld">
 						{% if entry.newsListingShowCategories %}
 							{% set newsCategories = craft.categories().group('newsCategories').all() %}
@@ -138,6 +125,32 @@
 						{% endif %}
 					</div>
 					<div class="events-listing-outer">
+						{% if entry.newsListingShowTopics %}
+							<div class="news-listing-topics-hld">
+								{% set newsTopics = craft.categories().group('newsTopics').all() %}
+									{% if newsTopics %}
+										<div class="events-listing-topics-hld">
+											<div class="events-listing-topics">
+												<div class="events-listing-current-topic js-news-listing-current-topic" data-id="all">
+													<span class="text js-common-listing-current-topic">Select a Topic</span>
+												</div>
+												<div class="events-listing-topics-list-hld js-news-listing-topics-list-hld">
+													<div class="events-listing-topics-list">
+														<div class="events-listing-topic js-common-listing-topic is-active" data-id="all">
+															<span class="text">All Topics</span>
+														</div>
+														{% for topic in newsTopics %}
+															<div class="events-listing-topic js-common-listing-topic" data-id="{{ topic.id }}">
+																<span class="text">{{ topic.title }}</span>
+															</div>
+														{% endfor %}
+													</div>
+												</div>
+											</div>
+										</div>
+									{% endif %}
+							</div>
+						{% endif %}
 						<div class="events-listing js-events-listing js-news-listing-hld" data-count="{{ itemsShown }}" data-category="all" data-topic="all">
 							{% if featuredPost and entry.newsListingIncludeFeatured %}
 								{% set url = 'bbpost' in featuredPost.url ? '/bluetooth-beacon' : featuredPost.url %}
@@ -161,13 +174,16 @@
 										{% endif %}
 									</div>
 									<div class="event-item__text-hld">
-										{% if category %}
+										{% if category or topic %}
 											<div class="event-item__labels">
 												{% if category %}
 													{% set categoryColor = 'medium' %}
 													{% set categoryTitle = category.title %}
 													<span class="event-item__label event-item__label--{{ categoryColor }}">{{ categoryTitle }}</span>
 												{% endif %}
+												{% for topic in topics|slice(0, 2) %}
+													<span class="event-item__label event-item__label--very-light">{{ topic.title }}</span>
+												{% endfor %}
 											</div>
 										{% endif %}
 										{% if date %}
@@ -211,13 +227,16 @@
 										{% endif %}
 									</div>
 									<div class="event-item__text-hld">
-										{% if category %}
+										{% if category or topics %}
 											<div class="event-item__labels">
 												{% if category %}
 													{% set categoryColor = 'medium' %}
 													{% set categoryTitle = category.title %}
 													<span class="event-item__label event-item__label--{{ categoryColor }}">{{ categoryTitle }}</span>
 												{% endif %}
+												{% for topic in topics|slice(0, 2) %}
+													<span class="event-item__label event-item__label--very-light">{{ topic.title }}</span>
+												{% endfor %}
 											</div>
 										{% endif %}
 										{% if date %}
