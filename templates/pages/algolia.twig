@@ -36,7 +36,7 @@
         <div class="algolia-hq__items-hld">
             <div class="algolia-hq__items-title">Pages</div>
             <div class="algolia-hq__items">
-                {% set entriesQuery = craft.entries().section(['solutionsDetails', 'applicationsPostsV3', 'productDetails', 'newsListing', 'careers', 'company', 'eventsListing', 'partnerProgram', 'partners', 'podcasts', 'press']).removeFromListings('not 1').orderBy('postDate DESC') %}
+                {% set entriesQuery = craft.entries().section(['guideToDigitalProductPassports', 'appGallery', 'appGalleryDetails', 'solutionsDetails', 'solutionsDetailsV2', 'applicationsPostsV3', 'solutionsDetailsV4', 'bluetoothBeacon', 'productDetails', 'newsListing', 'careers', 'company', 'contact', 'dei', 'buy', 'eventsListing', 'faq', 'becomeAPartner',  'gettingStartedGuide', 'homepage', 'impact', 'starterKit', 'landingPages', 'partnerProgram', 'partners', 'podcasts', 'press', 'privacyPosts', 'productDetails', 'productDetailsAmbientIotNetwork', 'redirectionKitPages', 'singleCareer', 'products', 'wiliotPlatformV2']).removeFromListings('not 1').orderBy('postDate DESC') %}
                 {% set entries = entriesQuery.all() %}
                 {% if entries|length %}
                     {% for entry in entries %}
