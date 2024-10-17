@@ -1,52 +1,72 @@
-{% set title = entry.videoTextTitle %}
-{% set description = entry.videoTextDescription %}
 {% set video = entry.videoTextVideo.one() %}
 {% if video %}
-    {% set videoFileExtension = video.getExtension() %}
-    {% set imageExtensions = ['jpg', 'jpeg', 'png', 'gif'] %}
-    {% set videoExtensions = ['mp4', 'webm', 'avi', 'mov', 'mkv'] %}
+	{% set videoFileExtension = video.getExtension() %}
+	{% set imageExtensions = ['jpg', 'jpeg', 'png', 'gif'] %}
+	{% set videoExtensions = ['mp4', 'webm', 'avi', 'mov', 'mkv'] %}
 {% endif %}
 {% set videoPlaceholder = entry.videoTextPlaceholder.one() %}
+{% set pretitle = entry.videoTextPretitle %}
+{% set title = entry.videoTextTitle %}
+{% set description = entry.videoTextDescription %}
+{% set logoNameMatrix = entry.videoTextLogoNameMatrix.all() %}
 {% set buttonsMatrix = entry.videoTextButtonsMatrix.all() %}
 {% if video %}
-    <section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--video-text">
+	<section {% if sectionId is defined %} id="{{ sectionId }}" {% endif %} class="u-section u-section--video-text">
 		<link rel="stylesheet" type="text/css" href="{{ alias('@web/src/css/components/video-text.css') }}?v=29112023">
-        <div class="u-wrapper u-wrapper--medium-middle">
-            <div class="video-text {% if not description and not buttonsMatrix %} is-column {% endif %}">
-                <div class="video-text__video-hld js-video-hld is-paused is-before-play {% if videoFileExtension in imageExtensions %} has-image {% endif %}">
-                    {% if videoFileExtension in imageExtensions %}
-                        <div class="video-text__image-hld">
-                            <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}" alt="{{ video.title }}">
-                        </div>
-                    {% elseif videoFileExtension in videoExtensions %}
-                        <span class="icon icon-button_play"></span>
-                        {% if videoPlaceholder %}
-                            <div class="video-text__video-placeholder">
-                                <img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
-                            </div>
-                        {% endif %}
-                        <video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
-                    {% endif %}
-                </div>
-                <div class="video-text__text-hld">
-                    {% if title %}
-                        <h2 class="video-text__title u-title u-title--section">{{ title|nl2br }}</h2>
-                    {% endif %}
-                    {% if description %}
-                        <div class="video-text__description">{{ description }}</div>
-                    {% endif %}
-                    {% if buttonsMatrix %}
-                        <div class="video-text__buttons-hld">
-                            {% for item in buttonsMatrix %}
-                                {% set button = item.button %}
-                                <a {% if button.type == "asset" %} download {% endif %} href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }}">
-                                    <span class="text">{{ button.customText }}</span>
-                                </a>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </section>
+		<div class="u-wrapper u-wrapper--medium-middle">
+			<div class="video-text {% if not description and not buttonsMatrix %} is-column {% endif %}">
+				<div class="video-text__video-hld js-video-hld is-paused is-before-play {% if videoFileExtension in imageExtensions %} has-image {% endif %}">
+					{% if videoFileExtension in imageExtensions %}
+						<div class="video-text__image-hld">
+							<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}" alt="{{ video.title }}">
+						</div>
+					{% elseif videoFileExtension in videoExtensions %}
+						<span class="icon icon-button_play"></span>
+						{% if videoPlaceholder %}
+							<div class="video-text__video-placeholder">
+								<img class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ videoPlaceholder.url }}" alt="" />
+							</div>
+						{% endif %}
+						<video class="js-lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E" data-src="{{ video.url }}"></video>
+					{% endif %}
+				</div>
+				<div class="video-text__text-hld">
+					{% if pretitle %}
+						<div class="u-subtitle u-subtitle--section video-text__pretitle">{{ pretitle }}</div>
+					{% endif %}
+					{% if title %}
+						<h2 class="video-text__title u-title u-title--section">{{ title|nl2br }}</h2>
+					{% endif %}
+					{% if description %}
+						<div class="video-text__description">{{ description|nl2br }}</div>
+					{% endif %}
+					{% if logoNameMatrix %}
+						<div class="video-text__logo-hld">
+							{% for item in logoNameMatrix %}
+								{% set itemLogo = item.itemLogo.one() %}
+								{% set itemName = item.itemName %}
+								{% if itemLogo %}
+									<div class="video-text__item-logo">
+										<img src="{{ itemLogo.url }}" alt="{{ itemLogo.title }}">
+									</div>
+								{% elseif itemName %}
+									<div class="video-text__item-name">{{ itemName }}</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+					{% endif %}
+					{% if buttonsMatrix %}
+						<div class="video-text__buttons-hld">
+							{% for item in buttonsMatrix %}
+								{% set button = item.button %}
+								<a {% if button.type == "asset" %} download {% endif %} href="{{ button.url }}" target="{{ button.target ? '_blank' : '_self' }}" rel="{{ button.target ? 'noopener noreferrer' : null }}" class="btn btn--{{ loop.index }} u-btn {{ loop.index == 1 ? 'u-btn--light' : 'u-btn--accent' }}">
+									<span class="text">{{ button.customText }}</span>
+								</a>
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
 {% endif %}
