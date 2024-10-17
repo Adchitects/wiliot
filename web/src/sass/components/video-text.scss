@@ -162,6 +162,10 @@
 	&__pretitle {
 		margin-bottom: 12px;
 		text-align: left;
+
+		@include tablet-small-1023 {
+			text-align: center;
+		}
 	}
 
 	&__title {
@@ -186,6 +190,10 @@
 		align-items: center;
 		gap: 14px;
 		margin-top: 24px;
+
+		@include tablet-small-1023 {
+			justify-content: center;
+		}
 	}
 
 	&__item-logo {
