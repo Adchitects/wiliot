@@ -17,6 +17,10 @@
 			padding-bottom: 60px;
 		}
 	}
+
+	.is-page-homepage & {
+		margin-top: 0;
+	}
 }
 
 .video-text {
@@ -71,6 +75,10 @@
 			}
 		}
 
+		.is-page-homepage & {
+			margin-top: 46px;
+		}
+
 		video {
 			display: block;
 			position: relative;
@@ -79,7 +87,7 @@
 			max-width: 516px;
 			height: auto;
 			max-height: 300px;
-			border-radius: 6px;
+			border-radius: 40px;
 			object-fit: cover;
 
 			@include media-max(767) {
@@ -93,6 +101,10 @@
 					max-width: 100%;
 				}
 			}
+		}
+
+		img {
+			border-radius: 40px;
 		}
 
 		.icon {
@@ -123,7 +135,7 @@
 		z-index: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: 6px;
+		border-radius: 40px;
 		overflow: hidden;
 
 		img {
@@ -155,6 +167,15 @@
 		}
 	}
 
+	&__pretitle {
+		margin-bottom: 12px;
+		text-align: left;
+
+		@include tablet-small-1023 {
+			text-align: center;
+		}
+	}
+
 	&__title {
 		@include mobile-599 {
 			font-size: 28px;
@@ -164,6 +185,47 @@
 
 	&__description {
 		margin-top: 12px;
+
+		.is-page-homepage & {
+			color: $c-gray-dark;
+			font-size: 14px;
+		}
+	}
+
+	&__logo-hld {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 14px;
+		margin-top: 24px;
+
+		.is-page-homepage & {
+			gap: 46px;
+		}
+
+		@include tablet-small-1023 {
+			justify-content: center;
+		}
+	}
+
+	&__item-logo {
+		img {
+			width: auto;
+			height: 40px;
+		}
+	}
+
+	&__item-name {
+		font-size: 14px;
+		line-height: 1.5;
+
+		strong {
+			display: inline-block;
+			margin-bottom: 4px;
+			font-size: 16px;
+			font-weight: 900;
+			line-height: 1;
+		}
 	}
 
 	&__buttons-hld {
@@ -176,10 +238,18 @@
 			justify-content: center;
 		}
 
+		.is-page-homepage & {
+			margin-top: 16px;
+		}
+
 		.btn {
 			margin: 10px;
 			margin-left: 0;
 			padding: 16px 58px 14px;
+
+			.is-page-homepage & {
+				padding: 16px 30px 14px;
+			}
 
 			&--2 {
 				margin-right: 0;
