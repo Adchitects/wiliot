@@ -16,6 +16,24 @@
 					{% set hasTabs = true %}
 				{% endif %}
 			{% endfor %}
+			{% set hasList = false %}
+			{% for block in menuDesktopSubnavItemsMatrix %}
+				{% if block.type == 'list' %}
+					{% set hasList = true %}
+				{% endif %}
+			{% endfor %}
+			{% set hasBox = false %}
+			{% for block in menuDesktopSubnavItemsMatrix %}
+				{% if block.type == 'box' %}
+					{% set hasBox = true %}
+				{% endif %}
+			{% endfor %}
+			{% set hasTiles = false %}
+			{% for block in menuDesktopSubnavItemsMatrix %}
+				{% if block.type == 'tiles' %}
+					{% set hasTiles = true %}
+				{% endif %}
+			{% endfor %}
 			<li class="menu-desktop__list-item {% if isSubnav %} has-dropdown js-header-has-dropdown {% endif %} {% if loop.index == 1 and isSubnav %} is-first-dropdown {% endif %} {% if loop.revindex == 5 and isSubnav %} is-last-dropdown {% endif %} {% if loop.revindex == 3 %} is-right {% endif %} {% if loop.revindex == 1 %} is-last {% endif %} {% if entry is defined %} {% if page.slug == entry.slug %} is-active {% endif %} {% if  page.slug == 'contact-us' and entry.slug == 'contact' %} is-active {% endif %} {% if page.slug == 'get-started' and entry.slug == 'starterkit' %} is-active {% endif %} {% endif %} {% if menuDesktopTitle == 'Resources' %} is-support {% endif %} {% if menuDesktopTitle|lower == 'login' %} is-login {% endif %} {% if menuDesktopTitle|lower == 'login is-hidden' %} is-login is-hidden {% endif %} {% if menuDesktopTitle|lower == 'search' %} is-search {% endif %}">
 				{% if lastIsTypeform and loop.revindex == 1 %}
 					{% set typeformID = pageOptions.pageOptionsTypeFormID %}
@@ -53,7 +71,7 @@
 					{% set menuDesktopSubnavTitle = page.menuDesktopSubnavTitle %}
 					{% set menuDesktopSecondSubnavTitle = page.menuDesktopSecondSubnavTitle %}
 					{% set menuDesktopSecondSubnavElementsNumber = page.menuDesktopSecondSubnavElementsNumber %}
-					<div class="menu-desktop__dropdown {% if hasTabs %} menu-desktop__dropdown--tabs {% endif %}">
+					<div class="menu-desktop__dropdown {% if hasTabs %} menu-desktop__dropdown--tabs {% endif %} {% if hasList %} menu-desktop__dropdown--list {% endif %} {% if hasBox %} menu-desktop__dropdown--box {% endif %} {% if hasTiles %} menu-desktop__dropdown--tiles {% endif %}">
 						{% if hasTabs %}
 							<div class="menu-desktop__tabs">
 								{% for block in menuDesktopSubnavItemsMatrix %}
@@ -134,6 +152,151 @@
 									{% endif %}
 								{% endfor %}
 							</div>
+						{% elseif hasList %}
+							{% for block in menuDesktopSubnavItemsMatrix %}
+								{% if block.type == 'list' %}
+									<div class="menu-desktop__list-hld">
+										<div class="main-item">
+											{% if block.listIcon.one() %}
+												<img src="{{ block.listIcon.one().getUrl() }}" alt="{{ block.listTitle }}" class="main-item-icon">
+											{% endif %}
+											<div class="main-item-title">{{ block.listTitle }}</div>
+											<div class="main-item-description">{{ block.listDescription }}</div>
+										</div>
+										{% if block.listLinksMatrix|length %}
+											<ul class="sub-items-hld">
+												{% for link in block.listLinksMatrix.all() %}
+													<li class="sub-item">
+														<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
+															{{ link.itemLink.text }}
+														</a>
+													</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+										<div class="bottom-item-hld">
+											{% if block.listBottomLink.url %}
+												<a href="{{ block.listBottomLink.url }}" class="u-btn u-btn--arrow bottom-item" {{ block.listBottomLink.target ? 'target="_blank"' : '' }}>
+													<span class="text">{{ block.listBottomLink.text }}</span>
+												</a>
+											{% endif %}
+										</div>
+									</div>
+									<div class="menu-desktop__list-left-column">
+										{% if block.leftColumnMatrix|length %}
+											{% set leftColumn = block.leftColumnMatrix.one() %}
+											<div class="list-main-item-hld">
+												{% if leftColumn.icon.one() %}
+													<img src="{{ leftColumn.icon.one().getUrl() }}" alt="{{ leftColumn.heading }}" class="list-main-item-icon">
+												{% endif %}
+												<div class="list-main-item-heading">{{ leftColumn.heading }}</div>
+												<div class="list-main-item-description">{{ leftColumn.description }}</div>
+												{% if leftColumn.singleLink.url %}
+													<a href="{{ leftColumn.singleLink.url }}" class="list-main-item-link" {{ leftColumn.singleLink.target ? 'target="_blank"' : '' }}>
+														{{ leftColumn.singleLink.text }}
+													</a>
+												{% endif %}
+												{% if leftColumn.linksMatrix|length %}
+													<ul class="list-main-item-links">
+														{% for link in leftColumn.linksMatrix.all() %}
+															<li>
+																<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
+																	{% if link.icon.one() %}
+																		<img src="{{ link.icon.one().getUrl() }}" alt="{{ link.itemLink.text }}" class="list-main-item-link-icon">
+																	{% endif %}
+																	<span class="text">{{ link.itemLink.text }}</span>
+																</a>
+															</li>
+														{% endfor %}
+													</ul>
+												{% endif %}
+											</div>
+										{% endif %}
+									</div>
+									<div class="menu-desktop__list-right-column">
+										{% if block.rightColumnMatrix|length %}
+											{% set rightColumn = block.rightColumnMatrix.one() %}
+											{% if rightColumn.featuredLink.one() %}
+												{% set featuredEntry = rightColumn.featuredLink.one() %}
+												<div class="list-featured-link">
+													<a href="{{ featuredEntry.url }}">
+														{% if featuredEntry.type.handle == 'singleNews' and featuredEntry.newsPostsfeaturedImage.one() %}
+															<img src="{{ featuredEntry.newsPostsfeaturedImage.one().getUrl('postImage') }}" alt="{{ featuredEntry.title }}" class="list-featured-link-image">
+														{% endif %}
+														{% set mainCategory = featuredEntry.postMainCategory.one() %}
+														{% if mainCategory %}
+															<span class="list-featured-link-tag">{{ mainCategory.title }}</span>
+														{% endif %}
+														<h3>{{ featuredEntry.title }}</h3>
+													</a>
+												</div>
+											{% endif %}
+											{% if rightColumn.linksMatrix|length %}
+												<ul class="list-links">
+													{% for link in rightColumn.linksMatrix.all() %}
+														<li>
+															<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
+																{{ link.itemLink.text }}
+															</a>
+														</li>
+													{% endfor %}
+												</ul>
+											{% endif %}
+										{% endif %}
+									</div>
+								{% endif %}
+							{% endfor %}
+						{% elseif hasBox %}
+							{% if block.type == 'box' %}
+								<div class="menu-desktop__box">
+									{% if block.boxImage.one() %}
+										<img src="{{ block.boxImage.one().getUrl() }}" alt="{{ block.boxTitle }}" class="menu-desktop__box-image">
+									{% endif %}
+									<h3 class="menu-desktop__box-title">{{ block.boxTitle }}</h3>
+									<div class="menu-desktop__box-description">{{ block.boxDescription }}</div>
+									{% if block.boxLink.url %}
+										<a href="{{ block.boxLink.url }}" class="menu-desktop__box-link" {{ block.boxLink.target ? 'target="_blank"' : '' }}>
+											{{ block.boxLink.text }}
+										</a>
+									{% endif %}
+									{% if block.rightColumnLinksMatrix|length %}
+										<div class="menu-desktop__box-right-column">
+											{% for item in block.rightColumnLinksMatrix.all() %}
+												<div class="menu-desktop__box-right-item">
+													{% if item.itemIcon.one() %}
+														<img src="{{ item.itemIcon.one().getUrl() }}" alt="{{ item.itemTitle }}" class="menu-desktop__box-right-item-icon">
+													{% endif %}
+													<h4 class="menu-desktop__box-right-item-title">{{ item.itemTitle }}</h4>
+													<p class="menu-desktop__box-right-item-description">{{ item.itemDescription }}</p>
+													{% if item.itemLinksMatrix|length %}
+														<ul class="menu-desktop__box-right-item-links">
+															{% for link in item.itemLinksMatrix.all() %}
+																<li>
+																	<a href="{{ link.itemlink.url }}" {{ link.itemlink.target ? 'target="_blank"' : '' }}>
+																		{{ link.itemlink.text }}
+																	</a>
+																</li>
+															{% endfor %}
+														</ul>
+													{% endif %}
+												</div>
+											{% endfor %}
+										</div>
+									{% endif %}
+								</div>
+							{% endif %}
+						{% elseif hasTiles %}
+							{% if block.type == 'tile' %}
+								{% for tile in block.tilesMatrix.all() %}
+									<div class="menu-desktop__tile">
+										{% if tile.tileIcon.one() %}
+											<img src="{{ tile.tileIcon.one().getUrl() }}" alt="{{ tile.tileTitle }}" class="menu-desktop__tile-icon">
+										{% endif %}
+										<h4 class="menu-desktop__tile-title">{{ tile.tileTitle }}</h4>
+										<div class="menu-desktop__tile-description">{{ tile.tileDescription }}</div>
+									</div>
+								{% endfor %}
+							{% endif %}
 						{% else %}
 							<div class="subnav-hld subnav-hld--first {% if menuDesktopSubnavTitle %} has-subnav-title {% endif %}">
 								{% if menuDesktopSubnavTitle %}
