@@ -69,8 +69,8 @@ headerAll.forEach(header => {
 		});
 
 		itemWithDropdown.addEventListener('mouseleave', () => {
-			// itemWithDropdown.classList.remove('is-dropdown-active');
-			// header.classList.remove('is-dropdown-active');
+			itemWithDropdown.classList.remove('is-dropdown-active');
+			header.classList.remove('is-dropdown-active');
 
 			// Update this block to remove is-tab-active from all tabs and contents
 			const allTabs = header.querySelectorAll('.js-menu-desktop-tab, .js-menu-desktop-tab-content');

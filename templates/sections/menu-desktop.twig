@@ -247,44 +247,52 @@
 								{% endif %}
 							{% endfor %}
 						{% elseif hasBox %}
-							{% if block.type == 'box' %}
-								<div class="menu-desktop__box">
-									{% if block.boxImage.one() %}
-										<img src="{{ block.boxImage.one().getUrl() }}" alt="{{ block.boxTitle }}" class="menu-desktop__box-image">
-									{% endif %}
-									<h3 class="menu-desktop__box-title">{{ block.boxTitle }}</h3>
-									<div class="menu-desktop__box-description">{{ block.boxDescription }}</div>
-									{% if block.boxLink.url %}
-										<a href="{{ block.boxLink.url }}" class="menu-desktop__box-link" {{ block.boxLink.target ? 'target="_blank"' : '' }}>
-											{{ block.boxLink.text }}
+							{% for block in menuDesktopSubnavItemsMatrix %}
+								{% if block.type == 'box' %}
+									<div class="menu-desktop__box">
+										<a href="{{ block.boxLink.url }}" class="box-left" {{ block.boxLink.target ? 'target="_blank"' : '' }}>
+											{% if block.boxImage.one() %}
+												<img src="{{ block.boxImage.one().getUrl() }}" alt="{{ block.boxTitle }}" class="box-image">
+											{% endif %}
+											<div class="box-content">
+												<h3 class="box-title">{{ block.boxTitle }}</h3>
+												<div class="box-description">{{ block.boxDescription }}</div>
+												{% if block.boxLink.url %}
+													<div class="u-btn u-btn--accent box-link">
+														<span class="text">{{ block.boxLink.text }}</span>
+													</div>
+												{% endif %}
+											</div>
 										</a>
-									{% endif %}
-									{% if block.rightColumnLinksMatrix|length %}
-										<div class="menu-desktop__box-right-column">
-											{% for item in block.rightColumnLinksMatrix.all() %}
-												<div class="menu-desktop__box-right-item">
-													{% if item.itemIcon.one() %}
-														<img src="{{ item.itemIcon.one().getUrl() }}" alt="{{ item.itemTitle }}" class="menu-desktop__box-right-item-icon">
-													{% endif %}
-													<h4 class="menu-desktop__box-right-item-title">{{ item.itemTitle }}</h4>
-													<p class="menu-desktop__box-right-item-description">{{ item.itemDescription }}</p>
-													{% if item.itemLinksMatrix|length %}
-														<ul class="menu-desktop__box-right-item-links">
-															{% for link in item.itemLinksMatrix.all() %}
-																<li>
-																	<a href="{{ link.itemlink.url }}" {{ link.itemlink.target ? 'target="_blank"' : '' }}>
-																		{{ link.itemlink.text }}
-																	</a>
-																</li>
-															{% endfor %}
-														</ul>
-													{% endif %}
-												</div>
-											{% endfor %}
-										</div>
-									{% endif %}
-								</div>
-							{% endif %}
+										{% if block.rightColumnLinksMatrix|length %}
+											<div class="box-right-column">
+												{% for item in block.rightColumnLinksMatrix.all() %}
+													<div class="box-right-item">
+														<a href="{{ item.itemlink.url }}" {{ item.itemlink.target ? 'target="_blank"' : '' }} class="box-right-item-inner">
+															{% if item.itemIcon.one() %}
+																<img src="{{ item.itemIcon.one().getUrl() }}" alt="{{ item.itemTitle }}" class="box-right-item-icon">
+															{% endif %}
+															<h4 class="box-right-item-title">{{ item.itemTitle }}</h4>
+															<p class="box-right-item-description">{{ item.itemDescription }}</p>
+														</a>
+														{% if item.itemLinksMatrix|length %}
+															<ul class="box-right-item-links">
+																{% for link in item.itemLinksMatrix.all() %}
+																	<li>
+																		<a href="{{ link.itemlink.url }}" {{ link.itemlink.target ? 'target="_blank"' : '' }}>
+																			{{ link.itemlink.text }}
+																		</a>
+																	</li>
+																{% endfor %}
+															</ul>
+														{% endif %}
+													</div>
+												{% endfor %}
+											</div>
+										{% endif %}
+									</div>
+								{% endif %}
+							{% endfor %}
 						{% elseif hasTiles %}
 							<div class="menu-desktop__tiles-hld">
 								{% for block in menuDesktopSubnavItemsMatrix %}
