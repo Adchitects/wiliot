@@ -1,0 +1,78 @@
+{% set pages = craft.entries.section('menuMobile').level(1) %}
+{% set socials = pageOptions.pageOptionsSocials.all() %}
+{% set lastIsTypeform = pageOptions.pageOptionsLastInMenuIsTypeform %}
+
+<div class="menu-mobile-menu-hld js-menu-mobile-menu-hld">
+    <div class="menu-mobile__overlay js-menu-mobile-btn"></div>
+    <div class="menu-mobile__inner">
+        <nav class="menu-mobile__nav-hld">
+            <ul class="menu-mobile__nav-list">
+                {% nav page in pages %}
+                    {% set menuMobileTitle = page.title %}
+                    {% set menuMobilePageLink = page.menuMobilePageLink %}
+                    <li class="menu-mobile__nav-list-item {% if entry is defined and menuMobilePageLink == entry.url %} is-active {% endif %} {% if not menuMobilePageLink.url %} has-dropdown js-menu-mobile-dropdown-hld {% endif %}">
+                        {% if lastIsTypeform and loop.index == 1 %}
+                            {% set typeformID = pageOptions.pageOptionsTypeFormID %}
+                            <button class="inner" data-tf-popup="{{ typeformID }}" data-tf-size="{{ pageOptions.pageOptionsTypeFormSize }}" data-tf-medium="snippet">
+                                <span class="text">{{ menuMobileTitle }}</span>
+                            </button>
+                        {% elseif menuMobilePageLink.url %}
+                            <a href="{{ menuMobilePageLink.url }}" target="{{ menuMobilePageLink.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink.target ? 'noopener noreferrer' : null }}" class="inner">
+                                <span class="text">{{ menuMobileTitle }}</span>
+                            </a>
+                        {% else %}
+                            <div class="inner">
+                                <span class="text">{{ menuMobileTitle }}</span>
+                                <span class="link-icon-hld js-menu-mobile-dropdown-icon">
+                                    <span class="icon icon-dropdown-down"></span>
+                                </span>
+                            </div>
+                        {% endif %}
+                        {% set secondLevelEntries = craft.entries.section('menuMobile').level(2).descendantOf(page) %}
+                        {% if secondLevelEntries.exists() %}
+                            <div class="menu-mobile__nav-dropdown js-menu-mobile-dropdown">
+                                <ul class="menu-mobile__nav-dropdown-list js-menu-mobile-dropdown-list">
+                                    {% for secondLevelEntry in secondLevelEntries.all() %}
+                                        {% set menuMobilePageLink2 = secondLevelEntry.menuMobilePageLink %}
+                                        <li>
+                                            <a href="{{ menuMobilePageLink2 }}" target="{{ menuMobilePageLink2.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink2.target ? 'noopener noreferrer' : null }}">{{ secondLevelEntry.title }}</a>
+                                            {% set thirdLevelEntries = craft.entries.section('menuMobile').level(3).descendantOf(secondLevelEntry) %}
+                                            {% if thirdLevelEntries.exists() %}
+                                                <ul>
+                                                    {% for thirdLevelEntry in thirdLevelEntries.all() %}
+                                                        {% set menuMobilePageLink3 = thirdLevelEntry.menuMobilePageLink %}
+                                                        <li>
+                                                            <a href="{{ menuMobilePageLink3 }}" target="{{ menuMobilePageLink3.target ? '_blank' : '_self' }}" rel="{{ menuMobilePageLink3.target ? 'noopener noreferrer' : null }}">{{ thirdLevelEntry.title }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endnav %}
+            </ul>
+        </nav>
+        <div class="menu-mobile__search-hld">
+            {{ include('/sections/search-bar.twig') }}
+        </div>
+        {% if socials %}
+            <div class="menu-mobile__socials-hld">
+                <div class="inner">
+                    {% for social in socials %}
+                        <div class="link">
+                            {% if social.socialLink and social.socialName and social.socialIcon %}
+                                <a href="{{ social.socialLink }}" target="_blank" rel="noopener noreferrer">
+                                    <span class="icon icon-{{ social.socialName|lower }}"></span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

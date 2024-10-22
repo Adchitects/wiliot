@@ -28,6 +28,8 @@ return [
 
     // Whether Dev Mode should be enabled (see https://craftcms.com/guides/what-dev-mode-does)
     'devMode' => $isDev,
+	'enableTemplateCaching' => false,
+	'errorTemplatePrefix' => '',
 
     // Whether administrative changes should be allowed
     'allowAdminChanges' => true,
