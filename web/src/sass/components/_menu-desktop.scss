@@ -162,7 +162,8 @@
 					opacity: 1;
 
 					&--tabs,
-					&--list {
+					&--list,
+					&--tiles {
 						transform: translateX(-50%);
 					}
 				}
@@ -203,7 +204,8 @@
 				left: 8px;
 
 				&--tabs,
-				&--list {
+				&--list,
+				&--tiles {
 					left: 50%;
 				}
 			}
@@ -462,7 +464,8 @@
 		}
 
 		&--tabs,
-		&--list {
+		&--list,
+		&--tiles {
 			display: flex;
 			position: fixed;
 			left: 50%;
@@ -897,9 +900,10 @@
 	}
 
 	&__list-left-column {
-		min-width: 456px;
+		min-width: 32.5%;
 		max-width: 456px;
 		padding: 46px 60px 60px 64px;
+		border-right: 1px solid #EEEEF2;
 		background-color: $c-white;
 
 		.list-main-item-hld {
@@ -954,7 +958,8 @@
 		background-color: $c-white;
 
 		.list-featured-link {
-			width: 340px;
+			width: 81%;
+			max-width: 340px;
 			padding-bottom: 46px;
 			border-radius: 6px;
 			box-shadow: 0 0 10px 0 #8686B726;
@@ -974,6 +979,10 @@
 				margin-bottom: 12px;
 				border-top-left-radius: 5px;
 				border-top-right-radius: 5px;
+
+				@include tablet-medium-1199 {
+					margin-bottom: 8px;
+				}
 			}
 
 			.list-featured-link-tag {
@@ -984,6 +993,10 @@
 				color: $c-white;
 				font-size: 12px;
 				font-weight: 500;
+
+				@include tablet-medium-1199 {
+					margin-left: 10px;
+				}
 			}
 
 			h3 {
@@ -995,7 +1008,66 @@
 				font-weight: 900;
 				line-height: calc(28 / 20);
 				transition: color 0.2s;
+
+				@include tablet-medium-1199 {
+					margin-left: 10px;
+					font-size: 18px;
+				}
 			}
+		}
+	}
+
+	&__tiles-hld {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 2;
+		max-width: 1400px;
+		padding-bottom: 12px;
+		padding-left: 64px;
+	}
+
+	&__tile {
+		padding-top: 32px;
+		padding-right: 10%;
+		padding-bottom: 32px;
+
+		&:hover {
+			.tile-icon {
+				filter: brightness(1);
+			}
+
+			.tile-title {
+				color: $c-accent;
+			}
+		}
+
+		.top {
+			display: flex;
+			align-items: center;
+		}
+
+		.tile-icon {
+			width: auto;
+			height: 20px;
+			margin-right: 12px;
+			filter: brightness(0);
+			transition: filter 0.2s;
+		}
+
+		.tile-title {
+			position: relative;
+			top: 1px;
+			color: $c-neutral-10;
+			font-size: 20px;
+			font-weight: 900;
+			transition: color 0.2s;
+		}
+
+		.tile-description {
+			margin-top: 16px;
+			color: $c-neutral-40;
+			font-size: 14px;
+			line-height: calc(20 / 14);
 		}
 	}
 }

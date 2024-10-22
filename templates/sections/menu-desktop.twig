@@ -30,7 +30,7 @@
 			{% endfor %}
 			{% set hasTiles = false %}
 			{% for block in menuDesktopSubnavItemsMatrix %}
-				{% if block.type == 'tiles' %}
+				{% if block.type == 'tile' %}
 					{% set hasTiles = true %}
 				{% endif %}
 			{% endfor %}
@@ -286,17 +286,23 @@
 								</div>
 							{% endif %}
 						{% elseif hasTiles %}
-							{% if block.type == 'tile' %}
-								{% for tile in block.tilesMatrix.all() %}
-									<div class="menu-desktop__tile">
-										{% if tile.tileIcon.one() %}
-											<img src="{{ tile.tileIcon.one().getUrl() }}" alt="{{ tile.tileTitle }}" class="menu-desktop__tile-icon">
-										{% endif %}
-										<h4 class="menu-desktop__tile-title">{{ tile.tileTitle }}</h4>
-										<div class="menu-desktop__tile-description">{{ tile.tileDescription }}</div>
-									</div>
+							<div class="menu-desktop__tiles-hld">
+								{% for block in menuDesktopSubnavItemsMatrix %}
+									{% if block.type == 'tile' %}
+										{% for tile in block.tilesMatrix.all() %}
+											<a href="{{ tile.tilelink.url }}" class="menu-desktop__tile" {{ tile.tilelink.target ? 'target="_blank"' : '' }}>
+												<div class="top">
+													{% if tile.tileIcon.one() %}
+														<img src="{{ tile.tileIcon.one().getUrl() }}" alt="{{ tile.tileTitle }}" class="tile-icon">
+													{% endif %}
+													<div class="tile-title">{{ tile.tileTitle }}</div>
+												</div>
+												<div class="tile-description">{{ tile.tileDescription }}</div>
+											</a>
+										{% endfor %}
+									{% endif %}
 								{% endfor %}
-							{% endif %}
+							</div>
 						{% else %}
 							<div class="subnav-hld subnav-hld--first {% if menuDesktopSubnavTitle %} has-subnav-title {% endif %}">
 								{% if menuDesktopSubnavTitle %}
