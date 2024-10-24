@@ -11,6 +11,7 @@ wiliot-staging.sql
 .env.example
 .idea
 .stylelintcache
+.cursorrules
 package-lock.json
 yarn.lock
 yarn-error.log

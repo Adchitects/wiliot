@@ -2,17 +2,17 @@
     "require": {
         "algolia/algoliasearch-client-php": "^3.3",
         "born05/craft-assetusage": "dev-craft4",
-        "craftcms/cms": "4.12.5",
+        "craftcms/cms": "4.12.8",
         "craftcms/redactor": "3.1.0",
         "dolphiq/redirect": "2.0.1",
-        "ether/seo": "4.2.3",
+        "ether/seo": "4.2.4",
         "sebastianlenz/linkfield": "2.1.5",
         "utakka/redactor-anchors": "1.5.0",
         "verbb/field-manager": "3.0.9",
         "verbb/image-resizer": "3.0.12",
         "verbb/smith": "2.0.1",
         "verbb/super-table": "3.0.15",
-        "verbb/tablemaker": "4.0.13",
+        "verbb/tablemaker": "4.0.14",
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {

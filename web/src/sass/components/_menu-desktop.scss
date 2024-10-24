@@ -627,6 +627,7 @@
 	}
 
 	&__tab {
+		position: relative;
 		margin-top: 20px;
 		padding: 16px 24px 10px;
 		border-bottom: 2px solid transparent;
@@ -634,12 +635,25 @@
 		color: #333;
 		font-size: 20px;
 		font-weight: 500;
-		transition: color 0.2s, border-bottom 0.2s;
 		transition: background-color 0.2s;
+
+		.icon {
+			display: inline-block;
+			position: absolute;
+			top: 18px;
+			right: 20px;
+			transform: rotate(-90deg);
+			transition: opacity 0.2s;
+			opacity: 0;
+		}
 
 		&.is-tab-active,
 		&.is-default-tab-active {
 			background-color: $c-white;
+
+			.icon {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -704,13 +718,36 @@
 
 		&-link {
 			padding-top: 32px;
-			color: $c-accent;
-			font-size: 14px;
-			font-weight: 500;
-			text-decoration: none;
+
+			.text {
+				position: relative;
+				color: $c-accent;
+				font-size: 14px;
+				font-weight: 500;
+
+				&::before {
+					top: -7px;
+				}
+
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -2px;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: $c-accent;
+					transition: opacity 0.2s;
+					opacity: 0;
+				}
+			}
 
 			&:hover {
-				text-decoration: underline;
+				.text {
+					&::after {
+						opacity: 1;
+					}
+				}
 			}
 		}
 
@@ -726,27 +763,56 @@
 				display: flex;
 				align-items: center;
 				padding: 8px 0;
-				color: $c-neutral-10;
-				font-size: 16px;
-				font-weight: 500;
-				transition: color 0.2s;
 
 				&:hover {
-					color: $c-accent;
-					text-decoration: underline;
+					.text {
+						color: $c-accent;
+
+						&::after {
+							opacity: 1;
+						}
+					}
+
+					.link-icon {
+						filter: brightness(1);
+					}
+				}
+
+				.text {
+					position: relative;
+					color: $c-neutral-10;
+					font-size: 16px;
+					font-weight: 500;
+					transition: color 0.2s;
+
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: 4px;
+						left: 0;
+						width: 100%;
+						height: 1px;
+						background-color: $c-accent;
+						transition: opacity 0.2s;
+						opacity: 0;
+					}
+				}
+
+				.link-icon {
+					position: relative;
+					top: -1px;
+					width: 20px;
+					height: 20px;
+					margin-right: 16px;
+					filter: brightness(0);
+					transition: filter 0.2s;
 				}
 			}
-		}
-
-		&-link-icon {
-			width: 20px;
-			height: 20px;
-			margin-right: 16px;
 		}
 	}
 
 	&__tab-featured-link {
-		padding: 52px 30% 0 48px;
+		padding: 52px 30% 46px 48px;
 
 		a {
 			display: block;
@@ -795,7 +861,7 @@
 			padding-bottom: 30px;
 			color: $c-black;
 			font-size: 20px;
-			font-weight: 500;
+			font-weight: 900;
 			line-height: calc(28 / 20);
 			transition: color 0.2s;
 		}
@@ -812,15 +878,39 @@
 
 		a {
 			display: block;
+			position: relative;
 			padding: 10px 14px;
-			color: $c-neutral-10;
-			font-size: 16px;
-			font-weight: 500;
-			text-decoration: none;
-			transition: color 0.2s;
 
-			&:hover {
-				color: $c-accent;
+			.text {
+				position: relative;
+				color: $c-neutral-10;
+				font-size: 16px;
+				font-weight: 500;
+				text-decoration: none;
+				transition: color 0.2s;
+
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -2px;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: $c-accent;
+					transition: opacity 0.2s;
+					opacity: 0;
+				}
+			}
+
+			&:hover,
+			&.is-current {
+				.text {
+					color: $c-accent;
+
+					&::after {
+						opacity: 1;
+					}
+				}
 			}
 		}
 	}
@@ -866,14 +956,36 @@
 		.sub-item {
 			&:hover {
 				a {
-					color: #27BCBC;
-					text-decoration: underline;
+					.text {
+						color: #27BCBC;
+
+						&::after {
+							opacity: 1;
+						}
+					}
 				}
 			}
 
 			a {
 				display: block;
 				padding: 9px 0;
+
+				.text {
+					position: relative;
+					transition: color 0.2s;
+
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: -2px;
+						left: 0;
+						width: 100%;
+						height: 1px;
+						background-color: $c-accent;
+						transition: opacity 0.2s;
+						opacity: 0;
+					}
+				}
 			}
 		}
 
@@ -895,9 +1007,34 @@
 		.bottom-item {
 			display: block;
 			padding: 10px 0;
-			color: $c-accent;
-			font-size: 16px;
-			font-weight: 500;
+
+			&:hover {
+				.text {
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
+
+			.text {
+				position: relative;
+				color: $c-accent;
+				font-size: 16px;
+				font-weight: 500;
+
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -2px;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: $c-accent;
+					transition: opacity 0.2s;
+					opacity: 1;
+					opacity: 0;
+				}
+			}
 		}
 	}
 
@@ -931,24 +1068,48 @@
 					display: flex;
 					align-items: center;
 					padding: 9px 0;
-					color: $c-neutral-10;
-					font-size: 16px;
-					font-weight: 500;
 
 					&:hover {
-						color: $c-accent;
-						text-decoration: underline;
+						img {
+							filter: brightness(1);
+						}
+
+						.text {
+							color: $c-accent;
+
+							&::after {
+								opacity: 1;
+							}
+						}
 					}
 
 					img {
 						width: auto;
 						height: 20px;
 						margin-right: 12px;
+						filter: brightness(0);
+						transition: filter 0.2s;
 					}
 
 					.text {
 						position: relative;
 						top: 1px;
+						color: $c-neutral-10;
+						font-size: 16px;
+						font-weight: 500;
+						transition: color 0.2s;
+
+						&::after {
+							content: '';
+							position: absolute;
+							bottom: 4px;
+							left: 0;
+							width: 100%;
+							height: 1px;
+							background-color: $c-accent;
+							transition: opacity 0.2s;
+							opacity: 0;
+						}
 					}
 				}
 			}
@@ -1022,8 +1183,7 @@
 	&__tiles-hld {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: 2;
-		max-width: 1920px;
+		max-width: 1400px;
 		padding-bottom: 12px;
 		padding-left: 64px;
 	}
@@ -1084,6 +1244,7 @@
 
 		.box-left {
 			position: relative;
+			cursor: default;
 			width: 730px;
 			min-width: 730px;
 			border-radius: 12px;
@@ -1094,9 +1255,13 @@
 				max-width: 50%;
 			}
 
-			&:hover {
-				.box-image {
-					filter: brightness(0.9);
+			&.has-link {
+				cursor: pointer;
+
+				&:hover {
+					.box-image {
+						filter: brightness(0.9);
+					}
 				}
 			}
 
@@ -1189,13 +1354,35 @@
 					a {
 						display: block;
 						padding: 12px 0;
-						color: $c-neutral-10;
-						font-size: 16px;
-						font-weight: 500;
-						transition: color 0.2s;
 
 						&:hover {
-							color: $c-accent;
+							.text {
+								color: $c-accent;
+
+								&::after {
+									opacity: 1;
+								}
+							}
+						}
+
+						.text {
+							position: relative;
+							color: $c-neutral-10;
+							font-size: 16px;
+							font-weight: 500;
+							transition: color 0.2s;
+
+							&::after {
+								content: '';
+								position: absolute;
+								bottom: -2px;
+								left: 0;
+								width: 100%;
+								height: 1px;
+								background-color: $c-accent;
+								transition: opacity 0.2s;
+								opacity: 0;
+							}
 						}
 					}
 				}

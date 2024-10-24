@@ -77,7 +77,8 @@
 								{% for block in menuDesktopSubnavItemsMatrix %}
 									{% if block.type == 'tab' %}
 										<div class="menu-desktop__tab js-menu-desktop-tab" data-tab="{{ loop.index }}">
-											{{ block.tabName }}
+											<span class="text">{{ block.tabName }}</span>
+											<span class="icon icon-chevron_up"></span>
 										</div>
 									{% endif %}
 								{% endfor %}
@@ -105,9 +106,9 @@
 																	<li>
 																		<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
 																			{% if link.icon.one() %}
-																				<img src="{{ link.icon.one().getUrl() }}" alt="{{ link.itemLink.text }}" class="menu-desktop__tab-item-link-icon">
+																				<img src="{{ link.icon.one().getUrl() }}" alt="{{ link.itemLink.text }}" class="link-icon">
 																			{% endif %}
-																			{{ link.itemLink.text }}
+																			<span class="text">{{ link.itemLink.text }}</span>
 																		</a>
 																	</li>
 																{% endfor %}
@@ -122,14 +123,14 @@
 														<div class="menu-desktop__tab-featured-link">
 															{% set featuredEntry = rightItem.featuredLink.one() %}
 															<a href="{{ featuredEntry.url }}">
-																{% if featuredEntry.type.handle == 'singleNews' %}
-																	{% if featuredEntry.newsPostsfeaturedImage.one() %}
-																		<img src="{{ featuredEntry.newsPostsfeaturedImage.one().getUrl('postImage') }}" alt="{{ featuredEntry.title }}" class="menu-desktop__tab-featured-link-image">
-																	{% endif %}
-																	{% set mainCategory = featuredEntry.postMainCategory.one() %}
-																	{% if mainCategory %}
-																		<span class="menu-desktop__tab-featured-link-tag">{{ mainCategory.title }}</span>
-																	{% endif %}
+																{% if rightItem.featuredLinkImage.one() %}
+																	<img src="{{ rightItem.featuredLinkImage.one().getUrl('postImage') }}" alt="{{ featuredEntry.title }}" class="menu-desktop__tab-featured-link-image">
+																{% elseif featuredEntry.newsPostsfeaturedImage.one() %}
+																	<img src="{{ featuredEntry.newsPostsfeaturedImage.one().getUrl('postImage') }}" alt="{{ featuredEntry.title }}" class="menu-desktop__tab-featured-link-image">
+																{% endif %}
+																{% set mainCategory = featuredEntry.postMainCategory.one() %}
+																{% if mainCategory %}
+																	<span class="menu-desktop__tab-featured-link-tag">{{ mainCategory.title }}</span>
 																{% endif %}
 																<h3>{{ featuredEntry.title }}</h3>
 															</a>
@@ -139,8 +140,8 @@
 														<ul class="menu-desktop__tab-links">
 															{% for link in rightItem.linksMatrix.all() %}
 																<li>
-																	<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
-																		{{ link.itemLink.text }}
+																	<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }} class="{% if link.itemLink.url == entry.url %} is-current {% endif %}">
+																		<span class="text">{{ link.itemLink.text }}</span>
 																	</a>
 																</li>
 															{% endfor %}
@@ -168,7 +169,7 @@
 												{% for link in block.listLinksMatrix.all() %}
 													<li class="sub-item">
 														<a href="{{ link.itemLink.url }}" {{ link.itemLink.target ? 'target="_blank"' : '' }}>
-															{{ link.itemLink.text }}
+															<span class="text">{{ link.itemLink.text }}</span>
 														</a>
 													</li>
 												{% endfor %}
@@ -220,7 +221,9 @@
 												{% set featuredEntry = rightColumn.featuredLink.one() %}
 												<div class="list-featured-link">
 													<a href="{{ featuredEntry.url }}">
-														{% if featuredEntry.type.handle == 'singleNews' and featuredEntry.newsPostsfeaturedImage.one() %}
+														{% if rightColumn.featuredLinkImage.one() %}
+															<img src="{{ rightColumn.featuredLinkImage.one().getUrl('postImage') }}" alt="{{ featuredEntry.title }}" class="list-featured-link-image">
+														{% elseif featuredEntry.newsPostsfeaturedImage.one() %}
 															<img src="{{ featuredEntry.newsPostsfeaturedImage.one().getUrl('postImage') }}" alt="{{ featuredEntry.title }}" class="list-featured-link-image">
 														{% endif %}
 														{% set mainCategory = featuredEntry.postMainCategory.one() %}
@@ -250,7 +253,7 @@
 							{% for block in menuDesktopSubnavItemsMatrix %}
 								{% if block.type == 'box' %}
 									<div class="menu-desktop__box">
-										<a href="{{ block.boxLink.url }}" class="box-left" {{ block.boxLink.target ? 'target="_blank"' : '' }}>
+										<a href="{{ block.boxLink.url }}" class="box-left {% if block.boxLink.url %} has-link {% endif %}" {{ block.boxLink.target ? 'target="_blank"' : '' }}>
 											{% if block.boxImage.one() %}
 												<img src="{{ block.boxImage.one().getUrl() }}" alt="{{ block.boxTitle }}" class="box-image">
 											{% endif %}
@@ -280,7 +283,7 @@
 																{% for link in item.itemLinksMatrix.all() %}
 																	<li>
 																		<a href="{{ link.itemlink.url }}" {{ link.itemlink.target ? 'target="_blank"' : '' }}>
-																			{{ link.itemlink.text }}
+																			<span class="text">{{ link.itemlink.text }}</span>
 																		</a>
 																	</li>
 																{% endfor %}
